@@ -347,6 +347,15 @@ class Module {
 				<h3>Paramètres généraux <small><?php Help::iconHelp('Ces paramètres affectent le module et tous ses utilisateurs.'); ?></small></h3>
 				<?php
 				$form = new Form($this->name.'Settings', null, array('fields' => $this->settings), 'module', $this->id);
+				$hasUsersSettings = false;
+				foreach ($this->settings as $setting){
+					if ($setting->getCategory() == 'user'){
+						$hasUsersSettings = true;
+					}
+				}
+				if ($hasUsersSettings){
+					$form->addField(new Field('allowUsersSettings', 'bool', 'global', $this->allowUsersSettings, 'Autoriser les utilisateurs à personnaliser certains paramètres', null, array('switch' => true, 'size' => 'small')));
+				}
 				$form->addField(new Field('action', 'button', 'global', 'saveSettings', 'Sauvegarder', null, null, null, null, null, false, null, null, 'btn-primary'));
 				$form->addField(new Field('cancel', 'linkButton', 'global', $this->url, 'Revenir au module', null, null, 'Annuler et revenir au module'));
 				$form->display();
@@ -377,6 +386,10 @@ class Module {
 		if (isset($req['usersSettings'])){
 			$usersSettings = true;
 			unset($req['usersSettings']);
+		}
+		if (isset($req['allowUsersSettings'])){
+			$this->allowUsersSettings = (bool)$req['allowUsersSettings'];
+			unset($req['allowUsersSettings']);
 		}
 		foreach ($req as $field => $value){
 			if ($field == 'dbTable'){
