@@ -1,0 +1,28 @@
+[Encoding]
+InputEncoding=ISO8859_1
+
+[WFClient]
+Version=2
+HttpBrowserAddress=172.32.1.118:8080
+
+
+
+[ApplicationServers]
+BureauTest=
+
+[BureauTest]
+Address=BureauTest
+InitialProgram=#BureauTest
+ClientAudio=Off
+DesiredColor=24
+DesiredHRes=1024
+DesiredVRes=768
+Compress=On
+TransportDriver=TCP/IP
+WinStationDriver=ICA 3.0
+BrowserProtocol=HTTPonTCP
+
+[Compress]
+DriverName= PDCOMP.DLL
+DriverNameWin16= PDCOMPW.DLL
+DriverNameWin32= PDCOMPN.DLL
