@@ -125,6 +125,23 @@ Créez une base de données puis importez-y ce script SQL :
 
 Editez le fichier `Settings/config.php` et remplissez-le avec soin.
 
+Les clés de salage doivent être changées impérativement. Vous pouvez vous contenter de changer quelques caractères, ou bien aller piocher sur Internet une clé de salage auto-générée.
+
+## Serveur Linux
+
+- Le répertoire `/mnt` doit être accessible en écriture à l'utilisateur apache (`www-data` par défaut)
+- L'utilisateur apache doit avoir le droit d'invoquer sudo sans mot de passe. Ceci est quand même un gros trou de sécurité...
+
+Dans un terminal, saisir :
+
+    sudo visudo
+
+Ajouter à la dernière ligne :
+
+    www-data ALL = NOPASSWD: ALL
+
+Attention : si vous lancez apache sous un autre nom (`administrateur` par exemple), modifiez la ligne du dessus en conséquence.
+
 ### Première connexion
 
 Le premier utilisateur à se connecter est automatiquement bombardé administrateur.

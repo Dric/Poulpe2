@@ -49,18 +49,17 @@ Attention : si vous lancez apache sous un autre nom (`administrateur` par exempl
 
 ## Installation
 
-- Install base SQL
-- Paramétrage de Settings/config.php
+Voir Le fichier `install.md`.
 
 ## TODO
 
 - Script d'installation
+- Authentification MySQL
 - Doc de développement de plugins
 
 ## Documentation
 
 - [Boostrap 3.11](Docs/Bootstrap3.11)
-- [Poulpe2](Docs/Poulpe2)
 
 ## Divers
 
