@@ -1,0 +1,138 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: cedric.gallard
+ * Date: 13/05/14
+ * Time: 13:34
+ */
+
+namespace Settings;
+
+
+use Sanitize;
+
+class PostedData {
+
+	/**
+	 * Préfixe des champs récupérés
+	 * @var string
+	 */
+	protected static $prefix = 'field';
+
+	/**
+	 * Préfixe des champs de table de bdd récupérés
+	 * @var string
+	 */
+	protected static $dbTablePrefix = 'dbTable';
+
+	/**
+	 * Récupère l'envoi d'un formulaire créé via un objet Form et effectue le typage des données retournées
+	 *
+	 * Les données ne sont pas traitées hors de leur typage, elles ne sont donc pas sécurisées pour un ajout en bdd par exemple.
+	 *
+	 * Les champs sont au format suivant : préfixe_type-de-champ_nom-de-variable(_détails)
+	 * Les champs de table de bdd sont au format suivant : préfixe-dbTable_nom-de-table_type-de-champ_nom-de-variable(_détails)_id-de-la-ligne
+	 * Le tableau retourné comporte les noms des variables en clés. Les tableaux ont un sous-index pour indiquer s'il faut sérialiser les valeurs, et un index 'values' pour les valeurs.
+	 * Les tables de bdd sont dans un tableau 'nom-de-table' => array('ligne' => array champs)
+	 *
+	 * @param string $prefix Préfixe optionnel des champs
+	 * @param string $dbTablePrefix Préfixe optionnel des tables de bdd
+	 *
+	 * @return array
+	 */
+	public static function get($prefix = null, $dbTablePrefix = null){
+		$prefix = (!empty($prefix)) ? $prefix : self::$prefix;
+		$dbTablePrefix = (!empty($dbTablePrefix)) ? $dbTablePrefix : self::$dbTablePrefix;
+		$ret = array();
+		foreach ($_REQUEST as $request => $value){
+			$tab = explode('_', $request);
+			if (count($tab) > 1 and in_array($tab[0], array($prefix, $dbTablePrefix))){
+				if ($tab[0] == $dbTablePrefix){
+					$tableName = $tab[1];
+					$rowId = $tab[4];
+					unset($tab[0]);
+					unset($tab[4]);
+					$tab = array_values($tab);
+				}
+				$req = null;
+				switch ($tab[1]){
+					case 'int':
+					case 'float':
+						$req = (int)$value;
+						break;
+					case 'date':
+						$req = Sanitize::date($value);
+						break;
+					case 'bool':
+						if ($tab[3] == 'checkbox') {
+							unset($_REQUEST[str_replace('_checkbox', '', $request).'_hidden']);
+							$req = (bool)$value;
+						}elseif ($tab[3] == 'hidden'){
+							if (isset($_REQUEST[str_replace('_hidden', '', $request).'_checkbox'])){
+								$req = (bool)$_REQUEST[str_replace('_hidden', '', $request).'_checkbox'];
+								unset($_REQUEST[str_replace('_hidden', '', $request).'_checkbox']);
+							}else{
+								$req = (bool)$value;
+							}
+						}
+						break;
+					case 'array':
+						if (isset($tab[3]) and $value == 1){
+							$req['serialize'] = true;
+						}elseif (isset($_REQUEST[$request.'_serialize'])){
+							if ($_REQUEST[$request.'_serialize'] == 1){
+								$req['serialize'] = true;
+							}else{
+								$req['serialize'] = false;
+							}
+							unset($_REQUEST[$request.'_serialize']);
+						}
+						$valueTab = explode(PHP_EOL, $value);
+						// Si les valeurs dans le tableau sont numériques, elles récupèrent un type entier
+						array_walk($valueTab, function(&$value, $key) {
+							$value = trim($value);
+							if (is_numeric($value)){
+								$value = (int)$value;
+							}
+						});
+						// On enlève les valeurs nulles
+						$valueTab = array_filter($valueTab);
+						if (!empty($valueTab)) $req['values'] = $valueTab;
+						break;
+					default:
+						$req = $value;
+				}
+				if ($tab[0] == $prefix){
+					// Si on a affaire à un tableau, on fusionne avec le tableau existant
+					if ((is_array($req) or $tab[1] == 'array') and isset($ret[$tab[2]])){
+						if (!empty($req)) $ret[$tab[2]] = array_merge($req, $ret[$tab[2]]);
+					}else{
+						$ret[$tab[2]] = ($req !== '') ? $req : null;
+					}
+				}else{
+					$ret[$dbTablePrefix][$tableName][$rowId][$tab[2]] = $req;
+				}
+			}elseif($request == 'action'){
+				$ret['action'] = $value;
+			}
+		}
+		return $ret;
+	}
+
+	/**
+	 * Supprime les données envoyés par les formulaires de la mémoire
+	 *
+	 * @param string $prefix Préfixe optionnel des champs
+	 * @param string $dbTablePrefix Préfixe optionnel des tables de bdd
+	 */
+	static public function reset($prefix = null, $dbTablePrefix = null){
+		$prefix = (!empty($prefix)) ? $prefix : self::$prefix;
+		$dbTablePrefix = (!empty($dbTablePrefix)) ? $dbTablePrefix : self::$dbTablePrefix;
+		foreach ($_REQUEST as $request => $value){
+			$tab = explode('_', $request);
+			if (count($tab) > 1 and in_array($tab[0], array($prefix, $dbTablePrefix))){
+				unset($_REQUEST[$request]);
+			}
+		}
+	}
+} 
