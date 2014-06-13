@@ -162,41 +162,43 @@ class DenyAppAccess extends Module{
 				<h3>Logs de la gestion d'accès</h3>
 				<?php
 				$events = EventsManager::displayLogs(null, null, end(explode('\\', get_class())), null, true);
-				$usersList = array();
-				$usersDb = $db->get('users', array('id', 'name'));
-				foreach ($usersDb as $user){
-					$usersList[$user->id] = $user->name;
-				}
-				?>
-				<table class="table table-striped">
-					<thead>
-						<tr>
-							<th>Horodatage</th>
-							<th>Utilisateur</th>
-							<th>Action</th>
-							<th>Application</th>
-						</tr>
-					</thead>
-					<tbody>
-					<?php
-					foreach ($events as $event){
-						?>
-						<tr>
-							<td><?php echo Sanitize::date($event->time, 'dateTime'); ?></td>
-							<td><?php echo (isset($usersList[$event->user])) ? $usersList[$event->user] : 'Utilisateur supprimé (id <code>'.$event->user.'</code>)'; ?></td>
-							<td><?php echo ($event->type == 'BLOCK') ? 'a bloqué' : 'a autorisé'; ?></td>
-							<td><?php echo $this->apps[$event->data]->getTitle(); ?></td>
-						</tr>
-					<?php
+				if (!empty($events)){
+					$usersList = array();
+					$usersDb = $db->get('users', array('id', 'name'));
+					foreach ($usersDb as $user){
+						$usersList[$user->id] = $user->name;
 					}
 					?>
-					</tbody>
-				</table>
-				<?php
-				?>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>Horodatage</th>
+								<th>Utilisateur</th>
+								<th>Action</th>
+								<th>Application</th>
+							</tr>
+						</thead>
+						<tbody>
+						<?php
+						foreach ($events as $event){
+							?>
+							<tr>
+								<td><?php echo Sanitize::date($event->time, 'dateTime'); ?></td>
+								<td><?php echo (isset($usersList[$event->user])) ? $usersList[$event->user] : 'Utilisateur supprimé (id <code>'.$event->user.'</code>)'; ?></td>
+								<td><?php echo ($event->type == 'BLOCK') ? 'a bloqué' : 'a autorisé'; ?></td>
+								<td><?php echo $this->apps[$event->data]->getTitle(); ?></td>
+							</tr>
+						<?php
+						}
+						?>
+						</tbody>
+					</table>
+				<?php	}else{ ?>
+					<div class="alert alert-info">Il n'y a aucun événement à afficher.</div>
+				<?php }	?>
+				</div>
 			</div>
-		</div>
-	<?php
+		<?php
 	}
 
 	/********* Méthodes propres au module *********/
