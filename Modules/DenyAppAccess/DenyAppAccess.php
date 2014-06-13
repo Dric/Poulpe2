@@ -210,12 +210,14 @@ class DenyAppAccess extends Module{
 		$menu->add(new Item('acces', 'Résumé des accès', $this->url, 'Résumé des accès aux applications et logs de modification des accès', 'book', null), 10);
 
 		$appsDb = $db->get('module_applis');
-		foreach ($appsDb as $app){
-			$appName = Sanitize::sanitizeFilename($app->title);
-			$this->apps[$appName] = new App($app->title, $app->file);
-			$this->getAppStatus($this->apps[$appName]);
-			if (ACL::canModify('module', $this->id)){
-				$menu->add(new Item($appName, $app->title, $this->url.'&app='.$appName, 'Accès à '.$app->title, 'file'));
+		if (!empty($appsDb)){
+			foreach ($appsDb as $app){
+				$appName = Sanitize::sanitizeFilename($app->title);
+				$this->apps[$appName] = new App($app->title, $app->file);
+				$this->getAppStatus($this->apps[$appName]);
+				if (ACL::canModify('module', $this->id)){
+					$menu->add(new Item($appName, $app->title, $this->url.'&app='.$appName, 'Accès à '.$app->title, 'file'));
+				}
 			}
 		}
 		Front::setSecondaryMenus($menu);
