@@ -10,6 +10,7 @@
  */
 
 namespace Users;
+use Components\Avatar;
 use Logs\Alert;
 use Front;
 use Get;
@@ -185,33 +186,38 @@ class Login {
 					<!-- Si javascript n'est pas activé, on prévient l'utilisateur que ça va merder... -->
 					<noscript>
 						<div class="alert alert-danger">
-							<h2>Javascript est désactivé !</h2>
-							<p>Ce site ne fonctionne pas sans Javascript, il y a de fortes chances que ça foire !</p>
+							<p class="text-center">Ce site fonctionne sans Javascript, mais vous devriez quand même l'activer pour un plus grand confort d'utilisation.</p>
 						</div>
 					</noscript>
-					<div class="col-md-4 col-md-offset-4">
-						<div class="">
-							<div class="content-header row">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2">
+							<div class="text-center">
 								<h1>
 									<?php echo SITE_NAME; ?> - Connexion
 								</h1>
 							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4 col-md-offset-4">
 							<!-- Keep all page content within the page-content inset div! -->
 							<div class="page-content inset">
+								<div class="text-center"><?php echo Avatar::display(null, 'Connectez-vous !'); ?></div>
+								<br>
 								<?php if (AUTH_MODE == 'ldap'){ ?>
-								<div class="alert alert-warning text-center col">Saisissez vos identifiants Active Directory</div>
+								<div class="alert alert-info text-center col">Saisissez vos identifiants Active Directory</div>
 								<?php } ?>
 								<form id="loginForm" class="" method="post" role="form" action="index.php?action=loginForm&tryLogin=true">
 									<div class="form-group">
 										<label for="loginName">Nom d'utilisateur</label>
-										<input type="text" class="form-control" id="loginName" name="loginName" placeholder="Saisissez votre nom d'utilisateur">
+										<input type="text" class="form-control input-lg" id="loginName" name="loginName" placeholder="Saisissez votre nom d'utilisateur">
 									</div>
 									<div class="form-group">
 										<label for="loginPwd">Password</label>
 										<div class="input-group">
-											<input type="password" class="form-control pwd" id="loginPwd" name="loginPwd" placeholder="Saisissez votre mot de passe">
+											<input type="password" class="form-control pwd input-lg" id="loginPwd" name="loginPwd" placeholder="Saisissez votre mot de passe">
 											<span class="input-group-btn">
-	                      <button class="btn btn-default reveal" type="button"><i class="glyphicon glyphicon-eye-open"></i></button>
+	                      <button class="btn btn-default reveal tooltip-bottom input-lg" title="Afficher les caractères" type="button"><i class="glyphicon glyphicon-eye-open"></i></button>
 	                    </span>
 										</div>
 									</div>
