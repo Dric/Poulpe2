@@ -58,7 +58,7 @@ Créez une base de données puis importez-y ce script SQL :
 	  PRIMARY KEY (`id`),
 	  UNIQUE KEY `name` (`name`),
 	  UNIQUE KEY `classe` (`class`)
-	) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=86 ;
+	) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 	--
 	-- Structure de la table `modules_settings`

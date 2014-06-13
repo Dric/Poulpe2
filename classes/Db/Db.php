@@ -503,10 +503,11 @@ class Db {
 			}
 		}
 		if (isset($table['uniqueMultiKey'])){
+			$fieldsMultiKey = $table['uniqueMultiKey'];
 			array_walk($table['uniqueMultiKey'], function(&$value){
 				$value = '`'.$value.'`';
 			});
-			$sql .= 'UNIQUE KEY `'.implode('_', $table['uniqueMultiKey']).'` ('.implode(', ', $table['uniqueMultiKey']).'), ';
+			$sql .= 'UNIQUE KEY `'.implode('_', $fieldsMultiKey).'` ('.implode(', ', $table['uniqueMultiKey']).'), ';
 		}
 		if (isset($table['indexKey'])){
 			if (!is_array($table['indexKey'])){
