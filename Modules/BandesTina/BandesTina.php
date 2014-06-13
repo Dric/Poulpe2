@@ -112,7 +112,7 @@ class BandesTina extends Module{
 	 * Les paramètres sont définis non pas avec des objets Setting mais avec des objets Field (sans quoi on ne pourra pas créer d'écran de paramétrage)
 	 */
 	public function defineSettings(){
-		$this->settings['scriptsPath']  = new Field('scriptsPath', 'string', 'global', '\\\\srv-tina\c$\scripts', 'Chemin des scripts', '\\\\srv-tina\c$\scripts', null, null, null, null, true);
+		$this->settings['scriptsPath']  = new Field('scriptsPath', 'string', 'global', '\\\\srv-tina\c$\scripts\gestion_cartouches', 'Chemin des scripts', '\\\\srv-tina\c$\scripts\gestion_cartouches', null, null, null, null, true);
 		$this->settings['scriptName']   = new Field('scriptName', 'string', 'global', 'liste_cartouches.bat', 'Nom du script qui récupère la liste des bandes', 'liste_cartouches.bat', null, null, null, null, true);
 		$this->settings['tinaLibrary']  = new Field('tinaLibrary', 'string', 'global', 'NEO200S', 'Nom du robot', 'NEO200S', null, null, null, null, true);
 	}
@@ -181,10 +181,15 @@ class BandesTina extends Module{
 		if (!$force){
 			//On monte le partage réseau
 			if (!$share = new Fs($this->settings['scriptsPath']->getValue(), null, end(explode('\\', get_class())))){
+				new Alert('error', 'Impossible d\'accéder aux fichiers du serveur !');
 				return false;
 			}
-			$meta['In'] 	= $share->getFileMeta('to_import.txt');
-			$meta['Out'] 	= $share->getFileMeta('to_export.txt');
+			$meta['In'] 	= $share->getFileMeta('to_import.txt', 'dateModified');
+			$meta['Out'] 	= $share->getFileMeta('to_export.txt', 'dateModified');
+			if ($meta['In'] == false or $meta['Out'] == false){
+				new Alert('error', 'Les listes de bandes ne sont pas accessibles !');
+				return false;
+			}
 			if (($meta['In']->dateModified + 24*3600) < time() or ($meta['Out']->dateModified + 24*3600) < time()){
 				// Si les fichiers ont été modifiés il y a plus de 24h, on les recrée.
 				$force = true;
