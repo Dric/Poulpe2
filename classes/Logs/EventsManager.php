@@ -66,7 +66,7 @@ class EventsManager {
 		if (!empty($users)) $where['user'] = $users;
 		if (!empty($components)) $where['component'] = $components;
 		$eventsDb = $db->get('logs', null, $where, array('time' => 'DESC'));
-		if (empty($eventsDb)){
+		if (empty($eventsDb) and !$returnArray){
 			?><div class="alert alert-warning">Aucun événement</div><?php
 		}else{
 			if (!empty($timeRange)){

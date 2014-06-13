@@ -162,7 +162,7 @@ class DenyAppAccess extends Module{
 				<h3>Logs de la gestion d'accès</h3>
 				<?php
 				$events = EventsManager::displayLogs(null, null, end(explode('\\', get_class())), null, true);
-				if (!empty($events)){
+				if (!empty($events) or !is_bool($events)){
 					$usersList = array();
 					$usersDb = $db->get('users', array('id', 'name'));
 					foreach ($usersDb as $user){
