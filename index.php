@@ -9,7 +9,7 @@
  * On charge les paramètres du site
  */
 if (!file_exists('classes/Settings/config.php')){
-	die('<h1>Erreur : le fichier <code>config.php</code> n\'existe pas !</h1><p>Vous n\'avez probablement pas paramétré le fichier <code>classes/Settings/config.php</code></p>');
+	die('<h1>Erreur : le fichier <code>config.php</code> n\'existe pas !</h1><p>Vous n\'avez probablement pas renomm&eacute; ni param&eacute;tr&eacute; le fichier <code>classes/Settings/config.default.php</code> en <code>classes/Settings/config.php</code></p>');
 }
 require_once 'classes/Settings/config.php';
 

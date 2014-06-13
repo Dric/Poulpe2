@@ -52,14 +52,14 @@ class ACL {
 			return false;
 		}
 		$dbACL = $db->get('ACL', '*', array('user'=>$user));
-		if (!$dbACL) return false;
+		if ($dbACL === false) return false;
 		$retACL = array();
 		foreach ($dbACL as $acl){
 			$acl->value = ($acl->value == 1) ? true : false;
 			$retACL[$acl->component][$acl->id][$acl->type] = $acl->value;
 		}
 		$dbACL = $db->get('ACL', '*', array('user'=>10000));
-		if (!$dbACL) return false;
+		if ($dbACL === false) return false;
 		foreach ($dbACL as $acl){
 			$acl->value = ($acl->value == 1) ? true : false;
 			if (!isset($retACL[$acl->component][$acl->id][$acl->type])) $retACL[$acl->component][$acl->id][$acl->type] = $acl->value;
