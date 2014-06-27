@@ -110,6 +110,7 @@ class Login {
 		}
 		$loginName = htmlspecialchars($_REQUEST['loginName']);
 		$loginPwd = htmlspecialchars($_REQUEST['loginPwd']);
+		$stayConnected = (isset($_REQUEST['stayConnected'])) ? true : false;
 		if (!empty($loginName) and !empty($loginPwd)){
 			if (AUTH_MODE == 'sql'){
 				if ($userDb = UsersManagement::getDBUsers($loginName, true)){
@@ -128,7 +129,7 @@ class Login {
 							return false;
 						}
 					}else{
-						return self::doLogin($loginName, $from);
+						return self::doLogin($loginName, $from, $stayConnected);
 					}
 				}else{
 					new Alert('debug', '<code>Login->tryLogin()</code> : Connexion LDAP échouée !');
@@ -143,12 +144,13 @@ class Login {
 	 * Effectue la connexion d'un utilisateur
 	 *
 	 * @param int|string $user ID ou nom de l'utilisateur
-	 * @param string $from URL vers laquelle rediriger l'utilisateur
+	 * @param string     $from URL vers laquelle rediriger l'utilisateur
+	 * @param bool       $stayConnected Si false, le cookie expire à la fin de la session
 	 *
 	 * @return bool
 	 */
-	static protected function doLogin($user, $from = '/'){
-		$cookieDuration = time()+(COOKIE_DURATION*3600);
+	static protected function doLogin($user, $from = '/', $stayConnected){
+		$cookieDuration = ($stayConnected) ? (time()+(COOKIE_DURATION*3600)) : 0;
 		$hash = UsersManagement::updateUserHash($user);
 		$ret = setcookie(COOKIE_NAME, serialize(array($user,$hash)), $cookieDuration, '/', '', FALSE, TRUE);
 		if (!$ret){
@@ -199,7 +201,7 @@ class Login {
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-4 col-md-offset-4">
+						<div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 							<!-- Keep all page content within the page-content inset div! -->
 							<div class="page-content inset">
 								<div class="text-center"><?php echo Avatar::display(null, 'Connectez-vous !'); ?></div>
@@ -221,14 +223,21 @@ class Login {
 	                    </span>
 										</div>
 									</div>
-
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" name="stayConnected" checked>
+											Rester connecté
+										</label>
+									</div>
 									<?php if (AUTH_MODE == 'ldap'){ ?>
-									<span class="pull-right"><span class="glyphicon glyphicon-lock"></span> Authentification sur <code><?php echo LDAP_DOMAIN; ?></code></span>
+									<div class="pull-right">
+										<span class="glyphicon glyphicon-lock"></span> Authentification sur <code><?php echo LDAP_DOMAIN; ?></code>
+									</div>
 									<?php } ?>
 									<?php if (!empty($from)){ ?>
 									<input type="hidden" name="from" value="<?php echo $from; ?>">
 									<?php } ?>
-									<button type="submit" class="btn btn-primary">Connexion</button>
+									<button type="submit" class="btn btn-primary btn-lg">Connexion</button>
 								</form>
 							</div>
 						</div>
