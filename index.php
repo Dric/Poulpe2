@@ -35,10 +35,9 @@ spl_autoload_register(function ($class) {
 
 use Db\Db;
 use Ldap\Ldap;
-use Logs\Alert;
 use Logs\AlertsManager;
-use Modules\ModulesManagement;
 use Modules\Module;
+use Modules\ModulesManagement;
 use Users\ACL;
 use Users\CurrentUser;
 use Users\Login;
@@ -71,7 +70,7 @@ if (isset($_REQUEST['action'])){
 	}
 }
 $cUser = new CurrentUser();
-if (!$cUser->isLoggedIn() or $redirectToLogin){
+if ((!$cUser->isLoggedIn() or $redirectToLogin) and AUTH_MANDATORY){
 	header('location: index.php?action=loginForm&from='.urlencode($_SERVER['REQUEST_URI']));
 }else{
 	/**

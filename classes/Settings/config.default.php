@@ -17,6 +17,8 @@ define('DB_PASSWORD', 'poulpe2');
 define('DB_HOST', 'localhost');
 /** Authentification via ldap ou sql */
 define('AUTH_MODE', 'ldap');
+/** Authentification obligatoire */
+define('AUTH_MANDATORY', true);
 /** Nom courant des serveurs LDAP */
 define('LDAP_SERVERS', '');
 /** Nom du domaine LDAP */
@@ -57,6 +59,14 @@ define('ALLOWED_IMAGES_EXT', serialize(array('jpg', 'jpeg', 'gif', 'png')));
 define('AVATAR_MAX_SIZE', '400');
 /** Liste des valeurs possibles pour le nombre d'entrées par page */
 define('PER_PAGE_VALUES', '5, 10, 15, 20, 25, 50, 100');
+/** Afficher le fil d'ariane */
+define('DISPLAY_BREADCRUMB', false);
+/** Afficher le lien vers la page d'accueil de l'intranet */
+define('DISPLAY_INTRANET_LINK', false);
+/** Afficher le lien vers la page d'accueil du site */
+define('DISPLAY_HOME', false);
+/** Module en page d'accueil */
+define('HOME_MODULE', 'Portal');
 /** Debug mode */
 define('DEBUG', false);
 /** Debug détaillé */

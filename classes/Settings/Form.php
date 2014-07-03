@@ -111,16 +111,18 @@ class Form {
 			 */
 			$userValue = (isset($this->fields['userSettings']) and $this->fields['userSettings']) ? true : false;
 			foreach ($this->fields['fields'] as $field){
-				//if ($field->getName() != 'allowUsersSettings') {
-				if (!empty($this->component['component'])){
-					// On vérifie les ACL
-					$canFunction = 'can'.ucfirst($field->getACLLevel());
-					$hasACL = ACL::$canFunction($this->component['component'], $this->component['id'], $cUser->getId());
-				}else{
-					$hasACL = true;
+				if (($userValue and $field->getCategory() == 'user') or !$userValue){
+					//if ($field->getName() != 'allowUsersSettings') {
+					if (!empty($this->component['component'])){
+						// On vérifie les ACL
+						$canFunction = 'can'.ucfirst($field->getACLLevel());
+						$hasACL = ACL::$canFunction($this->component['component'], $this->component['id'], $cUser->getId());
+					}else{
+						$hasACL = true;
+					}
+					$this->displayField($field, $userValue, $hasACL);
+					//}
 				}
-				$this->displayField($field, $userValue, $hasACL);
-				//}
 			}
 			// On affiche ensuite les champs masqués
 			if (isset($this->fields['hidden'])){
@@ -174,7 +176,7 @@ class Form {
 							<?php
 							foreach ($field->getData()['fields'] as $subFieldArgs){
 								if (!isset($subFieldArgs['show']) or $subFieldArgs['show']){
-									?><th><?php echo $subFieldArgs['label']; ?></th><?php
+									?><th><?php echo (isset($subFieldArgs['label']) ? $subFieldArgs['label'] : $subFieldArgs['comment']); ?></th><?php
 								}
 							}
 							?>

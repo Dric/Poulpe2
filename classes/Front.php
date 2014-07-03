@@ -46,15 +46,23 @@ class Front {
 	 * Initialise le menu général
 	 */
 	public static function initMainMenu(){
-		global $cUser;
+		global $cUser, $module;
 		self::$mainMenu = new Menu('main', 'Menu');
 		// Menu vers l'administration
 		if (ACL::canAccess('admin', 0)){
 			self::$mainMenu->add(new Item('admin', 'Administration', '?module=Admin', 'Administration', null, 'menu-warning'), 98);
 		}
-		self::$mainMenu->add(new Item('home', 'Accueil', '.', 'Revenir à l\'accueil', null, 'menu-highlight'), 2);
-		self::$mainMenu->add(new Item('portail', 'Portail', 'http://glpi', 'Retour au Petit Portail Informatique'), 97);
-		self::$mainMenu->add(new Item('logoff', 'Déconnexion', '?action=logoff', 'Déconnexion de '.$cUser->getName()), 99);
+		if (DISPLAY_HOME or (!DISPLAY_HOME and $module->getName() != 'home')){
+			self::$mainMenu->add(new Item('home', 'Accueil', '.', 'Revenir à l\'accueil', null, 'menu-highlight'), 2);
+		}
+		if (DISPLAY_INTRANET_LINK){
+			self::$mainMenu->add(new Item('portail', 'Portail', 'http://glpi', 'Retour au Petit Portail Informatique'), 97);
+		}
+		if ($cUser->isLoggedIn()){
+			self::$mainMenu->add(new Item('logoff', 'Déconnexion', '?action=logoff', 'Déconnexion de '.$cUser->getName()), 99);
+		}else{
+			self::$mainMenu->add(new Item('login', 'Connexion', '?action=loginForm', 'Authentification'), 99);
+		}
 		ModulesManagement::getModulesMenuItems();
 	}
 
@@ -64,11 +72,12 @@ class Front {
 	 */
 	public static function displayMainMenu(){
 		global $cUser;
+		$title = ($cUser->isLoggedIn()) ? 'Profil de '.$cUser->getName() : 'Bienvenue !';
 		//Affichage de l'avatar
 		?>
 		<h4 class="text-center">
 			<a href="?module=profil">
-			<?php echo $cUser->getAvatar(false, 'Profil de '.$cUser->getName()); ?>
+			<?php echo $cUser->getAvatar(false, $title); ?>
 			</a>
 		</h4>
 		<?php

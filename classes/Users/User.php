@@ -55,20 +55,27 @@ class User {
 
 	/**
 	 * Construction d'un objet User
-	 * @param int  $user ID de l'utilisateur
+	 * @param int|string  $user ID de l'utilisateur
 	 * @param bool $loginOnly Si true, on zappe toutes les infos inutiles (typiquement pour vérifier une authentification)
 	 */
 	public function __construct($user, $loginOnly = false){
-		$userDB = UsersManagement::getDBUsers($user);
-		foreach(get_object_vars($this) as $prop => $value){
-			if (isset($userDB->$prop)) {
-				$this->$prop = $userDB->$prop;
+		// Si l'ID de l'utilisateur est différente de 0 (0 = connexion anonyme)
+		if ($user !== 0){
+			$userDB = UsersManagement::getDBUsers($user);
+			foreach(get_object_vars($this) as $prop => $value){
+				if (isset($userDB->$prop)) {
+					$this->$prop = $userDB->$prop;
+				}
+			}
+			$this->id = (int)$this->id;
+			if (!$loginOnly){
+				if (AUTH_MODE == 'ldap'){
+					$this->LDAPProps = UsersManagement::getLDAPUser($this->name);
+					if (isset($this->LDAPProps->email)) $this->email = strtolower($this->LDAPProps->email); //Sur Active Directory, les adresses email comportent parfois des majuscules, inutile de s'en encombrer.
+				}
 			}
 		}
-		$this->id = (int)$this->id;
 		if (!$loginOnly){
-			$this->LDAPProps = UsersManagement::getLDAPUser($this->name);
-			if (isset($this->LDAPProps->email)) $this->email = strtolower($this->LDAPProps->email); //Sur Active Directory, les adresses email comportent parfois des majuscules, inutile de s'en encombrer.
 			$this->ACL = ACL::getUserACL($this->id);
 		}
 	}

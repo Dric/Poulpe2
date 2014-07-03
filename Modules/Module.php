@@ -184,7 +184,7 @@ class Module {
 	 */
 	public function display(){
 		if (!$this->getPage()){
-			Front::displayBreadCrumb($this->breadCrumb);
+			if (DISPLAY_BREADCRUMB) Front::displayBreadCrumb($this->breadCrumb);
 			$this->mainDisplay();
 		}
 	}
@@ -324,7 +324,7 @@ class Module {
 		?>
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs">
-			<?php if ($this->allowUsersSettings){ ?><li class="active"><a href="#userSettings" data-toggle="tab">Paramètres utilisateurs</a></li><?php } ?>
+			<?php if ($this->allowUsersSettings){ ?><li class="active"><a href="#userSettings" data-toggle="tab">Paramètres utilisateur</a></li><?php } ?>
 			<?php if (ACL::canAdmin('module', $this->id)){ ?><li<?php if (!$this->allowUsersSettings) echo ' class="active"'; ?>><a href="#generalSettings" data-toggle="tab">Paramètres généraux</a></li><?php } ?>
 		</ul>
 
@@ -332,7 +332,7 @@ class Module {
 		<div class="tab-content">
 			<?php if ($this->allowUsersSettings){ ?>
 			<div class="tab-pane active" id="userSettings">
-				<h3>Paramètres utilisateurs <small><?php Help::iconHelp('Ces paramètres ne concernent que vous.'); ?></small></h3>
+				<h3>Paramètres utilisateur <small><?php Help::iconHelp('Ces paramètres ne concernent que vous.'); ?></small></h3>
 				<?php
 				$form = new Form($this->name.'Settings', null, array('fields' => $this->settings, 'userSettings' => true));
 				$form->addField(new Field('usersSettings', 'hidden', 'global', 'true'));

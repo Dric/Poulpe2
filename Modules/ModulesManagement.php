@@ -54,7 +54,16 @@ class ModulesManagement {
 				if (empty($module)) new Alert('error', 'Le module demandé n\'existe pas !');
 			}
 		}
-		if (!isset($module)) $module = new Module();
+		// Affichage du module par défaut
+		if (!isset($module)) {
+			if (HOME_MODULE == 'home') {
+				$module = new Module();
+			}else{
+				$class = 'Modules\\'.HOME_MODULE.'\\'.HOME_MODULE;
+				$module = new $class();
+			}
+
+		}
 		return $module;
 	}
 

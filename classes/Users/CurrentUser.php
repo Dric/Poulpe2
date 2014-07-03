@@ -41,6 +41,8 @@ class CurrentUser extends User{
 
 		}else{
 			new Alert('debug', '<code>CurrentUser constructor</code> : User non connecté !');
+			// On appelle la construction de la classe User
+			parent::__construct(0);
 		}
 	}
 
