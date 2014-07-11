@@ -12,13 +12,14 @@ namespace Modules\PostesAstreintes;
 use Check;
 use Components\Item;
 use FileSystem\Fs;
+use Forms\Fields\String;
 use Front;
 use Logs\Alert;
 use Modules\Module;
 use Modules\ModulesManagement;
-use Settings\Field;
-use Settings\Form;
-use Settings\PostedData;
+use Forms\Field;
+use Forms\Form;
+use Forms\PostedData;
 use Users\ACL;
 
 class PostesAstreintes extends Module{
@@ -54,7 +55,7 @@ class PostesAstreintes extends Module{
 	 * Les paramètres sont définis non pas avec des objets Setting mais avec des objets Field (sans quoi on ne pourra pas créer d'écran de paramétrage)
 	 */
 	public function defineSettings(){
-		$this->settings['filePath'] = new Field('filePath', 'string', 'global', '\\\\intra.epsi.fr\Profils\Xen\Xenlogin\Scripts\IP-Astreintes-test.vbs', 'Fichier du script VBS de gestion des adresses IP', null, null, 'Saisissez le chemin et le nom du script VBS. Vous pouvez utiliser des partages administratifs ou DFS', null, null, true);
+		$this->settings['filePath'] = new String('filePath', 'global', '\\\\intra.epsi.fr\Profils\Xen\Xenlogin\Scripts\IP-Astreintes-test.vbs', null, 'Fichier du script VBS de gestion des adresses IP', null, 'Saisissez le chemin et le nom du script VBS. Vous pouvez utiliser des partages administratifs ou DFS', null, true);
 	}
 
 	/**

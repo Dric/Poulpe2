@@ -9,6 +9,12 @@
 namespace Admin;
 
 use Components\Help;
+use Forms\Fields\Bool;
+use Forms\Fields\Button;
+use Forms\Fields\Int;
+use Forms\Fields\String;
+use Forms\Fields\ValuesArray;
+use Forms\JSSwitch;
 use Logs\Alert;
 use Components\Item;
 use Components\Menu;
@@ -16,9 +22,9 @@ use FileSystem\Fs;
 use Front;
 use Modules\Module;
 use Modules\ModulesManagement;
-use Settings\Field;
-use Settings\Form;
-use Settings\PostedData;
+use Forms\Field;
+use Forms\Form;
+use Forms\PostedData;
 use Users\ACL;
 use Users\UsersManagement;
 
@@ -231,35 +237,29 @@ class Admin extends Module {
 						preg_match('/serialize\(array\((.*)\)/i', $define[1], $matches);
 						if (isset($matches[1])){
 							$constantValue = explode(', ', $matches[1]);
-							$constantType = 'array';
 							array_walk($constantValue, function(&$value, $key) {
 								if (!is_int($value)) $value = trim($value, '\'');
 							});
-							$data = array('serialize' => true);
+							$form->addField(new ValuesArray($constantName, 'global', $constantValue, null, $explain, null, 'Paramètre '.$constantName, null, true, null, null, null, false, true));
 						}else{
 							$constantValue = trim(rtrim($define[1],')'), " "); //On enlève d'abord les parenthèses, puis les espaces
 							if (substr($constantValue,-1) == '\''){
 								$constantValue =  trim($constantValue, '\'');
 								if (count($tab = explode(', ', $constantValue)) > 1){
-									$constantType = 'array';
 									$constantValue = $tab;
+									$form->addField(new ValuesArray($constantName, 'global', $constantValue, null, $explain, null, 'Paramètre '.$constantName, null, true));
 								}else{
-									$constantType = 'string';
+									$form->addField(new String($constantName, 'global', $constantValue, null, $explain, null, 'Paramètre '.$constantName, null, true));
 								}
 							}elseif(stristr($constantValue, 'true') or stristr($constantValue, 'false')){
-								$constantType = 'bool';
-								$data = array(
-									'switch' => true,
-								  'labelPosition' => 'left'
-								);
+								$form->addField(new Bool($constantName, 'global', $constantValue, null, $explain, 'Paramètre '.$constantName, null, true, null, null, null, false, new JSSwitch(null, null, null, null, null, 'left')));
 							}else{
-								$constantType = 'int';
+								$form->addField(new Int($constantName, 'global', $constantValue, null, $explain, null, 'Paramètre '.$constantName, null, true));
 							}
 						}
-						$form->addField(new Field($constantName, $constantType, 'global', $constantValue, $explain, null, $data, 'Paramètre '.$constantName, null, null, null, null, null, null, $readOnly));
 					}
 				}
-				$form->addField(new Field('action', 'button', 'global', 'saveConfig', 'Sauvegarder', null, null, null, null, null, null, null, null, 'btn-primary', $readOnly));
+				$form->addField(new Button('action', 'global', 'saveConfig', 'Sauvegarder', null, 'btn-primary', $readOnly));
 				$form->display();
 				?>
 			</div>

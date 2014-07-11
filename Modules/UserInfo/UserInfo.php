@@ -11,15 +11,17 @@ namespace Modules\UserInfo;
 
 use Components\Help;
 use Components\Item;
+use Forms\Fields\Button;
+use Forms\Fields\String;
 use Front;
 use Ldap\Ldap;
 use Logs\Alert;
 use Modules\Module;
 use Modules\ModulesManagement;
 use Sanitize;
-use Settings\Field;
-use Settings\Form;
-use Settings\PostedData;
+use Forms\Field;
+use Forms\Form;
+use Forms\PostedData;
 
 class UserInfo extends Module{
 	protected $name = 'Informations utilisateur';
@@ -85,8 +87,8 @@ class UserInfo extends Module{
 	 */
 	protected function searchForm($userSearched = null){
 		$form = new Form('userSearch', null, null, 'module', $this->id, 'post', 'form-inline');
-		$form->addField(new Field('user', 'string', 'global', $userSearched, 'Nom de l\'utilisateur', 'prenom.nom', array('autocomplete' => false), 'La recherche peut se faire sur un login complet (prenom.nom) ou sur une partie de celui-ci', null, null, false, null, 'access'));
-		$form->addField(new Field('action', 'button', 'global', 'getUserInfo', 'Rechercher', null, null, null, null, null, false, null, 'access', 'btn-primary btn-sm'));
+		$form->addField(new String('user', 'global', $userSearched, null, 'Nom de l\'utilisateur', 'prenom.nom', 'La recherche peut se faire sur un login complet (prenom.nom) ou sur une partie de celui-ci', null, true, null, 'access', null, false, false));
+		$form->addField(new Button('action', 'global', 'getUserInfo', 'Rechercher', 'access', 'btn-primary btn-sm'));
 		$form->display();
 	}
 

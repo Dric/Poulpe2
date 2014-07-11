@@ -11,12 +11,17 @@ namespace Modules\UsersTraces;
 
 use Components\Item;
 use Components\Menu;
+use Db\DbFieldSettings;
+use Db\DbTable;
+use Forms\Fields\Int;
+use Forms\Fields\String;
+use Forms\Fields\Table;
 use Front;
 use Logs\Alert;
 use Modules\Module;
 use Modules\ModulesManagement;
 use Sanitize;
-use Settings\Field;
+use Forms\Field;
 use Users\ACL;
 
 class UsersTraces extends Module {
@@ -96,8 +101,15 @@ class UsersTraces extends Module {
 			'indexKey'   => array('name', 'type'),
 			'onDuplicateKeyUpdate' => array('name', 'type', 'folder')
 		);
-		// Cette table sera gérée via les paramètres
-		$this->settings['traces'] = new Field('traces', 'dbTable', 'global', 'module_userstraces', 'Serveurs', null, $this->dbTables['module_userstraces']);
+		$usersTraces = new DbTable('module_userstraces', $this->name);
+		$usersTraces->addField(new Int('id', 'global', null, null, null, null, null, new DbFieldSettings('number', true, 5, 'primary', false, true, 0, null, false, false)));
+		$usersTraces->addField(new String('name', 'global', null, null, 'Nom du serveur', null, null, new DbFieldSettings('text', true, 100, 'index', false, false, 0, null, true)));
+		$usersTraces->addField(new String('type', 'global', null, null, 'Type', null, null, new DbFieldSettings('text', true, 50, 'index', false, false, 0, null, true)));
+		$usersTraces->addField(new String('folder', 'global', null, null, 'Répertoire', null, null, new DbFieldSettings('text', true, 255, false, false, false, 0, null, true)));
+		$this->dbTables['module_userstraces'] = $usersTraces;
+
+			// Cette table sera gérée via les paramètres
+		$this->settings['module_userstraces'] = new Table($usersTraces, 'global');
 	}
 
 	/**

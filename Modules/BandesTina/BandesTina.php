@@ -10,11 +10,12 @@ namespace Modules\BandesTina;
 
 use Components\Item;
 use FileSystem\Fs;
+use Forms\Fields\String;
 use Front;
 use Logs\Alert;
 use Modules\Module;
 use Modules\ModulesManagement;
-use Settings\Field;
+use Forms\Field;
 use Users\ACL;
 
 /**
@@ -112,9 +113,9 @@ class BandesTina extends Module{
 	 * Les paramètres sont définis non pas avec des objets Setting mais avec des objets Field (sans quoi on ne pourra pas créer d'écran de paramétrage)
 	 */
 	public function defineSettings(){
-		$this->settings['scriptsPath']  = new Field('scriptsPath', 'string', 'global', '\\\\srv-tina\c$\scripts\gestion_cartouches', 'Chemin des scripts', '\\\\srv-tina\c$\scripts\gestion_cartouches', null, null, null, null, true);
-		$this->settings['scriptName']   = new Field('scriptName', 'string', 'global', 'liste_cartouches.bat', 'Nom du script qui récupère la liste des bandes', 'liste_cartouches.bat', null, null, null, null, true);
-		$this->settings['tinaLibrary']  = new Field('tinaLibrary', 'string', 'global', 'NEO200S', 'Nom du robot', 'NEO200S', null, null, null, null, true);
+		$this->settings['scriptsPath']  = new String('scriptsPath', 'global', '\\\\srv-tina\c$\scripts\gestion_cartouches', null, 'Chemin des scripts', '\\\\srv-tina\c$\scripts\gestion_cartouches', null, null, true);
+		$this->settings['scriptName']   = new String('scriptName', 'global', 'liste_cartouches.bat', null, 'Nom du script qui récupère la liste des bandes', 'liste_cartouches.bat', null, null, true);
+		$this->settings['tinaLibrary']  = new String('tinaLibrary', 'global', 'NEO200S', null, 'Nom du robot', 'NEO200S', null, null, true);
 	}
 
 	/**

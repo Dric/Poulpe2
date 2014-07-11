@@ -6,7 +6,7 @@
  * Time: 13:34
  */
 
-namespace Settings;
+namespace Forms;
 
 
 use Sanitize;
@@ -57,8 +57,10 @@ class PostedData {
 				$req = null;
 				switch ($tab[1]){
 					case 'int':
-					case 'float':
 						$req = (int)$value;
+						break;
+					case 'float':
+						$req = (float)$value;
 						break;
 					case 'date':
 						$req = Sanitize::date($value);
@@ -100,7 +102,16 @@ class PostedData {
 						if (!empty($valueTab)) $req['values'] = $valueTab;
 						break;
 					default:
-						$req = $value;
+						switch ($value){
+							case 'true':
+								$req = true;
+								break;
+							case 'false':
+								$req = false;
+								break;
+							default:
+								$req = $value;
+						}
 				}
 				if ($tab[0] == $prefix){
 					// Si on a affaire à un tableau, on fusionne avec le tableau existant

@@ -12,14 +12,17 @@ namespace Modules\Mailboxes;
 use Components\Item;
 use Components\Menu;
 use FileSystem\Fs;
+use Forms\Fields\Button;
+use Forms\Fields\Select;
+use Forms\Fields\String;
 use Front;
 use Ldap\Ldap;
 use Logs\Alert;
 use Modules\Module;
 use Modules\ModulesManagement;
-use Settings\Field;
-use Settings\Form;
-use Settings\PostedData;
+use Forms\Field;
+use Forms\Form;
+use Forms\PostedData;
 use Users\ACL;
 
 /**
@@ -31,7 +34,6 @@ use Users\ACL;
  * Ce module va lire les logs de résultats générés par le script powershell, ainsi que les fichiers de demandes de déplacement vers les db exchange. Il permet aussi d'ajouter ou de supprimer une demande de déplacement de boite.
  *
  * Organisation du module :
- * - modules/mailboxes/module.inc : contient la définition du module et la déclaration des menus.
  * - modules/mailboxes/module.php : contient le code principal du module. Fichier chargé que si le module est actif.
  * - modules/mailboxes/mailboxes.js : contient le javascript relatif au module.
  *
@@ -103,7 +105,7 @@ class Mailboxes extends Module {
 	 * Les paramètres sont définis non pas avec des objets Setting mais avec des objets Field (sans quoi on ne pourra pas créer d'écran de paramétrage)
 	 */
 	public function defineSettings(){
-		$this->settings['scriptsPath'] = new Field('scriptsPath', 'string', 'global', '\\\\srv-exchange\scripts', 'Chemin des scripts Powershell', '\\\\srv-exchange\scripts', null, null, null, null, true);
+		$this->settings['scriptsPath'] = new String('scriptsPath', 'global', '\\\\srv-exchange\scripts', null, 'Chemin des scripts Powershell', '\\\\srv-exchange\scripts', null, null, true);
 
 	}
 
@@ -318,12 +320,9 @@ class Mailboxes extends Module {
 		Front::setJsFooter('<script src="js/bootstrap3-typeahead.min.js"></script>');
 		Front::setJsFooter('<script src="Modules/Mailboxes/Mailboxes.js"></script>');
 		$form = new Form('addMove', null, null, 'module', $this->id, 'post');
-		$form->addField(new Field('user', 'string', 'global', '', 'Nom de l\'utilisateur', 'prénom.nom', array('autocomplete'=> false), 'La recherche peut se faire sur un login utilisateur complet (prénom.nom) ou sur une partie de celui-ci. Seuls les comptes possédant une boîte exchange sont affichés', null, null, false, null, 'modify'));
-		$choices = array(
-			'choices' => array_combine($this->databases, $this->databases)
-		);
-		$form->addField(new Field('mdb', 'select', 'global', '', 'Base de destination', '', $choices, null, null, null, false, null, 'modify'));
-		$form->addField(new Field('action', 'button', 'global', 'addMove', 'Programmer le déplacement', null, null, null, null, null, false, null, 'modify', 'btn-primary'));
+		$form->addField(new String('user', 'global', '', null, 'Nom de l\'utilisateur', 'prénom.nom', 'La recherche peut se faire sur un login utilisateur complet (prénom.nom) ou sur une partie de celui-ci. Seuls les comptes possédant une boîte exchange sont affichés', null, true, null, 'modify', null, false, false));
+		$form->addField(new Select('mdb', 'global', '', null, 'Base de destination', null, true, null, 'modify', null, false, array_combine($this->databases, $this->databases)));
+		$form->addField(new Button('action', 'global', 'addMove', 'Programmer le déplacement', 'modify', 'btn-primary'));
 		?>
 		<div class="row">
 			<div class="col-md-6">

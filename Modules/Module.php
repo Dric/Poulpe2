@@ -7,6 +7,12 @@
  */
 
 namespace Modules;
+use Db\DbTable;
+use Forms\Fields\Bool;
+use Forms\Fields\Button;
+use Forms\Fields\Hidden;
+use Forms\Fields\LinkButton;
+use Forms\JSSwitch;
 use Logs\Alert;
 use Components\Help;
 use Components\Item;
@@ -14,9 +20,9 @@ use Components\Menu;
 use Front;
 use Get;
 use Sanitize;
-use Settings\Field;
-use Settings\Form;
-use Settings\PostedData;
+use Forms\Field;
+use Forms\Form;
+use Forms\PostedData;
 use Settings\Setting;
 use Users\ACL;
 
@@ -335,9 +341,9 @@ class Module {
 				<h3>Paramètres utilisateur <small><?php Help::iconHelp('Ces paramètres ne concernent que vous.'); ?></small></h3>
 				<?php
 				$form = new Form($this->name.'Settings', null, array('fields' => $this->settings, 'userSettings' => true));
-				$form->addField(new Field('usersSettings', 'hidden', 'global', 'true'));
-				$form->addField(new Field('action', 'button', 'global', 'saveSettings', 'Sauvegarder', null, null, null, null, null, false, null, null, 'btn-primary'));
-				$form->addField(new Field('cancel', 'linkButton', 'global', $this->url, 'Revenir au module', null, null, 'Annuler et revenir au module'));
+				$form->addField(new Hidden('usersSettings', 'user', 'true'));
+				$form->addField(new Button('action', 'global', 'saveSettings', 'Sauvegarder', null, 'btn-primary'));
+				$form->addField(new LinkButton('cancel', 'global', $this->url, 'Revenir au module'));
 				$form->display();
 				?>
 			</div>
@@ -354,10 +360,10 @@ class Module {
 					}
 				}
 				if ($hasUsersSettings){
-					$form->addField(new Field('allowUsersSettings', 'bool', 'global', $this->allowUsersSettings, 'Autoriser les utilisateurs à personnaliser certains paramètres', null, array('switch' => true, 'size' => 'small')));
+					$form->addField(new Bool('allowUsersSettings', 'global', $this->allowUsersSettings, null, 'Autoriser les utilisateurs à personnaliser certains paramètres', null, null, true, null, null, null, false, new JSSwitch(null, null, null, null, 'small')));
 				}
-				$form->addField(new Field('action', 'button', 'global', 'saveSettings', 'Sauvegarder', null, null, null, null, null, false, null, null, 'btn-primary'));
-				$form->addField(new Field('cancel', 'linkButton', 'global', $this->url, 'Revenir au module', null, null, 'Annuler et revenir au module'));
+				$form->addField(new Button('action', 'global', 'saveSettings', 'Sauvegarder', null, 'btn-primary'));
+				$form->addField(new LinkButton('cancel', 'global', $this->url, 'Revenir au module'));
 				$form->display();
 				?>
 			</div>
@@ -394,10 +400,11 @@ class Module {
 		foreach ($req as $field => $value){
 			if ($field == 'dbTable'){
 				foreach ($value as $tableId => $tableRow){
-					$table = $this->settings[$tableId]->getValue();
+					$table = Get::getObjectsInList($this->settings, 'name', $tableId);
+					$tableName = $table[0]->getValue();
 					// On supprime les valeurs nulles du tableau
 					$tableRow = array_filter(array_map('array_filter', $tableRow));
-					$tableToSave[$table] = $tableRow;
+					$tableToSave[$tableName] = $tableRow;
 				}
 			}elseif ($field != 'action'){
 				if ($usersSettings){
@@ -429,74 +436,22 @@ class Module {
 			new Alert('error', 'Vous n\'avez pas l\'autorisation de faire ceci !');
 			return false;
 		}
+		$ret = array();
 		foreach ($tables as $table => $lines){
-			if (!isset($this->dbTables[$table])){
+			/**
+			 * @var DbTable $dbTable
+			 */
+			$dbTable = $this->dbTables[$table];
+			if (!isset($dbTable)){
 				new Alert('debug', '<code>Module->saveDbTables()</code> : La table <code>'.$table.'</code> n\'existe pas !');
 				return false;
 			}
-			$itemsIdsDb = $db->get($table, 'id');
-
-			$itemsToDelete = array();
-			foreach ($itemsIdsDb as $itemId){
-				$itemsToDelete[] = $itemId->id;
-			}
-			$sql = 'INSERT INTO `'.$table.'` (';
-			// Définissons un peu les colonnes à mettre à jour
-			foreach ($this->dbTables[$table]['fields'] as $field => $args){
-				$sql .= '`'.$field.'`, ';
-			}
-			$sql = rtrim($sql, ', ').') VALUES ';
-			// Les valeurs à présent
-			foreach ($lines as $line => $items){
-				$sql .= '(';
-				// Si l'ID n'est pas affichée (et donc pas renvoyée par le formulaire), il va falloir la renseigner quand même via le nom du champ renvoyé
-				if (!isset($items['id'])){
-					if ($line != 'new' or empty($line)){
-						$sql .= $line.', ';
-						// On enlève l'id du tableau des ids d'items, afin de pouvoir supprimer les lignes restantes
-						unset($itemsToDelete[array_search($line, $itemsToDelete)]);
-					}else{
-						// Si l'ID est 'new', c'est un nouveau champ. Pour laisser faire l'auto-incrémentation, on envoie une valeur nulle
-						$sql .= 'NULL, ';
-					}
-				}
-				// Valeurs de chaque colonne pour une ligne
-				foreach ($this->dbTables[$table]['fields'] as $field => $args){
-					// On vient de traiter l'id juste avant la boucle, on l'enlève donc des champs à traiter
-					if (!isset($items['id']) and $field != 'id'){
-						$sql .= ((isset($items[$field])) ? '"'.str_replace('\\', '\\\\', $items[$field]).'"' : 'NULL').', ';
-					}
-				}
-				$sql = rtrim($sql, ', ');
-				$sql .= '),';
-			}
-			$sql = rtrim($sql, ', ');
-			// Évidemment, on va trouver des enregistrements déjà présents. Grâce à 'onDuplicateKeyUpdate', on va savoir quels colonnes mettre à jour en cas d'enregistrements déjà présents
-			if (isset($this->dbTables[$table]['onDuplicateKeyUpdate'])){
-				$updates = $this->dbTables[$table]['onDuplicateKeyUpdate'];
-				$sql .= ' ON DUPLICATE KEY UPDATE ';
-				if (!is_array($updates)){
-					$sql .= '`'.$updates.'` = VALUES(`'.$updates.'`)';
-				}else{
-					foreach ($updates as $update){
-						$sql.= '`'.$update.'` = VALUES(`'.$update.'`), ';
-					}
-					$sql = rtrim($sql, ', ');
-				}
-			}
-			// Enfin, on exécute la requête SQL.
-			$ret = $db->query($sql);
-			// On supprime les enregistrements qui n'ont pas été renvoyés par le formulaire, ce qui signifie qu'ils ont été effacés.
-			$ret2 = true;
-			if (!empty($itemsToDelete)){
-				foreach ($itemsToDelete as $item){
-					$ret2 = $db->delete($table, array('id'=>$item));
-				}
-			}
-			if ($ret === false or $ret2 === false){
-				new Alert('error', 'Impossible de sauvegarder les enregistrements de la table <code>'.$table.'</code> !');
-			}else{
-				new Alert('success', 'Les enregistrements de la table <code>'.$table.'</code> ont été mis à jour.');
+			$ret[$table] = $dbTable->insertRows($lines);
+		}
+		foreach ($ret as $table => $result){
+			if (!$result){
+				new Alert('error', 'Les enregistrements dans certaines tables n\'ont pas été effectués !');
+				return false;
 			}
 		}
 		return true;
@@ -519,7 +474,7 @@ class Module {
 		// On parcoure tous les paramètres du module
 		foreach ($this->settings as $setting){
 			if ($setting instanceof Setting){
-				$value = Sanitize::SanitizeForDb($setting->getValue());
+				$value = Sanitize::SanitizeForDb($setting->getValue(false));
 				$settingsArr[] = '('.$this->id.', "'.$setting->getName().'", "'.$setting->getCategory().'", '.$value.')';
 				if (!is_null($setting->getUserValue()) and $this->allowUsersSettings){
 					$userValue = Sanitize::SanitizeForDb($setting->getUserValue());

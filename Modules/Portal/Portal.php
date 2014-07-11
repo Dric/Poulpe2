@@ -12,8 +12,8 @@ namespace Modules\Portal;
 use Logs\Alert;
 use Modules\Module;
 use Modules\ModulesManagement;
-use Settings\Field;
-use Settings\Form;
+use Forms\Field;
+use Forms\Form;
 use Users\ACL;
 
 class Portal extends Module {

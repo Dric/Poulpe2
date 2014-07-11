@@ -11,7 +11,12 @@ namespace Modules\DenyAppAccess;
 
 use Components\Item;
 use Components\Menu;
+use Db\DbFieldSettings;
+use Db\DbTable;
 use FileSystem\Fs;
+use Forms\Fields\Int;
+use Forms\Fields\String;
+use Forms\Fields\Table;
 use Front;
 use Logs\Alert;
 use Logs\EventLog;
@@ -19,9 +24,9 @@ use Logs\EventsManager;
 use Modules\Module;
 use Modules\ModulesManagement;
 use Sanitize;
-use Settings\Field;
-use Settings\Form;
-use Settings\PostedData;
+use Forms\Field;
+use Forms\Form;
+use Forms\PostedData;
 use Users\ACL;
 
 /**
@@ -72,41 +77,14 @@ class DenyAppAccess extends Module{
 	 * Les paramètres sont définis non pas avec des objets Setting mais avec des objets Field (sans quoi on ne pourra pas créer d'écran de paramétrage)
 	 */
 	public function defineSettings(){
-		/**
-		 * @see Db\Db->createTable pour plus de détails sur la création d'une table.
-		 */
-		$this->dbTables['module_applis'] = array(
-			'name'        => 'module_applis',
-			'desc'        => 'Liste des applications',
-			'fields'      => array(
-				'id'    => array(
-					'show'          => false,
-					'type'          => 'int',
-					'length'        => 11,
-					'null'          => false,
-					'autoIncrement' => true,
-				),
-			  'title' => array(
-				  'label'   => 'Nom affiché dans le menu',
-				  'type'    => 'string',
-			    'length'  => 150,
-			    'null'    => false
-			  ),
-			  'file'  => array(
-				  'label'   => 'Script VBS',
-				  'type'    => 'string',
-			    'length'  => 255,
-			    'null'    => false
-			  )
-			),
-			'primaryKey'  => 'id',
-		  'uniqueKey'   => 'title',
-		  'uniqueMultiKey' => array('id', 'title'),
-		  'onDuplicateKeyUpdate' => array('title', 'file')
-		);
-		$this->settings['vbsPath'] = new Field('vbsPath', 'string', 'global', '\\\\intra.epsi.fr\profils\xen\xenlogin\scripts', 'Chemin des scripts de lancement VBS', '\\\\intra.epsi.fr\profils\xen\xenlogin\scripts', null, null, null, null, true);
+		$applis = new DbTable('module_applis', 'Liste des applications');
+		$applis->addField(new Int('id', 'global', null, null, 'ID de l\'application', null, null, new DbFieldSettings('number', true, 11, 'primary', true, true, 0, null, false, false)));
+		$applis->addField(new String('title', 'global', null, null, 'Nom affiché dans le menu', null, null, new DbFieldSettings('text', true, 150, 'unique', true, false, 0, null, true)));
+		$applis->addField(new String('file', 'global', null, null, 'Script VBS', null, null, new DbFieldSettings('text', true, 255, false, false, false, 0, null, true)));
+		$this->dbTables['module_applis'] = $applis;
+		$this->settings['vbsPath'] = new String('vbsPath', 'global', '\\\\intra.epsi.fr\profils\xen\xenlogin\scripts', null, 'Chemin des scripts de lancement VBS', '\\\\intra.epsi.fr\profils\xen\xenlogin\scripts', null, null, true);
 		// Cette table sera gérée via les paramètres
-		$this->settings['apps'] = new Field('apps', 'dbTable', 'global', 'module_applis', 'Liste des applications', null, $this->dbTables['module_applis']);
+		$this->settings['module_applis'] = new Table($applis, 'global');
 	}
 
 	/**

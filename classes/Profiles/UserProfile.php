@@ -7,15 +7,18 @@
  */
 
 namespace Profiles;
+use Forms\Fields\Button;
+use Forms\Fields\File;
+use Forms\Fields\RadioList;
 use Logs\Alert;
 use Components\Avatar;
 use FileSystem\Upload;
 use Front;
 use Modules\Module;
 use Sanitize;
-use Settings\Field;
-use Settings\Form;
-use Settings\PostedData;
+use Forms\Field;
+use Forms\Form;
+use Forms\PostedData;
 use Settings\Setting;
 use Users\UsersManagement;
 
@@ -96,23 +99,23 @@ class UserProfile extends Module {
 		}
 
 		$dataAvatar = array();
-		$dataAvatar['choices']['default'] = Avatar::display(null, 'Avatar par défaut');
+		$dataAvatar['default'] = Avatar::display(null, 'Avatar par défaut');
 		// On propose l'avatar LDAP si celui-ci est disponible.
-		if (!empty($cUser->getLDAPProps()->avatar)) $dataAvatar['choices']['ldap'] = Avatar::display($cUser->getLDAPProps()->avatar, 'Avatar LDAP');
-		$dataAvatar['choices']['gravatar'] = Avatar::display($cUser->getEmail(), 'Gravatar');
+		if (!empty($cUser->getLDAPProps()->avatar)) $dataAvatar['ldap'] = Avatar::display($cUser->getLDAPProps()->avatar, 'Avatar LDAP');
+		$dataAvatar['gravatar'] = Avatar::display($cUser->getEmail(), 'Gravatar');
 		// On teste l'existence d'un avatar chargé par l'utilisateur
 		$userAvatarFile = Sanitize::sanitizeFilename($cUser->getName()).'.png';
 		if (file_exists(AVATAR_PATH.$userAvatarFile)){
-			$dataAvatar['choices']['user'] = Avatar::display($userAvatarFile, 'Votre avatar');
+			$dataAvatar['user'] = Avatar::display($userAvatarFile, 'Votre avatar');
 		}else{
-			$dataAvatar['choices']['user'] = 'Choisir un fichier';
+			$dataAvatar['user'] = 'Choisir un fichier';
 		}
 
 
 		$form = new Form('userProfile', null, null);
-		$form->addField(new Field('avatar', 'radio', 'global', $valueAvatar, 'Avatar', null, $dataAvatar, 'Choisissez une image pour vous représenter (avatar)', null, $cUser->getAvatar(true)));
-		$form->addField(new Field('avatarFile', 'file', 'user', null, 'Fichier de l\'avatar'));
-		$form->addField(new Field('action', 'button', 'global', 'saveUserProfile', 'Sauvegarder'));
+		$form->addField(new RadioList('avatar', 'global', $valueAvatar, null, 'Avatar', 'Choisissez une image pour vous représenter (avatar)', false, null, null, null, false, $dataAvatar, $cUser->getAvatar(true)));
+		$form->addField(new File('avatarFile', 'user', null, null, 'Fichier de l\'avatar'));
+		$form->addField(new Button('action', 'global', 'saveUserProfile', 'Sauvegarder'));
 
 		?>
 		<div class="row">

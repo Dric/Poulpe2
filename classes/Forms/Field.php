@@ -6,13 +6,16 @@
  * Time: 09:12
  */
 
-namespace Settings;
+namespace Forms;
+use Components\Help;
+use Db\DbFieldSettings;
 use Sanitize;
+use Settings\Setting;
 
 /**
  * Champ de formulaire (extension de Setting)
  *
- * @package Settings
+ * @package Forms
  */
 class Field extends Setting{
 
@@ -29,8 +32,8 @@ class Field extends Setting{
 	protected $placeholder = '';
 
 	/**
-	 * Expression régulière délimitant la saisie du champ (pour validation par js et php)
-	 * @var string
+	 * Objet de validation du champ ou paramètres du champ dans une base de données
+	 * @var Pattern|DbFieldSettings
 	 */
 	protected $pattern = null;
 
@@ -59,6 +62,8 @@ class Field extends Setting{
 
 	protected $disabled = false;
 
+	protected $htmlType = 'text';
+
 	/**
 	 * Construction du champ
 	 *
@@ -75,7 +80,7 @@ class Field extends Setting{
 	 *        'fieldId1' => array(
 	 *            'on' =>
 	 * @param string $help Message d'aide du champ - facultatif
-	 * @param null   $pattern
+	 * @param Pattern $pattern
 	 * @param null   $userValue
 	 * @param bool   $important Paramètre à signaler comme étant important
 	 * @param int    $id Id du paramètre en bdd
@@ -83,7 +88,7 @@ class Field extends Setting{
 	 * @param string $class Classe optionnelle à ajouter au champ
 	 * @param bool   $disabled Champ désactivé si à true
 	 */
-	public function __construct($name, $type, $category, $value, $label = null, $placeholder = null, $data = array(), $help = null, $pattern = null, $userValue = null, $important = false, $id = null, $ACLLevel = 'admin', $class = '', $disabled = false){
+	public function __construct($name, $type, $category, $value, $label = null, $placeholder = null, $data = array(), $help = null, Pattern $pattern = null, $userValue = null, $important = false, $id = null, $ACLLevel = 'admin', $class = '', $disabled = false){
 		self::$types = Setting::$types;
 		self::$types += array(
 			'email'   => 'string',
@@ -115,6 +120,47 @@ class Field extends Setting{
 	}
 
 	/**
+	 * Affichage du champ
+	 *
+	 * @param bool   $enabled Champ modifiable
+	 * @param bool   $userValue Afficher les valeurs utilisateurs au lieu des valeurs globales
+	 * @param string $attrs Attributs optionnels à ajouter au champ
+	 */
+	public function display($enabled = true, $userValue = false, $attrs = null){
+		/**
+		 * @var Pattern $pattern
+		 */
+		$pattern = $this->pattern;
+		$displayPattern = null;
+		if (!empty($pattern)){
+			if ($pattern->getRequired())        $displayPattern .= 'required ';
+			if ($pattern->getMinLength() > 0)   $displayPattern .= 'data-minlength="'.$pattern->getMinLength().'" ';
+			if ($pattern->getMaxLength() > 0)   $displayPattern .= 'data-maxlength="'.$pattern->getMaxLength().'" ';
+			if ($pattern->getMinValue() > 0)    $displayPattern .= 'min="'.$pattern->getMinValue().'" ';
+			if ($pattern->getMaxValue() > 0)    $displayPattern .= 'max="'.$pattern->getMaxValue().'" ';
+			if ($pattern->getRegExp() !== null) $displayPattern .= 'pattern="'.$pattern->getRegExp().'" ';
+		}
+		$value = ($userValue and !empty($this->userValue)) ? $this->userValue : $this->value;
+		?>
+		<div class="form-group">
+			<label for="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>"><?php echo $this->label; ?> <?php if($this->help != '') Help::iconHelp($this->help); ?></label>
+			<input type="<?php echo $this->htmlType;?>" class="form-control<?php echo ' '.$this->class; ?>" id="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>" name="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>" <?php if ($this->placeholder != '') echo 'placeholder="'.$this->placeholder.'"'; ?> value="<?php echo $value; ?>" <?php if ($this->disabled or !$enabled) echo 'disabled'; ?> <?php echo $attrs; ?> <?php echo $displayPattern; ?>>
+		</div>
+	<?php
+	}
+
+	/**
+	 * Affichage du champ dans un table de bdd
+	 *
+	 * @param string      $tableName  Nom de la table
+	 * @param int|string  $rowId      ID de la ligne
+	 * @param mixed       $value      Valeur du champ
+	 */
+	public function tableItemDisplay($tableName, $rowId, $value = null){
+		?><input type="text" class="form-control" name="dbTable_<?php echo $tableName; ?>_<?php echo $this->type; ?>_<?php echo $this->name; ?>_<?php echo $rowId; ?>" value="<?php echo $value; ?>"><?php
+	}
+
+	/**
 	 * @return string
 	 */
 	public function getLabel() {
@@ -122,9 +168,16 @@ class Field extends Setting{
 	}
 
 	/**
-	 * @return string
+	 * @return Pattern
 	 */
 	public function getPattern() {
+		return $this->pattern;
+	}
+
+	/**
+	 * @return DbFieldSettings
+	 */
+	public function getSettings() {
 		return $this->pattern;
 	}
 

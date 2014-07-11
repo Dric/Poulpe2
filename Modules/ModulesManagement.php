@@ -8,6 +8,7 @@
 
 namespace Modules;
 use Admin\Admin;
+use Db\DbTable;
 use Logs\Alert;
 use Get;
 use Profiles\UserProfile;
@@ -200,13 +201,16 @@ class ModulesManagement {
 	 *
 	 * @return bool
 	 */
-	public static function installModule($module, $acl = array(), $sql = null){
+	public static function installModule(Module $module, $acl = array(), $sql = null){
 		global $db;
 		// Définition des paramètres du module
 		$module->defineSettings();
 		if ($module->getDbTables()){
+			/**
+			 * @var DbTable $table
+			 */
 			foreach ($module->getDbTables() as $table){
-				$ret = $db->createTable($table);
+				$ret = $table->createInDb();
 				if (!$ret){
 					new Alert('error', 'Impossible de créer la table <code>'.$table['name'].'</code> liée au module <code>'.$module->getName().'</code> !');
 					return false;
