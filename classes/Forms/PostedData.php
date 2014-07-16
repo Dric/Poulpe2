@@ -160,8 +160,7 @@ class PostedData {
 	 * @return string
 	 */
 	static public function setToken($name){
-		global $cUser;
-		$hash = sha1($cUser->getName().$name.time());
+		$hash = sha1($name.time());
 		$_SESSION[COOKIE_NAME.'Token'] = $hash;
 		return $hash;
 	}
