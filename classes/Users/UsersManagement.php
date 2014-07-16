@@ -66,7 +66,7 @@ class UsersManagement {
 	 */
 	static function updateUserHash($user){
 		global $db;
-		$hash = sha1($user.SALT_COOKIE);
+		$hash = sha1($user.SALT_COOKIE.time());
 		if (is_numeric($user)){
 			$where = array('id' => $user);
 		}else{
@@ -140,6 +140,25 @@ class UsersManagement {
 	}
 
 	/**
+	 * Supprime un utilisateur de la base de données
+	 * @param User|CurrentUser $User
+	 *
+	 * @return bool
+	 */
+	static function deleteUser($User){
+		/** Si $User n'est ni un User ni un CurrentUser (User étant parent de CurrentUser), on retourne false.
+		 * @see <http://www.php.net/manual/fr/language.operators.type.php#example-139>
+		 */
+		if (!($User instanceof User)){
+			new Alert('debug', '<code>UserManagement::deleteDBUser()</code> : $User n\'est ni un objet User, ni un objet CurrentUser !');
+			return false;
+		}
+		global $db;
+		$where = array('id'=>$User->getId(), 'name'=>$User->getName());
+		return $db->delete('users', $where);
+	}
+
+	/**
 	 * Met à jour les informations d'un utilisateur dans la base de données
 	 * @param User|CurrentUser $User Objet utilisateur
 	 *
@@ -149,7 +168,7 @@ class UsersManagement {
 		/** Si $User n'est ni un User ni un CurrentUser (User étant parent de CurrentUser), on retourne false.
 		* @see <http://www.php.net/manual/fr/language.operators.type.php#example-139>
 		*/
-		if (!($User instanceof CurrentUser)){
+		if (!($User instanceof User)){
 			new Alert('debug', '<code>UserManagement::updateDBUser()</code> : $User n\'est ni un objet User, ni un objet CurrentUser !');
 			return false;
 		}
@@ -157,7 +176,7 @@ class UsersManagement {
 		$fields = array();
 		$fields['name'] = $User->getName();
 		if ($User->getEmail() != '') $fields['email'] = $User->getEmail();
-		if (method_exists($User, 'getPwd') and $User->getPwd() != '') $fields['pwd'] = Login::saltPwd($User->getPwd());
+		if (method_exists($User, 'getPwd') and $User->getPwd() != null) $fields['pwd'] = $User->getPwd();
 		if ($User->getHash() != '') $fields['hash'] = $User->getHash();
 		if ($User->getAvatar(true) != '') $fields['avatar'] = $User->getAvatar(true);
 		$where = array('id'=>$User->getId());

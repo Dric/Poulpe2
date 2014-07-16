@@ -9,6 +9,12 @@
 namespace Modules\Portal;
 
 
+use Db\Db;
+use Db\DbFieldSettings;
+use Db\DbTable;
+use Forms\Fields\Bool;
+use Forms\Fields\Int;
+use Forms\Fields\String;
 use Logs\Alert;
 use Modules\Module;
 use Modules\ModulesManagement;
@@ -115,6 +121,10 @@ class Portal extends Module {
 				'onUpdate'      => 'CASCADE'
 			)
 		);
+		$widgets_groups = new DbTable('widgets_groups', 'Groupes de widgets');
+		$widgets_groups->addField(new Int('id', 'global', null, null, null, null, null, new DbFieldSettings('number', true, 6, 'primary', false, true, 0, null, false, false)));
+		$widgets_groups->addField(new String('name', 'global', null, null, 'Nom du groupe', null, null, new DbFieldSettings('text', true, 100, false, false, false, 0, null, true)));
+		$widgets_groups->addField(new Bool('enabled', 'global', true, null, 'Etat (activé/désactivé)', null, new DbFieldSettings('checkbox', true, 0, 'index', false, false, 0, null, true)));
 		$this->dbTables['widgets'] = array(
 			'name'        => 'widgets',
 			'desc'        => 'Tuiles',

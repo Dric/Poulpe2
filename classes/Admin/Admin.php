@@ -8,13 +8,18 @@
 
 namespace Admin;
 
+use Components\Avatar;
 use Components\Help;
 use Forms\Fields\Bool;
 use Forms\Fields\Button;
+use Forms\Fields\Email;
+use Forms\Fields\Hidden;
 use Forms\Fields\Int;
+use Forms\Fields\Password;
 use Forms\Fields\String;
 use Forms\Fields\ValuesArray;
 use Forms\JSSwitch;
+use Forms\Pattern;
 use Logs\Alert;
 use Components\Item;
 use Components\Menu;
@@ -26,6 +31,7 @@ use Forms\Field;
 use Forms\Form;
 use Forms\PostedData;
 use Users\ACL;
+use Users\User;
 use Users\UsersManagement;
 
 /**
@@ -49,6 +55,7 @@ class Admin extends Module {
 		$menu->add(new Item('modules', 'Modules', $this->url.'&page=modules', 'Administration des modules', 'th-large'));
 		$menu->add(new Item('acl', 'Autorisations', $this->url.'&page=ACL', 'Gestion des autorisations', 'lock'));
 		$menu->add(new Item('config', 'Configuration', $this->url.'&page=config', 'Fichier de configuration', 'floppy-disk'));
+		$menu->add(new Item('users', 'Utilisateurs', $this->url.'&page=users', 'Gestion des utilisateurs', 'user'));
 		Front::setSecondaryMenus($menu);
 	}
 
@@ -188,6 +195,7 @@ class Admin extends Module {
 			}
 		}
 		ModulesManagement::getActiveModules(true);
+		return true;
 	}
 
 	protected function adminACL(){
@@ -203,6 +211,122 @@ class Admin extends Module {
 		<?php
 	}
 
+	/**
+	 * Administration des utilisateurs
+	 */
+	protected function adminUsers(){
+		$users = UsersManagement::getDBUsers();
+		?>
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="page-header">
+					<h1>Utilisateurs de <?php echo SITE_NAME; ?></h1>
+				</div>
+				<p>Pour modifier ou supprimer un compte, il vous suffit de cliquer sur son bouton <code>Modifier</code>.</p>
+				<table class="table table-responsive table-striped">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Nom</th>
+							<th>Avatar</th>
+							<th>Email</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+						foreach ($users as $user){
+							switch ($user->avatar){
+								case 'ldap':
+									$ldapUser = UsersManagement::getLDAPUser($user->name);
+									$avatar = $ldapUser->avatar;
+									break;
+								case 'gravatar':
+									$avatar = $user->email;
+									break;
+								default:
+									$avatar = $user->avatar;
+							}
+							?>
+							<tr>
+								<td><?php echo $user->id; ?></td>
+								<td><?php echo $user->name; ?></td>
+								<td><?php echo Avatar::display($avatar, 'Avatar de '.$user->name); ?></td>
+								<td><?php echo $user->email; ?></td>
+								<td><a class="btn btn-default" href="<?php echo MODULE_URL; ?>profil&user=<?php echo $user->id; ?>">Modifier</a></td>
+							</tr>
+							<?php
+						}
+						?>
+					</tbody>
+				</table>
+				<?php
+					if (AUTH_MODE != 'sql'){
+						?><h3>Créer un utilisateur</h3><?php
+						$form = new Form('createUser');
+						$form->addField(new String('name', 'global', null, null, 'Nom/Pseudo', 'Veuillez saisir un nom ou un pseudonyme', null, new Pattern('text', true, 4, 150), true));
+						$form->addField(new Email('email', 'global', null, null, 'Adresse email', 'nom@domaine.extension', null, new Pattern('email', true, 0, 250), true));
+						$form->addField(new Password('pwd', 'global', null, null, 'Mot de passe', 'Mot de passe de '.PWD_MIN_SIZE.' caractères minimum', null, new Pattern('password', true, PWD_MIN_SIZE, 100), true));
+						$form->addField(new Button('action', 'global', 'createUser', 'Créer l\'utilisateur'));
+						$form->display();
+					}
+				?>
+			</div>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Crée un utilisateur dans la base de données
+	 * @return bool
+	 */
+	protected function createUser(){
+		if (!ACL::canModify('admin', $this->id)){
+			new Alert('error', 'Vous n\'avez pas l\'autorisation de faire ceci !');
+			return false;
+		}
+		$req = PostedData::get();
+		if (!isset($req['name'])){
+			new Alert('error', 'Vous n\'avez pas indiqué le nom d\'utilisateur !');
+			return false;
+		}
+		if (!isset($req['email'])){
+			new Alert('error', 'Vous n\'avez pas indiqué l\'adresse email !');
+			return false;
+		}
+		if (!isset($req['pwd'])){
+			new Alert('error', 'Le mot de passe est vide !');
+			return false;
+		}
+		$name = htmlspecialchars($req['name']);
+		if (UsersManagement::getDBUsers($name) != null){
+			new Alert('error', 'Ce nom d\'utilisateur est déjà pris !');
+			return false;
+		}
+		$email = $req['email'];
+		if (!\Check::isEmail($email)){
+			new Alert('error', 'Le format de l\'adresse email que vous avez saisi est incorrect !');
+			return false;
+		}
+		$pwd = $req['pwd'];
+		// On vérifie que le nouveau mot de passe comporte bien le nombre minimum de caractères requis
+		if (strlen($pwd) < PWD_MIN_SIZE){
+			new Alert('error', 'Le mot de passe doit comporter au moins '.PWD_MIN_SIZE.' caractères !');
+			return false;
+		}
+		if (UsersManagement::createDBUser($name, $email, $pwd)){
+			new Alert('success', 'L\'utilisateur <code>'.$name.'</code> a été créé ! It\'s alive !');
+			return true;
+		}else{
+			new Alert('error', 'Impossible de créer l\'utilisateur <code>'.$name.'</code> !');
+			return false;
+		}
+	}
+
+	/**
+	 * Gère la configuration du site
+	 * @TODO gérer le changement de chmod via l'interface web
+	 */
 	protected function adminConfig(){
 		$dir = str_replace('/Admin', '/Settings', __DIR__);
 		$share = new Fs($dir);
@@ -218,7 +342,7 @@ class Admin extends Module {
 				</div>
 				<p>
 					Cette page est générée automatiquement à partir du fichier <code>config.php</code>. Ne modifiez une valeur que si vous savez vraiment ce que vous faites.<br />
-					Si vous vous plantez, il y a un risque non négligeable que vous ne puissez plus accéder au site ni à cette page. Dans ce cas, vous pouvez effacer <code>config.php</code> et renommer <code>config.php.backup</code> en <code>config.php</code>.
+					Si vous vous plantez, il y a un risque non négligeable que vous ne puissiez plus accéder au site ni à cette page. Dans ce cas, vous pouvez effacer <code>config.php</code> et renommer <code>config.php.backup</code> en <code>config.php</code>.
 				</p>
 				<?php if ($readOnly) { ?>
 				<div class="alert alert-danger">Le fichier <code>config.php</code> n'est pas modifiable par le script ! (ce qui est une bonne chose en matière de sécurité, mais vous y perdez en souplesse d'utilisation)<br /> Pour pouvoir modifier ce fichier à partir de cette interface web, vérifiez que l'utilisateur linux <code><?php echo exec('whoami'); ?></code> a les droits pour modifier le fichier ainsi que le répertoire qui le contient (pour effectuer un backup du fichier).</div>
@@ -240,21 +364,21 @@ class Admin extends Module {
 							array_walk($constantValue, function(&$value, $key) {
 								if (!is_int($value)) $value = trim($value, '\'');
 							});
-							$form->addField(new ValuesArray($constantName, 'global', $constantValue, null, $explain, null, 'Paramètre '.$constantName, null, true, null, null, null, false, true));
+							$form->addField(new ValuesArray($constantName, 'global', $constantValue, null, $explain, null, 'Paramètre '.$constantName, null, true, null, null, null, $readOnly, true));
 						}else{
 							$constantValue = trim(rtrim($define[1],')'), " "); //On enlève d'abord les parenthèses, puis les espaces
 							if (substr($constantValue,-1) == '\''){
 								$constantValue =  trim($constantValue, '\'');
 								if (count($tab = explode(', ', $constantValue)) > 1){
 									$constantValue = $tab;
-									$form->addField(new ValuesArray($constantName, 'global', $constantValue, null, $explain, null, 'Paramètre '.$constantName, null, true));
+									$form->addField(new ValuesArray($constantName, 'global', $constantValue, null, $explain, null, 'Paramètre '.$constantName, null, true, null, null, null, $readOnly));
 								}else{
-									$form->addField(new String($constantName, 'global', $constantValue, null, $explain, null, 'Paramètre '.$constantName, null, true));
+									$form->addField(new String($constantName, 'global', $constantValue, null, $explain, null, 'Paramètre '.$constantName, null, true, null, null, null, $readOnly));
 								}
 							}elseif(stristr($constantValue, 'true') or stristr($constantValue, 'false')){
-								$form->addField(new Bool($constantName, 'global', $constantValue, null, $explain, 'Paramètre '.$constantName, null, true, null, null, null, false, new JSSwitch(null, null, null, null, null, 'left')));
+								$form->addField(new Bool($constantName, 'global', $constantValue, null, $explain, 'Paramètre '.$constantName, null, true, null, null, null, $readOnly, new JSSwitch(null, null, null, null, null, 'left')));
 							}else{
-								$form->addField(new Int($constantName, 'global', $constantValue, null, $explain, null, 'Paramètre '.$constantName, null, true));
+								$form->addField(new Int($constantName, 'global', $constantValue, null, $explain, null, 'Paramètre '.$constantName, null, true, null, null, null, $readOnly));
 							}
 						}
 					}

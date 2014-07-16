@@ -9,7 +9,9 @@
 namespace Forms;
 
 
+use Logs\Alert;
 use Sanitize;
+use Users\Login;
 
 class PostedData {
 
@@ -127,7 +129,41 @@ class PostedData {
 				$ret['action'] = $value;
 			}
 		}
-		return $ret;
+		// Vérification du jeton de sécurité - si celui-ci n'est aps bon, on ne renvoie pas les données
+		if (isset($ret['token']) and self::checkToken($ret['token'])){
+			return $ret;
+		}
+		return null;
+	}
+
+	/**
+	 * Vérifie un jeton de sécurité de formulaire
+	 * @param string $token Jeton de sécurité
+	 *
+	 * @return bool
+	 */
+	static protected function checkToken($token){
+		if (isset($_SESSION[COOKIE_NAME.'Token'])){
+			if ($_SESSION[COOKIE_NAME.'Token'] == $token){
+				unset($_SESSION[COOKIE_NAME.'Token']);
+				return true;
+			}
+		}
+		new Alert('error', 'Erreur de traitement : Ce formulaire a déjà été envoyé, ou bien vous n\'êtes pas la personne qui a initié l\'envoi !');
+		return false;
+	}
+
+	/**
+	 * Crée et renvoie un jeton de sécurité pour éviter les failles CSRF
+	 *
+	 * @param string $name Nom du formulaire
+	 * @return string
+	 */
+	static public function setToken($name){
+		global $cUser;
+		$hash = sha1($cUser->getName().$name.time());
+		$_SESSION[COOKIE_NAME.'Token'] = $hash;
+		return $hash;
 	}
 
 	/**

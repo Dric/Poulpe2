@@ -16,4 +16,4 @@ class Email extends String{
 
 	protected $htmlType = 'email';
 
-} 
+}

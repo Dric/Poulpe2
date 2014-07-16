@@ -62,10 +62,11 @@ class Bool extends Field{
 			?>
 			<div class="form-group">
 				<label for="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>">
-					<?php echo $this->label; ?> <?php if($this->help != '') Help::iconHelp($this->help); ?>
+					<?php echo $this->label; ?> <?php if (!empty($pattern) and $pattern->getRequired()) $this->displayRequired(); ?> <?php if($this->help != '') Help::iconHelp($this->help); ?>
 				</label>
 				<input type="checkbox" class="form-control <?php if (!empty($this->switch)) echo 'checkboxSwitch'; ?>" id="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>_checkbox" name="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>_checkbox" value="1" <?php if ($value === true or $value == 'true') echo 'checked'; ?> <?php if (!empty($dataAttr)) echo $dataAttr; ?> <?php if ($this->disabled or !$enabled) echo 'disabled'; ?>>
 				<input type="hidden" id="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>_hidden" name="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>_hidden" value="0" <?php if ($this->disabled or !$enabled) echo 'disabled'; ?>>
+				<div class="help-block with-errors"></div>
 			</div>
 		<?php
 		}else{
@@ -76,6 +77,7 @@ class Bool extends Field{
 					<input type="hidden" id="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>_hidden" name="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>_hidden" value="0" <?php if ($this->disabled or !$enabled) echo 'disabled'; ?>>
 					<?php echo $this->label; ?> <?php if($this->help != '') Help::iconHelp($this->help); ?>
 				</label>
+				<div class="help-block with-errors"></div>
 			</div>
 		<?php
 		}

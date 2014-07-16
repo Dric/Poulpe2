@@ -21,6 +21,7 @@ use Forms\Fields\Select;
 use Forms\Fields\String;
 use Forms\Fields\Table;
 use Forms\JSSwitch;
+use Forms\Pattern;
 use Front;
 use Logs\Alert;
 use Modules\Module;
@@ -252,7 +253,7 @@ class Dupliqueur extends Module {
 		$form = new Form('dupliqueur', null, null, 'module', $this->getId());
 		$form->addField(new Select('serverFrom', 'global', $serverFrom, null, 'Serveur d\'origine', 'Choisissez le serveur sur lequel se trouve le fichier à copier', true, null, 'modify', null, false, $choices, true));
 		$form->addField(new CheckboxList('serversTo', 'global', $serversTo, null, 'Serveurs de destination', 'Choisissez le(s) serveur(s) sur le(s)quel(s) copier le fichier', true, null, 'modify', 'serversList', false, $choices, 'all'));
-		$form->addField(new String('file', 'global', $file, null, 'Fichier à copier', 'd:\\cariatides\\cariatides.cfg', 'Indiquez un chemin de fichier. Ex : d:\cariatides\cariatides.cfg pour aller chercher le fichier sur le disque D du serveur d\'origine', null, true, null, 'modify'));
+		$form->addField(new String('file', 'global', $file, null, 'Fichier à copier', 'd:\\cariatides\\cariatides.cfg', 'Indiquez un chemin de fichier. Ex : d:\cariatides\cariatides.cfg pour aller chercher le fichier sur le disque D du serveur d\'origine', new Pattern('text', true), true, null, 'modify'));
 		$form->addField(new Bool('overwrite', 'global', $overwrite, null, 'Ecraser les fichiers existants', 'Cochez cette case pour remplacer les fichiers déjà existants sur les serveurs', null, false, null, 'modify', null, false, new JSSwitch(null, null, null, null, 'mini', 'left')));
 		$form->addField(new Button('action', 'global', 'copyFile', 'Lancer la copie', 'modify', 'btn-primary'));
 

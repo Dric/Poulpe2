@@ -83,7 +83,7 @@ class PostIt extends Module{
 		 */
 		$postIt = new DbTable('module_postit', 'Post-It');
 		$postIt->addField(new Int('id', 'global', null, null, null, null, null, new DbFieldSettings('number', true, 11, 'primary', false, true, 0, null, false, false)));
-		$postIt->addField(new Int('author', 'global', null, null, 'ID de l\'auteur du post', null, null, new DbFieldSettings('number', true, 6, 'index', false, false, 0, new ForeignKey('users', 'id', 'CASCADE', 'NO ACTION'), false)));
+		$postIt->addField(new Int('author', 'global', null, null, 'ID de l\'auteur du post', null, null, new DbFieldSettings('number', false, 6, 'index', false, false, 0, new ForeignKey('users', 'id', 'CASCADE', 'SET NULL'), false)));
 		$postIt->addField(new Text('content', 'global', null, null, 'Texte du post-it', null, null, new DbFieldSettings('text', true, null, false, false, false, 0, null, true)));
 		$postIt->addField(new Bool('shared', 'global', false, null, 'Post-it public ou privé', null, new DbFieldSettings('checkbox', false, 1, 'index', false, false, 0, null, true)));
 		$postIt->addField(new Int('created', 'global', null, null, 'Timestamp de création', null, null, new DbFieldSettings('number', true, 11)));

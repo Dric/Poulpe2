@@ -44,13 +44,27 @@ class User {
 	protected $email = '';
 
 	/**
+	 * Mot de passe crypté
+	 * @var string
+	 */
+	protected $pwd = null;
+
+	/**
 	 * Hash d'authentification de l'utilisateur
 	 * @var string
 	 */
 	protected $hash = '';
 
+	/**
+	 * Propriétés utilisateurs provenant d'un annuaire LDAP
+	 * @var array
+	 */
 	protected $LDAPProps = array();
 
+	/**
+	 * ACL de l'utilisateur
+	 * @var array
+	 */
 	protected $ACL = array();
 
 	/**
@@ -63,7 +77,7 @@ class User {
 		if ($user !== 0){
 			$userDB = UsersManagement::getDBUsers($user);
 			foreach(get_object_vars($this) as $prop => $value){
-				if (isset($userDB->$prop)) {
+				if (isset($userDB->$prop) and !empty($userDB->$prop)) {
 					$this->$prop = $userDB->$prop;
 				}
 			}
@@ -155,6 +169,23 @@ class User {
 	 */
 	public function setAvatar($avatar) {
 		$this->avatar = $avatar;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getPwd() {
+		return $this->pwd;
+	}
+
+	/**
+	 * Défini un mot de passe pour l'utilisateur
+	 *
+	 * Le mot de passe est crypté et salé avec la constante SALT_AUTH
+	 * @param string $pwd
+	 */
+	public function setPwd($pwd) {
+		$this->pwd = Login::saltPwd($pwd);
 	}
 
 }

@@ -171,6 +171,7 @@ class Front {
 		<script src="js/pnotify/jquery.pnotify.min.js"></script>
 		<script src="js/bootstrap-switch/bootstrap-switch.min.js"></script>
 		<script src="js/Bootstrap-Confirmation/bootstrap-confirmation.min.js"></script>
+		<script src="js/bootstrap-validator/validator.min.js"></script>
 		<script src="js/poulpe2.js"></script>
 
 		<!-- Custom JavaScript for the Menu Toggle -->

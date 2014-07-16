@@ -15,7 +15,7 @@ Des petits outils divers et variés pour simplifier la vie des informaticiens.
 #### Serveur Linux
 
 - Le répertoire `/mnt` doit être accessible en écriture à l'utilisateur apache (`www-data` par défaut)
-- L'utilisateur apache doit avoir le droit d'invoquer sudo sans mot de passe. Ceci est quand même un gros trou de sécurité...
+- L'utilisateur apache doit avoir le droit d'invoquer `sudo` sans mot de passe pour monter tous les répertoires réseau. Ceci est quand même un gros trou de sécurité...
 
 Dans un terminal, saisir :
 
@@ -37,7 +37,7 @@ Attention : si vous lancez apache sous un autre nom (`administrateur` par exempl
 
 ## Composants externes
 
-- [Twitter Bootstrap](http://getbootstrap.com) 3.11 _(Windows for Workgroups !)_ : est un framework html, css et javascript. En clair il peut gérer toute la partie affichage dès lors qu'on lui file quelque chose à afficher.
+- [Twitter Bootstrap](http://getbootstrap.com) 3.2.0 : est un framework html, css et javascript. En clair il peut gérer toute la partie affichage dès lors qu'on lui file quelque chose à afficher.
 - [jQuery](http://jquery.com) 1.11.0 : framework Javascript utilisé par Bootstrap.
 - [Bootstrap Switch](http://www.bootstrap-switch.org) 3 : plugin jQuery qui change les cases à cocher en switch d'activation (similaire à ce qu'on voit sur les smartphones).
 - [PNotify Plugin](http://sciactive.com/pnotify/) 1.3.1 : plugin jQuery de notifications flottantes.
@@ -46,6 +46,7 @@ Attention : si vous lancez apache sous un autre nom (`administrateur` par exempl
 - [Pagedown Bootstrap](http://kevin.oconnor.mp/pagedown-bootstrap) : Editeur gérant la syntaxe Markdown
 - [Highlight.js](http://highlightjs.org) : Plugin de coloration syntaxique de code
 - [DataTables](http://datatables.net) : Plugin jQuery d'organisation de tables HTML avec tri, recherche et pagination
+- [Bootstrap Validator](https://github.com/1000hz/bootstrap-validator) 0.5 : plugin jQuery et Bootstrap qui gère la validation des champs de formulaires
 
 ## Installation
 
@@ -54,12 +55,12 @@ Voir Le fichier `install.md`.
 ## TODO
 
 - Script d'installation
-- Authentification MySQL
 - Doc de développement de plugins
+- Gérer la barre de menu avec JS désactivé
 
 ## Documentation
 
-- [Boostrap 3.11](Docs/Bootstrap3.11)
+- Voir le répertoire `Docs`
 
 ## Divers
 
@@ -69,13 +70,14 @@ Voir Le fichier `install.md`.
 
 ### Evolutions majeures depuis la v1
 
-- Le script reste fonctionnel même avec Javascript désactivé
+- Le script reste fonctionnel même avec Javascript désactivé (à l'exception de la barre de menus)
 - Utilisation de PHP5 et de la programmation orientée objet
 - Utilisation de Bootstrap 3 - le site est maintenant adaptatif aux différentes résolutions (PC, tablettes, smartphones)
 - Meilleure cohérence entre les modules
 - Design revu
 - Les autorisations ne sont plus basées sur des groupes mais directement sur les utilisateurs. Elles sont en revanche plus détaillées, un utilisateur pouvant être admin d'un module sans être admin du site complet.
 - Meilleure fiabilité
+- Sécurité améliorée
 
 ### Régressions depuis la v1
 

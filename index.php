@@ -44,6 +44,8 @@ use Users\Login;
 
 Front::setAbsolutePath(realpath(dirname(__FILE__)));
 
+session_start();
+
 /**
  * Connexion à la base de données
  * @var $db Db

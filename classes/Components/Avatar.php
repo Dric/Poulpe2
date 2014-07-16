@@ -7,6 +7,7 @@
  */
 
 namespace Components;
+use Check;
 
 /**
  * Class de gestion de l'avatar
@@ -25,11 +26,11 @@ class Avatar {
 	 */
 	public static function display($avatar = null,  $avatarTitle = 'Avatar') {
 		$pathInfo = pathinfo($avatar);
-		if (empty($avatar)){
+		if (empty($avatar) or $avatar == 'default'){
 			$src = AVATAR_PATH.AVATAR_DEFAULT;
 		}elseif (isset($pathInfo['extension']) and in_array($pathInfo['extension'], array('jpg', 'jpeg', 'gif', 'png', 'bmp'))){
 			$src = AVATAR_PATH.$avatar;
-		}elseif(filter_var($avatar, FILTER_VALIDATE_EMAIL)){
+		}elseif(Check::isEmail($avatar)){
 			$src = 'http://www.gravatar.com/avatar/' . md5( strtolower( trim( $avatar ) ) ) . '?s=80';
 		}else{
 			// avatar en format binaire (venant de LDAP)

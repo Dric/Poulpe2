@@ -41,6 +41,16 @@ class Check {
 	}
 
 	/**
+	 * Valide une adresse email
+	 *
+	 * @param $email
+	 * @return bool
+	 */
+	public static function isEmail($email){
+		return (filter_var($email, FILTER_VALIDATE_EMAIL) === false) ? false : true;
+	}
+
+	/**
 	 * Equivalent de in_array() dans un tableau multi-dimensionnel
 	 *
 	 * @param string $elem Valeur à trouver

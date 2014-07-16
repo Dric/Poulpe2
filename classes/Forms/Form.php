@@ -8,6 +8,7 @@
 
 namespace Forms;
 use Components\Help;
+use Forms\Fields\Hidden;
 use Users\ACL;
 
 /**
@@ -35,8 +36,16 @@ class Form {
 	  'id'        => 0
 	);
 
+	/**
+	 * Classe CSS optionnelle à appliquer au formulaire
+	 * @var string
+	 */
 	protected $class = '';
 
+	/**
+	 * Méthode d'envoi (POST ou GET)
+	 * @var string
+	 */
 	protected $method = 'post';
 
 	/**
@@ -78,6 +87,9 @@ class Form {
 		$this->method = $method;
 		if (!empty($class)) $this->class = $class;
 		if (!empty($parameters)) $this->parameters = $parameters;
+
+		// On ajoute au formulaire un jeton de sécurité pour vérifier au traitement du formulaire que l'utilisateur demandant le traitement est bien celui qui a envoyé le formulaire (pour éviter une faille CSRF)
+		$this->addField(new Hidden('token', 'global', PostedData::setToken($this->name)));
 	}
 
 	/**
@@ -103,7 +115,7 @@ class Form {
 	public function display(){
 		global $cUser;
 		?>
-		<form id="form_<?php echo $this->name?>" class="<?php if (!empty($this->class)) echo $this->class; ?>" method="<?php echo $this->method; ?>" role="form" action="<?php if (!empty($this->action)) echo $this->action; ?>" enctype="multipart/form-data">
+		<form id="form_<?php echo $this->name?>" class="<?php if (!empty($this->class)) echo $this->class; ?>" method="<?php echo $this->method; ?>" role="form" data-toggle="validator" action="<?php if (!empty($this->action)) echo $this->action; ?>" enctype="multipart/form-data">
 			<?php
 			// On affiche d'abord les champs
 			/**
@@ -142,7 +154,7 @@ class Form {
 				}
 				$field->display($hasACL, $userValue);
 			}
-
+			// On passe les paramètres additionnels en tant que champs masqués
 			foreach ($this->parameters as $parameter => $value){
 				?>
 				<input type="hidden" name="<?php echo $parameter; ?>" value="<?php echo $value; ?>">
