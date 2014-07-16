@@ -17,6 +17,8 @@ define('DB_PASSWORD', 'poulpe2');
 define('DB_HOST', 'localhost');
 /** Authentification via ldap ou sql */
 define('AUTH_MODE', 'ldap');
+/** Longueur minimale du mot de passe (authentification sql) */
+define('PWD_MIN_SIZE', 6);
 /** Authentification obligatoire */
 define('AUTH_MANDATORY', true);
 /** Nom courant des serveurs LDAP */

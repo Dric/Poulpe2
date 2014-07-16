@@ -11,7 +11,7 @@ Créez une base de données puis importez-y ce script SQL :
 	CREATE TABLE `ACL` (
 	  `component` varchar(50) NOT NULL COMMENT 'Composant (module, profil, site, etc.)',
 	  `id` mediumint(9) NOT NULL COMMENT 'ID du composant',
-	  `user` smallint(6) NOT NULL COMMENT 'ID de l''utilisateur',
+	  `user` int(6) NOT NULL COMMENT 'ID de l''utilisateur',
 	  `type` varchar(50) NOT NULL COMMENT 'Type d''ACL (admin, accès)',
 	  `value` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Valeur de l''ACL (0 : refusé, 1: permis)',
 	  UNIQUE KEY `componentID_User` (`component`,`id`,`user`,`type`),
@@ -35,7 +35,7 @@ Créez une base de données puis importez-y ce script SQL :
 
 	CREATE TABLE `logs` (
 	  `id` int(11) NOT NULL AUTO_INCREMENT,
-	  `user` smallint(6) DEFAULT NULL COMMENT 'ID de l''utilisateur qui a généré l''événement',
+	  `user` int(6) DEFAULT NULL COMMENT 'ID de l''utilisateur qui a généré l''événement',
 	  `component` varchar(50) DEFAULT NULL COMMENT 'Composant - On ne relie pas les événements directement aux modules, afin que si on supprime le module l''événement reste',
 	  `type` varchar(50) NOT NULL COMMENT 'Type de log',
 	  `data` varchar(255) DEFAULT NULL COMMENT 'Données liées à l''événement',
@@ -52,7 +52,7 @@ Créez une base de données puis importez-y ce script SQL :
 	--
 
 	CREATE TABLE `modules` (
-	  `id` smallint(6) NOT NULL AUTO_INCREMENT,
+	  `id` int(6) NOT NULL AUTO_INCREMENT,
 	  `name` varchar(150) NOT NULL,
 	  `class` varchar(100) NOT NULL COMMENT 'Classe sous laquelle est déclarée le module',
 	  PRIMARY KEY (`id`),
@@ -66,7 +66,7 @@ Créez une base de données puis importez-y ce script SQL :
 
 	CREATE TABLE `modules_settings` (
 	  `id` int(11) NOT NULL AUTO_INCREMENT,
-	  `module` smallint(6) NOT NULL COMMENT 'ID du module',
+	  `module` int(6) NOT NULL COMMENT 'ID du module',
 	  `setting` varchar(150) NOT NULL COMMENT 'Nom du paramètre',
 	  `type` varchar(20) NOT NULL DEFAULT 'global' COMMENT 'Type de paramètre : global ou user',
 	  `value` varchar(255) DEFAULT NULL COMMENT 'Valeur du paramètre',
@@ -82,8 +82,8 @@ Créez une base de données puis importez-y ce script SQL :
 
 	CREATE TABLE `modules_users_settings` (
 	  `moduleSetting` int(11) NOT NULL COMMENT 'Id du paramètre de module',
-	  `module` smallint(6) NOT NULL COMMENT 'ID du module',
-	  `user` smallint(6) NOT NULL COMMENT 'ID de l''utilisateur',
+	  `module` int(6) NOT NULL COMMENT 'ID du module',
+	  `user` int(6) NOT NULL COMMENT 'ID de l''utilisateur',
 	  `value` varchar(255) NOT NULL COMMENT 'Valeur du paramètre défini par l''utilisateur',
 	  UNIQUE KEY `userSetting` (`moduleSetting`,`user`),
 	  KEY `moduleSetting` (`moduleSetting`),
@@ -96,7 +96,7 @@ Créez une base de données puis importez-y ce script SQL :
 	--
 
 	CREATE TABLE `users` (
-	  `id` smallint(6) NOT NULL AUTO_INCREMENT,
+	  `id` int(6) NOT NULL AUTO_INCREMENT,
 	  `name` varchar(150) NOT NULL,
 	  `email` varchar(250) DEFAULT NULL,
 	  `pwd` varchar(150) DEFAULT NULL,
