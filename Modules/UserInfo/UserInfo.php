@@ -65,7 +65,7 @@ class UserInfo extends Module{
 				</p>
 				<?php
 				$userSearched = null;
-				$req = PostedData::get();
+				$req = $this->postedData;
 				if (isset($req['user'])){
 					$userSearched = $req['user'];
 				}elseif(isset($_REQUEST['user'])){
@@ -87,7 +87,7 @@ class UserInfo extends Module{
 	 */
 	protected function searchForm($userSearched = null){
 		$form = new Form('userSearch', null, null, 'module', $this->id, 'post', 'form-inline');
-		$form->addField(new String('user', 'global', $userSearched, null, 'Nom de l\'utilisateur', 'prenom.nom', 'La recherche peut se faire sur un login complet (prenom.nom) ou sur une partie de celui-ci', null, true, null, 'access', null, false, false));
+		$form->addField(new String('user', 'global', $userSearched, null, 'Nom de l\'utilisateur', 'prenom.nom', 'La recherche peut se faire sur un login complet (prenom.nom) ou sur une partie de celui-ci', null, true, 'access', null, false, false));
 		$form->addField(new Button('action', 'global', 'getUserInfo', 'Rechercher', 'access', 'btn-primary btn-sm'));
 		$form->display();
 	}
@@ -99,7 +99,7 @@ class UserInfo extends Module{
 	 */
 	protected function returnUsers(){
 		$ldap = new Ldap();
-		$req = PostedData::get();
+		$req = $this->postedData;
 		header('Content-type: application/json');
 		echo $ldap->users('json', $req['query']);
 		exit();

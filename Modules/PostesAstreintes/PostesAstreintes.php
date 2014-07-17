@@ -13,6 +13,7 @@ use Check;
 use Components\Item;
 use FileSystem\Fs;
 use Forms\Fields\String;
+use Forms\Pattern;
 use Front;
 use Logs\Alert;
 use Modules\Module;
@@ -27,6 +28,7 @@ class PostesAstreintes extends Module{
 	protected $title = 'Gestion des mappages d\'adresses IP des postes d\'astreinte';
 
 	protected $postes = array();
+
 
 	/**
 	 * Permet d'ajouter des items au menu général
@@ -55,7 +57,7 @@ class PostesAstreintes extends Module{
 	 * Les paramètres sont définis non pas avec des objets Setting mais avec des objets Field (sans quoi on ne pourra pas créer d'écran de paramétrage)
 	 */
 	public function defineSettings(){
-		$this->settings['filePath'] = new String('filePath', 'global', '\\\\intra.epsi.fr\Profils\Xen\Xenlogin\Scripts\IP-Astreintes-test.vbs', null, 'Fichier du script VBS de gestion des adresses IP', null, 'Saisissez le chemin et le nom du script VBS. Vous pouvez utiliser des partages administratifs ou DFS', null, true);
+		$this->settings['filePath'] = new String('filePath', 'global', '\\\\intra.epsi.fr\Profils\Xen\Xenlogin\Scripts\IP-Astreintes-test.vbs', null, 'Fichier du script VBS de gestion des adresses IP', null, 'Saisissez le chemin et le nom du script VBS. Vous pouvez utiliser des partages administratifs ou DFS', new Pattern('string', true), true);
 	}
 
 	/**
@@ -108,8 +110,8 @@ class PostesAstreintes extends Module{
 								foreach ($this->postes as $poste => $ip){
 									?>
 									<tr class="tr_dbTable" id="tr_<?php echo $i; ?>">
-										<td><input type="text" class="form-control" name="table_IPPostes_string_name_<?php echo $i; ?>" value="<?php echo $poste; ?>"></td>
-										<td><input type="text" class="form-control" name="table_IPPostes_string_ip_<?php echo $i; ?>" value="<?php echo $ip; ?>"></td>
+										<td><input type="text" class="form-control" name="dbTable_IPPostes_string_name_<?php echo $i; ?>" value="<?php echo $poste; ?>"></td>
+										<td><input type="text" class="form-control" name="dbTable_IPPostes_string_ip_<?php echo $i; ?>" value="<?php echo $ip; ?>"></td>
 									</tr>
 									<?php
 									$i++;
@@ -117,8 +119,8 @@ class PostesAstreintes extends Module{
 
 								?>
 								<tr id="tr_new">
-									<td><input type="text" class="form-control" name="table_IPPostes_string_name_new"></td>
-									<td><input type="text" class="form-control" name="table_IPPostes_string_ip_new"></td>
+									<td><input type="text" class="form-control" name="dbTable_IPPostes_string_name_new"></td>
+									<td><input type="text" class="form-control" name="dbTable_IPPostes_string_ip_new"></td>
 									<td></td>
 								</tr>
 							<?php }else{
@@ -138,6 +140,11 @@ class PostesAstreintes extends Module{
 						<?php if ($canModify) { ?><button name="action" value="savePostes" class="btn btn-primary">Sauvegarder</button><?php }else{ ?>
 						<div class="alert alert-warning">Vous pouvez visualiser les correspondances Postes-IP mais pas les modifier car vous n'avez pas les droits pour le faire.</div>
 						<?php } ?>
+						<?php
+							$token = PostedData::setToken('IPPostes');
+						?>
+						<input id="field_hidden_token" name="field_hidden_token" value="<?php echo $token; ?>" type="hidden">
+						<input id="field_hidden_formName" name="field_hidden_formName" value="IPPostes" type="hidden">
 					</form>
 				</div>
 			</div>
@@ -181,8 +188,7 @@ class PostesAstreintes extends Module{
 			new Alert('error', 'Vous n\'avez pas l\'autorisation de faire ceci !');
 			return false;
 		}
-		$req = PostedData::get(null, 'table');
-		$postes = $req['table']['IPPostes'];
+		$postes = $this->postedData['dbTable']['IPPostes'];
 		foreach ($postes as $poste){
 			if (!empty($poste['name']) and !empty($poste['ip'])) {
 				if (!Check::isIpAddress($poste['ip'])){

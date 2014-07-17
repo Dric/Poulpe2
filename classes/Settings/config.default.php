@@ -58,17 +58,17 @@ define('UPLOAD_FILE', 'uploads/files');
 /** Extensions d'images autorisées */
 define('ALLOWED_IMAGES_EXT', serialize(array('jpg', 'jpeg', 'gif', 'png')));
 /** Taille maximum de l'image chargée pour l'avatar (en ko) */
-define('AVATAR_MAX_SIZE', '400');
+define('AVATAR_MAX_SIZE', 400);
 /** Liste des valeurs possibles pour le nombre d'entrées par page */
 define('PER_PAGE_VALUES', '5, 10, 15, 20, 25, 50, 100');
 /** Afficher le fil d'ariane */
-define('DISPLAY_BREADCRUMB', false);
+define('DISPLAY_BREADCRUMB', true);
 /** Afficher le lien vers la page d'accueil de l'intranet */
-define('DISPLAY_INTRANET_LINK', false);
+define('DISPLAY_INTRANET_LINK', true);
 /** Afficher le lien vers la page d'accueil du site */
-define('DISPLAY_HOME', false);
+define('DISPLAY_HOME', true);
 /** Module en page d'accueil */
-define('HOME_MODULE', 'Portal');
+define('HOME_MODULE', 'home');
 /** Debug mode */
 define('DEBUG', false);
 /** Debug détaillé */

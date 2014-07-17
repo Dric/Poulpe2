@@ -22,6 +22,7 @@ use Forms\Fields\Select;
 use Forms\Fields\String;
 use Forms\Fields\Text;
 use Forms\JSSwitch;
+use Forms\Pattern;
 use Front;
 use Logs\Alert;
 use Modules\Module;
@@ -40,6 +41,7 @@ class PostIt extends Module{
 	protected $nbPosts = 0;
 	protected $page = 1;
 	protected $allowUsersSettings = true;
+	protected $postedData = array();
 
 	public function __construct(){
 		parent::__construct();
@@ -48,7 +50,6 @@ class PostIt extends Module{
 		Front::setJsFooter('<script src="js/pagedown-bootstrap/js/jquery.pagedown-bootstrap.combined.min.js"></script>');
 		Front::setJsFooter('<script src="js/highlight/highlight.pack.js"></script>');
 		Front::setJsFooter('<script src="Modules/PostIt/PostIt.js"></script>');
-
 	}
 
 	/**
@@ -92,11 +93,16 @@ class PostIt extends Module{
 		$this->dbTables['module_postit'] = $postIt;
 
 		$switch = new JSSwitch(null, null, null, null, 'small', 'right');
-		$this->settings['sharedByDefault'] = new Bool('sharedByDefault', 'user', true, null, 'Rendre les post-it publiques par défaut', null, null, false, null, null, null, false, $switch);
-		$this->settings['alwaysShowAddPost'] = new Bool('alwaysShowAddPost', 'user', false, null, 'Afficher l\'ajout de post-it en permanence <noscript><span class="text-danger">(actif seulement quand Javascript est activé)</span></noscript>', null, null, false, null, null, null, false, $switch);
+		$this->settings['sharedByDefault'] = new Bool('sharedByDefault', 'user', true, null, 'Rendre les post-it publiques par défaut', null, null, false, null, null, false, $switch);
+		$this->settings['alwaysShowAddPost'] = new Bool('alwaysShowAddPost', 'user', false, null, 'Afficher l\'ajout de post-it en permanence <noscript><span class="text-danger">(actif seulement quand Javascript est activé)</span></noscript>', null, null, false, null, null, false, $switch);
+		$orderChoices = array(
+			'desc'  => 'Les plus récents en premier',
+		  'asc'   => 'Les plus anciens en premier'
+		);
+		$this->settings['order'] = new Select('order', 'user', 'desc', null, 'Ordre d\'affichage des Post-It', null, false, null, null, false, $orderChoices);
 		$tab = explode(', ', PER_PAGE_VALUES);
 		$choices = array_combine($tab, $tab);
-		$this->settings['postsPerPage'] = new Select('postsPerPage', 'user', 10, null, 'Nombre de post-it par page', null, false, null, null, null, false, $choices);
+		$this->settings['postsPerPage'] = new Select('postsPerPage', 'user', 10, null, 'Nombre de post-it par page', null, false, null, null, false, $choices);
 	}
 
 	/**
@@ -113,8 +119,6 @@ class PostIt extends Module{
 					<h1>Post-It <?php $this->manageModuleButtons(); ?></h1>
 				</div>
 				<?php
-				// Traitement des envois de formulaires
-				$req = PostedData::get();
 				$search = null;
 				$filters = array();
 				// Formulaire de recherche
@@ -148,15 +152,15 @@ class PostIt extends Module{
 							<?php
 							$post = null;
 							// Formulaire d'édition et suppression
-							if (isset($req['action']) and in_array($req['action'], array('editPost', 'delPost')) and isset($req['id'])){
+							if (isset($this->postedData['action']) and in_array($this->postedData['action'], array('editPost', 'delPost')) and isset($this->postedData['id'])){
 								// récupération du post-it à traiter
-								$ret = $db->get('module_postit', null, array('id'=>$req['id']));
+								$ret = $db->get('module_postit', null, array('id'=>$this->postedData['id']));
 								if (empty($ret)){
 									new Alert('error', 'Ce post-it n\'existe pas !');
 								}else{
-									if ($req['action'] == 'editPost'){
+									if ($this->postedData['action'] == 'editPost'){
 										$post = new Post($ret[0]);
-									}elseif($req['action'] == 'delPost'){
+									}elseif($this->postedData['action'] == 'delPost'){
 										$this->deletePost(new Post($ret[0]));
 									}
 								}
@@ -222,12 +226,12 @@ class PostIt extends Module{
 
 		$action = (!empty($post)) ? '#post_'.$post->getId() : '#postsEnd';
 		$form = new Form('addPost', $action, null, 'module', $this->id);
-		$form->addField(new Text('content', 'global', $content, null, 'Post-It', 'Merci de veiller à ce que votre prose soit correctement orthographiée !', null, null, true, null, 'modify'));
+		$form->addField(new Text('content', 'global', $content, null, 'Post-It', 'Merci de veiller à ce que votre prose soit correctement orthographiée !', null, new Pattern('text', true), true, 'modify'));
 		$switchArray = array(
 			'switch'  => true,
 			'labelPosition' => 'left'
 		);
-		$form->addField(new Bool('shared', 'global', $shared, null, 'Post-It partagé', 'Si actif, votre post-it sera visible par tout le monde', null, false, null, 'modify', null, false, new JSSwitch(null, null, null, null, null, 'left')));
+		$form->addField(new Bool('shared', 'global', $shared, null, 'Post-It partagé', 'Si actif, votre post-it sera visible par tout le monde', null, false, 'modify', null, false, new JSSwitch(null, null, null, null, null, 'left')));
 		if (!empty($post)){
 			$form->addField(new Hidden('id', 'global', $post->getId()));
 			$form->addField(new Hidden('page', 'global', $this->page));
@@ -250,6 +254,7 @@ class PostIt extends Module{
 		$this->page = (isset($filters['page'])) ? $filters['page'] : 1;
 		// Nombre de post-it accessibles par l'utilisateur en bdd
 		$this->nbPosts = $db->query('SELECT COUNT(id) as nbPosts FROM `module_postit` WHERE `author` = '.$cUser->getId().' OR `shared` = 1', 'val');
+		$nbPages = ceil($this->nbPosts / $postsPerPage);
 		// requête SQL permettant de retourner la liste des post-it à afficher
 		$sql = 'SELECT *';
 		if (!empty($filters)){
@@ -270,7 +275,7 @@ class PostIt extends Module{
 						$sql .= 'content LIKE "%'.strtolower($word).'%" OR ';
 					}
 					$sql = trim($sql, ' OR ');
-					$sql .= ' ORDER BY relevance DESC';
+					$orderBy['relevance'] = 'DESC';
 				}
 				$title = 'Résultats pour la recherche sur <code>'.$filters['search'].'</code>';
 				$nbPostsFiltered = count($db->query($sql));
@@ -280,6 +285,14 @@ class PostIt extends Module{
 		}
 		if ($sql == 'SELECT *'){
 			$sql = 'SELECT * FROM `module_postit` WHERE `author` = '.$cUser->getId().' OR `shared` = 1';
+		}
+		$orderBy['created'] = $this->settings['order']->getValue();
+		if (!empty($orderBy)){
+			$sql .= ' ORDER BY ';
+			foreach ($orderBy as $field => $value){
+				$sql .= '`'.$field.'` '.strtoupper($value).', ';
+			}
+			$sql = trim($sql, ', ');
 		}
 		// On ne demande que les post-it de la page en cours (LIMIT position, nombre de post-it à retourner)
 		$sql .= ' LIMIT '.(($postsPerPage*$this->page)-$postsPerPage).', '.$postsPerPage;
@@ -371,17 +384,16 @@ class PostIt extends Module{
 			new Alert('error', 'Vous n\'avez pas l\'autorisation de faire ceci !');
 			return false;
 		}
-		$req = PostedData::get();
-		if (!isset($req['content']) or empty($req['content'])){
+		if (!isset($this->postedData['content']) or empty($this->postedData['content'])){
 			new Alert('error', 'Le post-it est vide !');
 			return false;
 		}
 
-		$fields['content'] = \Sanitize::SanitizeForDb($req['content'], false);
-		$fields['shared'] = \Sanitize::SanitizeForDb($req['shared']);
-		if (isset($req['id'])){
+		$fields['content'] = \Sanitize::SanitizeForDb($this->postedData['content'], false);
+		$fields['shared'] = \Sanitize::SanitizeForDb($this->postedData['shared']);
+		if (isset($this->postedData['id'])){
 			$fields['modified'] = time();
-			$where['id'] = $req['id'];
+			$where['id'] = $this->postedData['id'];
 			$ret = $db->update('module_postit', $fields, $where);
 		}else{
 			$fields['author'] = $cUser->getId();
@@ -393,8 +405,7 @@ class PostIt extends Module{
 			return false;
 		}else{
 			new Alert('success', 'Le post-it a été sauvegardé !');
-			$_REQUEST['itemsPage'] = $req['page'];
-			PostedData::reset();
+			$_REQUEST['itemsPage'] = $this->postedData['page'];
 			return true;
 		}
 	}

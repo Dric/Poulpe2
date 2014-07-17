@@ -30,16 +30,15 @@ class String extends Field{
 	 * @param string  $help         Message d'aide affiché en infobulle (facultatif)
 	 * @param Pattern $pattern      Paramètres de validation (facultatif)
 	 * @param bool    $important    Le champ est marqué comme étant important (facultatif)
-	 * @param int     $id           ID du champ (facultatif)
 	 * @param string  $ACLLevel     Niveau de sécurité requis pour modifier le champ (facultatif)
 	 * @param string  $class        Classe CSS à ajouter au champ (facultatif)
 	 * @param bool    $disabled     Champ désactivé (facultatif)
 	 * @param bool    $autoComplete Activer l'auto-complétion (facultatif)
 	 */
-	public function __construct($name, $category, $value = null, $userValue = null, $label = null, $placeholder = null, $help = null, $pattern = null, $important = false, $id = null, $ACLLevel = 'admin', $class = '', $disabled = false, $autoComplete = true){
+	public function __construct($name, $category, $value = null, $userValue = null, $label = null, $placeholder = null, $help = null, $pattern = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false, $autoComplete = true){
 
 		$data = (!$autoComplete) ? array('autoComplete' => false) : null;
-		parent::__construct($name, $this->type, $category, $value, $label, $placeholder, $data, $help, $pattern, $userValue, $important, $id, $ACLLevel, $class, $disabled);
+		parent::__construct($name, $this->type, $category, $value, $label, $placeholder, $data, $help, $pattern, $userValue, $important, $ACLLevel, $class, $disabled);
 	}
 
 	/**

@@ -30,17 +30,16 @@ class CheckboxList extends Field{
 	 * @param string    $label          Intitulé du champ (facultatif)
 	 * @param string    $help           Message d'aide affiché en infobulle (facultatif)
 	 * @param bool      $important      Le champ est marqué comme étant important (facultatif)
-	 * @param int       $id             ID du champ (facultatif)
 	 * @param string    $ACLLevel       Niveau de sécurité requis pour modifier le champ (facultatif)
 	 * @param string    $class          Classe CSS à ajouter au champ (facultatif)
 	 * @param bool      $disabled       Champ désactivé (facultatif)
 	 * @param array     $choices        Choix possibles dans la liste sous forme de tableau associatif 'valeur' => 'libellé'
 	 * @param string    $defaultChecked Valeur cochée par défaut dans la liste $choices ('all' pour cocher toutes les valeurs)
 	 */
-	public function __construct($name, $category, $value, $userValue = null, $label = null, $help = null, $important = false, $id = null, $ACLLevel = 'admin', $class = '', $disabled = false, $choices = null, $defaultChecked = null){
+	public function __construct($name, $category, $value, $userValue = null, $label = null, $help = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false, $choices = null, $defaultChecked = null){
 		$this->choices = (array)$choices;
 		$this->defaultChecked = $defaultChecked;
-		parent::__construct($name, $this->type, $category, $value, $label, null, null, $help, null, $userValue, $important, $id, $ACLLevel, $class, $disabled);
+		parent::__construct($name, $this->type, $category, $value, $label, null, null, $help, null, $userValue, $important, $ACLLevel, $class, $disabled);
 	}
 
 /**

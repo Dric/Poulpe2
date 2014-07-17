@@ -85,7 +85,7 @@ class UserProfile extends Module {
 	 * @return bool
 	 */
 	protected function saveUserProfile(){
-		$req = PostedData::get();
+		$req = $this->postedData;
 		$avatar = $req['avatar'];
 		// Si un fichier est chargé, alors l'utilisateur veut certainement celui-ci comme avatar...
 		if (isset($_FILES['field_string_avatarFile']) and !empty($_FILES['field_string_avatarFile']['name'])) $avatar = 'user';
@@ -175,7 +175,6 @@ class UserProfile extends Module {
 	 * @return bool
 	 */
 	protected function confirmDeleteUser(){
-		$req=PostedData::get();
 		if (UsersManagement::deleteUser($this->user)){
 			new Alert('success', (($this->user->getId() == $GLOBALS['cUser']->getId()) ? 'Votre compte' : 'Le compte de '.$this->user->getName()).' a été supprimé !');
 			return true;
@@ -262,7 +261,7 @@ class UserProfile extends Module {
 		}else{
 			$dataAvatar['user'] = 'Choisir un fichier';
 		}
-		$this->form->addField(new RadioList('avatar', 'global', $valueAvatar, null, 'Avatar', 'Choisissez une image pour vous représenter (avatar)', false, null, null, null, false, $dataAvatar, $this->user->getAvatar(true)));
+		$this->form->addField(new RadioList('avatar', 'global', $valueAvatar, null, 'Avatar', 'Choisissez une image pour vous représenter (avatar)', false, null, null, false, $dataAvatar, $this->user->getAvatar(true)));
 		$this->form->addField(new File('avatarFile', 'user', null, null, 'Fichier de l\'avatar'));
 
 	}

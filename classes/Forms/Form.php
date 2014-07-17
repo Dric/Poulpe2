@@ -20,7 +20,7 @@ use Users\ACL;
 class Form {
 
 	/**
-	 * Nom du formulaire (repris dans l'id de l'élément <form>
+	 * Nom du formulaire (repris dans l'id de l'élément <form>)
 	 * @var string
 	 */
 	protected $name = '';
@@ -90,6 +90,7 @@ class Form {
 
 		// On ajoute au formulaire un jeton de sécurité pour vérifier au traitement du formulaire que l'utilisateur demandant le traitement est bien celui qui a envoyé le formulaire (pour éviter une faille CSRF)
 		$this->addField(new Hidden('token', 'global', PostedData::setToken($this->name)));
+		$this->addField(new Hidden('formName', 'global', $this->name));
 	}
 
 	/**

@@ -28,7 +28,7 @@ class Button extends Field{
 	 * @param bool      $disabled       Champ désactivé (facultatif)
 	 */
 	public function __construct($name, $category, $value, $label = null, $ACLLevel = 'admin', $class = '', $disabled = false){
-		parent::__construct($name, $this->type, $category, $value, $label, null, null, null, null, null, true, null, $ACLLevel, $class, $disabled);
+		parent::__construct($name, $this->type, $category, $value, $label, null, null, null, null, null, true, $ACLLevel, $class, $disabled);
 	}
 
 	/**

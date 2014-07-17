@@ -83,12 +83,11 @@ class Field extends Setting{
 	 * @param Pattern $pattern
 	 * @param null   $userValue
 	 * @param bool   $important Paramètre à signaler comme étant important
-	 * @param int    $id Id du paramètre en bdd
 	 * @param string $ACLLevel Niveau minimum d'autorisation ('access', 'modify' ou 'admin')
 	 * @param string $class Classe optionnelle à ajouter au champ
 	 * @param bool   $disabled Champ désactivé si à true
 	 */
-	public function __construct($name, $type, $category, $value, $label = null, $placeholder = null, $data = array(), $help = null, Pattern $pattern = null, $userValue = null, $important = false, $id = null, $ACLLevel = 'admin', $class = '', $disabled = false){
+	public function __construct($name, $type, $category, $value, $label = null, $placeholder = null, $data = array(), $help = null, Pattern $pattern = null, $userValue = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false){
 		self::$types = Setting::$types;
 		self::$types += array(
 			'email'   => 'string',
@@ -145,7 +144,9 @@ class Field extends Setting{
 		<div class="form-group">
 			<label for="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>"><?php echo $this->label; ?> <?php if (!empty($pattern) and $pattern->getRequired()) $this->displayRequired(); ?> <?php if($this->help != '') Help::iconHelp($this->help); ?></label>
 			<input type="<?php echo $this->htmlType;?>" class="form-control<?php echo ' '.$this->class; ?>" id="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>" name="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>" <?php if ($this->placeholder != '') echo 'placeholder="'.$this->placeholder.'"'; ?> value="<?php echo $value; ?>" <?php if ($this->disabled or !$enabled) echo 'disabled'; ?> <?php echo $attrs; ?> <?php echo $displayPattern; ?>>
+			<?php if (!empty($pattern)) { ?>
 			<div class="help-block with-errors"></div>
+			<?php } ?>
 		</div>
 	<?php
 	}

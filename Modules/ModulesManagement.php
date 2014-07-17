@@ -188,8 +188,10 @@ class ModulesManagement {
 
 			}else{
 				new Alert('debug', '<code>ModulesManagement::settingsSave()</code> : Un des paramètres n\'est pas un objet Setting !<br >'. Get::varDump($setting));
+				return false;
 			}
 		}
+		return true;
 	}
 
 	/**
@@ -212,7 +214,7 @@ class ModulesManagement {
 			foreach ($module->getDbTables() as $table){
 				$ret = $table->createInDb();
 				if (!$ret){
-					new Alert('error', 'Impossible de créer la table <code>'.$table['name'].'</code> liée au module <code>'.$module->getName().'</code> !');
+					new Alert('error', 'Impossible de créer la table <code>'.$table->getName().'</code> liée au module <code>'.$module->getName().'</code> !');
 					return false;
 				}
 			}

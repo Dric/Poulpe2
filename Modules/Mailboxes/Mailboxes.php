@@ -15,6 +15,7 @@ use FileSystem\Fs;
 use Forms\Fields\Button;
 use Forms\Fields\Select;
 use Forms\Fields\String;
+use Forms\Pattern;
 use Front;
 use Ldap\Ldap;
 use Logs\Alert;
@@ -105,7 +106,7 @@ class Mailboxes extends Module {
 	 * Les paramètres sont définis non pas avec des objets Setting mais avec des objets Field (sans quoi on ne pourra pas créer d'écran de paramétrage)
 	 */
 	public function defineSettings(){
-		$this->settings['scriptsPath'] = new String('scriptsPath', 'global', '\\\\srv-exchange\scripts', null, 'Chemin des scripts Powershell', '\\\\srv-exchange\scripts', null, null, true);
+		$this->settings['scriptsPath'] = new String('scriptsPath', 'global', '\\\\srv-exchange\scripts', null, 'Chemin des scripts Powershell', '\\\\srv-exchange\scripts', null, new Pattern('string', true), true);
 
 	}
 
@@ -320,8 +321,8 @@ class Mailboxes extends Module {
 		Front::setJsFooter('<script src="js/bootstrap3-typeahead.min.js"></script>');
 		Front::setJsFooter('<script src="Modules/Mailboxes/Mailboxes.js"></script>');
 		$form = new Form('addMove', null, null, 'module', $this->id, 'post');
-		$form->addField(new String('user', 'global', '', null, 'Nom de l\'utilisateur', 'prénom.nom', 'La recherche peut se faire sur un login utilisateur complet (prénom.nom) ou sur une partie de celui-ci. Seuls les comptes possédant une boîte exchange sont affichés', null, true, null, 'modify', null, false, false));
-		$form->addField(new Select('mdb', 'global', '', null, 'Base de destination', null, true, null, 'modify', null, false, array_combine($this->databases, $this->databases)));
+		$form->addField(new String('user', 'global', '', null, 'Nom de l\'utilisateur', 'prénom.nom', 'La recherche peut se faire sur un login utilisateur complet (prénom.nom) ou sur une partie de celui-ci. Seuls les comptes possédant une boîte exchange sont affichés', null, true, 'modify', null, false, false));
+		$form->addField(new Select('mdb', 'global', '', null, 'Base de destination', null, true, 'modify', null, false, array_combine($this->databases, $this->databases)));
 		$form->addField(new Button('action', 'global', 'addMove', 'Programmer le déplacement', 'modify', 'btn-primary'));
 		?>
 		<div class="row">
@@ -347,7 +348,7 @@ class Mailboxes extends Module {
 			new Alert('error', 'Vous n\'avez pas l\'autorisation de programmer un déplacement de boîte !');
 			return false;
 		}
-		$req = PostedData::get();
+		$req = $this->postedData;
 
 		// C'est parti pour les vérifications !
 		if (!isset($req['user'])){
@@ -402,7 +403,7 @@ class Mailboxes extends Module {
 			new Alert('error', 'Vous n\'avez pas l\'autorisation de supprimer un déplacement de boîte !');
 			return false;
 		}
-		$req = PostedData::get();
+		$req = $this->postedData;
 		$reqUser = htmlspecialchars($req['user']);
 		// C'est parti pour les vérifications !
 		if (!isset($req['user'])){
@@ -510,7 +511,7 @@ class Mailboxes extends Module {
 	 */
 	protected function returnUsers(){
 		$ldap = new Ldap();
-		$req = PostedData::get();
+		$req = $this->postedData;
 		$users = array();
 		header('Content-type: application/json');
 		$ret = $ldap->search('person', $req['query'], null, array('sAMAccountName', 'homemdb'));

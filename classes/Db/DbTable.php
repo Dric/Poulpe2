@@ -131,7 +131,7 @@ class DbTable {
 		global $db;
 		$sql = 'CREATE TABLE IF NOT EXISTS `'.$this->name.'` (';
 		if (count($this->fields) == 0){
-			new Alert('debug', '<code>Db::createTable</code> : aucun champ n\'est défini dans le tableau d\'entrée !');
+			new Alert('debug', '<code>DbTable->createInDb()</code> : aucun champ n\'est défini dans le tableau d\'entrée !');
 			return false;
 		}
 		$indexes = $uniqueIndexes = $multipleIndexes = $foreignKeys = array();
@@ -147,13 +147,13 @@ class DbTable {
 			 */
 			$settings = $field->getSettings();
 			if (empty($settings)){
-				new Alert('debug', '<code>Db::createTable</code> : Les paramètres de champ <code>'.$field->getName().'</code> ne sont pas définis via un objet Pattern !');
+				new Alert('debug', '<code>DbTable->createInDb()</code> : Les paramètres de champ <code>'.$field->getName().'</code> ne sont pas définis via un objet DbFieldSettings !');
 				return false;
 			}
 			if ($type == 'tinyint') {
 				$sql .= '(1)';
-			}elseif ($type != 'text' or $type != 'bool' or $settings->getLength() == 0){
-				new Alert('debug', '<code>Db::createTable</code> : La longueur du champ <code>'.$field->getName().'</code> n\'est pas définie !');
+			}elseif ($type != 'text' and $type != 'bool' and $settings->getLength() == 0){
+				new Alert('debug', '<code>DbTable->createInDb()</code> : La longueur du champ <code>'.$field->getName().'</code> n\'est pas définie !');
 				return false;
 			}elseif($type != 'bool'){
 				$sql .= '('.$settings->getLength().')';

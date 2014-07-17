@@ -30,15 +30,14 @@ class Text extends Field{
 	 * @param string  $help         Message d'aide affiché en infobulle (facultatif)
 	 * @param Pattern $pattern      Paramètres de validation (facultatif)
 	 * @param bool    $important    Le champ est marqué comme étant important (facultatif)
-	 * @param int     $id           ID du champ (facultatif)
 	 * @param string  $ACLLevel     Niveau de sécurité requis pour modifier le champ (facultatif)
 	 * @param string  $class        Classe CSS à ajouter au champ (facultatif)
 	 * @param bool    $disabled     Champ désactivé (facultatif)
 	 * @param bool    $rows         Nombre de lignes du champ (facultatif)
 	 */
-	public function __construct($name, $category, $value, $userValue = null, $label = null, $placeholder = null, $help = null, $pattern = null, $important = false, $id = null, $ACLLevel = 'admin', $class = '', $disabled = false, $rows = null){
+	public function __construct($name, $category, $value, $userValue = null, $label = null, $placeholder = null, $help = null, $pattern = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false, $rows = null){
 		if (!empty($rows)) $this->rows = (int)$rows;
-		parent::__construct($name, $this->type, $category, $value, $label, $placeholder, null, $help, $pattern, $userValue, $important, $id, $ACLLevel, $class, $disabled);
+		parent::__construct($name, $this->type, $category, $value, $label, $placeholder, null, $help, $pattern, $userValue, $important, $ACLLevel, $class, $disabled);
 	}
 
 	/**

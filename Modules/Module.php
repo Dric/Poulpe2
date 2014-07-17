@@ -83,6 +83,8 @@ class Module {
 	 */
 	protected $breadCrumb = array();
 
+	protected $postedData = array();
+
 	protected $url = '';
 	/**
 	 * Instantiation du module
@@ -108,6 +110,12 @@ class Module {
 		}
 		// Création du menu si besoin
 		$this->moduleMenu();
+
+		// Traitement des envois de formulaires
+		if (empty($this->postedData)){
+			$this->postedData = PostedData::get();
+			PostedData::reset();
+		}
 	}
 
 	/**
@@ -340,11 +348,12 @@ class Module {
 			<div class="tab-pane active" id="userSettings">
 				<h3>Paramètres utilisateur <small><?php Help::iconHelp('Ces paramètres ne concernent que vous.'); ?></small></h3>
 				<?php
-				$form = new Form($this->name.'Settings', null, array('fields' => $this->settings, 'userSettings' => true));
+				$form = new Form($this->name.'UsersSettings', null, array('fields' => $this->settings, 'userSettings' => true));
 				$form->addField(new Hidden('usersSettings', 'user', 'true'));
 				$form->addField(new Button('action', 'global', 'saveSettings', 'Sauvegarder', null, 'btn-primary'));
 				$form->addField(new LinkButton('cancel', 'global', $this->url, 'Revenir au module'));
 				$form->display();
+				unset($form);
 				?>
 			</div>
 			<?php } ?>
@@ -360,7 +369,7 @@ class Module {
 					}
 				}
 				if ($hasUsersSettings){
-					$form->addField(new Bool('allowUsersSettings', 'global', $this->allowUsersSettings, null, 'Autoriser les utilisateurs à personnaliser certains paramètres', null, null, true, null, null, null, false, new JSSwitch(null, null, null, null, 'small')));
+					$form->addField(new Bool('allowUsersSettings', 'global', $this->allowUsersSettings, null, 'Autoriser les utilisateurs à personnaliser certains paramètres', null, null, true, null, null, false, new JSSwitch(null, null, null, null, 'small')));
 				}
 				$form->addField(new Button('action', 'global', 'saveSettings', 'Sauvegarder', null, 'btn-primary'));
 				$form->addField(new LinkButton('cancel', 'global', $this->url, 'Revenir au module'));
@@ -387,7 +396,7 @@ class Module {
 			return false;
 		}
 		$tableToSave = array();
-		$req = PostedData::get();
+		$req = $this->postedData;
 		$usersSettings = false;
 		if (isset($req['usersSettings'])){
 			$usersSettings = true;

@@ -14,7 +14,7 @@ use Forms\Pattern;
 
 class Hidden extends Field{
 
-	protected $type = 'string';
+	protected $type = 'hidden';
 	protected $htmlType = 'hidden';
 
 	/**
@@ -24,12 +24,11 @@ class Hidden extends Field{
 	 * @param string  $category     Catégorie du champ (global ou user)
 	 * @param string  $value        Valeur du champ
 	 * @param string  $userValue    Valeur utilisateur du champ (facultatif)
-	 * @param int     $id           ID du champ (facultatif)
 	 * @param string  $ACLLevel     Niveau de sécurité requis pour modifier le champ (facultatif)
 	 * @param bool    $disabled     Champ désactivé (facultatif)
 	 */
-	public function __construct($name, $category, $value, $userValue = null, $id = null, $ACLLevel = 'admin', $disabled = false){
-		parent::__construct($name, $this->type, $category, $value, null, null, null, null, null, $userValue, false, $id, $ACLLevel, null, $disabled);
+	public function __construct($name, $category, $value, $userValue = null, $ACLLevel = 'admin', $disabled = false){
+		parent::__construct($name, $this->type, $category, $value, null, null, null, null, null, $userValue, false, $ACLLevel, null, $disabled);
 	}
 
 	/**

@@ -129,8 +129,10 @@ class PostedData {
 				$ret['action'] = $value;
 			}
 		}
-		// Vérification du jeton de sécurité - si celui-ci n'est aps bon, on ne renvoie pas les données
-		if (isset($ret['token']) and self::checkToken($ret['token'])){
+		// Vérification du jeton de sécurité - si celui-ci n'est pas bon, on ne renvoie pas les données
+		if (isset($ret['token']) and isset($ret['formName']) and self::checkToken($ret['formName'], $ret['token'])){
+			unset($ret['token']);
+			unset($ret['formName']);
 			return $ret;
 		}
 		return null;
@@ -138,14 +140,16 @@ class PostedData {
 
 	/**
 	 * Vérifie un jeton de sécurité de formulaire
+	 *
+	 * @param string $formName Nom du formulaire
 	 * @param string $token Jeton de sécurité
 	 *
 	 * @return bool
 	 */
-	static protected function checkToken($token){
-		if (isset($_SESSION[COOKIE_NAME.'Token'])){
-			if ($_SESSION[COOKIE_NAME.'Token'] == $token){
-				unset($_SESSION[COOKIE_NAME.'Token']);
+	static protected function checkToken($formName, $token){
+		if (isset($_SESSION[$formName.'_Token'])){
+			if ($_SESSION[$formName.'_Token'] == $token){
+				unset($_SESSION[$formName.'_Token']);
 				return true;
 			}
 		}
@@ -161,7 +165,7 @@ class PostedData {
 	 */
 	static public function setToken($name){
 		$hash = sha1($name.time());
-		$_SESSION[COOKIE_NAME.'Token'] = $hash;
+		$_SESSION[$name.'_Token'] = $hash;
 		return $hash;
 	}
 

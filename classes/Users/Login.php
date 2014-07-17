@@ -55,11 +55,13 @@ class Login {
 	protected static $authMode = AUTH_MODE;
 
 	/**
-	 * Suppression du cookie d'authentification
+	 * Suppression du cookie d'authentification et de la session PHP
 	 */
 	static function deleteCookie(){
 		setcookie(self::$cookieName, "", time()-3600, '/', '', FALSE, TRUE); //On supprime le cookie
 		unset($_COOKIE[self::$cookieName]);
+		$_SESSION = array();
+		session_destroy();
 	}
 
 	/**
@@ -220,7 +222,7 @@ class Login {
 	 * Affiche le formulaire de connexion
 	 */
 	static function loginForm($from = ''){
-		if (isset($_REQUEST['action']) and $_REQUEST['action'] == 'createUser'){
+		if (isset($_REQUEST['action2']) and $_REQUEST['action2'] == 'createUser'){
 			self::createFirstUser();
 		}
 		if (isset($_REQUEST['tryLogin'])){
@@ -266,7 +268,7 @@ class Login {
 								$form->addField(new String('name', 'global', null, null, 'Nom/Pseudo', 'Veuillez saisir un nom ou un pseudonyme', null, new Pattern('text', true, 4, 150), true));
 								$form->addField(new Email('email', 'global', null, null, 'Adresse email', 'nom@domaine.extension', null, new Pattern('email', true, 0, 250), true));
 								$form->addField(new Password('pwd', 'global', null, null, 'Mot de passe', 'Mot de passe de '.PWD_MIN_SIZE.' caractères minimum', null, new Pattern('password', true, PWD_MIN_SIZE, 100), true));
-								$form->addField(new Button('action', 'global', 'createUser', 'Créer l\'utilisateur'));
+								$form->addField(new Button('action2', 'global', 'createUser', 'Créer l\'utilisateur'));
 								$form->display();
 								?>
 							</div>

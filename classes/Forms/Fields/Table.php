@@ -33,7 +33,7 @@ class Table extends Field{
 	public function __construct(DbTable $table, $category, $ACLLevel = 'admin', $disabled = false){
 		$this->table = $table;
 		$name = str_replace('_', '-', $table->getName());
-		parent::__construct($name, $this->type, $category, $table->getName(), $table->getTitle(), null, null, $table->getHelp(), null, null, true, null, $ACLLevel, $table->getClass(), $disabled);
+		parent::__construct($name, $this->type, $category, $table->getName(), $table->getTitle(), null, null, $table->getHelp(), null, null, true, $ACLLevel, $table->getClass(), $disabled);
 	}
 
 	/**

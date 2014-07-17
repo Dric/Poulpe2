@@ -225,9 +225,9 @@ class DenyAppAccess extends Module{
 		  'size'    => 'large',
 		  'labelPosition' => 'left'
 		);
-		$form->addField(new Field('maintenance', 'bool', 'global', $app->getMaintenance(), 'Maintenance', null, $switchArray, 'Passez la maintenance sur \'Active\' pour empêcher les utilisateurs d\'accéder à '.$app->getTitle(), null, null, true, null, 'modify'));
-		$form->addField(new Field('message', 'text', 'global', $app->getMessage(), 'Message', null, null, 'Saisissez le message que verront les utilisateurs en essayant de se connecter à '.$app->getTitle().' lorsque l\'accès est bloqué.', null, null, true, null, 'modify'));
-		$form->addField(new Field('action', 'button', 'global', 'saveAppStatus', 'Sauvegarder', null, null, null, null, null, false, null, 'modify', 'btn-primary'));
+		$form->addField(new Field('maintenance', 'bool', 'global', $app->getMaintenance(), 'Maintenance', null, $switchArray, 'Passez la maintenance sur \'Active\' pour empêcher les utilisateurs d\'accéder à '.$app->getTitle(), null, null, true, 'modify'));
+		$form->addField(new Field('message', 'text', 'global', $app->getMessage(), 'Message', null, null, 'Saisissez le message que verront les utilisateurs en essayant de se connecter à '.$app->getTitle().' lorsque l\'accès est bloqué.', null, null, true, 'modify'));
+		$form->addField(new Field('action', 'button', 'global', 'saveAppStatus', 'Sauvegarder', null, null, null, null, null, false, 'modify', 'btn-primary'));
 		?>
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
@@ -343,7 +343,7 @@ class DenyAppAccess extends Module{
 		 */
 		$app = $oldApp = $this->apps[$appReq];
 		// On récupère les variables postées par le formulaire
-		$req = PostedData::get();
+		$req = $this->postedData;
 		if (!isset($req['maintenance']) or $req['maintenance'] === null){
 			$this->apps[$appReq] = $oldApp;
 			new Alert('Error', 'Le champ <code>maintenance</code> n\'a pas été envoyé par le formulaire !');

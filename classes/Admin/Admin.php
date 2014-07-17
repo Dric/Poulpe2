@@ -285,7 +285,7 @@ class Admin extends Module {
 			new Alert('error', 'Vous n\'avez pas l\'autorisation de faire ceci !');
 			return false;
 		}
-		$req = PostedData::get();
+		$req = $this->postedData;
 		if (!isset($req['name'])){
 			new Alert('error', 'Vous n\'avez pas indiqué le nom d\'utilisateur !');
 			return false;
@@ -364,21 +364,21 @@ class Admin extends Module {
 							array_walk($constantValue, function(&$value, $key) {
 								if (!is_int($value)) $value = trim($value, '\'');
 							});
-							$form->addField(new ValuesArray($constantName, 'global', $constantValue, null, $explain, null, 'Paramètre '.$constantName, null, true, null, null, null, $readOnly, true));
+							$form->addField(new ValuesArray($constantName, 'global', $constantValue, null, $explain, null, 'Paramètre '.$constantName, null, true, null, null, $readOnly, true));
 						}else{
 							$constantValue = trim(rtrim($define[1],')'), " "); //On enlève d'abord les parenthèses, puis les espaces
 							if (substr($constantValue,-1) == '\''){
 								$constantValue =  trim($constantValue, '\'');
 								if (count($tab = explode(', ', $constantValue)) > 1){
 									$constantValue = $tab;
-									$form->addField(new ValuesArray($constantName, 'global', $constantValue, null, $explain, null, 'Paramètre '.$constantName, null, true, null, null, null, $readOnly));
+									$form->addField(new ValuesArray($constantName, 'global', $constantValue, null, $explain, null, 'Paramètre '.$constantName, null, true, null, null, $readOnly));
 								}else{
-									$form->addField(new String($constantName, 'global', $constantValue, null, $explain, null, 'Paramètre '.$constantName, null, true, null, null, null, $readOnly));
+									$form->addField(new String($constantName, 'global', $constantValue, null, $explain, null, 'Paramètre '.$constantName, null, true, null, null, $readOnly));
 								}
 							}elseif(stristr($constantValue, 'true') or stristr($constantValue, 'false')){
-								$form->addField(new Bool($constantName, 'global', $constantValue, null, $explain, 'Paramètre '.$constantName, null, true, null, null, null, $readOnly, new JSSwitch(null, null, null, null, null, 'left')));
+								$form->addField(new Bool($constantName, 'global', $constantValue, null, $explain, 'Paramètre '.$constantName, null, true, null, null, $readOnly, new JSSwitch(null, null, null, null, null, 'left')));
 							}else{
-								$form->addField(new Int($constantName, 'global', $constantValue, null, $explain, null, 'Paramètre '.$constantName, null, true, null, null, null, $readOnly));
+								$form->addField(new Int($constantName, 'global', $constantValue, null, $explain, null, 'Paramètre '.$constantName, null, true, null, null, $readOnly));
 							}
 						}
 					}
@@ -400,7 +400,7 @@ class Admin extends Module {
 			new Alert('error', 'Vous n\'avez pas l\'autorisation de faire ceci !');
 			return false;
 		}
-		$req = PostedData::get();
+		$req = $this->postedData;
 		$dir = str_replace('/Admin', '/Settings', __DIR__);
 		$share = new Fs($dir);
 		$configFile = $share->readFile('config.php');

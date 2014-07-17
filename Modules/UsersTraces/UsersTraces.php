@@ -67,40 +67,6 @@ class UsersTraces extends Module {
 		/**
 		 * @see Db\Db->createTable pour plus de détails sur la création d'une table.
 		 */
-		$this->dbTables['module_userstraces'] = array(
-			'name'        => 'module_userstraces',
-			'desc'        => $this->name,
-			'fields'      => array(
-				'id'    => array(
-					'show'          => false,
-					'type'          => 'int',
-					'length'        => 5,
-					'null'          => false,
-					'autoIncrement' => true,
-				),
-				'name' => array(
-					'label'   => 'Nom du serveur',
-					'type'    => 'string',
-					'length'  => 100,
-					'null'    => false
-				),
-				'type'  => array(
-					'label'   => 'Type',
-					'type'    => 'string',
-					'length'  => 50,
-					'null'    => false
-				),
-			  'folder'  => array(
-				  'label'   => 'Répertoire',
-			    'type'    => 'string',
-			    'length'  => 255,
-			    'null'    => false
-			  )
-			),
-			'primaryKey'  => 'id',
-			'indexKey'   => array('name', 'type'),
-			'onDuplicateKeyUpdate' => array('name', 'type', 'folder')
-		);
 		$usersTraces = new DbTable('module_userstraces', $this->name);
 		$usersTraces->addField(new Int('id', 'global', null, null, null, null, null, new DbFieldSettings('number', true, 5, 'primary', false, true, 0, null, false, false)));
 		$usersTraces->addField(new String('name', 'global', null, null, 'Nom du serveur', null, null, new DbFieldSettings('text', true, 100, 'index', false, false, 0, null, true)));

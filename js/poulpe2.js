@@ -26,13 +26,19 @@ function toolTips(){
  * @from <http://bootsnipp.com/snippets/featured/windows-8-style-password-reveal>
  */
 $(".reveal").mousedown(function() {
-	$(".pwd").replaceWith($('.pwd').clone().attr('type', 'text'));
+	var $group = $(this).closest('.input-group');
+	var $pwd = $group.find('.pwd');
+	$pwd.replaceWith($pwd.clone().attr('type', 'text'));
 })
 	.mouseup(function() {
-		$(".pwd").replaceWith($('.pwd').clone().attr('type', 'password'));
+		var $group = $(this).closest('.input-group');
+		var $pwd = $group.find('.pwd');
+		$($pwd).replaceWith($pwd.clone().attr('type', 'password'));
 	})
 	.mouseout(function() {
-		$(".pwd").replaceWith($('.pwd').clone().attr('type', 'password'));
+		var $group = $(this).closest('.input-group');
+		var $pwd = $group.find('.pwd');
+		$($pwd).replaceWith($pwd.clone().attr('type', 'password'));
 	});
 
 /**
