@@ -214,7 +214,7 @@ class Fs {
 			$filters = array($filters);
 		}
 		$meta = new stdClass;
-		$meta->dateCreated = 0;
+		/*$meta->dateCreated = 0;
 		$meta->dateModified = 0;
 		$meta->size = 0;
 		$meta->extension = null;
@@ -222,34 +222,34 @@ class Fs {
 		$meta->chmod = null;
 		$meta->writable = false;
 		$meta->owner = null;
-		$meta->groupOwner = null;
+		$meta->groupOwner = null;*/
 		$file = $this->mountName.DIRECTORY_SEPARATOR. $fileName;
 		if (!file_exists($file)){
 			new Alert('debug', '<code>Fs->fileMeta()</code> : Le fichier <code>'.$file.'</code> n\'existe pas !');
 			return false;
 		}
-		if (!empty($filters) and (in_array('dateCreated', $filters) or in_array('dateModified', $filters) or in_array('size', $filters))){
+		if ((!empty($filters) and (in_array('dateCreated', $filters) or in_array('dateModified', $filters) or in_array('size', $filters))) or empty($filters)){
 			$stat = stat($file);
 			$meta->dateCreated = $stat['ctime'];
 			$meta->dateModified = $stat['mtime'];
 			$meta->size = $stat['size'];
 		}
-		if (!empty($filters) and in_array('extension', $filters)){
+		if ((!empty($filters) and in_array('extension', $filters)) or empty($filters)){
 			$meta->extension = pathinfo($fileName, PATHINFO_EXTENSION);
 		}
-		if (!empty($filters) and in_array('type', $filters)){
+		if ((!empty($filters) and in_array('type', $filters)) or empty($filters)){
 			$meta->type = mime_content_type($file);
 		}
-		if (!empty($filters) and in_array('chmod', $filters)){
+		if ((!empty($filters) and in_array('chmod', $filters)) or empty($filters)){
 			$meta->chmod = decoct(fileperms($file) & 0777);
 		}
-		if (!empty($filters) and in_array('writable', $filters)){
+		if ((!empty($filters) and in_array('writable', $filters)) or empty($filters)){
 			$meta->writable = is_writable($file);
 		}
-		if (!empty($filters) and in_array('owner', $filters)){
+		if ((!empty($filters) and in_array('owner', $filters)) or empty($filters)){
 			$meta->owner = posix_getpwuid(fileowner($file))['name'];
 		}
-		if (!empty($filters) and in_array('groupOwner', $filters)){
+		if ((!empty($filters) and in_array('groupOwner', $filters)) or empty($filters)){
 			$meta->groupOwner = posix_getgrgid(filegroup($file))['name'];
 		}
 		return $meta;
@@ -410,6 +410,25 @@ class Fs {
 
 		return explode(PHP_EOL, trim($output));
 
+	}
+
+	/**
+	 * Définit les permissions sur un fichier (chmod)
+	 *
+	 * Dans le doute, mieux vaut s'abstenir de faire ceci sur des fichiers Windows
+	 *
+	 * @param string  $fileName Nom du fichier
+	 * @param int     $chmod    Chmod à appliquer au fichier
+	 *
+	 * @return bool
+	 */
+	public function setChmod($fileName, $chmod){
+		$ret = exec('sudo chmod '.$chmod.' '.$this->mountName . DIRECTORY_SEPARATOR . $fileName.' 2>&1', $output);
+		if (empty($ret)){
+			return true;
+		}
+		new Alert('error', 'Impossible de changer les droits sur le fichier <code>'.$fileName.'</code>');
+		return false;
 	}
 
 	/**

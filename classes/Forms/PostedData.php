@@ -147,6 +147,7 @@ class PostedData {
 	 * @return bool
 	 */
 	static protected function checkToken($formName, $token){
+		self::delOldTokens();
 		if (isset($_SESSION[$formName.'_Token'])){
 			if ($_SESSION[$formName.'_Token'] == $token){
 				unset($_SESSION[$formName.'_Token']);
@@ -166,7 +167,20 @@ class PostedData {
 	static public function setToken($name){
 		$hash = sha1($name.time());
 		$_SESSION[$name.'_Token'] = $hash;
+		$_SESSION['tokens'][$name.'_Token'] = time();
 		return $hash;
+	}
+
+	/**
+	 * Supprime les jetons de sécurité qui ont été émis il y a plus de 4 heures
+	 */
+	static public function delOldTokens(){
+		foreach ($_SESSION['tokens'] as $token => $time){
+			if ($time < time()-14400){
+				unset($_SESSION[$token]);
+				unset($_SESSION['tokens'][$token]);
+			}
+		}
 	}
 
 	/**

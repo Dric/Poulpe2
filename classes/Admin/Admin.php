@@ -9,11 +9,9 @@
 namespace Admin;
 
 use Components\Avatar;
-use Components\Help;
 use Forms\Fields\Bool;
 use Forms\Fields\Button;
 use Forms\Fields\Email;
-use Forms\Fields\Hidden;
 use Forms\Fields\Int;
 use Forms\Fields\Password;
 use Forms\Fields\String;
@@ -27,11 +25,8 @@ use FileSystem\Fs;
 use Front;
 use Modules\Module;
 use Modules\ModulesManagement;
-use Forms\Field;
 use Forms\Form;
-use Forms\PostedData;
 use Users\ACL;
-use Users\User;
 use Users\UsersManagement;
 
 /**
@@ -325,14 +320,25 @@ class Admin extends Module {
 
 	/**
 	 * Gère la configuration du site
-	 * @TODO gérer le changement de chmod via l'interface web
+	 *
+	 * Le fichier config.php est mis en lecture seule
 	 */
 	protected function adminConfig(){
 		$dir = str_replace('/Admin', '/Settings', __DIR__);
 		$share = new Fs($dir);
-		$configFile = $share->readFile('config.php');
+		$configFile = $share->readFile('config.php', 'array', true, true);
 		$fileMeta = $share->getFileMeta('config.php');
 		$readOnly = ($fileMeta->writable) ? false : true;
+		if ($readOnly){
+			// On essaie de donner les droits d'écriture au script sur le fichier de config
+			$ret = $share->setChmod('config.php', 777);
+			if ($ret){
+				$fileMeta = $share->getFileMeta('config.php', 'writable');
+				$readOnly = ($fileMeta->writable) ? false : true;
+			}
+			// On remet en lecture seule
+			$share->setChmod('config.php', 644);
+		}
 		$form = new Form('configFile', null, null, 'admin');
 		?>
 		<div class="row">
@@ -347,7 +353,7 @@ class Admin extends Module {
 				<?php if ($readOnly) { ?>
 				<div class="alert alert-danger">Le fichier <code>config.php</code> n'est pas modifiable par le script ! (ce qui est une bonne chose en matière de sécurité, mais vous y perdez en souplesse d'utilisation)<br /> Pour pouvoir modifier ce fichier à partir de cette interface web, vérifiez que l'utilisateur linux <code><?php echo exec('whoami'); ?></code> a les droits pour modifier le fichier ainsi que le répertoire qui le contient (pour effectuer un backup du fichier).</div>
 				<?php }else{ ?>
-				<div class="alert alert-info">La modification des paramètres ne sera prise en compte qu'au rafraîchissement de la page.</div>
+				<div class="alert alert-info">Les paramètres ne seront effectifs qu'au rafraîchissement de la page.</div>
 				<?php
 				}
 				foreach ($configFile as $key => $line){
@@ -376,7 +382,7 @@ class Admin extends Module {
 									$form->addField(new String($constantName, 'global', $constantValue, null, $explain, null, 'Paramètre '.$constantName, null, true, null, null, $readOnly));
 								}
 							}elseif(stristr($constantValue, 'true') or stristr($constantValue, 'false')){
-								$form->addField(new Bool($constantName, 'global', $constantValue, null, $explain, 'Paramètre '.$constantName, null, true, null, null, $readOnly, new JSSwitch(null, null, null, null, null, 'left')));
+								$form->addField(new Bool($constantName, 'global', $constantValue, null, $explain, 'Paramètre '.$constantName, null, true, null, null, $readOnly, new JSSwitch(null, 'left')));
 							}else{
 								$form->addField(new Int($constantName, 'global', $constantValue, null, $explain, null, 'Paramètre '.$constantName, null, true, null, null, $readOnly));
 							}
@@ -403,6 +409,11 @@ class Admin extends Module {
 		$req = $this->postedData;
 		$dir = str_replace('/Admin', '/Settings', __DIR__);
 		$share = new Fs($dir);
+		$ret = $share->setChmod('config.php', 777);
+		if (!$ret){
+			new Alert('error', 'Le fichier <code>config.php</code> n\'est pas accessible en écriture !');
+			return false;
+		}
 		$configFile = $share->readFile('config.php');
 		foreach ($configFile as $key => &$line){
 			if (stristr(strtolower($line), 'define')){
@@ -436,15 +447,18 @@ class Admin extends Module {
 					}
 				}
 			}
-			$line .= PHP_EOL;
 		}
 		// On écrit dans le fichier
 		$ret = $share->writeFile('config.php', $configFile, false, true);
 		if (!$ret){
 			new Alert('error', 'La modification des paramètres dans <code>config.php</code> n\'a pas été prise en compte !');
+			// On remet en lecture seule
+			$share->setChmod('config.php', 644);
 			return false;
 		}
 		new Alert('success', 'La modification des paramètres dans <code>config.php</code> a été prise en compte !');
+		// On remet en lecture seule
+		$share->setChmod('config.php', 644);
 		return true;
 	}
 

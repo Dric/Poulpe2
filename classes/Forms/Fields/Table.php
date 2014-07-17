@@ -9,10 +9,8 @@
 namespace Forms\Fields;
 
 
-use Components\Help;
 use Db\DbTable;
 use Forms\Field;
-use Forms\JSSwitch;
 
 class Table extends Field{
 

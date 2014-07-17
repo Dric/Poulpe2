@@ -11,7 +11,6 @@ namespace Forms\Fields;
 
 use Components\Help;
 use Forms\Field;
-use Forms\JSSwitch;
 
 class RadioList extends CheckboxList{
 

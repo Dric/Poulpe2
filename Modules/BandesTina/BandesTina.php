@@ -11,6 +11,7 @@ namespace Modules\BandesTina;
 use Components\Item;
 use FileSystem\Fs;
 use Forms\Fields\String;
+use Forms\Pattern;
 use Front;
 use Logs\Alert;
 use Modules\Module;
@@ -23,11 +24,6 @@ use Users\ACL;
  *
  * * Gestion de l'externalisation des bandes du robot de sauvegarde.
  * -----------------------------
- *
- * Organisation du module :
- * - modules/gestion_bandes_tina/module.inc : contient la définition du module et la déclaration des menus.
- * - modules/gestion_bandes_tina/module.php : contient le code principal du module. Fichier chargé seulement si le module est actif.
- *
  *
  * Ce module va lire le contenu de deux fichiers texte (to_import.txt et to_export.txt) sur le serveur tina.
  * Ces deux fichiers sont créés par un script qui lance une ligne de commande tina pour récupérer les code-barres des bandes à enlever et à remettre dans le robot de sauvegarde.
@@ -113,9 +109,9 @@ class BandesTina extends Module{
 	 * Les paramètres sont définis non pas avec des objets Setting mais avec des objets Field (sans quoi on ne pourra pas créer d'écran de paramétrage)
 	 */
 	public function defineSettings(){
-		$this->settings['scriptsPath']  = new String('scriptsPath', 'global', '\\\\srv-tina\c$\scripts\gestion_cartouches', null, 'Chemin des scripts', '\\\\srv-tina\c$\scripts\gestion_cartouches', null, null, true);
-		$this->settings['scriptName']   = new String('scriptName', 'global', 'liste_cartouches.bat', null, 'Nom du script qui récupère la liste des bandes', 'liste_cartouches.bat', null, null, true);
-		$this->settings['tinaLibrary']  = new String('tinaLibrary', 'global', 'NEO200S', null, 'Nom du robot', 'NEO200S', null, null, true);
+		$this->settings['scriptsPath']  = new String('scriptsPath', 'global', '\\\\srv-tina\c$\scripts\gestion_cartouches', null, 'Chemin des scripts', '\\\\srv-tina\c$\scripts\gestion_cartouches', null, new Pattern('string', true), true);
+		$this->settings['scriptName']   = new String('scriptName', 'global', 'liste_cartouches.bat', null, 'Nom du script qui récupère la liste des bandes', 'liste_cartouches.bat', null, new Pattern('string', true), true);
+		$this->settings['tinaLibrary']  = new String('tinaLibrary', 'global', 'NEO200S', null, 'Nom du robot', 'NEO200S', null, new Pattern('string', true), true);
 	}
 
 	/**

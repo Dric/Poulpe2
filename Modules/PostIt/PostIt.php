@@ -9,7 +9,6 @@
 namespace Modules\PostIt;
 
 
-use Components\Avatar;
 use Components\Item;
 use Db\DbFieldSettings;
 use Db\DbTable;
@@ -27,22 +26,43 @@ use Front;
 use Logs\Alert;
 use Modules\Module;
 use Modules\ModulesManagement;
-use Forms\Field;
 use Forms\Form;
-use Forms\PostedData;
 use Users\ACL;
 use Users\User;
 
+/**
+ * Classe du module Post-It
+ *
+ * @package Modules\PostIt
+ */
 class PostIt extends Module{
 	protected $name = 'Post-It';
 	protected $title = 'Permet de noter des petites choses, des astuces, des bouts de code, etc.';
 
+	/**
+	 * Tableau des avatars des auteurs (afin d'éviter de les redemander à chaque affichage de post-it)
+	 * @var array
+	 */
 	protected $authorAvatars = array();
+	/**
+	 * Nombre de post-it
+	 * @var int
+	 */
 	protected $nbPosts = 0;
+	/**
+	 * Page courante
+	 * @var int
+	 */
 	protected $page = 1;
+	/**
+	 * Autorise les réglages personnalisés
+	 * @var bool
+	 */
 	protected $allowUsersSettings = true;
-	protected $postedData = array();
 
+	/**
+	 * Instantiation du module
+	 */
 	public function __construct(){
 		parent::__construct();
 		Front::setCssHeader('<link href="js/pagedown-bootstrap/css/jquery.pagedown-bootstrap.css" rel="stylesheet">');
@@ -69,7 +89,6 @@ class PostIt extends Module{
 			'type'  => 'modify',
 			'value' => true
 		);
-
 		return ModulesManagement::installModule($this, $defaultACL);
 	}
 
@@ -92,7 +111,7 @@ class PostIt extends Module{
 
 		$this->dbTables['module_postit'] = $postIt;
 
-		$switch = new JSSwitch(null, null, null, null, 'small', 'right');
+		$switch = new JSSwitch('small', 'right');
 		$this->settings['sharedByDefault'] = new Bool('sharedByDefault', 'user', true, null, 'Rendre les post-it publiques par défaut', null, null, false, null, null, false, $switch);
 		$this->settings['alwaysShowAddPost'] = new Bool('alwaysShowAddPost', 'user', false, null, 'Afficher l\'ajout de post-it en permanence <noscript><span class="text-danger">(actif seulement quand Javascript est activé)</span></noscript>', null, null, false, null, null, false, $switch);
 		$orderChoices = array(
@@ -227,11 +246,7 @@ class PostIt extends Module{
 		$action = (!empty($post)) ? '#post_'.$post->getId() : '#postsEnd';
 		$form = new Form('addPost', $action, null, 'module', $this->id);
 		$form->addField(new Text('content', 'global', $content, null, 'Post-It', 'Merci de veiller à ce que votre prose soit correctement orthographiée !', null, new Pattern('text', true), true, 'modify'));
-		$switchArray = array(
-			'switch'  => true,
-			'labelPosition' => 'left'
-		);
-		$form->addField(new Bool('shared', 'global', $shared, null, 'Post-It partagé', 'Si actif, votre post-it sera visible par tout le monde', null, false, 'modify', null, false, new JSSwitch(null, null, null, null, null, 'left')));
+		$form->addField(new Bool('shared', 'global', $shared, null, 'Post-It partagé', 'Si actif, votre post-it sera visible par tout le monde', null, false, 'modify', null, false, new JSSwitch(null, 'left')));
 		if (!empty($post)){
 			$form->addField(new Hidden('id', 'global', $post->getId()));
 			$form->addField(new Hidden('page', 'global', $this->page));
@@ -254,7 +269,6 @@ class PostIt extends Module{
 		$this->page = (isset($filters['page'])) ? $filters['page'] : 1;
 		// Nombre de post-it accessibles par l'utilisateur en bdd
 		$this->nbPosts = $db->query('SELECT COUNT(id) as nbPosts FROM `module_postit` WHERE `author` = '.$cUser->getId().' OR `shared` = 1', 'val');
-		$nbPages = ceil($this->nbPosts / $postsPerPage);
 		// requête SQL permettant de retourner la liste des post-it à afficher
 		$sql = 'SELECT *';
 		if (!empty($filters)){

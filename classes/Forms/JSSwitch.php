@@ -71,14 +71,14 @@ class JSSwitch {
 	/**
 	 * Paramètres de switch
 	 *
+	 * @param string $size            Taille du switch
+	 * @param string $labelPosition   Position du label (left, right)
 	 * @param string $onText          Texte de l'état activé
 	 * @param string $offText         Texte de l'état désactivé
 	 * @param string $onColor         Couleur de l'état activé
 	 * @param string $offColor        Couleur de l'état désactivé
-	 * @param string $size            Taille du switch
-	 * @param string $labelPosition   Position du label (left, right)
 	 */
-	public function __construct($onText = null, $offText = null, $onColor = null, $offColor = null, $size = null, $labelPosition = null){
+	public function __construct($size = null, $labelPosition = null, $onText = null, $offText = null, $onColor = null, $offColor = null){
 		if (!is_null($onText))    $this->onText = $onText;
 		if (!is_null($offText))   $this->offText = $offText;
 		if (!is_null($onColor) and in_array($onColor, $this->colors))   $this->onColor = $onColor;

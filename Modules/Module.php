@@ -369,7 +369,7 @@ class Module {
 					}
 				}
 				if ($hasUsersSettings){
-					$form->addField(new Bool('allowUsersSettings', 'global', $this->allowUsersSettings, null, 'Autoriser les utilisateurs à personnaliser certains paramètres', null, null, true, null, null, false, new JSSwitch(null, null, null, null, 'small')));
+					$form->addField(new Bool('allowUsersSettings', 'global', $this->allowUsersSettings, null, 'Autoriser les utilisateurs à personnaliser certains paramètres', null, null, true, null, null, false, new JSSwitch('small')));
 				}
 				$form->addField(new Button('action', 'global', 'saveSettings', 'Sauvegarder', null, 'btn-primary'));
 				$form->addField(new LinkButton('cancel', 'global', $this->url, 'Revenir au module'));
