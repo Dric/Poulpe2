@@ -106,7 +106,7 @@ class Field extends Setting{
 			default:
 				$typeSetting = $type;
 		}
-		parent::__construct($name, $typeSetting, $category, $value, $userValue = null, $important = false);
+		parent::__construct($name, $typeSetting, $category, $value, $userValue = null, $important);
 		$this->type = $type;
 		if (!empty($label)) $this->label = $label;
 		if (!empty($placeholder)) $this->placeholder = $placeholder;
@@ -141,7 +141,7 @@ class Field extends Setting{
 		}
 		$value = ($userValue and !empty($this->userValue)) ? $this->userValue : $this->value;
 		?>
-		<div class="form-group">
+		<div class="form-group <?php if ($this->important) echo 'has-warning'; ?>">
 			<label for="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>"><?php echo $this->label; ?> <?php if (!empty($pattern) and $pattern->getRequired()) $this->displayRequired(); ?> <?php if($this->help != '') Help::iconHelp($this->help); ?></label>
 			<input type="<?php echo $this->htmlType;?>" class="form-control<?php echo ' '.$this->class; ?>" id="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>" name="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>" <?php if ($this->placeholder != '') echo 'placeholder="'.$this->placeholder.'"'; ?> value="<?php echo $value; ?>" <?php if ($this->disabled or !$enabled) echo 'disabled'; ?> <?php echo $attrs; ?> <?php echo $displayPattern; ?>>
 			<?php if (!empty($pattern)) { ?>
@@ -167,6 +167,16 @@ class Field extends Setting{
 	 */
 	protected function displayRequired(){
 		?><small><span class="glyphicon glyphicon-asterisk text-danger tooltip-bottom" title="Obligatoire"></span></small><?php
+	}
+
+	/**
+	 * Affiche un panneau warning jaune à côté du label
+	 *
+	 * @param string $msg Message à afficher en infobulle
+	 */
+	protected function displayImportant($msg = null){
+		$msg = (!empty($msg)) ? $msg : 'Attention : une modification sur ce champ peut entraîner des dysfonctionnements !';
+		?><small><span class="glyphicon glyphicon-warning-sign text-warning tooltip-bottom" title="<?php echo $msg; ?>"></span></small><?php
 	}
 
 	/**

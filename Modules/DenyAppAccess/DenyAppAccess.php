@@ -14,9 +14,13 @@ use Components\Menu;
 use Db\DbFieldSettings;
 use Db\DbTable;
 use FileSystem\Fs;
+use Forms\Fields\Bool;
+use Forms\Fields\Button;
 use Forms\Fields\Int;
 use Forms\Fields\String;
 use Forms\Fields\Table;
+use Forms\Fields\Text;
+use Forms\JSSwitch;
 use Front;
 use Logs\Alert;
 use Logs\EventLog;
@@ -217,17 +221,9 @@ class DenyAppAccess extends Module{
 		}
 		// Construction du formulaire
 		$form = new Form('appMaintenance', null, null, 'module', $this->id);
-		$switchArray = array(
-			'switch'  => true,
-		  'onText'  => 'Activée',
-		  'offText' => 'Désactivée',
-		  'onColor' => 'warning',
-		  'size'    => 'large',
-		  'labelPosition' => 'left'
-		);
-		$form->addField(new Field('maintenance', 'bool', 'global', $app->getMaintenance(), 'Maintenance', null, $switchArray, 'Passez la maintenance sur \'Active\' pour empêcher les utilisateurs d\'accéder à '.$app->getTitle(), null, null, true, 'modify'));
-		$form->addField(new Field('message', 'text', 'global', $app->getMessage(), 'Message', null, null, 'Saisissez le message que verront les utilisateurs en essayant de se connecter à '.$app->getTitle().' lorsque l\'accès est bloqué.', null, null, true, 'modify'));
-		$form->addField(new Field('action', 'button', 'global', 'saveAppStatus', 'Sauvegarder', null, null, null, null, null, false, 'modify', 'btn-primary'));
+		$form->addField(new Bool('maintenance', 'global', $app->getMaintenance(), null, 'Maintenance', 'Passez la maintenance sur \'Active\' pour empêcher les utilisateurs d\'accéder à '.$app->getTitle(), null, true, 'modify', null, false, new JSSwitch('large', 'left', 'Activée', 'Désactivée', 'warning')));
+		$form->addField(new Text('message', 'global', $app->getMessage(), null, 'Message', null, 'Saisissez le message que verront les utilisateurs en essayant de se connecter à '.$app->getTitle().' lorsque l\'accès est bloqué.', null, false, 'modify'));
+		$form->addField(new Button('action', 'global', 'saveAppStatus', 'Sauvegarder', 'modify', 'btn-primary'));
 		?>
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">

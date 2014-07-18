@@ -49,7 +49,7 @@ class Select extends Field{
 	public function display($enabled = true, $userValue = false){
 		$value = ($userValue and !empty($this->userValue)) ? $this->userValue : $this->value;
 		?>
-		<div class="form-group">
+		<div class="form-group <?php if ($this->important) echo 'has-warning'; ?>">
 			<label for="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>"><?php echo $this->label; ?> <?php if (!empty($pattern) and $pattern->getRequired()) $this->displayRequired(); ?> <?php if($this->help != '') Help::iconHelp($this->help); ?></label>
 			<select class="form-control<?php echo ' '.$this->class; ?>" id="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>" name="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>" <?php if ($this->disabled or !$enabled) echo 'disabled'; ?>>
 				<?php

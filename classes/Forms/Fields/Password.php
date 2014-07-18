@@ -40,7 +40,7 @@ class Password extends String{
 		}
 		$value = ($userValue and !empty($this->userValue)) ? $this->userValue : $this->value;
 		?>
-		<div class="form-group">
+		<div class="form-group <?php if ($this->important) echo 'has-warning'; ?>">
 			<label for="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>"><?php echo $this->label; ?> <?php if (!empty($pattern) and $pattern->getRequired()) $this->displayRequired(); ?> <?php if($this->help != '') Help::iconHelp($this->help); ?></label>
 			<div class="input-group">
 				<input type="<?php echo $this->htmlType;?>" class="form-control<?php echo ' '.$this->class; ?> pwd" id="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>" name="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>" <?php if ($this->placeholder != '') echo 'placeholder="'.$this->placeholder.'"'; ?> value="<?php echo $value; ?>" <?php if ($this->disabled or !$enabled) echo 'disabled'; ?> <?php echo $attrs; ?> <?php echo $displayPattern; ?>>
