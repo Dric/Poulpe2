@@ -68,13 +68,15 @@ class PostedData {
 						$req = Sanitize::date($value);
 						break;
 					case 'bool':
-						if ($tab[3] == 'checkbox') {
-							unset($_REQUEST[str_replace('_checkbox', '', $request).'_hidden']);
+						if (!isset($tab[3])) {
+							// Vraie valeur envoyée
+							unset($_REQUEST[$request.'_hidden']);
 							$req = (bool)$value;
 						}elseif ($tab[3] == 'hidden'){
-							if (isset($_REQUEST[str_replace('_hidden', '', $request).'_checkbox'])){
-								$req = (bool)$_REQUEST[str_replace('_hidden', '', $request).'_checkbox'];
-								unset($_REQUEST[str_replace('_hidden', '', $request).'_checkbox']);
+							// Champ masqué attaché
+							if (isset($_REQUEST[str_replace('_hidden', '', $request)])){
+								$req = (bool)$_REQUEST[str_replace('_hidden', '', $request)];
+								unset($_REQUEST[str_replace('_hidden', '', $request)]);
 							}else{
 								$req = (bool)$value;
 							}

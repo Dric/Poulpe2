@@ -123,7 +123,7 @@ class Login {
 		if (!empty($loginName) and !empty($loginPwd)){
 			if (AUTH_MODE == 'sql'){
 				if ($userDb = UsersManagement::getDBUsers($loginName, true)){
-					if ($userDb->pwd == self::saltPwd($loginPwd)) self::doLogin($loginName, $from);
+					if ($userDb->pwd == self::saltPwd($loginPwd)) self::doLogin($loginName, $from, $stayConnected);
 				}else{
 					new Alert('error', 'Ce nom de connexion est inconnu !');
 					return false;

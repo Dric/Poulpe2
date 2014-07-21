@@ -43,6 +43,9 @@ class Select extends Field{
 	/**
 	 * Affichage du champ
 	 *
+	 * Les entrées sont lues à partir d'un tableau de type $choix => $libellé
+	 * Si $libellé est lui-même un tableau, on crée une balise <optgroup> dans laquelle on met le contenu de $libellé
+	 *
 	 * @param bool $enabled Champ modifiable
 	 * @param bool $userValue
 	 */
@@ -57,7 +60,15 @@ class Select extends Field{
 				?><option></option><?php
 				}
 				foreach ($this->choices as $choice => $label){
-				?><option value="<?php echo $choice; ?>" <?php if ($value == $choice) echo 'selected'; ?>><?php echo $label; ?></option><?php
+					if (is_array($label)){
+						?><optgroup label="<?php echo $choice; ?>"><?php
+						foreach ($label as $subChoice => $subLabel){
+							?><option value="<?php echo $subChoice; ?>" <?php if ($value == $subChoice) echo 'selected'; ?>><?php echo $subLabel; ?></option><?php
+						}
+						?></optgroup><?php
+					}else{
+						?><option value="<?php echo $choice; ?>" <?php if ($value == $choice) echo 'selected'; ?>><?php echo $label; ?></option><?php
+					}
 				}
 				?>
 			</select>
@@ -80,7 +91,15 @@ class Select extends Field{
 			?><option></option><?php
 			}
 			foreach ($this->choices as $choice => $label){
-			?><option value="<?php echo $choice; ?>" <?php if ($value == $choice) echo 'selected'; ?>><?php echo $label; ?></option><?php
+				if (is_array($label)){
+					?><optgroup label="<?php echo $choice; ?>"><?php
+					foreach ($label as $subChoice => $subLabel){
+						?><option value="<?php echo $subChoice; ?>" <?php if ($value == $subChoice) echo 'selected'; ?>><?php echo $subLabel; ?></option><?php
+					}
+					?></optgroup><?php
+				}else{
+					?><option value="<?php echo $choice; ?>" <?php if ($value == $choice) echo 'selected'; ?>><?php echo $label; ?></option><?php
+				}
 			}
 			?>
 		</select>

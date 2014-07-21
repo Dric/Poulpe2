@@ -99,13 +99,11 @@ class Bool extends Field{
 			$switch = $this->switch;
 			$dataAttr .= 'data-on-text="'.$switch->getOnText().'" data-off-text="'.$switch->getOffText().'" data-on-color="'.$switch->getOnColor().'" data-off-color="'.$switch->getOffColor().'" data-size="'.$switch->getSize().'"';
 		}
+		$value = ($value == 1 or $value == 'true' or $value == true) ? true : false;
 		?>
-		<div class="checkbox">
-			<label>
-				<input type="checkbox" class="<?php if (!empty($this->switch)) echo 'checkboxSwitch'; ?>" id="dbTable_<?php echo $tableName; ?>_<?php echo $this->type; ?>_<?php echo $this->name; ?>_<?php echo $rowId; ?>" name="dbTable_<?php echo $tableName; ?>_<?php echo $this->type; ?>_<?php echo $this->name; ?>_<?php echo $rowId; ?>" value="1" <?php if ($value === true or $value == 'true') echo 'checked'; ?> <?php if (!empty($dataAttr)) echo $dataAttr; ?> <?php if ($this->disabled) echo 'disabled'; ?>>
-				<input type="hidden" id="dbTable_<?php echo $tableName; ?>_<?php echo $this->type; ?>_<?php echo $this->name; ?>_<?php echo $rowId; ?>_hidden" name="dbTable_<?php echo $tableName; ?>_<?php echo $this->type; ?>_<?php echo $this->name; ?>_<?php echo $rowId; ?>_hidden" value="0" <?php if ($this->disabled) echo 'disabled'; ?>>
-			</label>
-		</div>
+		<input type="checkbox" class="<?php if (!empty($this->switch)) echo 'checkboxSwitch'; ?>" id="dbTable_<?php echo $tableName; ?>_<?php echo $this->type; ?>_<?php echo $this->name; ?>_<?php echo $rowId; ?>" name="dbTable_<?php echo $tableName; ?>_<?php echo $this->type; ?>_<?php echo $this->name; ?>_<?php echo $rowId; ?>" value="1" <?php if ($value) echo 'checked'; ?> <?php if (!empty($dataAttr)) echo $dataAttr; ?> <?php if ($this->disabled) echo 'disabled'; ?>>
+		<input type="hidden" id="dbTable_<?php echo $tableName; ?>_<?php echo $this->type; ?>_<?php echo $this->name; ?>_<?php echo $rowId; ?>_hidden" name="dbTable_<?php echo $tableName; ?>_<?php echo $this->type; ?>_<?php echo $this->name; ?>_<?php echo $rowId; ?>_hidden" value="0" <?php if ($this->disabled) echo 'disabled'; ?>>
+
 		<?php
 	}
 } 
