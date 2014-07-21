@@ -11,6 +11,7 @@ namespace Components;
  * @package Components
  */
 use Logs\Alert;
+use Sanitize;
 
 /**
  * Class Filter
