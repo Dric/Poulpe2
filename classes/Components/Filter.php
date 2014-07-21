@@ -1,4 +1,6 @@
 <?php
+
+namespace Components;
 /**
  * Classe de mise en forme de filtre (pour requête sql, pour filtrage de données, etc.)
  *
@@ -6,14 +8,14 @@
  * Date: 19/03/14
  * Time: 14:10
  *
- * @package Sanitize
+ * @package Components
  */
 use Logs\Alert;
 
 /**
  * Class Filter
  *
- * @package Sanitize
+ * @package Components
  */
 class Filter {
 	protected $key;

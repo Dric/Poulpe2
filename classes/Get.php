@@ -27,7 +27,7 @@ class Get {
 		$params = array();
 		foreach ($queryParts as $param) {
 			$item = explode('=', $param);
-			$params[$item[0]] = $item[1];
+			if (isset($item[1])) $params[$item[0]] = $item[1];
 		}
 		return $params;
 	}
