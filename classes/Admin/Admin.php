@@ -32,14 +32,25 @@ use Users\UsersManagement;
 /**
  * Classe d'administration du site
  *
- * Cette classe doit avoir des fonctions publiques similaires à celles des modules, car elle est appelée de la même façon que ces derniers.
- *
  * @package Admin
  */
 class Admin extends Module {
 
+	/**
+	 * Nom du module
+	 * @var string
+	 */
 	protected $name = 'Admin';
+
+	/**
+	 * Titre du module
+	 * @var string
+	 */
 	protected $title = 'Administration';
+	/**
+	 * Type de module
+	 * @var string
+	 */
 	protected $type = 'admin';
 
 	/**
@@ -54,6 +65,9 @@ class Admin extends Module {
 		Front::setSecondaryMenus($menu);
 	}
 
+	/**
+	 * Administration des modules
+	 */
 	protected function adminModules(){
 		global $db;
 		$activeModules = array();
@@ -158,6 +172,12 @@ class Admin extends Module {
 	<?php
 	}
 
+	/**
+	 * Sauvegarde des modifications sur les modules
+	 *
+	 * @see self::adminModules()
+	 * @return bool
+	 */
 	protected function saveModules(){
 		if (!ACL::canModify('admin', $this->id)){
 			new Alert('error', 'Vous n\'avez pas l\'autorisation de faire ceci !');
@@ -193,6 +213,10 @@ class Admin extends Module {
 		return true;
 	}
 
+	/**
+	 * Administration des ACL (permissions)
+	 * @see ACL
+	 */
 	protected function adminACL(){
 		?>
 		<div class="row">
@@ -273,6 +297,8 @@ class Admin extends Module {
 
 	/**
 	 * Crée un utilisateur dans la base de données
+	 *
+	 * @use \UsersManagement::createUser()
 	 * @return bool
 	 */
 	protected function createUser(){
@@ -567,6 +593,9 @@ class Admin extends Module {
 		<?php
 	}
 
+	/**
+	 * Affiche les composants logiciels et les répertoires utilisés par Poulpe2
+	 */
 	protected function softwareStatus(){
 		global $db;
 		list($phpVersion,) = explode('-', phpversion());
@@ -594,6 +623,9 @@ class Admin extends Module {
 		<?php
 	}
 
+	/**
+	 * Affiche le statut de Poulpe2
+	 */
 	protected function poulpe2Status(){
 		global $db;
 		$dbStatus = $db->query('SHOW TABLE STATUS');

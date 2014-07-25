@@ -12,6 +12,11 @@ namespace Logs;
 use Get;
 use Sanitize;
 
+/**
+ * Classe de gestion des événements
+ *
+ * @package Logs
+ */
 class EventsManager {
 
 	/**
@@ -43,11 +48,12 @@ class EventsManager {
 
 	/**
 	 * Affiche ou renvoie un log
-	 * @param string|array $types Filtre par type(s) d'événements. Pour récupérer plusieurs types, il suffit de les passer dans un tableau
-	 * @param string|array $users Filtre par utilisateur(s). Pour récupérer plusieurs utilisateurs, il suffit de les passer dans un tableau
-	 * @param string|array $components Filtre par composant(s). Pour récupérer plusieurs composants, il suffit de les passer dans un tableau
-	 * @param array $timeRange Plage de dates (facultatif), de la forme array(dateDébut, dateFin)
-	 * @param bool  $returnArray Retourne un tableau contenant els logs si true, affiche le tableau sinon.
+	 *
+	 * @param string|array $types Filtre par type(s) d'événements. Pour récupérer plusieurs types, il suffit de les passer dans un tableau (facultatif)
+	 * @param string|array $users Filtre par utilisateur(s). Pour récupérer plusieurs utilisateurs, il suffit de les passer dans un tableau (facultatif)
+	 * @param string|array $components Filtre par composant(s). Pour récupérer plusieurs composants, il suffit de les passer dans un tableau (facultatif)
+	 * @param array $timeRange Plage de dates (facultatif), de la forme array(dateDébut, dateFin) (facultatif)
+	 * @param bool  $returnArray Retourne un tableau contenant els logs si true, affiche le tableau sinon. (facultatif)
 	 *
 	 * @return bool|object
 	 */

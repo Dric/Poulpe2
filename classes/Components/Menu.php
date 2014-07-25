@@ -6,7 +6,6 @@
  * Date: 17/03/14
  * Time: 14:03
  *
- * @package Components
  */
 
 namespace Components;
@@ -14,7 +13,13 @@ use Logs\Alert;
 use Sanitize;
 
 /**
- * Class Menu
+ * Classe de gestion des menus
+ *
+ * Un menu est composé d'items de menus
+ * Les instanciations de menus sont stockées dans la variable {self::$menus}
+ *
+ *
+ * @use Item
  *
  * @package Components
  */
@@ -27,37 +32,50 @@ class Menu {
 	protected $name = '';
 
 	/**
-	 * Lien de l'item de menu
+	 * Lien du menu
 	 * @var string
 	 */
 	protected $link = '';
 
 	/**
-	 * Titre affiché de l'item de menu
+	 * Titre affiché du menu
 	 * @var string
 	 */
 	protected $title = '';
 
+	/**
+	 * Description du menu
+	 * @var string
+	 */
 	protected $desc = '';
 
 	/**
-	 * Icône associée à l'item de menu
+	 * Icône associée au menu
 	 * @var string
 	 */
 	protected $icon = '';
 
 	/**
-	 * Tableau global de toutes les alertes instanciées
-	 * @var array
+	 * Tableau global des menus instanciés
+	 * @var Menu[]
 	 */
 	protected static $menus = array();
 
 	/**
 	 * Liste d'objets d'items de menu
-	 * @var array
+	 * @var Item[]
 	 */
 	protected $items = array();
 
+	/**
+	 * Construction du menu
+	 *
+	 * @param string $name  Nom du menu
+	 * @param string $title Titre affiché du menu
+	 * @param string $link  Lien du menu (facultatif)
+	 * @param string $desc  Description du menu (facultatif)
+	 * @param string $icon  Icône associée au menu (facultatif)
+	 */
 	public function __construct($name, $title, $link = '', $desc = '', $icon = ''){
 		$this->name = Sanitize::sanitizeFilename($name);
 		$this->title = htmlspecialchars($title);
@@ -67,6 +85,9 @@ class Menu {
 		self::$menus[$this->name] = $this;
 	}
 
+	/**
+	 * Destruction du menu
+	 */
 	public function __destruct(){
 		unset(self::$menus[$this->name]);
 	}
@@ -74,12 +95,12 @@ class Menu {
 	/**
 	 * Ajoute un item dans le menu
 	 *
-	 * @param object $item Item ou sous-menu de menu
-	 * @param int  $priority Priorité de l'item de menu (entre 0 et 100)
+	 * @param Item $item Item ou sous-menu de menu
+	 * @param int  $priority Priorité de l'item de menu (entre 0 et 100) (facultatif)
 	 *
 	 * @return bool
 	 */
-	public function add($item, $priority = 50){
+	public function add(Item $item, $priority = 50){
 		// Si $item n'est ni un Item, ni un Menu, on ne l'ajoute pas.
 		if (!($item instanceof Item) and !($item instanceof Menu)){
 			new Alert('debug', '<code>Menu->add()</code> : $item n\'est ni un menu, ni un item !');
@@ -115,9 +136,10 @@ class Menu {
 
 	/**
 	 * Crée et affiche le menu
-	 * @param string $menuClass Classe CSS optionnelle du menu
-	 * @param string $itemClass Classe CSS optionnelle des items du menu
-	 * @param bool   $displayTitle Afficher ou non le titre du menu (pas d'affichage par défaut)
+	 *
+	 * @param string $menuClass Classe CSS optionnelle du menu (facultatif)
+	 * @param string $itemClass Classe CSS optionnelle des items du menu (facultatif)
+	 * @param bool   $displayTitle Afficher ou non le titre du menu (pas d'affichage par défaut) (facultatif)
 	 */
 	public function build($menuClass = '', $itemClass = '', $displayTitle = false){
 		ksort ($this->items);

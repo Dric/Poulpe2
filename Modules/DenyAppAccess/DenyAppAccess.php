@@ -63,9 +63,6 @@ class DenyAppAccess extends Module{
 	 * Installe le module en bdd, avec ses paramètres
 	 */
 	public function install(){
-		// On renseigne le chemin du module
-		$this->path = basename(__DIR__).DIRECTORY_SEPARATOR.basename(__FILE__);
-
 		// Définition des ACL par défaut pour ce module
 		$defaultACL = array(
 		  'type'  => 'modify',

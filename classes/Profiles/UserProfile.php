@@ -7,6 +7,7 @@
  */
 
 namespace Profiles;
+
 use Forms\Fields\Button;
 use Forms\Fields\Email;
 use Forms\Fields\File;
@@ -19,13 +20,9 @@ use Forms\Pattern;
 use Logs\Alert;
 use Components\Avatar;
 use FileSystem\Upload;
-use Front;
 use Modules\Module;
 use Sanitize;
-use Forms\Field;
 use Forms\Form;
-use Forms\PostedData;
-use Settings\Setting;
 use Users\ACL;
 use Users\Login;
 use Users\User;
@@ -34,13 +31,19 @@ use Users\UsersManagement;
 /**
 	 * Profil de l'utilisateur
 	 *
-	 * Cette classe doit avoir des fonctions publiques similaires à celles des modules, car elle est appelée de la même façon que ces derniers.
-	 *
 	 * @package Profiles
 	 */
 class UserProfile extends Module {
 
+	/**
+	 * Nom du module
+	 * @var string
+	 */
 	protected $name = 'profil';
+	/**
+	 * Titre du module
+	 * @var string
+	 */
 	protected $title = 'Profil';
 	/**
 	 * Objet utilisateur dont on veut modifier le profil
@@ -48,16 +51,16 @@ class UserProfile extends Module {
 	 */
 	protected $user = null;
 	/**
+	 * Formulaire du profil
 	 * @var Form
 	 */
 	protected $form = null;
 
+	/**
+	 * Instantiation du module UserProfile
+	 */
 	public function __construct(){
-		$this->moduleMenu();
-		$this->breadCrumb = array(
-			'title' => $this->name,
-			'link'  => MODULE_URL.$this->name
-		);
+		parent::__construct();
 		if (isset($_REQUEST['user'])){
 			if ($_REQUEST['user'] != $GLOBALS['cUser']->getId() and !ACL::canAdmin('admin', 0)){
 				new Alert('error', 'Vous n\'avez pas l\'autorisation de faire ceci !');
@@ -105,7 +108,7 @@ class UserProfile extends Module {
 					$args['resize'] = array('width' => 80, 'height' => 80);
 					// Les avatars auront le nom des utilisateurs, et seront automatiquement transformés en .png par SimpleImages
 					$args['name'] = $this->user->getName().'.png';
-					$avatarFile = Upload::File($_FILES['field_string_avatarFile'], AVATAR_PATH, AVATAR_MAX_SIZE, unserialize(ALLOWED_IMAGES_EXT), $args);
+					$avatarFile = Upload::file($_FILES['field_string_avatarFile'], AVATAR_PATH, AVATAR_MAX_SIZE, unserialize(ALLOWED_IMAGES_EXT), $args);
 					if (!$avatar) {
 						new Alert('error', 'L\'avatar n\'a pas été pris en compte !');
 						return false;
@@ -184,7 +187,9 @@ class UserProfile extends Module {
 		}
 	}
 
-
+	/**
+	 * Affichage principal du profil
+	 */
 	public function mainDisplay(){
 		if (isset($_REQUEST['action']) and $_REQUEST['action'] == 'deleteUser'){
 			?>
@@ -282,6 +287,9 @@ class UserProfile extends Module {
 		$this->form->addField(new Password('newPwd', 'global', null, null, 'Nouveau mot de passe', 'Mot de passe de '.PWD_MIN_SIZE.' caractères minimum', 'Ne saisissez un mot de passe ici que si vous souhaitez en changer', new Pattern('password', false, PWD_MIN_SIZE, 100), true));
 	}
 
+	/**
+	 * Prépare les boutons du formulaire
+	 */
 	protected function profileFormButtons(){
 		$this->form->addField(new Hidden('user', 'global', $this->user->getId()));
 		$this->form->addField(new Button('action', 'global', 'saveUserProfile', 'Sauvegarder'));

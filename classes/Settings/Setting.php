@@ -6,14 +6,13 @@
  * Date: 17/03/14
  * Time: 12:33
  *
- * @package Settings
  */
 
 namespace Settings;
 use Sanitize;
 
 /**
- * Class Setting
+ * Classe de gestion des paramètres
  *
  * @package Settings
  */
@@ -28,7 +27,10 @@ class Setting {
 	 * - list
 	 * - text
 	 * - date
+	 * - time
 	 * - button
+	 *
+	 *
 	 * @var string
 	 */
 	protected $type = 'string';
@@ -59,6 +61,7 @@ class Setting {
 	 * Catégorie du paramètre
 	 * - global
 	 * - user
+	 *
 	 * @var string
 	 */
 	protected $category = 'global';
@@ -84,6 +87,7 @@ class Setting {
 		'list'    => 'array',
 		'text'    => 'string',
 		'date'    => 'int',
+		'time'    => 'int',
 		'button'  => 'string',
 		'hidden'  => 'string',
 	  'data'    => 'string',
@@ -121,6 +125,7 @@ class Setting {
 
 
 	/**
+	 * Retourne le type du paramètre
 	 * @return string
 	 */
 	public function getType() {
@@ -128,6 +133,7 @@ class Setting {
 	}
 
 	/**
+	 * Retourne le nom du paramètre
 	 * @return string
 	 */
 	public function getName() {
@@ -137,7 +143,9 @@ class Setting {
 	/**
 	 * Retourne la valeur du paramètre
 	 *
-	 * @param bool $getUserValueIfExists Retourne la valeur utilisateur si elle existe et si ce paramètre est à true
+	 * Par défaut, la valeur définie par l'utilisateur est retournée si elle existe à la place de la valeur réelle
+	 *
+	 * @param bool $getUserValueIfExists Retourne la valeur utilisateur si elle existe et si ce paramètre est à true (facultatif)
 	 *
 	 * @return mixed
 	 */
@@ -146,6 +154,7 @@ class Setting {
 	}
 
 	/**
+	 * Retourne la catégorie du paramètre
 	 * @return string
 	 */
 	public function getCategory() {
@@ -153,6 +162,7 @@ class Setting {
 	}
 
 	/**
+	 * Retourne l'importance du paramètre
 	 * @return boolean
 	 */
 	public function getImportant() {
@@ -160,6 +170,7 @@ class Setting {
 	}
 
 	/**
+	 * Retourne la valeur définie par l'utilisateur pour ce paramètre
 	 * @return mixed
 	 */
 	public function getUserValue() {
@@ -172,6 +183,7 @@ class Setting {
 	 */
 	public function setUserValue($userValue) {
 		if ($this->type == 'date') $userValue = Sanitize::date($userValue, 'timestamp');
+		if ($this->type == 'time') $userValue = Sanitize::time($userValue, 'timestamp');
 		settype($userValue, self::$types[$this->type]);
 		$this->userValue = $userValue;
 	}
@@ -182,11 +194,13 @@ class Setting {
 	 */
 	public function setValue($value) {
 		if ($this->type == 'date') $value = Sanitize::date($value, 'timestamp');
+		if ($this->type == 'time') $value = Sanitize::time($value, 'timestamp');
 		settype($value, self::$types[$this->type]);
 		$this->value = $value;
 	}
 
 	/**
+	 * Retourne l'ID du paramètre dans la base de données
 	 * @return int
 	 */
 	public function getId() {
@@ -194,6 +208,7 @@ class Setting {
 	}
 
 	/**
+	 * Définit l'ID du paramètre
 	 * @param int $id
 	 */
 	public function setId($id) {

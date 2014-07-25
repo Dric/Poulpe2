@@ -195,6 +195,64 @@ function menuNavigation(){
 		});
 	});
 }
+/**
+ * Gère la saisie des dates et heures
+ *
+ * Pour spécifier un mode de saisie, l'attribut `data-dateMode` doit être renseigné avec une des valeurs suivantes :
+ *  - `date`          : saisie de date sans l'heure
+ *  - `time`          : saisie d'heure et de minutes
+ *  - `fulltime`      : idem que `time`, mais avec les secondes
+ *  - `dateTime`      : saisie de date et heure, sans les secondes
+ *  - `fullDateTime`  : idem que `dateTime`, mais avec les secondes
+ *
+ */
+function dateTimePick(){
+	if ($.isFunction('datetimepicker')) {
+		var options = {
+			language: 'fr'
+		};
+		$('input[type=date]').each(function(){
+			var mode = $(this).data('dateType') || 'date';
+			switch (mode){
+				case 'date':
+					options.push({
+						pickDate: true,                 //en/disables the date picker
+						pickTime: false                 //en/disables the time picker
+					});
+					break;
+				case 'time':
+					options.push({
+						pickDate: false,                 //en/disables the date picker
+						pickTime: true,
+						useSeconds: false
+					});
+					break;
+				case 'fullTime':
+					options.push({
+						pickDate: false,                 //en/disables the date picker
+						pickTime: true,
+						useSeconds: true
+					});
+					break;
+				case 'dateTime':
+					options.push({
+						pickDate: true,                 //en/disables the date picker
+						pickTime: true,
+						useSeconds: false
+					});
+					break;
+				case 'fullDateTime':
+					options.push({
+						pickDate: true,                 //en/disables the date picker
+						pickTime: true,
+						useSeconds: true
+					});
+					break;
+			}
+			$(this).datetimepicker(options);
+		});
+	}
+}
 
 menuNavigation();
 bootstrapSwitch();

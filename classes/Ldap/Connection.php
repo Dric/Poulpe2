@@ -6,16 +6,14 @@
  * Date: 18/03/14
  * Time: 09:07
  *
- * @package Ldap
  */
 
 namespace Ldap;
 use Logs\Alert;
 
 /**
- * Class Connection
- *
  * Connexion à un annuaire LDAP
+ *
  * @package Ldap
  */
 class Connection {
@@ -63,15 +61,17 @@ class Connection {
 	protected $badCreds = false;
 
 	/**
+	 * Construction de l'objet
+	 *
 	 * @param string $dc Contrôleur de domaine sur lequel ouvrir la connexion
 	 * @param string $bindName Nom du compte utilisé pour ouvrir la connexion sur l'annuaire LDAP
 	 * @param string $bindPwd Mot de passe du compte utilisé pour ouvrir la connexion
-	 * @param string $domain Domaine LDAP
+	 * @param string $domain Domaine LDAP (facultatif)
 	 */
 	public function __construct($dc, $bindName, $bindPwd, $domain = ''){
 		if (!empty($domain)){
 			/**
-			 * TODO : faire une meilleure vérification du domaine LDAP
+			 * TODO faire une meilleure vérification du domaine LDAP
 			 */
 			$this->domain = htmlspecialchars($domain);
 		}

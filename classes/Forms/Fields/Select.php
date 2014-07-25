@@ -12,10 +12,23 @@ namespace Forms\Fields;
 use Components\Help;
 use Forms\Field;
 
+/**
+ * Champ de sélection d'une valeur dans une liste
+ *
+ * @package Forms\Fields
+ */
 class Select extends Field{
 
 	protected $type = 'select';
+	/**
+	 * Liste de choix dans un tableau associatif de la forme `Valeur => libellé`
+	 * @var string[]
+	 */
 	protected $choices = array();
+	/**
+	 * Ajouter une valeur vide au début des choix
+	 * @var bool
+	 */
 	protected $addEmpty = false;
 
 	/**
@@ -37,17 +50,17 @@ class Select extends Field{
 	public function __construct($name, $category, $value, $userValue = null, $label = null, $help = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false, $choices = null, $addEmpty = false){
 		$this->choices = (array)$choices;
 		$this->addEmpty = (bool)$addEmpty;
-		parent::__construct($name, $this->type, $category, $value, $label, null, null, $help, null, $userValue, $important, $ACLLevel, $class, $disabled);
+		parent::__construct($name, $this->type, $category, $value, $label, null, $help, null, $userValue, $important, $ACLLevel, $class, $disabled);
 	}
 
 	/**
 	 * Affichage du champ
 	 *
-	 * Les entrées sont lues à partir d'un tableau de type $choix => $libellé
-	 * Si $libellé est lui-même un tableau, on crée une balise <optgroup> dans laquelle on met le contenu de $libellé
+	 * Les entrées sont lues à partir d'un tableau de type `$choix => $libellé`
+	 * Si $libellé est lui-même un tableau, on crée une balise `<optgroup>` dans laquelle on met le contenu de $libellé
 	 *
 	 * @param bool $enabled Champ modifiable
-	 * @param bool $userValue
+	 * @param bool $userValue Affichage de la valeur utilisateur au lieu de la valeur globale
 	 */
 	public function display($enabled = true, $userValue = false){
 		$value = ($userValue and !empty($this->userValue)) ? $this->userValue : $this->value;

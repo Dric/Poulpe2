@@ -6,12 +6,12 @@
  * Date: 18/03/14
  * Time: 16:16
  *
- * @package Sanitize
  */
 
 /**
- * Class Sanitize
- * Contient des fonctions de transformation de données
+ * Classe de fonctions de transformation de données
+ *
+ * Fonctions de base de transformations de chaînes, dates, int, etc.
  *
  * @package Sanitize
  */
@@ -64,9 +64,9 @@ class Sanitize {
 	 *
 	 * @param bool|string $sanitizeFor Met en forme les valeurs du tableau. Peut prendre les valeurs suivantes :
 	 *  - false (défaut)
-	 *  - 'db'
-	 *  - 'js'
-	 *  - 'file'
+	 *  - `db`
+	 *  - `js`
+	 *  - `file`
 	 *
 	 * @return string
 	 */
@@ -96,6 +96,10 @@ class Sanitize {
 	}
 
 	/**
+	 * Transforme un format de date en un autre
+	 *
+	 * Cette méthode accepte soit un timestamp soit une date normale en entrée
+	 *
 	 * @param int|string $date Date à transformer
 	 * @param string $to Format de retour
 	 * - timestamp
@@ -120,6 +124,33 @@ class Sanitize {
 			case 'fullDateTime':    return date('d/m/Y H:i:s', $date);
 			case 'dateAtTime':  return date('d/m/Y à H:i', $date);
 			case 'time' :       return date('H:i:s', $date);
+			default:            return false;
+		}
+	}
+
+	/**
+	 * Transforme un format d'heure en un autre
+	 *
+	 * Cette méthode accepte soit une durée en secondes depuis minuit, soit une heure formatée en hh:mm ou hh:mm:ss
+	 *
+	 * @param int|string  $time Heure à transformer
+	 * @param string      $to   Format de retour
+	 *  - `timestamp` nombre de secondes écoulées depuis minuit
+	 *  - `time`      hh:mm
+	 *  - `fullTime`  hh:mm:ss
+	 *
+	 * @return bool|int|null|string
+	 */
+	public static function time($time, $to = 'timestamp'){
+		if (empty($time)) return null;
+		switch ($to){
+			case 'timestamp':
+				// Au cas où l'heure soit déjà un timestamp
+				if (is_numeric($time)) return $time;
+				$parsed = date_parse($time);
+				return (int)($parsed['hour'] * 3600 + $parsed['minute'] * 60 + $parsed['second']);
+			case 'time' :       return gmdate('H:i', $time);
+			case 'fullTime':    return gmdate('H:i:s', $time);
 			default:            return false;
 		}
 	}
@@ -236,15 +267,18 @@ class Sanitize {
 
 	/**
 	 * Converti une valeur en octets en taille lisible (Mo, Go, etc.)
+	 *
 	 * @param int $size Taille en octets
+	 * @param int $NbDecimals Nombre de décimales après la virgule
 	 *
 	 * @return string
 	 */
-	public static function readableFileSize($size){
+	public static function readableFileSize($size, $NbDecimals = 2){
 		$siPrefix = array( 'o', 'Ko', 'Mo', 'Go', 'To', 'Eo', 'Zo', 'Yo' );
 		$base = 1024;
 		$class = min((int)log($size , $base) , count($siPrefix) - 1);
-		return sprintf('%1.2f' , $size / pow($base,$class)) . ' ' . $siPrefix[$class];
+		if ($NbDecimals > 0) return sprintf('%1.'.$NbDecimals.'f' , $size / pow($base,$class)) . ' ' . $siPrefix[$class];
+		return round($size / pow($base,$class)) . ' ' . $siPrefix[$class];
 	}
 
 	/**

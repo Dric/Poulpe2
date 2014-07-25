@@ -12,6 +12,16 @@ namespace Forms\Fields;
 use Forms\Field;
 use Forms\Pattern;
 
+/**
+ * Champ de formulaire pour nombres flottants
+ *
+ * Ce champ est de type `number`, qui a été introduit en html5
+ * Sur les navigateurs le supportant, Des flèches permettant d'augmenter ou réduire la valeur sont affichées
+ *
+ * Une validation est également faite sur la saisie afin de vérifier qu'il s'agit d'un nombre
+ *
+ * @package Forms\Fields
+ */
 class Float extends String{
 
 	protected $type = 'float';

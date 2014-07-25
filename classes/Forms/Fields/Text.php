@@ -13,9 +13,18 @@ use Components\Help;
 use Forms\Field;
 use Forms\Pattern;
 
+/**
+ * Champ de saisie de texte long (textarea)
+ *
+ * @package Forms\Fields
+ */
 class Text extends Field{
 
 	protected $type = 'text';
+	/**
+	 * Nombre de lignes affichées par le champ (hauteur du champ)
+	 * @var int
+	 */
 	protected $rows = 5;
 
 	/**
@@ -37,14 +46,14 @@ class Text extends Field{
 	 */
 	public function __construct($name, $category, $value, $userValue = null, $label = null, $placeholder = null, $help = null, $pattern = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false, $rows = null){
 		if (!empty($rows)) $this->rows = (int)$rows;
-		parent::__construct($name, $this->type, $category, $value, $label, $placeholder, null, $help, $pattern, $userValue, $important, $ACLLevel, $class, $disabled);
+		parent::__construct($name, $this->type, $category, $value, $label, $placeholder, $help, $pattern, $userValue, $important, $ACLLevel, $class, $disabled);
 	}
 
 	/**
 	 * Affichage du champ
 	 *
 	 * @param bool $enabled Champ modifiable
-	 * @param bool $userValue
+	 * @param bool $userValue Afficher la valeur utilisateur au lieu de la valeur globale
 	 */
 	public function display($enabled = true, $userValue = false){
 		/**

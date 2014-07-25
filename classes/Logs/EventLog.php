@@ -11,18 +11,50 @@ namespace Logs;
 
 use Sanitize;
 
+/**
+ * Objet événement de log
+ *
+ * @package Logs
+ */
 class EventLog {
 
+	/**
+	 * ID de l'utilisateur ayant généré l'événement
+	 * @var int
+	 */
 	protected $user = 0;
 
+	/**
+	 * Composant au sein duquel a été généré l'alerte (module, site, connexion, etc.)
+	 * @var string
+	 */
 	protected $component = null;
 
+	/**
+	 * Type d'événement
+	 * @var string
+	 */
 	protected $type = null;
 
+	/**
+	 * Données de l'événement
+	 * @var mixed
+	 */
 	protected $data = null;
 
+	/**
+	 * Horodatage au format timestamp de l'événement
+	 * @var int
+	 */
 	protected $time = 0;
 
+	/**
+	 * Contexte de l'événement
+	 *
+	 * @param string $type      Type d'événement
+	 * @param string $component Composant au sein duquel a été généré l'événement (facultatif)
+	 * @param string $data      Données de l'événement (facultatif)
+	 */
 	public function __construct($type, $component = null, $data = null){
 		global $cUser;
 		$this->type = htmlspecialchars($type);
@@ -34,6 +66,7 @@ class EventLog {
 	}
 
 	/**
+	 * Retourne l'ID de l'utilisateur ayant généré l'événement
 	 * @return int
 	 */
 	public function getUser() {
@@ -41,6 +74,7 @@ class EventLog {
 	}
 
 	/**
+	 * Retourne le composant au sein duquel a été généré l'événement
 	 * @return string
 	 */
 	public function getComponent() {
@@ -48,14 +82,16 @@ class EventLog {
 	}
 
 	/**
-	 * @return null
+	 * Retourne le type d'événement
+	 * @return string
 	 */
 	public function getType() {
 		return htmlspecialchars_decode($this->type);
 	}
 
 	/**
-	 * @return null
+	 * Retourne les données de l'événement
+	 * @return mixed
 	 */
 	public function getData() {
 		return $this->data;
@@ -63,6 +99,7 @@ class EventLog {
 
 	/**
 	 * Retourne l'horodatage de l'événement
+	 *
 	 * @param bool $humanReadable Retourne l'horodatage formaté si true, ou un timestamp Unix si false
 	 *
 	 * @return int|string

@@ -38,7 +38,7 @@ class DbFieldSettings extends Pattern{
 	 *
 	 * Il ne doit y avoir qu'un seul index primaire défini sur la table, sans quoi le dernier défini est le gagnant !
 	 *
-	 * @var array
+	 * @var string[]
 	 */
 	protected $indexTypes = array(
 		'index',
@@ -70,15 +70,15 @@ class DbFieldSettings extends Pattern{
 	 * Définit des paramètres de validation d'un champ de formulaire
 	 *
 	 * @param string      $type           Type de champ (voir le tableau $types)
-	 * @param bool        $required       Champ obligatoire
-	 * @param int         $length      Nombre de caractères maximum
-	 * @param bool|string $index          Type d'index du champ (false si pas d'index, sinon se référer à $indexTypes)
-	 * @param bool        $inMultipleIndex Ce champ fait partie d'un index multiple
-	 * @param bool        $autoIncrement  Champ auto-incrémenté en bdd
+	 * @param bool        $required       Spécifie un champ obligatoire (facultatif)
+	 * @param int         $length      Nombre de caractères maximum (facultatif)
+	 * @param bool|string $index          Type d'index du champ (false si pas d'index, sinon se référer à $indexTypes) (facultatif)
+	 * @param bool        $inMultipleIndex Ce champ fait partie d'un index multiple (facultatif)
+	 * @param bool        $autoIncrement  Champ auto-incrémenté en bdd (facultatif)
 	 * @param int         $autoIncrementValue  Valeur d'auto-incrémentation (facultatif)
-	 * @param ForeignKey  $foreignKey     Contrainte de clé étrangère sur le champ
-	 * @param bool        $onDuplicateKeyUpdate Ce champ doit être mis à jour en cas d'insertion sur un index déjà existant
-	 * @param bool        $show           Afficher le champ
+	 * @param ForeignKey  $foreignKey     Contrainte de clé étrangère sur le champ (facultatif)
+	 * @param bool        $onDuplicateKeyUpdate Ce champ doit être mis à jour en cas d'insertion sur un index déjà existant (facultatif)
+	 * @param bool        $show           Afficher le champ (facultatif)
 	 *
 	 * @link <http://www.w3schools.com/tags/att_input_type.asp> pour les types de champs acceptés
 	 * @link <https://developer.mozilla.org/en/docs/Web/HTML/Element/Input#Browser_compatibility> pour les supports de types de champs par les navigateurs
@@ -96,6 +96,7 @@ class DbFieldSettings extends Pattern{
 	}
 
 	/**
+	 * Retourne le statut d'auto-incrémentation
 	 * @return boolean
 	 */
 	public function getAutoIncrement() {
@@ -103,6 +104,7 @@ class DbFieldSettings extends Pattern{
 	}
 
 	/**
+	 * Retourne le statut d'index
 	 * @return bool|string
 	 */
 	public function getIndex() {
@@ -110,6 +112,7 @@ class DbFieldSettings extends Pattern{
 	}
 
 	/**
+	 * Retourne la clé étrangère liée au champ
 	 * @return \Db\ForeignKey|null
 	 */
 	public function getForeignKey() {
@@ -117,6 +120,7 @@ class DbFieldSettings extends Pattern{
 	}
 
 	/**
+	 * Retourne la valeur de l'auto-incrémentation
 	 * @return int
 	 */
 	public function getAutoIncrementValue() {
@@ -124,6 +128,7 @@ class DbFieldSettings extends Pattern{
 	}
 
 	/**
+	 * Retourne la longueur du champ
 	 * @return int
 	 */
 	public function getLength() {
@@ -131,6 +136,7 @@ class DbFieldSettings extends Pattern{
 	}
 
 	/**
+	 * Retourne le statut d'affichage du champ lors de l'affichage de la table
 	 * @return boolean
 	 */
 	public function getShow() {
@@ -138,6 +144,7 @@ class DbFieldSettings extends Pattern{
 	}
 
 	/**
+	 * Retourne le statut de mise en jour en cas d'index existant
 	 * @return boolean
 	 */
 	public function getOnDuplicateKeyUpdate() {
@@ -145,6 +152,7 @@ class DbFieldSettings extends Pattern{
 	}
 
 	/**
+	 * Retourne le statut d'appartenance à un index multiple
 	 * @return boolean
 	 */
 	public function getInMultipleIndex() {

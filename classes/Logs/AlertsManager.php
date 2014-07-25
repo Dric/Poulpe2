@@ -9,14 +9,24 @@ namespace Logs;
 
 use Sanitize;
 
+/**
+ * Classe de gestion des alertes
+ *
+ * @package Logs
+ */
 class AlertsManager {
+
+	/**
+	 * Liste des alertes générées
+	 * @var Alert[]
+	 */
 	static protected $alerts = array();
 
 	/**
-	 * Tableau des typesLabels d'alertes autorisés
+	 * Tableau des types d'alertes autorisés
 	 *
-	 * Ces typesLabels d'alertes reprennent les typesLabels d'alerte de Bootstrap (sauf 'debug' et 'error' qui est remappé sur 'danger')
-	 * @var array
+	 * Ces types d'alertes reprennent les types d'alerte de Bootstrap (sauf 'debug' et 'error' qui est remappé sur 'danger')
+	 * @var string[]
 	 */
 	protected static $allowedTypes = array('success', 'warning', 'info', 'danger', 'error', 'debug');
 
@@ -24,7 +34,7 @@ class AlertsManager {
 	 * Retourne ou affiche les alertes générées
 	 *
 	 * @param string $type Type d'alerte à afficher
-	 * @param string $format Format d'affichage (js ou html)
+	 * @param string $format Format d'affichage (js ou html) (facultatif)
 	 *
 	 * @return void
 	 */
@@ -45,6 +55,12 @@ class AlertsManager {
 		if ($format == 'js') echo '</script>'.PHP_EOL;
 	}
 
+	/**
+	 * Affiche l'alerte
+	 *
+	 * @param Alert  $alert Alerte à afficher
+	 * @param string $format Format d'affichage ('js' pour les alertes affichées en javascript, autre valeur pour générer du html. (facultatif)
+	 */
 	public static function displayAlert(Alert $alert, $format = 'js'){
 		if ($format == 'js') echo '<script>'.PHP_EOL;
 		$type = $alert->getType();
@@ -82,20 +98,32 @@ class AlertsManager {
 	}
 
 	/**
+	 * Retourne les types d'alertes autorisés
 	 * @return array
 	 */
 	public static function getAllowedTypes() {
 		return self::$allowedTypes;
 	}
 
+	/**
+	 * Ajoute une alerte à la liste des alertes générées
+	 * @param Alert $alert Alerte à ajouter
+	 */
 	public static function addToAlerts(Alert $alert){
 		self::$alerts[$alert->getType()][] = $alert;
 	}
 
+	/**
+	 * Supprime une alerte de la liste des alertes générées
+	 * @param Alert $alert Alerte à supprimer
+	 */
 	public static function removeAlert(Alert $alert){
 		unset(self::$alerts[$alert->getType()][array_search($alert, self::$alerts, true)]);
 	}
 
+	/**
+	 * Affiche les alertes de type 'debug'
+	 */
 	public static function debug(){
 		global $db, $classesUsed;
 		new Alert('debug', '<code>Db->getQueriesCount</code> : <strong>'.$db->getQueriesCount().'</strong> requête(s) SQL effectuées.');

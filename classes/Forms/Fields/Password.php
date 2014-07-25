@@ -10,9 +10,16 @@ namespace Forms\Fields;
 
 
 use Components\Help;
-use Forms\Field;
 use Forms\Pattern;
 
+/**
+ * Champ de saisie de mot de passe
+ *
+ * Si javascript est activé, un bouton à côté du champ permet d'afficher le mot de passe en clair.
+ * Cette fonctionnalité n'est pas compatible avec les versions d'Internet Explorer antérieures à la 9.
+ *
+ * @package Forms\Fields
+ */
 class Password extends String{
 
 	protected $htmlType = 'password';

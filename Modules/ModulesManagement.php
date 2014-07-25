@@ -18,14 +18,14 @@ use Users\ACL;
 use Users\CurrentUser;
 
 /**
- * Class ModulesManagement
+ * Classe de gestion des modules
  *
  * @package Modules
  */
 class ModulesManagement {
 
 	/**
-	 * Modules actifs
+	 * Liste des modules actifs
 	 * @var array
 	 */
 	protected static $activeModules = null;
@@ -195,16 +195,17 @@ class ModulesManagement {
 	}
 
 	/**
+	 * Installe un module
+	 *
 	 * @param Module $module Module à installer
 	 * @param array $acl Tableau de l'autorisation par défaut :
-	 * - 'type' (access, modify ou admin)
-	 * - 'value' booléen
+	 *  - `type` (`access`, `modify` ou `admin`)
+	 *  - `value` booléen
 	 * @param string $sql Commandes SQL à passer
 	 *
 	 * @return bool
 	 */
 	public static function installModule(Module $module, $acl = array(), $sql = null){
-		global $db;
 		// Définition des paramètres du module
 		$module->defineSettings();
 		if ($module->getDbTables()){
@@ -242,6 +243,8 @@ class ModulesManagement {
 	}
 
 	/**
+	 * Supprime les valeurs de paramètres définies par les utilisateurs
+	 *
 	 * @param Module $Module Module dont on veut effacer les paramètres définis par les utilisateurs
 	 * @param CurrentUser $User Utilisateur (facultatif) - Si non renseigné, on supprime les paramètres définis par tous les utilisateurs sur ce module
 	 *

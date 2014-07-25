@@ -12,6 +12,11 @@ namespace Forms\Fields;
 use Forms\Field;
 use Forms\Pattern;
 
+/**
+ * Champ de saisie de valeurs séparées par des virgules, pour une sauvegarde dans un tableau séquentiel
+ *
+ * @package Forms\Fields
+ */
 class ValuesList extends String{
 
 	protected $htmlType = 'text';

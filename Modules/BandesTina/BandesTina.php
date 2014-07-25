@@ -42,9 +42,9 @@ class BandesTina extends Module{
 	 * Comme cette variable est utilisée également par la classe Cart, on la passe en public static
 	 *
 	 * On cherche 3 valeurs :
-	 * * Le code-barre complet de la bande
-	 * * L'identifiant sur 2 chiffres de la bande
-	 * * Le type de sauvegarde inscrit sur la bande (vvb, tib, tmb, etc.)
+	 *  - Le code-barre complet de la bande
+	 *  - L'identifiant sur 2 chiffres de la bande
+	 *  - Le type de sauvegarde inscrit sur la bande (vvb, tib, tmb, etc.)
 	 *
 	 * Une expression régulière est encadrée par des caractères (ici '/'), le petit 'i' spécifiant une recherche insensible à la casse et le '^' qu'on commence la recherche en début de ligne.
 	 * Chaque expression entre parenthèse retourne une valeur si elle se vérifie.
@@ -93,8 +93,6 @@ class BandesTina extends Module{
 	 * Installe le module
 	 */
 	public function install(){
-		// On renseigne le chemin du module
-		$this->path = basename(__DIR__).DIRECTORY_SEPARATOR.basename(__FILE__);
 		// Définition des ACL par défaut pour ce module
 		$defaultACL = array(
 			'type'  => 'modify',

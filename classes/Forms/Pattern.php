@@ -59,7 +59,7 @@ class Pattern {
 	 * Type de champs autorisés
 	 * @link <http://www.w3schools.com/tags/att_input_type.asp>
 	 * @link <https://developer.mozilla.org/en/docs/Web/HTML/Element/Input#Browser_compatibility> pour les supports de types de champs par les navigateurs
-	 * @var array
+	 * @var string[]
 	 */
 	protected $types = array(
 		'button',         // Defines a clickable button (mostly used with a JavaScript to activate a script)
@@ -94,8 +94,8 @@ class Pattern {
 	 * @param bool        $required   Champ obligatoire
 	 * @param int         $minLength  Nombre de caractères minimum
 	 * @param int         $maxLength  Nombre de caractères maximum
-	 * @param int|string  $minValue   Valeur minimum pour les champs de type 'int' et 'date'
-	 * @param int|string  $maxValue   Valeur maximum pour les champs de type 'int' et 'date'
+	 * @param int|string  $minValue   Valeur minimum pour les champs de type `int` et `date`
+	 * @param int|string  $maxValue   Valeur maximum pour les champs de type `int` et `date`
 	 * @param string      $regExp     Expression régulière pour la validation
 	 *
 	 * @link <http://www.w3schools.com/tags/att_input_type.asp> pour les types de champs acceptés
@@ -112,6 +112,7 @@ class Pattern {
 	}
 
 	/**
+	 * Retourne le statut de saisie obligatoire du champ
 	 * @return boolean
 	 */
 	public function getRequired() {
@@ -119,6 +120,7 @@ class Pattern {
 	}
 
 	/**
+	 * Retourne la longueur de saisie minimum du champ
 	 * @return int
 	 */
 	public function getMinLength() {
@@ -126,6 +128,7 @@ class Pattern {
 	}
 
 	/**
+	 * Retourne la longueur de saisie maximale du champ
 	 * @return int
 	 */
 	public function getMaxLength() {
@@ -133,6 +136,7 @@ class Pattern {
 	}
 
 	/**
+	 * Retourne l'expression régulière utilisée pour valider le champ
 	 * @return string
 	 */
 	public function getRegExp() {
@@ -140,6 +144,7 @@ class Pattern {
 	}
 
 	/**
+	 * Retourne le type html de champ
 	 * @return string
 	 */
 	public function getType() {
@@ -147,6 +152,7 @@ class Pattern {
 	}
 
 	/**
+	 * Retourne la valeur de saisie minimale (dans le cas d'un champ `number` ou `date`)
 	 * @return int|string
 	 */
 	public function getMinValue() {
@@ -154,6 +160,7 @@ class Pattern {
 	}
 
 	/**
+	 * Retourne la valeur de saisie maximale (dans le cas d'un champ `number` ou `date`)
 	 * @return int
 	 */
 	public function getMaxValue() {

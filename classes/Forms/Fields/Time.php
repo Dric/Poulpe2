@@ -11,24 +11,26 @@ namespace Forms\Fields;
 
 use Forms\Field;
 use Forms\Pattern;
+use Front;
 
 /**
- * Champ de saisie de texte
+ * Champ de saisie d'heure
+ *
+ * Ce champ est un champ texte qui propose en plus une saisie d'heure.
+ * Le format récupéré est un nombre de secondes écoulées depuis minuit (pour avoir un fonctionnement similaire au timestamp Unix)
+ *
+ * Ce champ charge les scripts javascript qui prennent en charge l'écran de saisie du champ
  *
  * @package Forms\Fields
  */
-class String extends Field{
+class Time extends String{
 
-	protected $type = 'string';
-	protected $htmlType = 'text';
-	/**
-	 * Activer l'auto-completion par le navigateur
-	 * @var bool
-	 */
-	protected $autoComplete = true;
+	protected $htmlType = 'time';
+	protected $type = 'time';
+	protected $dateType = 'time';
 
 	/**
-	 * Déclaration d'un champ de saisie Texte
+	 * Déclaration d'un champ de saisie Time
 	 *
 	 * @param string  $name         Nom du champ
 	 * @param string  $category     Catégorie du champ (global ou user)
@@ -42,11 +44,14 @@ class String extends Field{
 	 * @param string  $ACLLevel     Niveau de sécurité requis pour modifier le champ (facultatif)
 	 * @param string  $class        Classe CSS à ajouter au champ (facultatif)
 	 * @param bool    $disabled     Champ désactivé (facultatif)
-	 * @param bool    $autoComplete Activer l'auto-complétion (facultatif)
+	 * @param string  $dateType     Type de date saisie (`time`, `fullTime`)
 	 */
-	public function __construct($name, $category, $value = null, $userValue = null, $label = null, $placeholder = null, $help = null, $pattern = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false, $autoComplete = true){
-		if (!empty($autoComplete)) $this->autoComplete = (bool)$autoComplete;
-		parent::__construct($name, $this->type, $category, $value, $label, $placeholder, $help, $pattern, $userValue, $important, $ACLLevel, $class, $disabled);
+	public function __construct($name, $category, $value = null, $userValue = null, $label = null, $placeholder = null, $help = null, $pattern = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false, $dateType = 'time'){
+		parent::__construct($name, $category, $value, $userValue, $label, $placeholder, $help, $pattern, $important, $ACLLevel, $class, $disabled, false);
+		Front::setJsFooter('<script src="js/moment-fr.js"></script>');
+		Front::setJsFooter('<script src="js/bootstrap-datetimepicker.min.js"></script>');
+		Front::setJsFooter('<script src="js/bootstrap-datetimepicker.fr.js"></script>');
+		$this->dateType = (in_array($dateType, array('time', 'fullTime'))) ? $this->dateType : 'time';
 	}
 
 	/**
@@ -56,7 +61,7 @@ class String extends Field{
 	 * @param bool $userValue Afficher la valeur utilisateur au lieu de la valeur globale
 	 */
 	public function display($enabled = true, $userValue = false){
-		$attrs = (!$this->autoComplete) ? 'autocomplete="off"' : null;
+		$attrs = 'data-dateType = "'.$this->dateType.'"';
 		parent::display($enabled, $userValue, $attrs);
 	}
 } 

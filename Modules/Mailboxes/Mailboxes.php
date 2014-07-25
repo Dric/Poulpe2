@@ -34,9 +34,6 @@ use Users\ACL;
  *
  * Ce module va lire les logs de résultats générés par le script powershell, ainsi que les fichiers de demandes de déplacement vers les db exchange. Il permet aussi d'ajouter ou de supprimer une demande de déplacement de boite.
  *
- * Organisation du module :
- * - modules/mailboxes/module.php : contient le code principal du module. Fichier chargé que si le module est actif.
- * - modules/mailboxes/mailboxes.js : contient le javascript relatif au module.
  *
  * @package Modules\Mailboxes
  */
@@ -111,7 +108,7 @@ class Mailboxes extends Module {
 	}
 
 	/**
-	 * Gère le menu d'administration
+	 * Gère le menu du module
 	 */
 	protected function moduleMenu(){
 		$menu = new Menu($this->name, 'Boîtes Exchange', '', '', '');

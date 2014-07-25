@@ -12,6 +12,11 @@ namespace Forms\Fields;
 use Forms\Field;
 use Forms\Pattern;
 
+/**
+ * Bouton de formulaire
+ *
+ * @package Forms\Fields
+ */
 class Button extends Field{
 
 	protected $type = 'button';

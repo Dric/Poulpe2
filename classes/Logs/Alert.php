@@ -6,13 +6,14 @@
  * Date: 21/03/14
  * Time: 09:26
  *
- * @package Alerts
  */
 
 namespace Logs;
 
 /**
- * Class Alert
+ * Classe de gestion des alertes
+ *
+ * @package Alerts
  */
 class Alert {
 
@@ -37,6 +38,7 @@ class Alert {
 
 	/**
 	 * Nouvelle alerte
+	 *
 	 * @param string $type Type de l'alerte
 	 * @param string $content Contenu HTML de l'alerte
 	 * @param string $title Titre (facultatif)
@@ -59,6 +61,7 @@ class Alert {
 
 
 	/**
+	 * retourne le titre de l'alerte
 	 * @return string
 	 */
 	public function getTitle() {
@@ -66,6 +69,7 @@ class Alert {
 	}
 
 	/**
+	 * Retourne le type d'alerte
 	 * @return string
 	 */
 	public function getType() {
@@ -73,6 +77,7 @@ class Alert {
 	}
 
 	/**
+	 * Retourne le contenu de l'alerte
 	 * @return string
 	 */
 	public function getContent() {

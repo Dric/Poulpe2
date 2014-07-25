@@ -12,6 +12,11 @@ namespace Forms\Fields;
 use Forms\Field;
 use Forms\Pattern;
 
+/**
+ * Champ spécial qui affiche un lien hypertexte ressemblant à un bouton
+ *
+ * @package Forms\Fields
+ */
 class LinkButton extends Button{
 
 	protected $type = 'linkButton';

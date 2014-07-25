@@ -6,14 +6,13 @@
  * Date: 17/03/14
  * Time: 14:05
  *
- * @package Components
  */
 
 namespace Components;
 use Sanitize;
 
 /**
- * Class Item
+ * Classe des items de menus
  *
  * @package Components
  */
@@ -37,6 +36,10 @@ class Item {
 	 */
 	protected $title = '';
 
+	/**
+	 * Description de l'item
+	 * @var string
+	 */
 	protected $desc = '';
 
 	/**
@@ -45,8 +48,22 @@ class Item {
 	 */
 	protected $icon = '';
 
+	/**
+	 * Classe CSS appliquée à l'item
+	 * @var string
+	 */
 	protected $class = '';
 
+	/**
+	 * Construction de l'item de menu
+	 *
+	 * @param string $name  Nom de l'item de menu
+	 * @param string $title Titre affiché de l'item de menu
+	 * @param string $link  Lien de l'item de menu
+	 * @param string $desc  Description de l'item (facultatif)
+	 * @param string $icon  Icône associée à l'item de menu (facultatif)
+	 * @param string $class Classe CSS appliquée à l'item (facultatif)
+	 */
 	public function __construct($name, $title, $link, $desc = '', $icon = '', $class = ''){
 		$this->name = Sanitize::sanitizeFilename($name);
 		$this->title = $title;
@@ -57,6 +74,11 @@ class Item {
 		if (!empty($class)) $this->class = htmlspecialchars($class);
 	}
 
+	/**
+	 * Affichage de l'item de menu
+	 *
+	 * @param string $itemClass Classe à appliquer à l'item (facultatif)
+	 */
 	public function build($itemClass = ''){
 		if (!empty($this->class)) $itemClass = $this->class.' '.$itemClass;
 		?>
@@ -70,6 +92,7 @@ class Item {
 	}
 
 	/**
+	 * Retourne le titre de l'item de menu
 	 * @return string
 	 */
 	public function getTitle() {

@@ -12,11 +12,28 @@ namespace Forms\Fields;
 use Components\Help;
 use Forms\Field;
 
+/**
+ * Liste de checkbox
+ *
+ * Cette liste permet de choisir plusieurs valeurs dans une liste
+ *
+ * @package Forms\Fields
+ */
 class CheckboxList extends Field{
 
 	protected $type = 'checkboxList';
 	protected $htmlType = 'checkbox';
+	/**
+	 * Liste sous forme de tableau associatif `valeur => libellé`
+	 * @var string[]
+	 */
 	protected $choices = array();
+	/**
+	 * Valeur sélectionnée par défaut
+	 *
+	 * On peut utiliser la valeur spéciale `all`, qui sélectionne toutes les valeurs
+	 * @var string
+	 */
 	protected $defaultChecked = null;
 
 	/**
@@ -32,13 +49,13 @@ class CheckboxList extends Field{
 	 * @param string    $ACLLevel       Niveau de sécurité requis pour modifier le champ (facultatif)
 	 * @param string    $class          Classe CSS à ajouter au champ (facultatif)
 	 * @param bool      $disabled       Champ désactivé (facultatif)
-	 * @param array     $choices        Choix possibles dans la liste sous forme de tableau associatif 'valeur' => 'libellé'
-	 * @param string    $defaultChecked Valeur cochée par défaut dans la liste $choices ('all' pour cocher toutes les valeurs)
+	 * @param array     $choices        Choix possibles dans la liste sous forme de tableau associatif `valeur => libellé`
+	 * @param string    $defaultChecked Valeur cochée par défaut dans la liste $choices (`all` pour cocher toutes les valeurs)
 	 */
 	public function __construct($name, $category, $value, $userValue = null, $label = null, $help = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false, $choices = null, $defaultChecked = null){
 		$this->choices = (array)$choices;
 		$this->defaultChecked = $defaultChecked;
-		parent::__construct($name, $this->type, $category, $value, $label, null, null, $help, null, $userValue, $important, $ACLLevel, $class, $disabled);
+		parent::__construct($name, $this->type, $category, $value, $label, null, $help, null, $userValue, $important, $ACLLevel, $class, $disabled);
 	}
 
 /**

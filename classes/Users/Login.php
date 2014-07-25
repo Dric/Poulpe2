@@ -24,7 +24,7 @@ use Get;
 use Sanitize;
 
 /**
- * Class Login
+ * Classe de gestion de l'authentification
  *
  * @package Users
  */
@@ -98,7 +98,7 @@ class Login {
 
 	/**
 	 * Mélange le mot de passe avec une clé de salage pour ne pas le mettre en clair dans la base de données
-	 * @param $pwd
+	 * @param string $pwd Mot de passe
 	 *
 	 * @return string
 	 */
@@ -220,6 +220,8 @@ class Login {
 
 	/**
 	 * Affiche le formulaire de connexion
+	 *
+	 * @param string $from URL encodé de la page vers laquelle rediriger l'utilisateur après sa connexion
 	 */
 	static function loginForm($from = ''){
 		if (isset($_REQUEST['action2']) and $_REQUEST['action2'] == 'createUser'){

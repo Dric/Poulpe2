@@ -9,6 +9,7 @@
 namespace Forms;
 use Components\Help;
 use Forms\Fields\Hidden;
+use Logs\Alert;
 use Users\ACL;
 
 /**
@@ -31,6 +32,14 @@ class Form {
 	 */
 	protected $action = '';
 
+	/**
+	 * Composant au sein duquel est chargé le formulaire
+	 *
+	 * Cette propriété est obligatoire si on veut désactiver des champs suivant les permissions de l'utilisateur sur le composant
+	 * @see \Users\ACL
+	 *
+	 * @var array
+	 */
 	protected $component = array(
 		'component' => null,
 	  'id'        => 0
@@ -43,7 +52,7 @@ class Form {
 	protected $class = '';
 
 	/**
-	 * Méthode d'envoi (POST ou GET)
+	 * Méthode d'envoi (`POST` ou `GET`)
 	 * @var string
 	 */
 	protected $method = 'post';
@@ -54,11 +63,19 @@ class Form {
 	 */
 	protected $fields = array();
 
+	/**
+	 * Paramètres supplémentaires à passer dans le formulaire sous forme de tableau associatif `Variable => Valeur`
+	 *
+	 * Ces paramètres sont passés en tant que champs masqués
+	 *
+	 * @var array
+	 */
 	protected $parameters = array();
-
 
 	/**
 	 * Types de champs
+	 *
+	 * Permet de séparer les types de champs entre les champs, les champs masqués et les boutons
 	 * @var array
 	 */
 	static protected $fieldTypes = array('fields', 'hidden', 'buttons');
@@ -68,20 +85,31 @@ class Form {
 	 *
 	 * @param string $name Nom du formulaire
 	 * @param string $action Action du formulaire (url de redirection, si nécessaire - il vaut mieux privilégier un champ masqué ou une valeur de bouton d'envoi s'il n'y a pas de redirection à effectuer)
-	 * @param array  $fields Champs du formulaire, répartis dans 3 index du tableau : 'field', 'hidden' ou 'button'
-	 * @param string $component Composant ('module', 'admin', 'profil', etc.)
+	 * @param array  $fields Champs du formulaire, répartis dans 3 index du tableau : `field`, `hidden` ou `button`
+	 * @param string $component Composant (`module`, `admin`, `profil`, etc.)
 	 * @param int    $componentId Id du composant
-	 * @param string $method Méthode (post ou get)
-	 * @param string $class
+	 * @param string $method Méthode (`post` ou `get`)
+	 * @param string $class Classe CSS à appliquer au formulaire
 	 * @param array  $parameters Paramètres optionnels à passer dans l'url, sous forme de tableau associatif
+	 * @param bool   $noToken Désactive le jeton de sécurité
 	 */
-	public function __construct($name, $action = null, $fields = array(), $component = null, $componentId = null, $method = 'post', $class = null, $parameters = null){
+	public function __construct($name, $action = null, $fields = array(), $component = null, $componentId = null, $method = 'post', $class = null, $parameters = null, $noToken = false){
 		$this->name = $name;
 		if (!empty($action)) $this->action = $action;
 		foreach (self::$fieldTypes as $type){
 			$this->fields[$type] = array();
 		}
-		if (!empty($fields)) $this->fields = $fields;
+		if (!empty($fields)) {
+			if (isset($fields['fields'])) $this->fields['fields'] = $fields['fields'];
+			if (isset($fields['hidden'])) $this->fields['hidden'] = $fields['hidden'];
+			if (isset($fields['buttons'])) $this->fields['buttons'] = $fields['buttons'];
+			unset($fields['fields']);
+			unset($fields['hidden']);
+			unset($fields['buttons']);
+			if (!empty($fields)){
+				new Alert('debug', '<code>Form Constructor</code> : <code>$fields</code> est mal formé !');
+			}
+		}
 		if (!empty($component)) $this->component['component'] = $component;
 		if (!empty($componentId)) $this->component['id'] = $componentId;
 		$this->method = $method;
@@ -89,14 +117,18 @@ class Form {
 		if (!empty($parameters)) $this->parameters = $parameters;
 
 		// On ajoute au formulaire un jeton de sécurité pour vérifier au traitement du formulaire que l'utilisateur demandant le traitement est bien celui qui a envoyé le formulaire (pour éviter une faille CSRF)
-		$this->addField(new Hidden('token', 'global', PostedData::setToken($this->name)));
-		$this->addField(new Hidden('formName', 'global', $this->name));
+		if (!$noToken){
+			$this->addField(new Hidden('token', 'global', PostedData::setToken($this->name)));
+			$this->addField(new Hidden('formName', 'global', $this->name));
+		}else{
+			$this->addField(new Hidden('noToken', 'global', true));
+		}
 	}
 
 	/**
 	 * Ajoute un champ au formulaire
 	 *
-	 * @param Field $field
+	 * @param Field $field Champ à ajouter. On n'utilise pas directement la classe Field mais une de ses classes enfant
 	 */
 	public function addField(Field $field){
 		switch ($field->getType()){
@@ -167,6 +199,7 @@ class Form {
 	}
 
 	/**
+	 * Retourne le type de champs autorisés
 	 * @return array
 	 */
 	static public function getFieldTypes(){

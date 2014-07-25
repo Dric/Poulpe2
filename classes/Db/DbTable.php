@@ -14,6 +14,14 @@ use Forms\Field;
 use Logs\Alert;
 use Sanitize;
 
+/**
+ * Objet de table de base de données
+ *
+ * Les champs de la table sont des objets de type Field, afin de pouvoir gérer leur affichage et leur typage.
+ * Cela permet également pour la gestion automatique des enregistrements de table de générer un formulaire possédant automatiquement les restrictions de saisie requises
+ *
+ * @package Db
+ */
 class DbTable {
 
 	/**
@@ -23,7 +31,7 @@ class DbTable {
 	protected $name = null;
 	/**
 	 * Tableau d'objets Field
-	 * @var array
+	 * @var Field[]
 	 */
 	protected $fields = array();
 	/**
@@ -44,10 +52,11 @@ class DbTable {
 
 	/**
 	 * Construction d'une table de bdd
+	 *
 	 * @param string  $name     Nom de la table
 	 * @param string  $title    Titre lorsqu'on affiche la table
-	 * @param string  $class    Classe CSS optionnelle à appliquer à la table à l'affichage
-	 * @param string  $help     Aide optionnelle affichée en infobulle à côté du titre
+	 * @param string  $class    Classe CSS optionnelle à appliquer à la table à l'affichage (facultatif)
+	 * @param string  $help     Aide optionnelle affichée en infobulle à côté du titre (facultatif)
 	 */
 	public function __construct($name, $title, $class = null, $help = null){
 		$this->name   = $name;
@@ -231,7 +240,14 @@ class DbTable {
 	}
 
 	/**
-	 * Insérer des lignes dans la table
+	 * Insère des lignes dans la table
+	 *
+	 * Les valeurs à insérer sont définies en tant que tableau associatif :
+	 *
+	 *  $row[ID] = array(
+	 *    champ   => Valeur
+	 *    champ2  => Valeur2
+	 *  );
 	 *
 	 * @param array $rows Tableau associatif de lignes à insérer, avec l'ID de la ligne en tant que clé
 	 *
@@ -239,76 +255,81 @@ class DbTable {
 	 */
 	public function insertRows($rows){
 		global $db;
-		$itemsIdsDb = $db->get($this->name, 'id');
+		if (!empty($rows)){
+			$itemsIdsDb = $db->get($this->name, 'id');
 
-		$itemsToDelete = $keysToUpdate = array();
-		foreach ($itemsIdsDb as $itemId){
-			$itemsToDelete[] = $itemId->id;
-		}
-		$sql = 'INSERT INTO `'.$this->name.'` (';
-		/**
-		 * @var Field $field
-		 */
-		foreach ($this->fields as $field){
-			$sql .= '`'.$field->getName().'`, ';
-			if ($field->getSettings()->getOnDuplicateKeyUpdate()){
-				$keysToUpdate[] = $field->getName();
+			$itemsToDelete = $keysToUpdate = array();
+			foreach ($itemsIdsDb as $itemId){
+				$itemsToDelete[] = $itemId->id;
 			}
-		}
-		$sql = rtrim($sql, ', ').') VALUES ';
-		// Les valeurs à présent
-		foreach ($rows as $id => $row){
-			$sql .= '(';
-			// Si l'ID n'est pas affichée (et donc pas renvoyée par le formulaire), il va falloir la renseigner quand même via le nom du champ renvoyé
-			if (!isset($row['id'])){
-				if ($id != 'new' or empty($id)){
-					$sql .= $id.', ';
-					// On enlève l'id du tableau des ids d'items, afin de pouvoir supprimer les lignes restantes
-					unset($itemsToDelete[array_search($id, $itemsToDelete)]);
-				}else{
-					// Si l'ID est 'new', c'est un nouveau champ. Pour laisser faire l'auto-incrémentation, on envoie une valeur nulle
-					$sql .= 'NULL, ';
-				}
-			}
-			// Valeurs de chaque colonne pour une ligne
+			$sql = 'INSERT INTO `'.$this->name.'` (';
+			/**
+			 * @var Field $field
+			 */
 			foreach ($this->fields as $field){
-				// On vient de traiter l'id juste avant la boucle, on l'enlève donc des champs à traiter
-				if ($field->getName() != 'id'){
-					$sql .= ((isset($row[$field->getName()])) ? '"'.str_replace('\\', '\\\\', $row[$field->getName()]).'"' : 'NULL').', ';
+				$sql .= '`'.$field->getName().'`, ';
+				if ($field->getSettings()->getOnDuplicateKeyUpdate()){
+					$keysToUpdate[] = $field->getName();
 				}
 			}
+			$sql = rtrim($sql, ', ').') VALUES ';
+			// Les valeurs à présent
+			foreach ($rows as $id => $row){
+				$sql .= '(';
+				// Si l'ID n'est pas affichée (et donc pas renvoyée par le formulaire), il va falloir la renseigner quand même via le nom du champ renvoyé
+				if (!isset($row['id'])){
+					if ($id != 'new' or empty($id)){
+						$sql .= $id.', ';
+						// On enlève l'id du tableau des ids d'items, afin de pouvoir supprimer les lignes restantes
+						unset($itemsToDelete[array_search($id, $itemsToDelete)]);
+					}else{
+						// Si l'ID est 'new', c'est un nouveau champ. Pour laisser faire l'auto-incrémentation, on envoie une valeur nulle
+						$sql .= 'NULL, ';
+					}
+				}
+				// Valeurs de chaque colonne pour une ligne
+				foreach ($this->fields as $field){
+					// On vient de traiter l'id juste avant la boucle, on l'enlève donc des champs à traiter
+					if ($field->getName() != 'id'){
+						$sql .= ((isset($row[$field->getName()])) ? '"'.str_replace('\\', '\\\\', $row[$field->getName()]).'"' : 'NULL').', ';
+					}
+				}
+				$sql = rtrim($sql, ', ');
+				$sql .= '),';
+			}
 			$sql = rtrim($sql, ', ');
-			$sql .= '),';
-		}
-		$sql = rtrim($sql, ', ');
 
-		// Évidemment, on risque de trouver des enregistrements déjà présents. Grâce à 'onDuplicateKeyUpdate', on va savoir quels colonnes mettre à jour en cas d'enregistrements déjà présents
-		if (!empty($keysToUpdate)){
-			$sql .= ' ON DUPLICATE KEY UPDATE ';
-			foreach ($keysToUpdate as $update){
-				$sql.= '`'.$update.'` = VALUES(`'.$update.'`), ';
+			// Évidemment, on risque de trouver des enregistrements déjà présents. Grâce à 'onDuplicateKeyUpdate', on va savoir quels colonnes mettre à jour en cas d'enregistrements déjà présents
+			if (!empty($keysToUpdate)){
+				$sql .= ' ON DUPLICATE KEY UPDATE ';
+				foreach ($keysToUpdate as $update){
+					$sql.= '`'.$update.'` = VALUES(`'.$update.'`), ';
+				}
+				$sql = rtrim($sql, ', ');
 			}
-			$sql = rtrim($sql, ', ');
-		}
-		// Enfin, on exécute la requête SQL.
-		$ret = $db->query($sql);
-		// On supprime les enregistrements qui n'ont pas été renvoyés par le formulaire, ce qui signifie qu'ils ont été effacés.
-		$ret2 = true;
-		if (!empty($itemsToDelete)){
-			foreach ($itemsToDelete as $item){
-				$ret2 = $db->delete($this->name, array('id'=>$item));
+			// Enfin, on exécute la requête SQL.
+			$ret = $db->query($sql);
+			// On supprime les enregistrements qui n'ont pas été renvoyés par le formulaire, ce qui signifie qu'ils ont été effacés.
+			$ret2 = true;
+			if (!empty($itemsToDelete)){
+				foreach ($itemsToDelete as $item){
+					$ret2 = $db->delete($this->name, array('id'=>$item));
+				}
 			}
-		}
-		if ($ret === false or $ret2 === false){
-			new Alert('error', 'Impossible de sauvegarder les enregistrements de la table <code>'.$this->name.'</code> !');
-			return false;
+			if ($ret === false or $ret2 === false){
+				new Alert('error', 'Impossible de sauvegarder les enregistrements de la table <code>'.$this->name.'</code> !');
+				return false;
+			}else{
+				new Alert('success', 'Les enregistrements de la table <code>'.$this->name.'</code> ont été mis à jour.');
+				return true;
+			}
 		}else{
-			new Alert('success', 'Les enregistrements de la table <code>'.$this->name.'</code> ont été mis à jour.');
 			return true;
 		}
 	}
 
 	/**
+	 * Retourne le nom de la table
 	 * @return string
 	 */
 	public function getName() {
@@ -316,13 +337,15 @@ class DbTable {
 	}
 
 	/**
-	 * @return array
+	 * Retourne les champs de la table
+	 * @return Field[]
 	 */
 	public function getFields() {
 		return $this->fields;
 	}
 
 	/**
+	 * Retourne le titre de la table
 	 * @return string
 	 */
 	public function getTitle() {
@@ -330,7 +353,8 @@ class DbTable {
 	}
 
 	/**
-	 * Ajout un champ à la table.
+	 * Ajoute un champ à la table.
+	 *
 	 * Ce champ doit avoir un objet DbFieldSettings associé (via la variable Pattern)
 	 * @param Field $field
 	 */
@@ -339,6 +363,7 @@ class DbTable {
 	}
 
 	/**
+	 * Retourne l'aide succinte associée à la table
 	 * @return string
 	 */
 	public function getHelp() {
@@ -346,6 +371,7 @@ class DbTable {
 	}
 
 	/**
+	 * Retourne la classe CSS utilisée lors de l'affichage de la table
 	 * @return string
 	 */
 	public function getClass() {

@@ -13,9 +13,20 @@ use Components\Help;
 use Forms\Field;
 use Forms\Pattern;
 
+/**
+ * Champ de saisie d'une suite de valeurs, pour stockage sous forme de tableau
+ *
+ * Visuellement, c'est un champ `textarea` qui va prendre une valeur par ligne
+ *
+ * @package Forms\Fields
+ */
 class ValuesArray extends Field{
 
 	protected $type = 'array';
+	/**
+	 * Permet de spécifier qu'on veut sérialiser le tableau à la sauvegarde
+	 * @var bool
+	 */
 	protected $serialize = false;
 
 	/**
@@ -37,14 +48,14 @@ class ValuesArray extends Field{
 	 */
 	public function __construct($name, $category, $value, $userValue = null, $label = null, $placeholder = null, $help = null, $pattern = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false, $serialize = false){
 		$this->serialize = (bool)$serialize;
-		parent::__construct($name, $this->type, $category, $value, $label, $placeholder, null, $help, $pattern, $userValue, $important, $ACLLevel, $class, $disabled);
+		parent::__construct($name, $this->type, $category, $value, $label, $placeholder, $help, $pattern, $userValue, $important, $ACLLevel, $class, $disabled);
 	}
 
 	/**
 	 * Affichage du champ
 	 *
 	 * @param bool $enabled Champ modifiable
-	 * @param bool $userValue
+	 * @param bool $userValue Afficher la valeur utilisateur au lieu de la valeur globale
 	 */
 	public function display($enabled = true, $userValue = false){
 		/**

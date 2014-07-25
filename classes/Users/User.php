@@ -6,14 +6,13 @@
  * Date: 19/03/14
  * Time: 08:54
  *
- * @package Users
  */
 
 namespace Users;
 use Components\Avatar;
 
 /**
- * Class User
+ * Classe utilisateur
  *
  * @package Users
  */
@@ -62,13 +61,14 @@ class User {
 	protected $LDAPProps = array();
 
 	/**
-	 * ACL de l'utilisateur
+	 * Tableau des permissions de l'utilisateur
 	 * @var array
 	 */
 	protected $ACL = array();
 
 	/**
 	 * Construction d'un objet User
+	 *
 	 * @param int|string  $user ID de l'utilisateur
 	 * @param bool $loginOnly Si true, on zappe toutes les infos inutiles (typiquement pour vérifier une authentification)
 	 */
@@ -95,6 +95,7 @@ class User {
 	}
 
 	/**
+	 * Retourne l'ID de l'utilisateur
 	 * @return int
 	 */
 	public function getId(){
@@ -102,6 +103,7 @@ class User {
 	}
 
 	/**
+	 * Retourne le nom de l'utilisateur
 	 * @return string
 	 */
 	public function getName() {
@@ -130,6 +132,7 @@ class User {
 	}
 
 	/**
+	 * Retourne l'adresse email de l'utilisateur
 	 * @return string
 	 */
 	public function getEmail() {
@@ -137,6 +140,7 @@ class User {
 	}
 
 	/**
+	 * Retourne les permissions de l'utilisateur
 	 * @return array
 	 */
 	public function getACL() {
@@ -144,6 +148,10 @@ class User {
 	}
 
 	/**
+	 * retourne le hash de l'utilisateur
+	 *
+	 * Le hash est stocké en base de données et permet d'authentifier l'utilisateur via un cookie
+	 *
 	 * @return string
 	 */
 	public function getHash() {
@@ -151,6 +159,7 @@ class User {
 	}
 
 	/**
+	 * Retourne les propriétés LDAP de l'utilisateur
 	 * @return array
 	 */
 	public function getLDAPProps() {
@@ -158,6 +167,7 @@ class User {
 	}
 
 	/**
+	 * Défini les propriétés LDAP de l'utilisateur
 	 * @param array $LDAPProps
 	 */
 	public function setLDAPProps($LDAPProps) {
@@ -165,6 +175,7 @@ class User {
 	}
 
 	/**
+	 * Défini l'avatar de l'utilisateur
 	 * @param string $avatar
 	 */
 	public function setAvatar($avatar) {
@@ -172,6 +183,7 @@ class User {
 	}
 
 	/**
+	 * Retourne le mot de passe crypté de l'utilisateur
 	 * @return string
 	 */
 	public function getPwd() {

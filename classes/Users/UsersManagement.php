@@ -14,12 +14,16 @@ use Logs\Alert;
 use Sanitize;
 
 /**
- * Class UsersManagement
+ * Classe de gestion des utilisateurs
  *
  * @package Users
  */
 class UsersManagement {
 
+	/**
+	 * Liste des utilisateurs
+	 * @var User[]
+	 */
 	static protected $usersList = array();
 
 	/**
@@ -184,7 +188,8 @@ class UsersManagement {
 	}
 
 	/**
-	 * @return array
+	 * Retourne la liste des utilisateurs
+	 * @return User[]
 	 */
 	public static function getUsersList() {
 		return self::$usersList;

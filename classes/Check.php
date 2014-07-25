@@ -33,7 +33,7 @@ class Check {
 	 * Valide une adresse IP
 	 *
 	 * @param string $ipAddr Adresse IP
-	 * @return bool;
+	 * @return bool
 	 */
 	public static function isIpAddress($ipAddr) {
 		$long = ip2long($ipAddr);
@@ -43,7 +43,11 @@ class Check {
 	/**
 	 * Valide une adresse email
 	 *
-	 * @param $email
+	 * Cette méthode utilise la fonction php filter_vars(), ce qui peut d'après les commentaires provoquer de mauvaises vérifications
+	 *
+	 * @use filter_var()
+	 *
+	 * @param string $email Adresse email à vérifier
 	 * @return bool
 	 */
 	public static function isEmail($email){

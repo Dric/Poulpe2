@@ -11,6 +11,8 @@ namespace Forms;
 /**
  * Classe de paramètres de switch
  *
+ * Ce switch est une mise en forme du champ de formulaire `checkbox`
+ *
  * @package Forms
  */
 class JSSwitch {
@@ -41,7 +43,7 @@ class JSSwitch {
 	 */
 	protected $size = 'normal';
 	/**
-	 * Position du switch (left, right)
+	 * Position du switch (`left`, `right`)
 	 * @var string
 	 */
 	protected $labelPosition = 'right';
@@ -72,7 +74,7 @@ class JSSwitch {
 	 * Paramètres de switch
 	 *
 	 * @param string $size            Taille du switch
-	 * @param string $labelPosition   Position du label (left, right)
+	 * @param string $labelPosition   Position du label (`left`, `right`)
 	 * @param string $onText          Texte de l'état activé
 	 * @param string $offText         Texte de l'état désactivé
 	 * @param string $onColor         Couleur de l'état activé
@@ -88,6 +90,7 @@ class JSSwitch {
 	}
 
 	/**
+	 * Retourne le texte affiché quand le switch est activé
 	 * @return string
 	 */
 	public function getOnText() {
@@ -95,6 +98,7 @@ class JSSwitch {
 	}
 
 	/**
+	 * Retourne le texte affiché quand le switch est désactivé
 	 * @return string
 	 */
 	public function getOffText() {
@@ -102,6 +106,7 @@ class JSSwitch {
 	}
 
 	/**
+	 * Retourne la couleur du switch activé
 	 * @return string
 	 */
 	public function getOnColor() {
@@ -109,6 +114,7 @@ class JSSwitch {
 	}
 
 	/**
+	 * Retourne la couleur du switch désactivé
 	 * @return string
 	 */
 	public function getOffColor() {
@@ -116,6 +122,7 @@ class JSSwitch {
 	}
 
 	/**
+	 * Retourne la taille du switch
 	 * @return string
 	 */
 	public function getSize() {
@@ -123,6 +130,7 @@ class JSSwitch {
 	}
 
 	/**
+	 * Retourne la position du libellé par rapport au switch
 	 * @return string
 	 */
 	public function getLabelPosition() {

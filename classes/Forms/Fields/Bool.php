@@ -14,9 +14,18 @@ use Forms\Field;
 use Forms\JSSwitch;
 use Forms\Pattern;
 
+/**
+ * Champ pour les booléens (checkbox)
+ *
+ * @package Forms\Fields
+ */
 class Bool extends Field{
 
 	protected $type = 'bool';
+	/**
+	 * Switch Javascript pour la mise en forme de la checkbox
+	 * @var \Forms\JSSwitch
+	 */
 	protected $switch = null;
 
 	/**
@@ -44,7 +53,7 @@ class Bool extends Field{
 	 * Affichage du champ
 	 *
 	 * @param bool $enabled Champ modifiable
-	 * @param bool $userValue
+	 * @param bool $userValue Applique la valeur de l'utilisateur
 	 */
 	public function display($enabled = true, $userValue = false){
 		// Gestion des Switchs
@@ -101,7 +110,7 @@ class Bool extends Field{
 		}
 		$value = ($value == 1 or $value == 'true' or $value == true) ? true : false;
 		?>
-		<input type="checkbox" class="<?php if (!empty($this->switch)) echo 'checkboxSwitch'; ?>" id="dbTable_<?php echo $tableName; ?>_<?php echo $this->type; ?>_<?php echo $this->name; ?>_<?php echo $rowId; ?>" name="dbTable_<?php echo $tableName; ?>_<?php echo $this->type; ?>_<?php echo $this->name; ?>_<?php echo $rowId; ?>" value="1" <?php if ($value) echo 'checked'; ?> <?php if (!empty($dataAttr)) echo $dataAttr; ?> <?php if ($this->disabled) echo 'disabled'; ?>>
+		<input type="checkbox" class="<?php if (!empty($this->switch)) echo 'checkboxSwitch'; ?>" id="dbTable_<?php echo $tableName; ?>_<?php echo $this->type; ?>_<?php echo $this->name; ?>_<?php echo $rowId; ?>_checkbox" name="dbTable_<?php echo $tableName; ?>_<?php echo $this->type; ?>_<?php echo $this->name; ?>_<?php echo $rowId; ?>_checkbox" value="1" <?php if ($value) echo 'checked'; ?> <?php if (!empty($dataAttr)) echo $dataAttr; ?> <?php if ($this->disabled) echo 'disabled'; ?>>
 		<input type="hidden" id="dbTable_<?php echo $tableName; ?>_<?php echo $this->type; ?>_<?php echo $this->name; ?>_<?php echo $rowId; ?>_hidden" name="dbTable_<?php echo $tableName; ?>_<?php echo $this->type; ?>_<?php echo $this->name; ?>_<?php echo $rowId; ?>_hidden" value="0" <?php if ($this->disabled) echo 'disabled'; ?>>
 
 		<?php

@@ -7,8 +7,7 @@
  */
 
 /**
- * Class Get
- * Contient les fonctions d'obtention de données
+ * Classe de fonctions d'obtention de données
  *
  * @package Get
  */
@@ -67,6 +66,8 @@ class Get {
 
 	/**
 	 * Retourne aléatoirement une règle stupide
+	 *
+	 * @return string
 	 */
 	public static function stupidRule(){
 		$rules = array(
@@ -77,5 +78,24 @@ class Get {
 		);
 		$i = rand(0, count($rules)-1);
 		return $rules[$i];
+	}
+
+	/**
+	 * Arrondit un nombre à la valeur d'incrémentation
+	 *
+	 * @example roundUpTo(18.4, 5) = 20
+	 * @example roundUpTo(3, 5) = 5
+	 * @example roundUpTo(84, 10) = 80
+	 *
+	 * @from <http://php.net/manual/fr/function.round.php#100322>
+	 *
+	 * @param float $number Nombre à arrondir
+	 * @param int   $increments Valeur d'incrémentation
+	 *
+	 * @return int
+	 */
+	public static function roundTo($number, $increments) {
+		$increments = 1 / $increments;
+		return (round($number * $increments) / $increments);
 	}
 }

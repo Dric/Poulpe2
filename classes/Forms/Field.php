@@ -15,12 +15,14 @@ use Settings\Setting;
 /**
  * Champ de formulaire (extension de Setting)
  *
+ * @warning Cette classe ne doit pas être utilisée directement, utilisez plutôt ses sous-classes
+ *
  * @package Forms
  */
 class Field extends Setting{
 
 	/**
-	 * Libellé affiché dans une balise <label>
+	 * Libellé affiché dans une balise `<label>`
 	 * @var string
 	 */
 	protected $label = '';
@@ -37,10 +39,22 @@ class Field extends Setting{
 	 */
 	protected $pattern = null;
 
+	/**
+	 * Type de champ (typage php pour la sauvegarde)
+	 * @var string
+	 */
 	protected $type = '';
 
+	/**
+	 * Aide présentée à côté du libellé du champ dans une infobulle
+	 * @var string
+	 */
 	protected $help = '';
 
+	/**
+	 * Classe CSS à appliquer au champ
+	 * @var string
+	 */
 	protected $class = '';
 
 	/**
@@ -50,18 +64,23 @@ class Field extends Setting{
 	static protected $types = array();
 
 	/**
-	 * Data regroupe toutes les informations nécessaires à la construction du champ.
-	 * array(
-	 *  'choices' => array($value => $label, $value2 => $label2, ...) Pour un élément à choix multiples comme un élément radio
-	 * );
-	 * @var array
+	 * Niveau d'autorisation requis pour utiliser ce champ
+	 * @see \Users\ACL
+	 *
+	 * @var string
 	 */
-	protected $data = array();
-
 	protected $ACLLevel = null;
 
+	/**
+	 * Champ désactivé
+	 * @var bool
+	 */
 	protected $disabled = false;
 
+	/**
+	 * Type html du champ
+	 * @var string
+	 */
 	protected $htmlType = 'text';
 
 	/**
@@ -69,25 +88,19 @@ class Field extends Setting{
 	 *
 	 * @param string $name Nom du champ - repris dans la propriété name et id
 	 * @param string $type Type du champ - type élargi par rapport au type de Setting
-	 * @param string $category catégorie 'global' ou 'user'
+	 * @param string $category catégorie `global` ou `user`
 	 * @param mixed  $value Valeur à mettre dans la propriété value
-	 * @param string $label Libellé du champ - repris dans l'élément <label>
+	 * @param string $label Libellé du champ - repris dans l'élément `<label>`
 	 * @param string $placeholder Placeholder - repris dans la propriété du même nom
-	 * @param array  $data Informations complémentaires requises pour la construction du champ
-	 * - array 'choices' Choix possibles pour les boutons radio
-	 * - array (
-	 *    'showOtherField' => array(
-	 *        'fieldId1' => array(
-	 *            'on' =>
 	 * @param string $help Message d'aide du champ - facultatif
-	 * @param Pattern $pattern
-	 * @param null   $userValue
+	 * @param Pattern $pattern Validation de saisie
+	 * @param null   $userValue Valeur utilisateur
 	 * @param bool   $important Paramètre à signaler comme étant important
-	 * @param string $ACLLevel Niveau minimum d'autorisation ('access', 'modify' ou 'admin')
+	 * @param string $ACLLevel Niveau minimum d'autorisation (`access`, `modify` ou `admin`)
 	 * @param string $class Classe optionnelle à ajouter au champ
 	 * @param bool   $disabled Champ désactivé si à true
 	 */
-	public function __construct($name, $type, $category, $value, $label = null, $placeholder = null, $data = array(), $help = null, Pattern $pattern = null, $userValue = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false){
+	public function __construct($name, $type, $category, $value, $label = null, $placeholder = null, $help = null, Pattern $pattern = null, $userValue = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false){
 		self::$types = Setting::$types;
 		self::$types += array(
 			'email'   => 'string',
@@ -110,7 +123,6 @@ class Field extends Setting{
 		$this->type = $type;
 		if (!empty($label)) $this->label = $label;
 		if (!empty($placeholder)) $this->placeholder = $placeholder;
-		$this->data = $data;
 		if (!empty($help)) $this->help = $help;
 		if (!empty($pattern)) $this->pattern = $pattern;
 		$this->ACLLevel = (!empty($ACLLevel)) ? $ACLLevel : 'admin';
@@ -163,7 +175,7 @@ class Field extends Setting{
 	}
 
 	/**
-	 * Affiche un astérisque rouge à côté du label
+	 * Affiche un astérisque rouge à côté du label pour indiquer une saisie obligatoire
 	 */
 	protected function displayRequired(){
 		?><small><span class="glyphicon glyphicon-asterisk text-danger tooltip-bottom" title="Obligatoire"></span></small><?php
@@ -180,6 +192,7 @@ class Field extends Setting{
 	}
 
 	/**
+	 * Retourne le libellé du champ (balise `<label`)
 	 * @return string
 	 */
 	public function getLabel() {
@@ -187,6 +200,7 @@ class Field extends Setting{
 	}
 
 	/**
+	 * Retourne l'objet de validation de saisie du champ
 	 * @return Pattern
 	 */
 	public function getPattern() {
@@ -194,6 +208,10 @@ class Field extends Setting{
 	}
 
 	/**
+	 * Retourne l'objet de validation de saisie du champ
+	 *
+	 * Alias de {@link getPattern()}
+	 *
 	 * @return DbFieldSettings
 	 */
 	public function getSettings() {
@@ -201,6 +219,7 @@ class Field extends Setting{
 	}
 
 	/**
+	 * Retourne l'aide à la saisie du champ (attribut html `placeholder`)
 	 * @return string
 	 */
 	public function getPlaceholder() {
@@ -208,13 +227,7 @@ class Field extends Setting{
 	}
 
 	/**
-	 * @return array
-	 */
-	public function getData() {
-		return $this->data;
-	}
-
-	/**
+	 * retourne l'aide affichée en infobulle du champ
 	 * @return string
 	 */
 	public function getHelp() {
@@ -222,6 +235,7 @@ class Field extends Setting{
 	}
 
 	/**
+	 * Retourne le niveau d'autorisation requis pour modifier le champ
 	 * @return null|string
 	 */
 	public function getACLLevel() {
@@ -229,6 +243,7 @@ class Field extends Setting{
 	}
 
 	/**
+	 * Retourne la ou les classes CSS appliquée(s) au champ
 	 * @return string
 	 */
 	public function getClass() {
@@ -236,6 +251,7 @@ class Field extends Setting{
 	}
 
 	/**
+	 * Retourne le statut de désactivation du champ
 	 * @return boolean
 	 */
 	public function getDisabled() {

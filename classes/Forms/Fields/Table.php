@@ -12,10 +12,20 @@ namespace Forms\Fields;
 use Db\DbTable;
 use Forms\Field;
 
+/**
+ * Champ spécial permettant de gérer les tables de bases de données
+ *
+ * @package Forms\Fields
+ */
 class Table extends Field{
 
+	/**
+	 * Type de champ
+	 * @var string
+	 */
 	protected $type = 'dbTable';
 	/**
+	 * Objet table lié au champ
 	 * @var DbTable
 	 */
 	protected $table = null;
@@ -31,14 +41,18 @@ class Table extends Field{
 	public function __construct(DbTable $table, $category, $ACLLevel = 'admin', $disabled = false){
 		$this->table = $table;
 		$name = str_replace('_', '-', $table->getName());
-		parent::__construct($name, $this->type, $category, $table->getName(), $table->getTitle(), null, null, $table->getHelp(), null, null, true, $ACLLevel, $table->getClass(), $disabled);
+		parent::__construct($name, $this->type, $category, $table->getName(), $table->getTitle(), null, $table->getHelp(), null, null, true, $ACLLevel, $table->getClass(), $disabled);
 	}
 
 	/**
 	 * Affichage du champ
 	 *
+	 * On fait appel à la méthode d'affichage de la table
+	 *
+	 * @see \Db\DbTable::display()
+	 *
 	 * @param bool $enabled Champ modifiable
-	 * @param bool $userValue
+	 * @param bool $userValue Afficher la valeur utilisateur au lieu de la valeur globale
 	 */
 	public function display($enabled = true, $userValue = false){
 		$this->table->display();

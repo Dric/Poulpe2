@@ -13,6 +13,15 @@ use Logs\Alert;
 use Sanitize;
 use Users\Login;
 
+/**
+ * Classe de récupération des données envoyées par les formulaires
+ *
+ * Cette classe gère également les jetons de sécurité des formulaires
+ *
+ * @see Form
+ *
+ * @package Forms
+ */
 class PostedData {
 
 	/**
@@ -32,10 +41,10 @@ class PostedData {
 	 *
 	 * Les données ne sont pas traitées hors de leur typage, elles ne sont donc pas sécurisées pour un ajout en bdd par exemple.
 	 *
-	 * Les champs sont au format suivant : préfixe_type-de-champ_nom-de-variable(_détails)
-	 * Les champs de table de bdd sont au format suivant : préfixe-dbTable_nom-de-table_type-de-champ_nom-de-variable(_détails)_id-de-la-ligne
-	 * Le tableau retourné comporte les noms des variables en clés. Les tableaux ont un sous-index pour indiquer s'il faut sérialiser les valeurs, et un index 'values' pour les valeurs.
-	 * Les tables de bdd sont dans un tableau 'nom-de-table' => array('ligne' => array champs)
+	 * Les champs sont au format suivant : `préfixe_type-de-champ_nom-de-variable(_détails)`
+	 * Les champs de table de bdd sont au format suivant : `préfixe-dbTable_nom-de-table_type-de-champ_nom-de-variable(_détails)_id-de-la-ligne`
+	 * Le tableau retourné comporte les noms des variables en clés. Les tableaux ont un sous-index pour indiquer s'il faut sérialiser les valeurs, et un index `values` pour les valeurs.
+	 * Les tables de bdd sont dans un tableau `nom-de-table => array(ligne => array champs)`
 	 *
 	 * @param string $prefix Préfixe optionnel des champs
 	 * @param string $dbTablePrefix Préfixe optionnel des tables de bdd
@@ -68,15 +77,13 @@ class PostedData {
 						$req = Sanitize::date($value);
 						break;
 					case 'bool':
-						if (!isset($tab[3])) {
-							// Vraie valeur envoyée
-							unset($_REQUEST[$request.'_hidden']);
+						if ($tab[3] == 'checkbox') {
+							unset($_REQUEST[str_replace('_checkbox', '', $request).'_hidden']);
 							$req = (bool)$value;
 						}elseif ($tab[3] == 'hidden'){
-							// Champ masqué attaché
-							if (isset($_REQUEST[str_replace('_hidden', '', $request)])){
-								$req = (bool)$_REQUEST[str_replace('_hidden', '', $request)];
-								unset($_REQUEST[str_replace('_hidden', '', $request)]);
+							if (isset($_REQUEST[str_replace('_hidden', '', $request).'_checkbox'])){
+								$req = (bool)$_REQUEST[str_replace('_hidden', '', $request).'_checkbox'];
+								unset($_REQUEST[str_replace('_hidden', '', $request).'_checkbox']);
 							}else{
 								$req = (bool)$value;
 							}
@@ -135,6 +142,9 @@ class PostedData {
 		if (isset($ret['token']) and isset($ret['formName']) and self::checkToken($ret['formName'], $ret['token'])){
 			unset($ret['token']);
 			unset($ret['formName']);
+			return $ret;
+		}elseif(isset($ret['noToken']) and $ret['noToken']){
+			unset($ret['noToken']);
 			return $ret;
 		}
 		return null;

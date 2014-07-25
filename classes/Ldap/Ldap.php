@@ -8,16 +8,17 @@
  * Date: 18/03/14
  * Time: 10:25
  *
- * @package Ldap
  */
 
 namespace Ldap;
+
 use Logs\Alert;
 use Sanitize;
-use Users\UsersManagement;
 
 /**
- * Class Ldap
+ * Classe de gestion des connexions et requêtes LDAP
+ *
+ * Les instances de connexions LDAP ne sont instanciées que si nécessaire, afin d'éviter des requêtes LDAP inutiles.
  *
  * @package Ldap
  */
@@ -63,10 +64,10 @@ class Ldap {
 	/**
 	 * Classe de gestion des requêtes LDAP
 	 *
-	 * @param string  $domain Nom DNS du domaine
-	 * @param string  $bindName Nom du compte utilisé pour les connexions aux serveurs LDAP
-	 * @param string  $bindPwd Mot de passe du compte utilisé pour les connexions LDAP
-	 * @param array   $ldapServers Liste des serveurs ldap sur lesquels on peut ouvrir des connexions
+	 * @param string  $domain Nom DNS du domaine (facultatif)
+	 * @param string  $bindName Nom du compte utilisé pour les connexions aux serveurs LDAP (facultatif)
+	 * @param string  $bindPwd Mot de passe du compte utilisé pour les connexions LDAP (facultatif)
+	 * @param array   $ldapServers Liste des serveurs ldap sur lesquels on peut ouvrir des connexions (facultatif)
 	 */
 	public function __construct($domain = null, $bindName = null, $bindPwd = null, $ldapServers = array()){
 		$this->domain = (!empty($domain)) ? $domain : LDAP_DOMAIN;
@@ -85,13 +86,13 @@ class Ldap {
 	/**
 	 * Chercher un objet dans LDAP
 	 *
-	 * @param string $type Type d'objet à chercher (user, group).
-	 * @param string $searched Nom de l'objet à chercher (nom sam). Si nul, tous les objets correspondants au type d'objet seront retournés.
-	 * @param string $where OU dans laquelle chercher l'objet
-	 * @param array $attributes Tableau des attributs à retourner.
-	 * @param bool $strict Effectue la recherche en cherchant le terme $searched exact (par défaut, les termes retournés contiennent $searched)
-	 * @param string $dc Contrôleur de domaine sur lequel effectuer la recherche. Si nul, récupère la valeur de $pdc
-	 * @return array Tableau des informations de l'objet.(ex : sAMAccountName (nom unique), whenCreated, thumbnailPhoto, sn (nom), givenName (prénom), cn (prénom nom), description, displayName (nom affiché), lastLogon, mail (adresse mail), memberOf (liste des groupes))
+	 * @param string $type Type d'objet à chercher (user, group). (facultatif)
+	 * @param string $searched Nom de l'objet à chercher (nom sam). Si nul, tous les objets correspondants au type d'objet seront retournés. (facultatif)
+	 * @param string $where OU dans laquelle chercher l'objet (facultatif)
+	 * @param array $attributes Tableau des attributs à retourner. (facultatif)
+	 * @param bool $strict Effectue la recherche en cherchant le terme $searched exact (par défaut, les termes retournés contiennent $searched) (facultatif)
+	 * @param string $dc Contrôleur de domaine sur lequel effectuer la recherche. Si nul, récupère la valeur de $pdc (facultatif)
+	 * @return array Tableau des informations de l'objet.(ex : sAMAccountName (nom unique), whenCreated, thumbnailPhoto, sn (nom), givenName (prénom), cn (prénom nom), description, displayName (nom affiché), lastLogon, mail (adresse mail), memberOf (liste des groupes)) (facultatif)
 	 *
 	 */
 	public function search($type = 'user', $searched = null, $where = null, $attributes = array(), $strict = false, $dc = null){
@@ -128,7 +129,7 @@ class Ldap {
 	 *
 	 * @param string $user Login de l'utilisateur
 	 * @param string $pwd Mot de passe de l'utilisateur
-	 * @param string $dc Contrôleur de domaine
+	 * @param string $dc Contrôleur de domaine (facultatif)
 	 *
 	 * @return bool true si connexion OK, false sinon
 	 */
@@ -152,10 +153,10 @@ class Ldap {
 	/**
 	 * Liste des utilisateurs d'un domaine LDAP
 	 *
-	 * @param string $format Format de renvoi de la liste (JSON, array, object)
-	 * @param string $searched Critères de recherche (partie d'un nom)
-	 * @param string $where OU dans laquelle effectuer la recherche.
-	 * @param bool  $strict Recherche stricte
+	 * @param string $format Format de renvoi de la liste (JSON, array, object) (facultatif)
+	 * @param string $searched Critères de recherche (partie d'un nom) (facultatif)
+	 * @param string $where OU dans laquelle effectuer la recherche. (facultatif)
+	 * @param bool  $strict Recherche stricte (facultatif)
 	 *
 	 * @return mixed
 	 */
@@ -185,9 +186,9 @@ class Ldap {
 	 * La recherche peut être récursive.
 	 *
 	 * @param string $userSAM Nom SAM (unique) de l'utilisateur
-	 * @param string $searched Nom du groupe cherché, pour la récursivité - Ne pas utiliser lors d'un appel direct
-	 * @param bool   $recursive Active ou non la récursivité dans la recherche
-	 * @param int    $recLevel Utilisé pour savoir à quel degré de récursivité on est. Afin de ne pas surcharger le serveur, on s'arrête à 50 niveaux par défaut. - Ne pas utiliser lors d'un appel direct.
+	 * @param string $searched Nom du groupe cherché, pour la récursivité - Ne pas utiliser lors d'un appel direct (facultatif)
+	 * @param bool   $recursive Active ou non la récursivité dans la recherche (facultatif)
+	 * @param int    $recLevel Utilisé pour savoir à quel degré de récursivité on est. Afin de ne pas surcharger le serveur, on s'arrête à 50 niveaux par défaut. - Ne pas utiliser lors d'un appel direct. (facultatif)
 	 *
 	 * @return array|bool liste des groupes ou false
 	 */
@@ -231,10 +232,12 @@ class Ldap {
 	 * Récupère la date de dernière connexion d'un utilisateur
 	 *
 	 * Le champ lastLogon n'est pas répliqué entre les différents DC, il faut donc tous les interroger et retourner la valeur la plus élevée.
-	 * @see http://blogs.technet.com/b/askds/archive/2009/04/15/the-lastlogontimestamp-attribute-what-it-was-designed-for-and-how-it-works.aspx
-	 * @param string $searched Utilisateur recherché
-	 * @return int timestamp Unix
 	 *
+	 * @link http://blogs.technet.com/b/askds/archive/2009/04/15/the-lastlogontimestamp-attribute-what-it-was-designed-for-and-how-it-works.aspx
+	 *
+	 * @param string $searched Utilisateur recherché
+	 *
+	 * @return int timestamp Unix
 	 */
 	public function lastLogon($searched){
 		$lastLogon = 0;

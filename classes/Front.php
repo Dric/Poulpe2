@@ -16,7 +16,7 @@ use Modules\ModulesManagement;
 use Users\ACL;
 
 /**
- * Class Front
+ * Classe de méthodes relatives à l'affichage de Poulpe2
  *
  * @package General
  */
@@ -28,18 +28,67 @@ class Front {
 	 */
 	public static $mainMenu = null;
 
+	/**
+	 * Titre par défaut de la page
+	 * @var string
+	 */
 	protected static $defaultTitle = SITE_NAME;
 
+	/**
+	 * Tableau de lignes html à inclure dans la partie `<head>` de la page
+	 * @var string[]
+	 */
 	protected static $header = array();
+	/**
+	 * Tableau de lignes html à inclure dans les chargement de scripts javascript dans la partie `<head>` de la page
+	 *
+	 * Afin d'améliorer la vitesse d'affichage de la page, mieux vaut charger les scripts js à la fin de la page, et donc les ajouter à {@link $jsFooter}
+	 * @var string[]
+	 */
 	protected static $jsHeader = array();
+	/**
+	 * Tableau de lignes html à inclure dans les chargement de fichiers CSS dans la partie `<head>` de la page
+	 * @var string[]
+	 */
 	protected static $cssHeader = array();
+	/**
+	 * Tableau de lignes html à inclure dans la partie `<footer>` de la page
+	 * @var string[]
+	 */
 	protected static $footer = array();
+	/**
+	 * Tableau de lignes html à inclure dans les chargement de scripts javascript dans la partie `<footer>` de la page
+	 *
+	 * Les scripts js devraient être dans la mesure du possible ajoutés au maximum dans ce tableau.
+	 *
+	 * @var string[]
+	 */
 	protected static $jsFooter = array();
+	/**
+	 * Tableau contenant les menus secondaires
+	 * @var Menu[]
+	 */
 	protected static $secondaryMenus = array();
+	/**
+	 * Fil d'ariane (navigation)
+	 *
+	 * Un niveau hiérarchique est constitué d'un tableau avec les index suivants :
+	 *  - `title`     => titre du niveau
+	 *  - `link`      => lien du niveau
+	 *  - `children`  => tableau contenant les éventuels niveaux inférieurs de navigation (l'imbrication de ces tableaux forme un fil d'ariane complet)
+	 *
+	 * @var array
+	 */
 	protected static $breadCrumb = array(
 		'title' => 'Accueil',
 	  'link'  => '.'
 	);
+	/**
+	 * Chemin absolu vers les fichiers de Poulpe2
+	 *
+	 * Généré automatiquement.
+	 * @var string
+	 */
 	protected static $absolutePath = '';
 
 	/**
@@ -209,6 +258,8 @@ class Front {
 	}
 
 	/**
+	 * Ajoute une ligne dans le tableau des chargements de scripts javascript dans la partie `<head>` de la page
+	 * @warning Privilégiez plutôt le chargement des scripts en fin de page via {@link setJsFooter()}
 	 * @param string $js
 	 */
 	public static function setJsHeader($js) {
@@ -216,6 +267,7 @@ class Front {
 	}
 
 	/**
+	 * Ajoute une ligne dans le tableau des chargements de fichiers CSS dans la partie `<head>` de la page
 	 * @param string $css
 	 */
 	public static function setCssHeader($css) {
@@ -223,6 +275,7 @@ class Front {
 	}
 
 	/**
+	 * Ajoute une ligne dans le tableau des chargements de scripts javascript dans la partie `<footer>` de la page
 	 * @param string $js
 	 */
 	public static function setJsFooter($js) {
@@ -237,7 +290,9 @@ class Front {
 		self::$secondaryMenus[] = $secondaryMenu;
 	}
 
-
+	/**
+	 * Affiche les menus secondaires
+	 */
 	public static function displaySecondaryMenus(){
 		foreach (self::$secondaryMenus as $menu){
 			/** @var Menu $menu */
@@ -246,6 +301,7 @@ class Front {
 	}
 
 	/**
+	 * Affiche le fil d'ariane
 	 * @param array $breadCrumb
 	 */
 	public static function displayBreadCrumb($breadCrumb) {
@@ -259,6 +315,16 @@ class Front {
 		<?php
 	}
 
+	/**
+	 * Affiche un niveau hiérarchique dans le fil d'ariane, et ses éventuels sous-niveaux
+	 *
+	 * Cette fonction est récursive et permet de créer un fil d'ariane.
+	 *
+	 * @param  array $breadCrumb Niveau hiérarchique
+	 * @param string $retLine code html déjà généré par les niveaux supérieurs
+	 *
+	 * @return string
+	 */
 	protected static function breadCrumbLevel($breadCrumb, $retLine = ''){
 		$retLine .= '<li'.((!isset($breadCrumb['children'])) ? ' class="active"' : '').'><a href="'.$breadCrumb['link'].'">'.ucfirst($breadCrumb['title']).'</a></li>';
 		if (isset($breadCrumb['children']) and is_array($breadCrumb['children'])) return self::breadCrumbLevel($breadCrumb['children'], $retLine);
@@ -266,6 +332,7 @@ class Front {
 	}
 
 	/**
+	 * Retourne le chemin absolu du script
 	 * @return string
 	 */
 	public static function getAbsolutePath() {
@@ -273,6 +340,7 @@ class Front {
 	}
 
 	/**
+	 * Définit le chemin absolu du script
 	 * @param string $absolutePath
 	 */
 	public static function setAbsolutePath($absolutePath) {

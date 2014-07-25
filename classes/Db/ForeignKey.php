@@ -37,7 +37,7 @@ class ForeignKey {
 	protected $onDelete = 'NO ACTION';
 	/**
 	 * Tableau des actions autorisées
-	 * @var array
+	 * @var string[]
 	 */
 	protected $actions = array(
 		'RESTRICT',
@@ -47,10 +47,12 @@ class ForeignKey {
 	);
 
 	/**
+	 * Construction de la clé étrangère
+	 *
 	 * @param string $table     Nom de la table contenant la référence de clé étrangère
 	 * @param string $key       Nom de la clé étrangère
-	 * @param string $onUpdate  Action en cas de mise à jour sur le champ de référence
-	 * @param string $onDelete  Action en cas de suppression du champ de référence
+	 * @param string $onUpdate  Action en cas de mise à jour sur le champ de référence (facultatif)
+	 * @param string $onDelete  Action en cas de suppression du champ de référence (facultatif)
 	 */
 	public function __construct($table, $key, $onUpdate = 'NO ACTION', $onDelete = 'NO ACTION'){
 		$this->table = $table;
@@ -60,6 +62,7 @@ class ForeignKey {
 	}
 
 	/**
+	 * Retourne la table contenant la clé étrangère
 	 * @return null
 	 */
 	public function getTable() {
@@ -67,6 +70,7 @@ class ForeignKey {
 	}
 
 	/**
+	 * retourne la clé étrangère
 	 * @return null
 	 */
 	public function getKey() {
@@ -74,6 +78,7 @@ class ForeignKey {
 	}
 
 	/**
+	 * Retourne le comportement sur mise à jour d'un item maître
 	 * @return string
 	 */
 	public function getOnUpdate() {
@@ -81,6 +86,7 @@ class ForeignKey {
 	}
 
 	/**
+	 * Retourne le comportement sur suppression d'un item maître
 	 * @return string
 	 */
 	public function getOnDelete() {

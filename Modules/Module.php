@@ -15,21 +15,18 @@ use Forms\Fields\LinkButton;
 use Forms\JSSwitch;
 use Logs\Alert;
 use Components\Help;
-use Components\Item;
-use Components\Menu;
 use Front;
 use Get;
 use Sanitize;
-use Forms\Field;
 use Forms\Form;
 use Forms\PostedData;
 use Settings\Setting;
 use Users\ACL;
 
 /**
- * Class Module
+ * Classe Module
  *
- * Modèle de module
+ * Cette classe sert de base pour tous les modules, qui doivent être déclarés en tant qu'enfants de cette classe.
  *
  * @package Modules
  */
@@ -52,12 +49,6 @@ class Module {
 	 * @var string
 	 */
 	protected $title = 'Petits Outils Informatiques';
-
-	/**
-	 * Chemin du module - définit automatiquement à l'instantiation du module
-	 * @var string
-	 */
-	protected $path = '';
 
 	/**
 	 * Paramètres du module
@@ -83,9 +74,21 @@ class Module {
 	 */
 	protected $breadCrumb = array();
 
+	/**
+	 * Données envoyées par les formulaires
+	 * @var array
+	 */
 	protected $postedData = array();
 
+	/**
+	 * URL de la page principale du module
+	 *
+	 * Cette adresse est définie automatiquement
+	 *
+	 * @var string
+	 */
 	protected $url = '';
+
 	/**
 	 * Instantiation du module
 	 */
@@ -194,7 +197,7 @@ class Module {
 	}
 
 	/**
-	 * Affiche la page d'accueil du module
+	 * Gestion de l'affichage du module
 	 */
 	public function display(){
 		if (!$this->getPage()){
@@ -252,41 +255,7 @@ class Module {
 	 * Les paramètres sont définis non pas avec des objets Setting mais avec des objets Field (sans quoi on ne pourra pas créer d'écran de paramétrage)
 	 */
 	public function defineSettings(){
-		/* Exemple de paramétrage :
 
-		$this->settings['vbsPath'] = new Field('vbsPath', 'string', 'global', null, 'Chemin des scripts de lancement VBS', '\\intra.epsi.fr\profils\xen\xenlogin', null, null, null, null, true);
-
-		// @see \Db\Db->createTable pour plus de détails sur la création d'une table.
-
-		$this->dbTables['module_applis'] = array(
-			'name'        => 'module_applis',
-			'fields'      => array(
-				'id'    => array(
-					'type'          => 'int',
-					'length'        => 11,
-					'null'          => false,
-					'autoIncrement' => true,
-				),
-				'label' => array(
-					'type'    => 'string',
-					'length'  => 150,
-					'null'    => false
-				),
-				'title' => array(
-					'type'    => 'string',
-					'length'  => 150,
-					'null'    => false
-				),
-				'file'  => array(
-					'type'    => 'string',
-					'length'  => 255,
-					'null'    => false
-				)
-			),
-			'primaryKey'  => 'id',
-			'uniqueKey'   => 'label'
-		);
-		*/
 	}
 
 	/**
@@ -382,6 +351,9 @@ class Module {
 		<?php
 	}
 
+	/**
+	 * Affiche l'écran d'administration des permissions sur le module
+	 */
 	protected function moduleACL(){
 		ACL::adminACL('module', $this->id, 'le module '.$this->name);
 	}
@@ -432,6 +404,7 @@ class Module {
 
 	/**
 	 * Sauvegarde des items d'une table dans la bdd
+	 *
 	 * @param array $tables
 	 *  - array 'table' La table doit être définie dans $this->dbTables
 	 *    - array 'ligne' ('id' => array('field1' => value, 'field2' => value2, etc))
@@ -440,7 +413,6 @@ class Module {
 	 * @return bool
 	 */
 	protected function saveDbTables(array $tables){
-		global $db;
 		if (!ACL::canModify('module', $this->id)){
 			new Alert('error', 'Vous n\'avez pas l\'autorisation de faire ceci !');
 			return false;
@@ -529,6 +501,7 @@ class Module {
 
 	/**
 	 * Installe le module en bdd, avec ses paramètres
+	 * @return bool
 	 */
 	public function install(){
 		/* Ceci est un exemple d'installation de module
@@ -538,8 +511,6 @@ class Module {
 		* - use Settings\Setting;
 		* - use Users\ACL;
 		*
-		// On renseigne le chemin du module
-		$this->path = basename(__DIR__).DIRECTORY_SEPARATOR.basename(__FILE__);
 
 		// Définition des ACL par défaut pour ce module
 		$defaultACL = array(
@@ -555,6 +526,7 @@ class Module {
 	}
 
 	/**
+	 * Retourne le nom du module
 	 * @return string
 	 */
 	public function getName() {
@@ -562,6 +534,7 @@ class Module {
 	}
 
 	/**
+	 * Retourne le titre du module
 	 * @return string
 	 */
 	public function getTitle() {
@@ -569,13 +542,7 @@ class Module {
 	}
 
 	/**
-	 * @return string
-	 */
-	public function getPath() {
-		return $this->path;
-	}
-
-	/**
+	 * Retourne l'ID du module
 	 * @return int
 	 */
 	public function getId() {
@@ -583,7 +550,8 @@ class Module {
 	}
 
 	/**
-	 * @return array
+	 * Retourne les tables déclarées dans le module
+	 * @return DbTable[]
 	 */
 	public function getDbTables() {
 		return $this->dbTables;

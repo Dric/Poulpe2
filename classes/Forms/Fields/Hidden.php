@@ -12,6 +12,11 @@ namespace Forms\Fields;
 use Forms\Field;
 use Forms\Pattern;
 
+/**
+ * Champ de formulaire masqué
+ *
+ * @package Forms\Fields
+ */
 class Hidden extends Field{
 
 	protected $type = 'hidden';

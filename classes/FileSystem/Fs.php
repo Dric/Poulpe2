@@ -55,8 +55,8 @@ class Fs {
 	 * @param string $path Chemin du point de montage.
 	 *  - Pour un partage SMB, on indique le chemin local ou un partage réseau sur le serveur. Ex : pour accéder au répertoire 'Scripts' sur le disque D d'un serveur, on indique 'd:\Scripts' et la fonction passera par le partage administratif 'd$\scripts'
 	 *  - on peut aussi indiquer un partage SMB complet
-	 * @param string $server Serveur sur lequel est stocké le chemin. Ce serveur doit être soit 'localhost' pour le serveur local, soit un serveur accessible par smb (partage Windows). Ce peut être un nom ou une adresse IP. Le serveur peut-être directement renseigné dans $path
-	 * @param null   $prefix Préfixe du point de montage dans /mnt. Facultatif
+	 * @param string $server Serveur sur lequel est stocké le chemin. Ce serveur doit être soit 'localhost' pour le serveur local, soit un serveur accessible par smb (partage Windows). Ce peut être un nom ou une adresse IP. Le serveur peut-être directement renseigné dans $path (facultatif)
+	 * @param string $prefix Préfixe du point de montage dans /mnt. (facultatif)
 	 */
 	public function __construct($path, $server = null, $prefix = null){
 		if (!empty($server)) {
@@ -86,6 +86,7 @@ class Fs {
 	}
 
 	/**
+	 * Retourne le statut du montage
 	 * @return boolean
 	 */
 	public function getIsMounted() {
@@ -121,6 +122,7 @@ class Fs {
 
 	/**
 	 * Monte le partage SMB
+	 *
 	 * @return bool
 	 */
 	protected function mount(){
@@ -159,12 +161,11 @@ class Fs {
 	 * Si $absolutePath est à true, les fichiers sont retournés avec leur chemin absolu dans un tableau séquentiel
 	 * Si $absolutePath est à false (défaut), les fichiers sont retournés dans un tableau associatif dont les clés sont les sous-répertoires
 	 *
-	 * @param string $path Chemin à inventorier dans le chemin de base de l'objet Fs instancié
-	 * @param string $extension Pour ne répertorier que les fichiers ayant une certaine extension
+	 * @param string $path Chemin à inventorier dans le chemin de base de l'objet Fs instancié (facultatif)
+	 * @param string $extension Pour ne répertorier que les fichiers ayant une certaine extension (facultatif)
+	 * @param bool   $absolutePath Retourne un tableau à plat avec tous les fichiers, avec leur chemin absolu (facultatif)
 	 *
-	 * @param bool   $absolutePath Retourne un tableau à plat avec tous les fichiers, avec leur chemin absolu
-	 *
-	 * @return array
+	 * @return string[]|array[]
 	 */
 	public function getFilesInDir($path = null, $extension = null, $absolutePath = false){
 		$result = array();
@@ -204,8 +205,21 @@ class Fs {
 	/**
 	 * Retourne des informations sur un fichier
 	 *
+	 * Cette méthode est lente à exécuter, aussi vaut-il mieux filtrer les champs à retourner afin de n'obtenir que ceux qui seront utilisés.
+	 *
+	 * Propriétés retournées :
+	 * - dateCreated
+	 * - dateModified
+	 * - size
+	 * - extension
+	 * - type
+	 * - chmod
+	 * - writable
+	 * - owner
+	 * - groupOwner
+	 *
 	 * @param string $fileName Nom du fichier
-	 * @param array|string  $filters Filtres facultatifs sous forme de chaîne ou de tableau séquentiel
+	 * @param string[]|string  $filters Filtres facultatifs sous forme de chaîne ou de tableau séquentiel (facultatif)
 	 *
 	 * @return bool|object
 	 */
@@ -259,12 +273,11 @@ class Fs {
 	 * Lit un fichier
 	 *
 	 * @param string $fileName Nom du fichier
-	 * @param string $format Format de retour - par défaut, renvoie toutes les lignes dans un tableau
+	 * @param string $format Format de retour (array ou string) - par défaut, renvoie toutes les lignes dans un tableau (facultatif)
+	 * @param bool   $ignoreNewLines N'ajoute pas les caractères de passage à la ligne à la fin de chaque ligne dans le tableau retourné (facultatif)
+	 * @param bool   $skipEmptyLines Ignore les lignes vides (désactivé par défaut) (facultatif)
 	 *
-	 * @param bool   $ignoreNewLines N'ajoute pas les caractères de passage à la ligne à la fin de chaque ligne dans le tableau retourné
-	 * @param bool   $skipEmptyLines Ignore les lignes vides (désactivé par défaut)
-	 *
-	 * @return array|string|bool renvoie le fichier dans le format de demandé, ou false en cas d'erreur
+	 * @return string[]|string|bool renvoie le fichier dans le format de demandé, ou false en cas d'erreur
 	 */
 	public function readFile($fileName, $format = 'array', $ignoreNewLines = true, $skipEmptyLines = false){
 		$opt = null;
@@ -312,8 +325,8 @@ class Fs {
 	 *
 	 * @param string       $fileName Nom du fichier
 	 * @param array|string $content Contenu du fichier
-	 * @param bool         $append Ajoute le contenu à la suite du fichier au lieu de l'écraser si celui-ci existe
-	 * @param bool         $backupFile Crée un backup du fichier avec l'extension .backup
+	 * @param bool         $append Ajoute le contenu à la suite du fichier au lieu de l'écraser si celui-ci existe (facultatif)
+	 * @param bool         $backupFile Crée un backup du fichier avec l'extension .backup (facultatif)
 	 *
 	 * @return bool
 	 */
@@ -348,10 +361,10 @@ class Fs {
 	 *
 	 * @from <http://stackoverflow.com/questions/15025875/what-is-the-best-way-in-php-to-read-last-lines-from-a-file/15025877#15025877>
 	 * @param string $fileName Nom du fichier
-	 * @param int  $lines Nombre de lignes à retourner
-	 * @param bool $adaptive
+	 * @param int  $lines Nombre de lignes à retourner (facultatif)
+	 * @param bool $adaptive (facultatif)
 	 *
-	 * @return bool|array
+	 * @return bool|string[]
 	 */
 	public function tailFile($fileName, $lines = 1, $adaptive = true) {
 		// Open file
@@ -432,6 +445,8 @@ class Fs {
 	}
 
 	/**
+	 * retourne le nom du montage réseau
+	 *
 	 * @return string
 	 */
 	public function getMountName() {

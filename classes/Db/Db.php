@@ -5,7 +5,6 @@
  * Date: 19/03/14
  * Time: 09:45
  *
- * @package Db
  */
 
 namespace Db;
@@ -21,7 +20,7 @@ use PDOStatement;
 use Sanitize;
 
 /**
- * Class Db
+ * Classe de communication avec une base SQL
  *
  * La connexion est ouverte à l'initialisation de la classe, et est fermée automatiquement à la fin du script.
  *

@@ -11,7 +11,7 @@ namespace Users;
 use Logs\Alert;
 
 /**
- * Class CurrentUser
+ * Classe de l'utilisateur actuellement connecté
  *
  * @package Users
  */
@@ -46,11 +46,16 @@ class CurrentUser extends User{
 		}
 	}
 
+	/**
+	 * Retourne le statut de connexion de l'utilisateur courant
+	 * @return bool
+	 */
 	public function isLoggedIn(){
 		return $this->isLoggedIn;
 	}
 
 	/**
+	 * Retourne le mot de passe crypté de l'utilisateur actuel
 	 * @return string
 	 */
 	public function getPwd() {
