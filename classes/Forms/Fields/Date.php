@@ -52,6 +52,7 @@ class Date extends String{
 		Front::setJsFooter('<script src="js/moment-fr.js"></script>');
 		Front::setJsFooter('<script src="js/bootstrap-datetimepicker.min.js"></script>');
 		Front::setJsFooter('<script src="js/bootstrap-datetimepicker.fr.js"></script>');
+		Front::setJsFooter('<script>dateTimePick();</script>');
 		$this->dateType = (in_array($dateType, array('date', 'dateTime', 'fullDateTime'))) ? $this->dateType : 'date';
 	}
 
@@ -62,7 +63,7 @@ class Date extends String{
 	 * @param bool $userValue Afficher la valeur utilisateur au lieu de la valeur globale
 	 */
 	public function display($enabled = true, $userValue = false){
-		$attrs = 'data-dateType = "'.$this->dateType.'"';
+		$attrs = ' data-dateType="'.$this->dateType.'"';
 		parent::display($enabled, $userValue, $attrs);
 	}
 } 

@@ -52,11 +52,12 @@ class String extends Field{
 	/**
 	 * Affichage du champ
 	 *
-	 * @param bool $enabled Champ modifiable
-	 * @param bool $userValue Afficher la valeur utilisateur au lieu de la valeur globale
+	 * @param bool    $enabled    Champ modifiable
+	 * @param bool    $userValue  Afficher la valeur utilisateur au lieu de la valeur globale
+	 * @param string  $attrs      Attributs html à ajouter au champ de saisie
 	 */
-	public function display($enabled = true, $userValue = false){
-		$attrs = (!$this->autoComplete) ? 'autocomplete="off"' : null;
+	public function display($enabled = true, $userValue = false, $attrs = null){
+		$attrs .= (!$this->autoComplete) ? ' autocomplete="off"' : null;
 		parent::display($enabled, $userValue, $attrs);
 	}
 } 
