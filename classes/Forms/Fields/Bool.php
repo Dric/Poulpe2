@@ -46,7 +46,7 @@ class Bool extends Field{
 	 */
 	public function __construct($name, $category, $value, $userValue = null, $label = null, $help = null, $pattern = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false, $switch = null){
 		$this->switch = $switch;
-		parent::__construct($name, $this->type, $category, $value, $label, null, null, $help, $pattern, $userValue, $important, $ACLLevel, $class, $disabled);
+		parent::__construct($name, $this->type, $category, $value, $label, null, $help, $pattern, $userValue, $important, $ACLLevel, $class, $disabled);
 	}
 
 	/**
