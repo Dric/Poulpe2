@@ -84,6 +84,14 @@ class Field extends Setting{
 	protected $htmlType = 'text';
 
 	/**
+	 * Icône associée au champ si présente
+	 *
+	 * Ces icônes sont celles de Bootstrap, affichées via des classes CSS `glyphicon glyphicon-<icon>`
+	 * @var string
+	 */
+	protected $associatedIcon = null;
+
+	/**
 	 * Construction du champ
 	 *
 	 * @param string $name Nom du champ - repris dans la propriété name et id
@@ -155,7 +163,14 @@ class Field extends Setting{
 		?>
 		<div class="form-group <?php if ($this->important) echo 'has-warning'; ?>">
 			<label for="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>"><?php echo $this->label; ?> <?php if (!empty($pattern) and $pattern->getRequired()) $this->displayRequired(); ?> <?php if($this->help != '') Help::iconHelp($this->help); ?></label>
+			<?php if (!empty($this->associatedIcon)) { ?>
+			<div class="input-group input-<?php echo $this->type; ?>">
+			<?php } ?>
 			<input type="<?php echo $this->htmlType;?>" class="form-control<?php echo ' '.$this->class; ?>" id="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>" name="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>" <?php if ($this->placeholder != '') echo 'placeholder="'.$this->placeholder.'"'; ?> value="<?php echo $value; ?>" <?php if ($this->disabled or !$enabled) echo 'disabled'; ?> <?php echo $attrs; ?> <?php echo $displayPattern; ?>>
+			<?php if (!empty($this->associatedIcon)) { ?>
+			<span class="input-group-addon"><span class="glyphicon glyphicon-<?php echo $this->associatedIcon; ?>"></span></span>
+			</div>
+			<?php } ?>
 			<?php if (!empty($pattern)) { ?>
 			<div class="help-block with-errors"></div>
 			<?php } ?>

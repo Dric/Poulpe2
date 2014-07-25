@@ -25,5 +25,6 @@ use Forms\Pattern;
 class Url extends String{
 
 	protected $htmlType = 'url';
+	protected $associatedIcon = 'link';
 
 } 

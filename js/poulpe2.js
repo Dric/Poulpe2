@@ -195,10 +195,11 @@ function menuNavigation(){
 		});
 	});
 }
+
 /**
  * Gère la saisie des dates et heures
  *
- * Pour spécifier un mode de saisie, l'attribut `data-dateMode` doit être renseigné avec une des valeurs suivantes :
+ * Pour spécifier un mode de saisie, l'attribut `data-datetype` doit être renseigné avec une des valeurs suivantes :
  *  - `date`          : saisie de date sans l'heure
  *  - `time`          : saisie d'heure et de minutes
  *  - `fulltime`      : idem que `time`, mais avec les secondes
@@ -207,48 +208,50 @@ function menuNavigation(){
  *
  */
 function dateTimePick(){
-	if ($.isFunction('datetimepicker')) {
-		var options = {
+	if (jQuery.fn.datetimepicker != 'undefined') {
+		var base = {
 			language: 'fr'
 		};
-		$('input[type=date]').each(function(){
-			var mode = $(this).data('dateType') || 'date';
+		var options = {};
+		$('.input-date, .input-time').each(function(){
+			var mode = $(this).find('input').data('datetype') || 'date';
 			switch (mode){
 				case 'date':
-					options.push({
-						pickDate: true,                 //en/disables the date picker
-						pickTime: false                 //en/disables the time picker
-					});
+					options = {
+						pickDate: true,
+						pickTime: false
+					};
 					break;
 				case 'time':
-					options.push({
-						pickDate: false,                 //en/disables the date picker
+					options = {
+						pickDate: false,
 						pickTime: true,
 						useSeconds: false
-					});
+					};
 					break;
 				case 'fullTime':
-					options.push({
-						pickDate: false,                 //en/disables the date picker
+					options = {
+						pickDate: false,
 						pickTime: true,
 						useSeconds: true
-					});
+					};
 					break;
 				case 'dateTime':
-					options.push({
-						pickDate: true,                 //en/disables the date picker
+					options = {
+						pickDate: true,
 						pickTime: true,
 						useSeconds: false
-					});
+					};
 					break;
 				case 'fullDateTime':
-					options.push({
-						pickDate: true,                 //en/disables the date picker
+					options = {
+						pickDate: true,
 						pickTime: true,
 						useSeconds: true
-					});
+					};
 					break;
 			}
+			$.extend(options, base);
 			$(this).datetimepicker(options);
 		});
 	}

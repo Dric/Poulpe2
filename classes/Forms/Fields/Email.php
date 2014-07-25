@@ -25,5 +25,6 @@ use Forms\Pattern;
 class Email extends String{
 
 	protected $htmlType = 'email';
+	protected $associatedIcon = 'envelope';
 
 }

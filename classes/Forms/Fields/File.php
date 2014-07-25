@@ -24,5 +24,6 @@ use Forms\Pattern;
 class File extends String{
 
 	protected $htmlType = 'file';
+	protected $associatedIcon = 'paperclip';
 
 }

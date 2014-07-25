@@ -29,6 +29,7 @@ class Date extends String{
 	protected $htmlType = 'date';
 	protected $type = 'date';
 	protected $dateType = 'date';
+	protected $associatedIcon = 'calendar';
 
 	/**
 	 * Déclaration d'un champ de saisie Date
@@ -63,7 +64,7 @@ class Date extends String{
 	 * @param bool $userValue Afficher la valeur utilisateur au lieu de la valeur globale
 	 */
 	public function display($enabled = true, $userValue = false){
-		$attrs = ' data-dateType="'.$this->dateType.'"';
+		$attrs = ' data-datetype="'.$this->dateType.'"';
 		parent::display($enabled, $userValue, $attrs);
 	}
 } 
