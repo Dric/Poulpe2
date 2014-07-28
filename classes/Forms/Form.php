@@ -103,9 +103,11 @@ class Form {
 			if (isset($fields['fields'])) $this->fields['fields'] = $fields['fields'];
 			if (isset($fields['hidden'])) $this->fields['hidden'] = $fields['hidden'];
 			if (isset($fields['buttons'])) $this->fields['buttons'] = $fields['buttons'];
+			if (isset($fields['userSettings'])) $this->fields['userSettings'] = $fields['userSettings'];
 			unset($fields['fields']);
 			unset($fields['hidden']);
 			unset($fields['buttons']);
+			unset($fields['userSettings']);
 			if (!empty($fields)){
 				new Alert('debug', '<code>Form Constructor</code> : <code>$fields</code> est mal formé !');
 			}
@@ -118,10 +120,10 @@ class Form {
 
 		// On ajoute au formulaire un jeton de sécurité pour vérifier au traitement du formulaire que l'utilisateur demandant le traitement est bien celui qui a envoyé le formulaire (pour éviter une faille CSRF)
 		if (!$noToken){
-			$this->addField(new Hidden('token', 'global', PostedData::setToken($this->name)));
-			$this->addField(new Hidden('formName', 'global', $this->name));
+			$this->addField(new Hidden('token', PostedData::setToken($this->name)));
+			$this->addField(new Hidden('formName', $this->name));
 		}else{
-			$this->addField(new Hidden('noToken', 'global', true));
+			$this->addField(new Hidden('noToken', true));
 		}
 	}
 

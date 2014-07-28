@@ -102,26 +102,30 @@ class PostIt extends Module{
 		 * @see Db\Db->createTable pour plus de détails sur la création d'une table.
 		 */
 		$postIt = new DbTable('module_postit', 'Post-It');
-		$postIt->addField(new Int('id', 'global', null, null, null, null, null, new DbFieldSettings('number', true, 11, 'primary', false, true, 0, null, false, false)));
-		$postIt->addField(new Int('author', 'global', null, null, 'ID de l\'auteur du post', null, null, new DbFieldSettings('number', false, 6, 'index', false, false, 0, new ForeignKey('users', 'id', 'CASCADE', 'SET NULL'), false)));
-		$postIt->addField(new Text('content', 'global', null, null, 'Texte du post-it', null, null, new DbFieldSettings('text', true, null, false, false, false, 0, null, true)));
-		$postIt->addField(new Bool('shared', 'global', false, null, 'Post-it public ou privé', null, new DbFieldSettings('checkbox', false, 1, 'index', false, false, 0, null, true)));
-		$postIt->addField(new Int('created', 'global', null, null, 'Timestamp de création', null, null, new DbFieldSettings('number', true, 11)));
-		$postIt->addField(new Int('modified', 'global', null, null, 'Timestamp de dernière modification', null, null, new DbFieldSettings('number', true, 11, false, false, false, 0, null, true)));
+		$postIt->addField(new Int('id', null, null, null, null, new DbFieldSettings('number', true, 11, 'primary', false, true, 0, null, false, false)));
+		$postIt->addField(new Int('author', null, 'ID de l\'auteur du post', null, null, new DbFieldSettings('number', false, 6, 'index', false, false, 0, new ForeignKey('users', 'id', 'CASCADE', 'SET NULL'), false)));
+		$postIt->addField(new Text('content', null, 'Texte du post-it', null, null, new DbFieldSettings('text', true, null, false, false, false, 0, null, true)));
+		$postIt->addField(new Bool('shared', false, 'Post-it public ou privé', null, new DbFieldSettings('checkbox', false, 1, 'index', false, false, 0, null, true)));
+		$postIt->addField(new Int('created', null, 'Timestamp de création', null, null, new DbFieldSettings('number', true, 11)));
+		$postIt->addField(new Int('modified', null, 'Timestamp de dernière modification', null, null, new DbFieldSettings('number', true, 11, false, false, false, 0, null, true)));
 
 		$this->dbTables['module_postit'] = $postIt;
 
 		$switch = new JSSwitch('small', 'right');
-		$this->settings['sharedByDefault'] = new Bool('sharedByDefault', 'user', true, null, 'Rendre les post-it publiques par défaut', null, null, false, null, null, false, $switch);
-		$this->settings['alwaysShowAddPost'] = new Bool('alwaysShowAddPost', 'user', false, null, 'Afficher l\'ajout de post-it en permanence <noscript><span class="text-danger">(actif seulement quand Javascript est activé)</span></noscript>', null, null, false, null, null, false, $switch);
+		$this->settings['sharedByDefault'] = new Bool('sharedByDefault', true, 'Rendre les post-it publiques par défaut', null, null, false, null, null, false, $switch);
+		$this->settings['sharedByDefault']->setUserDefinable();
+		$this->settings['alwaysShowAddPost'] = new Bool('alwaysShowAddPost', false, 'Afficher l\'ajout de post-it en permanence <noscript><span class="text-danger">(actif seulement quand Javascript est activé)</span></noscript>', null, null, false, null, null, false, $switch);
+		$this->settings['alwaysShowAddPost']->setUserDefinable();
 		$orderChoices = array(
 			'desc'  => 'Les plus récents en premier',
 		  'asc'   => 'Les plus anciens en premier'
 		);
-		$this->settings['order'] = new Select('order', 'user', 'desc', null, 'Ordre d\'affichage des Post-It', null, false, null, null, false, $orderChoices);
+		$this->settings['order'] = new Select('order', 'desc', 'Ordre d\'affichage des Post-It', null, false, null, null, false, $orderChoices);
+		$this->settings['order']->setUserDefinable();
 		$tab = explode(', ', PER_PAGE_VALUES);
 		$choices = array_combine($tab, $tab);
-		$this->settings['postsPerPage'] = new Select('postsPerPage', 'user', 10, null, 'Nombre de post-it par page', null, false, null, null, false, $choices);
+		$this->settings['postsPerPage'] = new Select('postsPerPage', 10, 'Nombre de post-it par page', null, false, null, null, false, $choices);
+		$this->settings['postsPerPage']->setUserDefinable();
 	}
 
 	/**
@@ -224,8 +228,8 @@ class PostIt extends Module{
 	 */
 	protected function searchForm($search = null){
 		$form = new Form('search', $this->url, null, null, null, 'get', 'form-inline', array('module' => 'PostIt'));
-		$form->addField(new String('search', 'global', $search, null, null, 'Chercher'));
-		$form->addField(new Button('action', 'global', 'searchPost', 'Rechercher', 'modify', 'btn-primary btn-sm'));
+		$form->addField(new String('search', $search, null, 'Chercher'));
+		$form->addField(new Button('action', 'searchPost', 'Rechercher', 'modify', 'btn-primary btn-sm'));
 		$form->display();
 	}
 
@@ -245,16 +249,16 @@ class PostIt extends Module{
 
 		$action = (!empty($post)) ? '#post_'.$post->getId() : '#postsEnd';
 		$form = new Form('addPost', $action, null, 'module', $this->id);
-		$form->addField(new Text('content', 'global', $content, null, 'Post-It', 'Merci de veiller à ce que votre prose soit correctement orthographiée !', null, new Pattern('text', true), true, 'modify'));
-		$form->addField(new Bool('shared', 'global', $shared, null, 'Post-It partagé', 'Si actif, votre post-it sera visible par tout le monde', null, false, 'modify', null, false, new JSSwitch(null, 'left')));
+		$form->addField(new Text('content', $content, 'Post-It', 'Merci de veiller à ce que votre prose soit correctement orthographiée !', null, new Pattern('text', true), true, 'modify'));
+		$form->addField(new Bool('shared', $shared, 'Post-It partagé', 'Si actif, votre post-it sera visible par tout le monde', null, false, 'modify', null, false, new JSSwitch(null, 'left')));
 		if (!empty($post)){
-			$form->addField(new Hidden('id', 'global', $post->getId()));
-			$form->addField(new Hidden('page', 'global', $this->page));
+			$form->addField(new Hidden('id', $post->getId()));
+			$form->addField(new Hidden('page', $this->page));
 		}else{
-			$form->addField(new Hidden('page', 'global', ceil($this->nbPosts / $this->settings['postsPerPage']->getValue())));
+			$form->addField(new Hidden('page', ceil($this->nbPosts / $this->settings['postsPerPage']->getValue())));
 		}
 		$label = (!empty($post)) ? 'Modifier' : 'Ajouter';
-		$form->addField(new Button('action', 'global', 'savePost', $label, 'modify', 'btn-primary'));
+		$form->addField(new Button('action', 'savePost', $label, 'modify', 'btn-primary'));
 		$form->display();
 	}
 
@@ -375,10 +379,10 @@ class PostIt extends Module{
 					<?php
 					if (ACL::canModify('module', $this->id) and (ACL::canAdmin('module', $this->id) or $cUser->getId() == $post->getAuthor(true))){
 						$form = new Form('editPost_'.$post->getId(), $this->url.'&itemsPage='.$this->page, null, 'module', $this->id, 'post', 'form-inline inline-block');
-						$form->addField(new Hidden('id', 'global', $post->getId()));
-						$form->addField(new Hidden('page', 'global', $this->page));
-						$form->addField(new Button('action', 'global', 'editPost', 'Modifier', 'modify', 'btn-xs'));
-						$form->addField(new Button('action', 'global', 'delPost', 'Supprimer', 'modify', 'btn-xs'));
+						$form->addField(new Hidden('id', $post->getId()));
+						$form->addField(new Hidden('page', $this->page));
+						$form->addField(new Button('action', 'editPost', 'Modifier', 'modify', 'btn-xs'));
+						$form->addField(new Button('action', 'delPost', 'Supprimer', 'modify', 'btn-xs'));
 						$form->display();
 					}
 					?>

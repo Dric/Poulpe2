@@ -103,7 +103,7 @@ class Mailboxes extends Module {
 	 * Les paramètres sont définis non pas avec des objets Setting mais avec des objets Field (sans quoi on ne pourra pas créer d'écran de paramétrage)
 	 */
 	public function defineSettings(){
-		$this->settings['scriptsPath'] = new String('scriptsPath', 'global', '\\\\srv-exchange\scripts', null, 'Chemin des scripts Powershell', '\\\\srv-exchange\scripts', null, new Pattern('string', true), true);
+		$this->settings['scriptsPath'] = new String('scriptsPath', '\\\\srv-exchange\scripts', 'Chemin des scripts Powershell', '\\\\srv-exchange\scripts', null, new Pattern('string', true), true);
 
 	}
 
@@ -318,9 +318,9 @@ class Mailboxes extends Module {
 		Front::setJsFooter('<script src="js/bootstrap3-typeahead.min.js"></script>');
 		Front::setJsFooter('<script src="Modules/Mailboxes/Mailboxes.js"></script>');
 		$form = new Form('addMove', null, null, 'module', $this->id, 'post');
-		$form->addField(new String('user', 'global', '', null, 'Nom de l\'utilisateur', 'prénom.nom', 'La recherche peut se faire sur un login utilisateur complet (prénom.nom) ou sur une partie de celui-ci. Seuls les comptes possédant une boîte exchange sont affichés', null, true, 'modify', null, false, false));
-		$form->addField(new Select('mdb', 'global', '', null, 'Base de destination', null, true, 'modify', null, false, array_combine($this->databases, $this->databases)));
-		$form->addField(new Button('action', 'global', 'addMove', 'Programmer le déplacement', 'modify', 'btn-primary'));
+		$form->addField(new String('user', '', 'Nom de l\'utilisateur', 'prénom.nom', 'La recherche peut se faire sur un login utilisateur complet (prénom.nom) ou sur une partie de celui-ci. Seuls les comptes possédant une boîte exchange sont affichés', null, true, 'modify', null, false, false));
+		$form->addField(new Select('mdb', '', 'Base de destination', null, true, 'modify', null, false, array_combine($this->databases, $this->databases)));
+		$form->addField(new Button('action', 'addMove', 'Programmer le déplacement', 'modify', 'btn-primary'));
 		?>
 		<div class="row">
 			<div class="col-md-6">

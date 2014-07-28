@@ -64,12 +64,12 @@ class Dupliqueur extends Module {
 	 */
 	public function defineSettings(){
 		$dupliqueur = new DbTable('module_dupliqueur', 'Serveurs');
-		$dupliqueur->addField(new Int('id', 'global', null, null, null, null, null, new DbFieldSettings('number', true, 5, 'primary', false, true, 0, null, false, false)));
-		$dupliqueur->addField(new String('name', 'global', null, null, 'Nom du serveur', null, null, new DbFieldSettings('text', true, 150, 'unique', false, false, 0, null, true)));
-		$dupliqueur->addField(new String('category', 'global', null, null, 'Catégorie', null, null, new DbFieldSettings('text', true, 100, 'index', false, false, 0, null, true)));
+		$dupliqueur->addField(new Int('id', null, null, null, null, new DbFieldSettings('number', true, 5, 'primary', false, true, 0, null, false, false)));
+		$dupliqueur->addField(new String('name', null, 'Nom du serveur', null, null, new DbFieldSettings('text', true, 150, 'unique', false, false, 0, null, true)));
+		$dupliqueur->addField(new String('category', null, 'Catégorie', null, null, new DbFieldSettings('text', true, 100, 'index', false, false, 0, null, true)));
 		$this->dbTables['module_dupliqueur'] = $dupliqueur;
 		// Cette table sera gérée via les paramètres
-		$this->settings['module_dupliqueur'] = new Table($dupliqueur, 'global');
+		$this->settings['module_dupliqueur'] = new Table($dupliqueur);
 	}
 
 	/**
@@ -251,11 +251,11 @@ class Dupliqueur extends Module {
 
 		// Création du formulaire
 		$form = new Form('dupliqueur', null, null, 'module', $this->getId());
-		$form->addField(new Select('serverFrom', 'global', $serverFrom, null, 'Serveur d\'origine', 'Choisissez le serveur sur lequel se trouve le fichier à copier', true, 'modify', null, false, $choices, true));
-		$form->addField(new CheckboxList('serversTo', 'global', $serversTo, null, 'Serveurs de destination', 'Choisissez le(s) serveur(s) sur le(s)quel(s) copier le fichier', true, 'modify', 'serversList', false, $choices, 'all'));
-		$form->addField(new String('file', 'global', $file, null, 'Fichier à copier', 'd:\\cariatides\\cariatides.cfg', 'Indiquez un chemin de fichier. Ex : d:\cariatides\cariatides.cfg pour aller chercher le fichier sur le disque D du serveur d\'origine', new Pattern('text', true), true, 'modify'));
-		$form->addField(new Bool('overwrite', 'global', $overwrite, null, 'Ecraser les fichiers existants', 'Cochez cette case pour remplacer les fichiers déjà existants sur les serveurs', null, false, 'modify', null, false, new JSSwitch('mini', 'left')));
-		$form->addField(new Button('action', 'global', 'copyFile', 'Lancer la copie', 'modify', 'btn-primary'));
+		$form->addField(new Select('serverFrom', $serverFrom, 'Serveur d\'origine', 'Choisissez le serveur sur lequel se trouve le fichier à copier', true, 'modify', null, false, $choices, true));
+		$form->addField(new CheckboxList('serversTo', $serversTo, 'Serveurs de destination', 'Choisissez le(s) serveur(s) sur le(s)quel(s) copier le fichier', true, 'modify', 'serversList', false, $choices, 'all'));
+		$form->addField(new String('file', $file, 'Fichier à copier', 'd:\\cariatides\\cariatides.cfg', 'Indiquez un chemin de fichier. Ex : d:\cariatides\cariatides.cfg pour aller chercher le fichier sur le disque D du serveur d\'origine', new Pattern('text', true), true, 'modify'));
+		$form->addField(new Bool('overwrite', $overwrite, 'Ecraser les fichiers existants', 'Cochez cette case pour remplacer les fichiers déjà existants sur les serveurs', null, false, 'modify', null, false, new JSSwitch('mini', 'left')));
+		$form->addField(new Button('action', 'copyFile', 'Lancer la copie', 'modify', 'btn-primary'));
 
 		$form->display();
 	}

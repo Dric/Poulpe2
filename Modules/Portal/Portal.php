@@ -122,9 +122,9 @@ class Portal extends Module {
 			)
 		);
 		$widgets_groups = new DbTable('widgets_groups', 'Groupes de widgets');
-		$widgets_groups->addField(new Int('id', 'global', null, null, null, null, null, new DbFieldSettings('number', true, 6, 'primary', false, true, 0, null, false, false)));
-		$widgets_groups->addField(new String('name', 'global', null, null, 'Nom du groupe', null, null, new DbFieldSettings('text', true, 100, false, false, false, 0, null, true)));
-		$widgets_groups->addField(new Bool('enabled', 'global', true, null, 'Etat (activé/désactivé)', null, new DbFieldSettings('checkbox', true, 0, 'index', false, false, 0, null, true)));
+		$widgets_groups->addField(new Int('id', null, null, null, null, new DbFieldSettings('number', true, 6, 'primary', false, true, 0, null, false, false)));
+		$widgets_groups->addField(new String('name', null, 'Nom du groupe', null, null, new DbFieldSettings('text', true, 100, false, false, false, 0, null, true)));
+		$widgets_groups->addField(new Bool('enabled', true, 'Etat (activé/désactivé)', null, new DbFieldSettings('checkbox', true, 0, 'index', false, false, 0, null, true)));
 		$this->dbTables['widgets'] = array(
 			'name'        => 'widgets',
 			'desc'        => 'Tuiles',
@@ -378,9 +378,9 @@ class Portal extends Module {
 		$groupId = (!empty($widget)) ? $widget->getGroup() : null;
 		$action = (!empty($widget)) ? '#widget_'.$widget->getId() : '';
 		$form = new Form('addWidget', $action, null, 'module', $this->id);
-		$form->addField(new Field('title', 'string', 'global', $title, 'Titre', 'Titre du lien', null, null, null, null, false, null, 'modify'));
-		$form->addField(new Field('desc', 'string', 'global', $desc, 'Description courte', 'Je suis un lien fantastique', null, null, null, null, false, null, 'modify'));
-		$form->addField(new Field('link', 'string', 'global', $link, 'Lien', 'http://lien', null, null, null, null, false, null, 'modify'));
+		$form->addField(new Field('title', 'string', $title, 'Titre', 'Titre du lien', null, null, null, null, false, null, 'modify'));
+		$form->addField(new Field('desc', 'string', $desc, 'Description courte', 'Je suis un lien fantastique', null, null, null, null, false, null, 'modify'));
+		$form->addField(new Field('link', 'string', $link, 'Lien', 'http://lien', null, null, null, null, false, null, 'modify'));
 		$groupsChoices = array();
 		foreach ($this->groups as $groupName => $group){
 			$groupsChoices[$groupName] = $group->getId();
@@ -389,24 +389,24 @@ class Portal extends Module {
 			'addEmpty'  => true,
 			'choices'   => $groupsChoices
 		);
-		$form->addField(new Field('group', 'select', 'global', $groupId, 'Catégorie', null, $groupsData, null, null, null, false, null, 'modify'));
+		$form->addField(new Field('group', 'select', $groupId, 'Catégorie', null, $groupsData, null, null, null, false, null, 'modify'));
 		$switchArray = array(
 			'switch'  => true,
 			'labelPosition' => 'right'
 		);
-		$form->addField(new Field('badgeLabel', 'string', 'global', $badgeLabel, 'Badge (optionnel)', null, null, null, null, null, false, null, 'modify'));
+		$form->addField(new Field('badgeLabel', 'string', $badgeLabel, 'Badge (optionnel)', null, null, null, null, null, false, null, 'modify'));
 		$data = array(
 			'addEmpty'  => true,
 			'choices'   => self::$badgesTypes
 		);
-		$form->addField(new Field('badgeType', 'select', 'global', $badgeType, 'Type de badge (optionnel)', null, $data, null, null, null, false, null, 'modify'));
-		$form->addField(new Field('enabled', 'bool', 'global', $enabled, 'Lien visible', null, $switchArray, 'Le lien sera visible sur le portail', null, null, false, null, 'modify'));
-		$form->addField(new Field('shared', 'bool', 'global', $shared, 'Lien partagé', null, $switchArray, 'Si actif, votre lien sera visible par tout le monde', null, null, false, null, 'modify'));
+		$form->addField(new Field('badgeType', 'select', $badgeType, 'Type de badge (optionnel)', null, $data, null, null, null, false, null, 'modify'));
+		$form->addField(new Field('enabled', 'bool', $enabled, 'Lien visible', null, $switchArray, 'Le lien sera visible sur le portail', null, null, false, null, 'modify'));
+		$form->addField(new Field('shared', 'bool', $shared, 'Lien partagé', null, $switchArray, 'Si actif, votre lien sera visible par tout le monde', null, null, false, null, 'modify'));
 		if (!empty($widget)){
-			$form->addField(new Field('id', 'hidden', 'global', $widget->getId()));
+			$form->addField(new Field('id', 'hidden', $widget->getId()));
 		}
 		$label = (!empty($widget)) ? 'Modifier' : 'Ajouter';
-		$form->addField(new Field('action', 'button', 'global', 'saveWidget', $label, null, null, null, null, null, false, null, 'modify', 'btn-primary'));
+		$form->addField(new Field('action', 'button', 'saveWidget', $label, null, null, null, null, null, false, null, 'modify', 'btn-primary'));
 		$form->display();
 	}
 } 

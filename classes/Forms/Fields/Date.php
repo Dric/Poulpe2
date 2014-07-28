@@ -35,9 +35,7 @@ class Date extends String{
 	 * Déclaration d'un champ de saisie Date
 	 *
 	 * @param string  $name         Nom du champ
-	 * @param string  $category     Catégorie du champ (global ou user)
 	 * @param string  $value        Valeur du champ
-	 * @param string  $userValue    Valeur utilisateur du champ (facultatif)
 	 * @param string  $label        Intitulé du champ (facultatif)
 	 * @param string  $placeholder  Indicateur de saisie du champ (facultatif)
 	 * @param string  $help         Message d'aide affiché en infobulle (facultatif)
@@ -48,8 +46,8 @@ class Date extends String{
 	 * @param bool    $disabled     Champ désactivé (facultatif)
 	 * @param string  $dateType     Type de date saisie (`date`, `dateTime`, `fullDateTime`)
 	 */
-	public function __construct($name, $category, $value = null, $userValue = null, $label = null, $placeholder = null, $help = null, $pattern = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false, $dateType = 'date'){
-		parent::__construct($name, $category, $value, $userValue, $label, $placeholder, $help, $pattern, $important, $ACLLevel, $class, $disabled, false);
+	public function __construct($name, $value = null, $label = null, $placeholder = null, $help = null, $pattern = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false, $dateType = 'date'){
+		parent::__construct($name, $value, $label, $placeholder, $help, $pattern, $important, $ACLLevel, $class, $disabled, false);
 		Front::setJsFooter('<script src="js/moment-fr.js"></script>');
 		Front::setJsFooter('<script src="js/bootstrap-datetimepicker.min.js"></script>');
 		Front::setJsFooter('<script src="js/bootstrap-datetimepicker.fr.js"></script>');

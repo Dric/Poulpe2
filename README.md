@@ -47,6 +47,7 @@ Attention : si vous lancez apache sous un autre nom (`administrateur` par exempl
 - [Highlight.js](http://highlightjs.org) : Plugin de coloration syntaxique de code
 - [DataTables](http://datatables.net) : Plugin jQuery d'organisation de tables HTML avec tri, recherche et pagination
 - [Bootstrap Validator](https://github.com/1000hz/bootstrap-validator) 0.5 : plugin jQuery et Bootstrap qui gère la validation des champs de formulaires
+- [Bootstrap v3 datetimepicker](https://github.com/Eonasdan/bootstrap-datetimepicker) 3.0.0 : Plugin jQuery de saisie de date et heure
 
 ## Installation
 

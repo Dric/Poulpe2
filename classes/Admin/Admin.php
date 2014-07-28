@@ -283,10 +283,10 @@ class Admin extends Module {
 					if (AUTH_MODE != 'sql'){
 						?><h3>Créer un utilisateur</h3><?php
 						$form = new Form('createUser');
-						$form->addField(new String('name', 'global', null, null, 'Nom/Pseudo', 'Veuillez saisir un nom ou un pseudonyme', null, new Pattern('text', true, 4, 150), true));
-						$form->addField(new Email('email', 'global', null, null, 'Adresse email', 'nom@domaine.extension', null, new Pattern('email', true, 0, 250), true));
-						$form->addField(new Password('pwd', 'global', null, null, 'Mot de passe', 'Mot de passe de '.PWD_MIN_SIZE.' caractères minimum', null, new Pattern('password', true, PWD_MIN_SIZE, 100), true));
-						$form->addField(new Button('action', 'global', 'createUser', 'Créer l\'utilisateur'));
+						$form->addField(new String('name', null, 'Nom/Pseudo', 'Veuillez saisir un nom ou un pseudonyme', null, new Pattern('text', true, 4, 150), true));
+						$form->addField(new Email('email', null, 'Adresse email', 'nom@domaine.extension', null, new Pattern('email', true, 0, 250), true));
+						$form->addField(new Password('pwd', null, 'Mot de passe', 'Mot de passe de '.PWD_MIN_SIZE.' caractères minimum', null, new Pattern('password', true, PWD_MIN_SIZE, 100), true));
+						$form->addField(new Button('action', 'createUser', 'Créer l\'utilisateur'));
 						$form->display();
 					}
 				?>
@@ -396,26 +396,26 @@ class Admin extends Module {
 							array_walk($constantValue, function(&$value, $key) {
 								if (!is_int($value)) $value = trim($value, '\'');
 							});
-							$form->addField(new ValuesArray($constantName, 'global', $constantValue, null, $explain, null, 'Paramètre '.$constantName, null, true, null, null, $readOnly, true));
+							$form->addField(new ValuesArray($constantName, $constantValue, $explain, null, 'Paramètre '.$constantName, null, true, null, null, $readOnly, true));
 						}else{
 							$constantValue = trim(rtrim($define[1],')'), " "); //On enlève d'abord les parenthèses, puis les espaces
 							if (substr($constantValue,-1) == '\''){
 								$constantValue =  trim($constantValue, '\'');
 								if (count($tab = explode(', ', $constantValue)) > 1){
 									$constantValue = $tab;
-									$form->addField(new ValuesArray($constantName, 'global', $constantValue, null, $explain, null, 'Paramètre '.$constantName, null, true, null, null, $readOnly));
+									$form->addField(new ValuesArray($constantName, $constantValue, $explain, null, 'Paramètre '.$constantName, null, true, null, null, $readOnly));
 								}else{
-									$form->addField(new String($constantName, 'global', $constantValue, null, $explain, null, 'Paramètre '.$constantName, null, true, null, null, $readOnly));
+									$form->addField(new String($constantName, $constantValue, $explain, null, 'Paramètre '.$constantName, null, true, null, null, $readOnly));
 								}
 							}elseif(stristr($constantValue, 'true') or stristr($constantValue, 'false')){
-								$form->addField(new Bool($constantName, 'global', $constantValue, null, $explain, 'Paramètre '.$constantName, null, true, null, null, $readOnly, new JSSwitch(null, 'left')));
+								$form->addField(new Bool($constantName, $constantValue, $explain, 'Paramètre '.$constantName, null, true, null, null, $readOnly, new JSSwitch(null, 'left')));
 							}else{
-								$form->addField(new Int($constantName, 'global', $constantValue, null, $explain, null, 'Paramètre '.$constantName, null, true, null, null, $readOnly));
+								$form->addField(new Int($constantName, $constantValue, $explain, null, 'Paramètre '.$constantName, null, true, null, null, $readOnly));
 							}
 						}
 					}
 				}
-				$form->addField(new Button('action', 'global', 'saveConfig', 'Sauvegarder', null, 'btn-primary', $readOnly));
+				$form->addField(new Button('action', 'saveConfig', 'Sauvegarder', null, 'btn-primary', $readOnly));
 				$form->display();
 				?>
 			</div>

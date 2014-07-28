@@ -68,14 +68,14 @@ class UsersTraces extends Module {
 		 * @see Db\Db->createTable pour plus de détails sur la création d'une table.
 		 */
 		$usersTraces = new DbTable('module_userstraces', $this->name);
-		$usersTraces->addField(new Int('id', 'global', null, null, null, null, null, new DbFieldSettings('number', true, 5, 'primary', false, true, 0, null, false, false)));
-		$usersTraces->addField(new String('name', 'global', null, null, 'Nom du serveur', null, null, new DbFieldSettings('text', true, 100, 'index', false, false, 0, null, true)));
-		$usersTraces->addField(new String('type', 'global', null, null, 'Type', null, null, new DbFieldSettings('text', true, 50, 'index', false, false, 0, null, true)));
-		$usersTraces->addField(new String('folder', 'global', null, null, 'Répertoire', null, null, new DbFieldSettings('text', true, 255, false, false, false, 0, null, true)));
+		$usersTraces->addField(new Int('id', null, null, null, null, new DbFieldSettings('number', true, 5, 'primary', false, true, 0, null, false, false)));
+		$usersTraces->addField(new String('name', null, 'Nom du serveur', null, null, new DbFieldSettings('text', true, 100, 'index', false, false, 0, null, true)));
+		$usersTraces->addField(new String('type', null, 'Type', null, null, new DbFieldSettings('text', true, 50, 'index', false, false, 0, null, true)));
+		$usersTraces->addField(new String('folder', null, 'Répertoire', null, null, new DbFieldSettings('text', true, 255, false, false, false, 0, null, true)));
 		$this->dbTables['module_userstraces'] = $usersTraces;
 
 			// Cette table sera gérée via les paramètres
-		$this->settings['module_userstraces'] = new Table($usersTraces, 'global');
+		$this->settings['module_userstraces'] = new Table($usersTraces);
 	}
 
 	/**

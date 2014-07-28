@@ -32,9 +32,7 @@ class Bool extends Field{
 	 * Déclaration d'un champ de saisie Texte
 	 *
 	 * @param string    $name         Nom du champ
-	 * @param string    $category     Catégorie du champ (global ou user)
 	 * @param string    $value        Valeur du champ
-	 * @param string    $userValue    Valeur utilisateur du champ (facultatif)
 	 * @param string    $label        Intitulé du champ (facultatif)
 	 * @param string    $help         Message d'aide affiché en infobulle (facultatif)
 	 * @param Pattern   $pattern      Paramètres de validation (facultatif)
@@ -44,9 +42,9 @@ class Bool extends Field{
 	 * @param bool      $disabled     Champ désactivé (facultatif)
 	 * @param JSSwitch  $switch       Paramètres de switch
 	 */
-	public function __construct($name, $category, $value, $userValue = null, $label = null, $help = null, $pattern = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false, $switch = null){
+	public function __construct($name, $value, $label = null, $help = null, $pattern = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false, $switch = null){
 		$this->switch = $switch;
-		parent::__construct($name, $this->type, $category, $value, $label, null, $help, $pattern, $userValue, $important, $ACLLevel, $class, $disabled);
+		parent::__construct($name, $this->type, $value, $label, null, $help, $pattern, $important, $ACLLevel, $class, $disabled);
 	}
 
 	/**
@@ -65,7 +63,7 @@ class Bool extends Field{
 			$switch = $this->switch;
 			$dataAttr .= 'data-on-text="'.$switch->getOnText().'" data-off-text="'.$switch->getOffText().'" data-on-color="'.$switch->getOnColor().'" data-off-color="'.$switch->getOffColor().'" data-size="'.$switch->getSize().'"';
 		}
-		$value = ($userValue and !empty($this->userValue)) ? $this->userValue : $this->value;
+		$value = ($userValue and !is_null($this->userValue)) ? $this->userValue : $this->value;
 		if (!empty($this->switch) and $this->switch->getlabelPosition() == 'left'){
 			?>
 			<div class="form-group <?php if ($this->important) echo 'has-warning'; ?>">

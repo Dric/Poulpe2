@@ -34,14 +34,13 @@ class Table extends Field{
 	 * Déclaration d'une table
 	 *
 	 * @param DbTable   $table        Objet DbTable
-	 * @param string    $category     Catégorie du champ (global ou user)
 	 * @param string    $ACLLevel     Niveau de sécurité requis pour modifier le champ (facultatif)
 	 * @param bool      $disabled     Champ désactivé (facultatif)
 	 */
-	public function __construct(DbTable $table, $category, $ACLLevel = 'admin', $disabled = false){
+	public function __construct(DbTable $table, $ACLLevel = 'admin', $disabled = false){
 		$this->table = $table;
 		$name = str_replace('_', '-', $table->getName());
-		parent::__construct($name, $this->type, $category, $table->getName(), $table->getTitle(), null, $table->getHelp(), null, null, true, $ACLLevel, $table->getClass(), $disabled);
+		parent::__construct($name, $this->type, $table->getName(), $table->getTitle(), null, $table->getHelp(), null, true, $ACLLevel, $table->getClass(), $disabled);
 	}
 
 	/**

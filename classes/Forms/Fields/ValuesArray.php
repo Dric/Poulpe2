@@ -33,9 +33,7 @@ class ValuesArray extends Field{
 	 * Déclaration d'un Textarea
 	 *
 	 * @param string  $name         Nom du champ
-	 * @param string  $category     Catégorie du champ (global ou user)
 	 * @param string  $value        Valeur du champ
-	 * @param string  $userValue    Valeur utilisateur du champ (facultatif)
 	 * @param string  $label        Intitulé du champ (facultatif)
 	 * @param string  $placeholder  Indicateur de saisie du champ (facultatif)
 	 * @param string  $help         Message d'aide affiché en infobulle (facultatif)
@@ -46,9 +44,9 @@ class ValuesArray extends Field{
 	 * @param bool    $disabled     Champ désactivé (facultatif)
 	 * @param bool    $serialize    Sérialiser le tableau final
 	 */
-	public function __construct($name, $category, $value, $userValue = null, $label = null, $placeholder = null, $help = null, $pattern = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false, $serialize = false){
+	public function __construct($name, $value, $label = null, $placeholder = null, $help = null, $pattern = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false, $serialize = false){
 		$this->serialize = (bool)$serialize;
-		parent::__construct($name, $this->type, $category, $value, $label, $placeholder, $help, $pattern, $userValue, $important, $ACLLevel, $class, $disabled);
+		parent::__construct($name, $this->type, $value, $label, $placeholder, $help, $pattern, $important, $ACLLevel, $class, $disabled);
 	}
 
 	/**

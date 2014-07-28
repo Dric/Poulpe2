@@ -35,9 +35,7 @@ class Select extends Field{
 	 * Déclaration d'une liste à sélection unique
 	 *
 	 * @param string    $name           Nom du champ
-	 * @param string    $category       Catégorie du champ (global ou user)
 	 * @param string    $value          Valeur du champ
-	 * @param string    $userValue      Valeur utilisateur du champ (facultatif)
 	 * @param string    $label          Intitulé du champ (facultatif)
 	 * @param string    $help           Message d'aide affiché en infobulle (facultatif)
 	 * @param bool      $important      Le champ est marqué comme étant important (facultatif)
@@ -47,10 +45,10 @@ class Select extends Field{
 	 * @param array     $choices        Choix possibles dans la liste sous forme de tableau associatif 'valeur' => 'libellé'
 	 * @param bool      $addEmpty       Valeur cochée par défaut dans la liste $choices ('all' pour cocher toutes les valeurs)
 	 */
-	public function __construct($name, $category, $value, $userValue = null, $label = null, $help = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false, $choices = null, $addEmpty = false){
+	public function __construct($name, $value, $label = null, $help = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false, $choices = null, $addEmpty = false){
 		$this->choices = (array)$choices;
 		$this->addEmpty = (bool)$addEmpty;
-		parent::__construct($name, $this->type, $category, $value, $label, null, $help, null, $userValue, $important, $ACLLevel, $class, $disabled);
+		parent::__construct($name, $this->type, $value, $label, null, $help, null, $important, $ACLLevel, $class, $disabled);
 	}
 
 	/**

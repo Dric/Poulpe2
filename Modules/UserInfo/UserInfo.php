@@ -85,8 +85,8 @@ class UserInfo extends Module{
 	 */
 	protected function searchForm($userSearched = null){
 		$form = new Form('userSearch', null, null, 'module', $this->id, 'post', 'form-inline');
-		$form->addField(new String('user', 'global', $userSearched, null, 'Nom de l\'utilisateur', 'prenom.nom', 'La recherche peut se faire sur un login complet (prenom.nom) ou sur une partie de celui-ci', null, true, 'access', null, false, false));
-		$form->addField(new Button('action', 'global', 'getUserInfo', 'Rechercher', 'access', 'btn-primary btn-sm'));
+		$form->addField(new String('user', $userSearched, 'Nom de l\'utilisateur', 'prenom.nom', 'La recherche peut se faire sur un login complet (prenom.nom) ou sur une partie de celui-ci', null, true, 'access', null, false, false));
+		$form->addField(new Button('action', 'getUserInfo', 'Rechercher', 'access', 'btn-primary btn-sm'));
 		$form->display();
 	}
 

@@ -31,9 +31,7 @@ class String extends Field{
 	 * Déclaration d'un champ de saisie Texte
 	 *
 	 * @param string  $name         Nom du champ
-	 * @param string  $category     Catégorie du champ (global ou user)
 	 * @param string  $value        Valeur du champ
-	 * @param string  $userValue    Valeur utilisateur du champ (facultatif)
 	 * @param string  $label        Intitulé du champ (facultatif)
 	 * @param string  $placeholder  Indicateur de saisie du champ (facultatif)
 	 * @param string  $help         Message d'aide affiché en infobulle (facultatif)
@@ -44,9 +42,9 @@ class String extends Field{
 	 * @param bool    $disabled     Champ désactivé (facultatif)
 	 * @param bool    $autoComplete Activer l'auto-complétion (facultatif)
 	 */
-	public function __construct($name, $category, $value = null, $userValue = null, $label = null, $placeholder = null, $help = null, $pattern = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false, $autoComplete = true){
+	public function __construct($name, $value = null, $label = null, $placeholder = null, $help = null, $pattern = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false, $autoComplete = true){
 		if (!empty($autoComplete)) $this->autoComplete = (bool)$autoComplete;
-		parent::__construct($name, $this->type, $category, $value, $label, $placeholder, $help, $pattern, $userValue, $important, $ACLLevel, $class, $disabled);
+		parent::__construct($name, $this->type, $value, $label, $placeholder, $help, $pattern, $important, $ACLLevel, $class, $disabled);
 	}
 
 	/**

@@ -17,6 +17,7 @@ use Settings\Setting;
  *
  * @warning Cette classe ne doit pas être utilisée directement, utilisez plutôt ses sous-classes
  *
+ * @todo Réfléchir à une manière de virer la catégorie ainsi que les arguments peu utilisés
  * @package Forms
  */
 class Field extends Setting{
@@ -58,6 +59,14 @@ class Field extends Setting{
 	protected $class = '';
 
 	/**
+	 * Paramètre important
+	 *
+	 * Les paramètres importants ne doivent pas être changés à la légère.
+	 * @var bool
+	 */
+	protected $important = false;
+
+	/**
 	 * Types possibles pour un champ - élargi par rapport aux types de Setting
 	 * @var array
 	 */
@@ -96,7 +105,6 @@ class Field extends Setting{
 	 *
 	 * @param string $name Nom du champ - repris dans la propriété name et id
 	 * @param string $type Type du champ - type élargi par rapport au type de Setting
-	 * @param string $category catégorie `global` ou `user`
 	 * @param mixed  $value Valeur à mettre dans la propriété value
 	 * @param string $label Libellé du champ - repris dans l'élément `<label>`
 	 * @param string $placeholder Placeholder - repris dans la propriété du même nom
@@ -108,7 +116,7 @@ class Field extends Setting{
 	 * @param string $class Classe optionnelle à ajouter au champ
 	 * @param bool   $disabled Champ désactivé si à true
 	 */
-	public function __construct($name, $type, $category, $value, $label = null, $placeholder = null, $help = null, Pattern $pattern = null, $userValue = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false){
+	public function __construct($name, $type, $value, $label = null, $placeholder = null, $help = null, Pattern $pattern = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false){
 		self::$types = Setting::$types;
 		self::$types += array(
 			'email'   => 'string',
@@ -127,8 +135,10 @@ class Field extends Setting{
 			default:
 				$typeSetting = $type;
 		}
-		parent::__construct($name, $typeSetting, $category, $value, $userValue = null, $important);
+		parent::__construct($name, $typeSetting, $value);
+
 		$this->type = $type;
+		$this->important = (bool)$important;
 		if (!empty($label)) $this->label = $label;
 		if (!empty($placeholder)) $this->placeholder = $placeholder;
 		if (!empty($help)) $this->help = $help;
@@ -266,6 +276,14 @@ class Field extends Setting{
 	}
 
 	/**
+	 * Retourne l'importance du paramètre
+	 * @return boolean
+	 */
+	public function getImportant() {
+		return $this->important;
+	}
+
+	/**
 	 * Retourne le statut de désactivation du champ
 	 * @return boolean
 	 */
@@ -293,5 +311,40 @@ class Field extends Setting{
 		if ($this->type != 'select') settype($value, self::$types[$this->type]);
 		$this->value = $value;
 	}
+
+	/**
+	 * Définit le statut d'activation du champ (saisie impossible si `true`)
+	 * @param boolean $disabled
+	 */
+	public function setDisabled($disabled = true) {
+		$this->disabled = $disabled;
+	}
+
+	/**
+	 * Ajoute une classe CSS au champ
+	 * @param string $class
+	 */
+	public function addClass($class) {
+		$this->class .= $class.' ';
+	}
+
+	/**
+	 * Définit le statut d'importance du champ
+	 * @param boolean $important
+	 */
+	public function setImportant($important = true) {
+		$this->important = $important;
+	}
+
+	/**
+	 * Définit un objet de validation/paramétrage pour le champ
+	 *
+	 * @param \Db\DbFieldSettings|\Forms\Pattern $pattern
+	 */
+	public function setPattern($pattern) {
+		$this->pattern = $pattern;
+	}
+
+
 
 }

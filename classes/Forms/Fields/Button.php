@@ -25,15 +25,14 @@ class Button extends Field{
 	 * Déclaration d'un bouton
 	 *
 	 * @param string    $name           Nom du champ
-	 * @param string    $category       Catégorie du champ (global ou user)
 	 * @param string    $value          Valeur du champ
 	 * @param string    $label          Intitulé du champ (facultatif)
 	 * @param string    $ACLLevel       Niveau de sécurité requis pour modifier le champ (facultatif)
 	 * @param string    $class          Classe CSS à ajouter au champ (facultatif)
 	 * @param bool      $disabled       Champ désactivé (facultatif)
 	 */
-	public function __construct($name, $category, $value, $label = null, $ACLLevel = 'admin', $class = '', $disabled = false){
-		parent::__construct($name, $this->type, $category, $value, $label, null, null, null, null, null, true, $ACLLevel, $class, $disabled);
+	public function __construct($name, $value, $label = null, $ACLLevel = 'admin', $class = '', $disabled = false){
+		parent::__construct($name, $this->type, $value, $label, null, null, null, true, $ACLLevel, $class, $disabled);
 	}
 
 	/**

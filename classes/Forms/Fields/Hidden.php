@@ -26,14 +26,12 @@ class Hidden extends Field{
 	 * Déclaration d'un champ de saisie Texte
 	 *
 	 * @param string  $name         Nom du champ
-	 * @param string  $category     Catégorie du champ (global ou user)
 	 * @param string  $value        Valeur du champ
-	 * @param string  $userValue    Valeur utilisateur du champ (facultatif)
 	 * @param string  $ACLLevel     Niveau de sécurité requis pour modifier le champ (facultatif)
 	 * @param bool    $disabled     Champ désactivé (facultatif)
 	 */
-	public function __construct($name, $category, $value, $userValue = null, $ACLLevel = 'admin', $disabled = false){
-		parent::__construct($name, $this->type, $category, $value, null, null, null, null, null, $userValue, false, $ACLLevel, null, $disabled);
+	public function __construct($name, $value, $ACLLevel = 'admin', $disabled = false){
+		parent::__construct($name, $this->type, $value, null, null, null, null, false, $ACLLevel, null, $disabled);
 	}
 
 	/**

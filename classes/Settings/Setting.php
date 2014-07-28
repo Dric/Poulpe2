@@ -105,13 +105,9 @@ class Setting {
 	 *
 	 * @param string $name Nom du paramètre
 	 * @param string $type Type de paramètre (voir la définition de la propriété Setting->type)
-	 * @param string $category Catégorie du paramètre (global ou user)
 	 * @param mixed  $value Valeur du paramètre
-	 * @param mixed  $userValue Valeur définie par l'utilisateur pour ce paramètre
-	 * @param bool   $important Détermine si ce paramètre est important ou non (signalé à l'utilisateur lors de l'affichage des paramètres)
-	 * @param int    $id Id du paramètre en bdd (facultatif)
 	 */
-	public function __construct($name, $type, $category, $value, $userValue = null, $important = false, $id = null){
+	public function __construct($name, $type, $value){
 		foreach(get_object_vars($this) as $prop => $val){
 			if (isset(${$prop})) {
 				if (($prop == 'category' and in_array(${$prop}, self::$categories)) or ($prop == 'type' and in_array(${$prop}, array_keys(self::$types))) or !in_array($prop, array('category', 'type'))){
@@ -162,14 +158,6 @@ class Setting {
 	}
 
 	/**
-	 * Retourne l'importance du paramètre
-	 * @return boolean
-	 */
-	public function getImportant() {
-		return $this->important;
-	}
-
-	/**
 	 * Retourne la valeur définie par l'utilisateur pour ce paramètre
 	 * @return mixed
 	 */
@@ -213,6 +201,14 @@ class Setting {
 	 */
 	public function setId($id) {
 		$this->id = $id;
+	}
+
+	/**
+	 * Définit si on accepte un paramétrage personnalisé par utilisateur
+	 * @param bool $userDefined
+	 */
+	public function setUserDefinable($userDefined = true){
+		$this->category = ($userDefined) ? 'user' : 'global';
 	}
 }
 

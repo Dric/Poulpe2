@@ -204,9 +204,9 @@ class UserProfile extends Module {
 							<div class="">
 								<?php
 								$form = new Form('deleteConfirmation');
-								$form->addField(new Hidden('user', 'global', $this->user->getId()));
-								$form->addField(new Button('action', 'global', 'confirmDeleteUser', 'Je confirme la suppression', null, 'btn-danger'));
-								$form->addField(new LinkButton('cancel', 'global', $this->url, 'Annuler'));
+								$form->addField(new Hidden('user', $this->user->getId()));
+								$form->addField(new Button('action', 'confirmDeleteUser', 'Je confirme la suppression', null, 'btn-danger'));
+								$form->addField(new LinkButton('cancel', $this->url, 'Annuler'));
 								$form->display();
 								?>
 							</div>
@@ -266,8 +266,11 @@ class UserProfile extends Module {
 		}else{
 			$dataAvatar['user'] = 'Choisir un fichier';
 		}
-		$this->form->addField(new RadioList('avatar', 'global', $valueAvatar, null, 'Avatar', 'Choisissez une image pour vous représenter (avatar)', false, null, null, false, $dataAvatar, $this->user->getAvatar(true)));
-		$this->form->addField(new File('avatarFile', 'user', null, null, 'Fichier de l\'avatar'));
+		$this->form->addField(new RadioList('avatar', $valueAvatar, 'Avatar', 'Choisissez une image pour vous représenter (avatar)', false, null, null, false, $dataAvatar, $this->user->getAvatar(true)));
+		$fileField = new File('avatarFile', null, 'Fichier de l\'avatar');
+		$fileField->setUserDefinable();
+		$this->form->addField($fileField);
+
 
 	}
 
@@ -275,24 +278,24 @@ class UserProfile extends Module {
 	 * Prépare les champs de changement de nom et d'adresse email
 	 */
 	protected function accountFormItems(){
-		$this->form->addField(new String('name', 'global', $this->user->getName(), null, 'Nom/Pseudo', 'Veuillez saisir un nom ou un pseudonyme', null, new Pattern('text', true, 4, 150), true));
-		$this->form->addField(new Email('email', 'global', $this->user->getEmail(), null, 'Adresse email', 'adresse@domaine.extension', null, new Pattern('email', true, 0, 250), true));
+		$this->form->addField(new String('name', $this->user->getName(), 'Nom/Pseudo', 'Veuillez saisir un nom ou un pseudonyme', null, new Pattern('text', true, 4, 150), true));
+		$this->form->addField(new Email('email', $this->user->getEmail(), 'Adresse email', 'adresse@domaine.extension', null, new Pattern('email', true, 0, 250), true));
 	}
 
 	/**
 	 * Prépare les champs de changement de mot de passe
 	 */
 	protected function passwordFormItems(){
-		$this->form->addField(new Password('currentPwd', 'global', null, null, 'Mot de passe actuel', 'Laissez ce champ vide si vous ne souhaitez pas changer de mot de passe', 'Ne saisissez votre mot de passe actuel que si vous souhaitez en changer', new Pattern('password', false, PWD_MIN_SIZE, 100), true));
-		$this->form->addField(new Password('newPwd', 'global', null, null, 'Nouveau mot de passe', 'Mot de passe de '.PWD_MIN_SIZE.' caractères minimum', 'Ne saisissez un mot de passe ici que si vous souhaitez en changer', new Pattern('password', false, PWD_MIN_SIZE, 100), true));
+		$this->form->addField(new Password('currentPwd', null, 'Mot de passe actuel', 'Laissez ce champ vide si vous ne souhaitez pas changer de mot de passe', 'Ne saisissez votre mot de passe actuel que si vous souhaitez en changer', new Pattern('password', false, PWD_MIN_SIZE, 100), true));
+		$this->form->addField(new Password('newPwd', null, 'Nouveau mot de passe', 'Mot de passe de '.PWD_MIN_SIZE.' caractères minimum', 'Ne saisissez un mot de passe ici que si vous souhaitez en changer', new Pattern('password', false, PWD_MIN_SIZE, 100), true));
 	}
 
 	/**
 	 * Prépare les boutons du formulaire
 	 */
 	protected function profileFormButtons(){
-		$this->form->addField(new Hidden('user', 'global', $this->user->getId()));
-		$this->form->addField(new Button('action', 'global', 'saveUserProfile', 'Sauvegarder'));
-		$this->form->addField(new Button('action', 'global', $this->url.'deleteUser', 'Supprimer '.(($this->user->getId() == $GLOBALS['cUser']->getId()) ? 'mon compte' : 'le compte '.$this->user->getName()), null, 'btn-danger'));
+		$this->form->addField(new Hidden('user', $this->user->getId()));
+		$this->form->addField(new Button('action', 'saveUserProfile', 'Sauvegarder'));
+		$this->form->addField(new Button('action', $this->url.'deleteUser', 'Supprimer '.(($this->user->getId() == $GLOBALS['cUser']->getId()) ? 'mon compte' : 'le compte '.$this->user->getName()), null, 'btn-danger'));
 	}
 }

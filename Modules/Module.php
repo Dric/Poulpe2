@@ -318,9 +318,11 @@ class Module {
 				<h3>Paramètres utilisateur <small><?php Help::iconHelp('Ces paramètres ne concernent que vous.'); ?></small></h3>
 				<?php
 				$form = new Form($this->name.'UsersSettings', null, array('fields' => $this->settings, 'userSettings' => true));
-				$form->addField(new Hidden('usersSettings', 'user', 'true'));
-				$form->addField(new Button('action', 'global', 'saveSettings', 'Sauvegarder', null, 'btn-primary'));
-				$form->addField(new LinkButton('cancel', 'global', $this->url, 'Revenir au module'));
+				$hidden = new Hidden('usersSettings', 'true');
+				$hidden->setUserDefinable();
+				$form->addField($hidden);
+				$form->addField(new Button('action', 'saveSettings', 'Sauvegarder', null, 'btn-primary'));
+				$form->addField(new LinkButton('cancel', $this->url, 'Revenir au module'));
 				$form->display();
 				unset($form);
 				?>
@@ -338,10 +340,10 @@ class Module {
 					}
 				}
 				if ($hasUsersSettings){
-					$form->addField(new Bool('allowUsersSettings', 'global', $this->allowUsersSettings, null, 'Autoriser les utilisateurs à personnaliser certains paramètres', null, null, true, null, null, false, new JSSwitch('small')));
+					$form->addField(new Bool('allowUsersSettings', $this->allowUsersSettings, 'Autoriser les utilisateurs à personnaliser certains paramètres', null, null, true, null, null, false, new JSSwitch('small')));
 				}
-				$form->addField(new Button('action', 'global', 'saveSettings', 'Sauvegarder', null, 'btn-primary'));
-				$form->addField(new LinkButton('cancel', 'global', $this->url, 'Revenir au module'));
+				$form->addField(new Button('action', 'saveSettings', 'Sauvegarder', null, 'btn-primary'));
+				$form->addField(new LinkButton('cancel', $this->url, 'Revenir au module'));
 				$form->display();
 				?>
 			</div>
@@ -363,6 +365,7 @@ class Module {
 	 * @return bool
 	 */
 	protected function saveSettings(){
+		$ret = false;
 		if ((!$this->allowUsersSettings and !ACL::canModify('module', $this->id)) or ($this->allowUsersSettings and !ACL::canAccess('module', $this->id))){
 			new Alert('error', 'Vous n\'avez pas l\'autorisation de faire ceci !');
 			return false;
@@ -378,24 +381,26 @@ class Module {
 			$this->allowUsersSettings = (bool)$req['allowUsersSettings'];
 			unset($req['allowUsersSettings']);
 		}
-		foreach ($req as $field => $value){
-			if ($field == 'dbTable'){
-				foreach ($value as $tableId => $tableRow){
-					$table = Get::getObjectsInList($this->settings, 'name', $tableId);
-					$tableName = $table[0]->getValue();
-					// On supprime les valeurs nulles du tableau
-					$tableRow = array_filter(array_map('array_filter', $tableRow));
-					$tableToSave[$tableName] = $tableRow;
-				}
-			}elseif ($field != 'action'){
-				if ($usersSettings){
-					$this->settings[$field]->setUserValue($value);
-				}else{
-					$this->settings[$field]->setValue($value);
+		if (!empty($req)){
+			foreach ($req as $field => $value){
+				if ($field == 'dbTable'){
+					foreach ($value as $tableId => $tableRow){
+						$table = Get::getObjectsInList($this->settings, 'name', $tableId);
+						$tableName = $table[0]->getValue();
+						// On supprime les valeurs nulles du tableau
+						$tableRow = array_filter(array_map('array_filter', $tableRow));
+						$tableToSave[$tableName] = $tableRow;
+					}
+				}elseif ($field != 'action'){
+					if ($usersSettings){
+						$this->settings[$field]->setUserValue($value);
+					}else{
+						$this->settings[$field]->setValue($value);
+					}
 				}
 			}
+			$ret = $this->saveDbSettings();
 		}
-		$ret = $this->saveDbSettings();
 		if ($ret === false) return false;
 		if (!empty($tableToSave)) $ret = $this->saveDbTables($tableToSave);
 		if ($ret === false) return false;
@@ -450,7 +455,7 @@ class Module {
 	public function saveDbSettings(){
 		global $db, $cUser;
 		// On ajoute le paramètre d'activation des paramétrages utilisateurs
-		$this->settings['allowUsersSettings'] = new Setting('allowUsersSettings', 'bool', 'global', $this->allowUsersSettings, null, true);
+		$this->settings['allowUsersSettings'] = new Setting('allowUsersSettings', 'bool', $this->allowUsersSettings);
 		$settingsArr = $userSettingsArr = array();
 		// On parcoure tous les paramètres du module
 		foreach ($this->settings as $setting){

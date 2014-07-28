@@ -79,13 +79,13 @@ class DenyAppAccess extends Module{
 	 */
 	public function defineSettings(){
 		$applis = new DbTable('module_applis', 'Liste des applications');
-		$applis->addField(new Int('id', 'global', null, null, 'ID de l\'application', null, null, new DbFieldSettings('number', true, 11, 'primary', true, true, 0, null, false, false)));
-		$applis->addField(new String('title', 'global', null, null, 'Nom affiché dans le menu', null, null, new DbFieldSettings('text', true, 150, 'unique', true, false, 0, null, true)));
-		$applis->addField(new String('file', 'global', null, null, 'Script VBS', null, null, new DbFieldSettings('text', true, 255, false, false, false, 0, null, true)));
+		$applis->addField(new Int('id', null, 'ID de l\'application', null, null, new DbFieldSettings('number', true, 11, 'primary', true, true, 0, null, false, false)));
+		$applis->addField(new String('title', null, 'Nom affiché dans le menu', null, null, new DbFieldSettings('text', true, 150, 'unique', true, false, 0, null, true)));
+		$applis->addField(new String('file', null, 'Script VBS', null, null, new DbFieldSettings('text', true, 255, false, false, false, 0, null, true)));
 		$this->dbTables['module_applis'] = $applis;
-		$this->settings['vbsPath'] = new String('vbsPath', 'global', '\\\\intra.epsi.fr\profils\xen\xenlogin\scripts', null, 'Chemin des scripts de lancement VBS', '\\\\intra.epsi.fr\profils\xen\xenlogin\scripts', null, null, true);
+		$this->settings['vbsPath'] = new String('vbsPath', '\\\\intra.epsi.fr\profils\xen\xenlogin\scripts', 'Chemin des scripts de lancement VBS', '\\\\intra.epsi.fr\profils\xen\xenlogin\scripts', null, null, true);
 		// Cette table sera gérée via les paramètres
-		$this->settings['module_applis'] = new Table($applis, 'global');
+		$this->settings['module_applis'] = new Table($applis);
 	}
 
 	/**
@@ -218,9 +218,9 @@ class DenyAppAccess extends Module{
 		}
 		// Construction du formulaire
 		$form = new Form('appMaintenance', null, null, 'module', $this->id);
-		$form->addField(new Bool('maintenance', 'global', $app->getMaintenance(), null, 'Maintenance', 'Passez la maintenance sur \'Active\' pour empêcher les utilisateurs d\'accéder à '.$app->getTitle(), null, true, 'modify', null, false, new JSSwitch('large', 'left', 'Activée', 'Désactivée', 'warning')));
-		$form->addField(new Text('message', 'global', $app->getMessage(), null, 'Message', null, 'Saisissez le message que verront les utilisateurs en essayant de se connecter à '.$app->getTitle().' lorsque l\'accès est bloqué.', null, false, 'modify'));
-		$form->addField(new Button('action', 'global', 'saveAppStatus', 'Sauvegarder', 'modify', 'btn-primary'));
+		$form->addField(new Bool('maintenance', $app->getMaintenance(), 'Maintenance', 'Passez la maintenance sur \'Active\' pour empêcher les utilisateurs d\'accéder à '.$app->getTitle(), null, true, 'modify', null, false, new JSSwitch('large', 'left', 'Activée', 'Désactivée', 'warning')));
+		$form->addField(new Text('message', $app->getMessage(), 'Message', null, 'Saisissez le message que verront les utilisateurs en essayant de se connecter à '.$app->getTitle().' lorsque l\'accès est bloqué.', null, false, 'modify'));
+		$form->addField(new Button('action', 'saveAppStatus', 'Sauvegarder', 'modify', 'btn-primary'));
 		?>
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
