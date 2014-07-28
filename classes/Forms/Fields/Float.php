@@ -22,7 +22,7 @@ use Forms\Pattern;
  *
  * @package Forms\Fields
  */
-class Float extends String{
+class Float extends Int{
 
 	protected $type = 'float';
 	protected $htmlType = 'number';

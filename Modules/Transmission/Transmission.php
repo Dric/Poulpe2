@@ -189,14 +189,14 @@ class Transmission extends Module{
 						<tbody>
 							<tr>
 								<td>Téléchargements (download)</td>
-								<td><input type="number" name="field_string_bandwidthDl" id="field_string_bandwidthDl" class="form-control" value="<?php echo $bandwidth['Dl']; ?>"></td>
+								<td><input type="number" name="field_string_bandwidthDl" id="field_string_bandwidthDl" class="form-control" value="<?php echo $bandwidth['Dl']; ?>" step="0.5"></td>
 								<td id="TotalMaxDl"><?php echo \Sanitize::readableFileSize($speeds['TotalMaxDl'], 0); ?>/s</td>
 								<td id="TorrentMaxDl"><?php echo \Sanitize::readableFileSize($speeds['TorrentMaxDl'], 0); ?>/s</td>
 								<td id="TorrentAltDl"><?php echo \Sanitize::readableFileSize($speeds['TorrentAltDl'], 0); ?>/s</td>
 							</tr>
 							<tr>
-								<td>Chargements (upload)</td>
-								<td><input type="number" name="field_string_bandwidthUp" id="field_string_bandwidthUp" class="form-control" value="<?php echo $bandwidth['Up']; ?>"></td>
+								<td>Partage (upload)</td>
+								<td><input type="number" name="field_string_bandwidthUp" id="field_string_bandwidthUp" class="form-control" value="<?php echo $bandwidth['Up']; ?>" step="0.5"></td>
 								<td id="TotalMaxUp"><?php echo \Sanitize::readableFileSize($speeds['TotalMaxUp'], 0); ?>/s</td>
 								<td id="TorrentMaxUp"><?php echo \Sanitize::readableFileSize($speeds['TorrentMaxUp'], 0); ?>/s</td>
 								<td id="TorrentAltUp"><?php echo \Sanitize::readableFileSize($speeds['TorrentAltUp'], 0); ?>/s</td>
@@ -208,14 +208,14 @@ class Transmission extends Module{
 				</form>
 				<?php
 				$form = new Form('serverSettings', null, null, 'module', $this->id);
-				$form->addField(new Float('ratioLimit', $settings->getRatioLimit(), null, 'Ratio de partage/téléchargement', null, 'Ratio maximum pour un fichier entre les données partagées (upload) et les données téléchargées. Certains torrents nécessitent un ratio de 0.75 minimum, mettez un ou plus pour être tranquille.'));
-				$form->addField(new Int('dlSpeed', $settings->getDlSpeed(), null, 'Vitesse de téléchargement <span class="glyphicon glyphicon-arrow-down tooltip-bottom" title="Sens descendant"></span>', null, 'Bande passante maximum allouée aux téléchargements, en ko/s. Cette bande passante ne doit pas excéder 80% de votre bande passante descendante ADSL ou Fibre.', new Pattern('number', true), true, 'admin'));
-				$form->addField(new Int('upSpeed', $settings->getUpSpeed(), null, 'Vitesse de chargement <span class="glyphicon glyphicon-arrow-up tooltip-bottom" title="Sens montant"></span>', null, 'Bande passante maximum allouée aux chargements (sens montant), en ko/s. Cette bande passante ne doit pas excéder 80% de votre bande passante montante ADSL ou Fibre.', new Pattern('number', true), true, 'admin'));
-				$form->addField(new Int('altDlSpeed', $settings->getAltDlSpeed(), null, 'Vitesse de téléchargement réduite (mode tortue)', null, 'Bande passante maximum allouée aux téléchargements lorsque le serveur est en mode tortue, en ko/s. Cette bande passante ne devrait pas excéder 30% de votre bande passante descendante ADSL ou Fibre, afin de ne pas pénaliser la navigation Internet ou la télévision.', new Pattern('number', true), true, 'admin'));
-				$form->addField(new Int('altUpSpeed', $settings->getAltUpSpeed(), null, 'Vitesse de chargement réduite (mode tortue)', null, 'Bande passante maximum allouée aux chargements (sens montant) lorsque le serveur est en mode tortue, en ko/s. Cette bande passante ne devrait pas excéder 30% de votre bande passante montante ADSL ou Fibre, afin de ne pas pénaliser la navigation Internet ou la télévision.', new Pattern('number', true), true, 'admin'));
-				$form->addField(new Bool('altSpeedEnabled', $settings->getAltSpeedEnabled(), null, 'Activer le mode tortue', 'Quand le mode tortue est actif, la bande passante utilisée pour les téléchargements est réduite. Cela vous permet en journée de naviguer sur Internet sans ralentissements.', null, true, 'modify', null, false, new JSSwitch()));
-				$form->addField(new Time('altBegin', \Sanitize::time($settings->getAltBegin(true), 'time'), null, 'Heure de déclenchement du mode tortue', null, 'Le mode tortue se déclenchera à cette heure chaque jour que vous aurez indiqué. Il est conseillé de le déclencher un peu avant que vous n\'ayez besoin de naviguer sur Internet, tôt le matin par exemple', new Pattern('time'), false, 'admin'));
-				$form->addField(new Time('altEnd', \Sanitize::time($settings->getAltEnd(true), 'time'), null, 'Heure d\'arrêt du mode tortue', null, 'Le mode tortue sera arrêté à cette heure chaque jour que vous aurez indiqué. Il est conseillé de le déclencher tard le soir lorsque vous n\'avez plus besoin de naviguer sur Internet, afin que les téléchargements puissent occuper un maximum de bande passante.', new Pattern('time'), false, 'admin'));
+				$form->addField(new Float('ratioLimit', $settings->getRatioLimit(), 'Ratio de partage/téléchargement', null, 'Ratio maximum pour un fichier entre les données partagées (upload) et les données téléchargées. Certains torrents nécessitent un ratio de 0.75 minimum, mettez un ou plus pour être tranquille.', null, false, null, null, false, 0.1));
+				$form->addField(new Int('dlSpeed', $settings->getDlSpeed(), 'Vitesse de téléchargement <span class="glyphicon glyphicon-arrow-down tooltip-bottom" title="Sens descendant"></span>', null, 'Bande passante maximum allouée aux téléchargements, en ko/s. Cette bande passante ne doit pas excéder 80% de votre bande passante descendante ADSL ou Fibre.', new Pattern('number', true), true, 'admin'));
+				$form->addField(new Int('upSpeed', $settings->getUpSpeed(), 'Vitesse de partage <span class="glyphicon glyphicon-arrow-up tooltip-bottom" title="Sens montant"></span>', null, 'Bande passante maximum allouée au partage (sens montant), en ko/s. Cette bande passante ne doit pas excéder 80% de votre bande passante montante ADSL ou Fibre.', new Pattern('number', true), true, 'admin'));
+				$form->addField(new Int('altDlSpeed', $settings->getAltDlSpeed(), 'Vitesse de téléchargement réduite (mode tortue)', null, 'Bande passante maximum allouée aux téléchargements lorsque le serveur est en mode tortue, en ko/s. Cette bande passante ne devrait pas excéder 30% de votre bande passante descendante ADSL ou Fibre, afin de ne pas pénaliser la navigation Internet ou la télévision.', new Pattern('number', true), true, 'admin'));
+				$form->addField(new Int('altUpSpeed', $settings->getAltUpSpeed(), 'Vitesse de partage réduite (mode tortue)', null, 'Bande passante maximum allouée au partage (sens montant) lorsque le serveur est en mode tortue, en ko/s. Cette bande passante ne devrait pas excéder 30% de votre bande passante montante ADSL ou Fibre, afin de ne pas pénaliser la navigation Internet ou la télévision.', new Pattern('number', true), true, 'admin'));
+				$form->addField(new Bool('altSpeedEnabled', $settings->getAltSpeedEnabled(), 'Activer le mode tortue', 'Quand le mode tortue est actif, la bande passante utilisée pour les téléchargements est réduite. Cela vous permet en journée de naviguer sur Internet sans ralentissements.', null, true, 'modify', null, false, new JSSwitch(null, 'left')));
+				$form->addField(new Time('altBegin', \Sanitize::time($settings->getAltBegin(true), 'time'), 'Heure de déclenchement du mode tortue', null, 'Le mode tortue se déclenchera à cette heure chaque jour que vous aurez indiqué. Il est conseillé de le déclencher un peu avant que vous n\'ayez besoin de naviguer sur Internet, tôt le matin par exemple', new Pattern('time'), false, 'admin'));
+				$form->addField(new Time('altEnd', \Sanitize::time($settings->getAltEnd(true), 'time'), 'Heure d\'arrêt du mode tortue', null, 'Le mode tortue sera arrêté à cette heure chaque jour que vous aurez indiqué. Il est conseillé de le déclencher tard le soir lorsque vous n\'avez plus besoin de naviguer sur Internet, afin que les téléchargements puissent occuper un maximum de bande passante.', new Pattern('time'), false, 'admin'));
 				/*
 				 * Dimanche					= 1			(binary: 0000001)
 				 * Lundi						= 2			(binary: 0000010)
@@ -241,7 +241,7 @@ class Transmission extends Module{
 				  65  => 'Week-end',
 				  127 => 'Toute la semaine'
 				);
-				$form->addField(new CheckboxList('altDaysEnabled', $settings->getAltDaysEnabled(true), null, 'Jours d\'activation du mode tortue', 'Sélectionnez les jours ou les plages de jours pendant lesquels le mode tortue s\'activera aux heures indiquées. Ne sélectionnez aucun jour pour désactiver le mode tortue.', false, 'admin', null, false, $days));
+				$form->addField(new CheckboxList('altDaysEnabled', $settings->getAltDaysEnabled(true), 'Jours d\'activation du mode tortue', 'Sélectionnez les jours ou les plages de jours pendant lesquels le mode tortue s\'activera aux heures indiquées. Ne sélectionnez aucun jour pour désactiver le mode tortue.', false, 'admin', null, false, $days));
 				$form->addField(new Button('action', 'saveServerSettings', 'Sauvegarder', 'admin', 'btn-primary'));
 				$form->display();
 				?>
@@ -271,7 +271,7 @@ class Transmission extends Module{
 	 */
 	protected function filtersForm($filter = 'all'){
 		$form = new Form('filters', null, array(), null, null, 'get', 'form-inline', array('module' => 'Transmission'), true);
-		$form->addField(new Select('filter', $filter, null, 'Afficher', null, false, null, null, false, $this->getSelectFilters()));
+		$form->addField(new Select('filter', $filter, 'Afficher', null, false, null, null, false, $this->getSelectFilters()));
 		$form->addField(new Button('action', 'filterDownloads', 'Filtrer', 'modify', 'btn-primary btn-sm'));
 		$form->display();
 	}
