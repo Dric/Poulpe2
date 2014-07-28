@@ -49,7 +49,7 @@ class Int extends String{
 	 */
 	public function __construct($name, $value = null, $label = null, $placeholder = null, $help = null, $pattern = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false, $step = null){
 		if (!empty($step)) $this->step = (float)$step;
-		parent::__construct($name, $this->type, $value, $label, $placeholder, $help, $pattern, $important, $ACLLevel, $class, $disabled);
+		parent::__construct($name, $value, $label, $placeholder, $help, $pattern, $important, $ACLLevel, $class, $disabled);
 	}
 
 	/**
