@@ -76,6 +76,9 @@ class PostedData {
 					case 'date':
 						$req = Sanitize::date($value);
 						break;
+					case 'time':
+						$req = Sanitize::time($value);
+						break;
 					case 'bool':
 						if ($tab[3] == 'checkbox') {
 							unset($_REQUEST[str_replace('_checkbox', '', $request).'_hidden']);
