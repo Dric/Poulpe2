@@ -79,6 +79,14 @@ class PostedData {
 					case 'time':
 						$req = Sanitize::time($value);
 						break;
+					case 'checkboxList':
+						foreach ($value as $key => $item){
+							if ($item == 'noneSelected'){
+								unset($value[$key]);
+							}
+						}
+						$req = (empty($value)) ? null : $value;
+						break;
 					case 'bool':
 						if ($tab[3] == 'checkbox') {
 							unset($_REQUEST[str_replace('_checkbox', '', $request).'_hidden']);

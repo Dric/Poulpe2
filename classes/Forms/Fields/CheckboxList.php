@@ -79,6 +79,9 @@ class CheckboxList extends Field{
 			</div>
 		<?php
 		}
+		?>
+		<input type="hidden" id="field_<?php echo $this->type; ?>_<?php echo $this->name.'_none'; ?>" name="field_<?php echo $this->type; ?>_<?php echo $this->name; ?><?php if ($this->htmlType == 'checkbox') echo '[]'; ?>" value="noneSelected">
+		<?php
 	}
 
 	/**
