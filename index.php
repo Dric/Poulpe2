@@ -26,7 +26,8 @@ spl_autoload_register(function ($class) {
 		$classesUsed[] = $class;
 	}
 	$tab = explode('\\', $class);
-	if ($tab[0] == 'Modules'){
+	// Les modules sont dans un répertoire à part
+	if ($tab[0] == 'Modules' and !in_array($tab[1], array('Module', 'ModulesManagement'))){
 		include_once str_replace("\\", "/", $class) . '.php';
 	}else{
 		include_once 'classes/' . str_replace("\\", "/", $class) . '.php';

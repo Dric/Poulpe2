@@ -255,7 +255,8 @@ class Fs {
 			$meta->type = mime_content_type($file);
 		}
 		if ((!empty($filters) and in_array('chmod', $filters)) or empty($filters)){
-			$meta->chmod = decoct(fileperms($file) & 0777);
+			$meta->chmod = (int)decoct(fileperms($file) & 0777);
+			$meta->advChmod = (int)substr(decoct(fileperms($file)),2);
 		}
 		if ((!empty($filters) and in_array('writable', $filters)) or empty($filters)){
 			$meta->writable = is_writable($file);

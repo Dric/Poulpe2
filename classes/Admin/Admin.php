@@ -14,6 +14,7 @@ use Forms\Fields\Button;
 use Forms\Fields\Email;
 use Forms\Fields\Int;
 use Forms\Fields\Password;
+use Forms\Fields\Select;
 use Forms\Fields\String;
 use Forms\Fields\ValuesArray;
 use Forms\JSSwitch;
@@ -405,7 +406,20 @@ class Admin extends Module {
 									$constantValue = $tab;
 									$form->addField(new ValuesArray($constantName, $constantValue, $explain, null, 'Paramètre '.$constantName, null, true, null, null, $readOnly));
 								}else{
-									$form->addField(new String($constantName, $constantValue, $explain, null, 'Paramètre '.$constantName, null, true, null, null, $readOnly));
+									// Pour le choix du module en page d'accueil, on crée une liste avec les modules actifs. de cette façon, on limite les risques d'erreur.
+									if ($constantName == 'HOME_MODULE'){
+										$activeModules = ModulesManagement::getActiveModules();
+										$homeModulesChoice = array('home' => 'Page d\'accueil de base');
+										foreach ($activeModules as $module){
+											$tab = explode('\\', $module->class);
+											if (isset($tab[2])){
+												$homeModulesChoice[$tab[2]] = $module->name.' ('.$tab[2].')';
+											}
+										}
+										$form->addField(new Select('HOME_MODULE', $constantValue, $explain, 'Paramètre '.$constantName, true, null, null, $readOnly, $homeModulesChoice));
+									}else{
+										$form->addField(new String($constantName, $constantValue, $explain, null, 'Paramètre '.$constantName, null, true, null, null, $readOnly));
+									}
 								}
 							}elseif(stristr($constantValue, 'true') or stristr($constantValue, 'false')){
 								$form->addField(new Bool($constantName, $constantValue, $explain, 'Paramètre '.$constantName, null, true, null, null, $readOnly, new JSSwitch(null, 'left')));

@@ -56,6 +56,4 @@ class Avatar {
 			return TRUE;
 		}
 	}
-
-
 }

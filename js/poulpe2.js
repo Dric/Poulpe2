@@ -75,29 +75,35 @@ var stack_bottomright = {"dir1": "up", "dir2": "left", "push": "top"};
  */
 function bootstrapSwitch(){
 	/* Checkbox des ACL */
-	$('.checkbox-ACL').bootstrapSwitch({
-		size: 		'small',
-		onText:		'Permis',
-		offText:	'Refusé',
-		onColor:  'success',
-		offColor: 'danger',
-		animate:  true
+	$('.checkbox-ACL').each(function(){
+		$(this).bootstrapSwitch({
+			size: 		'small',
+			onText:		'Permis',
+			offText:	'Refusé',
+			onColor:  'success',
+			offColor: 'danger',
+			animate:  true
+		});
 	});
-	$('.checkbox-activation').bootstrapSwitch({
-		size: 		'small',
-		onText:		'Oui',
-		offText:	'Non',
-		onColor:  'success',
-		offColor: 'danger',
-		animate:  true
+	$('.checkbox-activation').each(function(){
+		$(this).bootstrapSwitch({
+			size: 		'small',
+			onText:		'Oui',
+			offText:	'Non',
+			onColor:  'success',
+			offColor: 'danger',
+			animate:  true
+		});
 	});
 	// Switch général. Les paramètres devront être gérés par les attributs data sur les balises html.
-	$('.checkboxSwitch').bootstrapSwitch({
-		onText:		'Oui',
-		offText:	'Non',
-		animate:  true
+	$('.checkboxSwitch').each(function(){
+		$(this).bootstrapSwitch({
+			onText:		'Oui',
+			offText:	'Non',
+			animate:  true
+		});
+		console.log($(this));
 	});
-
 }
 
 /**

@@ -16,7 +16,7 @@ define('DB_PASSWORD', 'poulpe2');
 /** Adresse de l'hébergement MySQL. */
 define('DB_HOST', 'localhost');
 /** Authentification via ldap ou sql */
-define('AUTH_MODE', 'ldap');
+define('AUTH_MODE', 'sql');
 /** Longueur minimale du mot de passe (authentification sql) */
 define('PWD_MIN_SIZE', 6);
 /** Authentification obligatoire */
@@ -36,9 +36,9 @@ define('LDAP_AUTH_OU', '');
 /** Groupe autorisé à se connecter */
 define('LDAP_GROUP', '');
 /** Clé de salage d'authentification */
-define('SALT_AUTH', 'wziB.(eaI^^?X/`r}I|rwF{q1%r2__ij/}&|r5#!QC0 ]8SDaU&(}va+tNg`>9d');
+define('SALT_AUTH', 'wziB.(eaI^^?X/`r}I|rwF{q1%r2__ij/}&|U&(}va+tNg`>gGf69A&_9d');
 /** Clé de salage du cookie */
-define('SALT_COOKIE', 'wziB.(eaI^^?X/`fgh99*=!_^8xj/}&|P$s8u60 ]8SDaU&(}va+tNg`>9d');
+define('SALT_COOKIE', 'wziB.(eaI^^?X/`fgh99*=!_^8x&|P$s8u60 ]8SDaU&(}va+tNg`>9d');
 /** Nom du cookie d'authentification */
 define('COOKIE_NAME', 'poulpe2');
 /** Durée de l'authentification par cookie (en heures) */
@@ -50,7 +50,7 @@ define('IMAGE_PATH', 'img/');
 /** Répertoire des avatars */
 define('AVATAR_PATH', 'img/avatars/');
 /** Avatar par défaut */
-define('AVATAR_DEFAULT', 'default.jpg');
+define('AVATAR_DEFAULT', 'poulpe2.png');
 /** Répertoire des images chargées */
 define('UPLOAD_IMG', 'uploads/img');
 /** Répertoire des fichiers chargés */
@@ -63,8 +63,6 @@ define('AVATAR_MAX_SIZE', 400);
 define('PER_PAGE_VALUES', '5, 10, 15, 20, 25, 50, 100');
 /** Afficher le fil d'ariane */
 define('DISPLAY_BREADCRUMB', true);
-/** Afficher le lien vers la page d'accueil de l'intranet */
-define('DISPLAY_INTRANET_LINK', true);
 /** Afficher le lien vers la page d'accueil du site */
 define('DISPLAY_HOME', true);
 /** Module en page d'accueil */

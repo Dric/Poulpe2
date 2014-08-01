@@ -104,9 +104,6 @@ class Front {
 		if (DISPLAY_HOME or (!DISPLAY_HOME and $module->getName() != 'home')){
 			self::$mainMenu->add(new Item('home', 'Accueil', '.', 'Revenir à l\'accueil', null, 'menu-highlight'), 2);
 		}
-		if (DISPLAY_INTRANET_LINK){
-			self::$mainMenu->add(new Item('portail', 'Portail', 'http://glpi', 'Retour au Petit Portail Informatique'), 97);
-		}
 		if ($cUser->isLoggedIn()){
 			self::$mainMenu->add(new Item('logoff', 'Déconnexion', '?action=logoff', 'Déconnexion de '.$cUser->getName()), 99);
 		}else{

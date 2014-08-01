@@ -1,7 +1,7 @@
-Petits Outils Informatiques
-===========================
+MonsieurPoulpe2 (alias Poulpe2)
+===============================
 
-Des petits outils divers et variés pour simplifier la vie des informaticiens.
+Un framework modulaire en php.
 
 ## Pré-requis
 
@@ -13,6 +13,8 @@ Des petits outils divers et variés pour simplifier la vie des informaticiens.
 - Serveur web Apache ou autre (testé seulement sous Apache)
 
 #### Serveur Linux
+
+Certains modules doivent accéder aux partages de machines Windows. Il y a une petite configuration à effectuer pour que ça fonctionne bien :
 
 - Le répertoire `/mnt` doit être accessible en écriture à l'utilisateur apache (`www-data` par défaut)
 - L'utilisateur apache doit avoir le droit d'invoquer `sudo` sans mot de passe pour monter tous les répertoires réseau. Ceci est quand même un gros trou de sécurité...
@@ -56,12 +58,18 @@ Voir Le fichier `install.md`.
 ## TODO
 
 - Script d'installation
-- Doc de développement de plugins
+- Doc de développement de modules
 - Gérer la barre de menu avec JS désactivé
 
 ## Documentation
 
 - Voir le répertoire `Docs`
+- Documentation générée avec [ApiGen](http://apigen.org)
+
+Paramètres de génération de doc (commande lancée à partir du répertoire racine de Poulpe2) :
+
+    apigen -s . -s "Modules/Module.php" -s "Modules/ModulesManagement.php" -d ./Docs/Code --exclude "*/Docs" --exclude "*/fonts" --exclude "*/img" --exclude "*/js" --exclude "*/Modules" --template-config "/usr/share/php/data/ApiGen/templates/bootstrap/config.neon" --report toDocument.txt
+
 
 ## Divers
 
