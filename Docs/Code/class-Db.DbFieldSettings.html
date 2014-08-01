@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Db\DbFieldSettings</title>
+
+	<script type="text/javascript" src="resources/combined.js?522072721"></script>
+	<script type="text/javascript" src="elementlist.js?2443433404"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">Overview</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Db.html" title="Summary of Db"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-Components.html">Components</a>
+						</li>
+				<li class="active"><a href="namespace-Db.html">Db</a>
+						</li>
+				<li><a href="namespace-FileSystem.html">FileSystem</a>
+						</li>
+				<li><a href="namespace-Forms.html">Forms<span></span></a>
+						<ul>
+				<li><a href="namespace-Forms.Fields.html">Fields</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Ldap.html">Ldap</a>
+						</li>
+				<li><a href="namespace-Logs.html">Logs</a>
+						</li>
+				<li><a href="namespace-Michelf.html">Michelf</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-Profiles.html">Profiles</a>
+						</li>
+				<li><a href="namespace-Settings.html">Settings</a>
+						</li>
+				<li><a href="namespace-Users.html">Users</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Db.Db.html">Db</a></li>
+				<li class="active"><a href="class-Db.DbFieldSettings.html">DbFieldSettings</a></li>
+				<li><a href="class-Db.DbTable.html">DbTable</a></li>
+				<li><a href="class-Db.ForeignKey.html">ForeignKey</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class DbFieldSettings</h1>
+
+
+	<div class="description">
+	
+<p>Classe de définition des paramètres de champs dans une table de bdd</p>
+
+	</div>
+
+	<dl class="tree well">
+		<dd style="padding-left:0px">
+			<a href="class-Forms.Pattern.html"><span>Forms\Pattern</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by" />
+<b><span>Db\DbFieldSettings</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Db.html">Db</a><br />
+		<b>Package:</b> Db<br />
+
+		<b>Located at</b> <a href="source-class-Db.DbFieldSettings.html#14-161" title="Go to source code">classes/Db/DbFieldSettings.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="__construct" id="___construct">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><a href="source-class-Db.DbFieldSettings.html#69-96" title="Go to source code">__construct</a>( <span>string <var>$type</var></span>, <span>boolean <var>$required</var> = <span class="php-keyword1">false</span></span>, <span>integer <var>$length</var> = <span class="php-num">0</span></span>, <span>boolean|string <var>$index</var> = <span class="php-keyword1">false</span></span>, <span>boolean <var>$inMultipleIndex</var> = <span class="php-keyword1">false</span></span>, <span>boolean <var>$autoIncrement</var> = <span class="php-keyword1">false</span></span>, <span>integer <var>$autoIncrementValue</var> = <span class="php-num">0</span></span>, <span><code><a href="class-Db.ForeignKey.html">Db\ForeignKey</a></code> <var>$foreignKey</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$onDuplicateKeyUpdate</var> = <span class="php-keyword1">false</span></span>, <span>boolean <var>$show</var> = <span class="php-keyword1">true</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Définit des paramètres de validation d'un champ de formulaire</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Définit des paramètres de validation d'un champ de formulaire</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$type</var></dt>
+						<dd><code>string</code><br>$type Type de champ (voir le tableau $types)</dd>
+						<dt><var>$required</var></dt>
+						<dd><code>boolean</code><br>$required Spécifie un champ obligatoire (facultatif)</dd>
+						<dt><var>$length</var></dt>
+						<dd><code>integer</code><br>$length Nombre de caractères maximum (facultatif)</dd>
+						<dt><var>$index</var></dt>
+						<dd><code>boolean|string</code><br>$index Type d'index du champ (false si pas d'index, sinon se référer à
+$indexTypes) (facultatif)</dd>
+						<dt><var>$inMultipleIndex</var></dt>
+						<dd><code>boolean</code><br>$inMultipleIndex Ce champ fait partie d'un index multiple (facultatif)</dd>
+						<dt><var>$autoIncrement</var></dt>
+						<dd><code>boolean</code><br>$autoIncrement Champ auto-incrémenté en bdd (facultatif)</dd>
+						<dt><var>$autoIncrementValue</var></dt>
+						<dd><code>integer</code><br>$autoIncrementValue Valeur d'auto-incrémentation (facultatif)</dd>
+						<dt><var>$foreignKey</var></dt>
+						<dd><code><code><a href="class-Db.ForeignKey.html">Db\ForeignKey</a></code></code><br>$foreignKey Contrainte de clé étrangère sur le champ (facultatif)</dd>
+						<dt><var>$onDuplicateKeyUpdate</var></dt>
+						<dd><code>boolean</code><br>$onDuplicateKeyUpdate Ce champ doit être mis à jour en cas d'insertion sur un
+index déjà existant (facultatif)</dd>
+						<dt><var>$show</var></dt>
+						<dd><code>boolean</code><br>$show Afficher le champ (facultatif)</dd>
+					</dl></div>
+
+
+
+					<h4>Link</h4>
+					<div class="list">
+							&lt;<a
+href="http://www.w3schools.com/tags/att_input_type.asp">http://www.w3schools.com/tags/att_input_type.asp</a>&gt;
+pour les types de champs acceptés<br />
+							&lt;<a
+href="https://developer.mozilla.org/en/docs/Web/HTML/Element/Input#Browser_compatibility">https://developer.mozilla.org/en/docs/Web/HTML/Element/Input#Browser_compatibility</a>&gt;
+pour les supports de types de champs par les navigateurs<br />
+					</div>
+
+					<h4>Overrides</h4>
+					<div class="list"><code><a href="class-Forms.Pattern.html#___construct">Forms\Pattern::__construct</a></code></div>
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getAutoIncrement" id="_getAutoIncrement">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getAutoIncrement">#</a>
+			<code><a href="source-class-Db.DbFieldSettings.html#98-104" title="Go to source code">getAutoIncrement</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne le statut d'auto-incrémentation</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne le statut d'auto-incrémentation</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getIndex" id="_getIndex">
+
+			<td class="attributes"><code>
+				 public 
+				boolean|string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getIndex">#</a>
+			<code><a href="source-class-Db.DbFieldSettings.html#106-112" title="Go to source code">getIndex</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne le statut d'index</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne le statut d'index</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean|string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getForeignKey" id="_getForeignKey">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-Db.ForeignKey.html">Db\ForeignKey</a></code>|null
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getForeignKey">#</a>
+			<code><a href="source-class-Db.DbFieldSettings.html#114-120" title="Go to source code">getForeignKey</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne la clé étrangère liée au champ</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne la clé étrangère liée au champ</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Db.ForeignKey.html">Db\ForeignKey</a></code>|null</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getAutoIncrementValue" id="_getAutoIncrementValue">
+
+			<td class="attributes"><code>
+				 public 
+				integer
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getAutoIncrementValue">#</a>
+			<code><a href="source-class-Db.DbFieldSettings.html#122-128" title="Go to source code">getAutoIncrementValue</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne la valeur de l'auto-incrémentation</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne la valeur de l'auto-incrémentation</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>integer</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getLength" id="_getLength">
+
+			<td class="attributes"><code>
+				 public 
+				integer
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getLength">#</a>
+			<code><a href="source-class-Db.DbFieldSettings.html#130-136" title="Go to source code">getLength</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne la longueur du champ</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne la longueur du champ</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>integer</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getShow" id="_getShow">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getShow">#</a>
+			<code><a href="source-class-Db.DbFieldSettings.html#138-144" title="Go to source code">getShow</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne le statut d'affichage du champ lors de l'affichage de la table</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne le statut d'affichage du champ lors de l'affichage de la table</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getOnDuplicateKeyUpdate" id="_getOnDuplicateKeyUpdate">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getOnDuplicateKeyUpdate">#</a>
+			<code><a href="source-class-Db.DbFieldSettings.html#146-152" title="Go to source code">getOnDuplicateKeyUpdate</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne le statut de mise en jour en cas d'index existant</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne le statut de mise en jour en cas d'index existant</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getInMultipleIndex" id="_getInMultipleIndex">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getInMultipleIndex">#</a>
+			<code><a href="source-class-Db.DbFieldSettings.html#154-160" title="Go to source code">getInMultipleIndex</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne le statut d'appartenance à un index multiple</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne le statut d'appartenance à un index multiple</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+		<h3>Methods inherited from <a href="class-Forms.Pattern.html#methods">Forms\Pattern</a></h3>
+		<p class="elementList">
+			<code><a href="class-Forms.Pattern.html#_getMaxLength">getMaxLength()</a></code>, 
+			<code><a href="class-Forms.Pattern.html#_getMaxValue">getMaxValue()</a></code>, 
+			<code><a href="class-Forms.Pattern.html#_getMinLength">getMinLength()</a></code>, 
+			<code><a href="class-Forms.Pattern.html#_getMinValue">getMinValue()</a></code>, 
+			<code><a href="class-Forms.Pattern.html#_getRegExp">getRegExp()</a></code>, 
+			<code><a href="class-Forms.Pattern.html#_getRequired">getRequired()</a></code>, 
+			<code><a href="class-Forms.Pattern.html#_getType">getType()</a></code>
+		</p>
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="autoIncrement" id="$autoIncrement">
+			<td class="attributes"><code>
+				protected  
+				boolean
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Db.DbFieldSettings.html#21-25" title="Go to source code"><var>$autoIncrement</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$autoIncrement" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Champ auto-incrémenté</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Champ auto-incrémenté</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="autoIncrementValue" id="$autoIncrementValue">
+			<td class="attributes"><code>
+				protected  
+				integer
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Db.DbFieldSettings.html#26-30" title="Go to source code"><var>$autoIncrementValue</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$autoIncrementValue" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Valeur de l'auto-incrémentation</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Valeur de l'auto-incrémentation</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="index" id="$index">
+			<td class="attributes"><code>
+				protected  
+				boolean|string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Db.DbFieldSettings.html#31-35" title="Go to source code"><var>$index</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$index" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Index et type d'index</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Index et type d'index</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="indexTypes" id="$indexTypes">
+			<td class="attributes"><code>
+				protected  
+				string[]
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Db.DbFieldSettings.html#36-47" title="Go to source code"><var>$indexTypes</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$indexTypes" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Types d'index possibles</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Types d'index possibles</p>
+
+<p>Il ne doit y avoir qu'un seul index primaire défini sur la table, sans quoi
+le dernier défini est le gagnant !</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="inMultipleIndex" id="$inMultipleIndex">
+			<td class="attributes"><code>
+				protected  
+				boolean
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Db.DbFieldSettings.html#48-52" title="Go to source code"><var>$inMultipleIndex</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$inMultipleIndex" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Définit si le champ fait partie d'un index multiple au niveau de la table.
+On ne peut définir qu'un seul index multiple pour une table.</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Définit si le champ fait partie d'un index multiple au niveau de la table.
+On ne peut définir qu'un seul index multiple pour une table.</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="foreignKey" id="$foreignKey">
+			<td class="attributes"><code>
+				protected  
+				<code><a href="class-Db.ForeignKey.html">Db\ForeignKey</a></code>
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Db.DbFieldSettings.html#53-57" title="Go to source code"><var>$foreignKey</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$foreignKey" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Objet de contrainte de clé étrangère</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Objet de contrainte de clé étrangère</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="show" id="$show">
+			<td class="attributes"><code>
+				protected  
+				boolean
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Db.DbFieldSettings.html#58-62" title="Go to source code"><var>$show</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$show" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Afficher le champ</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Afficher le champ</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="onDuplicateKeyUpdate" id="$onDuplicateKeyUpdate">
+			<td class="attributes"><code>
+				protected  
+				boolean
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Db.DbFieldSettings.html#63-67" title="Go to source code"><var>$onDuplicateKeyUpdate</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$onDuplicateKeyUpdate" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Ce champ doit être mis à jour en cas d'insertion sur un index déjà
+existant</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Ce champ doit être mis à jour en cas d'insertion sur un index déjà
+existant</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+		<h3>Properties inherited from <a href="class-Forms.Pattern.html#properties">Forms\Pattern</a></h3>
+		<p class="elementList">
+			<code><a href="class-Forms.Pattern.html#$maxLength"><var>$maxLength</var></a></code>, 
+			<code><a href="class-Forms.Pattern.html#$maxValue"><var>$maxValue</var></a></code>, 
+			<code><a href="class-Forms.Pattern.html#$minLength"><var>$minLength</var></a></code>, 
+			<code><a href="class-Forms.Pattern.html#$minValue"><var>$minValue</var></a></code>, 
+			<code><a href="class-Forms.Pattern.html#$regExp"><var>$regExp</var></a></code>, 
+			<code><a href="class-Forms.Pattern.html#$required"><var>$required</var></a></code>, 
+			<code><a href="class-Forms.Pattern.html#$type"><var>$type</var></a></code>, 
+			<code><a href="class-Forms.Pattern.html#$types"><var>$types</var></a></code>
+		</p>
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

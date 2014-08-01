@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Users\Login</title>
+
+	<script type="text/javascript" src="resources/combined.js?522072721"></script>
+	<script type="text/javascript" src="elementlist.js?2443433404"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">Overview</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Users.html" title="Summary of Users"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-Components.html">Components</a>
+						</li>
+				<li><a href="namespace-Db.html">Db</a>
+						</li>
+				<li><a href="namespace-FileSystem.html">FileSystem</a>
+						</li>
+				<li><a href="namespace-Forms.html">Forms<span></span></a>
+						<ul>
+				<li><a href="namespace-Forms.Fields.html">Fields</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Ldap.html">Ldap</a>
+						</li>
+				<li><a href="namespace-Logs.html">Logs</a>
+						</li>
+				<li><a href="namespace-Michelf.html">Michelf</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-Profiles.html">Profiles</a>
+						</li>
+				<li><a href="namespace-Settings.html">Settings</a>
+						</li>
+				<li class="active"><a href="namespace-Users.html">Users</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Users.ACL.html">ACL</a></li>
+				<li><a href="class-Users.CurrentUser.html">CurrentUser</a></li>
+				<li><a href="class-Users.LDAPUser.html">LDAPUser</a></li>
+				<li class="active"><a href="class-Users.Login.html">Login</a></li>
+				<li><a href="class-Users.User.html">User</a></li>
+				<li><a href="class-Users.UsersManagement.html">UsersManagement</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class Login</h1>
+
+
+	<div class="description">
+	
+<p>Classe de gestion de l'authentification</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Users.html">Users</a><br />
+		<b>Package:</b> Users<br />
+
+		<b>Located at</b> <a href="source-class-Users.Login.html#26-359" title="Go to source code">classes/Users/Login.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="deleteCookie" id="_deleteCookie">
+
+			<td class="attributes"><code>
+				 public static
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_deleteCookie">#</a>
+			<code><a href="source-class-Users.Login.html#57-65" title="Go to source code">deleteCookie</a>( )</code>
+
+			<div class="description short">
+				
+<p>Suppression du cookie d'authentification et de la session PHP</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Suppression du cookie d'authentification et de la session PHP</p>
+
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getCookie" id="_getCookie">
+
+			<td class="attributes"><code>
+				 public static
+				boolean|Object
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getCookie">#</a>
+			<code><a href="source-class-Users.Login.html#67-83" title="Go to source code">getCookie</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne les infos du cookie d'authentification sous forme d'objet</p>
+
+<ul>
+	<li>$cookie-&gt;userID</li>
+
+	<li>$cookie-&gt;userHash</li>
+</ul>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne les infos du cookie d'authentification sous forme d'objet</p>
+
+<ul>
+	<li>$cookie-&gt;userID</li>
+
+	<li>$cookie-&gt;userHash</li>
+</ul>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean|Object</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="isLoggedIn" id="_isLoggedIn">
+
+			<td class="attributes"><code>
+				 public static
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_isLoggedIn">#</a>
+			<code><a href="source-class-Users.Login.html#85-97" title="Go to source code">isLoggedIn</a>( <span>integer|string <var>$user</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Vérifie que l'utilisateur est connecté</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Vérifie que l'utilisateur est connecté</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$user</var></dt>
+						<dd><code>integer|string</code><br>$user Nom ou ID de l'utilisateur à vérifier</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="saltPwd" id="_saltPwd">
+
+			<td class="attributes"><code>
+				 public static
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_saltPwd">#</a>
+			<code><a href="source-class-Users.Login.html#99-107" title="Go to source code">saltPwd</a>( <span>string <var>$pwd</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Mélange le mot de passe avec une clé de salage pour ne pas le mettre en
+clair dans la base de données</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Mélange le mot de passe avec une clé de salage pour ne pas le mettre en
+clair dans la base de données</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$pwd</var></dt>
+						<dd><code>string</code><br>$pwd Mot de passe</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="tryLogin" id="_tryLogin">
+
+			<td class="attributes"><code>
+				 public static
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_tryLogin">#</a>
+			<code><a href="source-class-Users.Login.html#109-150" title="Go to source code">tryLogin</a>( )</code>
+
+			<div class="description short">
+				
+<p>Valide la connexion d'un utilisateur</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Valide la connexion d'un utilisateur</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="doLogin" id="_doLogin">
+
+			<td class="attributes"><code>
+				 protected static
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_doLogin">#</a>
+			<code><a href="source-class-Users.Login.html#152-179" title="Go to source code">doLogin</a>( <span>integer|string <var>$user</var></span>, <span>string <var>$from</var> = <span class="php-quote">'/'</span></span>, <span>boolean <var>$stayConnected</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Effectue la connexion d'un utilisateur</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Effectue la connexion d'un utilisateur</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$user</var></dt>
+						<dd><code>integer|string</code><br>$user ID ou nom de l'utilisateur</dd>
+						<dt><var>$from</var></dt>
+						<dd><code>string</code><br>$from URL vers laquelle rediriger l'utilisateur</dd>
+						<dt><var>$stayConnected</var></dt>
+						<dd><code>boolean</code><br>$stayConnected Si false, le cookie expire à la fin de la session</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="createFirstUser" id="_createFirstUser">
+
+			<td class="attributes"><code>
+				 protected static
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_createFirstUser">#</a>
+			<code><a href="source-class-Users.Login.html#181-219" title="Go to source code">createFirstUser</a>( )</code>
+
+			<div class="description short">
+				
+<p>Crée le premier utilisateur du site, si l'authentification se fait via
+sql.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Crée le premier utilisateur du site, si l'authentification se fait via
+sql.</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="loginForm" id="_loginForm">
+
+			<td class="attributes"><code>
+				 public static
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_loginForm">#</a>
+			<code><a href="source-class-Users.Login.html#221-358" title="Go to source code">loginForm</a>( <span>string <var>$from</var> = <span class="php-quote">''</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Affiche le formulaire de connexion</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Affiche le formulaire de connexion</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$from</var></dt>
+						<dd><code>string</code><br>$from URL encodé de la page vers laquelle rediriger l'utilisateur après sa
+connexion</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="salt" id="$salt">
+			<td class="attributes"><code>
+				protected static 
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Users.Login.html#33-39" title="Go to source code"><var>$salt</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$salt" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Clé de salage</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Clé de salage</p>
+
+<p>Générateur de clé de salage : &lt;<a
+href="https://api.wordpress.org/secret-key/1.1/salt/">https://api.wordpress.org/secret-key/1.1/salt/</a>&gt;</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="cookieName" id="$cookieName">
+			<td class="attributes"><code>
+				protected static 
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Users.Login.html#41-45" title="Go to source code"><var>$cookieName</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$cookieName" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Nom du cookie utilisé pour l'authentification</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Nom du cookie utilisé pour l'authentification</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="authMode" id="$authMode">
+			<td class="attributes"><code>
+				protected static 
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Users.Login.html#48-55" title="Go to source code"><var>$authMode</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$authMode" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Mode d'authentification</p>
+
+<ul>
+	<li>ldap</li>
+
+	<li>sql</li>
+</ul>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Mode d'authentification</p>
+
+<ul>
+	<li>ldap</li>
+
+	<li>sql</li>
+</ul>
+
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

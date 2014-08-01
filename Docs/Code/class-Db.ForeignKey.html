@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Db\ForeignKey</title>
+
+	<script type="text/javascript" src="resources/combined.js?522072721"></script>
+	<script type="text/javascript" src="elementlist.js?2443433404"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">Overview</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Db.html" title="Summary of Db"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-Components.html">Components</a>
+						</li>
+				<li class="active"><a href="namespace-Db.html">Db</a>
+						</li>
+				<li><a href="namespace-FileSystem.html">FileSystem</a>
+						</li>
+				<li><a href="namespace-Forms.html">Forms<span></span></a>
+						<ul>
+				<li><a href="namespace-Forms.Fields.html">Fields</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Ldap.html">Ldap</a>
+						</li>
+				<li><a href="namespace-Logs.html">Logs</a>
+						</li>
+				<li><a href="namespace-Michelf.html">Michelf</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-Profiles.html">Profiles</a>
+						</li>
+				<li><a href="namespace-Settings.html">Settings</a>
+						</li>
+				<li><a href="namespace-Users.html">Users</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Db.Db.html">Db</a></li>
+				<li><a href="class-Db.DbFieldSettings.html">DbFieldSettings</a></li>
+				<li><a href="class-Db.DbTable.html">DbTable</a></li>
+				<li class="active"><a href="class-Db.ForeignKey.html">ForeignKey</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class ForeignKey</h1>
+
+
+	<div class="description">
+	
+<p>Class De définition d'une clé étrangère</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Db.html">Db</a><br />
+		<b>Package:</b> Db<br />
+
+		<b>Located at</b> <a href="source-class-Db.ForeignKey.html#11-96" title="Go to source code">classes/Db/ForeignKey.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="__construct" id="___construct">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><a href="source-class-Db.ForeignKey.html#49-62" title="Go to source code">__construct</a>( <span>string <var>$table</var></span>, <span>string <var>$key</var></span>, <span>string <var>$onUpdate</var> = <span class="php-quote">'NO ACTION'</span></span>, <span>string <var>$onDelete</var> = <span class="php-quote">'NO ACTION'</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Construction de la clé étrangère</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Construction de la clé étrangère</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$table</var></dt>
+						<dd><code>string</code><br>$table Nom de la table contenant la référence de clé étrangère</dd>
+						<dt><var>$key</var></dt>
+						<dd><code>string</code><br>$key Nom de la clé étrangère</dd>
+						<dt><var>$onUpdate</var></dt>
+						<dd><code>string</code><br>$onUpdate Action en cas de mise à jour sur le champ de référence (facultatif)</dd>
+						<dt><var>$onDelete</var></dt>
+						<dd><code>string</code><br>$onDelete Action en cas de suppression du champ de référence (facultatif)</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getTable" id="_getTable">
+
+			<td class="attributes"><code>
+				 public 
+				null
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getTable">#</a>
+			<code><a href="source-class-Db.ForeignKey.html#64-70" title="Go to source code">getTable</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne la table contenant la clé étrangère</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne la table contenant la clé étrangère</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>null</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getKey" id="_getKey">
+
+			<td class="attributes"><code>
+				 public 
+				null
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getKey">#</a>
+			<code><a href="source-class-Db.ForeignKey.html#72-78" title="Go to source code">getKey</a>( )</code>
+
+			<div class="description short">
+				
+<p>retourne la clé étrangère</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>retourne la clé étrangère</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>null</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getOnUpdate" id="_getOnUpdate">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getOnUpdate">#</a>
+			<code><a href="source-class-Db.ForeignKey.html#80-86" title="Go to source code">getOnUpdate</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne le comportement sur mise à jour d'un item maître</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne le comportement sur mise à jour d'un item maître</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getOnDelete" id="_getOnDelete">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getOnDelete">#</a>
+			<code><a href="source-class-Db.ForeignKey.html#88-94" title="Go to source code">getOnDelete</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne le comportement sur suppression d'un item maître</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne le comportement sur suppression d'un item maître</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="table" id="$table">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Db.ForeignKey.html#18-22" title="Go to source code"><var>$table</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$table" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Nom de la table contenant la référence de clé étrangère</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Nom de la table contenant la référence de clé étrangère</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="key" id="$key">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Db.ForeignKey.html#23-27" title="Go to source code"><var>$key</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$key" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Nom de la clé étrangère</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Nom de la clé étrangère</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="onUpdate" id="$onUpdate">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Db.ForeignKey.html#28-32" title="Go to source code"><var>$onUpdate</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$onUpdate" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Action en cas de mise à jour sur le champ de référence</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Action en cas de mise à jour sur le champ de référence</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="onDelete" id="$onDelete">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Db.ForeignKey.html#33-37" title="Go to source code"><var>$onDelete</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$onDelete" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Action en cas de suppression du champ de référence</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Action en cas de suppression du champ de référence</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="actions" id="$actions">
+			<td class="attributes"><code>
+				protected  
+				string[]
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Db.ForeignKey.html#38-47" title="Go to source code"><var>$actions</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$actions" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Tableau des actions autorisées</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Tableau des actions autorisées</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

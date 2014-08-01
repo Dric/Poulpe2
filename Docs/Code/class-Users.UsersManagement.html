@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Users\UsersManagement</title>
+
+	<script type="text/javascript" src="resources/combined.js?522072721"></script>
+	<script type="text/javascript" src="elementlist.js?2443433404"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">Overview</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Users.html" title="Summary of Users"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-Components.html">Components</a>
+						</li>
+				<li><a href="namespace-Db.html">Db</a>
+						</li>
+				<li><a href="namespace-FileSystem.html">FileSystem</a>
+						</li>
+				<li><a href="namespace-Forms.html">Forms<span></span></a>
+						<ul>
+				<li><a href="namespace-Forms.Fields.html">Fields</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Ldap.html">Ldap</a>
+						</li>
+				<li><a href="namespace-Logs.html">Logs</a>
+						</li>
+				<li><a href="namespace-Michelf.html">Michelf</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-Profiles.html">Profiles</a>
+						</li>
+				<li><a href="namespace-Settings.html">Settings</a>
+						</li>
+				<li class="active"><a href="namespace-Users.html">Users</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Users.ACL.html">ACL</a></li>
+				<li><a href="class-Users.CurrentUser.html">CurrentUser</a></li>
+				<li><a href="class-Users.LDAPUser.html">LDAPUser</a></li>
+				<li><a href="class-Users.Login.html">Login</a></li>
+				<li><a href="class-Users.User.html">User</a></li>
+				<li class="active"><a href="class-Users.UsersManagement.html">UsersManagement</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class UsersManagement</h1>
+
+
+	<div class="description">
+	
+<p>Classe de gestion des utilisateurs</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Users.html">Users</a><br />
+		<b>Package:</b> Users<br />
+
+		<b>Located at</b> <a href="source-class-Users.UsersManagement.html#16-197" title="Go to source code">classes/Users/UsersManagement.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="getDBUsers" id="_getDBUsers">
+
+			<td class="attributes"><code>
+				 public static
+				object
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getDBUsers">#</a>
+			<code><a href="source-class-Users.UsersManagement.html#29-52" title="Go to source code">getDBUsers</a>( <span>integer|string <var>$user</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$nameOrEmail</var> = <span class="php-keyword1">false</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Retourne les infos d'un utilisateur de la bdd</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne les infos d'un utilisateur de la bdd</p>
+
+<p>Afin d'éviter de lancer une requête chaque fois qu'on veut un nom
+d'utilisateur, on les stocke dans une propriété statique</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$user</var></dt>
+						<dd><code>integer|string</code><br>$user ID, nom ou adresse email de l'utilisateur</dd>
+						<dt><var>$nameOrEmail</var></dt>
+						<dd><code>boolean</code><br>$nameOrEmail Si vrai, on cherche le nom ou le mail. Si faux, on ne cherche que
+le nom.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>object</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getUserName" id="_getUserName">
+
+			<td class="attributes"><code>
+				 public static
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getUserName">#</a>
+			<code><a href="source-class-Users.UsersManagement.html#54-63" title="Go to source code">getUserName</a>( <span>integer <var>$userId</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Retourne le nom d'un utilisateur</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne le nom d'un utilisateur</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$userId</var></dt>
+						<dd><code>integer</code><br>$userId Id de l'utilisateur</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="updateUserHash" id="_updateUserHash">
+
+			<td class="attributes"><code>
+				 public static
+				string|boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_updateUserHash">#</a>
+			<code><a href="source-class-Users.UsersManagement.html#65-83" title="Go to source code">updateUserHash</a>( <span>integer|string <var>$user</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Met à jour le hash de l'utilisateur</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Met à jour le hash de l'utilisateur</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$user</var></dt>
+						<dd><code>integer|string</code><br>$user ID ou nom de l'utilisateur</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string|boolean</code><br>Hash de l'utilisateur ou false en cas d'échec<br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getLDAPUser" id="_getLDAPUser">
+
+			<td class="attributes"><code>
+				 public static
+				object|boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getLDAPUser">#</a>
+			<code><a href="source-class-Users.UsersManagement.html#85-122" title="Go to source code">getLDAPUser</a>( <span>string <var>$userName</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Retourne les infos d'un utilisateur LDAP</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne les infos d'un utilisateur LDAP</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$userName</var></dt>
+						<dd><code>string</code><br>$userName Nom de l'utilisateur</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>object|boolean</code><br>Informations de l'utilisateur LDAP ou false en cas d'erreur<br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="createDBUser" id="_createDBUser">
+
+			<td class="attributes"><code>
+				 public static
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_createDBUser">#</a>
+			<code><a href="source-class-Users.UsersManagement.html#124-144" title="Go to source code">createDBUser</a>( <span>string <var>$name</var></span>, <span>string <var>$email</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$pwd</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$hash</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$avatar</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Ajoute un utilisateur dans la base de données</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Ajoute un utilisateur dans la base de données</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$name</var></dt>
+						<dd><code>string</code><br>$name Nom de l'utilisateur</dd>
+						<dt><var>$email</var></dt>
+						<dd><code>string</code><br>$email Adresse email</dd>
+						<dt><var>$pwd</var></dt>
+						<dd><code>string</code><br>$pwd Mot de passe non hashé (en clair)</dd>
+						<dt><var>$hash</var></dt>
+						<dd><code>string</code><br>$hash hash de cookie</dd>
+						<dt><var>$avatar</var></dt>
+						<dd><code>string</code><br>$avatar Avatar (image)</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+					<h4>TODO</h4>
+					<div class="list">
+							: retourner un objet User<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="deleteUser" id="_deleteUser">
+
+			<td class="attributes"><code>
+				 public static
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_deleteUser">#</a>
+			<code><a href="source-class-Users.UsersManagement.html#146-163" title="Go to source code">deleteUser</a>( <span><code><a href="class-Users.User.html">Users\User</a></code>|<code><a href="class-Users.CurrentUser.html">Users\CurrentUser</a></code> <var>$User</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Supprime un utilisateur de la base de données</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Supprime un utilisateur de la base de données</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$User</var></dt>
+						<dd><code><code><a href="class-Users.User.html">Users\User</a></code>|<code><a href="class-Users.CurrentUser.html">Users\CurrentUser</a></code></code><br>$User</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="updateDBUser" id="_updateDBUser">
+
+			<td class="attributes"><code>
+				 public static
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_updateDBUser">#</a>
+			<code><a href="source-class-Users.UsersManagement.html#165-188" title="Go to source code">updateDBUser</a>( <span><code><a href="class-Users.User.html">Users\User</a></code>|<code><a href="class-Users.CurrentUser.html">Users\CurrentUser</a></code> <var>$User</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Met à jour les informations d'un utilisateur dans la base de données</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Met à jour les informations d'un utilisateur dans la base de données</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$User</var></dt>
+						<dd><code><code><a href="class-Users.User.html">Users\User</a></code>|<code><a href="class-Users.CurrentUser.html">Users\CurrentUser</a></code></code><br>$User Objet utilisateur</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getUsersList" id="_getUsersList">
+
+			<td class="attributes"><code>
+				 public static
+				<code><a href="class-Users.User.html">Users\User</a>[]</code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getUsersList">#</a>
+			<code><a href="source-class-Users.UsersManagement.html#190-196" title="Go to source code">getUsersList</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne la liste des utilisateurs</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne la liste des utilisateurs</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Users.User.html">Users\User</a>[]</code></code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="usersList" id="$usersList">
+			<td class="attributes"><code>
+				protected static 
+				<code><a href="class-Users.User.html">Users\User</a>[]</code>
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Users.UsersManagement.html#23-27" title="Go to source code"><var>$usersList</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$usersList" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Liste des utilisateurs</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Liste des utilisateurs</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

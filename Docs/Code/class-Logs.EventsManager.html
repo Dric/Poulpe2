@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Logs\EventsManager</title>
+
+	<script type="text/javascript" src="resources/combined.js?522072721"></script>
+	<script type="text/javascript" src="elementlist.js?2443433404"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">Overview</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Logs.html" title="Summary of Logs"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-Components.html">Components</a>
+						</li>
+				<li><a href="namespace-Db.html">Db</a>
+						</li>
+				<li><a href="namespace-FileSystem.html">FileSystem</a>
+						</li>
+				<li><a href="namespace-Forms.html">Forms<span></span></a>
+						<ul>
+				<li><a href="namespace-Forms.Fields.html">Fields</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Ldap.html">Ldap</a>
+						</li>
+				<li class="active"><a href="namespace-Logs.html">Logs</a>
+						</li>
+				<li><a href="namespace-Michelf.html">Michelf</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-Profiles.html">Profiles</a>
+						</li>
+				<li><a href="namespace-Settings.html">Settings</a>
+						</li>
+				<li><a href="namespace-Users.html">Users</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Logs.Alert.html">Alert</a></li>
+				<li><a href="class-Logs.AlertsManager.html">AlertsManager</a></li>
+				<li><a href="class-Logs.EventLog.html">EventLog</a></li>
+				<li class="active"><a href="class-Logs.EventsManager.html">EventsManager</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class EventsManager</h1>
+
+
+	<div class="description">
+	
+<p>Classe de gestion des événements</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Logs.html">Logs</a><br />
+		<b>Package:</b> Logs<br />
+
+		<b>Located at</b> <a href="source-class-Logs.EventsManager.html#15-129" title="Go to source code">classes/Logs/EventsManager.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="addToLogs" id="_addToLogs">
+
+			<td class="attributes"><code>
+				 public static
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_addToLogs">#</a>
+			<code><a href="source-class-Logs.EventsManager.html#22-47" title="Go to source code">addToLogs</a>( <span><code><a href="class-Logs.EventLog.html">Logs\EventLog</a></code> <var>$event</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Ajoute un événement dans la table SQL des logs</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Ajoute un événement dans la table SQL des logs</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$event</var></dt>
+						<dd><code><code><a href="class-Logs.EventLog.html">Logs\EventLog</a></code></code><br>$event Evénement à ajouter aux logs</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="displayLogs" id="_displayLogs">
+
+			<td class="attributes"><code>
+				 public static
+				boolean|object
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_displayLogs">#</a>
+			<code><a href="source-class-Logs.EventsManager.html#49-128" title="Go to source code">displayLogs</a>( <span>string|array <var>$types</var> = <span class="php-keyword1">null</span></span>, <span>string|array <var>$users</var> = <span class="php-keyword1">null</span></span>, <span>string|array <var>$components</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$timeRange</var> = <span class="php-keyword1">array</span>()</span>, <span>boolean <var>$returnArray</var> = <span class="php-keyword1">false</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Affiche ou renvoie un log</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Affiche ou renvoie un log</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$types</var></dt>
+						<dd><code>string|array</code><br>$types Filtre par type(s) d'événements. Pour récupérer plusieurs types, il
+suffit de les passer dans un tableau (facultatif)</dd>
+						<dt><var>$users</var></dt>
+						<dd><code>string|array</code><br>$users Filtre par utilisateur(s). Pour récupérer plusieurs utilisateurs, il
+suffit de les passer dans un tableau (facultatif)</dd>
+						<dt><var>$components</var></dt>
+						<dd><code>string|array</code><br>$components Filtre par composant(s). Pour récupérer plusieurs composants, il
+suffit de les passer dans un tableau (facultatif)</dd>
+						<dt><var>$timeRange</var></dt>
+						<dd><code>array</code><br>$timeRange Plage de dates (facultatif), de la forme array(dateDébut, dateFin)
+(facultatif)</dd>
+						<dt><var>$returnArray</var></dt>
+						<dd><code>boolean</code><br>$returnArray Retourne un tableau contenant els logs si true, affiche le tableau
+sinon. (facultatif)</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean|object</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

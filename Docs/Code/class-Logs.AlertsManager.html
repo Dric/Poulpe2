@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Logs\AlertsManager</title>
+
+	<script type="text/javascript" src="resources/combined.js?522072721"></script>
+	<script type="text/javascript" src="elementlist.js?2443433404"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">Overview</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Logs.html" title="Summary of Logs"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-Components.html">Components</a>
+						</li>
+				<li><a href="namespace-Db.html">Db</a>
+						</li>
+				<li><a href="namespace-FileSystem.html">FileSystem</a>
+						</li>
+				<li><a href="namespace-Forms.html">Forms<span></span></a>
+						<ul>
+				<li><a href="namespace-Forms.Fields.html">Fields</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Ldap.html">Ldap</a>
+						</li>
+				<li class="active"><a href="namespace-Logs.html">Logs</a>
+						</li>
+				<li><a href="namespace-Michelf.html">Michelf</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-Profiles.html">Profiles</a>
+						</li>
+				<li><a href="namespace-Settings.html">Settings</a>
+						</li>
+				<li><a href="namespace-Users.html">Users</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Logs.Alert.html">Alert</a></li>
+				<li class="active"><a href="class-Logs.AlertsManager.html">AlertsManager</a></li>
+				<li><a href="class-Logs.EventLog.html">EventLog</a></li>
+				<li><a href="class-Logs.EventsManager.html">EventsManager</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class AlertsManager</h1>
+
+
+	<div class="description">
+	
+<p>Classe de gestion des alertes</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Logs.html">Logs</a><br />
+		<b>Package:</b> Logs<br />
+
+		<b>Located at</b> <a href="source-class-Logs.AlertsManager.html#12-161" title="Go to source code">classes/Logs/AlertsManager.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="getAlerts" id="_getAlerts">
+
+			<td class="attributes"><code>
+				 public static
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getAlerts">#</a>
+			<code><a href="source-class-Logs.AlertsManager.html#33-56" title="Go to source code">getAlerts</a>( <span>string <var>$type</var> = <span class="php-quote">''</span></span>, <span>string <var>$format</var> = <span class="php-quote">'js'</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Retourne ou affiche les alertes générées</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne ou affiche les alertes générées</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$type</var></dt>
+						<dd><code>string</code><br>$type Type d'alerte à afficher</dd>
+						<dt><var>$format</var></dt>
+						<dd><code>string</code><br>$format Format d'affichage (js ou html) (facultatif)</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="displayAlert" id="_displayAlert">
+
+			<td class="attributes"><code>
+				 public static
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_displayAlert">#</a>
+			<code><a href="source-class-Logs.AlertsManager.html#58-98" title="Go to source code">displayAlert</a>( <span><code><a href="class-Logs.Alert.html">Logs\Alert</a></code> <var>$alert</var></span>, <span>string <var>$format</var> = <span class="php-quote">'js'</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Affiche l'alerte</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Affiche l'alerte</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$alert</var></dt>
+						<dd><code><code><a href="class-Logs.Alert.html">Logs\Alert</a></code></code><br>$alert Alerte à afficher</dd>
+						<dt><var>$format</var></dt>
+						<dd><code>string</code><br>$format Format d'affichage ('js' pour les alertes affichées en javascript,
+autre valeur pour générer du html. (facultatif)</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getAllowedTypes" id="_getAllowedTypes">
+
+			<td class="attributes"><code>
+				 public static
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getAllowedTypes">#</a>
+			<code><a href="source-class-Logs.AlertsManager.html#100-106" title="Go to source code">getAllowedTypes</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne les types d'alertes autorisés</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne les types d'alertes autorisés</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="addToAlerts" id="_addToAlerts">
+
+			<td class="attributes"><code>
+				 public static
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_addToAlerts">#</a>
+			<code><a href="source-class-Logs.AlertsManager.html#108-114" title="Go to source code">addToAlerts</a>( <span><code><a href="class-Logs.Alert.html">Logs\Alert</a></code> <var>$alert</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Ajoute une alerte à la liste des alertes générées</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Ajoute une alerte à la liste des alertes générées</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$alert</var></dt>
+						<dd><code><code><a href="class-Logs.Alert.html">Logs\Alert</a></code></code><br>$alert Alerte à ajouter</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="removeAlert" id="_removeAlert">
+
+			<td class="attributes"><code>
+				 public static
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_removeAlert">#</a>
+			<code><a href="source-class-Logs.AlertsManager.html#116-122" title="Go to source code">removeAlert</a>( <span><code><a href="class-Logs.Alert.html">Logs\Alert</a></code> <var>$alert</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Supprime une alerte de la liste des alertes générées</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Supprime une alerte de la liste des alertes générées</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$alert</var></dt>
+						<dd><code><code><a href="class-Logs.Alert.html">Logs\Alert</a></code></code><br>$alert Alerte à supprimer</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="debug" id="_debug">
+
+			<td class="attributes"><code>
+				 public static
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_debug">#</a>
+			<code><a href="source-class-Logs.AlertsManager.html#124-160" title="Go to source code">debug</a>( )</code>
+
+			<div class="description short">
+				
+<p>Affiche les alertes de type 'debug'</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Affiche les alertes de type 'debug'</p>
+
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="alerts" id="$alerts">
+			<td class="attributes"><code>
+				protected static 
+				<code><a href="class-Logs.Alert.html">Logs\Alert</a>[]</code>
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Logs.AlertsManager.html#19-23" title="Go to source code"><var>$alerts</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$alerts" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Liste des alertes générées</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Liste des alertes générées</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="allowedTypes" id="$allowedTypes">
+			<td class="attributes"><code>
+				protected static 
+				string[]
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Logs.AlertsManager.html#25-31" title="Go to source code"><var>$allowedTypes</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$allowedTypes" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Tableau des types d'alertes autorisés</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Tableau des types d'alertes autorisés</p>
+
+<p>Ces types d'alertes reprennent les types d'alerte de Bootstrap (sauf 'debug'
+et 'error' qui est remappé sur 'danger')</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

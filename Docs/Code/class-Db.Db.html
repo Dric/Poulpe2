@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Db\Db</title>
+
+	<script type="text/javascript" src="resources/combined.js?522072721"></script>
+	<script type="text/javascript" src="elementlist.js?2443433404"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">Overview</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Db.html" title="Summary of Db"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-Components.html">Components</a>
+						</li>
+				<li class="active"><a href="namespace-Db.html">Db</a>
+						</li>
+				<li><a href="namespace-FileSystem.html">FileSystem</a>
+						</li>
+				<li><a href="namespace-Forms.html">Forms<span></span></a>
+						<ul>
+				<li><a href="namespace-Forms.Fields.html">Fields</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Ldap.html">Ldap</a>
+						</li>
+				<li><a href="namespace-Logs.html">Logs</a>
+						</li>
+				<li><a href="namespace-Michelf.html">Michelf</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-Profiles.html">Profiles</a>
+						</li>
+				<li><a href="namespace-Settings.html">Settings</a>
+						</li>
+				<li><a href="namespace-Users.html">Users</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Db.Db.html">Db</a></li>
+				<li><a href="class-Db.DbFieldSettings.html">DbFieldSettings</a></li>
+				<li><a href="class-Db.DbTable.html">DbTable</a></li>
+				<li><a href="class-Db.ForeignKey.html">ForeignKey</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class Db</h1>
+
+
+	<div class="description">
+	
+<p>Classe de communication avec une base SQL</p>
+
+<p>La connexion est ouverte à l'initialisation de la classe, et est fermée
+automatiquement à la fin du script.</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Db.html">Db</a><br />
+		<b>Package:</b> Db<br />
+
+		<b>Located at</b> <a href="source-class-Db.Db.html#22-414" title="Go to source code">classes/Db/Db.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="__construct" id="___construct">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><a href="source-class-Db.Db.html#73-94" title="Go to source code">__construct</a>( <span>string <var>$type</var> = <span class="php-quote">''</span></span>, <span>string <var>$dbServer</var> = <span class="php-quote">''</span></span>, <span>string <var>$dbName</var> = <span class="php-quote">''</span></span>, <span>string <var>$dbLogin</var> = <span class="php-quote">''</span></span>, <span>string <var>$dbPwd</var> = <span class="php-quote">''</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Connexion à une base de données</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Connexion à une base de données</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$type</var></dt>
+						<dd><code>string</code><br>$type Type de bdd</dd>
+						<dt><var>$dbServer</var></dt>
+						<dd><code>string</code><br>$dbServer Nom du serveur hébergeant la bdd</dd>
+						<dt><var>$dbName</var></dt>
+						<dd><code>string</code><br>$dbName Nom de la bdd</dd>
+						<dt><var>$dbLogin</var></dt>
+						<dd><code>string</code><br>$dbLogin Compte utilisé pour se connecter à la bdd</dd>
+						<dt><var>$dbPwd</var></dt>
+						<dd><code>string</code><br>$dbPwd Mot de passe du compte utilisé pour se connecter à la bdd</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="query" id="_query">
+
+			<td class="attributes"><code>
+				 public 
+				object|boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_query">#</a>
+			<code><a href="source-class-Db.Db.html#96-136" title="Go to source code">query</a>( <span>string <var>$sql</var></span>, <span>string <var>$get</var> = <span class="php-quote">'all'</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Lance une requête SQL</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Lance une requête SQL</p>
+
+<p>WARNING : la requête est lancée telle quelle, elle doit être protégée
+avant</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$sql</var></dt>
+						<dd><code>string</code><br>$sql requête SQL</dd>
+						<dt><var>$get</var></dt>
+						<dd><code>string</code><br>$get Renvoie 'row' une ligne 'col' une colonne 'all' un tableau de résultat
+'val' une valeur</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>object|boolean</code><br>Résultat de la requête<br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="get" id="_get">
+
+			<td class="attributes"><code>
+				 public 
+				object|boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_get">#</a>
+			<code><a href="source-class-Db.Db.html#138-191" title="Go to source code">get</a>( <span>string <var>$table</var></span>, <span>string|array <var>$fields</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$where</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$orderBy</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$get</var> = <span class="php-quote">'all'</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Retourne des lignes de la base de données</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne des lignes de la base de données</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$table</var></dt>
+						<dd><code>string</code><br>$table Table sur laquelle effectuer la requête</dd>
+						<dt><var>$fields</var></dt>
+						<dd><code>string|array</code><br>$fields Champs à retourner - tableau array('champ1', 'champ2') - '*' pour tous
+les champs de la table - 'all' pour tous les champs de la table - null pour tous
+les champs de la table</dd>
+						<dt><var>$where</var></dt>
+						<dd><code>array</code><br>$where Conditions de la requête de la forme array('champ' =&gt; valeur)</dd>
+						<dt><var>$orderBy</var></dt>
+						<dd><code>array</code><br>$orderBy Tableau de tri, de la forme array('champ' =&gt; 'ordre de tri (ASC,
+DESC)')</dd>
+						<dt><var>$get</var></dt>
+						<dd><code>string</code><br>$get Renvoie : - 'row' une ligne - 'col' une colonne - 'all' un tableau de
+résultat - 'val' une valeur</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>object|boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getRow" id="_getRow">
+
+			<td class="attributes"><code>
+				 public 
+				object
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getRow">#</a>
+			<code><a href="source-class-Db.Db.html#193-210" title="Go to source code">getRow</a>( <span>string <var>$table</var></span>, <span>string|array <var>$fields</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$where</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$orderBy</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Retourne une ligne d'une requête SQL</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne une ligne d'une requête SQL</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$table</var></dt>
+						<dd><code>string</code><br>$table Table sur laquelle effectuer la requête</dd>
+						<dt><var>$fields</var></dt>
+						<dd><code>string|array</code><br>$fields Champs à retourner - tableau array('champ1', 'champ2') - 'champ' pour
+un seul champ de la table - '*' pour tous les champs de la table - 'all' pour
+tous les champs de la table - null pour tous les champs de la table</dd>
+						<dt><var>$where</var></dt>
+						<dd><code>array</code><br>$where Conditions de la requête de la forme array('champ' =&gt; valeur)</dd>
+						<dt><var>$orderBy</var></dt>
+						<dd><code>array</code><br>$orderBy Tableau de tri, de la forme array('champ' =&gt; 'ordre de tri (ASC,
+DESC)')</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>object</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getCol" id="_getCol">
+
+			<td class="attributes"><code>
+				 public 
+				object
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getCol">#</a>
+			<code><a href="source-class-Db.Db.html#212-228" title="Go to source code">getCol</a>( <span>string <var>$table</var></span>, <span>string|array <var>$field</var></span>, <span>array <var>$where</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$orderBy</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Retourne une colonne d'une requête SQL</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne une colonne d'une requête SQL</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$table</var></dt>
+						<dd><code>string</code><br>$table Table sur laquelle effectuer la requête</dd>
+						<dt><var>$field</var></dt>
+						<dd><code>string|array</code><br>$field Champ à retourner - tableau array('champ1', 'champ2') - 'champ' pour un
+seul champ de la table - '*' pour tous les champs de la table - 'all' pour tous
+les champs de la table - null pour tous les champs de la table</dd>
+						<dt><var>$where</var></dt>
+						<dd><code>array</code><br>$where Conditions de la requête de la forme array('champ' =&gt; valeur)</dd>
+						<dt><var>$orderBy</var></dt>
+						<dd><code>array</code><br>$orderBy Tableau de tri, de la forme array('champ' =&gt; 'ordre de tri (ASC,
+DESC)')</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>object</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getVal" id="_getVal">
+
+			<td class="attributes"><code>
+				 public 
+				mixed
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getVal">#</a>
+			<code><a href="source-class-Db.Db.html#230-246" title="Go to source code">getVal</a>( <span>string <var>$table</var></span>, <span>string|array <var>$field</var></span>, <span>array <var>$where</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$orderBy</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Retourne une valeur d'une requête SQL</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne une valeur d'une requête SQL</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$table</var></dt>
+						<dd><code>string</code><br>$table Table sur laquelle effectuer la requête</dd>
+						<dt><var>$field</var></dt>
+						<dd><code>string|array</code><br>$field Champ à retourner - tableau array('champ1', 'champ2') - 'champ' pour un
+seul champ de la table - '*' pour tous les champs de la table - 'all' pour tous
+les champs de la table - null pour tous les champs de la table</dd>
+						<dt><var>$where</var></dt>
+						<dd><code>array</code><br>$where Conditions de la requête de la forme array('champ' =&gt; valeur)</dd>
+						<dt><var>$orderBy</var></dt>
+						<dd><code>array</code><br>$orderBy Tableau de tri, de la forme array('champ' =&gt; 'ordre de tri (ASC,
+DESC)')</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>mixed</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="insert" id="_insert">
+
+			<td class="attributes"><code>
+				 public 
+				integer|boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_insert">#</a>
+			<code><a href="source-class-Db.Db.html#248-281" title="Go to source code">insert</a>( <span>string <var>$table</var></span>, <span>array <var>$fields</var></span>, <span>array <var>$format</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+			<div class="description short">
+				
+<p>Insère une ligne dans une table SQL</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Insère une ligne dans une table SQL</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$table</var></dt>
+						<dd><code>string</code><br>$table Table SQL</dd>
+						<dt><var>$fields</var></dt>
+						<dd><code>array</code><br>$fields Champs et valeurs à insérer, de la forme 'champ' =&gt; valeur</dd>
+						<dt><var>$format</var></dt>
+						<dd><code>array</code><br>$format Type facultatif des valeurs à traiter pour les champs dans $updates et
+$where, de la forme 'champ' =&gt; type (int, float, bool, string, null)</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>integer|boolean</code><br>ID de la ligne insérée ou false si erreur<br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="update" id="_update">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_update">#</a>
+			<code><a href="source-class-Db.Db.html#283-335" title="Go to source code">update</a>( <span>string <var>$table</var></span>, <span>array <var>$updates</var></span>, <span>array <var>$where</var></span>, <span>array <var>$format</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+			<div class="description short">
+				
+<p>Met à jour des lignes dans une table</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Met à jour des lignes dans une table</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$table</var></dt>
+						<dd><code>string</code><br>$table Table SQL</dd>
+						<dt><var>$updates</var></dt>
+						<dd><code>array</code><br>$updates Valeurs à mettre à jour, de la forme 'champ' =&gt; valeur</dd>
+						<dt><var>$where</var></dt>
+						<dd><code>array</code><br>$where Critères de mise à jour, de la forme 'champ' =&gt; valeur</dd>
+						<dt><var>$format</var></dt>
+						<dd><code>array</code><br>$format Type facultatif des valeurs à traiter pour les champs dans $updates et
+$where, de la forme 'champ' =&gt; type (int, float, bool, string, null)</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="delete" id="_delete">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_delete">#</a>
+			<code><a href="source-class-Db.Db.html#337-373" title="Go to source code">delete</a>( <span>string <var>$table</var></span>, <span>array <var>$where</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Supprime des enregistrements dans une table</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Supprime des enregistrements dans une table</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$table</var></dt>
+						<dd><code>string</code><br>$table Table dans laquelle supprimer les enregistrements</dd>
+						<dt><var>$where</var></dt>
+						<dd><code>array</code><br>$where Critères de suppression, de la forme 'champ' =&gt; valeur</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getType" id="_getType">
+
+			<td class="attributes"><code>
+				 protected 
+				integer|null
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getType">#</a>
+			<code><a href="source-class-Db.Db.html#375-405" title="Go to source code">getType</a>( <span>string <var>$field</var></span>, <span>array <var>$formatArray</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Retourne le typage d'un champ suivant un tableau de typage</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne le typage d'un champ suivant un tableau de typage</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$field</var></dt>
+						<dd><code>string</code><br>$field Champ dont on veut retourner le type</dd>
+						<dt><var>$formatArray</var></dt>
+						<dd><code>array</code><br>$formatArray Tableau des typages de la forme 'champ' =&gt; type</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>integer|null</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getQueriesCount" id="_getQueriesCount">
+
+			<td class="attributes"><code>
+				 public 
+				integer
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getQueriesCount">#</a>
+			<code><a href="source-class-Db.Db.html#407-413" title="Go to source code">getQueriesCount</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne le nombre de requêtes effectuées</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne le nombre de requêtes effectuées</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>integer</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="type" id="$type">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Db.Db.html#31-35" title="Go to source code"><var>$type</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$type" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Type de SQL (MySQL par défaut)</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Type de SQL (MySQL par défaut)</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="dbServer" id="$dbServer">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Db.Db.html#37-41" title="Go to source code"><var>$dbServer</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$dbServer" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Serveur SQL</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Serveur SQL</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="dbName" id="$dbName">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Db.Db.html#43-47" title="Go to source code"><var>$dbName</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$dbName" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Nom de la base de données</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Nom de la base de données</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="dbLogin" id="$dbLogin">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Db.Db.html#49-53" title="Go to source code"><var>$dbLogin</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$dbLogin" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Compte utilisé pour se connecter à la base de données</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Compte utilisé pour se connecter à la base de données</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="dbPwd" id="$dbPwd">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Db.Db.html#55-59" title="Go to source code"><var>$dbPwd</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$dbPwd" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Mot de passe du compte utilisé pour se connecter à la bdd</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Mot de passe du compte utilisé pour se connecter à la bdd</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="db" id="$db">
+			<td class="attributes"><code>
+				protected  
+				object
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Db.Db.html#61-65" title="Go to source code"><var>$db</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$db" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Objet de base de données</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Objet de base de données</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="queriesCount" id="$queriesCount">
+			<td class="attributes"><code>
+				protected  
+				integer
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Db.Db.html#67-71" title="Go to source code"><var>$queriesCount</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$queriesCount" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Nombre de requêtes effectuées</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Nombre de requêtes effectuées</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

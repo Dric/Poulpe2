@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class FileSystem\Upload</title>
+
+	<script type="text/javascript" src="resources/combined.js?522072721"></script>
+	<script type="text/javascript" src="elementlist.js?2443433404"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">Overview</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-FileSystem.html" title="Summary of FileSystem"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-Components.html">Components</a>
+						</li>
+				<li><a href="namespace-Db.html">Db</a>
+						</li>
+				<li class="active"><a href="namespace-FileSystem.html">FileSystem</a>
+						</li>
+				<li><a href="namespace-Forms.html">Forms<span></span></a>
+						<ul>
+				<li><a href="namespace-Forms.Fields.html">Fields</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Ldap.html">Ldap</a>
+						</li>
+				<li><a href="namespace-Logs.html">Logs</a>
+						</li>
+				<li><a href="namespace-Michelf.html">Michelf</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-Profiles.html">Profiles</a>
+						</li>
+				<li><a href="namespace-Settings.html">Settings</a>
+						</li>
+				<li><a href="namespace-Users.html">Users</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-FileSystem.Fs.html">Fs</a></li>
+				<li class="active"><a href="class-FileSystem.Upload.html">Upload</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class Upload</h1>
+
+
+	<div class="description">
+	
+<p>Classe de gestion de chargement de fichiers</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-FileSystem.html">FileSystem</a><br />
+		<b>Package:</b> FileSystem<br />
+
+		<b>Located at</b> <a href="source-class-FileSystem.Upload.html#18-152" title="Go to source code">classes/FileSystem/Upload.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="file" id="_file">
+
+			<td class="attributes"><code>
+				 public static
+				boolean|string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_file">#</a>
+			<code><a href="source-class-FileSystem.Upload.html#25-151" title="Go to source code">file</a>( <span>array <var>$file</var></span>, <span>string <var>$moveTo</var></span>, <span>integer <var>$maxSize</var></span>, <span>string[] <var>$allowedExtensions</var> = <span class="php-keyword1">array</span>()</span>, <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+			<div class="description short">
+				
+<p>Traite un chargement de fichier et retourne son nom</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Traite un chargement de fichier et retourne son nom</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$file</var></dt>
+						<dd><code>array</code><br>$file tableau $_FILE[fichier]</dd>
+						<dt><var>$moveTo</var></dt>
+						<dd><code>string</code><br>$moveTo Répertoire de destination</dd>
+						<dt><var>$maxSize</var></dt>
+						<dd><code>integer</code><br>$maxSize Taille maximum du fichier, en ko.</dd>
+						<dt><var>$allowedExtensions</var></dt>
+						<dd><code>string[]</code><br>$allowedExtensions Tableau des extensions autorisées de la forme array('jpg',
+'png', ...) - accepte toutes les extensions si vide</dd>
+						<dt><var>$args</var></dt>
+						<dd><code>array</code><br>$args Tableau de paramètres - accepte les clés suivantes : - 'resize' array
+Tableau de redimensionnement pour les images - les valeurs sont en pixels -
+accepte les clés suivantes : - 'width' int Largeur désirée en pixels
+(facultatif) - 'height' int Hauteur désirée en pixels (facultatif) -
+'toSquare' bool Si true, l'image sera redimensionnée/tronquée pour former un
+carré (largeur et hauteur identiques) suivant la largeur ou la hauteur
+définie. - 'name' string Nom à donner au fichier (est formaté comme il faut
+par la fonction) sans son extension (celle-ci est automatiquement rajoutée).</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean|string</code><br>false si erreur, nom du fichier chargé si OK<br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

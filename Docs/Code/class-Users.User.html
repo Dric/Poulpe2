@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Users\User</title>
+
+	<script type="text/javascript" src="resources/combined.js?522072721"></script>
+	<script type="text/javascript" src="elementlist.js?2443433404"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">Overview</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Users.html" title="Summary of Users"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-Components.html">Components</a>
+						</li>
+				<li><a href="namespace-Db.html">Db</a>
+						</li>
+				<li><a href="namespace-FileSystem.html">FileSystem</a>
+						</li>
+				<li><a href="namespace-Forms.html">Forms<span></span></a>
+						<ul>
+				<li><a href="namespace-Forms.Fields.html">Fields</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Ldap.html">Ldap</a>
+						</li>
+				<li><a href="namespace-Logs.html">Logs</a>
+						</li>
+				<li><a href="namespace-Michelf.html">Michelf</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-Profiles.html">Profiles</a>
+						</li>
+				<li><a href="namespace-Settings.html">Settings</a>
+						</li>
+				<li class="active"><a href="namespace-Users.html">Users</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Users.ACL.html">ACL</a></li>
+				<li><a href="class-Users.CurrentUser.html">CurrentUser</a></li>
+				<li><a href="class-Users.LDAPUser.html">LDAPUser</a></li>
+				<li><a href="class-Users.Login.html">Login</a></li>
+				<li class="active"><a href="class-Users.User.html">User</a></li>
+				<li><a href="class-Users.UsersManagement.html">UsersManagement</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class User</h1>
+
+
+	<div class="description">
+	
+<p>Classe utilisateur</p>
+
+	</div>
+
+
+
+	<div>
+		<h3>Direct known subclasses</h3>
+		<p class="elementList">
+			<code><a href="class-Users.CurrentUser.html">Users\CurrentUser</a></code>
+		</p>
+	</div>
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Users.html">Users</a><br />
+		<b>Package:</b> Users<br />
+
+		<b>Located at</b> <a href="source-class-Users.User.html#14-203" title="Go to source code">classes/Users/User.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="__construct" id="___construct">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><a href="source-class-Users.User.html#69-95" title="Go to source code">__construct</a>( <span>integer|string <var>$user</var></span>, <span>boolean <var>$loginOnly</var> = <span class="php-keyword1">false</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Construction d'un objet User</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Construction d'un objet User</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$user</var></dt>
+						<dd><code>integer|string</code><br>$user ID de l'utilisateur</dd>
+						<dt><var>$loginOnly</var></dt>
+						<dd><code>boolean</code><br>$loginOnly Si true, on zappe toutes les infos inutiles (typiquement pour
+vérifier une authentification)</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getId" id="_getId">
+
+			<td class="attributes"><code>
+				 public 
+				integer
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getId">#</a>
+			<code><a href="source-class-Users.User.html#97-103" title="Go to source code">getId</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne l'ID de l'utilisateur</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne l'ID de l'utilisateur</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>integer</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getName" id="_getName">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getName">#</a>
+			<code><a href="source-class-Users.User.html#105-111" title="Go to source code">getName</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne le nom de l'utilisateur</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne le nom de l'utilisateur</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getAvatar" id="_getAvatar">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getAvatar">#</a>
+			<code><a href="source-class-Users.User.html#113-132" title="Go to source code">getAvatar</a>( <span>boolean <var>$realValue</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$title</var> = <span class="php-quote">''</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Retourne l'avatar de l'utilisateur</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne l'avatar de l'utilisateur</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$realValue</var></dt>
+						<dd><code>boolean</code><br>$realValue Retourne la valeur brute de la propriété si true</dd>
+						<dt><var>$title</var></dt>
+						<dd><code>string</code><br>$title Contenu de la propriété alt de l'image (titre affiché sur l'infobulle
+de l'avatar)</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getEmail" id="_getEmail">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getEmail">#</a>
+			<code><a href="source-class-Users.User.html#134-140" title="Go to source code">getEmail</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne l'adresse email de l'utilisateur</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne l'adresse email de l'utilisateur</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getACL" id="_getACL">
+
+			<td class="attributes"><code>
+				 public 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getACL">#</a>
+			<code><a href="source-class-Users.User.html#142-148" title="Go to source code">getACL</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne les permissions de l'utilisateur</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne les permissions de l'utilisateur</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getHash" id="_getHash">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getHash">#</a>
+			<code><a href="source-class-Users.User.html#150-159" title="Go to source code">getHash</a>( )</code>
+
+			<div class="description short">
+				
+<p>retourne le hash de l'utilisateur</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>retourne le hash de l'utilisateur</p>
+
+<p>Le hash est stocké en base de données et permet d'authentifier
+l'utilisateur via un cookie</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getLDAPProps" id="_getLDAPProps">
+
+			<td class="attributes"><code>
+				 public 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getLDAPProps">#</a>
+			<code><a href="source-class-Users.User.html#161-167" title="Go to source code">getLDAPProps</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne les propriétés LDAP de l'utilisateur</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne les propriétés LDAP de l'utilisateur</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setLDAPProps" id="_setLDAPProps">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setLDAPProps">#</a>
+			<code><a href="source-class-Users.User.html#169-175" title="Go to source code">setLDAPProps</a>( <span>array <var>$LDAPProps</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Défini les propriétés LDAP de l'utilisateur</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Défini les propriétés LDAP de l'utilisateur</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$LDAPProps</var></dt>
+						<dd><code>array</code><br>$LDAPProps</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setAvatar" id="_setAvatar">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setAvatar">#</a>
+			<code><a href="source-class-Users.User.html#177-183" title="Go to source code">setAvatar</a>( <span>string <var>$avatar</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Défini l'avatar de l'utilisateur</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Défini l'avatar de l'utilisateur</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$avatar</var></dt>
+						<dd><code>string</code><br>$avatar</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getPwd" id="_getPwd">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getPwd">#</a>
+			<code><a href="source-class-Users.User.html#185-191" title="Go to source code">getPwd</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne le mot de passe crypté de l'utilisateur</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne le mot de passe crypté de l'utilisateur</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setPwd" id="_setPwd">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setPwd">#</a>
+			<code><a href="source-class-Users.User.html#193-201" title="Go to source code">setPwd</a>( <span>string <var>$pwd</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Défini un mot de passe pour l'utilisateur</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Défini un mot de passe pour l'utilisateur</p>
+
+<p>Le mot de passe est crypté et salé avec la constante SALT_AUTH</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$pwd</var></dt>
+						<dd><code>string</code><br>$pwd</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="id" id="$id">
+			<td class="attributes"><code>
+				protected  
+				integer
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Users.User.html#21-25" title="Go to source code"><var>$id</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$id" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>ID de l'utilisateur</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>ID de l'utilisateur</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="name" id="$name">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Users.User.html#27-31" title="Go to source code"><var>$name</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$name" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Pseudonyme ou prénom de l'utilisateur</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Pseudonyme ou prénom de l'utilisateur</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="avatar" id="$avatar">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Users.User.html#33-37" title="Go to source code"><var>$avatar</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$avatar" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Nom du fichier image de l'avatar</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Nom du fichier image de l'avatar</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="email" id="$email">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Users.User.html#39-43" title="Go to source code"><var>$email</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$email" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Adresse email de l'utilisateur</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Adresse email de l'utilisateur</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="pwd" id="$pwd">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Users.User.html#45-49" title="Go to source code"><var>$pwd</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$pwd" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Mot de passe crypté</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Mot de passe crypté</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="hash" id="$hash">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Users.User.html#51-55" title="Go to source code"><var>$hash</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$hash" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Hash d'authentification de l'utilisateur</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Hash d'authentification de l'utilisateur</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="LDAPProps" id="$LDAPProps">
+			<td class="attributes"><code>
+				protected  
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Users.User.html#57-61" title="Go to source code"><var>$LDAPProps</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$LDAPProps" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Propriétés utilisateurs provenant d'un annuaire LDAP</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Propriétés utilisateurs provenant d'un annuaire LDAP</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="ACL" id="$ACL">
+			<td class="attributes"><code>
+				protected  
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Users.User.html#63-67" title="Go to source code"><var>$ACL</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$ACL" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Tableau des permissions de l'utilisateur</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Tableau des permissions de l'utilisateur</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

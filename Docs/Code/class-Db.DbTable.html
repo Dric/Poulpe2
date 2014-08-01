@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Db\DbTable</title>
+
+	<script type="text/javascript" src="resources/combined.js?522072721"></script>
+	<script type="text/javascript" src="elementlist.js?2443433404"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">Overview</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Db.html" title="Summary of Db"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-Components.html">Components</a>
+						</li>
+				<li class="active"><a href="namespace-Db.html">Db</a>
+						</li>
+				<li><a href="namespace-FileSystem.html">FileSystem</a>
+						</li>
+				<li><a href="namespace-Forms.html">Forms<span></span></a>
+						<ul>
+				<li><a href="namespace-Forms.Fields.html">Fields</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Ldap.html">Ldap</a>
+						</li>
+				<li><a href="namespace-Logs.html">Logs</a>
+						</li>
+				<li><a href="namespace-Michelf.html">Michelf</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-Profiles.html">Profiles</a>
+						</li>
+				<li><a href="namespace-Settings.html">Settings</a>
+						</li>
+				<li><a href="namespace-Users.html">Users</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Db.Db.html">Db</a></li>
+				<li><a href="class-Db.DbFieldSettings.html">DbFieldSettings</a></li>
+				<li class="active"><a href="class-Db.DbTable.html">DbTable</a></li>
+				<li><a href="class-Db.ForeignKey.html">ForeignKey</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class DbTable</h1>
+
+
+	<div class="description">
+	
+<p>Objet de table de base de données</p>
+
+<p>Les champs de la table sont des objets de type Field, afin de pouvoir gérer
+leur affichage et leur typage. Cela permet également pour la gestion
+automatique des enregistrements de table de générer un formulaire possédant
+automatiquement les restrictions de saisie requises</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Db.html">Db</a><br />
+		<b>Package:</b> Db<br />
+
+		<b>Located at</b> <a href="source-class-Db.DbTable.html#17-380" title="Go to source code">classes/Db/DbTable.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="__construct" id="___construct">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><a href="source-class-Db.DbTable.html#53-66" title="Go to source code">__construct</a>( <span>string <var>$name</var></span>, <span>string <var>$title</var></span>, <span>string <var>$class</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$help</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Construction d'une table de bdd</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Construction d'une table de bdd</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$name</var></dt>
+						<dd><code>string</code><br>$name Nom de la table</dd>
+						<dt><var>$title</var></dt>
+						<dd><code>string</code><br>$title Titre lorsqu'on affiche la table</dd>
+						<dt><var>$class</var></dt>
+						<dd><code>string</code><br>$class Classe CSS optionnelle à appliquer à la table à l'affichage
+(facultatif)</dd>
+						<dt><var>$help</var></dt>
+						<dd><code>string</code><br>$help Aide optionnelle affichée en infobulle à côté du titre (facultatif)</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="display" id="_display">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_display">#</a>
+			<code><a href="source-class-Db.DbTable.html#68-132" title="Go to source code">display</a>( )</code>
+
+			<div class="description short">
+				
+<p>Affichage de la table dans un formulaire</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Affichage de la table dans un formulaire</p>
+
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="createInDb" id="_createInDb">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_createInDb">#</a>
+			<code><a href="source-class-Db.DbTable.html#134-240" title="Go to source code">createInDb</a>( )</code>
+
+			<div class="description short">
+				
+<p>Création de la table en base de données</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Création de la table en base de données</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="insertRows" id="_insertRows">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_insertRows">#</a>
+			<code><a href="source-class-Db.DbTable.html#242-329" title="Go to source code">insertRows</a>( <span>array <var>$rows</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Insère des lignes dans la table</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Insère des lignes dans la table</p>
+
+<p>Les valeurs à insérer sont définies en tant que tableau associatif :<br />
+$row[ID] = array( champ =&gt; Valeur champ2 =&gt; Valeur2 );</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$rows</var></dt>
+						<dd><code>array</code><br>$rows Tableau associatif de lignes à insérer, avec l'ID de la ligne en tant
+que clé</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getName" id="_getName">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getName">#</a>
+			<code><a href="source-class-Db.DbTable.html#331-337" title="Go to source code">getName</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne le nom de la table</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne le nom de la table</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getFields" id="_getFields">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-Forms.Field.html">Forms\Field</a>[]</code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getFields">#</a>
+			<code><a href="source-class-Db.DbTable.html#339-345" title="Go to source code">getFields</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne les champs de la table</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne les champs de la table</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Forms.Field.html">Forms\Field</a>[]</code></code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getTitle" id="_getTitle">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getTitle">#</a>
+			<code><a href="source-class-Db.DbTable.html#347-353" title="Go to source code">getTitle</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne le titre de la table</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne le titre de la table</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="addField" id="_addField">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_addField">#</a>
+			<code><a href="source-class-Db.DbTable.html#355-363" title="Go to source code">addField</a>( <span><code><a href="class-Forms.Field.html">Forms\Field</a></code> <var>$field</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Ajoute un champ à la table.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Ajoute un champ à la table.</p>
+
+<p>Ce champ doit avoir un objet DbFieldSettings associé (via la variable
+Pattern)</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$field</var></dt>
+						<dd><code><code><a href="class-Forms.Field.html">Forms\Field</a></code></code><br>$field</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getHelp" id="_getHelp">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getHelp">#</a>
+			<code><a href="source-class-Db.DbTable.html#365-371" title="Go to source code">getHelp</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne l'aide succinte associée à la table</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne l'aide succinte associée à la table</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getClass" id="_getClass">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getClass">#</a>
+			<code><a href="source-class-Db.DbTable.html#373-379" title="Go to source code">getClass</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne la classe CSS utilisée lors de l'affichage de la table</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne la classe CSS utilisée lors de l'affichage de la table</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="name" id="$name">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Db.DbTable.html#27-31" title="Go to source code"><var>$name</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$name" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Nom de la table en bdd</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Nom de la table en bdd</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="fields" id="$fields">
+			<td class="attributes"><code>
+				protected  
+				<code><a href="class-Forms.Field.html">Forms\Field</a>[]</code>
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Db.DbTable.html#32-36" title="Go to source code"><var>$fields</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$fields" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Tableau d'objets Field</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Tableau d'objets Field</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="class" id="$class">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Db.DbTable.html#37-41" title="Go to source code"><var>$class</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$class" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Classe CSS optionnelle à appliquer à la table</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Classe CSS optionnelle à appliquer à la table</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="title" id="$title">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Db.DbTable.html#42-46" title="Go to source code"><var>$title</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$title" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Titre à afficher au dessus de la table</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Titre à afficher au dessus de la table</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="help" id="$help">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Db.DbTable.html#47-51" title="Go to source code"><var>$help</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$help" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Aide optionnelle à afficher à côté du titre en infobulle</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Aide optionnelle à afficher à côté du titre en infobulle</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

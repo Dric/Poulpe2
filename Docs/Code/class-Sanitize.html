@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Sanitize</title>
+
+	<script type="text/javascript" src="resources/combined.js?522072721"></script>
+	<script type="text/javascript" src="elementlist.js?2443433404"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">Overview</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-None.html" title="Summary of None"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-Components.html">Components</a>
+						</li>
+				<li><a href="namespace-Db.html">Db</a>
+						</li>
+				<li><a href="namespace-FileSystem.html">FileSystem</a>
+						</li>
+				<li><a href="namespace-Forms.html">Forms<span></span></a>
+						<ul>
+				<li><a href="namespace-Forms.Fields.html">Fields</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Ldap.html">Ldap</a>
+						</li>
+				<li><a href="namespace-Logs.html">Logs</a>
+						</li>
+				<li><a href="namespace-Michelf.html">Michelf</a>
+						</li>
+				<li class="active"><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-Profiles.html">Profiles</a>
+						</li>
+				<li><a href="namespace-Settings.html">Settings</a>
+						</li>
+				<li><a href="namespace-Users.html">Users</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Check.html">Check</a></li>
+				<li><a href="class-Front.html">Front</a></li>
+				<li><a href="class-Get.html">Get</a></li>
+				<li class="active"><a href="class-Sanitize.html">Sanitize</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class Sanitize</h1>
+
+
+	<div class="description">
+	
+<p>Classe de fonctions de transformation de données</p>
+
+<p>Fonctions de base de transformations de chaînes, dates, int, etc.</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		
+		<b>Package:</b> Sanitize<br />
+
+		<b>Located at</b> <a href="source-class-Sanitize.html#11-319" title="Go to source code">classes/Sanitize.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="sanitizeFilename" id="_sanitizeFilename">
+
+			<td class="attributes"><code>
+				 public static
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_sanitizeFilename">#</a>
+			<code><a href="source-class-Sanitize.html#20-54" title="Go to source code">sanitizeFilename</a>( <span>string <var>$f</var></span>, <span>boolean <var>$toLower</var> = <span class="php-keyword1">true</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Supprime tout caractère louche, accentué ou autre d'une chaîne</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Supprime tout caractère louche, accentué ou autre d'une chaîne</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$f</var></dt>
+						<dd><code>string</code><br>$f Chaîne à traiter</dd>
+						<dt><var>$toLower</var></dt>
+						<dd><code>boolean</code><br>$toLower Retourner la chaîne en minuscules</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+					<h4>From</h4>
+					<div class="list">
+							&lt;<a href="http://www.house6.com/blog/?p=83">www.house6.com/blog/?p=83</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="arrayToString" id="_arrayToString">
+
+			<td class="attributes"><code>
+				 public static
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_arrayToString">#</a>
+			<code><a href="source-class-Sanitize.html#56-96" title="Go to source code">arrayToString</a>( <span>array <var>$array</var></span>, <span>string <var>$glue</var> = <span class="php-quote">', '</span></span>, <span>boolean|string <var>$sanitizeFor</var> = <span class="php-keyword1">false</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Transforme un tableau en chaîne de caractères (typiquement pour une
+sauvegarde en bdd)</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Transforme un tableau en chaîne de caractères (typiquement pour une
+sauvegarde en bdd)</p>
+
+<p>Si le tableau est associatif, alors il sera sérialisé pour conserver les
+clés.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$array</var></dt>
+						<dd><code>array</code><br>$array Tableau</dd>
+						<dt><var>$glue</var></dt>
+						<dd><code>string</code><br>$glue Chaîne de liaison entre les valeurs</dd>
+						<dt><var>$sanitizeFor</var></dt>
+						<dd><code>boolean|string</code><br>$sanitizeFor Met en forme les valeurs du tableau. Peut prendre les valeurs
+suivantes : - false (défaut) - <code>db</code> - <code>js</code> -
+<code>file</code></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="date" id="_date">
+
+			<td class="attributes"><code>
+				 public static
+				boolean|integer|string|null
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_date">#</a>
+			<code><a href="source-class-Sanitize.html#98-129" title="Go to source code">date</a>( <span>integer|string <var>$date</var></span>, <span>string <var>$to</var> = <span class="php-quote">'timestamp'</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Transforme un format de date en un autre</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Transforme un format de date en un autre</p>
+
+<p>Cette méthode accepte soit un timestamp soit une date normale en entrée</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$date</var></dt>
+						<dd><code>integer|string</code><br>$date Date à transformer</dd>
+						<dt><var>$to</var></dt>
+						<dd><code>string</code><br>$to Format de retour - timestamp - date française - dateTime française (date
+et heure) - fullDateTime française (date, heure, minutes, secondes) -
+dateAtTime française (date et heure du type 24/12/2014 à 08h45) - time Heure,
+minutes et secondes</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean|integer|string|null</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="time" id="_time">
+
+			<td class="attributes"><code>
+				 public static
+				boolean|integer|null|string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_time">#</a>
+			<code><a href="source-class-Sanitize.html#131-156" title="Go to source code">time</a>( <span>integer|string <var>$time</var></span>, <span>string <var>$to</var> = <span class="php-quote">'timestamp'</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Transforme un format d'heure en un autre</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Transforme un format d'heure en un autre</p>
+
+<p>Cette méthode accepte soit une durée en secondes depuis minuit, soit une
+heure formatée en hh:mm ou hh:mm:ss</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$time</var></dt>
+						<dd><code>integer|string</code><br>$time Heure à transformer</dd>
+						<dt><var>$to</var></dt>
+						<dd><code>string</code><br>$to Format de retour - <code>timestamp</code> nombre de secondes écoulées
+depuis minuit - <code>time</code> hh:mm - <code>fullTime</code> hh:mm:ss</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean|integer|null|string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="sortObjectList" id="_sortObjectList">
+
+			<td class="attributes"><code>
+				 public static
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_sortObjectList">#</a>
+			<code><a href="source-class-Sanitize.html#158-210" title="Go to source code">sortObjectList</a>( <span>array <var>$arrayOrig</var></span>, <span>array <var>$props</var></span>, <span>string <var>$sortOrder</var> = <span class="php-quote">'ASC'</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Trie un tableau d'objets selon les propriétés de ceux-ci.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Trie un tableau d'objets selon les propriétés de ceux-ci.</p>
+
+<p>Le tableau d'origine n'est pas affecté</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$arrayOrig</var></dt>
+						<dd><code>array</code><br>$arrayOrig Tableau d'objets à trier</dd>
+						<dt><var>$props</var></dt>
+						<dd><code>array</code><br>$props Tableau contenant les propriétés sur lesquelles faire le tri</dd>
+						<dt><var>$sortOrder</var></dt>
+						<dd><code>string</code><br>$sortOrder</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array</code><br>Tableau trié<br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="SanitizeForDb" id="_SanitizeForDb">
+
+			<td class="attributes"><code>
+				 public static
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_SanitizeForDb">#</a>
+			<code><a href="source-class-Sanitize.html#212-231" title="Go to source code">SanitizeForDb</a>( <span>mixed <var>$value</var></span>, <span>boolean <var>$quotes</var> = <span class="php-keyword1">true</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Met en forme une valeur pour l'enregistrer en bdd</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Met en forme une valeur pour l'enregistrer en bdd</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$value</var></dt>
+						<dd><code>mixed</code><br>$value Valeur à mettre en forme</dd>
+						<dt><var>$quotes</var></dt>
+						<dd><code>boolean</code><br>$quotes Entoure la valeur avec des guillemets si c'est une chaîne.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="SanitizeForJs" id="_SanitizeForJs">
+
+			<td class="attributes"><code>
+				 public static
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_SanitizeForJs">#</a>
+			<code><a href="source-class-Sanitize.html#233-243" title="Go to source code">SanitizeForJs</a>( <span>string <var>$text</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Met en forme une chaîne de caractères pour un affichage via javascript</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Met en forme une chaîne de caractères pour un affichage via javascript</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$text</var></dt>
+						<dd><code>string</code><br>$text Chaîne de caractères</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="ADToUnixTimestamp" id="_ADToUnixTimestamp">
+
+			<td class="attributes"><code>
+				 public static
+				integer
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_ADToUnixTimestamp">#</a>
+			<code><a href="source-class-Sanitize.html#245-266" title="Go to source code">ADToUnixTimestamp</a>( <span>string <var>$date</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Transforme un timestamp Active Directory en timestamp unix</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Transforme un timestamp Active Directory en timestamp unix</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$date</var></dt>
+						<dd><code>string</code><br>$date Timestamp Active directory</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>integer</code><br />
+					</div>
+
+
+					<h4>See</h4>
+					<div class="list">
+							&lt;<a
+href="http://stackoverflow.com/a/4647445/1749967">http://stackoverflow.com/a/4647445/1749967</a>&gt;<br />
+							&lt;<a
+href="http://maxvit.net/convert_ldap_dates">http://maxvit.net/convert_ldap_dates</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="readableFileSize" id="_readableFileSize">
+
+			<td class="attributes"><code>
+				 public static
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_readableFileSize">#</a>
+			<code><a href="source-class-Sanitize.html#268-282" title="Go to source code">readableFileSize</a>( <span>integer <var>$size</var></span>, <span>integer <var>$NbDecimals</var> = <span class="php-num">2</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Converti une valeur en octets en taille lisible (Mo, Go, etc.)</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Converti une valeur en octets en taille lisible (Mo, Go, etc.)</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$size</var></dt>
+						<dd><code>integer</code><br>$size Taille en octets</dd>
+						<dt><var>$NbDecimals</var></dt>
+						<dd><code>integer</code><br>$NbDecimals Nombre de décimales après la virgule</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="PHPToSQLType" id="_PHPToSQLType">
+
+			<td class="attributes"><code>
+				 public static
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_PHPToSQLType">#</a>
+			<code><a href="source-class-Sanitize.html#284-297" title="Go to source code">PHPToSQLType</a>( <span>string <var>$type</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Transforme un type PHP en type SQL</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Transforme un type PHP en type SQL</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$type</var></dt>
+						<dd><code>string</code><br>$type Type à transformer</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+					<h4>See</h4>
+					<div class="list">
+							&lt;<a
+href="http://dev.mysql.com/doc/refman/5.0/fr/numeric-type-overview.html">http://dev.mysql.com/doc/refman/5.0/fr/numeric-type-overview.html</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="ucname" id="_ucname">
+
+			<td class="attributes"><code>
+				 public static
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_ucname">#</a>
+			<code><a href="source-class-Sanitize.html#299-317" title="Go to source code">ucname</a>( <span>string <var>$string</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Transforme une chaîne en mettant en majuscule les premières lettre de
+chaque mot.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Transforme une chaîne en mettant en majuscule les premières lettre de
+chaque mot.</p>
+
+<p>Utile pour mettre en forme les prénoms</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$string</var></dt>
+						<dd><code>string</code><br>$string Chaîne à mettre en forme</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

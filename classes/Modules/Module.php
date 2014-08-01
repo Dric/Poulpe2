@@ -286,7 +286,7 @@ class Module {
 	}
 
 	/**
-	 * Affiche les boutons de gestion des ACl et des paramètres
+	 * Affiche les boutons de gestion des ACL et des paramètres
 	 */
 	protected function manageModuleButtons(){
 		if (!empty($this->settings) and (ACL::canAdmin('module', $this->id) or $this->allowUsersSettings)) {

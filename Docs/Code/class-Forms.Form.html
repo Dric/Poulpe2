@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Forms\Form</title>
+
+	<script type="text/javascript" src="resources/combined.js?522072721"></script>
+	<script type="text/javascript" src="elementlist.js?2443433404"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">Overview</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Forms.html" title="Summary of Forms"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-Components.html">Components</a>
+						</li>
+				<li><a href="namespace-Db.html">Db</a>
+						</li>
+				<li><a href="namespace-FileSystem.html">FileSystem</a>
+						</li>
+				<li class="active"><a href="namespace-Forms.html">Forms<span></span></a>
+						<ul>
+				<li><a href="namespace-Forms.Fields.html">Fields</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Ldap.html">Ldap</a>
+						</li>
+				<li><a href="namespace-Logs.html">Logs</a>
+						</li>
+				<li><a href="namespace-Michelf.html">Michelf</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-Profiles.html">Profiles</a>
+						</li>
+				<li><a href="namespace-Settings.html">Settings</a>
+						</li>
+				<li><a href="namespace-Users.html">Users</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Forms.Field.html">Field</a></li>
+				<li class="active"><a href="class-Forms.Form.html">Form</a></li>
+				<li><a href="class-Forms.JSSwitch.html">JSSwitch</a></li>
+				<li><a href="class-Forms.Pattern.html">Pattern</a></li>
+				<li><a href="class-Forms.PostedData.html">PostedData</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class Form</h1>
+
+
+	<div class="description">
+	
+<p>Gestion des formulaires Class Form</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Forms.html">Forms</a><br />
+		<b>Package:</b> Forms<br />
+
+		<b>Located at</b> <a href="source-class-Forms.Form.html#15-210" title="Go to source code">classes/Forms/Form.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="__construct" id="___construct">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><a href="source-class-Forms.Form.html#83-128" title="Go to source code">__construct</a>( <span>string <var>$name</var></span>, <span>string <var>$action</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$fields</var> = <span class="php-keyword1">array</span>()</span>, <span>string <var>$component</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$componentId</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$method</var> = <span class="php-quote">'post'</span></span>, <span>string <var>$class</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$parameters</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$noToken</var> = <span class="php-keyword1">false</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Construction du formulaire</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Construction du formulaire</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$name</var></dt>
+						<dd><code>string</code><br>$name Nom du formulaire</dd>
+						<dt><var>$action</var></dt>
+						<dd><code>string</code><br>$action Action du formulaire (url de redirection, si nécessaire - il vaut mieux
+privilégier un champ masqué ou une valeur de bouton d'envoi s'il n'y a pas de
+redirection à effectuer)</dd>
+						<dt><var>$fields</var></dt>
+						<dd><code>array</code><br>$fields Champs du formulaire, répartis dans 3 index du tableau :
+<code>field</code>, <code>hidden</code> ou <code>button</code></dd>
+						<dt><var>$component</var></dt>
+						<dd><code>string</code><br>$component Composant (<code>module</code>, <code>admin</code>,
+<code>profil</code>, etc.)</dd>
+						<dt><var>$componentId</var></dt>
+						<dd><code>integer</code><br>$componentId Id du composant</dd>
+						<dt><var>$method</var></dt>
+						<dd><code>string</code><br>$method Méthode (<code>post</code> ou <code>get</code>)</dd>
+						<dt><var>$class</var></dt>
+						<dd><code>string</code><br>$class Classe CSS à appliquer au formulaire</dd>
+						<dt><var>$parameters</var></dt>
+						<dd><code>array</code><br>$parameters Paramètres optionnels à passer dans l'url, sous forme de tableau
+associatif</dd>
+						<dt><var>$noToken</var></dt>
+						<dd><code>boolean</code><br>$noToken Désactive le jeton de sécurité</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="addField" id="_addField">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_addField">#</a>
+			<code><a href="source-class-Forms.Form.html#130-145" title="Go to source code">addField</a>( <span><code><a href="class-Forms.Field.html">Forms\Field</a></code> <var>$field</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Ajoute un champ au formulaire</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Ajoute un champ au formulaire</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$field</var></dt>
+						<dd><code><code><a href="class-Forms.Field.html">Forms\Field</a></code></code><br>$field Champ à ajouter. On n'utilise pas directement la classe Field mais une
+de ses classes enfant</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="display" id="_display">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_display">#</a>
+			<code><a href="source-class-Forms.Form.html#147-201" title="Go to source code">display</a>( )</code>
+
+			<div class="description short">
+				
+<p>Affiche un formulaire</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Affiche un formulaire</p>
+
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getFieldTypes" id="_getFieldTypes">
+
+			<td class="attributes"><code>
+				 public static
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getFieldTypes">#</a>
+			<code><a href="source-class-Forms.Form.html#203-209" title="Go to source code">getFieldTypes</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne le type de champs autorisés</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne le type de champs autorisés</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="name" id="$name">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Forms.Form.html#23-27" title="Go to source code"><var>$name</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$name" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Nom du formulaire (repris dans l'id de l'élément &lt;form&gt;)</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Nom du formulaire (repris dans l'id de l'élément &lt;form&gt;)</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="action" id="$action">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Forms.Form.html#29-33" title="Go to source code"><var>$action</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$action" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Action du formulaire (propriété action de l'élément &lt;form&gt;</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Action du formulaire (propriété action de l'élément &lt;form&gt;</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="component" id="$component">
+			<td class="attributes"><code>
+				protected  
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Forms.Form.html#35-46" title="Go to source code"><var>$component</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$component" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Composant au sein duquel est chargé le formulaire</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Composant au sein duquel est chargé le formulaire</p>
+
+<p>Cette propriété est obligatoire si on veut désactiver des champs suivant
+les permissions de l'utilisateur sur le composant</p>
+
+
+						<h4>See</h4>
+						<div class="list">
+								<code><code><a href="class-Users.ACL.html">Users\ACL</a></code></code><br />
+						</div>
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="class" id="$class">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Forms.Form.html#48-52" title="Go to source code"><var>$class</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$class" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Classe CSS optionnelle à appliquer au formulaire</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Classe CSS optionnelle à appliquer au formulaire</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="method" id="$method">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Forms.Form.html#54-58" title="Go to source code"><var>$method</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$method" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Méthode d'envoi (<code>POST</code> ou <code>GET</code>)</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Méthode d'envoi (<code>POST</code> ou <code>GET</code>)</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="fields" id="$fields">
+			<td class="attributes"><code>
+				protected  
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Forms.Form.html#60-64" title="Go to source code"><var>$fields</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$fields" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Tableau des champs du formulaire</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Tableau des champs du formulaire</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="parameters" id="$parameters">
+			<td class="attributes"><code>
+				protected  
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Forms.Form.html#66-73" title="Go to source code"><var>$parameters</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$parameters" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Paramètres supplémentaires à passer dans le formulaire sous forme de
+tableau associatif <code>Variable =&gt; Valeur</code></p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Paramètres supplémentaires à passer dans le formulaire sous forme de
+tableau associatif <code>Variable =&gt; Valeur</code></p>
+
+<p>Ces paramètres sont passés en tant que champs masqués</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="fieldTypes" id="$fieldTypes">
+			<td class="attributes"><code>
+				protected static 
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Forms.Form.html#75-81" title="Go to source code"><var>$fieldTypes</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$fieldTypes" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Types de champs</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Types de champs</p>
+
+<p>Permet de séparer les types de champs entre les champs, les champs masqués
+et les boutons</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Users\ACL</title>
+
+	<script type="text/javascript" src="resources/combined.js?522072721"></script>
+	<script type="text/javascript" src="elementlist.js?2443433404"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">Overview</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Users.html" title="Summary of Users"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-Components.html">Components</a>
+						</li>
+				<li><a href="namespace-Db.html">Db</a>
+						</li>
+				<li><a href="namespace-FileSystem.html">FileSystem</a>
+						</li>
+				<li><a href="namespace-Forms.html">Forms<span></span></a>
+						<ul>
+				<li><a href="namespace-Forms.Fields.html">Fields</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Ldap.html">Ldap</a>
+						</li>
+				<li><a href="namespace-Logs.html">Logs</a>
+						</li>
+				<li><a href="namespace-Michelf.html">Michelf</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-Profiles.html">Profiles</a>
+						</li>
+				<li><a href="namespace-Settings.html">Settings</a>
+						</li>
+				<li class="active"><a href="namespace-Users.html">Users</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Users.ACL.html">ACL</a></li>
+				<li><a href="class-Users.CurrentUser.html">CurrentUser</a></li>
+				<li><a href="class-Users.LDAPUser.html">LDAPUser</a></li>
+				<li><a href="class-Users.Login.html">Login</a></li>
+				<li><a href="class-Users.User.html">User</a></li>
+				<li><a href="class-Users.UsersManagement.html">UsersManagement</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class ACL</h1>
+
+
+	<div class="description">
+	
+<p>Classe de gestion des ACL</p>
+
+<p>Permet de définir des droits sur des composants du site pour des
+utilisateurs. l'ID d'utilisateur 0 signifie 'tout le monde' et sert à définir
+des ACL par défaut pour un composant.</p>
+
+<p>Pour gérer les ACL de tout composant, on essaie de faire un tableau
+associatif de la forme $ACL[$component][$id][$user][$type] = $value Pour les ACL
+d'un utilisateur, on aura ainsi $userACL[$component][$id][$type] = $value Pour
+les ACL d'un module, on aura $moduleACL[$user][$type] = $value</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Users.html">Users</a><br />
+		<b>Package:</b> Users<br />
+
+		<b>Located at</b> <a href="source-class-Users.ACL.html#17-429" title="Go to source code">classes/Users/ACL.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="getUserACL" id="_getUserACL">
+
+			<td class="attributes"><code>
+				 public static
+				boolean|array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getUserACL">#</a>
+			<code><a href="source-class-Users.ACL.html#41-68" title="Go to source code">getUserACL</a>( <span>integer <var>$user</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Retourne les autorisations d'un utilisateur</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne les autorisations d'un utilisateur</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$user</var></dt>
+						<dd><code>integer</code><br>$user ID d'un utilisateur</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean|array</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="canAdmin" id="_canAdmin">
+
+			<td class="attributes"><code>
+				 public static
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_canAdmin">#</a>
+			<code><a href="source-class-Users.ACL.html#70-81" title="Go to source code">canAdmin</a>( <span>string <var>$component</var></span>, <span>integer <var>$componentId</var></span>, <span>integer <var>$userId</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Détermine si l'utilisateur a le droit d'administrer un composant</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Détermine si l'utilisateur a le droit d'administrer un composant</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$component</var></dt>
+						<dd><code>string</code><br>$component Composant (module, site,...)</dd>
+						<dt><var>$componentId</var></dt>
+						<dd><code>integer</code><br>$componentId Id du composant</dd>
+						<dt><var>$userId</var></dt>
+						<dd><code>integer</code><br>$userId Id de l'utilisateur (utilisateur courant si vide)</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="canModify" id="_canModify">
+
+			<td class="attributes"><code>
+				 public static
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_canModify">#</a>
+			<code><a href="source-class-Users.ACL.html#83-94" title="Go to source code">canModify</a>( <span>string <var>$component</var></span>, <span>integer <var>$componentId</var></span>, <span>integer <var>$userId</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Détermine si l'utilisateur a le droit de modifier un composant</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Détermine si l'utilisateur a le droit de modifier un composant</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$component</var></dt>
+						<dd><code>string</code><br>$component Composant (module, site,...)</dd>
+						<dt><var>$componentId</var></dt>
+						<dd><code>integer</code><br>$componentId Id du composant</dd>
+						<dt><var>$userId</var></dt>
+						<dd><code>integer</code><br>$userId Id de l'utilisateur (utilisateur courant si vide)</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="canAccess" id="_canAccess">
+
+			<td class="attributes"><code>
+				 public static
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_canAccess">#</a>
+			<code><a href="source-class-Users.ACL.html#96-107" title="Go to source code">canAccess</a>( <span>string <var>$component</var></span>, <span>integer <var>$componentId</var></span>, <span>integer <var>$userId</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Détermine si l'utilisateur a le droit d'accéder à un composant</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Détermine si l'utilisateur a le droit d'accéder à un composant</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$component</var></dt>
+						<dd><code>string</code><br>$component Composant (module, site,...)</dd>
+						<dt><var>$componentId</var></dt>
+						<dd><code>integer</code><br>$componentId Id du composant</dd>
+						<dt><var>$userId</var></dt>
+						<dd><code>integer</code><br>$userId Id de l'utilisateur (utilisateur courant si vide)</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="can" id="_can">
+
+			<td class="attributes"><code>
+				 public static
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_can">#</a>
+			<code><a href="source-class-Users.ACL.html#109-152" title="Go to source code">can</a>( <span>string <var>$component</var></span>, <span>integer <var>$componentId</var></span>, <span>integer <var>$userId</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$type</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Détermine si l'utilisateur a le droit d'effectuer une action $type sur un
+composant</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Détermine si l'utilisateur a le droit d'effectuer une action $type sur un
+composant</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$component</var></dt>
+						<dd><code>string</code><br>$component Composant (module, site,...)</dd>
+						<dt><var>$componentId</var></dt>
+						<dd><code>integer</code><br>$componentId Id du composant</dd>
+						<dt><var>$userId</var></dt>
+						<dd><code>integer</code><br>$userId Id de l'utilisateur (utilisateur courant si vide)</dd>
+						<dt><var>$type</var></dt>
+						<dd><code>string</code><br>$type Type d'ACL (admin, access)</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="set" id="_set">
+
+			<td class="attributes"><code>
+				 public static
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_set">#</a>
+			<code><a href="source-class-Users.ACL.html#154-199" title="Go to source code">set</a>( <span>string <var>$component</var></span>, <span>integer <var>$componentId</var></span>, <span>integer <var>$userId</var></span>, <span>string <var>$type</var></span>, <span>boolean <var>$value</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Définit une règle $type sur un composant</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Définit une règle $type sur un composant</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$component</var></dt>
+						<dd><code>string</code><br>$component Composant (module, site,...)</dd>
+						<dt><var>$componentId</var></dt>
+						<dd><code>integer</code><br>$componentId Id du composant</dd>
+						<dt><var>$userId</var></dt>
+						<dd><code>integer</code><br>$userId Id de l'utilisateur</dd>
+						<dt><var>$type</var></dt>
+						<dd><code>string</code><br>$type Type d'ACL (admin, access)</dd>
+						<dt><var>$value</var></dt>
+						<dd><code>boolean</code><br>$value Valeur de l'ACL (true : permis, false : refusé)</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setArray" id="_setArray">
+
+			<td class="attributes"><code>
+				 public static
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setArray">#</a>
+			<code><a href="source-class-Users.ACL.html#201-236" title="Go to source code">setArray</a>( <span>array <var>$ACLArr</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Définit des règles $type sur des composants</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Définit des règles $type sur des composants</p>
+
+<p>Cette fonction fait la même chose que ACL::set(), mais avec un tableau
+d'ACL.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$ACLArr</var></dt>
+						<dd><code>array</code><br>$ACLArr Tableau d'ACL de la forme
+$array[(string)$component][(int)$componentId][(int)$user][(string)$type] =
+(bool)$value</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="requestACLSave" id="_requestACLSave">
+
+			<td class="attributes"><code>
+				 public static
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_requestACLSave">#</a>
+			<code><a href="source-class-Users.ACL.html#238-265" title="Go to source code">requestACLSave</a>( )</code>
+
+			<div class="description short">
+				
+<p>Récupère l'envoi d'un formulaire pour sauvegarder des ACL</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Récupère l'envoi d'un formulaire pour sauvegarder des ACL</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="delete" id="_delete">
+
+			<td class="attributes"><code>
+				 public static
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_delete">#</a>
+			<code><a href="source-class-Users.ACL.html#267-318" title="Go to source code">delete</a>( <span>string <var>$component</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$componentId</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$userId</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$type</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Supprime des ACL</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Supprime des ACL</p>
+
+<p>Si $component est vide, alors on supprime tout (si $type est vide) ou une
+partie (si $type est renseigné) des ACL d'un utilisateur Si $userId est vide,
+on réinitialise les ACL pour un composant (ou une partie si $type est
+renseigné)</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$component</var></dt>
+						<dd><code>string</code><br>$component Composant (module, site,...)</dd>
+						<dt><var>$componentId</var></dt>
+						<dd><code>integer</code><br>$componentId Id du composant</dd>
+						<dt><var>$userId</var></dt>
+						<dd><code>integer</code><br>$userId Id de l'utilisateur</dd>
+						<dt><var>$type</var></dt>
+						<dd><code>string</code><br>$type Type d'ACL (admin, access)</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="adminACL" id="_adminACL">
+
+			<td class="attributes"><code>
+				 public static
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_adminACL">#</a>
+			<code><a href="source-class-Users.ACL.html#320-428" title="Go to source code">adminACL</a>( <span>string <var>$component</var></span>, <span>string <var>$componentId</var></span>, <span>string <var>$title</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Affiche le formulaire de réglage des ACL</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Affiche le formulaire de réglage des ACL</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$component</var></dt>
+						<dd><code>string</code><br>$component Type de composant (module, admin, etc.)</dd>
+						<dt><var>$componentId</var></dt>
+						<dd><code>string</code><br>$componentId ID du composant</dd>
+						<dt><var>$title</var></dt>
+						<dd><code>string</code><br>$title Nom du composant administré (facultatif)</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="typesLabels" id="$typesLabels">
+			<td class="attributes"><code>
+				protected static 
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Users.ACL.html#31-39" title="Go to source code"><var>$typesLabels</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$typesLabels" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Types d'autorisations</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Types d'autorisations</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

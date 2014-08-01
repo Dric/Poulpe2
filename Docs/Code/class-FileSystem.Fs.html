@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class FileSystem\Fs</title>
+
+	<script type="text/javascript" src="resources/combined.js?522072721"></script>
+	<script type="text/javascript" src="elementlist.js?2443433404"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">Overview</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-FileSystem.html" title="Summary of FileSystem"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-Components.html">Components</a>
+						</li>
+				<li><a href="namespace-Db.html">Db</a>
+						</li>
+				<li class="active"><a href="namespace-FileSystem.html">FileSystem</a>
+						</li>
+				<li><a href="namespace-Forms.html">Forms<span></span></a>
+						<ul>
+				<li><a href="namespace-Forms.Fields.html">Fields</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Ldap.html">Ldap</a>
+						</li>
+				<li><a href="namespace-Logs.html">Logs</a>
+						</li>
+				<li><a href="namespace-Michelf.html">Michelf</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-Profiles.html">Profiles</a>
+						</li>
+				<li><a href="namespace-Settings.html">Settings</a>
+						</li>
+				<li><a href="namespace-Users.html">Users</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-FileSystem.Fs.html">Fs</a></li>
+				<li><a href="class-FileSystem.Upload.html">Upload</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class Fs</h1>
+
+
+	<div class="description">
+	
+<p>Classe de gestion des points de montage de partages réseaux</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-FileSystem.html">FileSystem</a><br />
+		<b>Package:</b> FileSystem<br />
+
+		<b>Located at</b> <a href="source-class-FileSystem.Fs.html#15-456" title="Go to source code">classes/FileSystem/Fs.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="__construct" id="___construct">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><a href="source-class-FileSystem.Fs.html#52-86" title="Go to source code">__construct</a>( <span>string <var>$path</var></span>, <span>string <var>$server</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$prefix</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Classe de gestion des points de montage de partages réseaux</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Classe de gestion des points de montage de partages réseaux</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$path</var></dt>
+						<dd><code>string</code><br>$path Chemin du point de montage. - Pour un partage SMB, on indique le chemin
+local ou un partage réseau sur le serveur. Ex : pour accéder au répertoire
+'Scripts' sur le disque D d'un serveur, on indique 'd:\Scripts' et la fonction
+passera par le partage administratif 'd$\scripts' - on peut aussi indiquer un
+partage SMB complet</dd>
+						<dt><var>$server</var></dt>
+						<dd><code>string</code><br>$server Serveur sur lequel est stocké le chemin. Ce serveur doit être soit
+'localhost' pour le serveur local, soit un serveur accessible par smb (partage
+Windows). Ce peut être un nom ou une adresse IP. Le serveur peut-être
+directement renseigné dans $path (facultatif)</dd>
+						<dt><var>$prefix</var></dt>
+						<dd><code>string</code><br>$prefix Préfixe du point de montage dans /mnt. (facultatif)</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getIsMounted" id="_getIsMounted">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getIsMounted">#</a>
+			<code><a href="source-class-FileSystem.Fs.html#88-94" title="Go to source code">getIsMounted</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne le statut du montage</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne le statut du montage</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="isMounted" id="_isMounted">
+
+			<td class="attributes"><code>
+				 protected 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_isMounted">#</a>
+			<code><a href="source-class-FileSystem.Fs.html#96-121" title="Go to source code">isMounted</a>( )</code>
+
+			<div class="description short">
+				
+<p>Vérifie si le partage est monté et accessible.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Vérifie si le partage est monté et accessible.</p>
+
+<p>Si le serveur est localhost, on vérifie juste que l'accès est possible.</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="mount" id="_mount">
+
+			<td class="attributes"><code>
+				 protected 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_mount">#</a>
+			<code><a href="source-class-FileSystem.Fs.html#123-156" title="Go to source code">mount</a>( )</code>
+
+			<div class="description short">
+				
+<p>Monte le partage SMB</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Monte le partage SMB</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getFilesInDir" id="_getFilesInDir">
+
+			<td class="attributes"><code>
+				 public 
+				string[]|array[]
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getFilesInDir">#</a>
+			<code><a href="source-class-FileSystem.Fs.html#158-192" title="Go to source code">getFilesInDir</a>( <span>string <var>$path</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$extension</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$absolutePath</var> = <span class="php-keyword1">false</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Retourne le contenu récursif d'un répertoire sous forme de tableau</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne le contenu récursif d'un répertoire sous forme de tableau</p>
+
+<p>Si $absolutePath est à true, les fichiers sont retournés avec leur chemin
+absolu dans un tableau séquentiel Si $absolutePath est à false (défaut), les
+fichiers sont retournés dans un tableau associatif dont les clés sont les
+sous-répertoires</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$path</var></dt>
+						<dd><code>string</code><br>$path Chemin à inventorier dans le chemin de base de l'objet Fs instancié
+(facultatif)</dd>
+						<dt><var>$extension</var></dt>
+						<dd><code>string</code><br>$extension Pour ne répertorier que les fichiers ayant une certaine extension
+(facultatif)</dd>
+						<dt><var>$absolutePath</var></dt>
+						<dd><code>boolean</code><br>$absolutePath Retourne un tableau à plat avec tous les fichiers, avec leur
+chemin absolu (facultatif)</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string[]|array[]</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="fileExists" id="_fileExists">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_fileExists">#</a>
+			<code><a href="source-class-FileSystem.Fs.html#194-203" title="Go to source code">fileExists</a>( <span>string <var>$fileName</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Vérifie si un fichier existe</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Vérifie si un fichier existe</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$fileName</var></dt>
+						<dd><code>string</code><br>$fileName Nom du fichier</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getFileMeta" id="_getFileMeta">
+
+			<td class="attributes"><code>
+				 public 
+				boolean|object
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getFileMeta">#</a>
+			<code><a href="source-class-FileSystem.Fs.html#205-271" title="Go to source code">getFileMeta</a>( <span>string <var>$fileName</var></span>, <span>string[]|string <var>$filters</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+			<div class="description short">
+				
+<p>Retourne des informations sur un fichier</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne des informations sur un fichier</p>
+
+<p>Cette méthode est lente à exécuter, aussi vaut-il mieux filtrer les champs
+à retourner afin de n'obtenir que ceux qui seront utilisés.</p>
+
+<p>Propriétés retournées :</p>
+
+<ul>
+	<li>dateCreated</li>
+
+	<li>dateModified</li>
+
+	<li>size</li>
+
+	<li>extension</li>
+
+	<li>type</li>
+
+	<li>chmod</li>
+
+	<li>writable</li>
+
+	<li>owner</li>
+
+	<li>groupOwner</li>
+</ul>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$fileName</var></dt>
+						<dd><code>string</code><br>$fileName Nom du fichier</dd>
+						<dt><var>$filters</var></dt>
+						<dd><code>string[]|string</code><br>$filters Filtres facultatifs sous forme de chaîne ou de tableau séquentiel
+(facultatif)</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean|object</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="readFile" id="_readFile">
+
+			<td class="attributes"><code>
+				 public 
+				string[]|string|boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_readFile">#</a>
+			<code><a href="source-class-FileSystem.Fs.html#273-308" title="Go to source code">readFile</a>( <span>string <var>$fileName</var></span>, <span>string <var>$format</var> = <span class="php-quote">'array'</span></span>, <span>boolean <var>$ignoreNewLines</var> = <span class="php-keyword1">true</span></span>, <span>boolean <var>$skipEmptyLines</var> = <span class="php-keyword1">false</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Lit un fichier</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Lit un fichier</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$fileName</var></dt>
+						<dd><code>string</code><br>$fileName Nom du fichier</dd>
+						<dt><var>$format</var></dt>
+						<dd><code>string</code><br>$format Format de retour (array ou string) - par défaut, renvoie toutes les
+lignes dans un tableau (facultatif)</dd>
+						<dt><var>$ignoreNewLines</var></dt>
+						<dd><code>boolean</code><br>$ignoreNewLines N'ajoute pas les caractères de passage à la ligne à la fin de
+chaque ligne dans le tableau retourné (facultatif)</dd>
+						<dt><var>$skipEmptyLines</var></dt>
+						<dd><code>boolean</code><br>$skipEmptyLines Ignore les lignes vides (désactivé par défaut) (facultatif)</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string[]|string|boolean</code><br>renvoie le fichier dans le format de demandé, ou false en cas d'erreur<br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="touchFile" id="_touchFile">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_touchFile">#</a>
+			<code><a href="source-class-FileSystem.Fs.html#310-322" title="Go to source code">touchFile</a>( <span>string <var>$fileName</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Crée un fichier si celui-ci n'existe pas</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Crée un fichier si celui-ci n'existe pas</p>
+
+<p>La date de modification du fichier sera modifiée à l'heure actuelle si
+celui-ci existe</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$fileName</var></dt>
+						<dd><code>string</code><br>$fileName Nom du fichier à créer si inexistant</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="writeFile" id="_writeFile">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_writeFile">#</a>
+			<code><a href="source-class-FileSystem.Fs.html#324-358" title="Go to source code">writeFile</a>( <span>string <var>$fileName</var></span>, <span>array|string <var>$content</var></span>, <span>boolean <var>$append</var> = <span class="php-keyword1">false</span></span>, <span>boolean <var>$backupFile</var> = <span class="php-keyword1">false</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Ecrit dans un fichier</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Ecrit dans un fichier</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$fileName</var></dt>
+						<dd><code>string</code><br>$fileName Nom du fichier</dd>
+						<dt><var>$content</var></dt>
+						<dd><code>array|string</code><br>$content Contenu du fichier</dd>
+						<dt><var>$append</var></dt>
+						<dd><code>boolean</code><br>$append Ajoute le contenu à la suite du fichier au lieu de l'écraser si
+celui-ci existe (facultatif)</dd>
+						<dt><var>$backupFile</var></dt>
+						<dd><code>boolean</code><br>$backupFile Crée un backup du fichier avec l'extension .backup (facultatif)</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="tailFile" id="_tailFile">
+
+			<td class="attributes"><code>
+				 public 
+				boolean|string[]
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_tailFile">#</a>
+			<code><a href="source-class-FileSystem.Fs.html#360-427" title="Go to source code">tailFile</a>( <span>string <var>$fileName</var></span>, <span>integer <var>$lines</var> = <span class="php-num">1</span></span>, <span>boolean <var>$adaptive</var> = <span class="php-keyword1">true</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Lit les x dernières lignes d'un fichier</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Lit les x dernières lignes d'un fichier</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$fileName</var></dt>
+						<dd><code>string</code><br>$fileName Nom du fichier</dd>
+						<dt><var>$lines</var></dt>
+						<dd><code>integer</code><br>$lines Nombre de lignes à retourner (facultatif)</dd>
+						<dt><var>$adaptive</var></dt>
+						<dd><code>boolean</code><br>$adaptive (facultatif)</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean|string[]</code><br />
+					</div>
+
+
+					<h4>From</h4>
+					<div class="list">
+							&lt;<a
+href="http://stackoverflow.com/questions/15025875/what-is-the-best-way-in-php-to-read-last-lines-from-a-file/15025877#15025877">http://stackoverflow.com/questions/15025875/what-is-the-best-way-in-php-to-read-last-lines-from-a-file/15025877#15025877</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setChmod" id="_setChmod">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setChmod">#</a>
+			<code><a href="source-class-FileSystem.Fs.html#429-446" title="Go to source code">setChmod</a>( <span>string <var>$fileName</var></span>, <span>integer <var>$chmod</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Définit les permissions sur un fichier (chmod)</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Définit les permissions sur un fichier (chmod)</p>
+
+<p>Dans le doute, mieux vaut s'abstenir de faire ceci sur des fichiers
+Windows</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$fileName</var></dt>
+						<dd><code>string</code><br>$fileName Nom du fichier</dd>
+						<dt><var>$chmod</var></dt>
+						<dd><code>integer</code><br>$chmod Chmod à appliquer au fichier</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getMountName" id="_getMountName">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getMountName">#</a>
+			<code><a href="source-class-FileSystem.Fs.html#448-455" title="Go to source code">getMountName</a>( )</code>
+
+			<div class="description short">
+				
+<p>retourne le nom du montage réseau</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>retourne le nom du montage réseau</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="server" id="$server">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-FileSystem.Fs.html#22-26" title="Go to source code"><var>$server</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$server" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Serveur sur lequel faire le montage. Utiliser 'localhost' pour le serveur
+local.</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Serveur sur lequel faire le montage. Utiliser 'localhost' pour le serveur
+local.</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="path" id="$path">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-FileSystem.Fs.html#28-32" title="Go to source code"><var>$path</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$path" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Chemin du point de montage</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Chemin du point de montage</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="prefix" id="$prefix">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-FileSystem.Fs.html#34-38" title="Go to source code"><var>$prefix</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$prefix" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Préfixe facultatif pour le points de montage</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Préfixe facultatif pour le points de montage</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="mountName" id="$mountName">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-FileSystem.Fs.html#40-44" title="Go to source code"><var>$mountName</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$mountName" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Nom utilisé pour créer le point de montage</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Nom utilisé pour créer le point de montage</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="isMounted" id="$isMounted">
+			<td class="attributes"><code>
+				protected  
+				boolean
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-FileSystem.Fs.html#46-50" title="Go to source code"><var>$isMounted</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$isMounted" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Point de montage activé ou non</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Point de montage activé ou non</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

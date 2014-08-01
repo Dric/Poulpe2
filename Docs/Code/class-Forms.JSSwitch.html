@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Forms\JSSwitch</title>
+
+	<script type="text/javascript" src="resources/combined.js?522072721"></script>
+	<script type="text/javascript" src="elementlist.js?2443433404"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">Overview</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Forms.html" title="Summary of Forms"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-Components.html">Components</a>
+						</li>
+				<li><a href="namespace-Db.html">Db</a>
+						</li>
+				<li><a href="namespace-FileSystem.html">FileSystem</a>
+						</li>
+				<li class="active"><a href="namespace-Forms.html">Forms<span></span></a>
+						<ul>
+				<li><a href="namespace-Forms.Fields.html">Fields</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Ldap.html">Ldap</a>
+						</li>
+				<li><a href="namespace-Logs.html">Logs</a>
+						</li>
+				<li><a href="namespace-Michelf.html">Michelf</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-Profiles.html">Profiles</a>
+						</li>
+				<li><a href="namespace-Settings.html">Settings</a>
+						</li>
+				<li><a href="namespace-Users.html">Users</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Forms.Field.html">Field</a></li>
+				<li><a href="class-Forms.Form.html">Form</a></li>
+				<li class="active"><a href="class-Forms.JSSwitch.html">JSSwitch</a></li>
+				<li><a href="class-Forms.Pattern.html">Pattern</a></li>
+				<li><a href="class-Forms.PostedData.html">PostedData</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class JSSwitch</h1>
+
+
+	<div class="description">
+	
+<p>Classe de paramètres de switch</p>
+
+<p>Ce switch est une mise en forme du champ de formulaire
+<code>checkbox</code></p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Forms.html">Forms</a><br />
+		<b>Package:</b> Forms<br />
+
+		<b>Located at</b> <a href="source-class-Forms.JSSwitch.html#11-139" title="Go to source code">classes/Forms/JSSwitch.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="__construct" id="___construct">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><a href="source-class-Forms.JSSwitch.html#73-90" title="Go to source code">__construct</a>( <span>string <var>$size</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$labelPosition</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$onText</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$offText</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$onColor</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$offColor</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Paramètres de switch</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Paramètres de switch</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$size</var></dt>
+						<dd><code>string</code><br>$size Taille du switch</dd>
+						<dt><var>$labelPosition</var></dt>
+						<dd><code>string</code><br>$labelPosition Position du label (<code>left</code>, <code>right</code>)</dd>
+						<dt><var>$onText</var></dt>
+						<dd><code>string</code><br>$onText Texte de l'état activé</dd>
+						<dt><var>$offText</var></dt>
+						<dd><code>string</code><br>$offText Texte de l'état désactivé</dd>
+						<dt><var>$onColor</var></dt>
+						<dd><code>string</code><br>$onColor Couleur de l'état activé</dd>
+						<dt><var>$offColor</var></dt>
+						<dd><code>string</code><br>$offColor Couleur de l'état désactivé</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getOnText" id="_getOnText">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getOnText">#</a>
+			<code><a href="source-class-Forms.JSSwitch.html#92-98" title="Go to source code">getOnText</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne le texte affiché quand le switch est activé</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne le texte affiché quand le switch est activé</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getOffText" id="_getOffText">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getOffText">#</a>
+			<code><a href="source-class-Forms.JSSwitch.html#100-106" title="Go to source code">getOffText</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne le texte affiché quand le switch est désactivé</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne le texte affiché quand le switch est désactivé</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getOnColor" id="_getOnColor">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getOnColor">#</a>
+			<code><a href="source-class-Forms.JSSwitch.html#108-114" title="Go to source code">getOnColor</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne la couleur du switch activé</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne la couleur du switch activé</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getOffColor" id="_getOffColor">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getOffColor">#</a>
+			<code><a href="source-class-Forms.JSSwitch.html#116-122" title="Go to source code">getOffColor</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne la couleur du switch désactivé</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne la couleur du switch désactivé</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getSize" id="_getSize">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getSize">#</a>
+			<code><a href="source-class-Forms.JSSwitch.html#124-130" title="Go to source code">getSize</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne la taille du switch</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne la taille du switch</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getLabelPosition" id="_getLabelPosition">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getLabelPosition">#</a>
+			<code><a href="source-class-Forms.JSSwitch.html#132-138" title="Go to source code">getLabelPosition</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne la position du libellé par rapport au switch</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne la position du libellé par rapport au switch</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="onText" id="$onText">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Forms.JSSwitch.html#20-24" title="Go to source code"><var>$onText</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$onText" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Texte pour état activé</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Texte pour état activé</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="offText" id="$offText">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Forms.JSSwitch.html#25-29" title="Go to source code"><var>$offText</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$offText" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Texte pour état désactivé</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Texte pour état désactivé</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="onColor" id="$onColor">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Forms.JSSwitch.html#30-34" title="Go to source code"><var>$onColor</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$onColor" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Couleur de l'état activé</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Couleur de l'état activé</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="offColor" id="$offColor">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Forms.JSSwitch.html#35-39" title="Go to source code"><var>$offColor</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$offColor" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Couleur de l'état désactivé</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Couleur de l'état désactivé</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="size" id="$size">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Forms.JSSwitch.html#40-44" title="Go to source code"><var>$size</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$size" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Taille du switch</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Taille du switch</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="labelPosition" id="$labelPosition">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Forms.JSSwitch.html#45-49" title="Go to source code"><var>$labelPosition</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$labelPosition" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Position du switch (<code>left</code>, <code>right</code>)</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Position du switch (<code>left</code>, <code>right</code>)</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="colors" id="$colors">
+			<td class="attributes"><code>
+				protected  
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Forms.JSSwitch.html#50-61" title="Go to source code"><var>$colors</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$colors" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Couleurs autorisées</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Couleurs autorisées</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="sizes" id="$sizes">
+			<td class="attributes"><code>
+				protected  
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Forms.JSSwitch.html#62-71" title="Go to source code"><var>$sizes</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$sizes" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Tailles autorisées</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Tailles autorisées</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

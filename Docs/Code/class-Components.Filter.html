@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Components\Filter</title>
+
+	<script type="text/javascript" src="resources/combined.js?522072721"></script>
+	<script type="text/javascript" src="elementlist.js?2443433404"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">Overview</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Components.html" title="Summary of Components"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li class="active"><a href="namespace-Components.html">Components</a>
+						</li>
+				<li><a href="namespace-Db.html">Db</a>
+						</li>
+				<li><a href="namespace-FileSystem.html">FileSystem</a>
+						</li>
+				<li><a href="namespace-Forms.html">Forms<span></span></a>
+						<ul>
+				<li><a href="namespace-Forms.Fields.html">Fields</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Ldap.html">Ldap</a>
+						</li>
+				<li><a href="namespace-Logs.html">Logs</a>
+						</li>
+				<li><a href="namespace-Michelf.html">Michelf</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-Profiles.html">Profiles</a>
+						</li>
+				<li><a href="namespace-Settings.html">Settings</a>
+						</li>
+				<li><a href="namespace-Users.html">Users</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Components.Avatar.html">Avatar</a></li>
+				<li class="active"><a href="class-Components.Filter.html">Filter</a></li>
+				<li><a href="class-Components.Help.html">Help</a></li>
+				<li><a href="class-Components.Item.html">Item</a></li>
+				<li><a href="class-Components.Menu.html">Menu</a></li>
+				<li><a href="class-Components.SimpleImage.html">SimpleImage</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class Filter</h1>
+
+
+	<div class="description">
+	
+<p>Classe de mise en forme de filtre (pour requête sql, pour filtrage de
+données, etc.)</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Components.html">Components</a><br />
+		<b>Package:</b> Components<br />
+
+		<b>Located at</b> <a href="source-class-Components.Filter.html#15-196" title="Go to source code">classes/Components/Filter.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="__construct" id="___construct">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><a href="source-class-Components.Filter.html#62-87" title="Go to source code">__construct</a>( <span>string <var>$key</var></span>, <span>string <var>$operator</var></span>, <span>mixed <var>$value</var></span>, <span>integer <var>$limit</var> = <span class="php-num">0</span></span>, <span>string <var>$sortOrder</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Construction du filtre</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Construction du filtre</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$key</var></dt>
+						<dd><code>string</code><br>$key Clé à filtrer</dd>
+						<dt><var>$operator</var></dt>
+						<dd><code>string</code><br>$operator Opérateur de comparaison</dd>
+						<dt><var>$value</var></dt>
+						<dd><code>mixed</code><br>$value Valeur de comparaison</dd>
+						<dt><var>$limit</var></dt>
+						<dd><code>integer</code><br>$limit Limite max d'items à retourner (0 = pas de limite)</dd>
+						<dt><var>$sortOrder</var></dt>
+						<dd><code>string</code><br>$sortOrder Ordre de tri (ASC ou DESC)</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="__get" id="___get">
+
+			<td class="attributes"><code>
+				 public 
+				array|mixed|null|string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___get">#</a>
+			<code><a href="source-class-Components.Filter.html#89-110" title="Go to source code">__get</a>( <span>string <var>$var</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Méthode magique permettant de récupérer les valeurs des propriétés de la
+classe</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Méthode magique permettant de récupérer les valeurs des propriétés de la
+classe</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$var</var></dt>
+						<dd><code>string</code><br>$var Propriété</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array|mixed|null|string</code><br>Retourne null en cas de propriété inexistante<br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="mysql" id="_mysql">
+
+			<td class="attributes"><code>
+				 public 
+				string|boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_mysql">#</a>
+			<code><a href="source-class-Components.Filter.html#112-127" title="Go to source code">mysql</a>( )</code>
+
+			<div class="description short">
+				
+<p>Crée un argument pour MySQL - Ne prend pas en compte les arguments
+$sortOrder et $limit</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Crée un argument pour MySQL - Ne prend pas en compte les arguments
+$sortOrder et $limit</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string|boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="accept" id="_accept">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_accept">#</a>
+			<code><a href="source-class-Components.Filter.html#129-157" title="Go to source code">accept</a>( <span>mixed <var>$value</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Vérifie qu'une valeur est acceptée</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Vérifie qu'une valeur est acceptée</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$value</var></dt>
+						<dd><code>mixed</code><br>$value Valeur à tester</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="Objects" id="_Objects">
+
+			<td class="attributes"><code>
+				 public 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_Objects">#</a>
+			<code><a href="source-class-Components.Filter.html#159-195" title="Go to source code">Objects</a>( <span>array <var>$objects</var></span>, <span>string <var>$sortOn</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$sortOnOrder</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Filtre un tableau d'objets, le classe selon l'ordre de tri et retourne le
+nombre d'éléments demandés</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Filtre un tableau d'objets, le classe selon l'ordre de tri et retourne le
+nombre d'éléments demandés</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$objects</var></dt>
+						<dd><code>array</code><br>$objects tableau d'objets contenant une propriété ou une méthode en rapport
+avec l'argument $key utilisé pour instancier la classe Filter</dd>
+						<dt><var>$sortOn</var></dt>
+						<dd><code>string</code><br>$sortOn Clé alternative de tri</dd>
+						<dt><var>$sortOnOrder</var></dt>
+						<dd><code>string</code><br>$sortOnOrder Ordre de tri alternatif</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array</code><br />
+					</div>
+
+
+					<h4>Warning</h4>
+					<div class="list">
+							Si le tableau d'objets en entrée est associatif, les clés seront perdues dans
+l'opération<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="key" id="$key">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Components.Filter.html#22-26" title="Go to source code"><var>$key</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$key" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Clé sur laquelle porte le filtre</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Clé sur laquelle porte le filtre</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="operator" id="$operator">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Components.Filter.html#27-31" title="Go to source code"><var>$operator</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$operator" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Opérateur de comparaison</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Opérateur de comparaison</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="value" id="$value">
+			<td class="attributes"><code>
+				protected  
+				mixed
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Components.Filter.html#32-36" title="Go to source code"><var>$value</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$value" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Valeur avec laquelle effectuer la comparaison</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Valeur avec laquelle effectuer la comparaison</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="acceptedOperators" id="$acceptedOperators">
+			<td class="attributes"><code>
+				protected  
+				string[]
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Components.Filter.html#37-41" title="Go to source code"><var>$acceptedOperators</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$acceptedOperators" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Opérateurs de comparaison acceptés</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Opérateurs de comparaison acceptés</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="sortOrder" id="$sortOrder">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Components.Filter.html#42-50" title="Go to source code"><var>$sortOrder</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$sortOrder" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Ordre de tri</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Ordre de tri</p>
+
+<p>Valeurs possibles :</p>
+
+<ul>
+	<li>ASC</li>
+
+	<li>DESC</li>
+</ul>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="limit" id="$limit">
+			<td class="attributes"><code>
+				protected  
+				integer
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Components.Filter.html#51-55" title="Go to source code"><var>$limit</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$limit" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Limite d'occurences à retourner</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Limite d'occurences à retourner</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="fail" id="$fail">
+			<td class="attributes"><code>
+				protected  
+				boolean
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Components.Filter.html#56-60" title="Go to source code"><var>$fail</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$fail" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Echec de la création du filtre</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Echec de la création du filtre</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

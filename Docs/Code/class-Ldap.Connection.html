@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Ldap\Connection</title>
+
+	<script type="text/javascript" src="resources/combined.js?522072721"></script>
+	<script type="text/javascript" src="elementlist.js?2443433404"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">Overview</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Ldap.html" title="Summary of Ldap"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-Components.html">Components</a>
+						</li>
+				<li><a href="namespace-Db.html">Db</a>
+						</li>
+				<li><a href="namespace-FileSystem.html">FileSystem</a>
+						</li>
+				<li><a href="namespace-Forms.html">Forms<span></span></a>
+						<ul>
+				<li><a href="namespace-Forms.Fields.html">Fields</a>
+						</li>
+							</ul></li>
+				<li class="active"><a href="namespace-Ldap.html">Ldap</a>
+						</li>
+				<li><a href="namespace-Logs.html">Logs</a>
+						</li>
+				<li><a href="namespace-Michelf.html">Michelf</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-Profiles.html">Profiles</a>
+						</li>
+				<li><a href="namespace-Settings.html">Settings</a>
+						</li>
+				<li><a href="namespace-Users.html">Users</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Ldap.Connection.html">Connection</a></li>
+				<li><a href="class-Ldap.Ldap.html">Ldap</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class Connection</h1>
+
+
+	<div class="description">
+	
+<p>Connexion à un annuaire LDAP</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Ldap.html">Ldap</a><br />
+		<b>Package:</b> Ldap<br />
+
+		<b>Located at</b> <a href="source-class-Ldap.Connection.html#14-117" title="Go to source code">classes/Ldap/Connection.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="__construct" id="___construct">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><a href="source-class-Ldap.Connection.html#63-93" title="Go to source code">__construct</a>( <span>string <var>$dc</var></span>, <span>string <var>$bindName</var></span>, <span>string <var>$bindPwd</var></span>, <span>string <var>$domain</var> = <span class="php-quote">''</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Construction de l'objet</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Construction de l'objet</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$dc</var></dt>
+						<dd><code>string</code><br>$dc Contrôleur de domaine sur lequel ouvrir la connexion</dd>
+						<dt><var>$bindName</var></dt>
+						<dd><code>string</code><br>$bindName Nom du compte utilisé pour ouvrir la connexion sur l'annuaire LDAP</dd>
+						<dt><var>$bindPwd</var></dt>
+						<dd><code>string</code><br>$bindPwd Mot de passe du compte utilisé pour ouvrir la connexion</dd>
+						<dt><var>$domain</var></dt>
+						<dd><code>string</code><br>$domain Domaine LDAP (facultatif)</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="__destruct" id="___destruct">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___destruct">#</a>
+			<code><a href="source-class-Ldap.Connection.html#95-100" title="Go to source code">__destruct</a>( )</code>
+
+			<div class="description short">
+				
+<p>On clos la connexion au serveur LDAP à la fin du script</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>On clos la connexion au serveur LDAP à la fin du script</p>
+
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="connection" id="_connection">
+
+			<td class="attributes"><code>
+				 public 
+				object|resource
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_connection">#</a>
+			<code><a href="source-class-Ldap.Connection.html#102-108" title="Go to source code">connection</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne la connexion à l'annuaire LDAP</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne la connexion à l'annuaire LDAP</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>object|resource</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="badCreds" id="_badCreds">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_badCreds">#</a>
+			<code><a href="source-class-Ldap.Connection.html#110-116" title="Go to source code">badCreds</a>( )</code>
+
+			<div class="description short">
+				
+<p>Renvoie true si la connexion à échoué à cause de mauvais identifiants</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Renvoie true si la connexion à échoué à cause de mauvais identifiants</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="dc" id="$dc">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Ldap.Connection.html#21-25" title="Go to source code"><var>$dc</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$dc" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Domain Controller</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Domain Controller</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="bindName" id="$bindName">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Ldap.Connection.html#27-31" title="Go to source code"><var>$bindName</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$bindName" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Nom du compte utilisé pour se connecter à l'annuaire LDAP</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Nom du compte utilisé pour se connecter à l'annuaire LDAP</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="bindPwd" id="$bindPwd">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Ldap.Connection.html#33-37" title="Go to source code"><var>$bindPwd</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$bindPwd" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Mot de passe du compte utilisé pour se connecter à l'annuaire LDAP</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Mot de passe du compte utilisé pour se connecter à l'annuaire LDAP</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="domain" id="$domain">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Ldap.Connection.html#39-43" title="Go to source code"><var>$domain</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$domain" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Domaine LDAP</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Domaine LDAP</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="port" id="$port">
+			<td class="attributes"><code>
+				protected  
+				integer
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Ldap.Connection.html#45-49" title="Go to source code"><var>$port</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$port" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Port utilisé pour se connecter à l'annuaire LDAP</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Port utilisé pour se connecter à l'annuaire LDAP</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="connection" id="$connection">
+			<td class="attributes"><code>
+				protected  
+				object
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Ldap.Connection.html#51-55" title="Go to source code"><var>$connection</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$connection" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Connexion LDAP</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Connexion LDAP</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="badCreds" id="$badCreds">
+			<td class="attributes"><code>
+				protected  
+				boolean
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Ldap.Connection.html#57-61" title="Go to source code"><var>$badCreds</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$badCreds" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Si true, les identifiants de connexion sont mauvais</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Si true, les identifiants de connexion sont mauvais</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

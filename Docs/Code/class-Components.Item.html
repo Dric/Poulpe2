@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Components\Item</title>
+
+	<script type="text/javascript" src="resources/combined.js?522072721"></script>
+	<script type="text/javascript" src="elementlist.js?2443433404"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">Overview</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Components.html" title="Summary of Components"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li class="active"><a href="namespace-Components.html">Components</a>
+						</li>
+				<li><a href="namespace-Db.html">Db</a>
+						</li>
+				<li><a href="namespace-FileSystem.html">FileSystem</a>
+						</li>
+				<li><a href="namespace-Forms.html">Forms<span></span></a>
+						<ul>
+				<li><a href="namespace-Forms.Fields.html">Fields</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Ldap.html">Ldap</a>
+						</li>
+				<li><a href="namespace-Logs.html">Logs</a>
+						</li>
+				<li><a href="namespace-Michelf.html">Michelf</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-Profiles.html">Profiles</a>
+						</li>
+				<li><a href="namespace-Settings.html">Settings</a>
+						</li>
+				<li><a href="namespace-Users.html">Users</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Components.Avatar.html">Avatar</a></li>
+				<li><a href="class-Components.Filter.html">Filter</a></li>
+				<li><a href="class-Components.Help.html">Help</a></li>
+				<li class="active"><a href="class-Components.Item.html">Item</a></li>
+				<li><a href="class-Components.Menu.html">Menu</a></li>
+				<li><a href="class-Components.SimpleImage.html">SimpleImage</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class Item</h1>
+
+
+	<div class="description">
+	
+<p>Classe des items de menus</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Components.html">Components</a><br />
+		<b>Package:</b> Components<br />
+
+		<b>Located at</b> <a href="source-class-Components.Item.html#14-101" title="Go to source code">classes/Components/Item.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="__construct" id="___construct">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><a href="source-class-Components.Item.html#57-75" title="Go to source code">__construct</a>( <span>string <var>$name</var></span>, <span>string <var>$title</var></span>, <span>string <var>$link</var></span>, <span>string <var>$desc</var> = <span class="php-quote">''</span></span>, <span>string <var>$icon</var> = <span class="php-quote">''</span></span>, <span>string <var>$class</var> = <span class="php-quote">''</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Construction de l'item de menu</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Construction de l'item de menu</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$name</var></dt>
+						<dd><code>string</code><br>$name Nom de l'item de menu</dd>
+						<dt><var>$title</var></dt>
+						<dd><code>string</code><br>$title Titre affiché de l'item de menu</dd>
+						<dt><var>$link</var></dt>
+						<dd><code>string</code><br>$link Lien de l'item de menu</dd>
+						<dt><var>$desc</var></dt>
+						<dd><code>string</code><br>$desc Description de l'item (facultatif)</dd>
+						<dt><var>$icon</var></dt>
+						<dd><code>string</code><br>$icon Icône associée à l'item de menu (facultatif)</dd>
+						<dt><var>$class</var></dt>
+						<dd><code>string</code><br>$class Classe CSS appliquée à l'item (facultatif)</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="build" id="_build">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_build">#</a>
+			<code><a href="source-class-Components.Item.html#77-92" title="Go to source code">build</a>( <span>string <var>$itemClass</var> = <span class="php-quote">''</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Affichage de l'item de menu</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Affichage de l'item de menu</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$itemClass</var></dt>
+						<dd><code>string</code><br>$itemClass Classe à appliquer à l'item (facultatif)</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getTitle" id="_getTitle">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getTitle">#</a>
+			<code><a href="source-class-Components.Item.html#94-100" title="Go to source code">getTitle</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne le titre de l'item de menu</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne le titre de l'item de menu</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="name" id="$name">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Components.Item.html#21-25" title="Go to source code"><var>$name</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$name" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Nom de l'item de menu</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Nom de l'item de menu</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="link" id="$link">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Components.Item.html#27-31" title="Go to source code"><var>$link</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$link" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Lien de l'item de menu</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Lien de l'item de menu</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="title" id="$title">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Components.Item.html#33-37" title="Go to source code"><var>$title</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$title" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Titre affiché de l'item de menu</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Titre affiché de l'item de menu</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="desc" id="$desc">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Components.Item.html#39-43" title="Go to source code"><var>$desc</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$desc" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Description de l'item</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Description de l'item</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="icon" id="$icon">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Components.Item.html#45-49" title="Go to source code"><var>$icon</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$icon" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Icône associée à l'item de menu</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Icône associée à l'item de menu</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="class" id="$class">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Components.Item.html#51-55" title="Go to source code"><var>$class</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$class" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Classe CSS appliquée à l'item</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Classe CSS appliquée à l'item</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

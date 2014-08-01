@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Forms\Pattern</title>
+
+	<script type="text/javascript" src="resources/combined.js?522072721"></script>
+	<script type="text/javascript" src="elementlist.js?2443433404"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">Overview</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Forms.html" title="Summary of Forms"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-Components.html">Components</a>
+						</li>
+				<li><a href="namespace-Db.html">Db</a>
+						</li>
+				<li><a href="namespace-FileSystem.html">FileSystem</a>
+						</li>
+				<li class="active"><a href="namespace-Forms.html">Forms<span></span></a>
+						<ul>
+				<li><a href="namespace-Forms.Fields.html">Fields</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Ldap.html">Ldap</a>
+						</li>
+				<li><a href="namespace-Logs.html">Logs</a>
+						</li>
+				<li><a href="namespace-Michelf.html">Michelf</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-Profiles.html">Profiles</a>
+						</li>
+				<li><a href="namespace-Settings.html">Settings</a>
+						</li>
+				<li><a href="namespace-Users.html">Users</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Forms.Field.html">Field</a></li>
+				<li><a href="class-Forms.Form.html">Form</a></li>
+				<li><a href="class-Forms.JSSwitch.html">JSSwitch</a></li>
+				<li class="active"><a href="class-Forms.Pattern.html">Pattern</a></li>
+				<li><a href="class-Forms.PostedData.html">PostedData</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class Pattern</h1>
+
+
+	<div class="description">
+	
+<p>Classe de paramètres de validation d'un champ</p>
+
+	</div>
+
+
+
+	<div>
+		<h3>Direct known subclasses</h3>
+		<p class="elementList">
+			<code><a href="class-Db.DbFieldSettings.html">Db\DbFieldSettings</a></code>
+		</p>
+	</div>
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Forms.html">Forms</a><br />
+		<b>Package:</b> Forms<br />
+
+		<b>Located at</b> <a href="source-class-Forms.Pattern.html#11-170" title="Go to source code">classes/Forms/Pattern.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="__construct" id="___construct">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><a href="source-class-Forms.Pattern.html#90-112" title="Go to source code">__construct</a>( <span>string <var>$type</var></span>, <span>boolean <var>$required</var> = <span class="php-keyword1">false</span></span>, <span>integer <var>$minLength</var> = <span class="php-num">0</span></span>, <span>integer <var>$maxLength</var> = <span class="php-num">0</span></span>, <span>integer|string <var>$minValue</var> = <span class="php-num">0</span></span>, <span>integer|string <var>$maxValue</var> = <span class="php-num">0</span></span>, <span>string <var>$regExp</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Définit des paramètres de validation d'un champ de formulaire</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Définit des paramètres de validation d'un champ de formulaire</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$type</var></dt>
+						<dd><code>string</code><br>$type Type de champ (voir le tableau $types)</dd>
+						<dt><var>$required</var></dt>
+						<dd><code>boolean</code><br>$required Champ obligatoire</dd>
+						<dt><var>$minLength</var></dt>
+						<dd><code>integer</code><br>$minLength Nombre de caractères minimum</dd>
+						<dt><var>$maxLength</var></dt>
+						<dd><code>integer</code><br>$maxLength Nombre de caractères maximum</dd>
+						<dt><var>$minValue</var></dt>
+						<dd><code>integer|string</code><br>$minValue Valeur minimum pour les champs de type <code>int</code> et
+<code>date</code></dd>
+						<dt><var>$maxValue</var></dt>
+						<dd><code>integer|string</code><br>$maxValue Valeur maximum pour les champs de type <code>int</code> et
+<code>date</code></dd>
+						<dt><var>$regExp</var></dt>
+						<dd><code>string</code><br>$regExp Expression régulière pour la validation</dd>
+					</dl></div>
+
+
+
+					<h4>Link</h4>
+					<div class="list">
+							&lt;<a
+href="http://www.w3schools.com/tags/att_input_type.asp">http://www.w3schools.com/tags/att_input_type.asp</a>&gt;
+pour les types de champs acceptés<br />
+							&lt;<a
+href="https://developer.mozilla.org/en/docs/Web/HTML/Element/Input#Browser_compatibility">https://developer.mozilla.org/en/docs/Web/HTML/Element/Input#Browser_compatibility</a>&gt;
+pour les supports de types de champs par les navigateurs<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getRequired" id="_getRequired">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getRequired">#</a>
+			<code><a href="source-class-Forms.Pattern.html#114-120" title="Go to source code">getRequired</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne le statut de saisie obligatoire du champ</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne le statut de saisie obligatoire du champ</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getMinLength" id="_getMinLength">
+
+			<td class="attributes"><code>
+				 public 
+				integer
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getMinLength">#</a>
+			<code><a href="source-class-Forms.Pattern.html#122-128" title="Go to source code">getMinLength</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne la longueur de saisie minimum du champ</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne la longueur de saisie minimum du champ</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>integer</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getMaxLength" id="_getMaxLength">
+
+			<td class="attributes"><code>
+				 public 
+				integer
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getMaxLength">#</a>
+			<code><a href="source-class-Forms.Pattern.html#130-136" title="Go to source code">getMaxLength</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne la longueur de saisie maximale du champ</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne la longueur de saisie maximale du champ</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>integer</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getRegExp" id="_getRegExp">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getRegExp">#</a>
+			<code><a href="source-class-Forms.Pattern.html#138-144" title="Go to source code">getRegExp</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne l'expression régulière utilisée pour valider le champ</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne l'expression régulière utilisée pour valider le champ</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getType" id="_getType">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getType">#</a>
+			<code><a href="source-class-Forms.Pattern.html#146-152" title="Go to source code">getType</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne le type html de champ</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne le type html de champ</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getMinValue" id="_getMinValue">
+
+			<td class="attributes"><code>
+				 public 
+				integer|string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getMinValue">#</a>
+			<code><a href="source-class-Forms.Pattern.html#154-160" title="Go to source code">getMinValue</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne la valeur de saisie minimale (dans le cas d'un champ
+<code>number</code> ou <code>date</code>)</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne la valeur de saisie minimale (dans le cas d'un champ
+<code>number</code> ou <code>date</code>)</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>integer|string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getMaxValue" id="_getMaxValue">
+
+			<td class="attributes"><code>
+				 public 
+				integer
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getMaxValue">#</a>
+			<code><a href="source-class-Forms.Pattern.html#162-168" title="Go to source code">getMaxValue</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne la valeur de saisie maximale (dans le cas d'un champ
+<code>number</code> ou <code>date</code>)</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne la valeur de saisie maximale (dans le cas d'un champ
+<code>number</code> ou <code>date</code>)</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>integer</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="required" id="$required">
+			<td class="attributes"><code>
+				protected  
+				boolean
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Forms.Pattern.html#18-22" title="Go to source code"><var>$required</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$required" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Champ obligatoire</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Champ obligatoire</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="minLength" id="$minLength">
+			<td class="attributes"><code>
+				protected  
+				integer
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Forms.Pattern.html#23-27" title="Go to source code"><var>$minLength</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$minLength" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Nombre de caractères minimum</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Nombre de caractères minimum</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="maxLength" id="$maxLength">
+			<td class="attributes"><code>
+				protected  
+				integer
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Forms.Pattern.html#28-32" title="Go to source code"><var>$maxLength</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$maxLength" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Nombre de caractères maximum</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Nombre de caractères maximum</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="regExp" id="$regExp">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Forms.Pattern.html#33-38" title="Go to source code"><var>$regExp</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$regExp" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Expression régulière Non supporté par IE &lt; 10</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Expression régulière Non supporté par IE &lt; 10</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="type" id="$type">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Forms.Pattern.html#39-44" title="Go to source code"><var>$type</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$type" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Type de champ (Identique aux types de champs HTML 5)</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Type de champ (Identique aux types de champs HTML 5)</p>
+
+
+						<h4>Link</h4>
+						<div class="list">
+								&lt;<a
+href="http://www.w3schools.com/tags/att_input_type.asp">http://www.w3schools.com/tags/att_input_type.asp</a>&gt;<br />
+						</div>
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="minValue" id="$minValue">
+			<td class="attributes"><code>
+				protected  
+				integer|string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Forms.Pattern.html#45-50" title="Go to source code"><var>$minValue</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$minValue" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Valeur minimum pour les champs de type number, range, date, datetime,
+datetime-local, month, time et week IE 10 ne supporte pas les champs de dates et
+heure</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Valeur minimum pour les champs de type number, range, date, datetime,
+datetime-local, month, time et week IE 10 ne supporte pas les champs de dates et
+heure</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="maxValue" id="$maxValue">
+			<td class="attributes"><code>
+				protected  
+				integer
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Forms.Pattern.html#51-56" title="Go to source code"><var>$maxValue</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$maxValue" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Valeur maximum pour les champs de type number, range, date, datetime,
+datetime-local, month, time et week IE 10 ne supporte pas les champs de dates et
+heure</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Valeur maximum pour les champs de type number, range, date, datetime,
+datetime-local, month, time et week IE 10 ne supporte pas les champs de dates et
+heure</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="types" id="$types">
+			<td class="attributes"><code>
+				protected  
+				string[]
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Forms.Pattern.html#58-88" title="Go to source code"><var>$types</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$types" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Type de champs autorisés</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Type de champs autorisés</p>
+
+
+						<h4>Link</h4>
+						<div class="list">
+								&lt;<a
+href="http://www.w3schools.com/tags/att_input_type.asp">http://www.w3schools.com/tags/att_input_type.asp</a>&gt;<br />
+								&lt;<a
+href="https://developer.mozilla.org/en/docs/Web/HTML/Element/Input#Browser_compatibility">https://developer.mozilla.org/en/docs/Web/HTML/Element/Input#Browser_compatibility</a>&gt;
+pour les supports de types de champs par les navigateurs<br />
+						</div>
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

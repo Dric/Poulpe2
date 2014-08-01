@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Check</title>
+
+	<script type="text/javascript" src="resources/combined.js?522072721"></script>
+	<script type="text/javascript" src="elementlist.js?2443433404"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">Overview</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-None.html" title="Summary of None"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-Components.html">Components</a>
+						</li>
+				<li><a href="namespace-Db.html">Db</a>
+						</li>
+				<li><a href="namespace-FileSystem.html">FileSystem</a>
+						</li>
+				<li><a href="namespace-Forms.html">Forms<span></span></a>
+						<ul>
+				<li><a href="namespace-Forms.Fields.html">Fields</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Ldap.html">Ldap</a>
+						</li>
+				<li><a href="namespace-Logs.html">Logs</a>
+						</li>
+				<li><a href="namespace-Michelf.html">Michelf</a>
+						</li>
+				<li class="active"><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-Profiles.html">Profiles</a>
+						</li>
+				<li><a href="namespace-Settings.html">Settings</a>
+						</li>
+				<li><a href="namespace-Users.html">Users</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Check.html">Check</a></li>
+				<li><a href="class-Front.html">Front</a></li>
+				<li><a href="class-Get.html">Get</a></li>
+				<li><a href="class-Sanitize.html">Sanitize</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class Check</h1>
+
+
+	<div class="description">
+	
+<p>Class Check Contient les fonctions de test</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		
+		<b>Package:</b> Check<br />
+
+		<b>Located at</b> <a href="source-class-Check.html#9-73" title="Go to source code">classes/Check.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="isAssoc" id="_isAssoc">
+
+			<td class="attributes"><code>
+				 public static
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_isAssoc">#</a>
+			<code><a href="source-class-Check.html#17-30" title="Go to source code">isAssoc</a>( <span>array <var>$array</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Détermine si un tableau est associatif ou non Ex :</p>
+
+<ul>
+	<li>array('pouet', 'canard') est séquentiel</li>
+
+	<li>array(1 =&gt; 'plouf', 2 =&gt; 'pouet') est séquentiel</li>
+
+	<li>array(1 =&gt; 'canard', 'id' =&gt; 2) est associatif</li>
+</ul>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Détermine si un tableau est associatif ou non Ex :</p>
+
+<ul>
+	<li>array('pouet', 'canard') est séquentiel</li>
+
+	<li>array(1 =&gt; 'plouf', 2 =&gt; 'pouet') est séquentiel</li>
+
+	<li>array(1 =&gt; 'canard', 'id' =&gt; 2) est associatif</li>
+</ul>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$array</var></dt>
+						<dd><code>array</code><br>$array Tableau</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+					<h4>From</h4>
+					<div class="list">
+							&lt;<a
+href="http://stackoverflow.com/a/4254008/1749967">http://stackoverflow.com/a/4254008/1749967</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="isIpAddress" id="_isIpAddress">
+
+			<td class="attributes"><code>
+				 public static
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_isIpAddress">#</a>
+			<code><a href="source-class-Check.html#32-41" title="Go to source code">isIpAddress</a>( <span>string <var>$ipAddr</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Valide une adresse IP</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Valide une adresse IP</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$ipAddr</var></dt>
+						<dd><code>string</code><br>$ipAddr Adresse IP</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="isEmail" id="_isEmail">
+
+			<td class="attributes"><code>
+				 public static
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_isEmail">#</a>
+			<code><a href="source-class-Check.html#43-55" title="Go to source code">isEmail</a>( <span>string <var>$email</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Valide une adresse email</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Valide une adresse email</p>
+
+<p>Cette méthode utilise la fonction php filter_vars(), ce qui peut d'après
+les commentaires provoquer de mauvaises vérifications</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$email</var></dt>
+						<dd><code>string</code><br>$email Adresse email à vérifier</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+					<h4>Use</h4>
+					<div class="list">
+							filter_var()<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="inMultiArray" id="_inMultiArray">
+
+			<td class="attributes"><code>
+				 public static
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_inMultiArray">#</a>
+			<code><a href="source-class-Check.html#57-71" title="Go to source code">inMultiArray</a>( <span>string <var>$elem</var></span>, <span>array <var>$array</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Equivalent de in_array() dans un tableau multi-dimensionnel</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Equivalent de in_array() dans un tableau multi-dimensionnel</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$elem</var></dt>
+						<dd><code>string</code><br>$elem Valeur à trouver</dd>
+						<dt><var>$array</var></dt>
+						<dd><code>array</code><br>$array Tableau dans lequel chercher</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>
