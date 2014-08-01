@@ -7,6 +7,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0b517d7b-6e6e-44e4-a303-f637474520ff" name="Default" comment="- Ajout de la doc du code générée par ApiGen">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/toDocument.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tools2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,7 +45,25 @@
       <file leaf-file-name="config.default.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/Settings/config.default.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="20" selection-start="2460" selection-end="2472" vertical-scroll-proportion="-14.708333" vertical-offset="607" max-vertical-offset="1155">
+            <state line="66" column="20" selection-start="2460" selection-end="2472" vertical-scroll-proportion="-27.541666" vertical-offset="299" max-vertical-offset="1155">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BandesTina.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Modules/BandesTina/BandesTina.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="49" column="24" selection-start="1428" selection-end="1428" vertical-scroll-proportion="0.5439252" vertical-offset="219" max-vertical-offset="4755">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Pattern.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/Forms/Pattern.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="103" column="18" selection-start="4116" selection-end="4116" vertical-scroll-proportion="-30.416666" vertical-offset="740" max-vertical-offset="2550">
               <folding />
             </state>
           </provider>
@@ -79,10 +98,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Modules/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="6" selection-start="6" selection-end="6" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="551">
+            <state line="0" column="6" selection-start="6" selection-end="6" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="90">
               <folding />
             </state>
           </provider>
@@ -250,7 +269,6 @@
         <option value="$PROJECT_DIR$/Docs/Poulpe2/library/Base de données/Gestion des tables.md" />
         <option value="$PROJECT_DIR$/Docs/Poulpe2/library/Formulaires/Gestion des formulaires.md" />
         <option value="$PROJECT_DIR$/Docs/Poulpe2/library/Organisation du module/Paramètres de module.md" />
-        <option value="$PROJECT_DIR$/Modules/BandesTina/BandesTina.php" />
         <option value="$PROJECT_DIR$/Modules/DenyAppAccess/DenyAppAccess.php" />
         <option value="$PROJECT_DIR$/Modules/Dupliqueur/Dupliqueur.php" />
         <option value="$PROJECT_DIR$/Modules/Mailboxes/Mailboxes.php" />
@@ -291,6 +309,7 @@
         <option value="$PROJECT_DIR$/classes/Modules/Module.php" />
         <option value="$PROJECT_DIR$/Modules/.htaccess" />
         <option value="$PROJECT_DIR$/Modules/index.html" />
+        <option value="$PROJECT_DIR$/Modules/BandesTina/BandesTina.php" />
       </list>
     </option>
   </component>
@@ -1296,17 +1315,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="32" y="-8" width="1896" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3322546" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3322546" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297062" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3322546" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19477694" sideWeight="0.50053936" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32901832" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24972796" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1419,13 +1438,6 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Modules/UserInfo/UserInfo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="54" selection-start="2345" selection-end="2345" vertical-scroll-proportion="-7.75" vertical-offset="864" max-vertical-offset="2280">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Modules/UsersTraces/UsersTraces.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="70" column="46" selection-start="2259" selection-end="2259" vertical-scroll-proportion="-9.166667" vertical-offset="560" max-vertical-offset="2625">
@@ -1439,13 +1451,6 @@
           <folding>
             <element signature="e#124#144#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Forms/Pattern.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="54" selection-start="2602" selection-end="2602" vertical-scroll-proportion="-10.0" vertical-offset="855" max-vertical-offset="2550">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1489,7 +1494,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Forms/Field.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="138" column="24" selection-start="3493" selection-end="3493" vertical-scroll-proportion="-16.791666" vertical-offset="1547" max-vertical-offset="5190" />
+        <state line="138" column="24" selection-start="3493" selection-end="3493" vertical-scroll-proportion="-16.791666" vertical-offset="1547" max-vertical-offset="5190">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Forms/Fields/CheckboxList.php">
@@ -1687,13 +1694,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Settings/config.default.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="20" selection-start="2460" selection-end="2472" vertical-scroll-proportion="-14.708333" vertical-offset="607" max-vertical-offset="1155">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Modules/Shutdown/Shutdown.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="83" column="50" selection-start="315" selection-end="2565" vertical-scroll-proportion="8.125" vertical-offset="1245" max-vertical-offset="2625">
@@ -1798,6 +1798,27 @@
     <entry file="file://$PROJECT_DIR$/Modules/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="6" selection-start="6" selection-end="6" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="551">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Settings/config.default.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="20" selection-start="2460" selection-end="2472" vertical-scroll-proportion="-27.541666" vertical-offset="299" max-vertical-offset="1155">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Forms/Pattern.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="103" column="18" selection-start="4116" selection-end="4116" vertical-scroll-proportion="-30.416666" vertical-offset="740" max-vertical-offset="2550">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/BandesTina/BandesTina.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="24" selection-start="1428" selection-end="1428" vertical-scroll-proportion="0.5439252" vertical-offset="219" max-vertical-offset="4755">
           <folding />
         </state>
       </provider>

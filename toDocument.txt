@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="1.3.0">
+	<file name="/var/www/test/admin/tools2/classes/Components/SimpleImage.php">
+		<error severity="error" line="31" message="Missing documentation of property Components\SimpleImage::$original_info" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="31" message="Missing documentation of property Components\SimpleImage::$filename" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="31" message="Missing documentation of property Components\SimpleImage::$image" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="31" message="Missing documentation of property Components\SimpleImage::$width" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="31" message="Missing documentation of property Components\SimpleImage::$height" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="31" message="Missing documentation of property Components\SimpleImage::$imagestring" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="521" message="Missing documentation of throwing an exception of method Components\SimpleImage::load_base64()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="550" message="Missing documentation of return value of method Components\SimpleImage::opacity()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="warning" line="1062" message="Existing documentation &quot;string|null $imagestring If omitted treat as a normal image&quot; of nonexistent parameter of method Components\SimpleImage::get_meta_data()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="warning" line="1114" message="Invalid documentation &quot;$pct&quot; of parameter Components\SimpleImage::imagecopymerge_alpha($pct)" source="ApiGen.Documentation.Documentation"/>
+		<error severity="warning" line="1114" message="Invalid documentation &quot;$src_y&quot; of parameter Components\SimpleImage::imagecopymerge_alpha($src_y)" source="ApiGen.Documentation.Documentation"/>
+		<error severity="warning" line="1114" message="Invalid documentation &quot;$src_im&quot; of parameter Components\SimpleImage::imagecopymerge_alpha($src_im)" source="ApiGen.Documentation.Documentation"/>
+		<error severity="warning" line="1114" message="Invalid documentation &quot;$dst_im&quot; of parameter Components\SimpleImage::imagecopymerge_alpha($dst_im)" source="ApiGen.Documentation.Documentation"/>
+		<error severity="warning" line="1114" message="Invalid documentation &quot;$dst_x&quot; of parameter Components\SimpleImage::imagecopymerge_alpha($dst_x)" source="ApiGen.Documentation.Documentation"/>
+		<error severity="warning" line="1114" message="Invalid documentation &quot;$dst_y&quot; of parameter Components\SimpleImage::imagecopymerge_alpha($dst_y)" source="ApiGen.Documentation.Documentation"/>
+		<error severity="warning" line="1114" message="Invalid documentation &quot;$src_w&quot; of parameter Components\SimpleImage::imagecopymerge_alpha($src_w)" source="ApiGen.Documentation.Documentation"/>
+		<error severity="warning" line="1114" message="Invalid documentation &quot;$src_x&quot; of parameter Components\SimpleImage::imagecopymerge_alpha($src_x)" source="ApiGen.Documentation.Documentation"/>
+		<error severity="warning" line="1114" message="Invalid documentation &quot;$src_h&quot; of parameter Components\SimpleImage::imagecopymerge_alpha($src_h)" source="ApiGen.Documentation.Documentation"/>
+	</file>
+	<file name="/var/www/test/admin/tools2/classes/Forms/Fields/Date.php">
+		<error severity="error" line="31" message="Missing documentation of property Forms\Fields\Date::$dateType" source="ApiGen.Documentation.Documentation"/>
+	</file>
+	<file name="/var/www/test/admin/tools2/classes/Forms/Fields/Time.php">
+		<error severity="error" line="30" message="Missing documentation of property Forms\Fields\Time::$dateType" source="ApiGen.Documentation.Documentation"/>
+	</file>
+	<file name="/var/www/test/admin/tools2/classes/Michelf/Markdown.php">
+		<error severity="error" line="20" message="Missing documentation of class Michelf\Markdown" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="24" message="Missing documentation of constant Michelf\Markdown::MARKDOWNLIB_VERSION" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="28" message="Missing documentation of method Michelf\Markdown::defaultTransform()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="51" message="Missing documentation of property Michelf\Markdown::$empty_element_suffix" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="52" message="Missing documentation of property Michelf\Markdown::$tab_width" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="55" message="Missing documentation of property Michelf\Markdown::$no_markup" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="56" message="Missing documentation of property Michelf\Markdown::$no_entities" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="59" message="Missing documentation of property Michelf\Markdown::$predef_urls" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="60" message="Missing documentation of property Michelf\Markdown::$predef_titles" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="67" message="Missing documentation of property Michelf\Markdown::$nested_brackets_depth" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="68" message="Missing documentation of property Michelf\Markdown::$nested_brackets_re" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="70" message="Missing documentation of property Michelf\Markdown::$nested_url_parenthesis_depth" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="71" message="Missing documentation of property Michelf\Markdown::$nested_url_parenthesis_re" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="74" message="Missing documentation of property Michelf\Markdown::$escape_chars" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="75" message="Missing documentation of property Michelf\Markdown::$escape_chars_re" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="78" message="Missing documentation of method Michelf\Markdown::__construct()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="103" message="Missing documentation of property Michelf\Markdown::$urls" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="104" message="Missing documentation of property Michelf\Markdown::$titles" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="105" message="Missing documentation of property Michelf\Markdown::$html_hashes" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="108" message="Missing documentation of property Michelf\Markdown::$in_anchor" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="111" message="Missing documentation of method Michelf\Markdown::setup()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="124" message="Missing documentation of method Michelf\Markdown::teardown()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="135" message="Missing documentation of method Michelf\Markdown::transform()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="174" message="Missing documentation of property Michelf\Markdown::$document_gamut" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="182" message="Missing documentation of method Michelf\Markdown::stripLinkDefinitions()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="216" message="Missing documentation of method Michelf\Markdown::_stripLinkDefinitions_callback()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="225" message="Missing documentation of method Michelf\Markdown::hashHTMLBlocks()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="364" message="Missing documentation of method Michelf\Markdown::_hashHTMLBlocks_callback()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="371" message="Missing documentation of method Michelf\Markdown::hashPart()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="394" message="Missing documentation of method Michelf\Markdown::hashBlock()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="402" message="Missing documentation of property Michelf\Markdown::$block_gamut" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="415" message="Missing documentation of method Michelf\Markdown::runBlockGamut()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="429" message="Missing documentation of method Michelf\Markdown::runBasicBlockGamut()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="446" message="Missing documentation of method Michelf\Markdown::doHorizontalRules()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="464" message="Missing documentation of property Michelf\Markdown::$span_gamut" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="488" message="Missing documentation of method Michelf\Markdown::runSpanGamut()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="500" message="Missing documentation of method Michelf\Markdown::doHardBreaks()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="505" message="Missing documentation of method Michelf\Markdown::_doHardBreaks_callback()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="510" message="Missing documentation of method Michelf\Markdown::doAnchors()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="580" message="Missing documentation of method Michelf\Markdown::_doAnchors_reference_callback()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="614" message="Missing documentation of method Michelf\Markdown::_doAnchors_inline_callback()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="641" message="Missing documentation of method Michelf\Markdown::doImages()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="696" message="Missing documentation of method Michelf\Markdown::_doImages_reference_callback()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="724" message="Missing documentation of method Michelf\Markdown::_doImages_inline_callback()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="743" message="Missing documentation of method Michelf\Markdown::doHeaders()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="773" message="Missing documentation of method Michelf\Markdown::_doHeaders_callback_setext()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="782" message="Missing documentation of method Michelf\Markdown::_doHeaders_callback_atx()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="789" message="Missing documentation of method Michelf\Markdown::doLists()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="854" message="Missing documentation of method Michelf\Markdown::_doLists_callback()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="872" message="Missing documentation of property Michelf\Markdown::$list_level" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="874" message="Missing documentation of method Michelf\Markdown::processListItems()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="920" message="Missing documentation of method Michelf\Markdown::_processListItems_callback()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="945" message="Missing documentation of method Michelf\Markdown::doCodeBlocks()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="963" message="Missing documentation of method Michelf\Markdown::_doCodeBlocks_callback()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="977" message="Missing documentation of method Michelf\Markdown::makeCodeSpan()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="986" message="Missing documentation of property Michelf\Markdown::$em_relist" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="991" message="Missing documentation of property Michelf\Markdown::$strong_relist" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="996" message="Missing documentation of property Michelf\Markdown::$em_strong_relist" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1001" message="Missing documentation of property Michelf\Markdown::$em_strong_prepared_relist" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1003" message="Missing documentation of method Michelf\Markdown::prepareItalicsAndBold()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1025" message="Missing documentation of method Michelf\Markdown::doItalicsAndBold()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1148" message="Missing documentation of method Michelf\Markdown::doBlockQuotes()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1163" message="Missing documentation of method Michelf\Markdown::_doBlockQuotes_callback()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1177" message="Missing documentation of method Michelf\Markdown::_doBlockQuotes_callback2()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1184" message="Missing documentation of method Michelf\Markdown::formParagraphs()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1254" message="Missing documentation of method Michelf\Markdown::encodeAttribute()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1265" message="Missing documentation of method Michelf\Markdown::encodeAmpsAndAngles()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1286" message="Missing documentation of method Michelf\Markdown::doAutoLinks()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1314" message="Missing documentation of method Michelf\Markdown::_doAutoLinks_tel_callback()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1320" message="Missing documentation of method Michelf\Markdown::_doAutoLinks_url_callback()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1325" message="Missing documentation of method Michelf\Markdown::_doAutoLinks_email_callback()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1332" message="Missing documentation of method Michelf\Markdown::encodeEmailAddress()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1374" message="Missing documentation of method Michelf\Markdown::parseSpan()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1434" message="Missing documentation of method Michelf\Markdown::handleSpanToken()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1458" message="Missing documentation of method Michelf\Markdown::outdent()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1468" message="Missing documentation of property Michelf\Markdown::$utf8_strlen" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1470" message="Missing documentation of method Michelf\Markdown::detab()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1483" message="Missing documentation of method Michelf\Markdown::_detab_callback()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1500" message="Missing documentation of method Michelf\Markdown::_initDetab()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1514" message="Missing documentation of method Michelf\Markdown::unhash()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1521" message="Missing documentation of method Michelf\Markdown::_unhash_callback()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1540" message="Missing documentation of class Michelf\_MarkdownExtra_TmpImpl" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1545" message="Missing documentation of property Michelf\_MarkdownExtra_TmpImpl::$fn_id_prefix" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1548" message="Missing documentation of property Michelf\_MarkdownExtra_TmpImpl::$fn_link_title" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1549" message="Missing documentation of property Michelf\_MarkdownExtra_TmpImpl::$fn_backlink_title" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1552" message="Missing documentation of property Michelf\_MarkdownExtra_TmpImpl::$fn_link_class" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1553" message="Missing documentation of property Michelf\_MarkdownExtra_TmpImpl::$fn_backlink_class" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1558" message="Missing documentation of property Michelf\_MarkdownExtra_TmpImpl::$table_align_class_tmpl" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1561" message="Missing documentation of property Michelf\_MarkdownExtra_TmpImpl::$code_class_prefix" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1564" message="Missing documentation of property Michelf\_MarkdownExtra_TmpImpl::$code_attr_on_pre" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1567" message="Missing documentation of property Michelf\_MarkdownExtra_TmpImpl::$predef_abbr" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1572" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::__construct()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1603" message="Missing documentation of property Michelf\_MarkdownExtra_TmpImpl::$footnotes" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1604" message="Missing documentation of property Michelf\_MarkdownExtra_TmpImpl::$footnotes_ordered" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1605" message="Missing documentation of property Michelf\_MarkdownExtra_TmpImpl::$footnotes_ref_count" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1606" message="Missing documentation of property Michelf\_MarkdownExtra_TmpImpl::$footnotes_numbers" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1607" message="Missing documentation of property Michelf\_MarkdownExtra_TmpImpl::$abbr_desciptions" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1608" message="Missing documentation of property Michelf\_MarkdownExtra_TmpImpl::$abbr_word_re" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1611" message="Missing documentation of property Michelf\_MarkdownExtra_TmpImpl::$footnote_counter" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1614" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::setup()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1636" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::teardown()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1654" message="Missing documentation of property Michelf\_MarkdownExtra_TmpImpl::$id_class_attr_catch_re" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1656" message="Missing documentation of property Michelf\_MarkdownExtra_TmpImpl::$id_class_attr_nocatch_re" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1658" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::doExtraAttributes()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1694" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::stripLinkDefinitions()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1729" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::_stripLinkDefinitions_callback()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1742" message="Missing documentation of property Michelf\_MarkdownExtra_TmpImpl::$block_tags_re" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1745" message="Missing documentation of property Michelf\_MarkdownExtra_TmpImpl::$context_block_tags_re" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1748" message="Missing documentation of property Michelf\_MarkdownExtra_TmpImpl::$contain_span_tags_re" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1752" message="Missing documentation of property Michelf\_MarkdownExtra_TmpImpl::$clean_tags_re" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1755" message="Missing documentation of property Michelf\_MarkdownExtra_TmpImpl::$auto_close_tags_re" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1758" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::hashHTMLBlocks()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="1783" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::_hashHTMLBlocks_inMarkdown()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2027" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::_hashHTMLBlocks_inHTML()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2202" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::hashClean()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2212" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::doAnchors()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2283" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::_doAnchors_reference_callback()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2319" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::_doAnchors_inline_callback()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2348" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::doImages()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2404" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::_doImages_reference_callback()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2434" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::_doImages_inline_callback()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2455" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::doHeaders()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2495" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::_doHeaders_callback_setext()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2503" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::_doHeaders_callback_atx()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2511" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::doTables()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2572" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::_doTable_leadingPipe_callback()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2582" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::_doTable_makeAlignAttr()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2590" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::_doTable_callback()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2654" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::doDefLists()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2696" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::_doDefLists_callback()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2708" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::processDefListItems()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2751" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::_processDefListItems_callback_dt()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2760" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::_processDefListItems_callback_dd()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2780" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::doFencedCodeBlocks()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2819" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::_doFencedCodeBlocks_callback()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2840" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::_doFencedCodeBlocks_newlines()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2850" message="Missing documentation of property Michelf\_MarkdownExtra_TmpImpl::$em_relist" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2855" message="Missing documentation of property Michelf\_MarkdownExtra_TmpImpl::$strong_relist" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2860" message="Missing documentation of property Michelf\_MarkdownExtra_TmpImpl::$em_strong_relist" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2867" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::formParagraphs()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2905" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::stripFootnotes()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2932" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::_stripFootnotes_callback()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2939" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::doFootnotes()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="2951" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::appendFootnotes()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="3015" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::_appendFootnotes_callback()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="3060" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::stripAbbreviations()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="3075" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::_stripAbbreviations_callback()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="3086" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::doAbbreviations()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="3102" message="Missing documentation of method Michelf\_MarkdownExtra_TmpImpl::_doAbbreviations_callback()" source="ApiGen.Documentation.Documentation"/>
+	</file>
+	<file name="/var/www/test/admin/tools2/classes/Michelf/MarkdownExtra.php">
+		<error severity="error" line="30" message="Missing documentation of class Michelf\MarkdownExtra" source="ApiGen.Documentation.Documentation"/>
+	</file>
+	<file name="/var/www/test/admin/tools2/classes/Michelf/MarkdownInterface.php">
+		<error severity="error" line="20" message="Missing documentation of interface Michelf\MarkdownInterface" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="26" message="Missing documentation of method Michelf\MarkdownInterface::defaultTransform()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="32" message="Missing documentation of method Michelf\MarkdownInterface::transform()" source="ApiGen.Documentation.Documentation"/>
+	</file>
+</checkstyle>
