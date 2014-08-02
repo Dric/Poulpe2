@@ -78,7 +78,7 @@ class serverResource {
 	protected function retrieveData(){
 		switch ($this->type){
 			case 'cpu':
-				$this->$load = sys_getloadavg();
+				$this->load = sys_getloadavg();
 				$this->total = 100;
 				break;
 			case 'mem':
