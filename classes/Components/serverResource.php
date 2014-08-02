@@ -63,11 +63,12 @@ class serverResource {
 			// On récupère la liste des partitions
 			exec('df -h | grep ^/dev', $out);
 			foreach ($out as $line){
-				echo \Get::varDump(explode(' ', $line));
+				$line = preg_replace('/\s+/', ' ',$line);
 				list(,,,,,$partition) = explode(' ', $line);
 				$this->partitions[] = $partition;
 			}
 		}
+		$this->retrieveData();
 	}
 
 	/**
@@ -146,13 +147,13 @@ class serverResource {
 		if (isset($data->total)){
 			if (is_array($data->total)){
 				foreach ($data->total as $partition => $total){
-					$libelle[$partition] = $data->free[$partition].' libres sur '.$total;
+					$label[$partition] = $data->free[$partition].' libres sur '.$total;
 				}
 			}else{
-				$libelle = $data->free.' libres sur '.$data->total;
+				$label = $data->free.' libres sur '.$data->total;
 			}
 		}else{
-			$libelle = $data->free.' inoccupé';
+			$label = $data->free.' inoccupé';
 		}
 		if (is_array($data->percentLoad)){
 			foreach ($data->percentLoad as $partition => $percentLoad){
@@ -173,8 +174,8 @@ class serverResource {
 				$level = 'warning';
 			}
 		}
-		if (is_array($libelle)){
-			foreach ($libelle as $partition => $partLabel){
+		if (is_array($label)){
+			foreach ($label as $partition => $partLabel){
 				?>
 				<div class="progress tooltip-bottom" title="<?php echo $partLabel; ?>">
 					<div class="progress-bar progress-bar-<?php echo $level[$partition]; ?>" role="progressbar" aria-valuenow="<?php echo $data->percent[$partition]; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $data->percent[$partition]; ?>%">
@@ -185,7 +186,7 @@ class serverResource {
 			}
 		}
 		?>
-		<div class="progress tooltip-bottom" title="<?php echo $libelle; ?>">
+		<div class="progress tooltip-bottom" title="<?php echo $label; ?>">
 			<div class="progress-bar progress-bar-<?php echo $level; ?>" role="progressbar" aria-valuenow="<?php echo $data->percent; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $data->percent; ?>%">
 				<?php echo round($data->percent, 1).'%'; ?>
 			</div>
