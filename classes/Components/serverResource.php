@@ -64,7 +64,8 @@ class serverResource {
 			exec('df -h | grep ^/dev', $out);
 			foreach ($out as $line){
 				$line = preg_replace('/\s+/', ' ',$line);
-				list(,,,,,$partition) = explode(' ', $line);
+				$tab = explode(' ', $line);
+				$partition = end($tab);
 				$this->partitions[] = $partition;
 			}
 		}
