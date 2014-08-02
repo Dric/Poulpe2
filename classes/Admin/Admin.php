@@ -9,6 +9,7 @@
 namespace Admin;
 
 use Components\Avatar;
+use Components\serverResource;
 use Forms\Fields\Bool;
 use Forms\Fields\Button;
 use Forms\Fields\Email;
@@ -281,7 +282,7 @@ class Admin extends Module {
 					</tbody>
 				</table>
 				<?php
-					if (AUTH_MODE != 'sql'){
+					if (AUTH_MODE == 'sql'){
 						?><h3>Créer un utilisateur</h3><?php
 						$form = new Form('createUser');
 						$form->addField(new String('name', null, 'Nom/Pseudo', 'Veuillez saisir un nom ou un pseudonyme', null, new Pattern('text', true, 4, 150), true));
@@ -534,6 +535,9 @@ class Admin extends Module {
 
 	/**
 	 * Retourne un objet contenant l'utilisation en mémoire vive du serveur
+	 *
+	 * @todo La mémoire retournée n'exclue pas le cache
+	 *
 	 * @return serverUsage
 	 */
 	protected function getServerMemory(){
@@ -556,6 +560,9 @@ class Admin extends Module {
 
 	/**
 	 * Retourne un objet contenant l'utilisation disque du serveur
+	 *
+	 * @todo Choisir la partition à surveiller `df -h | grep ^/dev`
+	 *
 	 * @return serverUsage
 	 */
 	protected function getServerDisk(){
@@ -597,13 +604,16 @@ class Admin extends Module {
 	 * Affiche les ressources utilisées actuellement par le serveur
 	 */
 	protected function serverStatus(){
+		$serverDisks  = new serverResource('disk');
+		$serverMemory = new serverResource('mem');
+		$serverCpu    = new serverResource('cpu');
 		?>
 		<p>Occupation de l'espace disque :</p>
-		<?php $this->progressBar($this->getServerDisk()); ?>
+		<?php $serverDisks->displayBar(); ?>
 		<p>Occupation mémoire vive (RAM) :</p>
-		<?php $this->progressBar($this->getServerMemory()); ?>
-		<p>Occupation du système :</p>
-		<?php $this->progressBar($this->getServerCPU()); ?>
+		<?php $serverMemory->displayBar(); ?>
+		<p>Charge du système :</p>
+		<?php $serverCpu->displayBar(); ?>
 		<?php
 	}
 
