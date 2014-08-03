@@ -5,8 +5,8 @@
     <bookmark url="file://$PROJECT_DIR$/Modules/Transmission/Transmission.php" line="278" mnemonic="2" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="0b517d7b-6e6e-44e4-a303-f637474520ff" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/Salsifis/Salsifis.php" afterPath="$PROJECT_DIR$/Modules/Salsifis/Salsifis.php" />
+    <list default="true" id="0b517d7b-6e6e-44e4-a303-f637474520ff" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Components/serverResource.php" afterPath="$PROJECT_DIR$/classes/Components/serverResource.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tools2.iws" />
@@ -30,10 +30,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Salsifis.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Salsifis.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Modules/Salsifis/Salsifis.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="122" column="5" selection-start="3291" selection-end="3291" vertical-scroll-proportion="2.137864" vertical-offset="579" max-vertical-offset="2145">
+            <state line="122" column="5" selection-start="3291" selection-end="3291" vertical-scroll-proportion="-15.416667" vertical-offset="1310" max-vertical-offset="2145">
               <folding />
             </state>
           </provider>
@@ -42,7 +42,7 @@
       <file leaf-file-name="Transmission.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Modules/Transmission/Transmission.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="524" column="59" selection-start="22472" selection-end="22472" vertical-scroll-proportion="-19.375" vertical-offset="6990" max-vertical-offset="8130">
+            <state line="524" column="59" selection-start="22472" selection-end="22472" vertical-scroll-proportion="0.0" vertical-offset="7860" max-vertical-offset="8535">
               <folding>
                 <marker date="1407070658030" expanded="true" signature="4799:5375" placeholder="..." />
                 <marker date="1407070658030" expanded="true" signature="4842:5366" placeholder="..." />
@@ -71,7 +71,7 @@
       <file leaf-file-name="Torrent.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Modules/Transmission/Torrent.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="266" column="0" selection-start="5768" selection-end="5768" vertical-scroll-proportion="-20.625" vertical-offset="3375" max-vertical-offset="6600">
+            <state line="266" column="0" selection-start="5768" selection-end="5768" vertical-scroll-proportion="0.0" vertical-offset="3990" max-vertical-offset="6720">
               <folding />
             </state>
           </provider>
@@ -80,7 +80,7 @@
       <file leaf-file-name="Sanitize.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/Sanitize.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="167" column="34" selection-start="5750" selection-end="5750" vertical-scroll-proportion="-11.333333" vertical-offset="2128" max-vertical-offset="4980">
+            <state line="167" column="34" selection-start="5750" selection-end="5750" vertical-scroll-proportion="0.0" vertical-offset="2505" max-vertical-offset="5085">
               <folding />
             </state>
           </provider>
@@ -89,7 +89,7 @@
       <file leaf-file-name="Filter.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/Components/Filter.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="207" column="0" selection-start="5343" selection-end="5343" vertical-scroll-proportion="-27.5" vertical-offset="2430" max-vertical-offset="3270">
+            <state line="207" column="0" selection-start="5343" selection-end="5343" vertical-scroll-proportion="0.0" vertical-offset="3105" max-vertical-offset="3285">
               <folding />
             </state>
           </provider>
@@ -167,13 +167,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="serverResource.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="serverResource.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/classes/Components/serverResource.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="170" column="14" selection-start="4516" selection-end="4516" vertical-scroll-proportion="0.0" vertical-offset="2550" max-vertical-offset="3180">
+            <state line="80" column="32" selection-start="1604" selection-end="1604" vertical-scroll-proportion="0.17118226" vertical-offset="986" max-vertical-offset="3105">
               <folding>
-                <marker date="1406988860369" expanded="true" signature="5465:5734" placeholder="..." />
-                <marker date="1406988860369" expanded="true" signature="5688:5734" placeholder="..." />
+                <marker date="1407076413545" expanded="true" signature="5461:5730" placeholder="..." />
+                <marker date="1407076413545" expanded="true" signature="5684:5730" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -250,13 +250,13 @@
         <option value="$PROJECT_DIR$/Modules/.htaccess" />
         <option value="$PROJECT_DIR$/Modules/index.html" />
         <option value="$PROJECT_DIR$/Modules/BandesTina/BandesTina.php" />
-        <option value="$PROJECT_DIR$/classes/Components/serverResource.php" />
         <option value="$PROJECT_DIR$/classes/Admin/Admin.php" />
         <option value="$PROJECT_DIR$/Modules/Transmission/Transmission.php" />
         <option value="$PROJECT_DIR$/classes/Components/Filter.php" />
         <option value="$PROJECT_DIR$/Modules/Transmission/Torrent.php" />
         <option value="$PROJECT_DIR$/classes/Sanitize.php" />
         <option value="$PROJECT_DIR$/Modules/Salsifis/Salsifis.php" />
+        <option value="$PROJECT_DIR$/classes/Components/serverResource.php" />
       </list>
     </option>
   </component>
@@ -383,7 +383,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -504,6 +503,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -557,10 +557,10 @@
     <configuration default="true" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="CHROME" server_name="srv-intratest" start_url="/test/admin/tools2">
       <method />
     </configuration>
-    <configuration default="true" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug" server_name="srv-intratest">
+    <configuration default="true" type="PhpHttpRequestRunConfigurationType" factoryName="PHP HTTP Request">
       <method />
     </configuration>
-    <configuration default="true" type="PhpHttpRequestRunConfigurationType" factoryName="PHP HTTP Request">
+    <configuration default="true" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug" server_name="srv-intratest">
       <method />
     </configuration>
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
@@ -781,7 +781,11 @@
       <created>1407071674463</created>
       <updated>1407071674463</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="- Utilisation de la fonction timeDuration dans le module Salsifis">
+      <created>1407071921840</created>
+      <updated>1407071921840</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -810,26 +814,26 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328125" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3314732" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297062" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32700893" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19477694" sideWeight="0.50053936" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32700893" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24972796" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1910867" sideWeight="0.49946064" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297062" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1935287" sideWeight="0.49946064" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19477694" sideWeight="0.50053936" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32700893" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.206041" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="61" y="424" width="1838" height="191" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32700893" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Assets" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3314732" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="CSS Styles" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.399137" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -843,17 +847,17 @@
       <window_info id="CSS Styles" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297062" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24972796" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19260065" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.206041" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="61" y="424" width="1838" height="191" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.399137" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.206041" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="61" y="424" width="1838" height="191" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -870,7 +874,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="- Ajout du module portal" />
     <MESSAGE value="- Réécriture complète des formulaires, une classe par type de champ" />
     <MESSAGE value="- Gestion possible des utilisateurs via sql (sans passer par un annuaire ldap)&#10;- Ajout automatique d'un jeton de sécurité sur les formulaires&#10;- Gestion automatique du jeton de sécurité pendant les traitements de formulaires&#10;- Affichage de création d'un utilisateur si l'authentification se fait via sql et qu'il n'y a pas encore d'utilisateurs dans la base.&#10;- Ecran de gestion des utilisateurs dans l'administration du site&#10;- Correction de bugs&#10;- Ajout et correction de doc dans le code&#10;" />
     <MESSAGE value="- Référence au nom de l'utilisateur courant supprimé dans la gestion du jeton de sécurité, afin de pouvoir s'en servir même si aucun utilisateur n'est connecté" />
@@ -895,7 +898,8 @@
     <MESSAGE value="- Changements de la récupération des ressources du serveur" />
     <MESSAGE value="- Classe serverResource utilisée par la module admin et Salsifis" />
     <MESSAGE value="- Changement dans les filtres du module Transmission&#10;- Ajout d'une fonction de rendu de durée." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Changement dans les filtres du module Transmission&#10;- Ajout d'une fonction de rendu de durée." />
+    <MESSAGE value="- Utilisation de la fonction timeDuration dans le module Salsifis" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Utilisation de la fonction timeDuration dans le module Salsifis" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -941,16 +945,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Forms/Fields/String.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="2" selection-start="1679" selection-end="2125" vertical-scroll-proportion="-12.666667" vertical-offset="341" max-vertical-offset="900">
-          <folding />
-        </state>
+        <state line="49" column="2" selection-start="1679" selection-end="2125" vertical-scroll-proportion="-12.666667" vertical-offset="341" max-vertical-offset="900" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Forms/Fields/Int.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="32" selection-start="1804" selection-end="1804" vertical-scroll-proportion="-9.791667" vertical-offset="440" max-vertical-offset="975">
-          <folding />
-        </state>
+        <state line="51" column="32" selection-start="1804" selection-end="1804" vertical-scroll-proportion="-9.791667" vertical-offset="440" max-vertical-offset="975" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/Transmission/TransmissionRPC.php">
@@ -985,16 +985,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Forms/Fields/Select.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="0" selection-start="2344" selection-end="2344" vertical-scroll-proportion="-14.625" vertical-offset="519" max-vertical-offset="1770">
-          <folding />
-        </state>
+        <state line="64" column="0" selection-start="2344" selection-end="2344" vertical-scroll-proportion="-14.625" vertical-offset="519" max-vertical-offset="1770" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Forms/Form.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="41" selection-start="4201" selection-end="4201" vertical-scroll-proportion="-27.416666" vertical-offset="1232" max-vertical-offset="3105">
-          <folding />
-        </state>
+        <state line="134" column="41" selection-start="4201" selection-end="4201" vertical-scroll-proportion="-27.416666" vertical-offset="1232" max-vertical-offset="3105" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/poulpe2.js">
@@ -1159,16 +1155,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Settings/config.default.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="20" selection-start="2460" selection-end="2472" vertical-scroll-proportion="-27.541666" vertical-offset="299" max-vertical-offset="1155">
-          <folding />
-        </state>
+        <state line="66" column="20" selection-start="2460" selection-end="2472" vertical-scroll-proportion="-27.541666" vertical-offset="299" max-vertical-offset="1155" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Forms/Pattern.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="18" selection-start="4116" selection-end="4116" vertical-scroll-proportion="-30.416666" vertical-offset="740" max-vertical-offset="2550">
-          <folding />
-        </state>
+        <state line="103" column="18" selection-start="4116" selection-end="4116" vertical-scroll-proportion="-30.416666" vertical-offset="740" max-vertical-offset="2550" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/BandesTina/BandesTina.php">
@@ -1183,16 +1175,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Components/serverResource.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="170" column="14" selection-start="4516" selection-end="4516" vertical-scroll-proportion="0.0" vertical-offset="2550" max-vertical-offset="3180">
-          <folding>
-            <marker date="1406988860369" expanded="true" signature="5465:5734" placeholder="..." />
-            <marker date="1406988860369" expanded="true" signature="5688:5734" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classes/Admin/Admin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="550" column="3" selection-start="19402" selection-end="19890" vertical-scroll-proportion="0.0" vertical-offset="8250" max-vertical-offset="9165">
@@ -1202,14 +1184,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Components/Filter.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="207" column="0" selection-start="5343" selection-end="5343" vertical-scroll-proportion="-27.5" vertical-offset="2430" max-vertical-offset="3270">
+        <state line="207" column="0" selection-start="5343" selection-end="5343" vertical-scroll-proportion="0.0" vertical-offset="3105" max-vertical-offset="3285">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/Transmission/Transmission.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="524" column="59" selection-start="22472" selection-end="22472" vertical-scroll-proportion="-19.375" vertical-offset="6990" max-vertical-offset="8130">
+        <state line="524" column="59" selection-start="22472" selection-end="22472" vertical-scroll-proportion="0.0" vertical-offset="7860" max-vertical-offset="8535">
           <folding>
             <marker date="1407070658030" expanded="true" signature="4799:5375" placeholder="..." />
             <marker date="1407070658030" expanded="true" signature="4842:5366" placeholder="..." />
@@ -1236,22 +1218,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/Transmission/Torrent.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="266" column="0" selection-start="5768" selection-end="5768" vertical-scroll-proportion="-20.625" vertical-offset="3375" max-vertical-offset="6600">
+        <state line="266" column="0" selection-start="5768" selection-end="5768" vertical-scroll-proportion="0.0" vertical-offset="3990" max-vertical-offset="6720">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Sanitize.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="167" column="34" selection-start="5750" selection-end="5750" vertical-scroll-proportion="-11.333333" vertical-offset="2128" max-vertical-offset="4980">
+        <state line="167" column="34" selection-start="5750" selection-end="5750" vertical-scroll-proportion="0.0" vertical-offset="2505" max-vertical-offset="5085">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/Salsifis/Salsifis.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="5" selection-start="3291" selection-end="3291" vertical-scroll-proportion="2.137864" vertical-offset="579" max-vertical-offset="2145">
+        <state line="122" column="5" selection-start="3291" selection-end="3291" vertical-scroll-proportion="-15.416667" vertical-offset="1310" max-vertical-offset="2145">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Components/serverResource.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="32" selection-start="1604" selection-end="1604" vertical-scroll-proportion="0.17118226" vertical-offset="986" max-vertical-offset="3105">
+          <folding>
+            <marker date="1407076413545" expanded="true" signature="5461:5730" placeholder="..." />
+            <marker date="1407076413545" expanded="true" signature="5684:5730" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
