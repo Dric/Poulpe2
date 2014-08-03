@@ -5,13 +5,8 @@
     <bookmark url="file://$PROJECT_DIR$/Modules/Transmission/Transmission.php" line="278" mnemonic="2" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="0b517d7b-6e6e-44e4-a303-f637474520ff" name="Default" comment="- Ajout de la doc du code générée par ApiGen">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Components/Filter.php" afterPath="$PROJECT_DIR$/classes/Components/Filter.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Sanitize.php" afterPath="$PROJECT_DIR$/classes/Sanitize.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/Transmission/Torrent.php" afterPath="$PROJECT_DIR$/Modules/Transmission/Torrent.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/Transmission/Transmission.php" afterPath="$PROJECT_DIR$/Modules/Transmission/Transmission.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" readonly="true" id="0b517d7b-6e6e-44e4-a303-f637474520ff" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/Salsifis/Salsifis.php" afterPath="$PROJECT_DIR$/Modules/Salsifis/Salsifis.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tools2.iws" />
@@ -35,25 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Salsifis.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Salsifis.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Modules/Salsifis/Salsifis.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="0" selection-start="1432" selection-end="1432" vertical-scroll-proportion="6.25" vertical-offset="945" max-vertical-offset="2625">
-              <folding>
-                <marker date="1406989084848" expanded="true" signature="1005:1363" placeholder="..." />
-                <marker date="1406989084848" expanded="true" signature="1048:1354" placeholder="..." />
-                <marker date="1406989084848" expanded="true" signature="1078:1171" placeholder="..." />
-                <marker date="1406989084848" expanded="true" signature="1756:2971" placeholder="..." />
-                <marker date="1406989084848" expanded="true" signature="1764:2168" placeholder="..." />
-                <marker date="1406989084848" expanded="true" signature="1799:2007" placeholder="..." />
-                <marker date="1406989084848" expanded="true" signature="2016:2159" placeholder="..." />
-                <marker date="1406989084848" expanded="true" signature="2176:2637" placeholder="..." />
-                <marker date="1406989084848" expanded="true" signature="2207:2474" placeholder="..." />
-                <marker date="1406989084848" expanded="true" signature="2483:2628" placeholder="..." />
-                <marker date="1406989084848" expanded="true" signature="2645:2960" placeholder="..." />
-                <marker date="1406989084848" expanded="true" signature="2673:2803" placeholder="..." />
-                <marker date="1406989084848" expanded="true" signature="2812:2951" placeholder="..." />
-              </folding>
+            <state line="122" column="5" selection-start="3291" selection-end="3291" vertical-scroll-proportion="2.137864" vertical-offset="579" max-vertical-offset="2145">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -96,10 +77,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Sanitize.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Sanitize.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/Sanitize.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="167" column="34" selection-start="5750" selection-end="5750" vertical-scroll-proportion="0.33497536" vertical-offset="2128" max-vertical-offset="4980">
+            <state line="167" column="34" selection-start="5750" selection-end="5750" vertical-scroll-proportion="-11.333333" vertical-offset="2128" max-vertical-offset="4980">
               <folding />
             </state>
           </provider>
@@ -271,11 +252,11 @@
         <option value="$PROJECT_DIR$/Modules/BandesTina/BandesTina.php" />
         <option value="$PROJECT_DIR$/classes/Components/serverResource.php" />
         <option value="$PROJECT_DIR$/classes/Admin/Admin.php" />
-        <option value="$PROJECT_DIR$/Modules/Salsifis/Salsifis.php" />
         <option value="$PROJECT_DIR$/Modules/Transmission/Transmission.php" />
         <option value="$PROJECT_DIR$/classes/Components/Filter.php" />
         <option value="$PROJECT_DIR$/Modules/Transmission/Torrent.php" />
         <option value="$PROJECT_DIR$/classes/Sanitize.php" />
+        <option value="$PROJECT_DIR$/Modules/Salsifis/Salsifis.php" />
       </list>
     </option>
   </component>
@@ -796,7 +777,11 @@
       <created>1406989848501</created>
       <updated>1406989848501</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="- Changement dans les filtres du module Transmission&#10;- Ajout d'une fonction de rendu de durée.">
+      <created>1407071674463</created>
+      <updated>1407071674463</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -823,24 +808,24 @@
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328125" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3314732" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24972796" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297062" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1910867" sideWeight="0.49946064" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19477694" sideWeight="0.50053936" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32700893" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.206041" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="61" y="424" width="1838" height="191" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19477694" sideWeight="0.50053936" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32700893" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24972796" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1910867" sideWeight="0.49946064" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.206041" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="61" y="424" width="1838" height="191" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Assets" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3322546" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="CSS Styles" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -885,7 +870,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="- Ajout de la possibilité de ne pas s'authentifier&#10;- Ajout de la possibilité de mettre un module donné en page d'accueil" />
     <MESSAGE value="- Ajout du module portal" />
     <MESSAGE value="- Réécriture complète des formulaires, une classe par type de champ" />
     <MESSAGE value="- Gestion possible des utilisateurs via sql (sans passer par un annuaire ldap)&#10;- Ajout automatique d'un jeton de sécurité sur les formulaires&#10;- Gestion automatique du jeton de sécurité pendant les traitements de formulaires&#10;- Affichage de création d'un utilisateur si l'authentification se fait via sql et qu'il n'y a pas encore d'utilisateurs dans la base.&#10;- Ecran de gestion des utilisateurs dans l'administration du site&#10;- Correction de bugs&#10;- Ajout et correction de doc dans le code&#10;" />
@@ -910,7 +894,8 @@
     <MESSAGE value="- Ajout de la doc du code générée par ApiGen" />
     <MESSAGE value="- Changements de la récupération des ressources du serveur" />
     <MESSAGE value="- Classe serverResource utilisée par la module admin et Salsifis" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Classe serverResource utilisée par la module admin et Salsifis" />
+    <MESSAGE value="- Changement dans les filtres du module Transmission&#10;- Ajout d'une fonction de rendu de durée." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Changement dans les filtres du module Transmission&#10;- Ajout d'une fonction de rendu de durée." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1215,27 +1200,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Modules/Salsifis/Salsifis.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="0" selection-start="1432" selection-end="1432" vertical-scroll-proportion="6.25" vertical-offset="945" max-vertical-offset="2625">
-          <folding>
-            <marker date="1406989084848" expanded="true" signature="1005:1363" placeholder="..." />
-            <marker date="1406989084848" expanded="true" signature="1048:1354" placeholder="..." />
-            <marker date="1406989084848" expanded="true" signature="1078:1171" placeholder="..." />
-            <marker date="1406989084848" expanded="true" signature="1756:2971" placeholder="..." />
-            <marker date="1406989084848" expanded="true" signature="1764:2168" placeholder="..." />
-            <marker date="1406989084848" expanded="true" signature="1799:2007" placeholder="..." />
-            <marker date="1406989084848" expanded="true" signature="2016:2159" placeholder="..." />
-            <marker date="1406989084848" expanded="true" signature="2176:2637" placeholder="..." />
-            <marker date="1406989084848" expanded="true" signature="2207:2474" placeholder="..." />
-            <marker date="1406989084848" expanded="true" signature="2483:2628" placeholder="..." />
-            <marker date="1406989084848" expanded="true" signature="2645:2960" placeholder="..." />
-            <marker date="1406989084848" expanded="true" signature="2673:2803" placeholder="..." />
-            <marker date="1406989084848" expanded="true" signature="2812:2951" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classes/Components/Filter.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="207" column="0" selection-start="5343" selection-end="5343" vertical-scroll-proportion="-27.5" vertical-offset="2430" max-vertical-offset="3270">
@@ -1279,7 +1243,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Sanitize.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="167" column="34" selection-start="5750" selection-end="5750" vertical-scroll-proportion="0.33497536" vertical-offset="2128" max-vertical-offset="4980">
+        <state line="167" column="34" selection-start="5750" selection-end="5750" vertical-scroll-proportion="-11.333333" vertical-offset="2128" max-vertical-offset="4980">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/Salsifis/Salsifis.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="122" column="5" selection-start="3291" selection-end="3291" vertical-scroll-proportion="2.137864" vertical-offset="579" max-vertical-offset="2145">
           <folding />
         </state>
       </provider>

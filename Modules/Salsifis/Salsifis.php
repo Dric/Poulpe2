@@ -123,39 +123,7 @@ class Salsifis extends Module{
 	 */
 	protected function getUptime(){
 		$uptime = shell_exec("cut -d. -f1 /proc/uptime");
-		$days = floor($uptime/60/60/24);
-		$hours = $uptime/60/60%24;
-		$mins = $uptime/60%60;
-		$secs = $uptime%60;
-		$ret = '';
-		if ($days > 0){
-			$ret .= $days.' jour';
-			if ($days > 1){
-				$ret .='s';
-			}
-			$ret .= ' ';
-		}
-		if ($hours > 0){
-			$ret .= $hours.' heure';
-			if ($hours > 1){
-				$ret .='s';
-			}
-			$ret .= ' ';
-		}
-		if ($mins > 0){
-			$ret .= $mins.' minute';
-			if ($mins > 1){
-				$ret .='s';
-			}
-			$ret .= ' ';
-		}
-		if ($secs > 0){
-			$ret .= 'et '.$secs.' seconde';
-			if ($secs > 1){
-				$ret .='s';
-			}
-		}
-		return $ret;
+		return \Sanitize::timeDuration($uptime);
 	}
 
 	/**
