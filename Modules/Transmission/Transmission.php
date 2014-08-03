@@ -521,7 +521,11 @@ class Transmission extends Module{
 	protected function displayTorrents(Filter $filter = null){
 		$altColor = true;
 		if (!empty($filter)){
-			$torrents = $filter->Objects($this->getTorrents(), 'name');
+			if ($filter->key == 'rawDoneDate'){
+				$torrents = $filter->Objects($this->getTorrents());
+			}else{
+				$torrents = $filter->Objects($this->getTorrents(), 'name');
+			}
 		}else{
 			$torrents = \Sanitize::sortObjectList($this->getTorrents(), 'name');
 		}

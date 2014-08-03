@@ -231,7 +231,13 @@ Class Torrent{
 	}
 
 	public function __isset($prop){
-		return isset($this->$prop);
+		switch ($prop){
+			case 'rawDoneDate':
+			case 'rawDownloadDir':
+				return true;
+			default:
+				return isset($this->$prop);
+		}
 	}
 	
 	/**
@@ -258,7 +264,7 @@ Class Torrent{
 			case 'uploadedEver':
 				return Sanitize::readableFileSize($this->$prop);
 			case 'eta':
-				return ($this->eta != -1) ? Sanitize::date($this->$prop, 'dateTime') : 'Inconnu';
+				return ($this->eta != -1) ? Sanitize::timeDuration($this->$prop) : 'Inconnu';
 			case 'isFinished':
 				return ($this->isFinished or $this->percentDone === 1) ? true : false;
 			case 'uploadRatio':

@@ -156,6 +156,21 @@ class Sanitize {
 	}
 
 	/**
+	 * Transforme unee durée en secondes en durée lisible par l'être humain
+	 *
+	 * @param int $time Durée en secondes
+	 * @return string
+	 */
+	public static function timeDuration($time){
+		$s = $time % 60;
+		$m = (floor(($time%3600)/60)>0)?floor(($time%3600)/60).' minutes' : '';
+		$h = (floor(($time % 86400) / 3600)>0)?floor(($time % 86400) / 3600).' heures' : '';
+		$d = (floor(($time % 2592000) / 86400)>0)?floor(($time % 2592000) / 86400).' jours' : '';
+		$M = (floor($time / 2592000)>0)?floor($time / 2592000).' mois' : '';
+		return $M.' '.$d.' '.$h.' '.$m.' et '.$s.' secondes';
+	}
+
+	/**
 	 * Trie un tableau d'objets selon les propriétés de ceux-ci.
 	 *
 	 * Le tableau d'origine n'est pas affecté

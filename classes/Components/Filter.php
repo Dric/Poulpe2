@@ -83,6 +83,7 @@ class Filter {
 			$this->fail = true;
 		}
 		$this->value = $value;
+		$this->limit = (int)$limit;
 		$this->sortOrder = (in_array($sortOrder, array('ASC', 'DESC'))) ? $sortOrder : 'ASC';
 	}
 
@@ -106,6 +107,23 @@ class Filter {
 				return $this->value;
 			default:
 				return null;
+		}
+	}
+
+	/**
+	 * Méthode magique permettant de définir si une propriété existe
+	 * @param string $prop Propriété
+	 * @return bool
+	 */
+	public function __isset($prop){
+		if ($this->fail){
+			return false;
+		}
+		switch ($prop){
+			case 'op':
+				return true;
+			default:
+				return isset($this->$prop);
 		}
 	}
 
