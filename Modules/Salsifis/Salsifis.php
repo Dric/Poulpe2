@@ -51,10 +51,15 @@ class Salsifis extends Module{
 				<div class="page-header">
 					<h3><?php echo $this->title; ?>  <?php $this->manageModuleButtons(); ?></h3>
 				</div>
-				<h4>Les salsifis sont fièrement à leur poste depuis <?php echo $this->getUptime(); ?></h4>
-				<br>
-				<?php $this->serverStatus(); ?>
-				<?php $this->processes(); ?>
+				<h4>Les salsifis sont fièrement à leur poste depuis <?php echo $this->getUptime(); ?> !</h4>
+				<div class="row">
+					<div class="col-md-6">
+						<?php $this->serverStatus(); ?>
+					</div>
+					<div class="col-md-6">
+						<?php $this->processes(); ?>
+					</div>
+				</div>
 			</div>
 		</div>
 	<?php
@@ -141,7 +146,7 @@ class Salsifis extends Module{
 		<?php $serverDisks->displayBar(); ?>
 		<p>Occupation mémoire vive (RAM) :</p>
 		<?php $serverMemory->displayBar(); ?>
-		<p>Charge du système :</p>
+		<p>Occupation CPU :</p>
 		<?php $serverCpu->displayBar(); ?>
 		<?php
 	}

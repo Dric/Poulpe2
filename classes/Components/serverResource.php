@@ -77,8 +77,13 @@ class serverResource {
 	 */
 	protected function retrieveData(){
 		switch ($this->type){
+			case 'systemLoad':
+				$this->load = sys_getloadavg()[1]*100;
+				$this->total = 100;
+				break;
 			case 'cpu':
-				$this->load = sys_getloadavg()[0];
+				exec("grep 'cpu ' /proc/stat | awk '{usage=($2+$3+$4)*100/($2+$3+$4+$5)} END {print usage}'", $out);
+				$this->load = (float)$out[0];
 				$this->total = 100;
 				break;
 			case 'mem':
@@ -160,7 +165,7 @@ class serverResource {
 				$label = $data->free.' libres sur '.$data->total;
 			}
 		}else{
-			$label = $data->percentFree.'% inoccupé';
+			$label = round($data->percentFree, 1).'% inoccupé';
 		}
 		if (is_array($data->percentLoad)){
 			foreach ($data->percentLoad as $partition => $percentLoad){

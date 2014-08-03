@@ -6,6 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b517d7b-6e6e-44e4-a303-f637474520ff" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Admin/Admin.php" afterPath="$PROJECT_DIR$/classes/Admin/Admin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/Salsifis/Salsifis.php" afterPath="$PROJECT_DIR$/Modules/Salsifis/Salsifis.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Components/serverResource.php" afterPath="$PROJECT_DIR$/classes/Components/serverResource.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -30,10 +32,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Salsifis.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Salsifis.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Modules/Salsifis/Salsifis.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="122" column="5" selection-start="3291" selection-end="3291" vertical-scroll-proportion="-15.416667" vertical-offset="1310" max-vertical-offset="2145">
+            <state line="53" column="95" selection-start="1264" selection-end="1264" vertical-scroll-proportion="0.6219212" vertical-offset="140" max-vertical-offset="2220">
               <folding />
             </state>
           </provider>
@@ -161,19 +163,21 @@
       <file leaf-file-name="Admin.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/Admin/Admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="550" column="3" selection-start="19402" selection-end="19890" vertical-scroll-proportion="0.0" vertical-offset="8250" max-vertical-offset="9165">
+            <state line="547" column="18" selection-start="19830" selection-end="19830" vertical-scroll-proportion="-14.458333" vertical-offset="7468" max-vertical-offset="8775">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="serverResource.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="serverResource.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/Components/serverResource.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="32" selection-start="1604" selection-end="1604" vertical-scroll-proportion="0.17118226" vertical-offset="986" max-vertical-offset="3105">
+            <state line="178" column="7" selection-start="4770" selection-end="4770" vertical-scroll-proportion="-18.125" vertical-offset="2160" max-vertical-offset="3180">
               <folding>
-                <marker date="1407076413545" expanded="true" signature="5461:5730" placeholder="..." />
-                <marker date="1407076413545" expanded="true" signature="5684:5730" placeholder="..." />
+                <element signature="e#5420#5481#0" expanded="true" />
+                <element signature="e#5845#5894#0" expanded="true" />
+                <marker date="1407085287649" expanded="true" signature="5671:5940" placeholder="..." />
+                <marker date="1407085287649" expanded="true" signature="5894:5940" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -250,13 +254,13 @@
         <option value="$PROJECT_DIR$/Modules/.htaccess" />
         <option value="$PROJECT_DIR$/Modules/index.html" />
         <option value="$PROJECT_DIR$/Modules/BandesTina/BandesTina.php" />
-        <option value="$PROJECT_DIR$/classes/Admin/Admin.php" />
         <option value="$PROJECT_DIR$/Modules/Transmission/Transmission.php" />
         <option value="$PROJECT_DIR$/classes/Components/Filter.php" />
         <option value="$PROJECT_DIR$/Modules/Transmission/Torrent.php" />
         <option value="$PROJECT_DIR$/classes/Sanitize.php" />
-        <option value="$PROJECT_DIR$/Modules/Salsifis/Salsifis.php" />
+        <option value="$PROJECT_DIR$/classes/Admin/Admin.php" />
         <option value="$PROJECT_DIR$/classes/Components/serverResource.php" />
+        <option value="$PROJECT_DIR$/Modules/Salsifis/Salsifis.php" />
       </list>
     </option>
   </component>
@@ -785,7 +789,11 @@
       <created>1407071921840</created>
       <updated>1407071921840</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="- Correction d'un bug sur la mesure du CPU dans serverResource">
+      <created>1407076508417</created>
+      <updated>1407076508417</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -812,6 +820,7 @@
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328125" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -830,7 +839,6 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3314732" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="CSS Styles" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.399137" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -874,7 +882,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="- Réécriture complète des formulaires, une classe par type de champ" />
     <MESSAGE value="- Gestion possible des utilisateurs via sql (sans passer par un annuaire ldap)&#10;- Ajout automatique d'un jeton de sécurité sur les formulaires&#10;- Gestion automatique du jeton de sécurité pendant les traitements de formulaires&#10;- Affichage de création d'un utilisateur si l'authentification se fait via sql et qu'il n'y a pas encore d'utilisateurs dans la base.&#10;- Ecran de gestion des utilisateurs dans l'administration du site&#10;- Correction de bugs&#10;- Ajout et correction de doc dans le code&#10;" />
     <MESSAGE value="- Référence au nom de l'utilisateur courant supprimé dans la gestion du jeton de sécurité, afin de pouvoir s'en servir même si aucun utilisateur n'est connecté" />
     <MESSAGE value="- Correction d'un oubli de constante dans le fichier config.default.php&#10;- Correction des commandes SQL pour peupler la base de données à l'installation" />
@@ -899,7 +906,8 @@
     <MESSAGE value="- Classe serverResource utilisée par la module admin et Salsifis" />
     <MESSAGE value="- Changement dans les filtres du module Transmission&#10;- Ajout d'une fonction de rendu de durée." />
     <MESSAGE value="- Utilisation de la fonction timeDuration dans le module Salsifis" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Utilisation de la fonction timeDuration dans le module Salsifis" />
+    <MESSAGE value="- Correction d'un bug sur la mesure du CPU dans serverResource" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Correction d'un bug sur la mesure du CPU dans serverResource" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -945,12 +953,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Forms/Fields/String.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="2" selection-start="1679" selection-end="2125" vertical-scroll-proportion="-12.666667" vertical-offset="341" max-vertical-offset="900" />
+        <state line="49" column="2" selection-start="1679" selection-end="2125" vertical-scroll-proportion="-12.666667" vertical-offset="341" max-vertical-offset="900">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Forms/Fields/Int.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="32" selection-start="1804" selection-end="1804" vertical-scroll-proportion="-9.791667" vertical-offset="440" max-vertical-offset="975" />
+        <state line="51" column="32" selection-start="1804" selection-end="1804" vertical-scroll-proportion="-9.791667" vertical-offset="440" max-vertical-offset="975">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/Transmission/TransmissionRPC.php">
@@ -985,12 +997,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Forms/Fields/Select.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="0" selection-start="2344" selection-end="2344" vertical-scroll-proportion="-14.625" vertical-offset="519" max-vertical-offset="1770" />
+        <state line="64" column="0" selection-start="2344" selection-end="2344" vertical-scroll-proportion="-14.625" vertical-offset="519" max-vertical-offset="1770">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Forms/Form.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="41" selection-start="4201" selection-end="4201" vertical-scroll-proportion="-27.416666" vertical-offset="1232" max-vertical-offset="3105" />
+        <state line="134" column="41" selection-start="4201" selection-end="4201" vertical-scroll-proportion="-27.416666" vertical-offset="1232" max-vertical-offset="3105">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/poulpe2.js">
@@ -1155,12 +1171,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Settings/config.default.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="20" selection-start="2460" selection-end="2472" vertical-scroll-proportion="-27.541666" vertical-offset="299" max-vertical-offset="1155" />
+        <state line="66" column="20" selection-start="2460" selection-end="2472" vertical-scroll-proportion="-27.541666" vertical-offset="299" max-vertical-offset="1155">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Forms/Pattern.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="18" selection-start="4116" selection-end="4116" vertical-scroll-proportion="-30.416666" vertical-offset="740" max-vertical-offset="2550" />
+        <state line="103" column="18" selection-start="4116" selection-end="4116" vertical-scroll-proportion="-30.416666" vertical-offset="740" max-vertical-offset="2550">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/BandesTina/BandesTina.php">
@@ -1171,13 +1191,6 @@
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="17" selection-start="47" selection-end="47" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="2460">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Admin/Admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="550" column="3" selection-start="19402" selection-end="19890" vertical-scroll-proportion="0.0" vertical-offset="8250" max-vertical-offset="9165">
           <folding />
         </state>
       </provider>
@@ -1230,20 +1243,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Modules/Salsifis/Salsifis.php">
+    <entry file="file://$PROJECT_DIR$/classes/Admin/Admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="5" selection-start="3291" selection-end="3291" vertical-scroll-proportion="-15.416667" vertical-offset="1310" max-vertical-offset="2145">
+        <state line="547" column="18" selection-start="19830" selection-end="19830" vertical-scroll-proportion="-14.458333" vertical-offset="7468" max-vertical-offset="8775">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Components/serverResource.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="32" selection-start="1604" selection-end="1604" vertical-scroll-proportion="0.17118226" vertical-offset="986" max-vertical-offset="3105">
+        <state line="178" column="7" selection-start="4770" selection-end="4770" vertical-scroll-proportion="-18.125" vertical-offset="2160" max-vertical-offset="3180">
           <folding>
-            <marker date="1407076413545" expanded="true" signature="5461:5730" placeholder="..." />
-            <marker date="1407076413545" expanded="true" signature="5684:5730" placeholder="..." />
+            <element signature="e#5420#5481#0" expanded="true" />
+            <element signature="e#5845#5894#0" expanded="true" />
+            <marker date="1407085287649" expanded="true" signature="5671:5940" placeholder="..." />
+            <marker date="1407085287649" expanded="true" signature="5894:5940" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/Salsifis/Salsifis.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="95" selection-start="1264" selection-end="1264" vertical-scroll-proportion="0.6219212" vertical-offset="140" max-vertical-offset="2220">
+          <folding />
         </state>
       </provider>
     </entry>

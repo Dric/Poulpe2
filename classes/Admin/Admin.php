@@ -545,7 +545,7 @@ class Admin extends Module {
 		<?php $serverDisks->displayBar(); ?>
 		<p>Occupation mémoire vive (RAM) :</p>
 		<?php $serverMemory->displayBar(); ?>
-		<p>Charge du système :</p>
+		<p>Occupation CPU :</p>
 		<?php $serverCpu->displayBar(); ?>
 		<?php
 	}
