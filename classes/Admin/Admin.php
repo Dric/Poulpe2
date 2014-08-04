@@ -28,6 +28,7 @@ use Front;
 use Modules\Module;
 use Modules\ModulesManagement;
 use Forms\Form;
+use Sanitize;
 use Users\ACL;
 use Users\UsersManagement;
 
@@ -592,6 +593,7 @@ class Admin extends Module {
 		foreach ($dbStatus as $table){
 			$dbSize += $table->Data_length + $table->Index_length;
 		}
+		$commit = Front::getLastCommit();
 		?>
 		<ul>
 			<li>Utilisateurs : <strong><?php echo count(UsersManagement::getUsersList()); ?></strong></li>
@@ -600,6 +602,7 @@ class Admin extends Module {
 			<li>Taille de la base de données : <strong><?php echo \Sanitize::readableFileSize($dbSize); ?></strong></li>
 			<li>Nombre de tables dans la base : <strong><?php echo $nbTables; ?></strong></li>
 			<li>Mode d'authentification : <strong><?php echo AUTH_MODE; ?></strong></li>
+			<li>Version de Poulpe2 : <a href="https://github.com/Dric/Poulpe2/commit/<?php echo $commit->fullHash; ?>"><?php echo $commit->hash; ?></a> du <?php echo Sanitize::date($commit->date, 'dateTime'); ?></li>
 		</ul>
 		<?php
 	}
