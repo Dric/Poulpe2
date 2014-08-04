@@ -6,9 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b517d7b-6e6e-44e4-a303-f637474520ff" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Admin/Admin.php" afterPath="$PROJECT_DIR$/classes/Admin/Admin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/Salsifis/Salsifis.php" afterPath="$PROJECT_DIR$/Modules/Salsifis/Salsifis.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Components/serverResource.php" afterPath="$PROJECT_DIR$/classes/Components/serverResource.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/Transmission/Torrent.php" afterPath="$PROJECT_DIR$/Modules/Transmission/Torrent.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/Transmission/Transmission.php" afterPath="$PROJECT_DIR$/Modules/Transmission/Transmission.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tools2.iws" />
@@ -32,10 +31,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Salsifis.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Salsifis.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Modules/Salsifis/Salsifis.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="95" selection-start="1264" selection-end="1264" vertical-scroll-proportion="0.6219212" vertical-offset="140" max-vertical-offset="2220">
+            <state line="53" column="95" selection-start="1264" selection-end="1264" vertical-scroll-proportion="-21.041666" vertical-offset="140" max-vertical-offset="2220">
               <folding />
             </state>
           </provider>
@@ -44,36 +43,16 @@
       <file leaf-file-name="Transmission.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Modules/Transmission/Transmission.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="524" column="59" selection-start="22472" selection-end="22472" vertical-scroll-proportion="0.0" vertical-offset="7860" max-vertical-offset="8535">
-              <folding>
-                <marker date="1407070658030" expanded="true" signature="4799:5375" placeholder="..." />
-                <marker date="1407070658030" expanded="true" signature="4842:5366" placeholder="..." />
-                <marker date="1407070658030" expanded="true" signature="4872:4964" placeholder="..." />
-                <marker date="1407070658030" expanded="true" signature="6224:14169" placeholder="..." />
-                <marker date="1407070658030" expanded="true" signature="6267:14160" placeholder="..." />
-                <marker date="1407070658030" expanded="true" signature="6297:6391" placeholder="..." />
-                <marker date="1407070658030" expanded="true" signature="7309:8911" placeholder="..." />
-                <marker date="1407070658030" expanded="true" signature="7336:8708" placeholder="..." />
-                <marker date="1407070658030" expanded="true" signature="7350:7551" placeholder="..." />
-                <marker date="1407070658030" expanded="true" signature="7362:7536" placeholder="..." />
-                <marker date="1407070658030" expanded="true" signature="7565:8694" placeholder="..." />
-                <marker date="1407070658030" expanded="true" signature="7577:8127" placeholder="..." />
-                <marker date="1407070658030" expanded="true" signature="8139:8679" placeholder="..." />
-                <marker date="1407070658030" expanded="true" signature="14713:15014" placeholder="..." />
-                <marker date="1407070658030" expanded="true" signature="14742:14930" placeholder="..." />
-                <marker date="1407070658030" expanded="true" signature="14958:15003" placeholder="..." />
-                <marker date="1407070658030" expanded="true" signature="15080:15356" placeholder="..." />
-                <marker date="1407070658030" expanded="true" signature="15109:15272" placeholder="..." />
-                <marker date="1407070658030" expanded="true" signature="15300:15345" placeholder="..." />
-              </folding>
+            <state line="440" column="7" selection-start="19683" selection-end="19683" vertical-scroll-proportion="45.541668" vertical-offset="7288" max-vertical-offset="8145">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Torrent.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Torrent.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Modules/Transmission/Torrent.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="266" column="0" selection-start="5768" selection-end="5768" vertical-scroll-proportion="0.0" vertical-offset="3990" max-vertical-offset="6720">
+            <state line="440" column="54" selection-start="14410" selection-end="14410" vertical-scroll-proportion="0.8830049" vertical-offset="5763" max-vertical-offset="6630">
               <folding />
             </state>
           </provider>
@@ -174,9 +153,13 @@
           <provider selected="true" editor-type-id="text-editor">
             <state line="178" column="7" selection-start="4770" selection-end="4770" vertical-scroll-proportion="-18.125" vertical-offset="2160" max-vertical-offset="3180">
               <folding>
-                <element signature="e#5420#5481#0" expanded="true" />
-                <element signature="e#5845#5894#0" expanded="true" />
+                <marker date="1407085287649" expanded="true" signature="5221:5570" placeholder="..." />
+                <marker date="1407085287649" expanded="true" signature="5427:5480" placeholder="..." />
+                <marker date="1407085287649" expanded="true" signature="5481:5559" placeholder="..." />
+                <marker date="1407085287649" expanded="true" signature="5671:5968" placeholder="..." />
                 <marker date="1407085287649" expanded="true" signature="5671:5940" placeholder="..." />
+                <marker date="1407085287649" expanded="true" signature="5852:5893" placeholder="..." />
+                <marker date="1407085287649" expanded="true" signature="5894:5958" placeholder="..." />
                 <marker date="1407085287649" expanded="true" signature="5894:5940" placeholder="..." />
               </folding>
             </state>
@@ -254,13 +237,13 @@
         <option value="$PROJECT_DIR$/Modules/.htaccess" />
         <option value="$PROJECT_DIR$/Modules/index.html" />
         <option value="$PROJECT_DIR$/Modules/BandesTina/BandesTina.php" />
-        <option value="$PROJECT_DIR$/Modules/Transmission/Transmission.php" />
         <option value="$PROJECT_DIR$/classes/Components/Filter.php" />
-        <option value="$PROJECT_DIR$/Modules/Transmission/Torrent.php" />
         <option value="$PROJECT_DIR$/classes/Sanitize.php" />
         <option value="$PROJECT_DIR$/classes/Admin/Admin.php" />
         <option value="$PROJECT_DIR$/classes/Components/serverResource.php" />
         <option value="$PROJECT_DIR$/Modules/Salsifis/Salsifis.php" />
+        <option value="$PROJECT_DIR$/Modules/Transmission/Transmission.php" />
+        <option value="$PROJECT_DIR$/Modules/Transmission/Torrent.php" />
       </list>
     </option>
   </component>
@@ -793,7 +776,11 @@
       <created>1407076508417</created>
       <updated>1407076508417</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="- L'utilisation CPU est maintenant affichée, au lieu d'utiliser la charge système qui ne reflète pas seulement l'utilisation du CPU">
+      <created>1407085508025</created>
+      <updated>1407085508025</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -882,7 +869,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="- Gestion possible des utilisateurs via sql (sans passer par un annuaire ldap)&#10;- Ajout automatique d'un jeton de sécurité sur les formulaires&#10;- Gestion automatique du jeton de sécurité pendant les traitements de formulaires&#10;- Affichage de création d'un utilisateur si l'authentification se fait via sql et qu'il n'y a pas encore d'utilisateurs dans la base.&#10;- Ecran de gestion des utilisateurs dans l'administration du site&#10;- Correction de bugs&#10;- Ajout et correction de doc dans le code&#10;" />
     <MESSAGE value="- Référence au nom de l'utilisateur courant supprimé dans la gestion du jeton de sécurité, afin de pouvoir s'en servir même si aucun utilisateur n'est connecté" />
     <MESSAGE value="- Correction d'un oubli de constante dans le fichier config.default.php&#10;- Correction des commandes SQL pour peupler la base de données à l'installation" />
     <MESSAGE value="- Suppression de l'argument $id dans les objets Field&#10;- Correction de bugs suite à l'ajout d'un jeton de sécurité dans les formulaires&#10;- Corrections de bugs&#10;- On peut maintenant choisir l'ordre d'affichage des Post-it dans le module Post-it." />
@@ -907,7 +893,8 @@
     <MESSAGE value="- Changement dans les filtres du module Transmission&#10;- Ajout d'une fonction de rendu de durée." />
     <MESSAGE value="- Utilisation de la fonction timeDuration dans le module Salsifis" />
     <MESSAGE value="- Correction d'un bug sur la mesure du CPU dans serverResource" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Correction d'un bug sur la mesure du CPU dans serverResource" />
+    <MESSAGE value="- L'utilisation CPU est maintenant affichée, au lieu d'utiliser la charge système qui ne reflète pas seulement l'utilisation du CPU" />
+    <option name="LAST_COMMIT_MESSAGE" value="- L'utilisation CPU est maintenant affichée, au lieu d'utiliser la charge système qui ne reflète pas seulement l'utilisation du CPU" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1202,40 +1189,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Modules/Transmission/Transmission.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="524" column="59" selection-start="22472" selection-end="22472" vertical-scroll-proportion="0.0" vertical-offset="7860" max-vertical-offset="8535">
-          <folding>
-            <marker date="1407070658030" expanded="true" signature="4799:5375" placeholder="..." />
-            <marker date="1407070658030" expanded="true" signature="4842:5366" placeholder="..." />
-            <marker date="1407070658030" expanded="true" signature="4872:4964" placeholder="..." />
-            <marker date="1407070658030" expanded="true" signature="6224:14169" placeholder="..." />
-            <marker date="1407070658030" expanded="true" signature="6267:14160" placeholder="..." />
-            <marker date="1407070658030" expanded="true" signature="6297:6391" placeholder="..." />
-            <marker date="1407070658030" expanded="true" signature="7309:8911" placeholder="..." />
-            <marker date="1407070658030" expanded="true" signature="7336:8708" placeholder="..." />
-            <marker date="1407070658030" expanded="true" signature="7350:7551" placeholder="..." />
-            <marker date="1407070658030" expanded="true" signature="7362:7536" placeholder="..." />
-            <marker date="1407070658030" expanded="true" signature="7565:8694" placeholder="..." />
-            <marker date="1407070658030" expanded="true" signature="7577:8127" placeholder="..." />
-            <marker date="1407070658030" expanded="true" signature="8139:8679" placeholder="..." />
-            <marker date="1407070658030" expanded="true" signature="14713:15014" placeholder="..." />
-            <marker date="1407070658030" expanded="true" signature="14742:14930" placeholder="..." />
-            <marker date="1407070658030" expanded="true" signature="14958:15003" placeholder="..." />
-            <marker date="1407070658030" expanded="true" signature="15080:15356" placeholder="..." />
-            <marker date="1407070658030" expanded="true" signature="15109:15272" placeholder="..." />
-            <marker date="1407070658030" expanded="true" signature="15300:15345" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Modules/Transmission/Torrent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="266" column="0" selection-start="5768" selection-end="5768" vertical-scroll-proportion="0.0" vertical-offset="3990" max-vertical-offset="6720">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classes/Sanitize.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="167" column="34" selection-start="5750" selection-end="5750" vertical-scroll-proportion="0.0" vertical-offset="2505" max-vertical-offset="5085">
@@ -1254,9 +1207,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="178" column="7" selection-start="4770" selection-end="4770" vertical-scroll-proportion="-18.125" vertical-offset="2160" max-vertical-offset="3180">
           <folding>
-            <element signature="e#5420#5481#0" expanded="true" />
-            <element signature="e#5845#5894#0" expanded="true" />
+            <marker date="1407085287649" expanded="true" signature="5221:5570" placeholder="..." />
+            <marker date="1407085287649" expanded="true" signature="5427:5480" placeholder="..." />
+            <marker date="1407085287649" expanded="true" signature="5481:5559" placeholder="..." />
+            <marker date="1407085287649" expanded="true" signature="5671:5968" placeholder="..." />
             <marker date="1407085287649" expanded="true" signature="5671:5940" placeholder="..." />
+            <marker date="1407085287649" expanded="true" signature="5852:5893" placeholder="..." />
+            <marker date="1407085287649" expanded="true" signature="5894:5958" placeholder="..." />
             <marker date="1407085287649" expanded="true" signature="5894:5940" placeholder="..." />
           </folding>
         </state>
@@ -1264,7 +1221,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/Salsifis/Salsifis.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="95" selection-start="1264" selection-end="1264" vertical-scroll-proportion="0.6219212" vertical-offset="140" max-vertical-offset="2220">
+        <state line="53" column="95" selection-start="1264" selection-end="1264" vertical-scroll-proportion="-21.041666" vertical-offset="140" max-vertical-offset="2220">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/Transmission/Transmission.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="440" column="7" selection-start="19683" selection-end="19683" vertical-scroll-proportion="45.541668" vertical-offset="7288" max-vertical-offset="8145">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/Transmission/Torrent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="440" column="54" selection-start="14410" selection-end="14410" vertical-scroll-proportion="0.8830049" vertical-offset="5763" max-vertical-offset="6630">
           <folding />
         </state>
       </provider>

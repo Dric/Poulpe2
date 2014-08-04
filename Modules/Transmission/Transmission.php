@@ -436,7 +436,8 @@ class Transmission extends Module{
 		if (empty($this->downloadsDirs)){
 			$dlDirsDb = $db->get('module_downloadsDirs');
 			foreach ($dlDirsDb as $dlDir){
-				self::$downloadsDirs[$this->settings['DLNAFolder']->getValue().'/'.$dlDir->folder] = $dlDir->folder;
+				$downloadDir = ($dlDir->isDLNAMember) ? $this->settings['DLNAFolder']->getValue().'/'.$dlDir->folder : $dlDir->folder;
+				self::$downloadsDirs[$downloadDir] = $dlDir->folder;
 			}
 		}
 		return self::$downloadsDirs;
