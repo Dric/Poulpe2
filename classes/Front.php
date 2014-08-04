@@ -381,4 +381,24 @@ class Front {
 		<?php
 	}
 
+	/**
+	 * Récupère la date et le hash du dernier commit local de Poulpe2
+	 * @param bool $force Force la vérification
+	 *
+	 * @return StdClass
+	 */
+	public static function getLastCommit($force = false){
+		$fs = new \FileSystem\Fs(Front::getAbsolutePath());
+		$lastCommitFile = 'cache/lastCommit.cache';
+		$heads = '.git/refs/heads';
+		if (!$fs->fileExists($lastCommitFile) or $force or $fs->getFileMeta($heads, 'dateModified')->dateModified > $fs->getFileMeta($lastCommitFile, 'dateModified')->dateModified){
+			exec('git log -1 --format="%H %h %ct"', $out);
+			$fs->writeFile($lastCommitFile, $out[0]);
+		}
+		$content = $fs->readFile($lastCommitFile, 'string');
+		$ret = new \StdClass;
+		list($ret->fullHash, $ret->hash, $ret->date) = explode(' ', $content);
+		$ret->date = (int)$ret->date;
+		return $ret;
+	}
 }

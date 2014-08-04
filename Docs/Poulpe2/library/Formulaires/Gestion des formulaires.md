@@ -20,12 +20,9 @@ Les champs sont des objets qui doivent avoir un nom et une catégorie.
 
 Chaque type de champ est géré par une classe PHP. Pour voir les propriétés de chque type de champ, référez-vous à la [documentation du code](../Code/namespace-Forms.Fields.html).
 
-Il y a deux types de catégories :
+Un paramètre de module peut être personnalisable par les utilisateurs. Pour passer un paramètre en paramètre personnalisable, il suffit de faire :
 
-- `global`
-- `user`
-
-La catégorie ne sert que pour les paramètres de modules. Si un champ est en catégorie `user`, alors il sera proposé dans le formulaire des paramètres définissables par l'utilisateur.
+    $field->setUserDefinable();
 
 (voir gestion des paramètres de modules)
 
