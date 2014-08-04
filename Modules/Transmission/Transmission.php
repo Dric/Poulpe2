@@ -34,7 +34,7 @@ use Modules\ModulesManagement;
 use Users\ACL;
 
 /**
- * Class Transmission
+ * Module de gestion du serveur Trabsmission (bittorrent)
  *
  * @package Modules\Transmission
  */

@@ -436,7 +436,7 @@ Class Torrent{
 		  '  '          => ' '
 		);
 		$name =  str_ireplace(array_keys($replace), array_values($replace), $this->name);
-		// On vire les indications de qualité au début (elles sont présentes en milieu de nom)
+		// On vire les indications de qualité indiquées au début du nom (elles sont présentes en milieu de nom)
 		$name = preg_replace('/^\[\s?\d*p\]/i', '', $name);
 		// Et on vire les noms à la noix en fin de torrent
 		return trim(preg_replace('/(-.\S*)$/i', '', $name));
