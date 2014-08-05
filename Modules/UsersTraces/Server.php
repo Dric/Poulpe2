@@ -29,7 +29,7 @@ class Server {
 
 	public function getLogs(){
 		$share = new Fs($this->folder, $this->name, 'UsersTraces');
-		$traces = $share->getFilesInDir('', 'trc');
+		$traces = $share->getRecursiveFilesInDir('', 'trc');
 		foreach ($traces as $traceFile){
 			$client = null;
 			$meta = $share->getFileMeta($traceFile, 'dateModified');

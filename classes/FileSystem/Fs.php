@@ -167,7 +167,7 @@ class Fs {
 	 *
 	 * @return string[]|array[]
 	 */
-	public function getFilesInDir($path = null, $extension = null, $absolutePath = false){
+	public function getRecursiveFilesInDir($path = null, $extension = null, $absolutePath = false){
 		$result = array();
 		$path = rtrim($path, DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
 		$path = ltrim($path, DIRECTORY_SEPARATOR);
@@ -177,14 +177,46 @@ class Fs {
 			if (!in_array($value,array(".",".."))){
 				if (is_dir($dir . $value)){
 					if ($absolutePath){
-						$result = array_merge($this->getFilesInDir($path . $value, $extension, $absolutePath), $result);
+						$result = array_merge($this->getRecursiveFilesInDir($path . $value, $extension, $absolutePath), $result);
 					}else{
-						$result[] = $this->getFilesInDir($path . $value, $extension, $absolutePath);
+						$result[$value] = $this->getRecursiveFilesInDir($path . $value, $extension, $absolutePath);
 					}
 				}else{
 					if ((!empty($extension) and pathinfo($value, PATHINFO_EXTENSION) == $extension) or empty($extension)){
-						$result[] = ($absolutePath) ? $dir.$value : $value;
+						$result[$value] = ($absolutePath) ? $dir.$value : $value;
 					}
+				}
+			}
+		}
+		return $result;
+	}
+
+	/**
+	 * Retourne les fichiers et éventuellement les sous-répertoires présents dans un répertoire
+	 *
+	 * Cette fonction n'est pas récursive
+	 *
+	 * @param string    $path       Chemin à inventorier dans le chemin de base de l'objet Fs instancié (facultatif)
+	 * @param string    $extension  Seuls les fichiers portant cette extension seront retournés (facultatif)
+	 * @param string[]  $filters    Filtres de propriétés à appliquer
+	 * @param bool      $filesOnly  Ne retourne que les fichiers (facultatif, `false` par défaut)
+	 *
+	 * @return array Objets fichiers avec les propriétés suivantes :
+	 *  - `name` : Nom du fichier
+	 *  - `type` : `folder` ou `file`
+	 *  - `hidden` : Fichier caché
+	 *  - `extension` : Extension du fichier (propriété disponible seulement pour les fichiers non cachés)
+	 */
+	public function getFilesInDir($path = null, $extension = null, $filters = array(), $filesOnly = false){
+		$result = array();
+		$path = rtrim($path, DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
+		$path = ltrim($path, DIRECTORY_SEPARATOR);
+		$dir = $this->mountName.DIRECTORY_SEPARATOR.$path;
+		$cDir = scandir($dir);
+		foreach ($cDir as $value){
+			if (!in_array($value,array(".","..")) and (($filesOnly and !is_dir($dir . $value)) or !$filesOnly)){
+				if ((!empty($extension) and pathinfo($value, PATHINFO_EXTENSION) == $extension) or empty($extension)){
+					$result[] = new File($dir, $value, $filters);
 				}
 			}
 		}
@@ -207,67 +239,19 @@ class Fs {
 	 *
 	 * Cette méthode est lente à exécuter, aussi vaut-il mieux filtrer les champs à retourner afin de n'obtenir que ceux qui seront utilisés.
 	 *
-	 * Propriétés retournées :
-	 * - dateCreated
-	 * - dateModified
-	 * - size
-	 * - extension
-	 * - type
-	 * - chmod
-	 * - writable
-	 * - owner
-	 * - groupOwner
-	 *
+	 * @see File
 	 * @param string $fileName Nom du fichier
 	 * @param string[]|string  $filters Filtres facultatifs sous forme de chaîne ou de tableau séquentiel (facultatif)
 	 *
-	 * @return bool|object
+	 * @return bool|File
 	 */
 	public function getFileMeta($fileName, $filters = array()){
-		if (!is_array($filters)){
-			$filters = array($filters);
-		}
-		$meta = new stdClass;
-		/*$meta->dateCreated = 0;
-		$meta->dateModified = 0;
-		$meta->size = 0;
-		$meta->extension = null;
-		$meta->type = null;
-		$meta->chmod = null;
-		$meta->writable = false;
-		$meta->owner = null;
-		$meta->groupOwner = null;*/
-		$file = $this->mountName.DIRECTORY_SEPARATOR. $fileName;
-		if (!file_exists($file)){
-			new Alert('debug', '<code>Fs->fileMeta()</code> : Le fichier <code>'.$file.'</code> n\'existe pas !');
+		$file = new File($this->mountName, $fileName, $filters);
+		if (empty($file->name)){
+			new Alert('error', 'Le fichier <code>'.$fileName.'</code> n\'existe pas !');
 			return false;
 		}
-		if ((!empty($filters) and (in_array('dateCreated', $filters) or in_array('dateModified', $filters) or in_array('size', $filters))) or empty($filters)){
-			$stat = stat($file);
-			$meta->dateCreated = $stat['ctime'];
-			$meta->dateModified = $stat['mtime'];
-			$meta->size = $stat['size'];
-		}
-		if ((!empty($filters) and in_array('extension', $filters)) or empty($filters)){
-			$meta->extension = pathinfo($fileName, PATHINFO_EXTENSION);
-		}
-		if ((!empty($filters) and in_array('type', $filters)) or empty($filters)){
-			$meta->type = mime_content_type($file);
-		}
-		if ((!empty($filters) and in_array('chmod', $filters)) or empty($filters)){
-			$meta->chmod = (int)decoct(fileperms($file) & 0777);
-			$meta->advChmod = (int)substr(decoct(fileperms($file)),2);
-		}
-		if ((!empty($filters) and in_array('writable', $filters)) or empty($filters)){
-			$meta->writable = is_writable($file);
-		}
-		if ((!empty($filters) and in_array('owner', $filters)) or empty($filters)){
-			$meta->owner = posix_getpwuid(fileowner($file))['name'];
-		}
-		if ((!empty($filters) and in_array('groupOwner', $filters)) or empty($filters)){
-			$meta->groupOwner = posix_getgrgid(filegroup($file))['name'];
-		}
-		return $meta;
+		return $file;
 	}
 
 	/**

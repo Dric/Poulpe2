@@ -1,232 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/Modules/Transmission/Transmission.php" line="182" mnemonic="1" />
-    <bookmark url="file://$PROJECT_DIR$/Modules/Transmission/Transmission.php" line="278" mnemonic="2" />
+    <bookmark url="file://$PROJECT_DIR$/classes/FileSystem/Fs.php" line="209" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/classes/FileSystem/Fs.php" line="254" mnemonic="2" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b517d7b-6e6e-44e4-a303-f637474520ff" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fonts/FontAwesome.otf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fonts/fontawesome-webfont.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fonts/fontawesome-webfont.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fonts/fontawesome-webfont.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/less/external/font-awesome/bordered-pulled.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Docs/Code/class-Components.serverResource.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Docs/Code/class-Modules.Module.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Docs/Code/class-Modules.ModulesManagement.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/less/external/font-awesome/core.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/less/external/font-awesome/fixed-width.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/less/external/font-awesome/font-awesome.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fonts/fontawesome-webfont.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/less/external/font-awesome/icons.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/less/external/font-awesome/larger.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/less/external/font-awesome/list.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/less/external/font-awesome/mixins.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Docs/Code/namespace-Modules.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/less/external/font-awesome/path.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/less/external/font-awesome/rotated-flipped.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Components.serverResource.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Modules.Module.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Modules.ModulesManagement.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/less/external/font-awesome/spinning.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/less/external/font-awesome/stacked.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/less/external/font-awesome/variables.less" />
-      <change type="DELETED" beforePath="T:\test\admin\tools2\Docs\Code\class-Admin.serverUsage.html" afterPath="" />
-      <change type="DELETED" beforePath="T:\test\admin\tools2\Docs\Code\source-class-Admin.serverUsage.html" afterPath="" />
-      <change type="DELETED" beforePath="T:\test\admin\tools2\fonts\OpenSans-Bold.ttf" afterPath="" />
-      <change type="DELETED" beforePath="T:\test\admin\tools2\fonts\OpenSans-BoldItalic.ttf" afterPath="" />
-      <change type="DELETED" beforePath="T:\test\admin\tools2\fonts\OpenSans-ExtraBold.ttf" afterPath="" />
-      <change type="DELETED" beforePath="T:\test\admin\tools2\fonts\OpenSans-ExtraBoldItalic.ttf" afterPath="" />
-      <change type="DELETED" beforePath="T:\test\admin\tools2\fonts\OpenSans-Italic.ttf" afterPath="" />
-      <change type="DELETED" beforePath="T:\test\admin\tools2\fonts\OpenSans-Light.ttf" afterPath="" />
-      <change type="DELETED" beforePath="T:\test\admin\tools2\fonts\OpenSans-LightItalic.ttf" afterPath="" />
-      <change type="DELETED" beforePath="T:\test\admin\tools2\fonts\OpenSans-Regular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="T:\test\admin\tools2\fonts\OpenSans-Semibold.ttf" afterPath="" />
-      <change type="DELETED" beforePath="T:\test\admin\tools2\fonts\OpenSans-SemiboldItalic.ttf" afterPath="" />
-      <change type="DELETED" beforePath="T:\test\admin\tools2\fonts\opensans-bold-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="T:\test\admin\tools2\fonts\opensans-bold-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="T:\test\admin\tools2\fonts\opensans-bolditalic-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="T:\test\admin\tools2\fonts\opensans-bolditalic-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="T:\test\admin\tools2\fonts\opensans-extrabold-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="T:\test\admin\tools2\fonts\opensans-extrabold-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="T:\test\admin\tools2\fonts\opensans-extrabolditalic-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="T:\test\admin\tools2\fonts\opensans-extrabolditalic-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="T:\test\admin\tools2\fonts\opensans-italic-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="T:\test\admin\tools2\fonts\opensans-italic-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="T:\test\admin\tools2\fonts\opensans-light-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="T:\test\admin\tools2\fonts\opensans-light-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="T:\test\admin\tools2\fonts\opensans-regular-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="T:\test\admin\tools2\fonts\opensans-regular-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="T:\test\admin\tools2\fonts\opensans-semibold-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="T:\test\admin\tools2\fonts\opensans-semibold-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="T:\test\admin\tools2\fonts\opensans-semibolditalic-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="T:\test\admin\tools2\fonts\opensans-semibolditalic-webfont.woff" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/404.html" afterPath="$PROJECT_DIR$/Docs/Code/404.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/FileSystem/File.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Admin/Admin.php" afterPath="$PROJECT_DIR$/classes/Admin/Admin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/CHGS/CHGS.php" afterPath="$PROJECT_DIR$/Modules/CHGS/CHGS.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Forms/Field.php" afterPath="$PROJECT_DIR$/classes/Forms/Field.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Components/Help.php" afterPath="$PROJECT_DIR$/classes/Components/Help.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Components/Item.php" afterPath="$PROJECT_DIR$/classes/Components/Item.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Users/Login.php" afterPath="$PROJECT_DIR$/classes/Users/Login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/Mailboxes/Mailboxes.php" afterPath="$PROJECT_DIR$/Modules/Mailboxes/Mailboxes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Modules/Module.php" afterPath="$PROJECT_DIR$/classes/Modules/Module.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/ModuleCreator/ModuleCreator.php" afterPath="$PROJECT_DIR$/Modules/ModuleCreator/ModuleCreator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Forms/Fields/Password.php" afterPath="$PROJECT_DIR$/classes/Forms/Fields/Password.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/PostIt/PostIt.php" afterPath="$PROJECT_DIR$/Modules/PostIt/PostIt.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/FileSystem/Fs.php" afterPath="$PROJECT_DIR$/classes/FileSystem/Fs.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/Transmission/Transmission.php" afterPath="$PROJECT_DIR$/Modules/Transmission/Transmission.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Bootstrap/about.html" afterPath="$PROJECT_DIR$/Docs/Bootstrap/about.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Bootstrap-Confirmation/bootstrap-confirmation.js" afterPath="$PROJECT_DIR$/js/Bootstrap-Confirmation/bootstrap-confirmation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Bootstrap-Confirmation/bootstrap-confirmation.min.js" afterPath="$PROJECT_DIR$/js/Bootstrap-Confirmation/bootstrap-confirmation.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/bootstrap-datetimepicker.min.js" afterPath="$PROJECT_DIR$/js/bootstrap-datetimepicker.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/less/bootstrap3/bootstrap.less" afterPath="$PROJECT_DIR$/css/less/bootstrap3/bootstrap.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Admin.Admin.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Admin.Admin.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Check.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Check.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Components.Avatar.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Components.Avatar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Components.Filter.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Components.Filter.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Components.Help.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Components.Help.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Components.Item.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Components.Item.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Components.Menu.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Components.Menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Components.SimpleImage.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Components.SimpleImage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Db.Db.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Db.Db.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Db.DbFieldSettings.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Db.DbFieldSettings.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Db.DbTable.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Db.DbTable.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Db.ForeignKey.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Db.ForeignKey.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Exception.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Exception.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-FileSystem.Fs.html" afterPath="$PROJECT_DIR$/Docs/Code/class-FileSystem.Fs.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-FileSystem.Upload.html" afterPath="$PROJECT_DIR$/Docs/Code/class-FileSystem.Upload.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Field.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Field.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Bool.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Bool.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Button.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Button.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.CheckboxList.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.CheckboxList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Color.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Color.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Date.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Date.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Email.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Email.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.File.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.File.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Float.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Float.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Hidden.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Hidden.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Int.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Int.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.LinkButton.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.LinkButton.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Password.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Password.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.RadioList.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.RadioList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Select.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Select.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.String.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.String.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Table.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Table.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Text.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Text.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Time.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Time.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Url.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Url.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.ValuesArray.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.ValuesArray.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.ValuesList.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.ValuesList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Form.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.JSSwitch.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.JSSwitch.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Pattern.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Pattern.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.PostedData.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.PostedData.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Front.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Front.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Get.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Get.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Ldap.Connection.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Ldap.Connection.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Ldap.Ldap.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Ldap.Ldap.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Logs.Alert.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Logs.Alert.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Logs.AlertsManager.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Logs.AlertsManager.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Logs.EventLog.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Logs.EventLog.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Logs.EventsManager.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Logs.EventsManager.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Michelf.Markdown.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Michelf.Markdown.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Michelf.MarkdownExtra.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Michelf.MarkdownExtra.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Michelf.MarkdownInterface.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Michelf.MarkdownInterface.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Michelf._MarkdownExtra_TmpImpl.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Michelf._MarkdownExtra_TmpImpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Profiles.UserProfile.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Profiles.UserProfile.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Sanitize.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Sanitize.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Settings.Setting.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Settings.Setting.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Users.ACL.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Users.ACL.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Users.CurrentUser.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Users.CurrentUser.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Users.LDAPUser.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Users.LDAPUser.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Users.Login.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Users.Login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Users.User.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Users.User.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Users.UsersManagement.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Users.UsersManagement.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/elementlist.js" afterPath="$PROJECT_DIR$/Docs/Code/elementlist.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/index.html" afterPath="$PROJECT_DIR$/Docs/Code/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/pagedown-bootstrap/js/jquery.pagedown-bootstrap.combined.min.js" afterPath="$PROJECT_DIR$/js/pagedown-bootstrap/js/jquery.pagedown-bootstrap.combined.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/pnotify/jquery.pnotify.min.js" afterPath="$PROJECT_DIR$/js/pnotify/jquery.pnotify.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/namespace-Admin.html" afterPath="$PROJECT_DIR$/Docs/Code/namespace-Admin.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/namespace-Components.html" afterPath="$PROJECT_DIR$/Docs/Code/namespace-Components.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/namespace-Db.html" afterPath="$PROJECT_DIR$/Docs/Code/namespace-Db.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/namespace-FileSystem.html" afterPath="$PROJECT_DIR$/Docs/Code/namespace-FileSystem.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/namespace-Forms.Fields.html" afterPath="$PROJECT_DIR$/Docs/Code/namespace-Forms.Fields.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/namespace-Forms.html" afterPath="$PROJECT_DIR$/Docs/Code/namespace-Forms.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/namespace-Ldap.html" afterPath="$PROJECT_DIR$/Docs/Code/namespace-Ldap.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/namespace-Logs.html" afterPath="$PROJECT_DIR$/Docs/Code/namespace-Logs.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/namespace-Michelf.html" afterPath="$PROJECT_DIR$/Docs/Code/namespace-Michelf.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/namespace-None.html" afterPath="$PROJECT_DIR$/Docs/Code/namespace-None.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/namespace-PHP.html" afterPath="$PROJECT_DIR$/Docs/Code/namespace-PHP.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/namespace-Profiles.html" afterPath="$PROJECT_DIR$/Docs/Code/namespace-Profiles.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/namespace-Settings.html" afterPath="$PROJECT_DIR$/Docs/Code/namespace-Settings.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/namespace-Users.html" afterPath="$PROJECT_DIR$/Docs/Code/namespace-Users.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/UsersTraces/Server.php" afterPath="$PROJECT_DIR$/Modules/UsersTraces/Server.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/plugins/sorting/file-size.js" afterPath="$PROJECT_DIR$/js/DataTables/plugins/sorting/file-size.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/poulpe2.css" afterPath="$PROJECT_DIR$/css/poulpe2.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/poulpe2.js" afterPath="$PROJECT_DIR$/js/poulpe2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/less/poulpe2.less" afterPath="$PROJECT_DIR$/css/less/poulpe2.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Poulpe2/views/render.php" afterPath="$PROJECT_DIR$/Docs/Poulpe2/views/render.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Admin.Admin.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Admin.Admin.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Check.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Check.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Components.Avatar.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Components.Avatar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Components.Filter.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Components.Filter.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Components.Help.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Components.Help.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Components.Item.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Components.Item.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Components.Menu.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Components.Menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Components.SimpleImage.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Components.SimpleImage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Db.Db.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Db.Db.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Db.DbFieldSettings.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Db.DbFieldSettings.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Db.DbTable.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Db.DbTable.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Db.ForeignKey.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Db.ForeignKey.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-FileSystem.Fs.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-FileSystem.Fs.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-FileSystem.Upload.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-FileSystem.Upload.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Field.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Field.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Bool.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Bool.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Button.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Button.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.CheckboxList.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.CheckboxList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Color.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Color.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Date.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Date.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Email.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Email.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.File.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.File.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Float.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Float.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Hidden.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Hidden.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Int.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Int.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.LinkButton.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.LinkButton.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Password.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Password.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.RadioList.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.RadioList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Select.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Select.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.String.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.String.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Table.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Table.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Text.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Text.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Time.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Time.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Url.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Url.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.ValuesArray.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.ValuesArray.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.ValuesList.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.ValuesList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Form.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.JSSwitch.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.JSSwitch.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Pattern.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Pattern.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.PostedData.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.PostedData.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Front.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Front.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Get.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Get.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Ldap.Connection.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Ldap.Connection.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Ldap.Ldap.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Ldap.Ldap.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Logs.Alert.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Logs.Alert.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Logs.AlertsManager.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Logs.AlertsManager.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Logs.EventLog.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Logs.EventLog.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Logs.EventsManager.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Logs.EventsManager.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Michelf.Markdown.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Michelf.Markdown.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Michelf.MarkdownExtra.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Michelf.MarkdownExtra.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Michelf.MarkdownInterface.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Michelf.MarkdownInterface.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Michelf._MarkdownExtra_TmpImpl.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Michelf._MarkdownExtra_TmpImpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Profiles.UserProfile.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Profiles.UserProfile.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Sanitize.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Sanitize.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Settings.Setting.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Settings.Setting.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Users.ACL.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Users.ACL.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Users.CurrentUser.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Users.CurrentUser.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Users.LDAPUser.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Users.LDAPUser.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Users.Login.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Users.Login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Users.User.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Users.User.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Users.UsersManagement.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Users.UsersManagement.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/tree.html" afterPath="$PROJECT_DIR$/Docs/Code/tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Poulpe2/views/tree.php" afterPath="$PROJECT_DIR$/Docs/Poulpe2/views/tree.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/less/internal/variables.less" afterPath="$PROJECT_DIR$/css/less/internal/variables.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -254,7 +43,7 @@
       <file leaf-file-name="Transmission.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Modules/Transmission/Transmission.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="106" column="117" selection-start="2530" selection-end="2530" vertical-scroll-proportion="-5.25" vertical-offset="1059" max-vertical-offset="8145">
+            <state line="158" column="0" selection-start="5420" selection-end="5470" vertical-scroll-proportion="-9.625" vertical-offset="1734" max-vertical-offset="8145">
               <folding>
                 <marker date="1407226327924" expanded="true" signature="4831:5407" placeholder="..." />
                 <marker date="1407226327924" expanded="true" signature="4874:5398" placeholder="..." />
@@ -280,29 +69,49 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bootstrap-datetimepicker.min.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/bootstrap-datetimepicker.min.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="447" selection-start="2109" selection-end="2109" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1260">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ModuleCreator.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Modules/ModuleCreator/ModuleCreator.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="14" selection-start="2062" selection-end="2062" vertical-scroll-proportion="-38.75" vertical-offset="0" max-vertical-offset="1410">
+            <state line="97" column="1" selection-start="0" selection-end="3189" vertical-scroll-proportion="-19.125" vertical-offset="861" max-vertical-offset="1410">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CHGS.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Modules/CHGS/CHGS.php">
+      <file leaf-file-name="FileBrowser.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="255" selection-start="1692" selection-end="1692" vertical-scroll-proportion="-12.083333" vertical-offset="445" max-vertical-offset="1005">
+            <state line="71" column="22" selection-start="2089" selection-end="2089" vertical-scroll-proportion="0.38432837" vertical-offset="859" max-vertical-offset="2430">
+              <folding>
+                <element signature="e#6#94#0" expanded="true" />
+                <element signature="e#129#149#0" expanded="true" />
+                <marker date="1407250703277" expanded="true" signature="3959:4368" placeholder="..." />
+                <marker date="1407250703277" expanded="true" signature="4015:4368" placeholder="..." />
+                <marker date="1407250703277" expanded="true" signature="4027:4159" placeholder="..." />
+                <marker date="1407250703277" expanded="true" signature="4171:4368" placeholder="..." />
+                <marker date="1407250703277" expanded="true" signature="4279:4368" placeholder="..." />
+                <marker date="1407250703277" expanded="true" signature="4321:4368" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="file-size.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/DataTables/plugins/sorting/file-size.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="0" selection-start="578" selection-end="578" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="File.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/FileSystem/File.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="99" column="0" selection-start="3394" selection-end="3394" vertical-scroll-proportion="-3.5" vertical-offset="1401" max-vertical-offset="2880">
+              <folding>
+                <element signature="e#6#94#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -310,17 +119,39 @@
       <file leaf-file-name="poulpe2.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/poulpe2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="51" selection-start="1731" selection-end="1731" vertical-scroll-proportion="0.0" vertical-offset="444" max-vertical-offset="4125">
+            <state line="265" column="21" selection-start="8655" selection-end="8672" vertical-scroll-proportion="0.0" vertical-offset="3880" max-vertical-offset="4545">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Mailboxes.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Modules/Mailboxes/Mailboxes.php">
+      <file leaf-file-name="FileBrowser.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="486" column="53" selection-start="15550" selection-end="15550" vertical-scroll-proportion="-7.75" vertical-offset="6804" max-vertical-offset="7905">
+            <state line="6" column="0" selection-start="118" selection-end="118" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UsersTraces.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Modules/UsersTraces/UsersTraces.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="0" selection-start="763" selection-end="1282" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="2625">
+              <folding>
+                <marker date="1406533084968" expanded="true" signature="4470:5862" placeholder="..." />
+                <marker date="1406533084968" expanded="true" signature="4513:5853" placeholder="..." />
+                <marker date="1406533084968" expanded="true" signature="4543:4634" placeholder="..." />
+                <marker date="1406533084968" expanded="true" signature="4642:4685" placeholder="..." />
+                <marker date="1406533084968" expanded="true" signature="4693:4818" placeholder="..." />
+                <marker date="1406533084968" expanded="true" signature="5037:5313" placeholder="..." />
+                <marker date="1406533084968" expanded="true" signature="5446:5843" placeholder="..." />
+                <marker date="1406533084968" expanded="true" signature="5518:5809" placeholder="..." />
+                <marker date="1406533084968" expanded="true" signature="5611:5798" placeholder="..." />
+                <marker date="1406533084968" expanded="true" signature="6185:6418" placeholder="..." />
+                <marker date="1406533084968" expanded="true" signature="6228:6409" placeholder="..." />
+                <marker date="1406533084968" expanded="true" signature="6258:6369" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -334,28 +165,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bootstrap-confirmation.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/Bootstrap-Confirmation/bootstrap-confirmation.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="31" selection-start="3099" selection-end="3099" vertical-scroll-proportion="0.0" vertical-offset="979" max-vertical-offset="3450">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="variables.less" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/less/internal/variables.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1095">
+            <state line="24" column="21" selection-start="667" selection-end="667" vertical-scroll-proportion="-15.0" vertical-offset="0" max-vertical-offset="1200">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="yeti-variables.less" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/less/external/yeti-variables.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="773" column="42" selection-start="23700" selection-end="23783" vertical-scroll-proportion="-8.583333" vertical-offset="11389" max-vertical-offset="12045">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="0" selection-start="3048" selection-end="3048" vertical-scroll-proportion="0.55140185" vertical-offset="680" max-vertical-offset="1485">
+            <state line="5" column="13" selection-start="110" selection-end="110" vertical-scroll-proportion="35.0" vertical-offset="950" max-vertical-offset="1485">
               <folding />
             </state>
           </provider>
@@ -364,19 +195,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bootstrap-confirmation.min.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/Bootstrap-Confirmation/bootstrap-confirmation.min.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="1426" selection-start="1672" selection-end="1672" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="105">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Front.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/Front.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="107" column="27" selection-start="2863" selection-end="2863" vertical-scroll-proportion="-7.625" vertical-offset="1272" max-vertical-offset="5985">
+            <state line="324" column="28" selection-start="9515" selection-end="9515" vertical-scroll-proportion="-18.875" vertical-offset="4257" max-vertical-offset="5985">
               <folding />
             </state>
           </provider>
@@ -391,10 +213,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jquery.pagedown-bootstrap.combined.min.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/pagedown-bootstrap/js/jquery.pagedown-bootstrap.combined.min.js">
+      <file leaf-file-name="Fs.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/FileSystem/Fs.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="36782" selection-start="36782" selection-end="36782" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+            <state line="213" column="41" selection-start="7717" selection-end="7717" vertical-scroll-proportion="-129.375" vertical-offset="0" max-vertical-offset="6585">
               <folding />
             </state>
           </provider>
@@ -436,26 +258,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jquery.pnotify.min.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/pnotify/jquery.pnotify.min.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="37" selection-start="1752" selection-end="1752" vertical-scroll-proportion="-7.72" vertical-offset="17" max-vertical-offset="750">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jquery.pnotify.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/pnotify/jquery.pnotify.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="21" selection-start="2542" selection-end="2553" vertical-scroll-proportion="0.0" vertical-offset="819" max-vertical-offset="15225">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -475,12 +277,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/classes/Forms/Fields/Select.php" />
-        <option value="$PROJECT_DIR$/Modules/Transmission/Transmission.css" />
-        <option value="$PROJECT_DIR$/classes/FileSystem/Fs.php" />
-        <option value="$PROJECT_DIR$/Modules/Shutdown/Shutdown.php" />
-        <option value="$PROJECT_DIR$/css/less/internal/alerts.less" />
-        <option value="$PROJECT_DIR$/css/less/internal/slidebar-extended.less" />
         <option value="$PROJECT_DIR$/css/less/internal/front.less" />
         <option value="$PROJECT_DIR$/css/less/internal/fixes.less" />
         <option value="$PROJECT_DIR$/classes/Components/Avatar.php" />
@@ -518,14 +314,20 @@
         <option value="$PROJECT_DIR$/js/pagedown-bootstrap/js/jquery.pagedown-bootstrap.combined.min.js" />
         <option value="$PROJECT_DIR$/js/pnotify/jquery.pnotify.min.js" />
         <option value="$PROJECT_DIR$/Modules/CHGS/CHGS.php" />
-        <option value="$PROJECT_DIR$/js/poulpe2.js" />
         <option value="$PROJECT_DIR$/Modules/Mailboxes/Mailboxes.php" />
         <option value="$PROJECT_DIR$/Modules/PostIt/PostIt.php" />
         <option value="$PROJECT_DIR$/Modules/Transmission/Transmission.php" />
         <option value="$PROJECT_DIR$/classes/Admin/Admin.php" />
-        <option value="$PROJECT_DIR$/css/less/internal/variables.less" />
         <option value="$PROJECT_DIR$/Modules/ModuleCreator/ModuleCreator.php" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/classes/FileSystem/Fs.php" />
+        <option value="$PROJECT_DIR$/css/less/internal/variables.less" />
+        <option value="$PROJECT_DIR$/js/DataTables/plugins/sorting/file-size.js" />
+        <option value="$PROJECT_DIR$/js/poulpe2.js" />
+        <option value="$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.js" />
+        <option value="$PROJECT_DIR$/classes/FileSystem/File.php" />
+        <option value="$PROJECT_DIR$/classes/Get.php" />
+        <option value="$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.php" />
       </list>
     </option>
   </component>
@@ -683,6 +485,24 @@
               <option name="myItemId" value="Modules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UsersTraces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tools2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tools2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -712,7 +532,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
+              <option name="myItemId" value="Modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FileBrowser" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -726,7 +550,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fonts" />
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -740,33 +564,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Docs" />
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Poulpe2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Docs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Poulpe2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="library" />
+              <option name="myItemId" value="DataTables" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -780,19 +582,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Docs" />
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Poulpe2" />
+              <option name="myItemId" value="DataTables" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="library" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Organisation du module" />
+              <option name="myItemId" value="plugins" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -806,183 +604,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Docs" />
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Poulpe2" />
+              <option name="myItemId" value="DataTables" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="library" />
+              <option name="myItemId" value="plugins" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Formulaires" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Docs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Poulpe2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="library" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Base de données" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Docs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="less" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="less" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="internal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="less" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="external" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="less" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="external" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="font-awesome" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="less" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bootstrap3" />
+              <option name="myItemId" value="sorting" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1015,6 +649,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tools2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tools2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FileSystem" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1075,6 +727,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="T:\test\admin\tools2\Modules\FileBrowser" />
       <recent name="T:\test\admin\tools2\classes\Forms\Fields" />
       <recent name="T:\test\admin\tools2\js\pagedown-bootstrap\js" />
       <recent name="T:\test\admin\tools2\Docs\Poulpe2" />
@@ -1342,7 +995,11 @@
       <created>1407160938364</created>
       <updated>1407160938364</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="- Utilisation de Font-Awesome en remplacement de Glyphicons.&#10;- Mise à jour de la doc du code et de README.md.">
+      <created>1407227798487</created>
+      <updated>1407227798487</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1378,6 +1035,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32700893" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19477694" sideWeight="0.50053936" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32700893" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24972796" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19749728" sideWeight="0.49946064" order="0" side_tool="false" content_ui="combo" />
@@ -1387,7 +1045,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="CSS Styles" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.399137" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1490,54 +1147,6 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/classes/Modules/ModulesManagement.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="25" selection-start="539" selection-end="539" vertical-scroll-proportion="-1.9583334" vertical-offset="298" max-vertical-offset="3885">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/less/internal/avatars.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="1" selection-start="78" selection-end="78" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="150" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Docs/Poulpe2/_.htaccess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="11" selection-start="277" selection-end="277" vertical-scroll-proportion="0.26223776" vertical-offset="0" max-vertical-offset="572" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Docs/Poulpe2/.htaccess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="572" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Settings/config.default.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="20" selection-start="2460" selection-end="2472" vertical-scroll-proportion="-27.541666" vertical-offset="299" max-vertical-offset="1155">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Forms/Pattern.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="18" selection-start="4116" selection-end="4116" vertical-scroll-proportion="-30.416666" vertical-offset="740" max-vertical-offset="2550">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Modules/BandesTina/BandesTina.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="24" selection-start="1428" selection-end="1428" vertical-scroll-proportion="0.5439252" vertical-offset="219" max-vertical-offset="4755" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Components/Filter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="213" column="0" selection-start="5545" selection-end="5545" vertical-scroll-proportion="0.0" vertical-offset="3195" max-vertical-offset="3285">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Modules/Transmission/Torrent.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="272" column="0" selection-start="6034" selection-end="6034" vertical-scroll-proportion="0.0" vertical-offset="4080" max-vertical-offset="6720">
@@ -1602,13 +1211,6 @@
     <entry file="file://$PROJECT_DIR$/cache/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="7" selection-start="7" selection-end="7" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="90">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/FileSystem/Fs.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="245" column="15" selection-start="8130" selection-end="8130" vertical-scroll-proportion="0.0" vertical-offset="3675" max-vertical-offset="6915">
           <folding />
         </state>
       </provider>
@@ -1762,13 +1364,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/poulpe2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="51" selection-start="1731" selection-end="1731" vertical-scroll-proportion="0.0" vertical-offset="444" max-vertical-offset="4125">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Modules/Mailboxes/Mailboxes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="486" column="53" selection-start="15550" selection-end="15550" vertical-scroll-proportion="-7.75" vertical-offset="6804" max-vertical-offset="7905">
@@ -1783,50 +1378,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Modules/Transmission/Transmission.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="106" column="117" selection-start="2530" selection-end="2530" vertical-scroll-proportion="-5.25" vertical-offset="1059" max-vertical-offset="8145">
-          <folding>
-            <marker date="1407226327924" expanded="true" signature="4831:5407" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="4874:5398" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="4904:4996" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="6256:14187" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="6299:14178" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="6329:6423" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="7341:8943" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="7368:8740" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="7382:7583" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="7394:7568" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="7597:8726" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="7609:8159" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="8171:8711" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="14731:15032" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="14760:14948" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="14976:15021" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="15098:15374" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="15127:15290" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="15318:15363" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Front.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="27" selection-start="2863" selection-end="2863" vertical-scroll-proportion="-7.625" vertical-offset="1272" max-vertical-offset="5985">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classes/Admin/Admin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="62" column="55" selection-start="1076" selection-end="1076" vertical-scroll-proportion="-3.375" vertical-offset="444" max-vertical-offset="8805">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/less/poulpe2.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="25" selection-start="628" selection-end="628" vertical-scroll-proportion="-15.625" vertical-offset="0" max-vertical-offset="570">
           <folding />
         </state>
       </provider>
@@ -1852,28 +1406,163 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/less/internal/variables.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2055">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Modules/ModuleCreator/ModuleCreator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="14" selection-start="2062" selection-end="2062" vertical-scroll-proportion="-38.75" vertical-offset="0" max-vertical-offset="1410">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="0" selection-start="3048" selection-end="3048" vertical-scroll-proportion="0.55140185" vertical-offset="680" max-vertical-offset="1485">
+        <state line="5" column="13" selection-start="110" selection-end="110" vertical-scroll-proportion="35.0" vertical-offset="950" max-vertical-offset="1485">
           <folding />
         </state>
       </provider>
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/Transmission/Transmission.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="158" column="0" selection-start="5420" selection-end="5470" vertical-scroll-proportion="-9.625" vertical-offset="1734" max-vertical-offset="8145">
+          <folding>
+            <marker date="1407226327924" expanded="true" signature="4831:5407" placeholder="..." />
+            <marker date="1407226327924" expanded="true" signature="4874:5398" placeholder="..." />
+            <marker date="1407226327924" expanded="true" signature="4904:4996" placeholder="..." />
+            <marker date="1407226327924" expanded="true" signature="6256:14187" placeholder="..." />
+            <marker date="1407226327924" expanded="true" signature="6299:14178" placeholder="..." />
+            <marker date="1407226327924" expanded="true" signature="6329:6423" placeholder="..." />
+            <marker date="1407226327924" expanded="true" signature="7341:8943" placeholder="..." />
+            <marker date="1407226327924" expanded="true" signature="7368:8740" placeholder="..." />
+            <marker date="1407226327924" expanded="true" signature="7382:7583" placeholder="..." />
+            <marker date="1407226327924" expanded="true" signature="7394:7568" placeholder="..." />
+            <marker date="1407226327924" expanded="true" signature="7597:8726" placeholder="..." />
+            <marker date="1407226327924" expanded="true" signature="7609:8159" placeholder="..." />
+            <marker date="1407226327924" expanded="true" signature="8171:8711" placeholder="..." />
+            <marker date="1407226327924" expanded="true" signature="14731:15032" placeholder="..." />
+            <marker date="1407226327924" expanded="true" signature="14760:14948" placeholder="..." />
+            <marker date="1407226327924" expanded="true" signature="14976:15021" placeholder="..." />
+            <marker date="1407226327924" expanded="true" signature="15098:15374" placeholder="..." />
+            <marker date="1407226327924" expanded="true" signature="15127:15290" placeholder="..." />
+            <marker date="1407226327924" expanded="true" signature="15318:15363" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/ModuleCreator/ModuleCreator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="97" column="1" selection-start="0" selection-end="3189" vertical-scroll-proportion="-19.125" vertical-offset="861" max-vertical-offset="1410">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/FileSystem/Fs.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="213" column="41" selection-start="7717" selection-end="7717" vertical-scroll-proportion="-129.375" vertical-offset="0" max-vertical-offset="6585">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/less/poulpe2.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="25" selection-start="628" selection-end="628" vertical-scroll-proportion="-15.625" vertical-offset="0" max-vertical-offset="570">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/less/external/yeti-variables.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="773" column="42" selection-start="23700" selection-end="23783" vertical-scroll-proportion="-8.583333" vertical-offset="11389" max-vertical-offset="12045">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/less/internal/variables.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="21" selection-start="667" selection-end="667" vertical-scroll-proportion="-15.0" vertical-offset="0" max-vertical-offset="1200">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/UsersTraces/UsersTraces.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="8" selection-start="952" selection-end="952" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/UsersTraces/UsersTraces.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="0" selection-start="763" selection-end="1282" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="2625">
+          <folding>
+            <marker date="1406533084968" expanded="true" signature="4470:5862" placeholder="..." />
+            <marker date="1406533084968" expanded="true" signature="4513:5853" placeholder="..." />
+            <marker date="1406533084968" expanded="true" signature="4543:4634" placeholder="..." />
+            <marker date="1406533084968" expanded="true" signature="4642:4685" placeholder="..." />
+            <marker date="1406533084968" expanded="true" signature="4693:4818" placeholder="..." />
+            <marker date="1406533084968" expanded="true" signature="5037:5313" placeholder="..." />
+            <marker date="1406533084968" expanded="true" signature="5446:5843" placeholder="..." />
+            <marker date="1406533084968" expanded="true" signature="5518:5809" placeholder="..." />
+            <marker date="1406533084968" expanded="true" signature="5611:5798" placeholder="..." />
+            <marker date="1406533084968" expanded="true" signature="6185:6418" placeholder="..." />
+            <marker date="1406533084968" expanded="true" signature="6228:6409" placeholder="..." />
+            <marker date="1406533084968" expanded="true" signature="6258:6369" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/DataTables/plugins/sorting/file-size.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="578" selection-end="578" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/poulpe2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="265" column="21" selection-start="8655" selection-end="8672" vertical-scroll-proportion="0.0" vertical-offset="3880" max-vertical-offset="4545">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="118" selection-end="118" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/FileSystem/File.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="99" column="0" selection-start="3394" selection-end="3394" vertical-scroll-proportion="-3.5" vertical-offset="1401" max-vertical-offset="2880">
+          <folding>
+            <element signature="e#6#94#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Get.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="100" column="0" selection-start="2953" selection-end="2953" vertical-scroll-proportion="0.8360656" vertical-offset="966" max-vertical-offset="1515">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Front.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="324" column="28" selection-start="9515" selection-end="9515" vertical-scroll-proportion="-18.875" vertical-offset="4257" max-vertical-offset="5985">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="22" selection-start="2089" selection-end="2089" vertical-scroll-proportion="0.38432837" vertical-offset="859" max-vertical-offset="2430">
+          <folding>
+            <element signature="e#6#94#0" expanded="true" />
+            <element signature="e#129#149#0" expanded="true" />
+            <marker date="1407250703277" expanded="true" signature="3959:4368" placeholder="..." />
+            <marker date="1407250703277" expanded="true" signature="4015:4368" placeholder="..." />
+            <marker date="1407250703277" expanded="true" signature="4027:4159" placeholder="..." />
+            <marker date="1407250703277" expanded="true" signature="4171:4368" placeholder="..." />
+            <marker date="1407250703277" expanded="true" signature="4279:4368" placeholder="..." />
+            <marker date="1407250703277" expanded="true" signature="4321:4368" placeholder="..." />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

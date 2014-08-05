@@ -19,10 +19,13 @@
 
  jQuery.extend( jQuery.fn.dataTableExt.oSort, {
     "file-size-pre": function ( a ) {
-        var x = a.substring(0,a.length - 2);
-
-        var x_unit = (a.substring(a.length - 2, a.length) == "MB" ?
-            1000 : (a.substring(a.length - 2, a.length) == "GB" ? 1000000 : 1));
+	      var tab = a.split(' ');
+        //var x = a.substring(0,a.length - 2);
+	      var x = tab[0];
+	    console.log(x);
+				var x_unit = (tab[1] == 'Mo') ? 1000000 : (tab[1] == 'Go') ? 1000000000 : (tab[1] == 'Ko') ? 1000 : 1;
+        /*var x_unit = (a.substring(a.length - 2, a.length) == "Mo" ?
+            1000 : (a.substring(a.length - 2, a.length) == "Go" ? 1000000 : 1));*/
 
         return parseInt( x * x_unit, 10 );
     },

@@ -90,7 +90,7 @@ class Admin extends Module {
 					$modules = array();
 					$modulesPath = Front::getAbsolutePath().DIRECTORY_SEPARATOR.'Modules';
 					$fs = new Fs($modulesPath, 'localhost');
-					$files = $fs->getFilesInDir(null, 'php', true);
+					$files = $fs->getRecursiveFilesInDir(null, 'php', true);
 					foreach ($files as $file){
 						if ($file != $modulesPath.DIRECTORY_SEPARATOR.'Module.php' and $file != $modulesPath.DIRECTORY_SEPARATOR.'ModulesManagement.php'){
 							// On lit les 60 premières lignes de chaque fichier pour récupérer les infos nécessaires

@@ -9,8 +9,8 @@ Un framework modulaire en php.
 
 - PHP 5.4+
 - Mysql 5.5+
-- Serveur Linux
-- Serveur web Apache ou autre (testé seulement sous Apache)
+- Serveur Linux (testé sous Ubuntu seulement)
+- Serveur web Apache, lighttpd ou autre (testé seulement sous Apache et lighttpd)
 
 #### Serveur Linux
 
