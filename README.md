@@ -40,6 +40,7 @@ Attention : si vous lancez apache sous un autre nom (`administrateur` par exempl
 ## Composants externes
 
 - [Twitter Bootstrap](http://getbootstrap.com) 3.2.0 : est un framework html, css et javascript. En clair il peut gérer toute la partie affichage dès lors qu'on lui file quelque chose à afficher.
+- [Font Awesome](http://fortawesome.github.io/Font-Awesome/) 4.1.0 : ensemble d'icônes contenues dans une police d'écriture, remplaçant `Glyphicon` de Bootstrap.
 - [jQuery](http://jquery.com) 1.11.0 : framework Javascript utilisé par Bootstrap.
 - [Bootstrap Switch](http://www.bootstrap-switch.org) 3 : plugin jQuery qui change les cases à cocher en switch d'activation (similaire à ce qu'on voit sur les smartphones).
 - [PNotify Plugin](http://sciactive.com/pnotify/) 1.3.1 : plugin jQuery de notifications flottantes.
@@ -58,18 +59,18 @@ Voir Le fichier `install.md`.
 ## TODO
 
 - Script d'installation
-- Doc de développement de modules
+- Doc de développement de modules (en cours)
 - Gérer la barre de menu avec JS désactivé
 
 ## Documentation
 
+- Activer le module `ModuleCreator` qui donne les liens vers les différentes documentations disponibles
 - Voir le répertoire `Docs`
 - Documentation générée avec [ApiGen](http://apigen.org)
 
 Paramètres de génération de doc (commande lancée à partir du répertoire racine de Poulpe2) :
 
-    apigen -s . -d ./Docs/Code --exclude "*/Docs" --exclude "*/fonts" --exclude "*/img" --exclude "*/js" --exclude "*/Modules" --template-config "/usr/share/php/data/ApiGen/templates/bootstrap/config.neon" --report toDocument.txt
-
+     apigen -s . -s "classes/Modules/Module.php" -s "classes/Modules/ModulesManagement.php" -s "classes/Settings/config.php" -d ./Docs/Code --exclude "*/Docs" --exclude "*/fonts" --exclude "*/img" --exclude "*/js" --exclude "*/Modules" --template-config "/usr/share/php/data/ApiGen/templates/bootstrap/config.neon" --report toDocument.txt
 
 ## Divers
 

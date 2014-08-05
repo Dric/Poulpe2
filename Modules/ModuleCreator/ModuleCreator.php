@@ -66,14 +66,14 @@ class ModuleCreator extends Module{
 				<h3>Documentations</h3>
 				<ul>
 					<li>
-						<a href="./Docs/Code" target="_blank">Documentation du framework</a>
+						<a href="./Docs/Poulpe2" target="_blank">Documentation du framework</a>
 					</li>
-					<li><a href="./Docs/Poulpe2" target="_blank">Documentation du code de Poulpe2</a></li>
+					<li><a href="./Docs/Code" target="_blank">Documentation du code de Poulpe2</a></li>
 					<li>
 						<a href="./Docs/Bootstrap" target="_blank">Documentation de Bootstrap</a>
 						<ul>
 							<li><a href="./Docs/Bootstrap/css.html#forms" target="_blank">Formulaires Bootstrap</a></li>
-							<li><a href="./Docs/Bootstrap/components.html#glyphicons" target="_blank">Icônes de Bootstrap</a></li>
+							<li><a href="http://fortawesome.github.io/Font-Awesome/icons/" target="_blank">Icônes de Font Awesome</a></li>
 							<li><a href="./Docs/Bootstrap/css.html#helper-classes" target="_blank">Helpers Bootstrap</a></li>
 						</ul>
 					</li>

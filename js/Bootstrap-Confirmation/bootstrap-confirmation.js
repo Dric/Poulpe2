@@ -91,10 +91,10 @@
     onConfirm: $.noop,
     onCancel: $.noop,
     btnOkClass: 'btn-xs btn-primary',
-    btnOkIcon: 'glyphicon glyphicon-ok',
+    btnOkIcon: 'fa fa-check',
     btnOkLabel: 'Yes',
     btnCancelClass: 'btn-xs btn-default',
-    btnCancelIcon: 'glyphicon glyphicon-remove',
+    btnCancelIcon: 'fa fa-undo',
     btnCancelLabel: 'No',
     template:
       '<div class="popover confirmation">' +

@@ -56,7 +56,7 @@ class CHGS extends Module{
 					<li>
 						Si vous avez un doute quand à ce qu'il convient de faire, n'hésitez pas à passer la souris sur les petits symboles d'information :  <?php Help::iconHelp('Et si vraiment vous êtes paumé(e), demandez à Cédric'); ?><br />
 					</li>
-					<li>Certains modules peuvent être paramétrés pour vos besoins. Il vous suffit pour cela de cliquer sur le bouton <a href="#" class="btn btn-default btn-xs" title="Inutile de cliquer sur ce bouton, il ne vous emmènera nulle part..."><span class="glyphicon glyphicon-cog"></span> Paramètres</a> qui apparaît à côté du titre du module.</li>
+					<li>Certains modules peuvent être paramétrés pour vos besoins. Il vous suffit pour cela de cliquer sur le bouton <a href="#" class="btn btn-default btn-xs" title="Inutile de cliquer sur ce bouton, il ne vous emmènera nulle part..."><span class="fa fa-cog"></span> Paramètres</a> qui apparaît à côté du titre du module.</li>
 					<li>Vous pouvez modifier certaines informations de votre <a href=".?module=profil">profil</a> en cliquant sur votre avatar en haut du menu.</li>
 					<li>Ce produit ne convient pas aux fosses septiques.</li>
 					<li>Vous pouvez retourner sur le <a href="http://glpi" title="L'Intranet est une légende urbaine de la fin du XXè siècle. Aucune donnée fiable ne permet aujourd'hui d'affirmer qu'une telle chose existe.">Petit Portail Informatique</a> en cliquant sur <code>Portail</code> dans le menu à gauche, et vous pouvez vous déconnecter en cliquant sur <code class="tooltip-bottom" title="Captain Obvious à la rescousse !">Déconnexion</code>.</li>

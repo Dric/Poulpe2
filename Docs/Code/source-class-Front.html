@@ -8,7 +8,7 @@
 	<title>File classes/Front.php</title>
 
 	<script type="text/javascript" src="resources/combined.js?522072721"></script>
-	<script type="text/javascript" src="elementlist.js?2443433404"></script>
+	<script type="text/javascript" src="elementlist.js?259314753"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
@@ -71,6 +71,8 @@
 				<li><a href="namespace-Logs.html">Logs</a>
 						</li>
 				<li><a href="namespace-Michelf.html">Michelf</a>
+						</li>
+				<li><a href="namespace-Modules.html">Modules</a>
 						</li>
 				<li class="active"><a href="namespace-None.html">None</a>
 						</li>
@@ -490,7 +492,27 @@
 </span><span id="381" class="l"><a class="l" href="#381">381 </a>        <span class="xlang">&lt;?php</span>
 </span><span id="382" class="l"><a class="l" href="#382">382 </a>    }
 </span><span id="383" class="l"><a class="l" href="#383">383 </a>
-</span><span id="384" class="l"><a class="l" href="#384">384 </a></span>}</code></pre>
+</span><span id="384" class="l"><a class="l" href="#384">384 </a>    <span class="php-comment">/**
+</span></span><span id="385" class="l"><a class="l" href="#385">385 </a><span class="php-comment">     * Récupère la date et le hash du dernier commit local de Poulpe2
+</span></span><span id="386" class="l"><a class="l" href="#386">386 </a><span class="php-comment">     * @param bool $force Force la vérification
+</span></span><span id="387" class="l"><a class="l" href="#387">387 </a><span class="php-comment">     *
+</span></span><span id="388" class="l"><a class="l" href="#388">388 </a><span class="php-comment">     * @return StdClass
+</span></span><span id="389" class="l"><a class="l" href="#389">389 </a><span class="php-comment">     */</span>
+</span><span id="390" class="l"><a class="l" href="#390">390 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_getLastCommit" href="#_getLastCommit">getLastCommit</a>(<span class="php-var">$force</span> = <span class="php-keyword1">false</span>){
+</span><span id="391" class="l"><a class="l" href="#391">391 </a>        <span class="php-var">$fs</span> = <span class="php-keyword1">new</span> \FileSystem\Fs(Front::getAbsolutePath());
+</span><span id="392" class="l"><a class="l" href="#392">392 </a>        <span class="php-var">$lastCommitFile</span> = <span class="php-quote">'cache/lastCommit.cache'</span>;
+</span><span id="393" class="l"><a class="l" href="#393">393 </a>        <span class="php-var">$heads</span> = <span class="php-quote">'.git/refs/heads'</span>;
+</span><span id="394" class="l"><a class="l" href="#394">394 </a>        <span class="php-keyword1">if</span> (!<span class="php-var">$fs</span>-&gt;fileExists(<span class="php-var">$lastCommitFile</span>) <span class="php-keyword1">or</span> <span class="php-var">$force</span> <span class="php-keyword1">or</span> <span class="php-var">$fs</span>-&gt;getFileMeta(<span class="php-var">$heads</span>, <span class="php-quote">'dateModified'</span>)-&gt;dateModified &gt; <span class="php-var">$fs</span>-&gt;getFileMeta(<span class="php-var">$lastCommitFile</span>, <span class="php-quote">'dateModified'</span>)-&gt;dateModified){
+</span><span id="395" class="l"><a class="l" href="#395">395 </a>            <span class="php-keyword2">exec</span>(<span class="php-quote">'git log -1 --format=&quot;%H %h %ct&quot;'</span>, <span class="php-var">$out</span>);
+</span><span id="396" class="l"><a class="l" href="#396">396 </a>            <span class="php-var">$fs</span>-&gt;writeFile(<span class="php-var">$lastCommitFile</span>, <span class="php-var">$out</span>[<span class="php-num">0</span>]);
+</span><span id="397" class="l"><a class="l" href="#397">397 </a>        }
+</span><span id="398" class="l"><a class="l" href="#398">398 </a>        <span class="php-var">$content</span> = <span class="php-var">$fs</span>-&gt;<span class="php-keyword2">readFile</span>(<span class="php-var">$lastCommitFile</span>, <span class="php-quote">'string'</span>);
+</span><span id="399" class="l"><a class="l" href="#399">399 </a>        <span class="php-var">$ret</span> = <span class="php-keyword1">new</span> \StdClass;
+</span><span id="400" class="l"><a class="l" href="#400">400 </a>        <span class="php-keyword1">list</span>(<span class="php-var">$ret</span>-&gt;fullHash, <span class="php-var">$ret</span>-&gt;<span class="php-keyword2">hash</span>, <span class="php-var">$ret</span>-&gt;<span class="php-keyword2">date</span>) = <span class="php-keyword2">explode</span>(<span class="php-quote">' '</span>, <span class="php-var">$content</span>);
+</span><span id="401" class="l"><a class="l" href="#401">401 </a>        <span class="php-var">$ret</span>-&gt;<span class="php-keyword2">date</span> = (int)<span class="php-var">$ret</span>-&gt;<span class="php-keyword2">date</span>;
+</span><span id="402" class="l"><a class="l" href="#402">402 </a>        <span class="php-keyword1">return</span> <span class="php-var">$ret</span>;
+</span><span id="403" class="l"><a class="l" href="#403">403 </a>    }
+</span><span id="404" class="l"><a class="l" href="#404">404 </a></span>}</code></pre>
 	</div>
 
 	<div id="footer">

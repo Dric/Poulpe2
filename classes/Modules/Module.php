@@ -221,7 +221,7 @@ class Module {
 					<li>
 						Si vous avez un doute quand à ce qu'il convient de faire, n'hésitez pas à passer la souris sur les petits symboles d'information :  <?php Help::iconHelp('Je suis un bouton d\'aide !'); ?><br />
 					</li>
-					<li>Certains modules peuvent être paramétrés pour vos besoins. Il vous suffit pour cela de cliquer sur le bouton <a href="#" class="btn btn-default btn-xs" title="Inutile de cliquer sur ce bouton, il ne vous emmènera nulle part..."><span class="glyphicon glyphicon-cog"></span> Paramètres</a> qui apparaît à côté du titre du module.</li>
+					<li>Certains modules peuvent être paramétrés pour vos besoins. Il vous suffit pour cela de cliquer sur le bouton <a href="#" class="btn btn-default btn-xs" title="Inutile de cliquer sur ce bouton, il ne vous emmènera nulle part..."><span class="fa fa-cog"></span> Paramètres</a> qui apparaît à côté du titre du module.</li>
 					<li>Vous pouvez modifier certaines informations de votre <a href=".?module=profil">profil</a> en cliquant sur votre avatar en haut du menu.</li>
 					<li>Ce produit ne convient pas aux fosses septiques.</li>
 					<li>Visuel non contractuel.</li>
@@ -290,10 +290,10 @@ class Module {
 	 */
 	protected function manageModuleButtons(){
 		if (!empty($this->settings) and (ACL::canAdmin('module', $this->id) or $this->allowUsersSettings)) {
-			?>&nbsp;<a class="settingsButton btn btn-default btn-xs" title="Paramètres du module" href="<?php echo $this->url; ?>&page=settings"><span class="glyphicon glyphicon-cog"></span> Paramètres</a><?php
+			?>&nbsp;<a class="settingsButton btn btn-default btn-xs" title="Paramètres du module" href="<?php echo $this->url; ?>&page=settings"><span class="fa fa-cog"></span> Paramètres</a><?php
 		}
 		if (ACL::canAdmin('module', $this->id)){
-			?>&nbsp;<a class="ACLButton btn btn-default btn-xs" title="Autorisations du module" href="<?php echo $this->url; ?>&page=ACL"><span class="glyphicon glyphicon-user"></span> Autorisations</a><?php
+			?>&nbsp;<a class="ACLButton btn btn-default btn-xs" title="Autorisations du module" href="<?php echo $this->url; ?>&page=ACL"><span class="fa fa-user"></span> Autorisations</a><?php
 		}
 	}
 

@@ -325,7 +325,7 @@ class Login {
 											<div class="input-group">
 												<input type="password" class="form-control pwd input-lg" id="loginPwd" name="loginPwd" placeholder="Saisissez votre mot de passe">
 												<span class="input-group-btn">
-		                      <button class="btn btn-default reveal tooltip-bottom input-lg" title="Afficher les caractères" type="button"><i class="glyphicon glyphicon-eye-open"></i></button>
+		                      <button class="btn btn-default reveal tooltip-bottom input-lg" title="Afficher les caractères" type="button"><i class="fa fa-eye"></i></button>
 		                    </span>
 											</div>
 										</div>
@@ -337,7 +337,7 @@ class Login {
 										</div>
 										<?php if (AUTH_MODE == 'ldap'){ ?>
 										<div class="pull-right">
-											<span class="glyphicon glyphicon-lock"></span> Authentification sur <code><?php echo LDAP_DOMAIN; ?></code>
+											<span class="fa fa-sitemap"></span> Authentification sur <code><?php echo LDAP_DOMAIN; ?></code>
 										</div>
 										<?php } ?>
 										<?php if (!empty($from)){ ?>

@@ -47,7 +47,7 @@ $(".reveal").mousedown(function() {
  * pNotify est le gestionnaire jQuery des alertes.
  * @see AlertsManager::displayAlert() pour l'affichage des alertes
  */
-$.pnotify.defaults.styling = "bootstrap3";
+$.pnotify.defaults.styling = "fontawesome";
 $.pnotify.defaults.history = false;
 $.pnotify.defaults.icon = false;
 $.pnotify.defaults.labels = {redisplay: "Réafficher", all: "Tous", last: "Dernier", close: "Fermer", stick: "Fixer"};
@@ -144,7 +144,7 @@ function dbTables(){
 	$('.tr_dbTable_header').append('<th>Actions</th>');
 	$('.tr_dbTable').each(function(){
 		var id = $(this).attr('id');
-		$(this).append('<td class="td_dbtable_actions"><a href="#" title="Supprimer la ligne" class="btn btn-default btn-sm dbtable_delete_item" data-toggle="confirmation" data-title="Supprimer la ligne ?<br ><small>(La ligne ne sera vraiment supprimée qu\'à la sauvegarde des paramètres</small>"><span class="glyphicon glyphicon-trash"></span></a></td>')
+		$(this).append('<td class="td_dbtable_actions"><a href="#" title="Supprimer la ligne" class="btn btn-default btn-sm dbtable_delete_item" data-toggle="confirmation" data-title="Supprimer la ligne ?<br ><small>(La ligne ne sera vraiment supprimée qu\'à la sauvegarde des paramètres</small>"><span class="fa fa-trash-o"></span></a></td>')
 		$(this).on('confirmed.bs.confirmation', function(){
 			$(this).remove();
 		});
@@ -184,18 +184,18 @@ var substringMatcher = function(strs) {
  * Masque le menu principal lorsqu'un menu secondaire existe
  */
 function menuNavigation(){
-	$('.secondary-menu-title').css('margin-bottom', 16).before('<a class="display-main-menu pull-left" href="#" title="Afficher le menu principal"><span class="glyphicon glyphicon-circle-arrow-down"></span></a>');
+	$('.secondary-menu-title').css('margin-bottom', 16).before('<a class="display-main-menu pull-left" href="#" title="Afficher le menu principal"><span class="fa fa-chevron-circle-down"></span></a>');
 	// Si un menu secondaire existe, on planque le menu principal
 	if ($('.secondary-menu-title').length > 0) $('#menu-main').hide();
 	$('.display-main-menu').click(function(e){
 		$('#menu-main').slideToggle(300, function() {
-			if ($('.display-main-menu span').hasClass('glyphicon-circle-arrow-down')){
+			if ($('.display-main-menu span').hasClass('fa-chevron-circle-down')){
 				// On veut afficher le menu principal
-				$('.display-main-menu span').removeClass('glyphicon-circle-arrow-down').addClass('glyphicon-circle-arrow-up');
+				$('.display-main-menu span').removeClass('fa-chevron-circle-down').addClass('fa-chevron-circle-up');
 				$('.display-main-menu').attr('data-original-title', 'Masquer le menu principal').tooltip('fixTitle');
 			}else{
 				// On veut masquer le menu principal
-				$('.display-main-menu span').removeClass('glyphicon-circle-arrow-up').addClass('glyphicon-circle-arrow-down');
+				$('.display-main-menu span').removeClass('fa-chevron-circle-up').addClass('fa-chevron-circle-down');
 				$('.display-main-menu').attr('data-original-title', 'Afficher le menu principal').tooltip('fixTitle');
 			}
 		});

@@ -375,7 +375,7 @@ class PostIt extends Module{
 						<?php } ?>
 						&nbsp;<span class="visible-xs visible-phone">par <?php echo $post->getAuthor(); ?></span>
 					</i>
-					<?php if ($post->getShared()) { ?><span class="glyphicon glyphicon-bullhorn tooltip-bottom" title="Post-It public"></span>&nbsp;<?php } ?>
+					<?php if ($post->getShared()) { ?><span class="fa fa-users tooltip-bottom" title="Post-It public"></span>&nbsp;<?php } ?>
 					<?php
 					if (ACL::canModify('module', $this->id) and (ACL::canAdmin('module', $this->id) or $cUser->getId() == $post->getAuthor(true))){
 						$form = new Form('editPost_'.$post->getId(), $this->url.'&itemsPage='.$this->page, null, 'module', $this->id, 'post', 'form-inline inline-block');

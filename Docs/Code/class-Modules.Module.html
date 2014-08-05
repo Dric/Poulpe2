@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Modules\Module</title>
+
+	<script type="text/javascript" src="resources/combined.js?522072721"></script>
+	<script type="text/javascript" src="elementlist.js?259314753"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">Overview</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Modules.html" title="Summary of Modules"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-Components.html">Components</a>
+						</li>
+				<li><a href="namespace-Db.html">Db</a>
+						</li>
+				<li><a href="namespace-FileSystem.html">FileSystem</a>
+						</li>
+				<li><a href="namespace-Forms.html">Forms<span></span></a>
+						<ul>
+				<li><a href="namespace-Forms.Fields.html">Fields</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Ldap.html">Ldap</a>
+						</li>
+				<li><a href="namespace-Logs.html">Logs</a>
+						</li>
+				<li><a href="namespace-Michelf.html">Michelf</a>
+						</li>
+				<li class="active"><a href="namespace-Modules.html">Modules</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-Profiles.html">Profiles</a>
+						</li>
+				<li><a href="namespace-Settings.html">Settings</a>
+						</li>
+				<li><a href="namespace-Users.html">Users</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Modules.Module.html">Module</a></li>
+				<li><a href="class-Modules.ModulesManagement.html">ModulesManagement</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class Module</h1>
+
+
+	<div class="description">
+	
+<p>Classe Module</p>
+
+<p>Cette classe sert de base pour tous les modules, qui doivent être déclarés
+en tant qu'enfants de cette classe.</p>
+
+	</div>
+
+
+
+	<div>
+		<h3>Direct known subclasses</h3>
+		<p class="elementList">
+			<code><a href="class-Admin.Admin.html">Admin\Admin</a></code>, 
+			<code><a href="class-Profiles.UserProfile.html">Profiles\UserProfile</a></code>
+		</p>
+	</div>
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Modules.html">Modules</a><br />
+		<b>Package:</b> Modules<br />
+
+		<b>Located at</b> <a href="source-class-Modules.Module.html#26-561" title="Go to source code">classes/Modules/Module.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="__construct" id="___construct">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><a href="source-class-Modules.Module.html#92-122" title="Go to source code">__construct</a>( )</code>
+
+			<div class="description short">
+				
+<p>Instantiation du module</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Instantiation du module</p>
+
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="checkACL" id="_checkACL">
+
+			<td class="attributes"><code>
+				 protected 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_checkACL">#</a>
+			<code><a href="source-class-Modules.Module.html#124-136" title="Go to source code">checkACL</a>( )</code>
+
+			<div class="description short">
+				
+<p>Vérifie les droits d'accès sur le module.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Vérifie les droits d'accès sur le module.</p>
+
+<p>Cette fonction doit être appelée après inDb() car l'id du module doit
+être renseigné.</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="moduleMenu" id="_moduleMenu">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_moduleMenu">#</a>
+			<code><a href="source-class-Modules.Module.html#138-146" title="Go to source code">moduleMenu</a>( )</code>
+
+			<div class="description short">
+				
+<p>Gère l'éventuel menu du module</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Gère l'éventuel menu du module</p>
+
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getMainMenuItems" id="_getMainMenuItems">
+
+			<td class="attributes"><code>
+				 public static
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getMainMenuItems">#</a>
+			<code><a href="source-class-Modules.Module.html#148-155" title="Go to source code">getMainMenuItems</a>( )</code>
+
+			<div class="description short">
+				
+<p>Permet d'ajouter des items au menu général</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Permet d'ajouter des items au menu général</p>
+
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getAction" id="_getAction">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getAction">#</a>
+			<code><a href="source-class-Modules.Module.html#157-170" title="Go to source code">getAction</a>( )</code>
+
+			<div class="description short">
+				
+<p>Traite les requêtes de formulaire</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Traite les requêtes de formulaire</p>
+
+<p>Les formulaires doivent envoyer une propriété 'action', qui sera traitée
+ici. Les méthodes qui traitent les actions doivent avoir le même nom que la
+valeur de l'argument 'action'</p>
+
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getPage" id="_getPage">
+
+			<td class="attributes"><code>
+				 protected 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getPage">#</a>
+			<code><a href="source-class-Modules.Module.html#172-197" title="Go to source code">getPage</a>( )</code>
+
+			<div class="description short">
+				
+<p>Redirige vers la page demandée</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Redirige vers la page demandée</p>
+
+<p>Affiche aussi le fil d'Ariane en dessous du titre Pour que ça fonctionne
+correctement, les fonctions appelées doivent être nommées 'module'.$Page
+(avec la première lettre en majuscules)</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="display" id="_display">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_display">#</a>
+			<code><a href="source-class-Modules.Module.html#199-207" title="Go to source code">display</a>( )</code>
+
+			<div class="description short">
+				
+<p>Gestion de l'affichage du module</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Gestion de l'affichage du module</p>
+
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="mainDisplay" id="_mainDisplay">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_mainDisplay">#</a>
+			<code><a href="source-class-Modules.Module.html#209-232" title="Go to source code">mainDisplay</a>( )</code>
+
+			<div class="description short">
+				
+<p>Affichage principal</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Affichage principal</p>
+
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="inDb" id="_inDb">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_inDb">#</a>
+			<code><a href="source-class-Modules.Module.html#234-247" title="Go to source code">inDb</a>( )</code>
+
+			<div class="description short">
+				
+<p>Teste si le module est actif en bdd et charge les paramètres si c'est le
+cas</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Teste si le module est actif en bdd et charge les paramètres si c'est le
+cas</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="defineSettings" id="_defineSettings">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_defineSettings">#</a>
+			<code><a href="source-class-Modules.Module.html#249-256" title="Go to source code">defineSettings</a>( )</code>
+
+			<div class="description short">
+				
+<p>Définit les paramètres</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Définit les paramètres</p>
+
+<p>Les paramètres sont définis non pas avec des objets Setting mais avec des
+objets Field (sans quoi on ne pourra pas créer d'écran de paramétrage)</p>
+
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="populateSettings" id="_populateSettings">
+
+			<td class="attributes"><code>
+				 protected 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_populateSettings">#</a>
+			<code><a href="source-class-Modules.Module.html#258-286" title="Go to source code">populateSettings</a>( )</code>
+
+			<div class="description short">
+				
+<p>Remplit les paramètres</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Remplit les paramètres</p>
+
+<p>Cette fonction lance la définition des paramètres, et récupère leurs
+valeurs stockées en bdd</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="manageModuleButtons" id="_manageModuleButtons">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_manageModuleButtons">#</a>
+			<code><a href="source-class-Modules.Module.html#288-298" title="Go to source code">manageModuleButtons</a>( )</code>
+
+			<div class="description short">
+				
+<p>Affiche les boutons de gestion des ACL et des paramètres</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Affiche les boutons de gestion des ACL et des paramètres</p>
+
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="moduleSettings" id="_moduleSettings">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_moduleSettings">#</a>
+			<code><a href="source-class-Modules.Module.html#300-351" title="Go to source code">moduleSettings</a>( )</code>
+
+			<div class="description short">
+				
+<p>Affichage du formulaire des paramètres du module</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Affichage du formulaire des paramètres du module</p>
+
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="moduleACL" id="_moduleACL">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_moduleACL">#</a>
+			<code><a href="source-class-Modules.Module.html#353-358" title="Go to source code">moduleACL</a>( )</code>
+
+			<div class="description short">
+				
+<p>Affiche l'écran d'administration des permissions sur le module</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Affiche l'écran d'administration des permissions sur le module</p>
+
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="saveSettings" id="_saveSettings">
+
+			<td class="attributes"><code>
+				 protected 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_saveSettings">#</a>
+			<code><a href="source-class-Modules.Module.html#360-405" title="Go to source code">saveSettings</a>( )</code>
+
+			<div class="description short">
+				
+<p>Récupère l'envoi du formulaire des paramètres et sauvegarde le tout</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Récupère l'envoi du formulaire des paramètres et sauvegarde le tout</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="saveDbTables" id="_saveDbTables">
+
+			<td class="attributes"><code>
+				 protected 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_saveDbTables">#</a>
+			<code><a href="source-class-Modules.Module.html#407-441" title="Go to source code">saveDbTables</a>( <span>array <var>$tables</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Sauvegarde des items d'une table dans la bdd</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Sauvegarde des items d'une table dans la bdd</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$tables</var></dt>
+						<dd><code>array</code><br>$tables - array 'table' La table doit être définie dans $this-&gt;dbTables -
+array 'ligne' ('id' =&gt; array('field1' =&gt; value, 'field2' =&gt; value2,
+etc))</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+					<h4>See</h4>
+					<div class="list">
+							\Db\Db-&gt;createTable pour la structure des tables dans $this-&gt;dbTables<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="saveDbSettings" id="_saveDbSettings">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_saveDbSettings">#</a>
+			<code><a href="source-class-Modules.Module.html#443-493" title="Go to source code">saveDbSettings</a>( )</code>
+
+			<div class="description short">
+				
+<p>Sauvegarde les paramètres du module dans la bdd</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Sauvegarde les paramètres du module dans la bdd</p>
+
+<p>Les paramètres sont enregistrés via des insertions pour plusieurs raisons :
+- Ça permet de ne faire qu'une seule requête SQL là où il faudrait une
+requête par update - On n'a pas à se soucier de savoir si le paramètre existe
+dans la base ou pas : s'il y est, ça le met à jour (grâce à ON DUPLICATE KEY
+UPDATE), sinon ça l'ajoute.</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="delUsersSettings" id="_delUsersSettings">
+
+			<td class="attributes"><code>
+				 protected 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_delUsersSettings">#</a>
+			<code><a href="source-class-Modules.Module.html#495-502" title="Go to source code">delUsersSettings</a>( )</code>
+
+			<div class="description short">
+				
+<p>Supprime les paramètres utilisateur du module</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Supprime les paramètres utilisateur du module</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="install" id="_install">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_install">#</a>
+			<code><a href="source-class-Modules.Module.html#504-528" title="Go to source code">install</a>( )</code>
+
+			<div class="description short">
+				
+<p>Installe le module en bdd, avec ses paramètres</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Installe le module en bdd, avec ses paramètres</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getName" id="_getName">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getName">#</a>
+			<code><a href="source-class-Modules.Module.html#530-536" title="Go to source code">getName</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne le nom du module</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne le nom du module</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getTitle" id="_getTitle">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getTitle">#</a>
+			<code><a href="source-class-Modules.Module.html#538-544" title="Go to source code">getTitle</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne le titre du module</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne le titre du module</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getId" id="_getId">
+
+			<td class="attributes"><code>
+				 public 
+				integer
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getId">#</a>
+			<code><a href="source-class-Modules.Module.html#546-552" title="Go to source code">getId</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne l'ID du module</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne l'ID du module</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>integer</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getDbTables" id="_getDbTables">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-Db.DbTable.html">Db\DbTable</a>[]</code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getDbTables">#</a>
+			<code><a href="source-class-Modules.Module.html#554-560" title="Go to source code">getDbTables</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne les tables déclarées dans le module</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne les tables déclarées dans le module</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Db.DbTable.html">Db\DbTable</a>[]</code></code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="id" id="$id">
+			<td class="attributes"><code>
+				protected  
+				integer
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Modules.Module.html#35-39" title="Go to source code"><var>$id</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$id" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>ID du module en bdd - définit dans inDb()</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>ID du module en bdd - définit dans inDb()</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="name" id="$name">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Modules.Module.html#41-45" title="Go to source code"><var>$name</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$name" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Nom du module (doit être unique pour l'ensemble des composants du site)</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Nom du module (doit être unique pour l'ensemble des composants du site)</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="title" id="$title">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Modules.Module.html#47-51" title="Go to source code"><var>$title</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$title" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Titre du module affiché en entête</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Titre du module affiché en entête</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="settings" id="$settings">
+			<td class="attributes"><code>
+				protected  
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Modules.Module.html#53-57" title="Go to source code"><var>$settings</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$settings" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Paramètres du module</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Paramètres du module</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="allowUsersSettings" id="$allowUsersSettings">
+			<td class="attributes"><code>
+				protected  
+				boolean
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Modules.Module.html#59-63" title="Go to source code"><var>$allowUsersSettings</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$allowUsersSettings" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Activation de paramètres définissables par les utilisateurs</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Activation de paramètres définissables par les utilisateurs</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="dbTables" id="$dbTables">
+			<td class="attributes"><code>
+				protected  
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Modules.Module.html#65-69" title="Go to source code"><var>$dbTables</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$dbTables" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Tables SQL manipulées par le module</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Tables SQL manipulées par le module</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="breadCrumb" id="$breadCrumb">
+			<td class="attributes"><code>
+				protected  
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Modules.Module.html#71-75" title="Go to source code"><var>$breadCrumb</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$breadCrumb" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Fil d'ariane</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Fil d'ariane</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="postedData" id="$postedData">
+			<td class="attributes"><code>
+				protected  
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Modules.Module.html#77-81" title="Go to source code"><var>$postedData</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$postedData" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Données envoyées par les formulaires</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Données envoyées par les formulaires</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="url" id="$url">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Modules.Module.html#83-90" title="Go to source code"><var>$url</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$url" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>URL de la page principale du module</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>URL de la page principale du module</p>
+
+<p>Cette adresse est définie automatiquement</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

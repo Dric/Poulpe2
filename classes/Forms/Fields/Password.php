@@ -52,7 +52,7 @@ class Password extends String{
 			<div class="input-group">
 				<input type="<?php echo $this->htmlType;?>" class="form-control<?php echo ' '.$this->class; ?> pwd" id="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>" name="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>" <?php if ($this->placeholder != '') echo 'placeholder="'.$this->placeholder.'"'; ?> value="<?php echo $value; ?>" <?php if ($this->disabled or !$enabled) echo 'disabled'; ?> <?php echo $attrs; ?> <?php echo $displayPattern; ?>>
 				<span class="input-group-btn">
-					<button class="btn btn-default reveal tooltip-bottom<?php echo ' '.$this->class; ?>" title="Afficher les caractères" type="button"><i class="glyphicon glyphicon-eye-open"></i></button>
+					<button class="btn btn-default reveal tooltip-bottom<?php echo ' '.$this->class; ?>" title="Afficher les caractères" type="button"><i class="fa fa-eye"></i></button>
 				</span>
 			</div>
 			<div class="help-block with-errors"></div>

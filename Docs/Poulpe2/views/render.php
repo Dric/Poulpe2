@@ -11,7 +11,7 @@
     <?php $path = array(); ?>
     <ul class="list-unstyled">
         <li>
-            <a href="<?php echo BASE_URL; ?>"><i class="glyphicon glyphicon-home"></i> Accueil</a>
+            <a href="<?php echo BASE_URL; ?>"><i class="fa fa-home"></i> Accueil</a>
         </li>
         <?php $i = 0; ?>
 
@@ -21,9 +21,9 @@
             <li>
                 <a href="<?php echo htmlspecialchars($url, ENT_QUOTES, 'UTF-8') ?>">
                     <?php if (++$i == count($parts) && !$is_dir): ?>
-                        <i class="glyphicon glyphicon-file"></i>
+                        <i class="fa fa-file"></i>
                     <?php else: ?>
-                        <i class="glyphicon glyphicon-folder-open"></i>
+                        <i class="fa fa-folder-open"></i>
                     <?php endif ?>
                     <?php echo ($part == $page['file'] and $page['title']) ? $page['title'] : $part; ?>
                 </a>

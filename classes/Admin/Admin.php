@@ -61,10 +61,10 @@ class Admin extends Module {
 	 */
 	protected function moduleMenu(){
 		$menu = new Menu($this->name, 'Administration', '', '', '');
-		$menu->add(new Item('modules', 'Modules', $this->url.'&page=modules', 'Administration des modules', 'th-large'));
+		$menu->add(new Item('modules', 'Modules', $this->url.'&page=modules', 'Administration des modules', 'puzzle-piece'));
 		$menu->add(new Item('acl', 'Autorisations', $this->url.'&page=ACL', 'Gestion des autorisations', 'lock'));
-		$menu->add(new Item('config', 'Configuration', $this->url.'&page=config', 'Fichier de configuration', 'floppy-disk'));
-		$menu->add(new Item('users', 'Utilisateurs', $this->url.'&page=users', 'Gestion des utilisateurs', 'user'));
+		$menu->add(new Item('config', 'Configuration', $this->url.'&page=config', 'Fichier de configuration', 'floppy-o'));
+		$menu->add(new Item('users', 'Utilisateurs', $this->url.'&page=users', 'Gestion des utilisateurs', 'users'));
 		Front::setSecondaryMenus($menu);
 	}
 

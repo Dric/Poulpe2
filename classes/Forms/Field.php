@@ -177,7 +177,7 @@ class Field extends Setting{
 			<?php } ?>
 			<input type="<?php echo $this->htmlType;?>" class="form-control<?php echo ' '.$this->class; ?>" id="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>" name="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>" <?php if ($this->placeholder != '') echo 'placeholder="'.$this->placeholder.'"'; ?> value="<?php echo $value; ?>" <?php if ($this->disabled or !$enabled) echo 'disabled'; ?> <?php echo $attrs; ?> <?php echo $displayPattern; ?>>
 			<?php if (!empty($this->associatedIcon)) { ?>
-			<span class="input-group-addon"><span class="glyphicon glyphicon-<?php echo $this->associatedIcon; ?>"></span></span>
+			<span class="input-group-addon"><span class="fa fa-<?php echo $this->associatedIcon; ?>"></span></span>
 			</div>
 			<?php } ?>
 			<?php if (!empty($pattern)) { ?>
@@ -202,7 +202,7 @@ class Field extends Setting{
 	 * Affiche un astérisque rouge à côté du label pour indiquer une saisie obligatoire
 	 */
 	protected function displayRequired(){
-		?><small><span class="glyphicon glyphicon-asterisk text-danger tooltip-bottom" title="Obligatoire"></span></small><?php
+		?><small><span class="fa fa-asterisk text-danger tooltip-bottom" title="Obligatoire"></span></small><?php
 	}
 
 	/**
@@ -212,7 +212,7 @@ class Field extends Setting{
 	 */
 	protected function displayImportant($msg = null){
 		$msg = (!empty($msg)) ? $msg : 'Attention : une modification sur ce champ peut entraîner des dysfonctionnements !';
-		?><small><span class="glyphicon glyphicon-warning-sign text-warning tooltip-bottom" title="<?php echo $msg; ?>"></span></small><?php
+		?><small><span class="fa fa-exclamation-triangle text-warning tooltip-bottom" title="<?php echo $msg; ?>"></span></small><?php
 	}
 
 	/**

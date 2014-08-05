@@ -30,7 +30,7 @@ class Help {
 	 */
 	public static function iconHelp($text, $tooltipPosition = 'bottom'){
 		?>
-		<span class="glyphicon glyphicon-question-sign tooltip-<?php echo $tooltipPosition; ?> help-icon" title="<?php echo $text; ?>"></span>
+		<span class="fa fa-question-circle tooltip-<?php echo $tooltipPosition; ?> help-icon" title="<?php echo $text; ?>"></span>
 		<?php
 	}
 } 

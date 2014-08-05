@@ -13,7 +13,7 @@ function tree($array, $parent, $parts = array(), $step = 0) {
             $open = $step !== false && (isset($parts[$step]) && $key == $parts[$step]);
 
             $t .= '<li class="directory'. ($open ? ' open' : '') .'">';
-                $t .= '<a href="#" data-role="directory"><i class="glyphicon glyphicon-folder-'. ($open ? 'open' : 'close') .'"></i> ' . $key . '</a>';
+                $t .= '<a href="#" data-role="directory"><i class="fa fa-folder-'. ($open ? 'open' : 'close') .'"></i> ' . $key . '</a>';
                 $t .= tree($item, "$parent/$key", $parts, $open ? $step + 1 : false);
             $t .=  '</li>';
         } else {
@@ -35,7 +35,7 @@ function tree($array, $parent, $parts = array(), $step = 0) {
 
 <div id="tree-filter">
     <input type="text" id="tree-filter-query" class="form-control" placeholder="Chercher fichiers et répertoires.">
-    <a id="tree-filter-clear-query" title="Clear current search..."><i class="glyphicon glyphicon-remove"></i></a>
+    <a id="tree-filter-clear-query" title="Clear current search..."><i class="fa fa-remove"></i></a>
 </div>
 <ul class="list-unstyled" id="tree-filter-results"></ul>
 

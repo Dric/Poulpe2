@@ -484,7 +484,7 @@ class Mailboxes extends Module {
 								<input type="hidden" name="field_string_user" value="<?php echo $line; ?>">
 								<input type="hidden" name="field_string_mdb" value="<?php echo $mdb; ?>">
 								<button class="btn btn-xs tooltip-bottom move-del" title="Supprimer la demande de déplacement" name="action" value="delMove" <?php if(!$canModify) echo 'disabled'; ?>>
-									<span class="glyphicon glyphicon-trash"></span>
+									<span class="fa fa-trash-o"></span>
 								</button>
 							</form>
 						</td>
