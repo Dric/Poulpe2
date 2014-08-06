@@ -139,6 +139,9 @@ class FileBrowser extends Module{
 	<?php
 	}
 
+	/**
+	 * Affiche une image distante (méthode utilisée en asynchrone - AJAX)
+	 */
 	protected function displayImage(){
 		$fileName = $_REQUEST['file'];
 		$file = new File('', $fileName);
@@ -174,8 +177,7 @@ class FileBrowser extends Module{
 		$files = array_merge($folders, $files);
 		$parentFolder = dirname($folder);
 		?>
-		<h2><span class="fa fa-folder-open"></span>&nbsp;&nbsp;<?php echo $folder; ?></h2>
-		<br>
+		<?php echo $this->breadcrumbTitle($folder); ?>
 		<?php if (strpos($parentFolder, $rootFolder) !== false and $parentFolder != '/') { ?><p>&nbsp;&nbsp;<a href="<?php echo $this->url.'&folder='.urlencode($parentFolder); ?>"><span class="fa fa-arrow-up"></span> Remonter d'un niveau</a></p><?php } ?>
 		<div class="table-responsive">
 			<table id="fileBrowser" class="table table-striped">
@@ -210,6 +212,19 @@ class FileBrowser extends Module{
 			</table>
 		</div>
 		<?php
+	}
+
+	protected function breadcrumbTitle($folder){
+		$rootFolder = rtrim($this->settings['rootFolder']->getValue(), DIRECTORY_SEPARATOR);
+		$breadcrumb = '</ol>';
+		do{
+			$currentFolderPath = $folder;
+			$folder = dirname($folder);
+			$currentFolderName = str_replace($folder.DIRECTORY_SEPARATOR, '', $currentFolderPath);
+			$breadcrumb = '<li><a href="'.$this->url.'&folder='.urlencode($currentFolderPath).'">'.$currentFolderName.'</a></li>'.$breadcrumb;
+		} while (strpos($folder, $rootFolder) !== false and $folder != '/');
+		$breadcrumb = '<ol class="breadcrumb">'.$breadcrumb;
+		return $breadcrumb;
 	}
 
 }

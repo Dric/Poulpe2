@@ -202,6 +202,8 @@ class File {
 					$ext = 'Fichier code';
 				}elseif (preg_match('/image\/.*/i', $this->fullType)){
 					$ext = 'Image';
+				}elseif (preg_match('/video\/.*/i', $this->fullType)){
+					$ext = 'Vidéo';
 				}else{
 					$ext = 'Fichier';
 				}
@@ -249,6 +251,8 @@ class File {
 				return 'file-powerpoint-o';
 			case 'PDF':
 				return 'file-pdf-o';
+			case 'Vidéo':
+				return 'film';
 			default:
 				return 'file-o';
 		}

@@ -7,13 +7,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0b517d7b-6e6e-44e4-a303-f637474520ff" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/FileSystem/File.php" afterPath="$PROJECT_DIR$/classes/FileSystem/File.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.js" afterPath="$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.php" afterPath="$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/FileSystem/Fs.php" afterPath="$PROJECT_DIR$/classes/FileSystem/Fs.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/UsersTraces/LogType.php" afterPath="$PROJECT_DIR$/Modules/UsersTraces/LogType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Sanitize.php" afterPath="$PROJECT_DIR$/classes/Sanitize.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/UsersTraces/UsersTraces.js" afterPath="$PROJECT_DIR$/Modules/UsersTraces/UsersTraces.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/UsersTraces/UsersTraces.php" afterPath="$PROJECT_DIR$/Modules/UsersTraces/UsersTraces.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tools2.iws" />
@@ -46,22 +40,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileBrowser.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="FileBrowser.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="119" column="30" selection-start="4108" selection-end="4108" vertical-scroll-proportion="-15.125" vertical-offset="1422" max-vertical-offset="3300">
+            <state line="180" column="0" selection-start="5946" selection-end="5946" vertical-scroll-proportion="0.110320285" vertical-offset="2607" max-vertical-offset="3525">
               <folding>
                 <element signature="e#6#94#0" expanded="true" />
                 <element signature="e#129#149#0" expanded="true" />
-                <marker date="1407330087784" expanded="true" signature="3869:3947" placeholder="..." />
-                <marker date="1407330087784" expanded="true" signature="4168:4237" placeholder="..." />
-                <marker date="1407330087784" expanded="true" signature="6189:6741" placeholder="..." />
-                <marker date="1407330087784" expanded="true" signature="6245:6741" placeholder="..." />
-                <marker date="1407330087784" expanded="true" signature="6257:6389" placeholder="..." />
-                <marker date="1407330087784" expanded="true" signature="6401:6741" placeholder="..." />
-                <marker date="1407330087784" expanded="true" signature="6676:6741" placeholder="..." />
-                <marker date="1407330087784" expanded="true" signature="6676:6771" placeholder="..." />
-                <marker date="1407330087784" expanded="true" signature="6718:6741" placeholder="..." />
+                <marker date="1407336985855" expanded="true" signature="3869:3947" placeholder="..." />
+                <marker date="1407336985855" expanded="true" signature="4168:4237" placeholder="..." />
+                <marker date="1407336985855" expanded="true" signature="6227:6779" placeholder="..." />
+                <marker date="1407336985855" expanded="true" signature="6283:6779" placeholder="..." />
+                <marker date="1407336985855" expanded="true" signature="6295:6427" placeholder="..." />
+                <marker date="1407336985855" expanded="true" signature="6439:6779" placeholder="..." />
+                <marker date="1407336985855" expanded="true" signature="6714:6779" placeholder="..." />
+                <marker date="1407336985855" expanded="true" signature="6714:6809" placeholder="..." />
+                <marker date="1407336985855" expanded="true" signature="6756:6779" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -88,10 +82,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="File.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="File.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/FileSystem/File.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="254" column="3" selection-start="7127" selection-end="7127" vertical-scroll-proportion="3.8726635" vertical-offset="495" max-vertical-offset="4245">
+            <state line="244" column="18" selection-start="6946" selection-end="6946" vertical-scroll-proportion="-53.125" vertical-offset="2385" max-vertical-offset="4305">
               <folding>
                 <element signature="e#6#94#0" expanded="true" />
               </folding>
@@ -323,8 +317,8 @@
         <option value="$PROJECT_DIR$/classes/Sanitize.php" />
         <option value="$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.js" />
         <option value="$PROJECT_DIR$/Modules/PostIt/PostIt.php" />
-        <option value="$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.php" />
         <option value="$PROJECT_DIR$/classes/FileSystem/File.php" />
+        <option value="$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.php" />
       </list>
     </option>
   </component>
@@ -1054,7 +1048,11 @@
       <created>1407251005427</created>
       <updated>1407251005427</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="- Amélioration d'utilisation de DataTable.js dans le module UsersTraces&#10;- Plus de types de fichiers détectés dans le module FileBrowser&#10;- Résolution d'un bug sur les tailles de fichiers de plus de 2Go&#10;">
+      <created>1407334258230</created>
+      <updated>1407334258230</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1143,7 +1141,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="- Suppression de l'argument $id dans les objets Field&#10;- Correction de bugs suite à l'ajout d'un jeton de sécurité dans les formulaires&#10;- Corrections de bugs&#10;- On peut maintenant choisir l'ordre d'affichage des Post-it dans le module Post-it." />
     <MESSAGE value="- Correction d'un bug dans la classe Fs pour retrouver les métadonnées d'un fichier&#10;- Le fichier de config peut maintenant être modifié depuis l'admin en changeant dynamiquement les permissions et en les remettant une fois le fichier modifié.&#10;- Changement de l'ordre des arguments pour les objets JSSwitch, car les arguments les plus utilisés étaient passés en dernier&#10;- Suppression des jetons de sécurité au bout de 4 heures&#10;- Correction de bugs et améliorations diverses dans les modules&#10;" />
     <MESSAGE value="- Les champs importants sont maintenant entourés en jaune&#10;- Correction d'un bug sur les champs dans le module DenyAppAccess&#10;" />
     <MESSAGE value="- Classe Arg remplacée par une classe Filter&#10;- Corrections/améliorations de classes de champs de formulaires&#10;- Correction d'un bug à la connexion du premier utilisateur en authentification sql&#10;" />
@@ -1168,7 +1165,8 @@
     <MESSAGE value="- Ajout d'un module d'aide à la création de modules&#10;- Affichage de la version dans le panneau d'admin" />
     <MESSAGE value="- Utilisation de Font-Awesome en remplacement de Glyphicons.&#10;- Mise à jour de la doc du code et de README.md." />
     <MESSAGE value="- Ajout d'un module d'exploration de fichiers&#10;- Changement de nom pour la méthode Fs-&gt;getFilesInDir() en Fs-&gt;getRecursiveFilesInDir()&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Ajout d'un module d'exploration de fichiers&#10;- Changement de nom pour la méthode Fs-&gt;getFilesInDir() en Fs-&gt;getRecursiveFilesInDir()&#10;" />
+    <MESSAGE value="- Amélioration d'utilisation de DataTable.js dans le module UsersTraces&#10;- Plus de types de fichiers détectés dans le module FileBrowser&#10;- Résolution d'un bug sur les tailles de fichiers de plus de 2Go&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Amélioration d'utilisation de DataTable.js dans le module UsersTraces&#10;- Plus de types de fichiers détectés dans le module FileBrowser&#10;- Résolution d'un bug sur les tailles de fichiers de plus de 2Go&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1600,30 +1598,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.php">
+    <entry file="file://$PROJECT_DIR$/classes/FileSystem/File.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="119" column="30" selection-start="4108" selection-end="4108" vertical-scroll-proportion="-15.125" vertical-offset="1422" max-vertical-offset="3300">
+        <state line="244" column="18" selection-start="6946" selection-end="6946" vertical-scroll-proportion="-53.125" vertical-offset="2385" max-vertical-offset="4305">
           <folding>
             <element signature="e#6#94#0" expanded="true" />
-            <element signature="e#129#149#0" expanded="true" />
-            <marker date="1407330087784" expanded="true" signature="3869:3947" placeholder="..." />
-            <marker date="1407330087784" expanded="true" signature="4168:4237" placeholder="..." />
-            <marker date="1407330087784" expanded="true" signature="6189:6741" placeholder="..." />
-            <marker date="1407330087784" expanded="true" signature="6245:6741" placeholder="..." />
-            <marker date="1407330087784" expanded="true" signature="6257:6389" placeholder="..." />
-            <marker date="1407330087784" expanded="true" signature="6401:6741" placeholder="..." />
-            <marker date="1407330087784" expanded="true" signature="6676:6741" placeholder="..." />
-            <marker date="1407330087784" expanded="true" signature="6676:6771" placeholder="..." />
-            <marker date="1407330087784" expanded="true" signature="6718:6741" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/FileSystem/File.php">
+    <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="254" column="3" selection-start="7127" selection-end="7127" vertical-scroll-proportion="3.8726635" vertical-offset="495" max-vertical-offset="4245">
+        <state line="180" column="0" selection-start="5946" selection-end="5946" vertical-scroll-proportion="0.110320285" vertical-offset="2607" max-vertical-offset="3525">
           <folding>
             <element signature="e#6#94#0" expanded="true" />
+            <element signature="e#129#149#0" expanded="true" />
+            <marker date="1407336985855" expanded="true" signature="3869:3947" placeholder="..." />
+            <marker date="1407336985855" expanded="true" signature="4168:4237" placeholder="..." />
+            <marker date="1407336985855" expanded="true" signature="6227:6779" placeholder="..." />
+            <marker date="1407336985855" expanded="true" signature="6283:6779" placeholder="..." />
+            <marker date="1407336985855" expanded="true" signature="6295:6427" placeholder="..." />
+            <marker date="1407336985855" expanded="true" signature="6439:6779" placeholder="..." />
+            <marker date="1407336985855" expanded="true" signature="6714:6779" placeholder="..." />
+            <marker date="1407336985855" expanded="true" signature="6714:6809" placeholder="..." />
+            <marker date="1407336985855" expanded="true" signature="6756:6779" placeholder="..." />
           </folding>
         </state>
       </provider>
