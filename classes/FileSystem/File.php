@@ -48,7 +48,7 @@ class File {
 		if (file_exists($this->fullName)){
 			$this->filters = $filters;
 			if ((!empty($filters) and (in_array('dateCreated', $filters) or in_array('dateModified', $filters) or in_array('size', $filters))) or empty($filters)){
-				$stat = stat($this->fullName);
+				$stat = @stat($this->fullName);
 				$this->dateCreated = $stat['ctime'];
 				$this->dateModified = $stat['mtime'];
 				$this->size = $this->getFileSize();
@@ -61,23 +61,23 @@ class File {
 				/**
 				 * @var \finfo $fInfo
 				 */
-				$this->fullType = finfo_file(finfo_open(FILEINFO_MIME_TYPE), $this->fullName);
+				$this->fullType = @finfo_file(finfo_open(FILEINFO_MIME_TYPE), $this->fullName);
 				if (!empty($this->filters)) $this->filters[] = 'fullType';
 				$this->type();
 			}
 			if ((!empty($filters) and in_array('chmod', $filters)) or empty($filters)){
-				$this->chmod = (int)decoct(fileperms($this->fullName) & 0777);
-				$this->advChmod = (int)substr(decoct(fileperms($this->fullName)),2);
+				$this->chmod = (int)decoct(@fileperms($this->fullName) & 0777);
+				$this->advChmod = (int)substr(decoct(@fileperms($this->fullName)),2);
 				if (!empty($this->filters)) $this->filters[] = 'advChmod';
 			}
 			if ((!empty($filters) and in_array('writable', $filters)) or empty($filters)){
 				$this->writable = is_writable($this->fullName);
 			}
 			if ((!empty($filters) and in_array('owner', $filters)) or empty($filters)){
-				$this->owner = posix_getpwuid(fileowner($this->fullName))['name'];
+				$this->owner = posix_getpwuid(@fileowner($this->fullName))['name'];
 			}
 			if ((!empty($filters) and in_array('groupOwner', $filters)) or empty($filters)){
-				$this->groupOwner = posix_getgrgid(filegroup($this->fullName))['name'];
+				$this->groupOwner = posix_getgrgid(@filegroup($this->fullName))['name'];
 			}
 			$this->linuxHidden = (substr($fileName, 0, 1) == '.') ? true : false;
 			if (!empty($this->filters)) $this->filters[] = 'linuxHidden';
@@ -98,19 +98,19 @@ class File {
 	 *
 	 * @link <http://stackoverflow.com/a/5501987/1749967>
 	 *
-	 * @return bool|float
+	 * @return float
 	 */
 	protected function getFileSize() {
-		$size = filesize($this->fullName);
+		$size = @filesize($this->fullName);
 		if ($size === false) {
-			$fp = fopen($this->fullName, 'r');
+			$fp = @fopen($this->fullName, 'r');
 			if (!$fp) {
-				return false;
+				return 0;
 			}
 			$offset = PHP_INT_MAX - 1;
 			$size = (float) $offset;
 			if (!fseek($fp, $offset)) {
-				return false;
+				return 0;
 			}
 			$chunksize = 8192;
 			while (!feof($fp)) {

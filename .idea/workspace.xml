@@ -7,7 +7,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0b517d7b-6e6e-44e4-a303-f637474520ff" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/FileSystem/File.php" afterPath="$PROJECT_DIR$/classes/FileSystem/File.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.php" afterPath="$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/Transmission/Torrent.php" afterPath="$PROJECT_DIR$/Modules/Transmission/Torrent.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tools2.iws" />
@@ -31,63 +31,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="Transmission.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Modules/Transmission/Transmission.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="158" column="0" selection-start="5420" selection-end="5470" vertical-scroll-proportion="-0.0" vertical-offset="2370" max-vertical-offset="8550">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ModuleCreator.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Modules/ModuleCreator/ModuleCreator.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="97" column="1" selection-start="0" selection-end="3189" vertical-scroll-proportion="-19.125" vertical-offset="861" max-vertical-offset="1410">
+            <state line="97" column="1" selection-start="0" selection-end="3189" vertical-scroll-proportion="0.0" vertical-offset="1455" max-vertical-offset="1545">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileBrowser.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="FileBrowser.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="180" column="0" selection-start="5946" selection-end="5946" vertical-scroll-proportion="0.110320285" vertical-offset="2607" max-vertical-offset="3525">
+            <state line="207" column="15" selection-start="7301" selection-end="7301" vertical-scroll-proportion="-22.333334" vertical-offset="2569" max-vertical-offset="3525">
               <folding>
                 <element signature="e#6#94#0" expanded="true" />
                 <element signature="e#129#149#0" expanded="true" />
-                <marker date="1407336985855" expanded="true" signature="3869:3947" placeholder="..." />
-                <marker date="1407336985855" expanded="true" signature="4168:4237" placeholder="..." />
-                <marker date="1407336985855" expanded="true" signature="6227:6779" placeholder="..." />
-                <marker date="1407336985855" expanded="true" signature="6283:6779" placeholder="..." />
-                <marker date="1407336985855" expanded="true" signature="6295:6427" placeholder="..." />
-                <marker date="1407336985855" expanded="true" signature="6439:6779" placeholder="..." />
-                <marker date="1407336985855" expanded="true" signature="6714:6779" placeholder="..." />
-                <marker date="1407336985855" expanded="true" signature="6714:6809" placeholder="..." />
-                <marker date="1407336985855" expanded="true" signature="6756:6779" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/highlight/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="2595">
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="MarkdownPreviewEditor">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PostIt.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Modules/PostIt/PostIt.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="30" selection-start="527" selection-end="579" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="File.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/FileSystem/File.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="244" column="18" selection-start="6946" selection-end="6946" vertical-scroll-proportion="-53.125" vertical-offset="2385" max-vertical-offset="4305">
-              <folding>
-                <element signature="e#6#94#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -96,7 +64,16 @@
       <file leaf-file-name="file-size.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/DataTables/plugins/sorting/file-size.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="0" selection-start="578" selection-end="578" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
+            <state line="18" column="0" selection-start="578" selection-end="578" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="690">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="File.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/classes/FileSystem/File.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="79" column="44" selection-start="2790" selection-end="2790" vertical-scroll-proportion="0.85660845" vertical-offset="423" max-vertical-offset="4230">
               <folding />
             </state>
           </provider>
@@ -105,7 +82,7 @@
       <file leaf-file-name="poulpe2.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/poulpe2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="265" column="21" selection-start="8655" selection-end="8672" vertical-scroll-proportion="0.0" vertical-offset="3880" max-vertical-offset="4545">
+            <state line="265" column="21" selection-start="8655" selection-end="8672" vertical-scroll-proportion="0.0" vertical-offset="3975" max-vertical-offset="4575">
               <folding />
             </state>
           </provider>
@@ -114,16 +91,7 @@
       <file leaf-file-name="FileBrowser.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="30" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PostIt.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Modules/PostIt/PostIt.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="0" selection-start="1366" selection-end="1454" vertical-scroll-proportion="-7.75" vertical-offset="474" max-vertical-offset="6525">
+            <state line="7" column="30" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="195">
               <folding />
             </state>
           </provider>
@@ -132,65 +100,17 @@
       <file leaf-file-name="UsersTraces.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Modules/UsersTraces/UsersTraces.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="5" selection-start="1251" selection-end="1251" vertical-scroll-proportion="-12.541667" vertical-offset="59" max-vertical-offset="2610">
-              <folding>
-                <marker date="1407307468519" expanded="true" signature="4378:5770" placeholder="..." />
-                <marker date="1407307468519" expanded="true" signature="4421:5761" placeholder="..." />
-                <marker date="1407307468519" expanded="true" signature="4451:4542" placeholder="..." />
-                <marker date="1407307468519" expanded="true" signature="4550:4593" placeholder="..." />
-                <marker date="1407307468519" expanded="true" signature="4601:4726" placeholder="..." />
-                <marker date="1407307468519" expanded="true" signature="4945:5221" placeholder="..." />
-                <marker date="1407307468519" expanded="true" signature="5354:5751" placeholder="..." />
-                <marker date="1407307468519" expanded="true" signature="5426:5717" placeholder="..." />
-                <marker date="1407307468519" expanded="true" signature="5519:5706" placeholder="..." />
-                <marker date="1407307468519" expanded="true" signature="6093:6326" placeholder="..." />
-                <marker date="1407307468519" expanded="true" signature="6136:6317" placeholder="..." />
-                <marker date="1407307468519" expanded="true" signature="6166:6277" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Sanitize.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/Sanitize.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="294" column="0" selection-start="10058" selection-end="10058" vertical-scroll-proportion="-18.125" vertical-offset="3870" max-vertical-offset="4950">
+            <state line="32" column="0" selection-start="763" selection-end="1190" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="2880">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LogType.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Modules/UsersTraces/LogType.php">
+      <file leaf-file-name="PostIt.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Modules/PostIt/PostIt.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="59" selection-start="1137" selection-end="1137" vertical-scroll-proportion="-25.958334" vertical-offset="127" max-vertical-offset="1050">
+            <state line="373" column="60" selection-start="15512" selection-end="15512" vertical-scroll-proportion="0.0" vertical-offset="5595" max-vertical-offset="6885">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="121" column="19" selection-start="3087" selection-end="3087" vertical-scroll-proportion="-14.875" vertical-offset="1293" max-vertical-offset="2295">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserInfo.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Modules/UserInfo/UserInfo.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="102" column="5" selection-start="2983" selection-end="2983" vertical-scroll-proportion="-21.25" vertical-offset="765" max-vertical-offset="2280">
-              <folding>
-                <marker date="1406533084871" expanded="true" signature="1334:1951" placeholder="..." />
-                <marker date="1406533084871" expanded="true" signature="1377:1942" placeholder="..." />
-                <marker date="1406533084871" expanded="true" signature="1407:1500" placeholder="..." />
-                <marker date="1406533084871" expanded="true" signature="1508:1608" placeholder="..." />
-                <marker date="1406533084871" expanded="true" signature="3473:5345" placeholder="..." />
-                <marker date="1406533084871" expanded="true" signature="4840:5337" placeholder="..." />
-                <marker date="1406533084871" expanded="true" signature="5066:5328" placeholder="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -198,7 +118,7 @@
       <file leaf-file-name="variables.less" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/less/internal/variables.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="21" selection-start="667" selection-end="667" vertical-scroll-proportion="-15.0" vertical-offset="0" max-vertical-offset="1200">
+            <state line="24" column="21" selection-start="667" selection-end="667" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="1200">
               <folding />
             </state>
           </provider>
@@ -207,7 +127,16 @@
       <file leaf-file-name="yeti-variables.less" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/less/external/yeti-variables.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="773" column="42" selection-start="23700" selection-end="23783" vertical-scroll-proportion="-8.583333" vertical-offset="11389" max-vertical-offset="12045">
+            <state line="773" column="42" selection-start="23700" selection-end="23783" vertical-scroll-proportion="0.0" vertical-offset="11389" max-vertical-offset="12045">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="13" selection-start="110" selection-end="110" vertical-scroll-proportion="0.0" vertical-offset="950" max-vertical-offset="1485">
               <folding />
             </state>
           </provider>
@@ -216,7 +145,16 @@
       <file leaf-file-name="Front.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/Front.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="324" column="28" selection-start="9515" selection-end="9515" vertical-scroll-proportion="-18.875" vertical-offset="4257" max-vertical-offset="5985">
+            <state line="324" column="28" selection-start="9515" selection-end="9515" vertical-scroll-proportion="0.0" vertical-offset="4860" max-vertical-offset="6135">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fixes.less" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/less/internal/fixes.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
               <folding />
             </state>
           </provider>
@@ -225,16 +163,7 @@
       <file leaf-file-name="Fs.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/FileSystem/Fs.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="132" column="35" selection-start="3797" selection-end="3797" vertical-scroll-proportion="-43.125" vertical-offset="855" max-vertical-offset="6600">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UsersTraces.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Modules/UsersTraces/UsersTraces.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="28" selection-start="1281" selection-end="1281" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
+            <state line="215" column="30" selection-start="7784" selection-end="7784" vertical-scroll-proportion="0.0" vertical-offset="3225" max-vertical-offset="6690">
               <folding />
             </state>
           </provider>
@@ -243,7 +172,34 @@
       <file leaf-file-name="poulpe2.less" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/less/poulpe2.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="25" selection-start="628" selection-end="628" vertical-scroll-proportion="-15.625" vertical-offset="0" max-vertical-offset="570">
+            <state line="25" column="25" selection-start="628" selection-end="628" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="570">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="front.less" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/less/internal/front.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="795">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="help.less" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/less/internal/help.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="135">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Admin.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/Admin/Admin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="62" column="55" selection-start="1076" selection-end="1076" vertical-scroll-proportion="0.0" vertical-offset="930" max-vertical-offset="9210">
               <folding />
             </state>
           </provider>
@@ -257,7 +213,6 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
-    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -268,13 +223,16 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+        <option value="$PROJECT_DIR$/css/less/internal/front.less" />
+        <option value="$PROJECT_DIR$/css/less/internal/fixes.less" />
+        <option value="$PROJECT_DIR$/classes/Components/Avatar.php" />
         <option value="$PROJECT_DIR$/classes/Settings/config.default.php" />
         <option value="$PROJECT_DIR$/css/less/internal/avatars.less" />
         <option value="$PROJECT_DIR$/Modules/.htaccess" />
         <option value="$PROJECT_DIR$/Modules/index.html" />
         <option value="$PROJECT_DIR$/Modules/BandesTina/BandesTina.php" />
         <option value="$PROJECT_DIR$/classes/Components/Filter.php" />
-        <option value="$PROJECT_DIR$/Modules/Transmission/Torrent.php" />
+        <option value="$PROJECT_DIR$/classes/Sanitize.php" />
         <option value="$PROJECT_DIR$/classes/Components/serverResource.php" />
         <option value="$PROJECT_DIR$/Modules/Salsifis/Salsifis.php" />
         <option value="$PROJECT_DIR$/Docs/Poulpe2/library/Formulaires/Gestion des formulaires.md" />
@@ -302,23 +260,20 @@
         <option value="$PROJECT_DIR$/js/pnotify/jquery.pnotify.min.js" />
         <option value="$PROJECT_DIR$/Modules/CHGS/CHGS.php" />
         <option value="$PROJECT_DIR$/Modules/Mailboxes/Mailboxes.php" />
+        <option value="$PROJECT_DIR$/Modules/PostIt/PostIt.php" />
         <option value="$PROJECT_DIR$/Modules/Transmission/Transmission.php" />
         <option value="$PROJECT_DIR$/classes/Admin/Admin.php" />
         <option value="$PROJECT_DIR$/Modules/ModuleCreator/ModuleCreator.php" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/classes/FileSystem/Fs.php" />
         <option value="$PROJECT_DIR$/css/less/internal/variables.less" />
         <option value="$PROJECT_DIR$/js/DataTables/plugins/sorting/file-size.js" />
         <option value="$PROJECT_DIR$/js/poulpe2.js" />
-        <option value="$PROJECT_DIR$/classes/Get.php" />
-        <option value="$PROJECT_DIR$/classes/FileSystem/Fs.php" />
-        <option value="$PROJECT_DIR$/Modules/UsersTraces/LogType.php" />
-        <option value="$PROJECT_DIR$/Modules/UsersTraces/UsersTraces.js" />
-        <option value="$PROJECT_DIR$/Modules/UsersTraces/UsersTraces.php" />
-        <option value="$PROJECT_DIR$/classes/Sanitize.php" />
         <option value="$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.js" />
-        <option value="$PROJECT_DIR$/Modules/PostIt/PostIt.php" />
-        <option value="$PROJECT_DIR$/classes/FileSystem/File.php" />
+        <option value="$PROJECT_DIR$/classes/Get.php" />
         <option value="$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.php" />
+        <option value="$PROJECT_DIR$/Modules/Transmission/Torrent.php" />
+        <option value="$PROJECT_DIR$/classes/FileSystem/File.php" />
       </list>
     </option>
   </component>
@@ -329,10 +284,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="32" />
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1896" />
-    <option name="height" value="1056" />
+    <option name="width" value="1696" />
+    <option name="height" value="1026" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -459,7 +414,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
+              <option name="myItemId" value="Poulpe2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -469,43 +424,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UsersTraces" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UserInfo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
+              <option name="myItemId" value="Poulpe2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -519,7 +438,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
+              <option name="myItemId" value="Poulpe2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -527,7 +446,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="PostIt" />
+              <option name="myItemId" value="Transmission" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -537,25 +456,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ModuleCreator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
+              <option name="myItemId" value="Poulpe2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -573,29 +474,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
+              <option name="myItemId" value="Poulpe2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="highlight" />
+              <option name="myItemId" value="fonts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -605,73 +488,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DataTables" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DataTables" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DataTables" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sorting" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
+              <option name="myItemId" value="Poulpe2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -685,25 +502,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="classes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
+              <option name="myItemId" value="Poulpe2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -712,38 +511,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="FileSystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="classes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cache" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1044,15 +811,7 @@
       <created>1407227798487</created>
       <updated>1407227798487</updated>
     </task>
-    <task id="LOCAL-00043" summary="- Ajout d'un module d'exploration de fichiers&#10;- Changement de nom pour la méthode Fs-&gt;getFilesInDir() en Fs-&gt;getRecursiveFilesInDir()&#10;">
-      <created>1407251005427</created>
-      <updated>1407251005427</updated>
-    </task>
-    <task id="LOCAL-00044" summary="- Amélioration d'utilisation de DataTable.js dans le module UsersTraces&#10;- Plus de types de fichiers détectés dans le module FileBrowser&#10;- Résolution d'un bug sur les tailles de fichiers de plus de 2Go&#10;">
-      <created>1407334258230</created>
-      <updated>1407334258230</updated>
-    </task>
-    <option name="localTasksCounter" value="45" />
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1076,28 +835,28 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="32" y="-8" width="1896" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328125" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33117583" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297062" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32700893" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19477694" sideWeight="0.50053936" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32700893" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24972796" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19749728" sideWeight="0.49946064" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297062" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2020757" sideWeight="0.49946064" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19477694" sideWeight="0.50053936" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32700893" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.206041" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="61" y="424" width="1838" height="191" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32628062" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Assets" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33117583" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="CSS Styles" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.399137" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1141,6 +900,8 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="- Correction d'un oubli de constante dans le fichier config.default.php&#10;- Correction des commandes SQL pour peupler la base de données à l'installation" />
+    <MESSAGE value="- Suppression de l'argument $id dans les objets Field&#10;- Correction de bugs suite à l'ajout d'un jeton de sécurité dans les formulaires&#10;- Corrections de bugs&#10;- On peut maintenant choisir l'ordre d'affichage des Post-it dans le module Post-it." />
     <MESSAGE value="- Correction d'un bug dans la classe Fs pour retrouver les métadonnées d'un fichier&#10;- Le fichier de config peut maintenant être modifié depuis l'admin en changeant dynamiquement les permissions et en les remettant une fois le fichier modifié.&#10;- Changement de l'ordre des arguments pour les objets JSSwitch, car les arguments les plus utilisés étaient passés en dernier&#10;- Suppression des jetons de sécurité au bout de 4 heures&#10;- Correction de bugs et améliorations diverses dans les modules&#10;" />
     <MESSAGE value="- Les champs importants sont maintenant entourés en jaune&#10;- Correction d'un bug sur les champs dans le module DenyAppAccess&#10;" />
     <MESSAGE value="- Classe Arg remplacée par une classe Filter&#10;- Corrections/améliorations de classes de champs de formulaires&#10;- Correction d'un bug à la connexion du premier utilisateur en authentification sql&#10;" />
@@ -1164,9 +925,7 @@
     <MESSAGE value="- Correction d'un bug sur la mesure du CPU dans serverResource" />
     <MESSAGE value="- Ajout d'un module d'aide à la création de modules&#10;- Affichage de la version dans le panneau d'admin" />
     <MESSAGE value="- Utilisation de Font-Awesome en remplacement de Glyphicons.&#10;- Mise à jour de la doc du code et de README.md." />
-    <MESSAGE value="- Ajout d'un module d'exploration de fichiers&#10;- Changement de nom pour la méthode Fs-&gt;getFilesInDir() en Fs-&gt;getRecursiveFilesInDir()&#10;" />
-    <MESSAGE value="- Amélioration d'utilisation de DataTable.js dans le module UsersTraces&#10;- Plus de types de fichiers détectés dans le module FileBrowser&#10;- Résolution d'un bug sur les tailles de fichiers de plus de 2Go&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Amélioration d'utilisation de DataTable.js dans le module UsersTraces&#10;- Plus de types de fichiers détectés dans le module FileBrowser&#10;- Résolution d'un bug sur les tailles de fichiers de plus de 2Go&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Utilisation de Font-Awesome en remplacement de Glyphicons.&#10;- Mise à jour de la doc du code et de README.md." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1200,73 +959,76 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/classes/Components/serverResource.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="178" column="7" selection-start="4770" selection-end="4770" vertical-scroll-proportion="0.0" vertical-offset="2670" max-vertical-offset="3255" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Docs/Poulpe2/library/Organisation du module/Paramètres de module.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="842" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Docs/Poulpe2/library/Organisation du module/Multi pages.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Modules/Salsifis/Salsifis.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="3" selection-start="917" selection-end="1484" vertical-scroll-proportion="0.0" vertical-offset="975" max-vertical-offset="2370">
-          <folding />
-        </state>
+        <state line="65" column="3" selection-start="917" selection-end="1484" vertical-scroll-proportion="0.0" vertical-offset="975" max-vertical-offset="2370" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Docs/Poulpe2/library/Formulaires/Gestion des formulaires.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="177" selection-start="591" selection-end="628" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="1035">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
+        <state line="20" column="177" selection-start="591" selection-end="628" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="1035" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Docs/Poulpe2/library/Organisation du module/Modèle de module.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="46" selection-start="831" selection-end="831" vertical-scroll-proportion="0.0" vertical-offset="28" max-vertical-offset="870">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
+        <state line="27" column="46" selection-start="831" selection-end="831" vertical-scroll-proportion="0.0" vertical-offset="28" max-vertical-offset="870" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cache/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="7" selection-start="7" selection-end="7" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="90">
+        <state line="0" column="7" selection-start="7" selection-end="7" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="90" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Sanitize.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="113" column="25" selection-start="3850" selection-end="3850" vertical-scroll-proportion="0.0" vertical-offset="1695" max-vertical-offset="5085">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="141" column="226" selection-start="3848" selection-end="3848" vertical-scroll-proportion="0.0" vertical-offset="2115" max-vertical-offset="2460" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/less/bootstrap3/bootstrap.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="28" selection-start="181" selection-end="181" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="840">
-          <folding />
-        </state>
+        <state line="7" column="28" selection-start="181" selection-end="181" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="840" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Docs/Bootstrap/about.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="225" column="19" selection-start="11227" selection-end="11227" vertical-scroll-proportion="-7.4583335" vertical-offset="3196" max-vertical-offset="5400">
-          <folding />
-        </state>
+        <state line="225" column="19" selection-start="11227" selection-end="11227" vertical-scroll-proportion="-7.4583335" vertical-offset="3196" max-vertical-offset="5400" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Components/Help.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="12" selection-start="461" selection-end="461" vertical-scroll-proportion="-13.75" vertical-offset="0" max-vertical-offset="540">
-          <folding />
-        </state>
+        <state line="27" column="12" selection-start="461" selection-end="461" vertical-scroll-proportion="-13.75" vertical-offset="0" max-vertical-offset="540" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/less/external/font-awesome/font-awesome.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="882">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="882" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/less/external/font-awesome/variables.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="27" selection-start="321" selection-end="321" vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="7815">
-          <folding />
-        </state>
+        <state line="8" column="27" selection-start="321" selection-end="321" vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="7815" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Components/Item.php">
@@ -1278,16 +1040,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Forms/Field.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="210" column="53" selection-start="7068" selection-end="7068" vertical-scroll-proportion="-11.166667" vertical-offset="2762" max-vertical-offset="5190">
-          <folding />
-        </state>
+        <state line="210" column="53" selection-start="7068" selection-end="7068" vertical-scroll-proportion="-11.166667" vertical-offset="2762" max-vertical-offset="5190" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Forms/Fields/Password.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="160" selection-start="2634" selection-end="2634" vertical-scroll-proportion="-15.208333" vertical-offset="355" max-vertical-offset="915">
-          <folding />
-        </state>
+        <state line="54" column="160" selection-start="2634" selection-end="2634" vertical-scroll-proportion="-15.208333" vertical-offset="355" max-vertical-offset="915" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Modules/Module.php">
@@ -1299,86 +1057,69 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Users/Login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="333" column="74" selection-start="10965" selection-end="10965" vertical-scroll-proportion="-3.875" vertical-offset="4617" max-vertical-offset="5175">
-          <folding />
-        </state>
+        <state line="333" column="74" selection-start="10965" selection-end="10965" vertical-scroll-proportion="-3.875" vertical-offset="4617" max-vertical-offset="5175" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Docs/Poulpe2/views/render.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="4" selection-start="1118" selection-end="1118" vertical-scroll-proportion="-7.625" vertical-offset="207" max-vertical-offset="2505">
-          <folding />
-        </state>
+        <state line="26" column="4" selection-start="1118" selection-end="1118" vertical-scroll-proportion="-7.625" vertical-offset="207" max-vertical-offset="2505" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Docs/Poulpe2/views/tree.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="83" selection-start="1414" selection-end="1414" vertical-scroll-proportion="-7.625" vertical-offset="372" max-vertical-offset="2190">
-          <folding />
-        </state>
+        <state line="37" column="83" selection-start="1414" selection-end="1414" vertical-scroll-proportion="-7.625" vertical-offset="372" max-vertical-offset="2190" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/bootstrap-datetimepicker.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="447" selection-start="2109" selection-end="2109" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1260">
-          <folding />
-        </state>
+        <state line="32" column="447" selection-start="2109" selection-end="2109" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1260" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/Bootstrap-Confirmation/bootstrap-confirmation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="31" selection-start="3099" selection-end="3099" vertical-scroll-proportion="0.0" vertical-offset="979" max-vertical-offset="3450">
-          <folding />
-        </state>
+        <state line="96" column="31" selection-start="3099" selection-end="3099" vertical-scroll-proportion="0.0" vertical-offset="979" max-vertical-offset="3450" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/Bootstrap-Confirmation/bootstrap-confirmation.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="1426" selection-start="1672" selection-end="1672" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="105">
-          <folding />
-        </state>
+        <state line="4" column="1426" selection-start="1672" selection-end="1672" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="105" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/pagedown-bootstrap/js/jquery.pagedown-bootstrap.combined.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="36782" selection-start="36782" selection-end="36782" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
-          <folding />
-        </state>
+        <state line="0" column="36782" selection-start="36782" selection-end="36782" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/pnotify/jquery.pnotify.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="37" selection-start="1752" selection-end="1752" vertical-scroll-proportion="-7.72" vertical-offset="17" max-vertical-offset="750">
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
+        <state line="14" column="37" selection-start="1752" selection-end="1752" vertical-scroll-proportion="-7.72" vertical-offset="17" max-vertical-offset="750" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/CHGS/CHGS.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="255" selection-start="1692" selection-end="1692" vertical-scroll-proportion="-12.083333" vertical-offset="445" max-vertical-offset="1005">
-          <folding />
-        </state>
+        <state line="58" column="255" selection-start="1692" selection-end="1692" vertical-scroll-proportion="-12.083333" vertical-offset="445" max-vertical-offset="1005" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/pnotify/jquery.pnotify.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="21" selection-start="2542" selection-end="2553" vertical-scroll-proportion="0.0" vertical-offset="819" max-vertical-offset="15225">
-          <folding />
-        </state>
+        <state line="88" column="21" selection-start="2542" selection-end="2553" vertical-scroll-proportion="0.0" vertical-offset="819" max-vertical-offset="15225" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/Mailboxes/Mailboxes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="486" column="53" selection-start="15550" selection-end="15550" vertical-scroll-proportion="-7.75" vertical-offset="6804" max-vertical-offset="7905">
+        <state line="486" column="53" selection-start="15550" selection-end="15550" vertical-scroll-proportion="-7.75" vertical-offset="6804" max-vertical-offset="7905" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/PostIt/PostIt.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="373" column="60" selection-start="15512" selection-end="15512" vertical-scroll-proportion="0.0" vertical-offset="5595" max-vertical-offset="6885">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Admin/Admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="55" selection-start="1076" selection-end="1076" vertical-scroll-proportion="-3.375" vertical-offset="444" max-vertical-offset="8805">
+        <state line="62" column="55" selection-start="1076" selection-end="1076" vertical-scroll-proportion="0.0" vertical-offset="930" max-vertical-offset="9210">
           <folding />
         </state>
       </provider>
@@ -1406,65 +1147,61 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="13" selection-start="110" selection-end="110" vertical-scroll-proportion="35.0" vertical-offset="950" max-vertical-offset="1485">
+        <state line="5" column="13" selection-start="110" selection-end="110" vertical-scroll-proportion="0.0" vertical-offset="950" max-vertical-offset="1485">
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/Transmission/Transmission.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="158" column="0" selection-start="5420" selection-end="5470" vertical-scroll-proportion="-9.625" vertical-offset="1734" max-vertical-offset="8145">
-          <folding>
-            <marker date="1407226327924" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407226327924" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
+        <state line="158" column="0" selection-start="5420" selection-end="5470" vertical-scroll-proportion="0.0" vertical-offset="2370" max-vertical-offset="8550">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/ModuleCreator/ModuleCreator.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="1" selection-start="0" selection-end="3189" vertical-scroll-proportion="-19.125" vertical-offset="861" max-vertical-offset="1410">
+        <state line="97" column="1" selection-start="0" selection-end="3189" vertical-scroll-proportion="0.0" vertical-offset="1455" max-vertical-offset="1545">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/FileSystem/Fs.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="215" column="30" selection-start="7784" selection-end="7784" vertical-scroll-proportion="0.0" vertical-offset="3225" max-vertical-offset="6690">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/less/poulpe2.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="25" selection-start="628" selection-end="628" vertical-scroll-proportion="-15.625" vertical-offset="0" max-vertical-offset="570">
+        <state line="25" column="25" selection-start="628" selection-end="628" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="570">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/less/external/yeti-variables.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="773" column="42" selection-start="23700" selection-end="23783" vertical-scroll-proportion="-8.583333" vertical-offset="11389" max-vertical-offset="12045">
+        <state line="773" column="42" selection-start="23700" selection-end="23783" vertical-scroll-proportion="0.0" vertical-offset="11389" max-vertical-offset="12045">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/less/internal/variables.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="21" selection-start="667" selection-end="667" vertical-scroll-proportion="-15.0" vertical-offset="0" max-vertical-offset="1200">
+        <state line="24" column="21" selection-start="667" selection-end="667" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="1200">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/UsersTraces/UsersTraces.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="8" selection-start="952" selection-end="952" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/UsersTraces/UsersTraces.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="0" selection-start="763" selection-end="1190" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="2880">
           <folding />
         </state>
       </provider>
@@ -1483,146 +1220,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Get.php">
+    <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="0" selection-start="2953" selection-end="2953" vertical-scroll-proportion="0.8360656" vertical-offset="966" max-vertical-offset="1515">
+        <state line="7" column="30" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="195">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Get.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="100" column="0" selection-start="2953" selection-end="2953" vertical-scroll-proportion="0.8360656" vertical-offset="966" max-vertical-offset="1515" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Front.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="324" column="28" selection-start="9515" selection-end="9515" vertical-scroll-proportion="-18.875" vertical-offset="4257" max-vertical-offset="5985">
+        <state line="324" column="28" selection-start="9515" selection-end="9515" vertical-scroll-proportion="0.0" vertical-offset="4860" max-vertical-offset="6135">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Modules/UsersTraces/LogType.php">
+    <entry file="file://$PROJECT_DIR$/Modules/Transmission/Torrent.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="59" selection-start="1137" selection-end="1137" vertical-scroll-proportion="-25.958334" vertical-offset="127" max-vertical-offset="1050">
+        <state line="210" column="21" selection-start="4200" selection-end="4200" vertical-scroll-proportion="0.5896806" vertical-offset="2550" max-vertical-offset="6660">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Modules/UsersTraces/UsersTraces.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="28" selection-start="1281" selection-end="1281" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Modules/UsersTraces/UsersTraces.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="5" selection-start="1251" selection-end="1251" vertical-scroll-proportion="-12.541667" vertical-offset="59" max-vertical-offset="2610">
-          <folding>
-            <marker date="1407307468519" expanded="true" signature="4378:5770" placeholder="..." />
-            <marker date="1407307468519" expanded="true" signature="4421:5761" placeholder="..." />
-            <marker date="1407307468519" expanded="true" signature="4451:4542" placeholder="..." />
-            <marker date="1407307468519" expanded="true" signature="4550:4593" placeholder="..." />
-            <marker date="1407307468519" expanded="true" signature="4601:4726" placeholder="..." />
-            <marker date="1407307468519" expanded="true" signature="4945:5221" placeholder="..." />
-            <marker date="1407307468519" expanded="true" signature="5354:5751" placeholder="..." />
-            <marker date="1407307468519" expanded="true" signature="5426:5717" placeholder="..." />
-            <marker date="1407307468519" expanded="true" signature="5519:5706" placeholder="..." />
-            <marker date="1407307468519" expanded="true" signature="6093:6326" placeholder="..." />
-            <marker date="1407307468519" expanded="true" signature="6136:6317" placeholder="..." />
-            <marker date="1407307468519" expanded="true" signature="6166:6277" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Sanitize.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="294" column="0" selection-start="10058" selection-end="10058" vertical-scroll-proportion="-18.125" vertical-offset="3870" max-vertical-offset="4950">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/FileSystem/Fs.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="132" column="35" selection-start="3797" selection-end="3797" vertical-scroll-proportion="-43.125" vertical-offset="855" max-vertical-offset="6600">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="121" column="19" selection-start="3087" selection-end="3087" vertical-scroll-proportion="-14.875" vertical-offset="1293" max-vertical-offset="2295">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Modules/UserInfo/UserInfo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="5" selection-start="2983" selection-end="2983" vertical-scroll-proportion="-21.25" vertical-offset="765" max-vertical-offset="2280">
-          <folding>
-            <marker date="1406533084871" expanded="true" signature="1334:1951" placeholder="..." />
-            <marker date="1406533084871" expanded="true" signature="1377:1942" placeholder="..." />
-            <marker date="1406533084871" expanded="true" signature="1407:1500" placeholder="..." />
-            <marker date="1406533084871" expanded="true" signature="1508:1608" placeholder="..." />
-            <marker date="1406533084871" expanded="true" signature="3473:5345" placeholder="..." />
-            <marker date="1406533084871" expanded="true" signature="4840:5337" placeholder="..." />
-            <marker date="1406533084871" expanded="true" signature="5066:5328" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Modules/PostIt/PostIt.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="30" selection-start="527" selection-end="579" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/highlight/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2595">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="30" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Modules/PostIt/PostIt.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="0" selection-start="1366" selection-end="1454" vertical-scroll-proportion="-7.75" vertical-offset="474" max-vertical-offset="6525">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/FileSystem/File.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="244" column="18" selection-start="6946" selection-end="6946" vertical-scroll-proportion="-53.125" vertical-offset="2385" max-vertical-offset="4305">
-          <folding>
-            <element signature="e#6#94#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="180" column="0" selection-start="5946" selection-end="5946" vertical-scroll-proportion="0.110320285" vertical-offset="2607" max-vertical-offset="3525">
+        <state line="207" column="15" selection-start="7301" selection-end="7301" vertical-scroll-proportion="-22.333334" vertical-offset="2569" max-vertical-offset="3525">
           <folding>
             <element signature="e#6#94#0" expanded="true" />
             <element signature="e#129#149#0" expanded="true" />
-            <marker date="1407336985855" expanded="true" signature="3869:3947" placeholder="..." />
-            <marker date="1407336985855" expanded="true" signature="4168:4237" placeholder="..." />
-            <marker date="1407336985855" expanded="true" signature="6227:6779" placeholder="..." />
-            <marker date="1407336985855" expanded="true" signature="6283:6779" placeholder="..." />
-            <marker date="1407336985855" expanded="true" signature="6295:6427" placeholder="..." />
-            <marker date="1407336985855" expanded="true" signature="6439:6779" placeholder="..." />
-            <marker date="1407336985855" expanded="true" signature="6714:6779" placeholder="..." />
-            <marker date="1407336985855" expanded="true" signature="6714:6809" placeholder="..." />
-            <marker date="1407336985855" expanded="true" signature="6756:6779" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/FileSystem/File.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="79" column="44" selection-start="2790" selection-end="2790" vertical-scroll-proportion="0.85660845" vertical-offset="423" max-vertical-offset="4230">
+          <folding />
         </state>
       </provider>
     </entry>

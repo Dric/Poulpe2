@@ -198,22 +198,24 @@ Class Torrent{
 		foreach ($this->files as $file){
 			$fileInfo = pathinfo($file->name);
 			$level = count(explode('/', $fileInfo['dirname']));
-			switch ($fileInfo['extension']){
-				case 'nfo':
-					if ((empty($fileDesc['source']) or $fileDesc['level'] > $level) and file_exists($this->downloadDir.'/'.$file->name)){
-						$fileDesc['source'] = file_get_contents($this->downloadDir.'/'.$file->name);
-						$fileDesc['level'] = $level;
-					}
-					break;
-				case 'jpg':
-				case 'jpeg':
-				case 'png':
-				case 'gif':
-					if ((empty($torrentImg['source']) or $torrentImg['level'] > $level)  and file_exists($this->downloadDir.'/'.$file->name)){
-						$torrentImg['source'] = $this->downloadDir.'/'.$file->name;
-						$torrentImg['level'] = $level;
-					}
-					break;
+			if (isset($fileInfo['extension'])){
+				switch ($fileInfo['extension']){
+					case 'nfo':
+						if ((empty($fileDesc['source']) or $fileDesc['level'] > $level) and file_exists($this->downloadDir.'/'.$file->name)){
+							$fileDesc['source'] = file_get_contents($this->downloadDir.'/'.$file->name);
+							$fileDesc['level'] = $level;
+						}
+						break;
+					case 'jpg':
+					case 'jpeg':
+					case 'png':
+					case 'gif':
+						if ((empty($torrentImg['source']) or $torrentImg['level'] > $level)  and file_exists($this->downloadDir.'/'.$file->name)){
+							$torrentImg['source'] = $this->downloadDir.'/'.$file->name;
+							$torrentImg['level'] = $level;
+						}
+						break;
+				}
 			}
 			$this->img = (!empty($torrentImg['source'])) ? urlencode($torrentImg['source']) : '';
 			$this->nfo = (!empty($fileDesc['source'])) ? $fileDesc['source'] : '';
