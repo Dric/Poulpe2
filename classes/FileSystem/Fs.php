@@ -246,6 +246,7 @@ class Fs {
 	 * @return bool|File
 	 */
 	public function getFileMeta($fileName, $filters = array()){
+		if (!is_array($filters)) $filters = array($filters);
 		$file = new File($this->mountName, $fileName, $filters);
 		if (empty($file->name)){
 			new Alert('error', 'Le fichier <code>'.$fileName.'</code> n\'existe pas !');

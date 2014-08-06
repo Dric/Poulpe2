@@ -53,7 +53,7 @@ class LogType {
 				foreach ($this->events as $event){
 					?>
 					<tr>
-						<td><?php echo \Sanitize::date($event->dateTime, 'fullDateTime'); ?></td>
+						<td data-order="<?php echo $event->dateTime; ?>"><?php echo \Sanitize::date($event->dateTime, 'fullDateTime'); ?></td>
 						<td><?php echo \Sanitize::ucname($event->nickName); ?></td>
 						<td><?php echo $event->name; ?></td>
 						<td><?php echo $event->client; ?></td>

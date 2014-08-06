@@ -40,8 +40,10 @@ class FileBrowser extends Module{
 	public function defineSettings(){
 		$this->settings['rootFolder']  = new String('rootFolder', '/media/salsifis','Répertoire racine des fichiers', '/media/salsifis', null, new Pattern('string', true), true);
 		Front::setCssHeader('<link href="js/DataTables/plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">');
+		Front::setCssHeader('<link href="js/highlight/styles/default.css" rel="stylesheet">');
 		Front::setJsFooter('<script src="js/DataTables/media/js/jquery.dataTables.min.js"></script>');
 		Front::setJsFooter('<script src="js/DataTables/plugins/integration/bootstrap/3/dataTables.bootstrap.js"></script>');
+		Front::setJsFooter('<script src="js/highlight/highlight.pack.js"></script>');
 		Front::setJsFooter('<script src="Modules/FileBrowser/FileBrowser.js"></script>');
 	}
 
@@ -67,6 +69,9 @@ class FileBrowser extends Module{
 			if (!file_exists($file)){
 				new Alert('error', 'Le fichier <code>'.$file.'</code> n\'existe pas !');
 				$file = null;
+			}elseif (strpos($file, $this->settings['rootFolder']->getValue()) === false){
+				new Alert('error', 'Vous n\'avez pas l\'autorisation de visualiser ce fichier !');
+				$file = null;
 			}
 		}
 		if (empty($file)){
@@ -78,27 +83,77 @@ class FileBrowser extends Module{
 				new Alert('error', 'Vous n\'avez pas l\'autorisation de visualiser ce répertoire !');
 				$folder = $this->settings['rootFolder']->getValue();
 			}
-			?>
-			<div class="row">
-				<div class="col-md-10 col-md-offset-1">
-					<div class="page-header">
-						<h1><?php echo $this->name; ?>  <?php $this->manageModuleButtons(); ?></h1>
-					</div>
-					<p><?php echo $this->title; ?>.</p>
-					<?php $this->displayFolder($folder); ?>
-				</div>
-			</div>
-			<?php
 		}
+		?>
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="page-header">
+					<h1><?php echo $this->name; ?>  <?php $this->manageModuleButtons(); ?></h1>
+				</div>
+				<p><?php echo $this->title; ?>.</p>
+				<?php
+				if (empty($file)) {
+					$this->displayFolder($folder);
+				}else{
+					$this->displayFile($file);
+				}
+				?>
+			</div>
+		</div>
+		<?php
 	}
 
 	/********* Méthodes propres au module *********/
+
+	protected function displayFile($file){
+		$path = dirname($file).DIRECTORY_SEPARATOR;
+		$file = str_replace($path, '', $file);
+		$fs = new Fs($path);
+		$fileMeta = $fs->getFileMeta($file);
+
+		?>
+		<h2><span class="fa fa-<?php echo $fileMeta->getIcon(); ?>"></span>&nbsp;&nbsp;<?php echo $file; ?></h2>
+		<p>&nbsp;&nbsp;Dans <a href="<?php echo $this->url.'&folder='.urlencode($fileMeta->parentFolder); ?>"><?php echo $fileMeta->parentFolder; ?></a></p>
+		<ul>
+			<li>Date de création : <?php echo \Sanitize::date($fileMeta->dateCreated, 'dateTime'); ?></li>
+			<li>Date de dernière modification : <?php echo \Sanitize::date($fileMeta->dateModified, 'dateTime'); ?></li>
+			<li>Taille : <?php echo \Sanitize::readableFileSize($fileMeta->size); ?></li>
+			<li>
+				Contenu :<br>
+				<?php
+				switch ($fileMeta->type){
+					case 'Image':
+						?><img class="img-thumbnail" alt="<?php echo $file; ?>" src="<?php echo $this->url.'&action=displayImage&file='.$fileMeta->fullName; ?>"<?php
+						break;
+					case 'Fichier texte':
+					case 'Fichier code':
+						$fileContent = $fs->readFile($file, 'string');
+						?><pre><code class="hljs"><?php echo \Sanitize::SanitizeForDb($fileContent, false); ?></code></pre><?php
+						break;
+					default:
+						?><div class="alert alert-info">Vous ne pouvez pas visualiser ce type de contenu.</div><?php
+				}
+				?>
+			</li>
+		</ul>
+	<?php
+	}
+
+	protected function displayImage(){
+		$fileName = $_REQUEST['file'];
+		$file = new File('', $fileName);
+		header('content-type: '. $file->fullType);
+		header('content-disposition: inline; filename="'.$fileName.'";');
+		readfile($fileName);
+		exit();
+	}
 
 	/**
 	 * Affiche l'arborescence d'un répertoire
 	 * @param string $folder Répertoire à afficher
 	 */
 	protected function displayFolder($folder){
+		$rootFolder = rtrim($this->settings['rootFolder']->getValue(), DIRECTORY_SEPARATOR);
 		$fs = new Fs($folder);
 		$filesInDir = $fs->getFilesInDir();
 		// On classe les items, les répertoires sont en premier
@@ -114,12 +169,14 @@ class FileBrowser extends Module{
 			}
 		}
 		unset($filesInDir);
+		$folders = \Sanitize::sortObjectList($folders, 'name');
+		$files = \Sanitize::sortObjectList($files, 'name');
 		$files = array_merge($folders, $files);
 		$parentFolder = dirname($folder);
 		?>
-		<h3><span class="fa fa-folder-open"></span>&nbsp;&nbsp;<?php echo $folder; ?></h3>
+		<h2><span class="fa fa-folder-open"></span>&nbsp;&nbsp;<?php echo $folder; ?></h2>
 		<br>
-		<?php if (strpos($parentFolder, $this->settings['rootFolder']->getValue()) !== false and $parentFolder != '/') { ?><p>&nbsp;&nbsp;<a href="<?php echo $this->url.'&folder='.urlencode($parentFolder); ?>"><span class="fa fa-arrow-up"></span> Remonter d'un niveau</a></p><?php } ?>
+		<?php if (strpos($parentFolder, $rootFolder) !== false and $parentFolder != '/') { ?><p>&nbsp;&nbsp;<a href="<?php echo $this->url.'&folder='.urlencode($parentFolder); ?>"><span class="fa fa-arrow-up"></span> Remonter d'un niveau</a></p><?php } ?>
 		<div class="table-responsive">
 			<table id="fileBrowser" class="table table-striped">
 				<thead>
@@ -133,15 +190,16 @@ class FileBrowser extends Module{
 				<tbody>
 				<?php
 				foreach ($files as $i => $item){
+					$itemUrl = ($item->type != 'Répertoire') ? '&file='.urlencode($item->fullName).'&folder='.urlencode($item->parentFolder) : '&folder='.urlencode($item->fullName);
 					?>
 					<tr class="<?php echo $item->colorClass(); ?>">
 						<td data-order="<?php echo $i; ?>">
 							&nbsp;
-							<?php if ($item->type == 'Répertoire') { ?><a href="<?php echo $this->url.'&folder='.urlencode($item->fullName); ?>" class="<?php echo $item->colorClass(); ?>"><?php } ?>
+							<a href="<?php echo $this->url.$itemUrl; ?>" class="<?php echo $item->colorClass(); ?>">
 								<?php $item->display(); ?>
-							<?php if ($item->type == 'Répertoire') { ?></a><?php } ?>
+							</a>
 						</td>
-						<td><?php echo $item->type; ?></td>
+						<td><?php echo $item->fullType; ?></td>
 						<td data-order="<?php echo ($item->type == 'Répertoire') ? 0 : $item->size; ?>"><?php if ($item->type != 'Répertoire') echo \Sanitize::readableFileSize($item->size); ?></td>
 						<td data-order="<?php echo $item->dateModified; ?>"><?php echo \Sanitize::date($item->dateModified, 'dateTime'); ?></td>
 					</tr>

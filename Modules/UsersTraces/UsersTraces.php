@@ -35,7 +35,6 @@ class UsersTraces extends Module {
 		Front::setCssHeader('<link href="js/DataTables/plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">');
 		Front::setJsFooter('<script src="js/DataTables/media/js/jquery.dataTables.min.js"></script>');
 		Front::setJsFooter('<script src="js/DataTables/plugins/integration/bootstrap/3/dataTables.bootstrap.js"></script>');
-		Front::setJsFooter('<script src="js/DataTables/plugins/sorting/date-euro.js"></script>');
 		Front::setJsFooter('<script src="Modules/UsersTraces/UsersTraces.js"></script>');
 	}
 

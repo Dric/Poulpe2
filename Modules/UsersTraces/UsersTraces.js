@@ -28,9 +28,6 @@ $(function() {
 		"pageLength": 100,
 		"lengthMenu": [ [25, 50, 100, 200, -1], [25, 50, 100, 200, "All"] ],
 		"renderer"  : "bootstrap",
-		"order": [[ 0, "desc" ]],
-		"columnDefs": [
-			{ "type": "date-euro", targets: 0 }
-		]
+		"order": [[ 0, "desc" ]]
 	});
 });

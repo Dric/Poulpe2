@@ -4,3 +4,5 @@
 $(function() {
 	$('#fileBrowser').DataTable(dataTablesOptions);
 });
+// Surlignage de code
+hljs.initHighlightingOnLoad();

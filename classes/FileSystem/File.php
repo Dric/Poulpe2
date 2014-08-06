@@ -32,6 +32,7 @@ class File {
 	protected $owner = null;
 	protected $groupOwner = null;
 	protected $linuxHidden = false;
+	protected $parentFolder = null;
 	protected $filters = array();
 
 	/**
@@ -50,7 +51,7 @@ class File {
 				$stat = stat($this->fullName);
 				$this->dateCreated = $stat['ctime'];
 				$this->dateModified = $stat['mtime'];
-				$this->size = $stat['size'];
+				$this->size = $this->getFileSize();
 				if (!empty($this->filters)) $this->filters = array_unique(array_merge($this->filters,array('dateCreated', 'dateModified', 'size')), SORT_REGULAR);
 			}
 			if ((!empty($filters) and in_array('extension', $filters)) or empty($filters)){
@@ -80,15 +81,50 @@ class File {
 			}
 			$this->linuxHidden = (substr($fileName, 0, 1) == '.') ? true : false;
 			if (!empty($this->filters)) $this->filters[] = 'linuxHidden';
+			$this->parentFolder = dirname($this->fullName);
+			if (!empty($this->filters)) $this->filters[] = 'parentFolder';
 		}else{
 			new Alert('debug', '<code>File Constructor</code> : le fichier <code>'.$this->fullName.'</code> n\'existe pas !');
 			$this->name = null;
 			$this->fullName = null;
 		}
 	}
+
+	/**
+	 * Récupère la taille d'un fichier
+	 *
+	 * Sur des systèmes 32bits, la taille des fichiers > 2 Go est mal retournée (nombre négatif)
+	 * On passe donc par cette fonction pour obtenir la taille réelle.
+	 *
+	 * @link <http://stackoverflow.com/a/5501987/1749967>
+	 *
+	 * @return bool|float
+	 */
+	protected function getFileSize() {
+		$size = filesize($this->fullName);
+		if ($size === false) {
+			$fp = fopen($this->fullName, 'r');
+			if (!$fp) {
+				return false;
+			}
+			$offset = PHP_INT_MAX - 1;
+			$size = (float) $offset;
+			if (!fseek($fp, $offset)) {
+				return false;
+			}
+			$chunksize = 8192;
+			while (!feof($fp)) {
+				$size += strlen(fread($fp, $chunksize));
+			}
+		} elseif ($size < 0) {
+			// Handle overflowed integer...
+			$size = sprintf("%u", $size);
+		}
+		return floatval($size);
+	}
 	
 	public function __isset($prop){
-		return (in_array($prop, $this->filters) or in_array($prop, array('name', 'fullName'))) ? isset($this->$prop) : false;
+		return ((!empty($this->filters) and in_array($prop, $this->filters)) or empty($filters) or in_array($prop, array('name', 'fullName'))) ? isset($this->$prop) : false;
 	}
 	
 	public function __get($prop){
@@ -96,6 +132,11 @@ class File {
 		return null;
 	}
 
+	/**
+	 * Détermine le type "commun" du fichier suivant son type MIME et/ou son extension de fichier.
+	 *
+	 * @warning Le véritable format du fichier n'est pas vérifié.
+	 */
 	protected function type(){
 		switch ($this->fullType){
 			case 'directory':
@@ -104,12 +145,51 @@ class File {
 			case 'text/plain':
 				$ext = 'Fichier texte';
 				break;
+			case 'application/msword':
+			case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
+				$ext = 'Document Word';
+				break;
+			case 'application/pdf':
+				$ext = 'PDF';
+				break;
+			case 'application/vnd.ms-excel':
+				$ext = 'Document Excel';
+				break;
+			case 'application/vnd.ms-powerpoint':
+				$ext = 'Document Powerpoint';
+				break;
 			case 'application/zip':
 			case 'application/x-gzip':
 				$ext = 'Archive';
 				break;
+			case 'application/x-iso9660-image':
+				$ext = 'Image ISO';
+				break;
 			case 'application/x-executable':
 				$ext = 'Exécutable';
+				break;
+			case 'application/x-dosexec':
+				if (strtolower($this->extension) == 'exe'){
+					$ext = 'Exécutable';
+				}else{
+					$ext = 'Composant';
+				}
+				break;
+			case 'application/octet-stream':
+				switch ($this->extension){
+					case 'lnk':
+						$ext = 'Raccourci';
+						break;
+					case 'iso':
+						$ext = 'Image ISO';
+						break;
+					case 'pst':
+						$ext = 'Archives Outlook';
+						break;
+					default:
+						$ext = 'Fichier';
+						break;
+				}
 				break;
 			case 'application/pgp-keys':
 				$ext = 'Certificat';
@@ -127,12 +207,7 @@ class File {
 				}
 
 		}
-
-		if($this->fullType == 'directory' or $this->extension == ''){
-			$this->type = $ext;
-		}else{
-			$this->type = $ext;
-		}
+		$this->type = $ext;
 	}
 
 	/**
@@ -148,16 +223,32 @@ class File {
 				return 'file-text-o';
 			case 'Archive':
 				return 'file-archive-o';
+			case 'Archives Outlook':
+				return 'envelope-o';
 			case 'Exécutable':
 				return 'cog';
+			case 'Composant':
+				return 'cube';
 			case 'Certificat':
 				return 'key';
 			case 'Fichier code':
 				return 'file-code-o';
 			case 'Installateur':
 				return 'download';
+			case 'Image ISO':
+				return 'hdd-o';
 			case 'Image':
 				return 'image';
+			case 'Raccourci':
+				return 'share-square-o';
+			case 'Document Word':
+				return 'file-word-o';
+			case 'Document Excel':
+				return 'file-excel-o';
+			case 'Document Powerpoint':
+				return 'file-powerpoint-o';
+			case 'PDF':
+				return 'file-pdf-o';
 			default:
 				return 'file-o';
 		}

@@ -290,10 +290,8 @@ class Sanitize {
 	 */
 	public static function readableFileSize($size, $NbDecimals = 2){
 		$siPrefix = array( 'o', 'Ko', 'Mo', 'Go', 'To', 'Eo', 'Zo', 'Yo' );
-		$base = 1024;
-		$class = min((int)log($size , $base) , count($siPrefix) - 1);
-		if ($NbDecimals > 0) return sprintf('%1.'.$NbDecimals.'f' , $size / pow($base,$class)) . ' ' . $siPrefix[$class];
-		return round($size / pow($base,$class)) . ' ' . $siPrefix[$class];
+		$base = log(floatval($size)) / log(1024);
+		return round(pow(1024, $base - floor($base)), $NbDecimals) . $siPrefix[floor($base)];
 	}
 
 	/**
