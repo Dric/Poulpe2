@@ -126,9 +126,22 @@ class FileBrowser extends Module{
 						?><img class="img-thumbnail" alt="<?php echo $file; ?>" src="<?php echo $this->url.'&action=displayImage&file='.$fileMeta->fullName; ?>"<?php
 						break;
 					case 'Fichier texte':
-					case 'Fichier code':
 						$fileContent = $fs->readFile($file, 'string');
-						?><pre><code class="hljs"><?php echo \Sanitize::SanitizeForDb($fileContent, false); ?></code></pre><?php
+						if (!\Check::isUtf8($fileContent)){
+							$fileContent = mb_convert_encoding($fileContent, "UTF-8", "ASCII, ISO-8859-1, Windows-1252");
+						}
+						?><pre><?php echo htmlentities($fileContent, ENT_NOQUOTES|ENT_SUBSTITUTE); ?></pre><?php
+						break;
+					case 'Vidéo':
+						$this->getAllocineData($file);
+						break;
+					case 'Fichier code':
+					case 'Fichier de paramétrage':
+						$fileContent = $fs->readFile($file, 'string');
+						if (!\Check::isUtf8($fileContent)){
+							$fileContent = mb_convert_encoding($fileContent, "UTF-8", "ASCII, ISO-8859-1, Windows-1252");
+						}
+						?><pre><code><?php echo htmlentities($fileContent, ENT_NOQUOTES|ENT_SUBSTITUTE); ?></code></pre><?php
 						break;
 					default:
 						?><div class="alert alert-info">Vous ne pouvez pas visualiser ce type de contenu.</div><?php
@@ -137,6 +150,41 @@ class FileBrowser extends Module{
 			</li>
 		</ul>
 	<?php
+	}
+
+	protected function getTMDBData($fileName){
+		/**
+	  * Nettoie le nom d'un téléchargement
+	  */
+		$replace = array(
+			'.mkv'        => '',
+			'.mp4'        => '',
+			'x264'        => '',
+			'H264'        => '',
+			'720p'        => '',
+			'1080p'       => '',
+			'dvdrip'      => '',
+			'h.264'       => '',
+			'BluRay'      => '',
+			'Blu-Ray'     => '',
+			'XviD'        => '',
+			'BRRip'       => '',
+			'BDRip'       => '',
+			'HDrip'       => '',
+			'mHD'         => '',
+			'HDLIGHT'     => '',
+			'WEB.DL'      => '',
+			'TRUEFRENCH'  => '',
+			'french'      => '',
+			'.'           => ' ',
+			'  '          => ' '
+		);
+		$name =  str_ireplace(array_keys($replace), array_values($replace), $fileName);
+		// On vire les indications de qualité indiquées au début du nom (elles sont présentes en milieu de nom)
+		$name = preg_replace('/^\[\s?\d*p\]/i', '', $name);
+		// Et on vire les noms à la noix en fin de torrent
+		$name = trim(preg_replace('/(-.\S*)$/i', '', $name));
+
 	}
 
 	/**
@@ -158,7 +206,7 @@ class FileBrowser extends Module{
 	protected function displayFolder($folder){
 		$rootFolder = rtrim($this->settings['rootFolder']->getValue(), DIRECTORY_SEPARATOR);
 		$fs = new Fs($folder);
-		$filesInDir = $fs->getFilesInDir();
+		$filesInDir = $fs->getFilesInDir(null, null, array('dateModified', 'type', 'size'));
 		// On classe les items, les répertoires sont en premier
 		$files = $folders = array();
 		/**
@@ -201,7 +249,7 @@ class FileBrowser extends Module{
 								<?php $item->display(); ?>
 							</a>
 						</td>
-						<td><?php echo $item->fullType; ?></td>
+						<td><abbr class="tooltip-bottom" title="<?php echo $item->fullType; ?>"><?php echo $item->type; ?></abbr></td>
 						<td data-order="<?php echo ($item->type == 'Répertoire') ? 0 : $item->size; ?>"><?php if ($item->type != 'Répertoire') echo \Sanitize::readableFileSize($item->size); ?></td>
 						<td data-order="<?php echo $item->dateModified; ?>"><?php echo \Sanitize::date($item->dateModified, 'dateTime'); ?></td>
 					</tr>
@@ -214,6 +262,13 @@ class FileBrowser extends Module{
 		<?php
 	}
 
+	/**
+	 * Crée un fil d'ariane à partir du chemin du dossier
+	 *
+	 * @param string $folder Répertoire
+	 *
+	 * @return string
+	 */
 	protected function breadcrumbTitle($folder){
 		$rootFolder = rtrim($this->settings['rootFolder']->getValue(), DIRECTORY_SEPARATOR);
 		$breadcrumb = '</ol>';

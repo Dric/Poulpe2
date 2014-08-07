@@ -20,6 +20,25 @@
 		<error severity="warning" line="1114" message="Invalid documentation &quot;$src_x&quot; of parameter Components\SimpleImage::imagecopymerge_alpha($src_x)" source="ApiGen.Documentation.Documentation"/>
 		<error severity="warning" line="1114" message="Invalid documentation &quot;$src_h&quot; of parameter Components\SimpleImage::imagecopymerge_alpha($src_h)" source="ApiGen.Documentation.Documentation"/>
 	</file>
+	<file name="/var/www/test/admin/tools2/classes/FileSystem/File.php">
+		<error severity="error" line="21" message="Missing documentation of property FileSystem\File::$name" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="22" message="Missing documentation of property FileSystem\File::$fullName" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="23" message="Missing documentation of property FileSystem\File::$dateCreated" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="24" message="Missing documentation of property FileSystem\File::$dateModified" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="25" message="Missing documentation of property FileSystem\File::$size" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="26" message="Missing documentation of property FileSystem\File::$extension" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="27" message="Missing documentation of property FileSystem\File::$fullType" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="28" message="Missing documentation of property FileSystem\File::$type" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="29" message="Missing documentation of property FileSystem\File::$chmod" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="30" message="Missing documentation of property FileSystem\File::$advChmod" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="31" message="Missing documentation of property FileSystem\File::$writable" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="32" message="Missing documentation of property FileSystem\File::$owner" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="33" message="Missing documentation of property FileSystem\File::$groupOwner" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="34" message="Missing documentation of property FileSystem\File::$linuxHidden" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="35" message="Missing documentation of property FileSystem\File::$parentFolder" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="142" message="Missing documentation of method FileSystem\File::__isset()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="146" message="Missing documentation of method FileSystem\File::__get()" source="ApiGen.Documentation.Documentation"/>
+	</file>
 	<file name="/var/www/test/admin/tools2/classes/Forms/Fields/Date.php">
 		<error severity="error" line="31" message="Missing documentation of property Forms\Fields\Date::$dateType" source="ApiGen.Documentation.Documentation"/>
 	</file>

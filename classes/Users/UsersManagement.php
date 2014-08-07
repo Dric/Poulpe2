@@ -70,7 +70,7 @@ class UsersManagement {
 	 */
 	static function updateUserHash($user){
 		global $db;
-		$hash = sha1($user.SALT_COOKIE.time());
+		$hash = sha1($user.SALT_COOKIE);
 		if (is_numeric($user)){
 			$where = array('id' => $user);
 		}else{

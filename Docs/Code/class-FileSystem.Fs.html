@@ -7,7 +7,7 @@
 	<title>Class FileSystem\Fs</title>
 
 	<script type="text/javascript" src="resources/combined.js?522072721"></script>
-	<script type="text/javascript" src="elementlist.js?259314753"></script>
+	<script type="text/javascript" src="elementlist.js?1088796348"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
@@ -89,6 +89,7 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
+				<li><a href="class-FileSystem.File.html">File</a></li>
 				<li class="active"><a href="class-FileSystem.Fs.html">Fs</a></li>
 				<li><a href="class-FileSystem.Upload.html">Upload</a></li>
 			</ul>
@@ -111,7 +112,8 @@
 
 	<div class="description">
 	
-<p>Classe de gestion des points de montage de partages réseaux</p>
+<p>Classe de gestion des points de montage de partages réseaux et d'opérations
+sur des fichiers</p>
 
 	</div>
 
@@ -129,7 +131,7 @@
 		<b>Namespace:</b> <a href="namespace-FileSystem.html">FileSystem</a><br />
 		<b>Package:</b> FileSystem<br />
 
-		<b>Located at</b> <a href="source-class-FileSystem.Fs.html#15-456" title="Go to source code">classes/FileSystem/Fs.php</a><br />
+		<b>Located at</b> <a href="source-class-FileSystem.Fs.html#15-448" title="Go to source code">classes/FileSystem/Fs.php</a><br />
 	</div>
 
 
@@ -272,7 +274,7 @@ directement renseigné dans $path (facultatif)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_mount">#</a>
-			<code><a href="source-class-FileSystem.Fs.html#123-156" title="Go to source code">mount</a>( )</code>
+			<code><a href="source-class-FileSystem.Fs.html#123-163" title="Go to source code">mount</a>( )</code>
 
 			<div class="description short">
 				
@@ -298,7 +300,7 @@ directement renseigné dans $path (facultatif)</dd>
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="getFilesInDir" id="_getFilesInDir">
+		<tr data-order="getRecursiveFilesInDir" id="_getRecursiveFilesInDir">
 
 			<td class="attributes"><code>
 				 public 
@@ -308,8 +310,8 @@ directement renseigné dans $path (facultatif)</dd>
 			</td>
 
 			<td class="name"><div>
-			<a class="anchor" href="#_getFilesInDir">#</a>
-			<code><a href="source-class-FileSystem.Fs.html#158-192" title="Go to source code">getFilesInDir</a>( <span>string <var>$path</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$extension</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$absolutePath</var> = <span class="php-keyword1">false</span></span> )</code>
+			<a class="anchor" href="#_getRecursiveFilesInDir">#</a>
+			<code><a href="source-class-FileSystem.Fs.html#165-199" title="Go to source code">getRecursiveFilesInDir</a>( <span>string <var>$path</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$extension</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$absolutePath</var> = <span class="php-keyword1">false</span></span> )</code>
 
 			<div class="description short">
 				
@@ -321,9 +323,10 @@ directement renseigné dans $path (facultatif)</dd>
 				
 <p>Retourne le contenu récursif d'un répertoire sous forme de tableau</p>
 
-<p>Si $absolutePath est à true, les fichiers sont retournés avec leur chemin
-absolu dans un tableau séquentiel Si $absolutePath est à false (défaut), les
-fichiers sont retournés dans un tableau associatif dont les clés sont les
+<p>Si <code>$absolutePath</code> est à <code>true</code>, les fichiers sont
+retournés avec leur chemin absolu dans un tableau séquentiel Si
+<code>$absolutePath</code> est à <code>false</code> (défaut), les fichiers
+sont retournés dans un tableau associatif dont les clés sont les
 sous-répertoires</p>
 
 
@@ -352,6 +355,64 @@ chemin absolu (facultatif)</dd>
 			</div>
 			</div></td>
 		</tr>
+		<tr data-order="getFilesInDir" id="_getFilesInDir">
+
+			<td class="attributes"><code>
+				 public 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getFilesInDir">#</a>
+			<code><a href="source-class-FileSystem.Fs.html#201-231" title="Go to source code">getFilesInDir</a>( <span>string <var>$path</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$extension</var> = <span class="php-keyword1">null</span></span>, <span>string[] <var>$filters</var> = <span class="php-keyword1">array</span>()</span>, <span>boolean <var>$filesOnly</var> = <span class="php-keyword1">false</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Retourne les fichiers et éventuellement les sous-répertoires présents dans
+un répertoire</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne les fichiers et éventuellement les sous-répertoires présents dans
+un répertoire</p>
+
+<p>Cette fonction n'est pas récursive</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$path</var></dt>
+						<dd><code>string</code><br>$path Chemin à inventorier dans le chemin de base de l'objet Fs instancié
+(facultatif)</dd>
+						<dt><var>$extension</var></dt>
+						<dd><code>string</code><br>$extension Seuls les fichiers portant cette extension seront retournés
+(facultatif)</dd>
+						<dt><var>$filters</var></dt>
+						<dd><code>string[]</code><br>$filters Filtres de propriétés à appliquer (facultatif)</dd>
+						<dt><var>$filesOnly</var></dt>
+						<dd><code>boolean</code><br>$filesOnly Ne retourne que les fichiers (facultatif, <code>false</code> par
+défaut)</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array</code><br>Objets fichiers avec les propriétés suivantes : - <code>name</code> : Nom du
+fichier - <code>type</code> : <code>folder</code> ou <code>file</code> -
+<code>hidden</code> : Fichier caché - <code>extension</code> : Extension du
+fichier (propriété disponible seulement pour les fichiers non cachés)<br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
 		<tr data-order="fileExists" id="_fileExists">
 
 			<td class="attributes"><code>
@@ -363,7 +424,7 @@ chemin absolu (facultatif)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_fileExists">#</a>
-			<code><a href="source-class-FileSystem.Fs.html#194-203" title="Go to source code">fileExists</a>( <span>string <var>$fileName</var></span> )</code>
+			<code><a href="source-class-FileSystem.Fs.html#233-242" title="Go to source code">fileExists</a>( <span>string <var>$fileName</var></span> )</code>
 
 			<div class="description short">
 				
@@ -398,14 +459,14 @@ chemin absolu (facultatif)</dd>
 
 			<td class="attributes"><code>
 				 public 
-				boolean|object
+				boolean|<code><a href="class-FileSystem.File.html">FileSystem\File</a></code>
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getFileMeta">#</a>
-			<code><a href="source-class-FileSystem.Fs.html#205-271" title="Go to source code">getFileMeta</a>( <span>string <var>$fileName</var></span>, <span>string[]|string <var>$filters</var> = <span class="php-keyword1">array</span>()</span> )</code>
+			<code><a href="source-class-FileSystem.Fs.html#244-263" title="Go to source code">getFileMeta</a>( <span>string <var>$fileName</var></span>, <span>string[]|string <var>$filters</var> = <span class="php-keyword1">array</span>()</span> )</code>
 
 			<div class="description short">
 				
@@ -420,28 +481,6 @@ chemin absolu (facultatif)</dd>
 <p>Cette méthode est lente à exécuter, aussi vaut-il mieux filtrer les champs
 à retourner afin de n'obtenir que ceux qui seront utilisés.</p>
 
-<p>Propriétés retournées :</p>
-
-<ul>
-	<li>dateCreated</li>
-
-	<li>dateModified</li>
-
-	<li>size</li>
-
-	<li>extension</li>
-
-	<li>type</li>
-
-	<li>chmod</li>
-
-	<li>writable</li>
-
-	<li>owner</li>
-
-	<li>groupOwner</li>
-</ul>
-
 
 
 					<h4>Parameters</h4>
@@ -455,10 +494,14 @@ chemin absolu (facultatif)</dd>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>boolean|object</code><br />
+						<code>boolean|<code><a href="class-FileSystem.File.html">FileSystem\File</a></code></code><br />
 					</div>
 
 
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-FileSystem.File.html">FileSystem\File</a></code></code><br />
+					</div>
 
 
 			</div>
@@ -475,7 +518,7 @@ chemin absolu (facultatif)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_readFile">#</a>
-			<code><a href="source-class-FileSystem.Fs.html#273-308" title="Go to source code">readFile</a>( <span>string <var>$fileName</var></span>, <span>string <var>$format</var> = <span class="php-quote">'array'</span></span>, <span>boolean <var>$ignoreNewLines</var> = <span class="php-keyword1">true</span></span>, <span>boolean <var>$skipEmptyLines</var> = <span class="php-keyword1">false</span></span> )</code>
+			<code><a href="source-class-FileSystem.Fs.html#265-300" title="Go to source code">readFile</a>( <span>string <var>$fileName</var></span>, <span>string <var>$format</var> = <span class="php-quote">'array'</span></span>, <span>boolean <var>$ignoreNewLines</var> = <span class="php-keyword1">true</span></span>, <span>boolean <var>$skipEmptyLines</var> = <span class="php-keyword1">false</span></span> )</code>
 
 			<div class="description short">
 				
@@ -525,7 +568,7 @@ chaque ligne dans le tableau retourné (facultatif)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_touchFile">#</a>
-			<code><a href="source-class-FileSystem.Fs.html#310-322" title="Go to source code">touchFile</a>( <span>string <var>$fileName</var></span> )</code>
+			<code><a href="source-class-FileSystem.Fs.html#302-314" title="Go to source code">touchFile</a>( <span>string <var>$fileName</var></span> )</code>
 
 			<div class="description short">
 				
@@ -570,7 +613,7 @@ celui-ci existe</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_writeFile">#</a>
-			<code><a href="source-class-FileSystem.Fs.html#324-358" title="Go to source code">writeFile</a>( <span>string <var>$fileName</var></span>, <span>array|string <var>$content</var></span>, <span>boolean <var>$append</var> = <span class="php-keyword1">false</span></span>, <span>boolean <var>$backupFile</var> = <span class="php-keyword1">false</span></span> )</code>
+			<code><a href="source-class-FileSystem.Fs.html#316-350" title="Go to source code">writeFile</a>( <span>string <var>$fileName</var></span>, <span>array|string <var>$content</var></span>, <span>boolean <var>$append</var> = <span class="php-keyword1">false</span></span>, <span>boolean <var>$backupFile</var> = <span class="php-keyword1">false</span></span> )</code>
 
 			<div class="description short">
 				
@@ -619,7 +662,7 @@ celui-ci existe (facultatif)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_tailFile">#</a>
-			<code><a href="source-class-FileSystem.Fs.html#360-427" title="Go to source code">tailFile</a>( <span>string <var>$fileName</var></span>, <span>integer <var>$lines</var> = <span class="php-num">1</span></span>, <span>boolean <var>$adaptive</var> = <span class="php-keyword1">true</span></span> )</code>
+			<code><a href="source-class-FileSystem.Fs.html#352-419" title="Go to source code">tailFile</a>( <span>string <var>$fileName</var></span>, <span>integer <var>$lines</var> = <span class="php-num">1</span></span>, <span>boolean <var>$adaptive</var> = <span class="php-keyword1">true</span></span> )</code>
 
 			<div class="description short">
 				
@@ -670,7 +713,7 @@ href="http://stackoverflow.com/questions/15025875/what-is-the-best-way-in-php-to
 
 			<td class="name"><div>
 			<a class="anchor" href="#_setChmod">#</a>
-			<code><a href="source-class-FileSystem.Fs.html#429-446" title="Go to source code">setChmod</a>( <span>string <var>$fileName</var></span>, <span>integer <var>$chmod</var></span> )</code>
+			<code><a href="source-class-FileSystem.Fs.html#421-438" title="Go to source code">setChmod</a>( <span>string <var>$fileName</var></span>, <span>integer <var>$chmod</var></span> )</code>
 
 			<div class="description short">
 				
@@ -717,7 +760,7 @@ Windows</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getMountName">#</a>
-			<code><a href="source-class-FileSystem.Fs.html#448-455" title="Go to source code">getMountName</a>( )</code>
+			<code><a href="source-class-FileSystem.Fs.html#440-447" title="Go to source code">getMountName</a>( )</code>
 
 			<div class="description short">
 				

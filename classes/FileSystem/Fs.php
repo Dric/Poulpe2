@@ -13,7 +13,7 @@ use Logs\Alert;
 use stdClass;
 
 /**
- * Classe de gestion des points de montage de partages réseaux
+ * Classe de gestion des points de montage de partages réseaux et d'opérations sur des fichiers
  *
  * @package FileSystem
  */
@@ -143,7 +143,14 @@ class Fs {
 				$share = str_replace(':', '$', $this->path);
 				$share = str_replace('\\', '/', $share);
 				$winShare = '//'.$this->server.'/'.$share;
-				$cmd = 'sudo mount -t cifs "'.$winShare.'" '.$this->mountName.' -o uid=administrateur,gid=www-data,credentials=/etc/dfs_creds.conf 2>&1';
+
+				// Pour s'authentifier sur les serveurs Windows, on utilise un fichier qui contient les identifiants de connexion aux serveurs Windows.
+				$dfsCredsFile = \Front::getAbsolutePath().DIRECTORY_SEPARATOR.'classes'.DIRECTORY_SEPARATOR.'FileSystem'.DIRECTORY_SEPARATOR.'dfs_creds.conf';
+				if (!file_exists($dfsCredsFile)){
+					new Alert('error', 'Le fichier <code>'.$dfsCredsFile.'</code> permettant de s\'authentifier auprès des serveurs Windows est introuvable !<br> Veuillez créer ce fichier et saisir dedans ces 3 lignes : <pre><code>username=&lt;nom_user&gt;<br>password=&lt;mot_de_passe&gt;<br>domain=&lt;nom_de_domaine&gt;</code></pre>');
+					return false;
+				}
+				$cmd = 'sudo mount -t cifs "'.$winShare.'" '.$this->mountName.' -o uid=administrateur,gid=www-data,credentials='.$dfsCredsFile.' 2>&1';
 				$ret = exec($cmd, $retArray, $varRet);
 				if (!empty($ret)){
 					new Alert('error', 'Impossible de monter le partage <code>'.$winShare.'</code>.<br />Assurez-vous que l\'utilisateur Apache a les droits d\'invoquer sudo mount sans mot de passe.<br />'.$ret.'<br />'.$varRet);
@@ -158,8 +165,8 @@ class Fs {
 	/**
 	 * Retourne le contenu récursif d'un répertoire sous forme de tableau
 	 *
-	 * Si $absolutePath est à true, les fichiers sont retournés avec leur chemin absolu dans un tableau séquentiel
-	 * Si $absolutePath est à false (défaut), les fichiers sont retournés dans un tableau associatif dont les clés sont les sous-répertoires
+	 * Si `$absolutePath` est à `true`, les fichiers sont retournés avec leur chemin absolu dans un tableau séquentiel
+	 * Si `$absolutePath` est à `false` (défaut), les fichiers sont retournés dans un tableau associatif dont les clés sont les sous-répertoires
 	 *
 	 * @param string $path Chemin à inventorier dans le chemin de base de l'objet Fs instancié (facultatif)
 	 * @param string $extension Pour ne répertorier que les fichiers ayant une certaine extension (facultatif)
@@ -198,7 +205,7 @@ class Fs {
 	 *
 	 * @param string    $path       Chemin à inventorier dans le chemin de base de l'objet Fs instancié (facultatif)
 	 * @param string    $extension  Seuls les fichiers portant cette extension seront retournés (facultatif)
-	 * @param string[]  $filters    Filtres de propriétés à appliquer
+	 * @param string[]  $filters    Filtres de propriétés à appliquer (facultatif)
 	 * @param bool      $filesOnly  Ne retourne que les fichiers (facultatif, `false` par défaut)
 	 *
 	 * @return array Objets fichiers avec les propriétés suivantes :

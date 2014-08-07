@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class FileSystem\File</title>
+
+	<script type="text/javascript" src="resources/combined.js?522072721"></script>
+	<script type="text/javascript" src="elementlist.js?1088796348"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">Overview</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-FileSystem.html" title="Summary of FileSystem"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-Components.html">Components</a>
+						</li>
+				<li><a href="namespace-Db.html">Db</a>
+						</li>
+				<li class="active"><a href="namespace-FileSystem.html">FileSystem</a>
+						</li>
+				<li><a href="namespace-Forms.html">Forms<span></span></a>
+						<ul>
+				<li><a href="namespace-Forms.Fields.html">Fields</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Ldap.html">Ldap</a>
+						</li>
+				<li><a href="namespace-Logs.html">Logs</a>
+						</li>
+				<li><a href="namespace-Michelf.html">Michelf</a>
+						</li>
+				<li><a href="namespace-Modules.html">Modules</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-Profiles.html">Profiles</a>
+						</li>
+				<li><a href="namespace-Settings.html">Settings</a>
+						</li>
+				<li><a href="namespace-Users.html">Users</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-FileSystem.File.html">File</a></li>
+				<li><a href="class-FileSystem.Fs.html">Fs</a></li>
+				<li><a href="class-FileSystem.Upload.html">Upload</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class File</h1>
+
+
+	<div class="description">
+	
+<p>Objet fichier</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-FileSystem.html">FileSystem</a><br />
+		<b>Package:</b> FileSystem<br />
+
+		<b>Located at</b> <a href="source-class-FileSystem.File.html#14-333" title="Go to source code">classes/FileSystem/File.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="__construct" id="___construct">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><a href="source-class-FileSystem.File.html#37-107" title="Go to source code">__construct</a>( <span>string <var>$mountName</var></span>, <span>string <var>$fileName</var></span>, <span>array <var>$filters</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+			<div class="description short">
+				
+<p>Construit un objet fichier</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Construit un objet fichier</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$mountName</var></dt>
+						<dd><code>string</code><br>$mountName Répertoire du fichier</dd>
+						<dt><var>$fileName</var></dt>
+						<dd><code>string</code><br>$fileName Nom du fichier</dd>
+						<dt><var>$filters</var></dt>
+						<dd><code>array</code><br>$filters Filtrage de propriétés, certaines d'entre elles pouvant être lentes
+à récupérer</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getFileSize" id="_getFileSize">
+
+			<td class="attributes"><code>
+				 protected 
+				float
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getFileSize">#</a>
+			<code><a href="source-class-FileSystem.File.html#109-140" title="Go to source code">getFileSize</a>( )</code>
+
+			<div class="description short">
+				
+<p>Récupère la taille d'un fichier</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Récupère la taille d'un fichier</p>
+
+<p>Sur des systèmes 32bits, la taille des fichiers &gt; 2 Go est mal retournée
+(nombre négatif) On passe donc par cette fonction pour obtenir la taille
+réelle.</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>float</code><br />
+					</div>
+
+
+					<h4>Link</h4>
+					<div class="list">
+							&lt;<a
+href="http://stackoverflow.com/a/5501987/1749967">http://stackoverflow.com/a/5501987/1749967</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="__isset" id="___isset">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___isset">#</a>
+			<code><a href="source-class-FileSystem.File.html#142-144" title="Go to source code">__isset</a>( <span>mixed <var>$prop</var></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="__get" id="___get">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___get">#</a>
+			<code><a href="source-class-FileSystem.File.html#146-149" title="Go to source code">__get</a>( <span>mixed <var>$prop</var></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="type" id="_type">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_type">#</a>
+			<code><a href="source-class-FileSystem.File.html#151-239" title="Go to source code">type</a>( )</code>
+
+			<div class="description short">
+				
+<p>Détermine le type "commun" du fichier suivant son type MIME et/ou son
+extension de fichier.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Détermine le type "commun" du fichier suivant son type MIME et/ou son
+extension de fichier.</p>
+
+
+
+
+
+
+					<h4>Warning</h4>
+					<div class="list">
+							Le véritable format du fichier n'est pas vérifié.<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="hackTypes" id="_hackTypes">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_hackTypes">#</a>
+			<code><a href="source-class-FileSystem.File.html#241-255" title="Go to source code">hackTypes</a>( )</code>
+
+			<div class="description short">
+				
+<p>Permet d'affecter les bons types aux vidéos quand elles sont trop grandes
+pour un système 32bits et que les types MIME du système ne sont pas à jour.
+Cette fonction ne devrait en théorie pas être utilisée.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Permet d'affecter les bons types aux vidéos quand elles sont trop grandes
+pour un système 32bits et que les types MIME du système ne sont pas à jour.
+Cette fonction ne devrait en théorie pas être utilisée.</p>
+
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getIcon" id="_getIcon">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getIcon">#</a>
+			<code><a href="source-class-FileSystem.File.html#257-303" title="Go to source code">getIcon</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne la classe Font Awesome de l'icône de fichier</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne la classe Font Awesome de l'icône de fichier</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="displayIcon" id="_displayIcon">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_displayIcon">#</a>
+			<code><a href="source-class-FileSystem.File.html#305-310" title="Go to source code">displayIcon</a>( )</code>
+
+			<div class="description short">
+				
+<p>Affiche l'icône en rapport avec le fichier</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Affiche l'icône en rapport avec le fichier</p>
+
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="display" id="_display">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_display">#</a>
+			<code><a href="source-class-FileSystem.File.html#312-318" title="Go to source code">display</a>( )</code>
+
+			<div class="description short">
+				
+<p>Affiche le nom et l'icône du fichier</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Affiche le nom et l'icône du fichier</p>
+
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="colorClass" id="_colorClass">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_colorClass">#</a>
+			<code><a href="source-class-FileSystem.File.html#320-332" title="Go to source code">colorClass</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne la couleur à appliquer au fichier lors de l'affichage</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne la couleur à appliquer au fichier lors de l'affichage</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="name" id="$name">
+			<td class="attributes"><code>
+				protected  
+				mixed
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-FileSystem.File.html#21" title="Go to source code"><var>$name</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$name" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="fullName" id="$fullName">
+			<td class="attributes"><code>
+				protected  
+				mixed
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-FileSystem.File.html#22" title="Go to source code"><var>$fullName</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$fullName" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="dateCreated" id="$dateCreated">
+			<td class="attributes"><code>
+				protected  
+				integer
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-FileSystem.File.html#23" title="Go to source code"><var>$dateCreated</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$dateCreated" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="dateModified" id="$dateModified">
+			<td class="attributes"><code>
+				protected  
+				integer
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-FileSystem.File.html#24" title="Go to source code"><var>$dateModified</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$dateModified" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="size" id="$size">
+			<td class="attributes"><code>
+				protected  
+				integer
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-FileSystem.File.html#25" title="Go to source code"><var>$size</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$size" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="extension" id="$extension">
+			<td class="attributes"><code>
+				protected  
+				mixed
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-FileSystem.File.html#26" title="Go to source code"><var>$extension</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$extension" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="fullType" id="$fullType">
+			<td class="attributes"><code>
+				protected  
+				mixed
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-FileSystem.File.html#27" title="Go to source code"><var>$fullType</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$fullType" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="type" id="$type">
+			<td class="attributes"><code>
+				protected  
+				mixed
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-FileSystem.File.html#28" title="Go to source code"><var>$type</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$type" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="chmod" id="$chmod">
+			<td class="attributes"><code>
+				protected  
+				integer
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-FileSystem.File.html#29" title="Go to source code"><var>$chmod</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$chmod" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="advChmod" id="$advChmod">
+			<td class="attributes"><code>
+				protected  
+				integer
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-FileSystem.File.html#30" title="Go to source code"><var>$advChmod</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$advChmod" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="writable" id="$writable">
+			<td class="attributes"><code>
+				protected  
+				boolean
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-FileSystem.File.html#31" title="Go to source code"><var>$writable</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$writable" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="owner" id="$owner">
+			<td class="attributes"><code>
+				protected  
+				mixed
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-FileSystem.File.html#32" title="Go to source code"><var>$owner</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$owner" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="groupOwner" id="$groupOwner">
+			<td class="attributes"><code>
+				protected  
+				mixed
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-FileSystem.File.html#33" title="Go to source code"><var>$groupOwner</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$groupOwner" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="linuxHidden" id="$linuxHidden">
+			<td class="attributes"><code>
+				protected  
+				boolean
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-FileSystem.File.html#34" title="Go to source code"><var>$linuxHidden</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$linuxHidden" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="parentFolder" id="$parentFolder">
+			<td class="attributes"><code>
+				protected  
+				mixed
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-FileSystem.File.html#35" title="Go to source code"><var>$parentFolder</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$parentFolder" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

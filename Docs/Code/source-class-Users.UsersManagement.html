@@ -8,7 +8,7 @@
 	<title>File classes/Users/UsersManagement.php</title>
 
 	<script type="text/javascript" src="resources/combined.js?522072721"></script>
-	<script type="text/javascript" src="elementlist.js?259314753"></script>
+	<script type="text/javascript" src="elementlist.js?1088796348"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
@@ -183,7 +183,7 @@
 </span></span><span id="70" class="l"><a class="l" href="#70"> 70 </a><span class="php-comment">     */</span>
 </span><span id="71" class="l"><a class="l" href="#71"> 71 </a>    <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_updateUserHash" href="#_updateUserHash">updateUserHash</a>(<span class="php-var">$user</span>){
 </span><span id="72" class="l"><a class="l" href="#72"> 72 </a>        <span class="php-keyword1">global</span> <span class="php-var">$db</span>;
-</span><span id="73" class="l"><a class="l" href="#73"> 73 </a>        <span class="php-var">$hash</span> = <span class="php-keyword2">sha1</span>(<span class="php-var">$user</span>.SALT_COOKIE.<span class="php-keyword2">time</span>());
+</span><span id="73" class="l"><a class="l" href="#73"> 73 </a>        <span class="php-var">$hash</span> = <span class="php-keyword2">sha1</span>(<span class="php-var">$user</span>.SALT_COOKIE);
 </span><span id="74" class="l"><a class="l" href="#74"> 74 </a>        <span class="php-keyword1">if</span> (<span class="php-keyword2">is_numeric</span>(<span class="php-var">$user</span>)){
 </span><span id="75" class="l"><a class="l" href="#75"> 75 </a>            <span class="php-var">$where</span> = <span class="php-keyword1">array</span>(<span class="php-quote">'id'</span> =&gt; <span class="php-var">$user</span>);
 </span><span id="76" class="l"><a class="l" href="#76"> 76 </a>        }<span class="php-keyword1">else</span>{

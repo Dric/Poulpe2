@@ -289,6 +289,7 @@ class Sanitize {
 	 * @return string
 	 */
 	public static function readableFileSize($size, $NbDecimals = 2){
+		if ($size == 0) return 'Vide';
 		$siPrefix = array( 'o', 'Ko', 'Mo', 'Go', 'To', 'Eo', 'Zo', 'Yo' );
 		$base = log(floatval($size)) / log(1024);
 		return round(pow(1024, $base - floor($base)), $NbDecimals) . $siPrefix[floor($base)];

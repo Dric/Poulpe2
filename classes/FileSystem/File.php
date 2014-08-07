@@ -17,7 +17,7 @@ use Logs\Alert;
  * @package FileSystem
  */
 class File {
-	
+
 	protected $name = null;
 	protected $fullName = null;
 	protected $dateCreated = 0;
@@ -33,7 +33,6 @@ class File {
 	protected $groupOwner = null;
 	protected $linuxHidden = false;
 	protected $parentFolder = null;
-	protected $filters = array();
 
 	/**
 	 * Construit un objet fichier
@@ -46,43 +45,60 @@ class File {
 		$this->name = $fileName;
 		$this->fullName = rtrim($mountName, DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR. $fileName;
 		if (file_exists($this->fullName)){
-			$this->filters = $filters;
-			if ((!empty($filters) and (in_array('dateCreated', $filters) or in_array('dateModified', $filters) or in_array('size', $filters))) or empty($filters)){
-				$stat = @stat($this->fullName);
-				$this->dateCreated = $stat['ctime'];
-				$this->dateModified = $stat['mtime'];
-				$this->size = $this->getFileSize();
-				if (!empty($this->filters)) $this->filters = array_unique(array_merge($this->filters,array('dateCreated', 'dateModified', 'size')), SORT_REGULAR);
-			}
 			if ((!empty($filters) and in_array('extension', $filters)) or empty($filters)){
-				$this->extension = pathinfo($fileName, PATHINFO_EXTENSION);
-			}
-			if ((!empty($filters) and in_array('type', $filters)) or empty($filters)){
-				/**
-				 * @var \finfo $fInfo
-				 */
-				$this->fullType = @finfo_file(finfo_open(FILEINFO_MIME_TYPE), $this->fullName);
-				if (!empty($this->filters)) $this->filters[] = 'fullType';
-				$this->type();
-			}
-			if ((!empty($filters) and in_array('chmod', $filters)) or empty($filters)){
-				$this->chmod = (int)decoct(@fileperms($this->fullName) & 0777);
-				$this->advChmod = (int)substr(decoct(@fileperms($this->fullName)),2);
-				if (!empty($this->filters)) $this->filters[] = 'advChmod';
+				$this->extension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+				if (empty($this->extension) and $this->type != 'folder') $this->extension = strtolower(end(explode('.', $this->name)));
 			}
 			if ((!empty($filters) and in_array('writable', $filters)) or empty($filters)){
 				$this->writable = is_writable($this->fullName);
-			}
-			if ((!empty($filters) and in_array('owner', $filters)) or empty($filters)){
-				$this->owner = posix_getpwuid(@fileowner($this->fullName))['name'];
-			}
-			if ((!empty($filters) and in_array('groupOwner', $filters)) or empty($filters)){
-				$this->groupOwner = posix_getgrgid(@filegroup($this->fullName))['name'];
 			}
 			$this->linuxHidden = (substr($fileName, 0, 1) == '.') ? true : false;
 			if (!empty($this->filters)) $this->filters[] = 'linuxHidden';
 			$this->parentFolder = dirname($this->fullName);
 			if (!empty($this->filters)) $this->filters[] = 'parentFolder';
+			/**
+			 * On teste si stat retourne une erreur.
+			 * Si oui, il y a de fortes chances que ce soit à cause d'un fichier trop gros pour être géré en PHP 32 bits.
+			 *
+			 * Dans ce cas, il faut passer par la commande linux `stat` pour récupérer les infos.
+			 */
+			$stat = @stat($this->fullName);
+			if ($stat === false){
+				exec('stat -c "%s %a %U %G %W %Y" "'.$this->fullName.'"', $out);
+				list($this->size, $this->chmod, $this->owner, $this->groupOwner, $this->dateCreated, $this->dateModified) = explode(' ', $out[0]);
+				if ((!empty($filters) and in_array('type', $filters)) or empty($filters)){
+					/**
+					 * @warning Il se peut que cette commande ne renvoie pas le bon type MIME.
+					 *  Dans ce cas, il faut faire une mise à jour des types MIME du serveur avec `sudo update-mime-database /usr/share/mime`
+					 */
+					exec('file -b --mime-type "'.$this->fullName.'"', $out);
+					$this->fullType = end($out);
+					$this->type();
+				}
+			}else{
+				if ((!empty($filters) and (in_array('dateCreated', $filters) or in_array('dateModified', $filters) or in_array('size', $filters))) or empty($filters)){
+					$this->dateCreated = $stat['ctime'];
+					$this->dateModified = $stat['mtime'];
+					$this->size = $this->getFileSize();
+				}
+				if ((!empty($filters) and in_array('type', $filters)) or empty($filters)){
+					/**
+					 * @var \finfo $fInfo
+					 */
+					$this->fullType = @finfo_file(finfo_open(FILEINFO_MIME_TYPE), $this->fullName);
+					$this->type();
+				}
+				if ((!empty($filters) and in_array('chmod', $filters)) or empty($filters)){
+					$this->chmod = (int)decoct(@fileperms($this->fullName) & 0777);
+					$this->advChmod = (int)substr(decoct(@fileperms($this->fullName)),2);
+				}
+				if ((!empty($filters) and in_array('owner', $filters)) or empty($filters)){
+					$this->owner = posix_getpwuid(@fileowner($this->fullName))['name'];
+				}
+				if ((!empty($filters) and in_array('groupOwner', $filters)) or empty($filters)){
+					$this->groupOwner = posix_getgrgid(@filegroup($this->fullName))['name'];
+				}
+			}
 		}else{
 			new Alert('debug', '<code>File Constructor</code> : le fichier <code>'.$this->fullName.'</code> n\'existe pas !');
 			$this->name = null;
@@ -124,7 +140,7 @@ class File {
 	}
 	
 	public function __isset($prop){
-		return ((!empty($this->filters) and in_array($prop, $this->filters)) or empty($filters) or in_array($prop, array('name', 'fullName'))) ? isset($this->$prop) : false;
+		return isset($this->$prop);
 	}
 	
 	public function __get($prop){
@@ -138,12 +154,22 @@ class File {
 	 * @warning Le véritable format du fichier n'est pas vérifié.
 	 */
 	protected function type(){
+		if ($this->fullType == 'application/octet-stream'){
+			$this->hackTypes();
+		}
 		switch ($this->fullType){
 			case 'directory':
 				$ext = 'Répertoire';
 				break;
 			case 'text/plain':
-				$ext = 'Fichier texte';
+				switch ($this->extension){
+					case 'ini':
+					case 'cfg':
+						$ext = 'Fichier de paramétrage';
+						break;
+					default:
+						$ext = 'Fichier texte';
+				}
 				break;
 			case 'application/msword':
 			case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
@@ -213,6 +239,22 @@ class File {
 	}
 
 	/**
+	 * Permet d'affecter les bons types aux vidéos quand elles sont trop grandes pour un système 32bits et que les types MIME du système ne sont pas à jour.
+	 * Cette fonction ne devrait en théorie pas être utilisée.
+	 */
+	protected function hackTypes(){
+		if ($this->fullType == 'application/octet-stream'){
+			switch ($this->extension){
+				case 'mkv':
+					$this->fullType = 'video/x-matroska';
+					break;
+				case 'mp4':
+					$this->fullType = 'video/mp4';
+			}
+		}
+	}
+
+	/**
 	 * Retourne la classe Font Awesome de l'icône de fichier
 	 *
 	 * @return string
@@ -235,6 +277,8 @@ class File {
 				return 'key';
 			case 'Fichier code':
 				return 'file-code-o';
+			case 'Fichier de paramétrage':
+				return 'sliders';
 			case 'Installateur':
 				return 'download';
 			case 'Image ISO':
@@ -265,11 +309,18 @@ class File {
 		?><span class="fa fa-<?php echo $this->getIcon(); ?>"></span>&nbsp;<?php
 	}
 
+	/**
+	 * Affiche le nom et l'icône du fichier
+	 */
 	public function display(){
 		$this->displayIcon();
 		echo '&nbsp;'.$this->name;
 	}
 
+	/**
+	 * Retourne la couleur à appliquer au fichier lors de l'affichage
+	 * @return string
+	 */
 	public function colorClass(){
 		$class = '';
 		switch ($this->type){
