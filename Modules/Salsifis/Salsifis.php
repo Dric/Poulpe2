@@ -12,9 +12,13 @@ namespace Modules\Salsifis;
 use Admin\serverUsage;
 use Components\Item;
 use Components\serverResource;
+use Forms\Fields\Button;
+use Forms\Form;
 use Front;
+use Logs\Alert;
 use Modules\Module;
 use Modules\ModulesManagement;
+use Users\ACL;
 
 class Salsifis extends Module{
 	protected $name = 'Serveur des Salsifis';
@@ -58,6 +62,7 @@ class Salsifis extends Module{
 					</div>
 					<div class="col-md-6">
 						<?php $this->processes(); ?>
+						<?php $this->actions(); ?>
 					</div>
 				</div>
 			</div>
@@ -66,6 +71,33 @@ class Salsifis extends Module{
 	}
 
 	/********* Méthodes spécifiques au module ***********/
+
+	/**
+	 * Reconstruit le cache de MiniDLNA
+	 * @return bool
+	 */
+	protected function rebuildMiniDLNACache(){
+		if (!ACL::canModify('module', $this->id)){
+			new Alert('error', 'Vous n\'avez pas l\'autorisation de faire ceci !');
+			return false;
+		}
+		exec("/usr/local/bin/rebuild_cache");
+		new Alert('success', 'Le cache de miniDLNA est en cours de reconstruction. Veuillez patienter quelques minutes avant de voir l\'intégralité de vos média.');
+		return true;
+	}
+
+	/**
+	 * Affiche des boutons d'action sur le système ou les services lancés
+	 */
+	protected function actions(){
+		?>
+		<h3>Actions</h3>
+		<p>Il se peut que vous ayez des entrées <code>(null)</code> dans l'affichage des media envoyés par le service DLNA. Dans ce cas, il vous faudra reconstruire le cache de MiniDNLA pour les faire disparaître.</p>
+		<?php
+		$form = new Form('rebuildMiniDLNACache', null, array(), 'module', $this->id);
+		$form->addField(new Button('action', 'rebuildMiniDLNACache', 'Reconstruire le cache', 'modify'));
+		$form->display();
+	}
 
 	/**
 	 * Suivi de l'état des processus importants pour le serveur média
@@ -105,7 +137,6 @@ class Salsifis extends Module{
 				</td>
 			</tr>
 		</table>
-
 	<?php
 	}
 

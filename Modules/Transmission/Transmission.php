@@ -269,10 +269,10 @@ class Transmission extends Module{
 			if ($ts->getAltSpeedEnabled()){
 				?>
 				<div class="row alert alert-warning">
-					<div class="col-md-10">
+					<div class="col-md-9">
 						Le mode Tortue est activé. Vos téléchargements sont bridés à <?php echo $ts->getAltDlSpeed(); ?>/s en téléchargement et <?php echo $ts->getAltUpSpeed(); ?>/s en partage.
 					</div>
-					<div class="col-md-2">
+					<div class="col-md-3">
 						<?php $form->display(); ?>
 					</div>
 				</div>
@@ -280,10 +280,10 @@ class Transmission extends Module{
 			}else{
 				?>
 				<div class="row alert alert-info">
-					<div class="col-md-10">
+					<div class="col-md-9">
 						Le mode Tortue est désactivé. Vous êtes à <?php echo $ts->getDlSpeed(); ?>/s en téléchargement et <?php echo $ts->getUpSpeed(); ?>/s en partage.
 					</div>
-					<div class="col-md-2">
+					<div class="col-md-3">
 						<?php $form->display(); ?>
 					</div>
 				</div>
@@ -358,10 +358,10 @@ class Transmission extends Module{
 		$ts = $this->getTransSession();
 		$ret = $ts->remove((int)$this->postedData['torrentId'], $this->postedData['deleteFiles']);
 		if ($ret->result == 'success'){
-			new Alert('success', 'Le téléchargement a été déplacé !');
+			new Alert('success', 'Le téléchargement a été supprimé !');
 			return true;
 		}else{
-			new Alert('error', 'Impossible de déplacer le téléchargement !');
+			new Alert('error', 'Impossible de supprimer le téléchargement !');
 			return false;
 		}
 	}

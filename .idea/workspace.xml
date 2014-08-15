@@ -5,165 +5,197 @@
     <bookmark url="file://$PROJECT_DIR$/classes/FileSystem/Fs.php" line="262" mnemonic="2" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b517d7b-6e6e-44e4-a303-f637474520ff" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Docs/Code/class-FileSystem.File.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Docs/Code/source-class-FileSystem.File.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/404.html" afterPath="$PROJECT_DIR$/Docs/Code/404.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Check.php" afterPath="$PROJECT_DIR$/classes/Check.php" />
+    <list default="true" id="0b517d7b-6e6e-44e4-a303-f637474520ff" name="Default" comment="- Datatables mis à jour en 1.10.2&#10;- Améliorations du module FileBrowser avec intégration de l'API de tmdb.org pour récupérer les informations sur les films ou les épisodes de séries TV&#10;">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/Readme.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Modules/FileBrowser/TMDB/structures/Asset.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Modules/FileBrowser/TMDB/Client.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Modules/FileBrowser/TMDB/structures/Collection.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Modules/FileBrowser/TMDB/structures/Company.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Modules/FileBrowser/TMDB/structures/Genre.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Modules/FileBrowser/TMDB/structures/Movie.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Modules/FileBrowser/TMDB/structures/Person.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Modules/FileBrowser/TMDB/structures/Tv.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/initialisation/ajax.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/ajax.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/display-control/auto.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/styling/bootstrap.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/initialisation/className.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/display-control/classes.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/child-rows/column-control.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/examples/styling/compact.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/child-rows/custom-renderer.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/css/dataTables.responsive.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/js/dataTables.responsive.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/js/dataTables.responsive.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/css/dataTables.responsive.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/child-rows/disable-child-rows.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/styling/foundation.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/child-rows/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/display-control/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/initialisation/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/styling/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/display-control/init-classes.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/jqueryui.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/initialisation/new.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/initialisation/option.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/child-rows/right-column.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/child-rows/whole-row-control.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/FileSystem/File.php" afterPath="$PROJECT_DIR$/classes/FileSystem/File.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.php" afterPath="$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/FileSystem/Fs.php" afterPath="$PROJECT_DIR$/classes/FileSystem/Fs.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/Readme.md" afterPath="$PROJECT_DIR$/js/DataTables/Readme.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/Salsifis/Salsifis.php" afterPath="$PROJECT_DIR$/Modules/Salsifis/Salsifis.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Sanitize.php" afterPath="$PROJECT_DIR$/classes/Sanitize.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Users/UsersManagement.php" afterPath="$PROJECT_DIR$/classes/Users/UsersManagement.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Admin.Admin.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Admin.Admin.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Check.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Check.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Components.Avatar.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Components.Avatar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Components.Filter.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Components.Filter.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Components.Help.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Components.Help.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Components.Item.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Components.Item.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Components.Menu.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Components.Menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Components.SimpleImage.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Components.SimpleImage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Components.serverResource.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Components.serverResource.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Db.Db.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Db.Db.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Db.DbFieldSettings.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Db.DbFieldSettings.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Db.DbTable.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Db.DbTable.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Db.ForeignKey.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Db.ForeignKey.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Exception.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Exception.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-FileSystem.Fs.html" afterPath="$PROJECT_DIR$/Docs/Code/class-FileSystem.Fs.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-FileSystem.Upload.html" afterPath="$PROJECT_DIR$/Docs/Code/class-FileSystem.Upload.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Field.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Field.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Bool.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Bool.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Button.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Button.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.CheckboxList.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.CheckboxList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Color.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Color.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Date.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Date.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Email.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Email.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.File.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.File.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Float.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Float.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Hidden.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Hidden.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Int.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Int.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.LinkButton.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.LinkButton.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Password.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Password.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.RadioList.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.RadioList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Select.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Select.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.String.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.String.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Table.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Table.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Text.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Text.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Time.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Time.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Url.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.Url.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.ValuesArray.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.ValuesArray.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.ValuesList.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Fields.ValuesList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Form.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.JSSwitch.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.JSSwitch.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.Pattern.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.Pattern.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Forms.PostedData.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Forms.PostedData.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Front.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Front.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Get.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Get.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Ldap.Connection.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Ldap.Connection.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Ldap.Ldap.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Ldap.Ldap.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Logs.Alert.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Logs.Alert.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Logs.AlertsManager.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Logs.AlertsManager.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Logs.EventLog.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Logs.EventLog.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Logs.EventsManager.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Logs.EventsManager.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Michelf.Markdown.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Michelf.Markdown.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Michelf.MarkdownExtra.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Michelf.MarkdownExtra.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Michelf.MarkdownInterface.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Michelf.MarkdownInterface.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Michelf._MarkdownExtra_TmpImpl.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Michelf._MarkdownExtra_TmpImpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Modules.Module.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Modules.Module.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Modules.ModulesManagement.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Modules.ModulesManagement.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Profiles.UserProfile.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Profiles.UserProfile.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Sanitize.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Sanitize.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Settings.Setting.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Settings.Setting.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Users.ACL.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Users.ACL.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Users.CurrentUser.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Users.CurrentUser.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Users.LDAPUser.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Users.LDAPUser.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Users.Login.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Users.Login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Users.User.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Users.User.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Users.UsersManagement.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Users.UsersManagement.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/elementlist.js" afterPath="$PROJECT_DIR$/Docs/Code/elementlist.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/index.html" afterPath="$PROJECT_DIR$/Docs/Code/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/namespace-Admin.html" afterPath="$PROJECT_DIR$/Docs/Code/namespace-Admin.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/namespace-Components.html" afterPath="$PROJECT_DIR$/Docs/Code/namespace-Components.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/namespace-Db.html" afterPath="$PROJECT_DIR$/Docs/Code/namespace-Db.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/namespace-FileSystem.html" afterPath="$PROJECT_DIR$/Docs/Code/namespace-FileSystem.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/namespace-Forms.Fields.html" afterPath="$PROJECT_DIR$/Docs/Code/namespace-Forms.Fields.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/namespace-Forms.html" afterPath="$PROJECT_DIR$/Docs/Code/namespace-Forms.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/namespace-Ldap.html" afterPath="$PROJECT_DIR$/Docs/Code/namespace-Ldap.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/namespace-Logs.html" afterPath="$PROJECT_DIR$/Docs/Code/namespace-Logs.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/namespace-Michelf.html" afterPath="$PROJECT_DIR$/Docs/Code/namespace-Michelf.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/namespace-Modules.html" afterPath="$PROJECT_DIR$/Docs/Code/namespace-Modules.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/namespace-None.html" afterPath="$PROJECT_DIR$/Docs/Code/namespace-None.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/namespace-PHP.html" afterPath="$PROJECT_DIR$/Docs/Code/namespace-PHP.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/namespace-Profiles.html" afterPath="$PROJECT_DIR$/Docs/Code/namespace-Profiles.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/namespace-Settings.html" afterPath="$PROJECT_DIR$/Docs/Code/namespace-Settings.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/namespace-Users.html" afterPath="$PROJECT_DIR$/Docs/Code/namespace-Users.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Admin.Admin.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Admin.Admin.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Check.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Check.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Components.Avatar.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Components.Avatar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Components.Filter.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Components.Filter.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Components.Help.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Components.Help.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Components.Item.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Components.Item.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Components.Menu.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Components.Menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Components.SimpleImage.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Components.SimpleImage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Components.serverResource.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Components.serverResource.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Db.Db.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Db.Db.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Db.DbFieldSettings.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Db.DbFieldSettings.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Db.DbTable.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Db.DbTable.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Db.ForeignKey.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Db.ForeignKey.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-FileSystem.Fs.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-FileSystem.Fs.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-FileSystem.Upload.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-FileSystem.Upload.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Field.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Field.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Bool.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Bool.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Button.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Button.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.CheckboxList.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.CheckboxList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Color.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Color.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Date.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Date.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Email.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Email.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.File.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.File.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Float.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Float.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Hidden.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Hidden.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Int.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Int.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.LinkButton.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.LinkButton.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Password.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Password.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.RadioList.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.RadioList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Select.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Select.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.String.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.String.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Table.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Table.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Text.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Text.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Time.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Time.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Url.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.Url.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.ValuesArray.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.ValuesArray.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.ValuesList.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Fields.ValuesList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Form.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.JSSwitch.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.JSSwitch.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Pattern.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.Pattern.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Forms.PostedData.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Forms.PostedData.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Front.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Front.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Get.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Get.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Ldap.Connection.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Ldap.Connection.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Ldap.Ldap.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Ldap.Ldap.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Logs.Alert.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Logs.Alert.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Logs.AlertsManager.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Logs.AlertsManager.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Logs.EventLog.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Logs.EventLog.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Logs.EventsManager.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Logs.EventsManager.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Michelf.Markdown.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Michelf.Markdown.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Michelf.MarkdownExtra.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Michelf.MarkdownExtra.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Michelf.MarkdownInterface.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Michelf.MarkdownInterface.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Michelf._MarkdownExtra_TmpImpl.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Michelf._MarkdownExtra_TmpImpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Modules.Module.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Modules.Module.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Modules.ModulesManagement.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Modules.ModulesManagement.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Profiles.UserProfile.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Profiles.UserProfile.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Sanitize.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Sanitize.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Settings.Setting.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Settings.Setting.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Users.ACL.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Users.ACL.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Users.CurrentUser.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Users.CurrentUser.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Users.LDAPUser.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Users.LDAPUser.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Users.Login.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Users.Login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Users.User.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Users.User.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Users.UsersManagement.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Users.UsersManagement.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/toDocument.txt" afterPath="$PROJECT_DIR$/toDocument.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/tree.html" afterPath="$PROJECT_DIR$/Docs/Code/tree.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/Shutdown/Shutdown.php" afterPath="$PROJECT_DIR$/Modules/Shutdown/Shutdown.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/Transmission/Torrent.php" afterPath="$PROJECT_DIR$/Modules/Transmission/Torrent.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/Transmission/Transmission.php" afterPath="$PROJECT_DIR$/Modules/Transmission/Transmission.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/api/add_row.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/api/add_row.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/data_sources/ajax.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/data_sources/ajax.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/alt_pagination.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/alt_pagination.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/alter_buttons.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/alter_buttons.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/plug-ins/api.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/plug-ins/api.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/api/api_in_init.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/api/api_in_init.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/Scroller/examples/api_scrolling.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Scroller/examples/api_scrolling.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/styling/bootstrap.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/styling/bootstrap.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/FixedColumns/examples/bootstrap.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/FixedColumns/examples/bootstrap.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/bootstrap.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/bootstrap.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/bower.json" afterPath="$PROJECT_DIR$/js/DataTables/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/button_text.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/button_text.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/styling/cell-border.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/styling/cell-border.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/collection.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/collection.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/column_render.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/column_render.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/comma-decimal.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/comma-decimal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/complex_header.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/complex_header.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/complex_header.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/complex_header.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/composer.json" afterPath="$PROJECT_DIR$/js/DataTables/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/api/counter_columns.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/api/counter_columns.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/ajax/custom_data_flat.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/ajax/custom_data_flat.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/ajax/custom_data_property.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/ajax/custom_data_property.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/server_side/custom_vars.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/server_side/custom_vars.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/AutoFill/js/dataTables.autoFill.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/AutoFill/js/dataTables.autoFill.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/AutoFill/js/dataTables.autoFill.min.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/AutoFill/js/dataTables.autoFill.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/ColReorder/js/dataTables.colReorder.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/ColReorder/js/dataTables.colReorder.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/ColReorder/js/dataTables.colReorder.min.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/ColReorder/js/dataTables.colReorder.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/ColVis/css/dataTables.colVis.css" afterPath="$PROJECT_DIR$/js/DataTables/extensions/ColVis/css/dataTables.colVis.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/ColVis/js/dataTables.colVis.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/ColVis/js/dataTables.colVis.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/ColVis/css/dataTables.colVis.min.css" afterPath="$PROJECT_DIR$/js/DataTables/extensions/ColVis/css/dataTables.colVis.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/ColVis/js/dataTables.colVis.min.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/ColVis/js/dataTables.colVis.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/FixedColumns/js/dataTables.fixedColumns.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/FixedColumns/js/dataTables.fixedColumns.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/FixedColumns/js/dataTables.fixedColumns.min.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/FixedColumns/js/dataTables.fixedColumns.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/FixedHeader/js/dataTables.fixedHeader.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/FixedHeader/js/dataTables.fixedHeader.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/FixedHeader/js/dataTables.fixedHeader.min.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/FixedHeader/js/dataTables.fixedHeader.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/dataTables.jquery.json" afterPath="$PROJECT_DIR$/js/DataTables/dataTables.jquery.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/KeyTable/js/dataTables.keyTable.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/KeyTable/js/dataTables.keyTable.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/KeyTable/js/dataTables.keyTable.min.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/KeyTable/js/dataTables.keyTable.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/Scroller/js/dataTables.scroller.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Scroller/js/dataTables.scroller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/Scroller/js/dataTables.scroller.min.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Scroller/js/dataTables.scroller.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/js/dataTables.tableTools.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/js/dataTables.tableTools.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/js/dataTables.tableTools.min.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/js/dataTables.tableTools.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/ajax/deep.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/ajax/deep.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/defaults.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/defaults.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/defaults.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/defaults.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/server_side/defer_loading.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/server_side/defer_loading.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/ajax/defer_render.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/ajax/defer_render.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/resources/demo.css" afterPath="$PROJECT_DIR$/js/DataTables/examples/resources/demo.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/styling/display.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/styling/display.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/dom.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/dom.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/data_sources/dom.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/data_sources/dom.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/dom_multiple_elements.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/dom_multiple_elements.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/plug-ins/dom_sort.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/plug-ins/dom_sort.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/dom_toolbar.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/dom_toolbar.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/dt_events.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/dt_events.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/KeyTable/examples/events.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/KeyTable/examples/events.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/events_live.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/events_live.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/filter_only.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/filter_only.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/ColReorder/examples/fixedcolumns.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/ColReorder/examples/fixedcolumns.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/flexible_width.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/flexible_width.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/footer_callback.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/footer_callback.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/api/form.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/api/form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/styling/foundation.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/styling/foundation.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/hidden_columns.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/hidden_columns.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/api/highlight.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/api/highlight.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/styling/hover.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/styling/hover.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/KeyTable/examples/html.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/KeyTable/examples/html.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/html5-data-attributes.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/html5-data-attributes.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/server_side/ids.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/server_side/ids.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/index.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/api/index.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/api/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/styling/index.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/styling/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/KeyTable/examples/index.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/KeyTable/examples/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/index.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/media/css/jquery.dataTables.css" afterPath="$PROJECT_DIR$/js/DataTables/media/css/jquery.dataTables.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/media/js/jquery.dataTables.js" afterPath="$PROJECT_DIR$/js/DataTables/media/js/jquery.dataTables.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/media/css/jquery.dataTables.min.css" afterPath="$PROJECT_DIR$/js/DataTables/media/css/jquery.dataTables.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/media/js/jquery.dataTables.min.js" afterPath="$PROJECT_DIR$/js/DataTables/media/js/jquery.dataTables.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/media/js/jquery.js" afterPath="$PROJECT_DIR$/js/DataTables/media/js/jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/styling/jqueryUI.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/styling/jqueryUI.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/ColReorder/examples/jqueryui.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/ColReorder/examples/jqueryui.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/ColVis/examples/jqueryui.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/ColVis/examples/jqueryui.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/data_sources/js_array.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/data_sources/js_array.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/server_side/jsonp.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/server_side/jsonp.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/language.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/language.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/language_file.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/language_file.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/length_menu.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/length_menu.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/multi_col_sort.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/multi_col_sort.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/api/multi_filter.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/api/multi_filter.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/api/multi_filter_select.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/api/multi_filter_select.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/multi_instance.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/multi_instance.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/multiple_tables.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/multiple_tables.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/multiple_tables.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/multiple_tables.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/new_init.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/new_init.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/styling/no-classes.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/styling/no-classes.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/ajax/null_data_source.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/ajax/null_data_source.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/server_side/object_data.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/server_side/object_data.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/ajax/objects.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/ajax/objects.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/ajax/objects_subarrays.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/ajax/objects_subarrays.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/styling/order-column.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/styling/order-column.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/ajax/orthogonal-data.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/ajax/orthogonal-data.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/package.json" afterPath="$PROJECT_DIR$/js/DataTables/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/pdf_message.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/pdf_message.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/server_side/pipeline.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/server_side/pipeline.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/plug-in.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/plug-in.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/server_side/post.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/server_side/post.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/plug-ins/range_filtering.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/plug-ins/range_filtering.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/api/regex.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/api/regex.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/ColVis/examples/restore.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/ColVis/examples/restore.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/styling/row-border.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/styling/row-border.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/row_callback.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/row_callback.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/api/row_details.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/api/row_details.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/server_side/row_details.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/server_side/row_details.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/row_grouping.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/row_grouping.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/scroll_x.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/scroll_x.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/scroll_xy.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/scroll_xy.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/scroll_y.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/scroll_y.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/scroll_y_theme.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/scroll_y_theme.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/KeyTable/examples/scrolling.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/KeyTable/examples/scrolling.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/select_column.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/select_column.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/select_multi.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/select_multi.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/select_os.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/select_os.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/api/select_row.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/api/select_row.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/server_side/select_rows.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/server_side/select_rows.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/select_single.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/select_single.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/api/select_single_row.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/api/select_single_row.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/Scroller/examples/server-side_processing.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Scroller/examples/server-side_processing.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/data_sources/server_side.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/data_sources/server_side.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/resources/syntax/shCore.js" afterPath="$PROJECT_DIR$/js/DataTables/examples/resources/syntax/shCore.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/api/show_hide.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/api/show_hide.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/ajax/simple.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/ajax/simple.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/server_side/simple.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/server_side/simple.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/KeyTable/examples/simple.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/KeyTable/examples/simple.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/simple.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/simple.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/sort_direction_control.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/sort_direction_control.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/plug-ins/sorting_auto.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/plug-ins/sorting_auto.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/plug-ins/sorting_manual.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/plug-ins/sorting_manual.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/server_side/scripts/ssp.class.php" afterPath="$PROJECT_DIR$/js/DataTables/examples/server_side/scripts/ssp.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/state_save.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/state_save.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/styling/stripe.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/styling/stripe.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/swf_path.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/swf_path.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/table_sorting.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/table_sorting.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/api/tabs_and_scrolling.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/api/tabs_and_scrolling.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/zero_configuration.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/zero_configuration.html" />
     </list>
     <ignored path="tools2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -186,37 +218,112 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ModuleCreator.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Modules/ModuleCreator/ModuleCreator.php">
+      <file leaf-file-name="Transmission.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Modules/Transmission/Transmission.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="97" column="1" selection-start="0" selection-end="3189" vertical-scroll-proportion="-32.0" vertical-offset="552" max-vertical-offset="1410">
+            <state line="387" column="17" selection-start="18097" selection-end="18097" vertical-scroll-proportion="-219.375" vertical-offset="135" max-vertical-offset="8145">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileBrowser.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Readme.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/DataTables/Readme.md">
+          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="43" selection-start="434" selection-end="434" vertical-scroll-proportion="-1.92" vertical-offset="72" max-vertical-offset="885">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileBrowser.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="177" column="24" selection-start="5926" selection-end="5926" vertical-scroll-proportion="0.62267655" vertical-offset="2125" max-vertical-offset="4155">
+            <state line="49" column="98" selection-start="1726" selection-end="1726" vertical-scroll-proportion="-15.0" vertical-offset="150" max-vertical-offset="6525">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Check.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/Check.php">
+      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="4" selection-start="1825" selection-end="1825" vertical-scroll-proportion="-21.375" vertical-offset="582" max-vertical-offset="1440">
+            <state line="50" column="45" selection-start="2551" selection-end="2551" vertical-scroll-proportion="0.375765" vertical-offset="443" max-vertical-offset="1485">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="file-size.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/DataTables/plugins/sorting/file-size.js">
+      <file leaf-file-name="dataTables.responsive.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/DataTables/extensions/Responsive/css/dataTables.responsive.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="0" selection-start="578" selection-end="578" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="690">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="1425">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dataTables.bootstrap.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/DataTables/plugins/integration/bootstrap/3/dataTables.bootstrap.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="3467" max-vertical-offset="4305">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Salsifis.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Modules/Salsifis/Salsifis.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="85" column="16" selection-start="2110" selection-end="2110" vertical-scroll-proportion="0.0" vertical-offset="1275" max-vertical-offset="2835">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Shutdown.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Modules/Shutdown/Shutdown.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="156" column="39" selection-start="4466" selection-end="5745" vertical-scroll-proportion="0.0" vertical-offset="2340" max-vertical-offset="2925">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Client.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/TMDB/Client.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="134" column="0" selection-start="3840" selection-end="3840" vertical-scroll-proportion="0.0" vertical-offset="1728" max-vertical-offset="3165">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Movie.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/TMDB/structures/Movie.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="103" column="3" selection-start="2897" selection-end="3119" vertical-scroll-proportion="0.0" vertical-offset="1243" max-vertical-offset="2385">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Asset.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/TMDB/structures/Asset.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="34" selection-start="227" selection-end="227" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="765">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tv.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/TMDB/structures/Tv.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="45" column="37" selection-start="1045" selection-end="1045" vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="870">
               <folding />
             </state>
           </provider>
@@ -225,7 +332,7 @@
       <file leaf-file-name="File.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/FileSystem/File.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="49" selection-start="1653" selection-end="1653" vertical-scroll-proportion="2.5" vertical-offset="810" max-vertical-offset="4995">
+            <state line="324" column="18" selection-start="9025" selection-end="9025" vertical-scroll-proportion="0.0" vertical-offset="4860" max-vertical-offset="5220">
               <folding />
             </state>
           </provider>
@@ -234,16 +341,7 @@
       <file leaf-file-name="Torrent.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Modules/Transmission/Torrent.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="415" column="39" selection-start="13646" selection-end="13646" vertical-scroll-proportion="-12.083333" vertical-offset="5815" max-vertical-offset="6660">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Login.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/Users/Login.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="162" column="37" selection-start="4245" selection-end="4245" vertical-scroll-proportion="-19.25" vertical-offset="1683" max-vertical-offset="5175">
+            <state line="433" column="0" selection-start="14057" selection-end="14057" vertical-scroll-proportion="0.0" vertical-offset="6495" max-vertical-offset="6885">
               <folding />
             </state>
           </provider>
@@ -252,9 +350,9 @@
       <file leaf-file-name="UsersManagement.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/Users/UsersManagement.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="40" selection-start="1725" selection-end="1725" vertical-scroll-proportion="-10.666667" vertical-offset="629" max-vertical-offset="2895">
+            <state line="68" column="40" selection-start="1725" selection-end="1725" vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="3030">
               <folding>
-                <marker date="1407411135336" expanded="true" signature="900:921" placeholder="SELECT * FRO..." />
+                <marker date="1407427690386" expanded="true" signature="900:921" placeholder="SELECT * FRO..." />
               </folding>
             </state>
           </provider>
@@ -263,7 +361,7 @@
       <file leaf-file-name="poulpe2.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/poulpe2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="265" column="21" selection-start="8655" selection-end="8672" vertical-scroll-proportion="0.0" vertical-offset="3975" max-vertical-offset="4575">
+            <state line="265" column="4" selection-start="8655" selection-end="8655" vertical-scroll-proportion="0.0" vertical-offset="3975" max-vertical-offset="4575">
               <folding />
             </state>
           </provider>
@@ -272,7 +370,7 @@
       <file leaf-file-name="Sanitize.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/Sanitize.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="293" column="45" selection-start="10002" selection-end="10002" vertical-scroll-proportion="-13.791667" vertical-offset="3959" max-vertical-offset="4965">
+            <state line="170" column="35" selection-start="5928" selection-end="5928" vertical-scroll-proportion="0.0" vertical-offset="2550" max-vertical-offset="5115">
               <folding />
             </state>
           </provider>
@@ -281,7 +379,7 @@
       <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="141" column="226" selection-start="3848" selection-end="3848" vertical-scroll-proportion="-64.958336" vertical-offset="391" max-vertical-offset="2295">
+            <state line="32" column="5" selection-start="955" selection-end="955" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="2460">
               <folding />
             </state>
           </provider>
@@ -290,34 +388,16 @@
       <file leaf-file-name="FileBrowser.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="30" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="195">
+            <state line="4" column="27" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="195">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Front.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/Front.php">
+      <file leaf-file-name="jquery.dataTables.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/DataTables/media/js/jquery.dataTables.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="324" column="28" selection-start="9515" selection-end="9515" vertical-scroll-proportion="0.0" vertical-offset="4860" max-vertical-offset="6135">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Fs.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/FileSystem/Fs.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="95" selection-start="250" selection-end="250" vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="6705">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dfs_creds.conf" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/FileSystem/dfs_creds.conf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="12" selection-start="0" selection-end="53" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="135">
+            <state line="511" column="53" selection-start="15299" selection-end="15299" vertical-scroll-proportion="0.0" vertical-offset="7665" max-vertical-offset="219420">
               <folding />
             </state>
           </provider>
@@ -341,16 +421,8 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Modules/.htaccess" />
-        <option value="$PROJECT_DIR$/Modules/index.html" />
-        <option value="$PROJECT_DIR$/Modules/BandesTina/BandesTina.php" />
-        <option value="$PROJECT_DIR$/classes/Components/Filter.php" />
-        <option value="$PROJECT_DIR$/classes/Components/serverResource.php" />
-        <option value="$PROJECT_DIR$/Modules/Salsifis/Salsifis.php" />
-        <option value="$PROJECT_DIR$/Docs/Poulpe2/library/Formulaires/Gestion des formulaires.md" />
         <option value="$PROJECT_DIR$/Docs/Poulpe2/library/Organisation du module/Modèle de module.md" />
         <option value="$PROJECT_DIR$/cache/index.html" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/classes/Front.php" />
         <option value="$PROJECT_DIR$/css/less/bootstrap3/bootstrap.less" />
         <option value="$PROJECT_DIR$/css/less/poulpe2.less" />
@@ -373,25 +445,33 @@
         <option value="$PROJECT_DIR$/Modules/CHGS/CHGS.php" />
         <option value="$PROJECT_DIR$/Modules/Mailboxes/Mailboxes.php" />
         <option value="$PROJECT_DIR$/Modules/PostIt/PostIt.php" />
-        <option value="$PROJECT_DIR$/Modules/Transmission/Transmission.php" />
         <option value="$PROJECT_DIR$/classes/Admin/Admin.php" />
         <option value="$PROJECT_DIR$/Modules/ModuleCreator/ModuleCreator.php" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/css/less/internal/variables.less" />
         <option value="$PROJECT_DIR$/js/DataTables/plugins/sorting/file-size.js" />
         <option value="$PROJECT_DIR$/js/poulpe2.js" />
         <option value="$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.js" />
         <option value="$PROJECT_DIR$/classes/Get.php" />
-        <option value="$PROJECT_DIR$/Modules/Transmission/Torrent.php" />
         <option value="$PROJECT_DIR$/classes/Check.php" />
-        <option value="$PROJECT_DIR$/classes/FileSystem/File.php" />
-        <option value="$PROJECT_DIR$/classes/Sanitize.php" />
         <option value="$PROJECT_DIR$/classes/Users/UsersManagement.php" />
         <option value="$PROJECT_DIR$/classes/FileSystem/Fs.php" />
         <option value="$PROJECT_DIR$/Modules/FileBrowser/api-allocine/AlloHelper.class.php" />
         <option value="$PROJECT_DIR$/Modules/FileBrowser/api-allocine/AlloData.class.php" />
         <option value="$PROJECT_DIR$/Modules/FileBrowser/api-allocine/api-allocine-helper.php" />
+        <option value="$PROJECT_DIR$/classes/Sanitize.php" />
+        <option value="$PROJECT_DIR$/classes/FileSystem/File.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/Modules/FileBrowser/TMDB/structures/Movie.php" />
+        <option value="$PROJECT_DIR$/Modules/FileBrowser/TMDB/structures/TV.php" />
+        <option value="$PROJECT_DIR$/Modules/FileBrowser/TMDB/structures/Tv.php" />
+        <option value="$PROJECT_DIR$/Modules/FileBrowser/TMDB/Client.php" />
+        <option value="$PROJECT_DIR$/Modules/Transmission/Torrent.php" />
+        <option value="$PROJECT_DIR$/Modules/Shutdown/Shutdown.php" />
+        <option value="$PROJECT_DIR$/Modules/Salsifis/Salsifis.php" />
+        <option value="$PROJECT_DIR$/Modules/Transmission/Transmission.php" />
+        <option value="$PROJECT_DIR$/js/DataTables/Readme.md" />
         <option value="$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.php" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -402,10 +482,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="32" />
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1896" />
-    <option name="height" value="1056" />
+    <option name="width" value="1696" />
+    <option name="height" value="1026" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -518,7 +598,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -533,7 +612,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
+              <option name="myItemId" value="Poulpe2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -543,7 +622,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
+              <option name="myItemId" value="Poulpe2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -557,7 +636,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
+              <option name="myItemId" value="Poulpe2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -575,7 +654,43 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Poulpe2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Shutdown" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
               <option name="myItemId" value="tools2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Poulpe2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Salsifis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tools2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Poulpe2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -593,29 +708,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
+              <option name="myItemId" value="Poulpe2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Docs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
+              <option name="myItemId" value="Modules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Docs" />
+              <option name="myItemId" value="FileBrowser" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Code" />
+              <option name="myItemId" value="TMDB" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -625,57 +730,300 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Poulpe2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FileBrowser" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TMDB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="structures" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
               <option name="myItemId" value="tools2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Poulpe2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tools2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Poulpe2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataTables" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tools2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Poulpe2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataTables" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tools2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Poulpe2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataTables" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="integration" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tools2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Poulpe2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataTables" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="integration" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bootstrap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tools2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Poulpe2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataTables" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="integration" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bootstrap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tools2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Poulpe2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataTables" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="extensions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tools2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Poulpe2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataTables" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="extensions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Responsive" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tools2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Poulpe2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataTables" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="extensions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Responsive" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tools2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Poulpe2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataTables" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="extensions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Responsive" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tools2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Poulpe2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="classes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="classes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Users" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="classes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FileSystem" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="options.lastSelected" value="preferences.sourceCode" />
+    <property name="options.lastSelected" value="preferences.pluginManager" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -989,31 +1337,31 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="32" y="-8" width="1896" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328125" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33046287" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297062" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32700893" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19477694" sideWeight="0.50053936" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32615715" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24972796" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20402612" sideWeight="0.49946064" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297062" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21367522" sideWeight="0.49946064" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19477694" sideWeight="0.50053936" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32700893" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.206041" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="61" y="424" width="1838" height="191" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32615715" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Assets" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="CSS Styles" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.399137" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.399137" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1113,28 +1461,6 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/classes/Components/Help.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="12" selection-start="461" selection-end="461" vertical-scroll-proportion="-13.75" vertical-offset="0" max-vertical-offset="540" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/less/external/font-awesome/font-awesome.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="882" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/less/external/font-awesome/variables.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="27" selection-start="321" selection-end="321" vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="7815" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Components/Item.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="35" selection-start="2096" selection-end="2096" vertical-scroll-proportion="-10.75" vertical-offset="942" max-vertical-offset="1515">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classes/Forms/Field.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="210" column="53" selection-start="7068" selection-end="7068" vertical-scroll-proportion="-11.166667" vertical-offset="2762" max-vertical-offset="5190" />
@@ -1147,9 +1473,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Modules/Module.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="295" column="150" selection-start="8520" selection-end="8520" vertical-scroll-proportion="-9.291667" vertical-offset="3917" max-vertical-offset="8205">
-          <folding />
-        </state>
+        <state line="295" column="150" selection-start="8520" selection-end="8520" vertical-scroll-proportion="-9.291667" vertical-offset="3917" max-vertical-offset="8205" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Docs/Poulpe2/views/render.php">
@@ -1204,75 +1528,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/PostIt/PostIt.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="373" column="60" selection-start="15512" selection-end="15512" vertical-scroll-proportion="0.0" vertical-offset="5595" max-vertical-offset="6885">
-          <folding />
-        </state>
+        <state line="373" column="60" selection-start="15512" selection-end="15512" vertical-scroll-proportion="0.0" vertical-offset="5595" max-vertical-offset="6885" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Admin/Admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="55" selection-start="1076" selection-end="1076" vertical-scroll-proportion="0.0" vertical-offset="930" max-vertical-offset="9210">
-          <folding />
-        </state>
+        <state line="62" column="55" selection-start="1076" selection-end="1076" vertical-scroll-proportion="0.0" vertical-offset="930" max-vertical-offset="9210" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/less/internal/front.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="795">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="795" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/less/internal/help.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="573">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="573" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/less/internal/fixes.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="573">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="13" selection-start="110" selection-end="110" vertical-scroll-proportion="0.0" vertical-offset="950" max-vertical-offset="1485">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Modules/Transmission/Transmission.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="158" column="0" selection-start="5420" selection-end="5470" vertical-scroll-proportion="0.0" vertical-offset="2370" max-vertical-offset="8550">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="573" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/less/poulpe2.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="25" selection-start="628" selection-end="628" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="570">
-          <folding />
-        </state>
+        <state line="25" column="25" selection-start="628" selection-end="628" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="570" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/less/external/yeti-variables.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="773" column="42" selection-start="23700" selection-end="23783" vertical-scroll-proportion="0.0" vertical-offset="11389" max-vertical-offset="12045">
-          <folding />
-        </state>
+        <state line="773" column="42" selection-start="23700" selection-end="23783" vertical-scroll-proportion="0.0" vertical-offset="11389" max-vertical-offset="12045" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/less/internal/variables.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="21" selection-start="667" selection-end="667" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="1200">
-          <folding />
-        </state>
+        <state line="24" column="21" selection-start="667" selection-end="667" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="1200" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/UsersTraces/UsersTraces.js">
@@ -1282,30 +1573,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/UsersTraces/UsersTraces.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="763" selection-end="1190" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="2880">
-          <folding />
-        </state>
+        <state line="32" column="0" selection-start="763" selection-end="1190" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="2880" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/DataTables/plugins/sorting/file-size.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="578" selection-end="578" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/poulpe2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="265" column="21" selection-start="8655" selection-end="8672" vertical-scroll-proportion="0.0" vertical-offset="3880" max-vertical-offset="4545">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="30" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="195">
-          <folding />
-        </state>
+        <state line="18" column="0" selection-start="578" selection-end="578" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Get.php">
@@ -1315,93 +1588,183 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Front.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="324" column="28" selection-start="9515" selection-end="9515" vertical-scroll-proportion="0.0" vertical-offset="4860" max-vertical-offset="6135">
-          <folding />
-        </state>
+        <state line="324" column="28" selection-start="9515" selection-end="9515" vertical-scroll-proportion="0.0" vertical-offset="4860" max-vertical-offset="6135" />
       </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/mbstring.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="588" column="9" selection-start="18768" selection-end="18768" vertical-scroll-proportion="0.5" vertical-offset="8391" max-vertical-offset="18870">
-          <folding />
-        </state>
+        <state line="588" column="9" selection-start="18768" selection-end="18768" vertical-scroll-proportion="0.5" vertical-offset="8391" max-vertical-offset="18870" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Check.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="4" selection-start="1825" selection-end="1825" vertical-scroll-proportion="-21.375" vertical-offset="582" max-vertical-offset="1440">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Sanitize.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="293" column="45" selection-start="10002" selection-end="10002" vertical-scroll-proportion="-13.791667" vertical-offset="3959" max-vertical-offset="4965">
+        <state line="78" column="4" selection-start="1825" selection-end="1825" vertical-scroll-proportion="0.0" vertical-offset="1170" max-vertical-offset="1515">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/ModuleCreator/ModuleCreator.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="1" selection-start="0" selection-end="3189" vertical-scroll-proportion="-32.0" vertical-offset="552" max-vertical-offset="1410">
+        <state line="97" column="1" selection-start="0" selection-end="3189" vertical-scroll-proportion="0.0" vertical-offset="1455" max-vertical-offset="1545">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Users/Login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="162" column="37" selection-start="4245" selection-end="4245" vertical-scroll-proportion="-19.25" vertical-offset="1683" max-vertical-offset="5175">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Users/UsersManagement.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="40" selection-start="1725" selection-end="1725" vertical-scroll-proportion="-10.666667" vertical-offset="629" max-vertical-offset="2895">
-          <folding>
-            <marker date="1407411135336" expanded="true" signature="900:921" placeholder="SELECT * FRO..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/FileSystem/File.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="49" selection-start="1653" selection-end="1653" vertical-scroll-proportion="2.5" vertical-offset="810" max-vertical-offset="4995">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="141" column="226" selection-start="3848" selection-end="3848" vertical-scroll-proportion="-64.958336" vertical-offset="391" max-vertical-offset="2295">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/FileSystem/dfs_creds.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="12" selection-start="0" selection-end="53" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="135">
+        <state line="162" column="37" selection-start="4245" selection-end="4245" vertical-scroll-proportion="0.0" vertical-offset="2430" max-vertical-offset="5460">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/FileSystem/Fs.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="95" selection-start="250" selection-end="250" vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="6705">
+        <state line="15" column="95" selection-start="250" selection-end="250" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="6795">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Sanitize.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="170" column="35" selection-start="5928" selection-end="5928" vertical-scroll-proportion="0.0" vertical-offset="2550" max-vertical-offset="5115">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="5" selection-start="955" selection-end="955" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="2460">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Users/UsersManagement.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="40" selection-start="1725" selection-end="1725" vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="3030">
+          <folding>
+            <marker date="1407427690386" expanded="true" signature="900:921" placeholder="SELECT * FRO..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/TMDB/structures/Asset.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="34" selection-start="227" selection-end="227" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="765">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/TMDB/structures/Tv.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="37" selection-start="1045" selection-end="1045" vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="870">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/TMDB/structures/Movie.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="103" column="3" selection-start="2897" selection-end="3119" vertical-scroll-proportion="0.0" vertical-offset="1243" max-vertical-offset="2385">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/TMDB/Client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="134" column="0" selection-start="3840" selection-end="3840" vertical-scroll-proportion="0.0" vertical-offset="1728" max-vertical-offset="3165">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/Shutdown/Shutdown.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="156" column="39" selection-start="4466" selection-end="5745" vertical-scroll-proportion="0.0" vertical-offset="2340" max-vertical-offset="2925">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/Salsifis/Salsifis.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="16" selection-start="2110" selection-end="2110" vertical-scroll-proportion="0.0" vertical-offset="1275" max-vertical-offset="2835">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/Transmission/Torrent.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="415" column="39" selection-start="13646" selection-end="13646" vertical-scroll-proportion="-12.083333" vertical-offset="5815" max-vertical-offset="6660">
+        <state line="433" column="0" selection-start="14057" selection-end="14057" vertical-scroll-proportion="0.0" vertical-offset="6495" max-vertical-offset="6885">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/FileSystem/File.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="324" column="18" selection-start="9025" selection-end="9025" vertical-scroll-proportion="0.0" vertical-offset="4860" max-vertical-offset="5220">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/poulpe2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="265" column="4" selection-start="8655" selection-end="8655" vertical-scroll-proportion="0.0" vertical-offset="3666" max-vertical-offset="4545">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="27" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/DataTables/media/js/jquery.dataTables.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="511" column="53" selection-start="15299" selection-end="15299" vertical-scroll-proportion="0.0" vertical-offset="7665" max-vertical-offset="219420">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/Transmission/Transmission.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="387" column="17" selection-start="18097" selection-end="18097" vertical-scroll-proportion="-219.375" vertical-offset="135" max-vertical-offset="8145">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/DataTables/Readme.md">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="43" selection-start="434" selection-end="434" vertical-scroll-proportion="-1.92" vertical-offset="72" max-vertical-offset="885">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/DataTables/extensions/Responsive/css/dataTables.responsive.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1425">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/DataTables/plugins/integration/bootstrap/3/dataTables.bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4305">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="177" column="24" selection-start="5926" selection-end="5926" vertical-scroll-proportion="0.62267655" vertical-offset="2125" max-vertical-offset="4155">
+        <state line="49" column="98" selection-start="1726" selection-end="1726" vertical-scroll-proportion="-15.0" vertical-offset="150" max-vertical-offset="6525">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="45" selection-start="2551" selection-end="2551" vertical-scroll-proportion="0.375765" vertical-offset="443" max-vertical-offset="1485">
           <folding />
         </state>
       </provider>

@@ -47,7 +47,7 @@ class File {
 		if (file_exists($this->fullName)){
 			if ((!empty($filters) and in_array('extension', $filters)) or empty($filters)){
 				$this->extension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
-				if (empty($this->extension) and $this->type != 'folder') $this->extension = strtolower(end(explode('.', $this->name)));
+				if (empty($this->extension) and !is_dir($this->fullName)) $this->extension = strtolower(end(explode('.', $this->name)));
 			}
 			if ((!empty($filters) and in_array('writable', $filters)) or empty($filters)){
 				$this->writable = is_writable($this->fullName);
@@ -165,7 +165,10 @@ class File {
 				switch ($this->extension){
 					case 'ini':
 					case 'cfg':
-						$ext = 'Fichier de paramétrage';
+						$ext = 'Paramétrage';
+						break;
+					case 'nfo':
+						$ext = 'Information';
 						break;
 					default:
 						$ext = 'Fichier texte';
@@ -223,6 +226,9 @@ class File {
 			case 'application/x-debian-package':
 				$ext = 'Installeur';
 				break;
+			case 'audio/mpeg':
+				$ext = 'Musique';
+				break;
 			default:
 				if (preg_match('/text\/(html|x-.*)/i', $this->fullType)){
 					$ext = 'Fichier code';
@@ -277,7 +283,7 @@ class File {
 				return 'key';
 			case 'Fichier code':
 				return 'file-code-o';
-			case 'Fichier de paramétrage':
+			case 'Paramétrage':
 				return 'sliders';
 			case 'Installateur':
 				return 'download';
@@ -285,6 +291,8 @@ class File {
 				return 'hdd-o';
 			case 'Image':
 				return 'image';
+			case 'Information':
+				return 'info-circle';
 			case 'Raccourci':
 				return 'share-square-o';
 			case 'Document Word':
@@ -293,6 +301,8 @@ class File {
 				return 'file-excel-o';
 			case 'Document Powerpoint':
 				return 'file-powerpoint-o';
+			case 'Musique':
+				return 'music';
 			case 'PDF':
 				return 'file-pdf-o';
 			case 'Vidéo':

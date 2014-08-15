@@ -429,9 +429,14 @@ Class Torrent{
 		  'BRRip'       => '',
 		  'BDRip'       => '',
 		  'HDrip'       => '',
+			'RERiP'       => '',
 		  'mHD'         => '',
-		  'HDLIGHT'     => '',
+			' HD '        => '',
+			'HDLIGHT'     => '',
 		  'WEB.DL'      => '',
+			'WEB-DL'      => '',
+			'PS3'         => '',
+			'XBOX360'     => '',
 		  'TRUEFRENCH'  => 'Fr',
 		  'french'      => 'Fr',
 			'.'           => ' ',
@@ -440,6 +445,8 @@ Class Torrent{
 		$name =  str_ireplace(array_keys($replace), array_values($replace), $this->name);
 		// On vire les indications de qualité indiquées au début du nom (elles sont présentes en milieu de nom)
 		$name = preg_replace('/^\[\s?\d*p\]/i', '', $name);
+		// On vire les noms à la noix entre accolades à la fin du fichier
+		$name = preg_replace('/\[[^\]\[\d]*\]$/i', '', $name);
 		// Et on vire les noms à la noix en fin de torrent
 		return trim(preg_replace('/(-.\S*)$/i', '', $name));
 	}

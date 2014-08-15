@@ -19,6 +19,13 @@ use Modules\Module;
 use Modules\ModulesManagement;
 use Users\ACL;
 
+/**
+ * Module d'arrêt-relance du système
+ *
+ * @link <http://yatb.giacomodrago.com/en/post/10/shutdown-linux-system-from-within-php-script.html>
+ *
+ * @package Modules\Shutdown
+ */
 class Shutdown extends Module{
 	protected $name = 'Extinction/Redémarrage';
 	protected $title = 'Eteindre ou redémarrer le serveur';

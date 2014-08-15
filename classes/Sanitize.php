@@ -163,11 +163,14 @@ class Sanitize {
 	 */
 	public static function timeDuration($time){
 		$s = $time % 60;
-		$m = (floor(($time%3600)/60)>0)?floor(($time%3600)/60).' minutes' : '';
-		$h = (floor(($time % 86400) / 3600)>0)?floor(($time % 86400) / 3600).' heures' : '';
-		$d = (floor(($time % 2592000) / 86400)>0)?floor(($time % 2592000) / 86400).' jours' : '';
+		$m = (floor(($time%3600)/60)>0)?floor(($time%3600)/60) : '';
+		if (!empty($m)) $m .= ' minute'.(($m != 1) ? 's' : '');
+		$h = (floor(($time % 86400) / 3600)>0)?floor(($time % 86400) / 3600) : '';
+		if (!empty($h)) $h .= ' heure'.(($h != 1) ? 's' : '');
+		$d = (floor(($time % 2592000) / 86400)>0)?floor(($time % 2592000) / 86400) : '';
+		if (!empty($d)) $d .= ' jour'.(($d != 1) ? 's' : '');
 		$M = (floor($time / 2592000)>0)?floor($time / 2592000).' mois' : '';
-		return $M.' '.$d.' '.$h.' '.$m.' et '.$s.' secondes';
+		return $M.' '.$d.' '.$h.' '.$m.' et '.$s.' seconde'.(($s != 1) ? 's': '');
 	}
 
 	/**
