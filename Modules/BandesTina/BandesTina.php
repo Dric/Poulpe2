@@ -284,7 +284,7 @@ class BandesTina extends Module{
 		$tab = explode('\\', $path);
 		$server = $tab[0];
 		unset($tab[0]);
-		$cmd = 'cat </dev/null | winexe --interactive=0 -U '.$this->tinaServerAdminLogin.'%'.$this->tinaServerAdminPwd.' //'.$server.' "cmd /C C:\Progra~1\Atempo\tina\Bin\tina_library_control -library '.$this->settings['tinaLibrary']->getValue().' -identity '.$this->tinaServerAdminLogin.':'.$this->tinaServerAdminPwd.' -reinit_barcode"';
+		$cmd = 'cat </dev/null | winexe --interactive=0 -U '.$this->settings['tinaServerAdminLogin']->getValue().'%'.$this->settings['tinaServerAdminPwd']->getValue().' //'.$server.' "cmd /C C:\Progra~1\Atempo\tina\Bin\tina_library_control -library '.$this->settings['tinaLibrary']->getValue().' -identity '.$this->settings['tinaServerAdminLogin']->getValue().':'.$this->settings['tinaServerAdminPwd']->getValue().' -reinit_barcode"';
 		$ret = shell_exec($cmd);
 
 		$share = new Fs('\\\\'.$server.'\c$\program files\atempo\tina\adm', null, end(explode('\\', get_class())));
