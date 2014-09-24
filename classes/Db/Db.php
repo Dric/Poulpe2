@@ -24,6 +24,29 @@ use Sanitize;
  *
  * La connexion est ouverte à l'initialisation de la classe, et est fermée automatiquement à la fin du script.
  *
+ * Si les identifiants de connexion à la base de données ne sont pas indiqués, le script prend les paramètres dans `config.php`.
+ *
+ * <h4>Exemples</h4>
+ * <code>
+ * use Db\Db;
+ * $db = new Db('mysql', 'localhost', 'dbName', 'DbUser', 'DbPwd');
+ * </code>
+ *
+ * <code>
+ * use Db\Db;
+ * $db = new Db();
+ * </code>
+ *
+ * Une variable globale `$db` est déclarée au début du script. Si vous souhaitez utiliser un accès à la base de données principale dans une méthode, utilisez :
+ * <code>
+ * global $db;
+ * </code>
+ *
+ * Vous pourrez ensuite utiliser l'objet `$db` :
+ * <code>
+ * $items = $db->get('table');
+ * </code>
+ *
  * @package Db
  */
 class Db {
@@ -73,6 +96,8 @@ class Db {
 	/**
 	 * Connexion à une base de données
 	 *
+	 * Si les arguments de connexion ne sont pas indiqués, le script ira les chercher dans le fichier `config.php`.
+	 *
 	 * @param string $type Type de bdd
 	 * @param string $dbServer Nom du serveur hébergeant la bdd
 	 * @param string $dbName Nom de la bdd
@@ -98,12 +123,17 @@ class Db {
 	 *
 	 * WARNING : la requête est lancée telle quelle, elle doit être protégée avant
 	 *
+	 * <h4>Exemple</h4>
+	 * <code>
+	 * $ret = $db->query('SELECT * FROM Table WHERE name = "Bob"');
+	 * </code>
+	 *
 	 * @param string $sql requête SQL
-	 * @param string $get Renvoie
-	 * 'row' une ligne
-	 * 'col' une colonne
-	 * 'all' un tableau de résultat
-	 * 'val' une valeur
+	 * @param string $get Renvoie <br>
+	 * 'row' une ligne <br>
+	 * 'col' une colonne <br>
+	 * 'all' un tableau de résultat <br>
+	 * 'val' une valeur <br>
 	 *
 	 * @return object|bool Résultat de la requête
 	 */
@@ -138,21 +168,31 @@ class Db {
 	/**
 	 * Retourne des lignes de la base de données
 	 *
+	 * <h4>Exemple</h4>
+	 * <code>
+	 * // Retourne les Id et les noms des lignes dont le nom est Bob, trié par Id décroissante
+	 * $fields = array('id', 'name');
+	 * $where = array('name' => 'Bob');
+	 * $orderBy = array('id' => 'DESC);
+	 * $items = $db->get('table', $fields, $where, $orderBy);
+	 * </code>
+	 *
 	 * @param string       $table Table sur laquelle effectuer la requête
-	 * @param string|array $fields Champs à retourner
-	 * - tableau array('champ1', 'champ2')
-	 * - '*' pour tous les champs de la table
-	 * - 'all' pour tous les champs de la table
-	 * - null pour tous les champs de la table
+	 * @param string|array $fields Champs à retourner <br>
+	 *  - tableau array('champ1', 'champ2') <br>
+	 *  - '*' pour tous les champs de la table <br>
+	 *  - 'all' pour tous les champs de la table <br>
+	 *  - null pour tous les champs de la table
 	 * @param array        $where Conditions de la requête de la forme array('champ' => valeur)
 	 * @param array        $orderBy Tableau de tri, de la forme array('champ' => 'ordre de tri (ASC, DESC)')
-	 * @param string       $get Renvoie :
-	 * - 'row' une ligne
-	 * - 'col' une colonne
-	 * - 'all' un tableau de résultat
-	 * - 'val' une valeur
+	 * @param string       $get Renvoie : <br>
+	 *  - 'row' une ligne <br>
+	 *  - 'col' une colonne <br>
+	 *  - 'all' un tableau de résultat <br>
+	 *  - 'val' une valeur <br>
 	 *
 	 * @return object|bool
+	 *
 	 */
 	public function get($table, $fields = null, $where = null, $orderBy = null, $get = 'all'){
 		if (!empty($where) and !is_array($where)){
@@ -193,13 +233,21 @@ class Db {
 	/**
 	 * Retourne une ligne d'une requête SQL
 	 *
+	 * <h4>Exemple</h4>
+	 * <code>
+	 * // Retourne l'Id et le nom de la ligne dont le nom est Bob
+	 * $fields = array('id', 'name');
+	 * $where = array('name' => 'Bob');
+	 * $items = $db->getRow('table', $fields, $where);
+	 * </code>
+	 *
 	 * @param string       $table Table sur laquelle effectuer la requête
-	 * @param string|array $fields Champs à retourner
-	 * - tableau array('champ1', 'champ2')
-	 * - 'champ' pour un seul champ de la table
-	 * - '*' pour tous les champs de la table
-	 * - 'all' pour tous les champs de la table
-	 * - null pour tous les champs de la table
+	 * @param string|array $fields Champs à retourner <br>
+	 * - tableau array('champ1', 'champ2') <br>
+	 * - 'champ' pour un seul champ de la table <br>
+	 * - '*' pour tous les champs de la table <br>
+	 * - 'all' pour tous les champs de la table <br>
+	 * - null pour tous les champs de la table <br>
 	 * @param array $where Conditions de la requête de la forme array('champ' => valeur)
 	 * @param array $orderBy Tableau de tri, de la forme array('champ' => 'ordre de tri (ASC, DESC)')
 	 *
@@ -210,32 +258,22 @@ class Db {
 	}
 
 	/**
-	 * Retourne une colonne d'une requête SQL
-	 * @param string $table Table sur laquelle effectuer la requête
-	 * @param string|array $field Champ à retourner
-	 * - tableau array('champ1', 'champ2')
-	 * - 'champ' pour un seul champ de la table
-	 * - '*' pour tous les champs de la table
-	 * - 'all' pour tous les champs de la table
-	 * - null pour tous les champs de la table
-	 * @param array $where Conditions de la requête de la forme array('champ' => valeur)
-	 * @param array $orderBy Tableau de tri, de la forme array('champ' => 'ordre de tri (ASC, DESC)')
-	 *
-	 * @return object
-	 */
-	public function getCol($table, $field, $where = null, $orderBy = null){
-		return $this->get($table, $field, $where, $orderBy, 'col');
-	}
-
-	/**
 	 * Retourne une valeur d'une requête SQL
+	 *
+	 * <h4>Exemple</h4>
+	 * <code>
+	 * // Retourne l'Id de la ligne dont le nom est Bob
+	 * $where = array('name' => 'Bob');
+	 * $id = $db->getVal('table', 'id', $where);
+	 * </code>
+	 *
 	 * @param string $table Table sur laquelle effectuer la requête
-	 * @param string|array $field Champ à retourner
-	 * - tableau array('champ1', 'champ2')
-	 * - 'champ' pour un seul champ de la table
-	 * - '*' pour tous les champs de la table
-	 * - 'all' pour tous les champs de la table
-	 * - null pour tous les champs de la table
+	 * @param string|array $field Champ à retourner <br>
+	 * - tableau array('champ1', 'champ2') <br>
+	 * - 'champ' pour un seul champ de la table <br>
+	 * - '*' pour tous les champs de la table <br>
+	 * - 'all' pour tous les champs de la table <br>
+	 * - null pour tous les champs de la table <br>
 	 * @param array $where Conditions de la requête de la forme array('champ' => valeur)
 	 * @param array $orderBy Tableau de tri, de la forme array('champ' => 'ordre de tri (ASC, DESC)')
 	 *
@@ -247,6 +285,15 @@ class Db {
 
 	/**
 	 * Insère une ligne dans une table SQL
+	 *
+	 * <h4>Exemple</h4>
+	 * <code>
+	 * // Insère une ligne dans la table
+	 * $fields = array( 'name'    => 'Bob',
+	 *                  'active'  => true
+	 *              );
+	 * $ret = $db->insert('table', $fields, array('active' => 'bool'));
+	 * </code>
 	 *
 	 * @param string $table Table SQL
 	 * @param array  $fields Champs et valeurs à insérer, de la forme 'champ' => valeur
@@ -336,6 +383,8 @@ class Db {
 
 	/**
 	 * Supprime des enregistrements dans une table
+	 *
+	 *
 	 * @param string $table Table dans laquelle supprimer les enregistrements
 	 * @param array $where Critères de suppression, de la forme 'champ' => valeur
 	 *
@@ -374,6 +423,7 @@ class Db {
 
 	/**
 	 * Retourne le typage d'un champ suivant un tableau de typage
+	 *
 	 * @param string $field Champ dont on veut retourner le type
 	 * @param array $formatArray Tableau des typages de la forme 'champ' => type
 	 *
@@ -406,6 +456,7 @@ class Db {
 
 	/**
 	 * Retourne le nombre de requêtes effectuées
+	 *
 	 * @return int
 	 */
 	public function getQueriesCount() {

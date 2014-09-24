@@ -118,6 +118,45 @@
 <p>La connexion est ouverte à l'initialisation de la classe, et est fermée
 automatiquement à la fin du script.</p>
 
+<p>Si les identifiants de connexion à la base de données ne sont pas
+indiqués, le script prend les paramètres dans <code>config.php</code>.</p>
+
+<h4>Exemples</h4>
+
+<pre>
+<span class="php-keyword1">use</span> Db\Db;
+<span
+class="php-var">$db</span> = <span class="php-keyword1">new</span> Db(<span
+class="php-quote">'mysql'</span>, <span
+class="php-quote">'localhost'</span>, <span
+class="php-quote">'dbName'</span>, <span
+class="php-quote">'DbUser'</span>, <span
+class="php-quote">'DbPwd'</span>);
+</pre>
+
+<pre>
+<span class="php-keyword1">use</span> Db\Db;
+<span
+class="php-var">$db</span> = <span class="php-keyword1">new</span> Db();
+</pre>
+
+<p>Une variable globale <code>$db</code> est déclarée au début du script. Si
+vous souhaitez utiliser un accès à la base de données principale dans une
+méthode, utilisez :</p>
+
+<pre>
+<span class="php-keyword1">global</span> <span
+class="php-var">$db</span>;
+</pre>
+
+<p>Vous pourrez ensuite utiliser l'objet <code>$db</code> :</p>
+
+<pre>
+<span class="php-var">$items</span> = <span
+class="php-var">$db</span>-&gt;get(<span
+class="php-quote">'table'</span>);
+</pre>
+
 	</div>
 
 
@@ -134,7 +173,7 @@ automatiquement à la fin du script.</p>
 		<b>Namespace:</b> <a href="namespace-Db.html">Db</a><br />
 		<b>Package:</b> Db<br />
 
-		<b>Located at</b> <a href="source-class-Db.Db.html#22-414" title="Go to source code">classes/Db/Db.php</a><br />
+		<b>Located at</b> <a href="source-class-Db.Db.html#22-465" title="Go to source code">classes/Db/Db.php</a><br />
 	</div>
 
 
@@ -152,7 +191,7 @@ automatiquement à la fin du script.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#___construct">#</a>
-			<code><a href="source-class-Db.Db.html#73-94" title="Go to source code">__construct</a>( <span>string <var>$type</var> = <span class="php-quote">''</span></span>, <span>string <var>$dbServer</var> = <span class="php-quote">''</span></span>, <span>string <var>$dbName</var> = <span class="php-quote">''</span></span>, <span>string <var>$dbLogin</var> = <span class="php-quote">''</span></span>, <span>string <var>$dbPwd</var> = <span class="php-quote">''</span></span> )</code>
+			<code><a href="source-class-Db.Db.html#96-119" title="Go to source code">__construct</a>( <span>string <var>$type</var> = <span class="php-quote">''</span></span>, <span>string <var>$dbServer</var> = <span class="php-quote">''</span></span>, <span>string <var>$dbName</var> = <span class="php-quote">''</span></span>, <span>string <var>$dbLogin</var> = <span class="php-quote">''</span></span>, <span>string <var>$dbPwd</var> = <span class="php-quote">''</span></span> )</code>
 
 			<div class="description short">
 				
@@ -163,6 +202,9 @@ automatiquement à la fin du script.</p>
 			<div class="description detailed hidden">
 				
 <p>Connexion à une base de données</p>
+
+<p>Si les arguments de connexion ne sont pas indiqués, le script ira les
+chercher dans le fichier <code>config.php</code>.</p>
 
 
 
@@ -198,7 +240,7 @@ automatiquement à la fin du script.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_query">#</a>
-			<code><a href="source-class-Db.Db.html#96-136" title="Go to source code">query</a>( <span>string <var>$sql</var></span>, <span>string <var>$get</var> = <span class="php-quote">'all'</span></span> )</code>
+			<code><a href="source-class-Db.Db.html#121-166" title="Go to source code">query</a>( <span>string <var>$sql</var></span>, <span>string <var>$get</var> = <span class="php-quote">'all'</span></span> )</code>
 
 			<div class="description short">
 				
@@ -213,6 +255,14 @@ automatiquement à la fin du script.</p>
 <p>WARNING : la requête est lancée telle quelle, elle doit être protégée
 avant</p>
 
+<h4>Exemple</h4>
+
+<pre>
+<span class="php-var">$ret</span> = <span
+class="php-var">$db</span>-&gt;query(<span
+class="php-quote">'SELECT * FROM Table WHERE name = &quot;Bob&quot;'</span>);
+</pre>
+
 
 
 					<h4>Parameters</h4>
@@ -220,8 +270,12 @@ avant</p>
 						<dt><var>$sql</var></dt>
 						<dd><code>string</code><br>$sql requête SQL</dd>
 						<dt><var>$get</var></dt>
-						<dd><code>string</code><br>$get Renvoie 'row' une ligne 'col' une colonne 'all' un tableau de résultat
-'val' une valeur</dd>
+						<dd><code>string</code><br>$get Renvoie<br />
+'row' une ligne<br />
+'col' une colonne<br />
+'all' un tableau de résultat<br />
+'val' une valeur<br />
+</dd>
 					</dl></div>
 
 					<h4>Returns</h4>
@@ -246,7 +300,7 @@ avant</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_get">#</a>
-			<code><a href="source-class-Db.Db.html#138-191" title="Go to source code">get</a>( <span>string <var>$table</var></span>, <span>string|array <var>$fields</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$where</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$orderBy</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$get</var> = <span class="php-quote">'all'</span></span> )</code>
+			<code><a href="source-class-Db.Db.html#168-231" title="Go to source code">get</a>( <span>string <var>$table</var></span>, <span>string|array <var>$fields</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$where</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$orderBy</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$get</var> = <span class="php-quote">'all'</span></span> )</code>
 
 			<div class="description short">
 				
@@ -258,6 +312,26 @@ avant</p>
 				
 <p>Retourne des lignes de la base de données</p>
 
+<h4>Exemple</h4>
+
+<pre>
+<span
+class="php-comment">// Retourne les Id et les noms des lignes dont le nom est Bob, trié par Id décroissante</span>
+<span
+class="php-var">$fields</span> = <span class="php-keyword1">array</span>(<span
+class="php-quote">'id'</span>, <span class="php-quote">'name'</span>);
+<span
+class="php-var">$where</span> = <span class="php-keyword1">array</span>(<span
+class="php-quote">'name'</span> =&gt; <span
+class="php-quote">'Bob'</span>);
+<span class="php-var">$orderBy</span> = <span
+class="php-keyword1">array</span>(<span
+class="php-quote">'id'</span> =&gt; <span
+class="php-quote">'DESC);
+$items = $db-&gt;get('</span>table<span
+class="php-quote">', $fields, $where, $orderBy);
+</span></pre>
+
 
 
 					<h4>Parameters</h4>
@@ -265,17 +339,23 @@ avant</p>
 						<dt><var>$table</var></dt>
 						<dd><code>string</code><br>$table Table sur laquelle effectuer la requête</dd>
 						<dt><var>$fields</var></dt>
-						<dd><code>string|array</code><br>$fields Champs à retourner - tableau array('champ1', 'champ2') - '*' pour tous
-les champs de la table - 'all' pour tous les champs de la table - null pour tous
-les champs de la table</dd>
+						<dd><code>string|array</code><br>$fields Champs à retourner<br />
+- tableau array('champ1', 'champ2')<br />
+- '*' pour tous les champs de la table<br />
+- 'all' pour tous les champs de la table<br />
+- null pour tous les champs de la table</dd>
 						<dt><var>$where</var></dt>
 						<dd><code>array</code><br>$where Conditions de la requête de la forme array('champ' =&gt; valeur)</dd>
 						<dt><var>$orderBy</var></dt>
 						<dd><code>array</code><br>$orderBy Tableau de tri, de la forme array('champ' =&gt; 'ordre de tri (ASC,
 DESC)')</dd>
 						<dt><var>$get</var></dt>
-						<dd><code>string</code><br>$get Renvoie : - 'row' une ligne - 'col' une colonne - 'all' un tableau de
-résultat - 'val' une valeur</dd>
+						<dd><code>string</code><br>$get Renvoie :<br />
+- 'row' une ligne<br />
+- 'col' une colonne<br />
+- 'all' un tableau de résultat<br />
+- 'val' une valeur<br />
+</dd>
 					</dl></div>
 
 					<h4>Returns</h4>
@@ -300,7 +380,7 @@ résultat - 'val' une valeur</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getRow">#</a>
-			<code><a href="source-class-Db.Db.html#193-210" title="Go to source code">getRow</a>( <span>string <var>$table</var></span>, <span>string|array <var>$fields</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$where</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$orderBy</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-Db.Db.html#233-258" title="Go to source code">getRow</a>( <span>string <var>$table</var></span>, <span>string|array <var>$fields</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$where</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$orderBy</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				
@@ -311,6 +391,24 @@ résultat - 'val' une valeur</dd>
 			<div class="description detailed hidden">
 				
 <p>Retourne une ligne d'une requête SQL</p>
+
+<h4>Exemple</h4>
+
+<pre>
+<span
+class="php-comment">// Retourne l'Id et le nom de la ligne dont le nom est Bob</span>
+<span
+class="php-var">$fields</span> = <span class="php-keyword1">array</span>(<span
+class="php-quote">'id'</span>, <span class="php-quote">'name'</span>);
+<span
+class="php-var">$where</span> = <span class="php-keyword1">array</span>(<span
+class="php-quote">'name'</span> =&gt; <span
+class="php-quote">'Bob'</span>);
+<span class="php-var">$items</span> = <span
+class="php-var">$db</span>-&gt;getRow(<span
+class="php-quote">'table'</span>, <span class="php-var">$fields</span>, <span
+class="php-var">$where</span>);
+</pre>
 
 
 
@@ -319,60 +417,13 @@ résultat - 'val' une valeur</dd>
 						<dt><var>$table</var></dt>
 						<dd><code>string</code><br>$table Table sur laquelle effectuer la requête</dd>
 						<dt><var>$fields</var></dt>
-						<dd><code>string|array</code><br>$fields Champs à retourner - tableau array('champ1', 'champ2') - 'champ' pour
-un seul champ de la table - '*' pour tous les champs de la table - 'all' pour
-tous les champs de la table - null pour tous les champs de la table</dd>
-						<dt><var>$where</var></dt>
-						<dd><code>array</code><br>$where Conditions de la requête de la forme array('champ' =&gt; valeur)</dd>
-						<dt><var>$orderBy</var></dt>
-						<dd><code>array</code><br>$orderBy Tableau de tri, de la forme array('champ' =&gt; 'ordre de tri (ASC,
-DESC)')</dd>
-					</dl></div>
-
-					<h4>Returns</h4>
-					<div class="list">
-						<code>object</code><br />
-					</div>
-
-
-
-
-			</div>
-			</div></td>
-		</tr>
-		<tr data-order="getCol" id="_getCol">
-
-			<td class="attributes"><code>
-				 public 
-				object
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_getCol">#</a>
-			<code><a href="source-class-Db.Db.html#212-228" title="Go to source code">getCol</a>( <span>string <var>$table</var></span>, <span>string|array <var>$field</var></span>, <span>array <var>$where</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$orderBy</var> = <span class="php-keyword1">null</span></span> )</code>
-
-			<div class="description short">
-				
-<p>Retourne une colonne d'une requête SQL</p>
-
-			</div>
-
-			<div class="description detailed hidden">
-				
-<p>Retourne une colonne d'une requête SQL</p>
-
-
-
-					<h4>Parameters</h4>
-					<div class="list"><dl>
-						<dt><var>$table</var></dt>
-						<dd><code>string</code><br>$table Table sur laquelle effectuer la requête</dd>
-						<dt><var>$field</var></dt>
-						<dd><code>string|array</code><br>$field Champ à retourner - tableau array('champ1', 'champ2') - 'champ' pour un
-seul champ de la table - '*' pour tous les champs de la table - 'all' pour tous
-les champs de la table - null pour tous les champs de la table</dd>
+						<dd><code>string|array</code><br>$fields Champs à retourner<br />
+- tableau array('champ1', 'champ2')<br />
+- 'champ' pour un seul champ de la table<br />
+- '*' pour tous les champs de la table<br />
+- 'all' pour tous les champs de la table<br />
+- null pour tous les champs de la table<br />
+</dd>
 						<dt><var>$where</var></dt>
 						<dd><code>array</code><br>$where Conditions de la requête de la forme array('champ' =&gt; valeur)</dd>
 						<dt><var>$orderBy</var></dt>
@@ -402,7 +453,7 @@ DESC)')</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getVal">#</a>
-			<code><a href="source-class-Db.Db.html#230-246" title="Go to source code">getVal</a>( <span>string <var>$table</var></span>, <span>string|array <var>$field</var></span>, <span>array <var>$where</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$orderBy</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-Db.Db.html#260-284" title="Go to source code">getVal</a>( <span>string <var>$table</var></span>, <span>string|array <var>$field</var></span>, <span>array <var>$where</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$orderBy</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				
@@ -414,6 +465,21 @@ DESC)')</dd>
 				
 <p>Retourne une valeur d'une requête SQL</p>
 
+<h4>Exemple</h4>
+
+<pre>
+<span
+class="php-comment">// Retourne l'Id de la ligne dont le nom est Bob</span>
+<span
+class="php-var">$where</span> = <span class="php-keyword1">array</span>(<span
+class="php-quote">'name'</span> =&gt; <span
+class="php-quote">'Bob'</span>);
+<span class="php-var">$id</span> = <span
+class="php-var">$db</span>-&gt;getVal(<span
+class="php-quote">'table'</span>, <span class="php-quote">'id'</span>, <span
+class="php-var">$where</span>);
+</pre>
+
 
 
 					<h4>Parameters</h4>
@@ -421,9 +487,13 @@ DESC)')</dd>
 						<dt><var>$table</var></dt>
 						<dd><code>string</code><br>$table Table sur laquelle effectuer la requête</dd>
 						<dt><var>$field</var></dt>
-						<dd><code>string|array</code><br>$field Champ à retourner - tableau array('champ1', 'champ2') - 'champ' pour un
-seul champ de la table - '*' pour tous les champs de la table - 'all' pour tous
-les champs de la table - null pour tous les champs de la table</dd>
+						<dd><code>string|array</code><br>$field Champ à retourner<br />
+- tableau array('champ1', 'champ2')<br />
+- 'champ' pour un seul champ de la table<br />
+- '*' pour tous les champs de la table<br />
+- 'all' pour tous les champs de la table<br />
+- null pour tous les champs de la table<br />
+</dd>
 						<dt><var>$where</var></dt>
 						<dd><code>array</code><br>$where Conditions de la requête de la forme array('champ' =&gt; valeur)</dd>
 						<dt><var>$orderBy</var></dt>
@@ -453,7 +523,7 @@ DESC)')</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_insert">#</a>
-			<code><a href="source-class-Db.Db.html#248-281" title="Go to source code">insert</a>( <span>string <var>$table</var></span>, <span>array <var>$fields</var></span>, <span>array <var>$format</var> = <span class="php-keyword1">array</span>()</span> )</code>
+			<code><a href="source-class-Db.Db.html#286-328" title="Go to source code">insert</a>( <span>string <var>$table</var></span>, <span>array <var>$fields</var></span>, <span>array <var>$format</var> = <span class="php-keyword1">array</span>()</span> )</code>
 
 			<div class="description short">
 				
@@ -464,6 +534,26 @@ DESC)')</dd>
 			<div class="description detailed hidden">
 				
 <p>Insère une ligne dans une table SQL</p>
+
+<h4>Exemple</h4>
+
+<pre>
+<span class="php-comment">// Insère une ligne dans la table</span>
+<span
+class="php-var">$fields</span> = <span class="php-keyword1">array</span>( <span
+class="php-quote">'name'</span>    =&gt; <span
+class="php-quote">'Bob'</span>,
+                 <span
+class="php-quote">'active'</span>  =&gt; <span
+class="php-keyword1">true</span>
+             );
+<span
+class="php-var">$ret</span> = <span class="php-var">$db</span>-&gt;insert(<span
+class="php-quote">'table'</span>, <span class="php-var">$fields</span>, <span
+class="php-keyword1">array</span>(<span
+class="php-quote">'active'</span> =&gt; <span
+class="php-quote">'bool'</span>));
+</pre>
 
 
 
@@ -500,7 +590,7 @@ $where, de la forme 'champ' =&gt; type (int, float, bool, string, null)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_update">#</a>
-			<code><a href="source-class-Db.Db.html#283-335" title="Go to source code">update</a>( <span>string <var>$table</var></span>, <span>array <var>$updates</var></span>, <span>array <var>$where</var></span>, <span>array <var>$format</var> = <span class="php-keyword1">array</span>()</span> )</code>
+			<code><a href="source-class-Db.Db.html#330-382" title="Go to source code">update</a>( <span>string <var>$table</var></span>, <span>array <var>$updates</var></span>, <span>array <var>$where</var></span>, <span>array <var>$format</var> = <span class="php-keyword1">array</span>()</span> )</code>
 
 			<div class="description short">
 				
@@ -549,7 +639,7 @@ $where, de la forme 'champ' =&gt; type (int, float, bool, string, null)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_delete">#</a>
-			<code><a href="source-class-Db.Db.html#337-373" title="Go to source code">delete</a>( <span>string <var>$table</var></span>, <span>array <var>$where</var></span> )</code>
+			<code><a href="source-class-Db.Db.html#384-422" title="Go to source code">delete</a>( <span>string <var>$table</var></span>, <span>array <var>$where</var></span> )</code>
 
 			<div class="description short">
 				
@@ -593,7 +683,7 @@ $where, de la forme 'champ' =&gt; type (int, float, bool, string, null)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getType">#</a>
-			<code><a href="source-class-Db.Db.html#375-405" title="Go to source code">getType</a>( <span>string <var>$field</var></span>, <span>array <var>$formatArray</var></span> )</code>
+			<code><a href="source-class-Db.Db.html#424-455" title="Go to source code">getType</a>( <span>string <var>$field</var></span>, <span>array <var>$formatArray</var></span> )</code>
 
 			<div class="description short">
 				
@@ -637,7 +727,7 @@ $where, de la forme 'champ' =&gt; type (int, float, bool, string, null)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getQueriesCount">#</a>
-			<code><a href="source-class-Db.Db.html#407-413" title="Go to source code">getQueriesCount</a>( )</code>
+			<code><a href="source-class-Db.Db.html#457-464" title="Go to source code">getQueriesCount</a>( )</code>
 
 			<div class="description short">
 				
@@ -685,7 +775,7 @@ $where, de la forme 'champ' =&gt; type (int, float, bool, string, null)</dd>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Db.Db.html#31-35" title="Go to source code"><var>$type</var></a>
+					<a href="source-class-Db.Db.html#54-58" title="Go to source code"><var>$type</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$type" class="anchor">#</a>
@@ -711,7 +801,7 @@ $where, de la forme 'champ' =&gt; type (int, float, bool, string, null)</dd>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Db.Db.html#37-41" title="Go to source code"><var>$dbServer</var></a>
+					<a href="source-class-Db.Db.html#60-64" title="Go to source code"><var>$dbServer</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$dbServer" class="anchor">#</a>
@@ -737,7 +827,7 @@ $where, de la forme 'champ' =&gt; type (int, float, bool, string, null)</dd>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Db.Db.html#43-47" title="Go to source code"><var>$dbName</var></a>
+					<a href="source-class-Db.Db.html#66-70" title="Go to source code"><var>$dbName</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$dbName" class="anchor">#</a>
@@ -763,7 +853,7 @@ $where, de la forme 'champ' =&gt; type (int, float, bool, string, null)</dd>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Db.Db.html#49-53" title="Go to source code"><var>$dbLogin</var></a>
+					<a href="source-class-Db.Db.html#72-76" title="Go to source code"><var>$dbLogin</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$dbLogin" class="anchor">#</a>
@@ -789,7 +879,7 @@ $where, de la forme 'champ' =&gt; type (int, float, bool, string, null)</dd>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Db.Db.html#55-59" title="Go to source code"><var>$dbPwd</var></a>
+					<a href="source-class-Db.Db.html#78-82" title="Go to source code"><var>$dbPwd</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$dbPwd" class="anchor">#</a>
@@ -815,7 +905,7 @@ $where, de la forme 'champ' =&gt; type (int, float, bool, string, null)</dd>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Db.Db.html#61-65" title="Go to source code"><var>$db</var></a>
+					<a href="source-class-Db.Db.html#84-88" title="Go to source code"><var>$db</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$db" class="anchor">#</a>
@@ -841,7 +931,7 @@ $where, de la forme 'champ' =&gt; type (int, float, bool, string, null)</dd>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Db.Db.html#67-71" title="Go to source code"><var>$queriesCount</var></a>
+					<a href="source-class-Db.Db.html#90-94" title="Go to source code"><var>$queriesCount</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$queriesCount" class="anchor">#</a>

@@ -6,199 +6,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b517d7b-6e6e-44e4-a303-f637474520ff" name="Default" comment="- Datatables mis à jour en 1.10.2&#10;- Améliorations du module FileBrowser avec intégration de l'API de tmdb.org pour récupérer les informations sur les films ou les épisodes de séries TV&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/Readme.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Modules/FileBrowser/TMDB/structures/Asset.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Modules/FileBrowser/TMDB/Client.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Modules/FileBrowser/TMDB/structures/Collection.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Modules/FileBrowser/TMDB/structures/Company.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Modules/FileBrowser/TMDB/structures/Genre.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Modules/FileBrowser/TMDB/structures/Movie.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Modules/FileBrowser/TMDB/structures/Person.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Modules/FileBrowser/TMDB/structures/Tv.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/initialisation/ajax.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/ajax.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/display-control/auto.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/styling/bootstrap.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/initialisation/className.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/display-control/classes.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/child-rows/column-control.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/examples/styling/compact.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/child-rows/custom-renderer.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/css/dataTables.responsive.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/js/dataTables.responsive.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/js/dataTables.responsive.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/css/dataTables.responsive.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/child-rows/disable-child-rows.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/styling/foundation.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/child-rows/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/display-control/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/initialisation/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/styling/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/display-control/init-classes.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/jqueryui.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/initialisation/new.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/initialisation/option.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/child-rows/right-column.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Responsive/examples/child-rows/whole-row-control.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/FileSystem/File.php" afterPath="$PROJECT_DIR$/classes/FileSystem/File.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.php" afterPath="$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Ldap/Connection.php" afterPath="$PROJECT_DIR$/classes/Ldap/Connection.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Db/Db.php" afterPath="$PROJECT_DIR$/classes/Db/Db.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Db/DbFieldSettings.php" afterPath="$PROJECT_DIR$/classes/Db/DbFieldSettings.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Db/DbTable.php" afterPath="$PROJECT_DIR$/classes/Db/DbTable.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Ldap/Ldap.php" afterPath="$PROJECT_DIR$/classes/Ldap/Ldap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/PostIt/PostIt.php" afterPath="$PROJECT_DIR$/Modules/PostIt/PostIt.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/Readme.md" afterPath="$PROJECT_DIR$/js/DataTables/Readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/Salsifis/Salsifis.php" afterPath="$PROJECT_DIR$/Modules/Salsifis/Salsifis.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Sanitize.php" afterPath="$PROJECT_DIR$/classes/Sanitize.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/Shutdown/Shutdown.php" afterPath="$PROJECT_DIR$/Modules/Shutdown/Shutdown.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/Transmission/Torrent.php" afterPath="$PROJECT_DIR$/Modules/Transmission/Torrent.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/Transmission/Transmission.php" afterPath="$PROJECT_DIR$/Modules/Transmission/Transmission.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/api/add_row.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/api/add_row.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/data_sources/ajax.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/data_sources/ajax.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/alt_pagination.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/alt_pagination.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/alter_buttons.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/alter_buttons.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/plug-ins/api.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/plug-ins/api.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/api/api_in_init.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/api/api_in_init.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/Scroller/examples/api_scrolling.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Scroller/examples/api_scrolling.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/styling/bootstrap.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/styling/bootstrap.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/FixedColumns/examples/bootstrap.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/FixedColumns/examples/bootstrap.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/bootstrap.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/bootstrap.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/bower.json" afterPath="$PROJECT_DIR$/js/DataTables/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/button_text.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/button_text.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/styling/cell-border.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/styling/cell-border.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/collection.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/collection.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/column_render.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/column_render.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/comma-decimal.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/comma-decimal.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/complex_header.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/complex_header.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/complex_header.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/complex_header.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/composer.json" afterPath="$PROJECT_DIR$/js/DataTables/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/api/counter_columns.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/api/counter_columns.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/ajax/custom_data_flat.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/ajax/custom_data_flat.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/ajax/custom_data_property.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/ajax/custom_data_property.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/server_side/custom_vars.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/server_side/custom_vars.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/AutoFill/js/dataTables.autoFill.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/AutoFill/js/dataTables.autoFill.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/AutoFill/js/dataTables.autoFill.min.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/AutoFill/js/dataTables.autoFill.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/ColReorder/js/dataTables.colReorder.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/ColReorder/js/dataTables.colReorder.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/ColReorder/js/dataTables.colReorder.min.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/ColReorder/js/dataTables.colReorder.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/ColVis/css/dataTables.colVis.css" afterPath="$PROJECT_DIR$/js/DataTables/extensions/ColVis/css/dataTables.colVis.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/ColVis/js/dataTables.colVis.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/ColVis/js/dataTables.colVis.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/ColVis/css/dataTables.colVis.min.css" afterPath="$PROJECT_DIR$/js/DataTables/extensions/ColVis/css/dataTables.colVis.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/ColVis/js/dataTables.colVis.min.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/ColVis/js/dataTables.colVis.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/FixedColumns/js/dataTables.fixedColumns.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/FixedColumns/js/dataTables.fixedColumns.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/FixedColumns/js/dataTables.fixedColumns.min.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/FixedColumns/js/dataTables.fixedColumns.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/FixedHeader/js/dataTables.fixedHeader.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/FixedHeader/js/dataTables.fixedHeader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/FixedHeader/js/dataTables.fixedHeader.min.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/FixedHeader/js/dataTables.fixedHeader.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/dataTables.jquery.json" afterPath="$PROJECT_DIR$/js/DataTables/dataTables.jquery.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/KeyTable/js/dataTables.keyTable.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/KeyTable/js/dataTables.keyTable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/KeyTable/js/dataTables.keyTable.min.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/KeyTable/js/dataTables.keyTable.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/Scroller/js/dataTables.scroller.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Scroller/js/dataTables.scroller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/Scroller/js/dataTables.scroller.min.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Scroller/js/dataTables.scroller.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/js/dataTables.tableTools.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/js/dataTables.tableTools.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/js/dataTables.tableTools.min.js" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/js/dataTables.tableTools.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/ajax/deep.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/ajax/deep.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/defaults.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/defaults.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/defaults.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/defaults.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/server_side/defer_loading.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/server_side/defer_loading.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/ajax/defer_render.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/ajax/defer_render.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/resources/demo.css" afterPath="$PROJECT_DIR$/js/DataTables/examples/resources/demo.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/styling/display.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/styling/display.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/dom.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/dom.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/data_sources/dom.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/data_sources/dom.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/dom_multiple_elements.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/dom_multiple_elements.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/plug-ins/dom_sort.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/plug-ins/dom_sort.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/dom_toolbar.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/dom_toolbar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/dt_events.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/dt_events.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/KeyTable/examples/events.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/KeyTable/examples/events.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/events_live.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/events_live.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/filter_only.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/filter_only.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/ColReorder/examples/fixedcolumns.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/ColReorder/examples/fixedcolumns.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/flexible_width.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/flexible_width.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/footer_callback.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/footer_callback.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/api/form.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/api/form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/styling/foundation.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/styling/foundation.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/hidden_columns.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/hidden_columns.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/api/highlight.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/api/highlight.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/styling/hover.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/styling/hover.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/KeyTable/examples/html.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/KeyTable/examples/html.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/html5-data-attributes.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/html5-data-attributes.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/server_side/ids.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/server_side/ids.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/index.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/api/index.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/api/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/styling/index.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/styling/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/KeyTable/examples/index.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/KeyTable/examples/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/index.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/media/css/jquery.dataTables.css" afterPath="$PROJECT_DIR$/js/DataTables/media/css/jquery.dataTables.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/media/js/jquery.dataTables.js" afterPath="$PROJECT_DIR$/js/DataTables/media/js/jquery.dataTables.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/media/css/jquery.dataTables.min.css" afterPath="$PROJECT_DIR$/js/DataTables/media/css/jquery.dataTables.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/media/js/jquery.dataTables.min.js" afterPath="$PROJECT_DIR$/js/DataTables/media/js/jquery.dataTables.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/media/js/jquery.js" afterPath="$PROJECT_DIR$/js/DataTables/media/js/jquery.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/styling/jqueryUI.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/styling/jqueryUI.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/ColReorder/examples/jqueryui.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/ColReorder/examples/jqueryui.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/ColVis/examples/jqueryui.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/ColVis/examples/jqueryui.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/data_sources/js_array.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/data_sources/js_array.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/server_side/jsonp.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/server_side/jsonp.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/language.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/language.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/language_file.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/language_file.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/length_menu.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/length_menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/multi_col_sort.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/multi_col_sort.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/api/multi_filter.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/api/multi_filter.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/api/multi_filter_select.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/api/multi_filter_select.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/multi_instance.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/multi_instance.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/multiple_tables.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/multiple_tables.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/multiple_tables.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/multiple_tables.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/new_init.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/new_init.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/styling/no-classes.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/styling/no-classes.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/ajax/null_data_source.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/ajax/null_data_source.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/server_side/object_data.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/server_side/object_data.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/ajax/objects.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/ajax/objects.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/ajax/objects_subarrays.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/ajax/objects_subarrays.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/styling/order-column.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/styling/order-column.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/ajax/orthogonal-data.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/ajax/orthogonal-data.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/package.json" afterPath="$PROJECT_DIR$/js/DataTables/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/pdf_message.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/pdf_message.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/server_side/pipeline.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/server_side/pipeline.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/plug-in.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/plug-in.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/server_side/post.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/server_side/post.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/plug-ins/range_filtering.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/plug-ins/range_filtering.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/api/regex.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/api/regex.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/ColVis/examples/restore.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/ColVis/examples/restore.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/styling/row-border.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/styling/row-border.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/row_callback.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/row_callback.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/api/row_details.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/api/row_details.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/server_side/row_details.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/server_side/row_details.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/row_grouping.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/row_grouping.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/scroll_x.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/scroll_x.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/scroll_xy.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/scroll_xy.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/scroll_y.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/scroll_y.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/scroll_y_theme.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/scroll_y_theme.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/KeyTable/examples/scrolling.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/KeyTable/examples/scrolling.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/select_column.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/select_column.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/select_multi.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/select_multi.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/select_os.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/select_os.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/api/select_row.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/api/select_row.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/server_side/select_rows.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/server_side/select_rows.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/select_single.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/select_single.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/api/select_single_row.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/api/select_single_row.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/Scroller/examples/server-side_processing.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/Scroller/examples/server-side_processing.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/data_sources/server_side.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/data_sources/server_side.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/resources/syntax/shCore.js" afterPath="$PROJECT_DIR$/js/DataTables/examples/resources/syntax/shCore.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/api/show_hide.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/api/show_hide.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/ajax/simple.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/ajax/simple.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/server_side/simple.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/server_side/simple.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/KeyTable/examples/simple.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/KeyTable/examples/simple.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/simple.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/simple.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/sort_direction_control.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/advanced_init/sort_direction_control.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/plug-ins/sorting_auto.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/plug-ins/sorting_auto.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/plug-ins/sorting_manual.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/plug-ins/sorting_manual.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/server_side/scripts/ssp.class.php" afterPath="$PROJECT_DIR$/js/DataTables/examples/server_side/scripts/ssp.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/state_save.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/state_save.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/styling/stripe.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/styling/stripe.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/swf_path.html" afterPath="$PROJECT_DIR$/js/DataTables/extensions/TableTools/examples/swf_path.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/table_sorting.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/table_sorting.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/api/tabs_and_scrolling.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/api/tabs_and_scrolling.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Db.Db.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Db.Db.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-FileSystem.File.html" afterPath="$PROJECT_DIR$/Docs/Code/class-FileSystem.File.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/class-Sanitize.html" afterPath="$PROJECT_DIR$/Docs/Code/class-Sanitize.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Db.Db.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Db.Db.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-FileSystem.File.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-FileSystem.File.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Code/source-class-Sanitize.html" afterPath="$PROJECT_DIR$/Docs/Code/source-class-Sanitize.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DataTables/examples/basic_init/zero_configuration.html" afterPath="$PROJECT_DIR$/js/DataTables/examples/basic_init/zero_configuration.html" />
     </list>
     <ignored path="tools2.iws" />
     <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="false" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,186 +45,209 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Transmission.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Transmission.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Modules/Transmission/Transmission.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="387" column="17" selection-start="18097" selection-end="18097" vertical-scroll-proportion="-219.375" vertical-offset="135" max-vertical-offset="8145">
+            <state vertical-scroll-proportion="0.0" vertical-offset="5400" max-vertical-offset="8145">
+              <caret line="387" column="17" selection-start-line="387" selection-start-column="17" selection-end-line="387" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Readme.md" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Readme.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/DataTables/Readme.md">
-          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="885">
+              <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
             <state />
           </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="43" selection-start="434" selection-end="434" vertical-scroll-proportion="-1.92" vertical-offset="72" max-vertical-offset="885">
-              <folding />
-            </state>
-          </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileBrowser.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="FileBrowser.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="98" selection-start="1726" selection-end="1726" vertical-scroll-proportion="-15.0" vertical-offset="150" max-vertical-offset="6525">
+            <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="6525">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="45" selection-start="2551" selection-end="2551" vertical-scroll-proportion="0.375765" vertical-offset="443" max-vertical-offset="1485">
+            <state vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="1485">
+              <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dataTables.responsive.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="BandesTina.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Modules/BandesTina/BandesTina.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="4080" max-vertical-offset="4755">
+              <caret line="287" column="28" selection-start-line="287" selection-start-column="28" selection-end-line="287" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Db.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/Db/Db.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2745" max-vertical-offset="6855">
+              <caret line="196" column="20" selection-start-line="196" selection-start-column="20" selection-end-line="196" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EventsManager.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/Logs/EventsManager.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1920">
+              <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Connection.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/Ldap/Connection.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="2130">
+              <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Ldap.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/Ldap/Ldap.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1395" max-vertical-offset="3900">
+              <caret line="103" column="4" selection-start-line="103" selection-start-column="4" selection-end-line="103" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/Settings/config.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1710">
+              <caret line="36" column="7" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dataTables.responsive.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/DataTables/extensions/Responsive/css/dataTables.responsive.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="1425">
+            <state vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="1425">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dataTables.bootstrap.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="dataTables.bootstrap.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/DataTables/plugins/integration/bootstrap/3/dataTables.bootstrap.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="3467" max-vertical-offset="4305">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3467" max-vertical-offset="4305">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Salsifis.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Modules/Salsifis/Salsifis.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="85" column="16" selection-start="2110" selection-end="2110" vertical-scroll-proportion="0.0" vertical-offset="1275" max-vertical-offset="2835">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Shutdown.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Modules/Shutdown/Shutdown.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="156" column="39" selection-start="4466" selection-end="5745" vertical-scroll-proportion="0.0" vertical-offset="2340" max-vertical-offset="2925">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Client.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/TMDB/Client.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="134" column="0" selection-start="3840" selection-end="3840" vertical-scroll-proportion="0.0" vertical-offset="1728" max-vertical-offset="3165">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Movie.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/TMDB/structures/Movie.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="103" column="3" selection-start="2897" selection-end="3119" vertical-scroll-proportion="0.0" vertical-offset="1243" max-vertical-offset="2385">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Asset.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/TMDB/structures/Asset.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="34" selection-start="227" selection-end="227" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="765">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Tv.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/TMDB/structures/Tv.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="37" selection-start="1045" selection-end="1045" vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="870">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="File.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/FileSystem/File.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="324" column="18" selection-start="9025" selection-end="9025" vertical-scroll-proportion="0.0" vertical-offset="4860" max-vertical-offset="5220">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Torrent.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Torrent.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Modules/Transmission/Torrent.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="433" column="0" selection-start="14057" selection-end="14057" vertical-scroll-proportion="0.0" vertical-offset="6495" max-vertical-offset="6885">
+            <state vertical-scroll-proportion="0.0" vertical-offset="6105" max-vertical-offset="6765">
+              <caret line="415" column="21" selection-start-line="415" selection-start-column="21" selection-end-line="415" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UsersManagement.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/Users/UsersManagement.php">
+      <file leaf-file-name="PostIt.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Modules/PostIt/PostIt.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="40" selection-start="1725" selection-end="1725" vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="3030">
+            <state vertical-scroll-proportion="3.125" vertical-offset="2370" max-vertical-offset="6825">
+              <caret line="158" column="0" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
               <folding>
-                <marker date="1407427690386" expanded="true" signature="900:921" placeholder="SELECT * FRO..." />
+                <element signature="e#124#144#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="poulpe2.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/poulpe2.js">
+      <file leaf-file-name="DenyAppAccess.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Modules/DenyAppAccess/DenyAppAccess.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="265" column="4" selection-start="8655" selection-end="8655" vertical-scroll-proportion="0.0" vertical-offset="3975" max-vertical-offset="4575">
+            <state vertical-scroll-proportion="-9.375" vertical-offset="585" max-vertical-offset="5430">
+              <caret line="81" column="131" selection-start-line="81" selection-start-column="131" selection-end-line="81" selection-end-column="131" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Sanitize.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/Sanitize.php">
+      <file leaf-file-name="DbFieldSettings.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/Db/DbFieldSettings.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="170" column="35" selection-start="5928" selection-end="5928" vertical-scroll-proportion="0.0" vertical-offset="2550" max-vertical-offset="5115">
+            <state vertical-scroll-proportion="-21.375" vertical-offset="822" max-vertical-offset="2430">
+              <caret line="94" column="80" selection-start-line="94" selection-start-column="80" selection-end-line="94" selection-end-column="80" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Post.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Modules/PostIt/Post.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="1620">
+              <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DbTable.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/classes/Db/DbTable.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.31553975" vertical-offset="2359" max-vertical-offset="5670">
+              <caret line="183" column="21" selection-start-line="183" selection-start-column="21" selection-end-line="183" selection-end-column="21" />
+              <folding>
+                <marker date="1411560148572" expanded="true" signature="3518:3564" placeholder="CREATE TABLE..IF..." />
+                <marker date="1411560148572" expanded="true" signature="7554:7585" placeholder="INSERT INTO ..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Field.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/Forms/Field.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.583333" vertical-offset="154" max-vertical-offset="5190">
+              <caret line="40" column="12" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="5" selection-start="955" selection-end="955" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="2460">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FileBrowser.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="27" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="195">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jquery.dataTables.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/DataTables/media/js/jquery.dataTables.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="511" column="53" selection-start="15299" selection-end="15299" vertical-scroll-proportion="0.0" vertical-offset="7665" max-vertical-offset="219420">
+            <state vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="2295">
+              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -421,13 +271,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Docs/Poulpe2/library/Organisation du module/Modèle de module.md" />
-        <option value="$PROJECT_DIR$/cache/index.html" />
-        <option value="$PROJECT_DIR$/classes/Front.php" />
-        <option value="$PROJECT_DIR$/css/less/bootstrap3/bootstrap.less" />
-        <option value="$PROJECT_DIR$/css/less/poulpe2.less" />
-        <option value="$PROJECT_DIR$/Docs/Bootstrap/about.html" />
-        <option value="$PROJECT_DIR$/classes/Components/Help.php" />
         <option value="$PROJECT_DIR$/css/less/external/font-awesome/variables.less" />
         <option value="$PROJECT_DIR$/classes/Components/Item.php" />
         <option value="$PROJECT_DIR$/classes/Forms/Field.php" />
@@ -444,7 +287,6 @@
         <option value="$PROJECT_DIR$/js/pnotify/jquery.pnotify.min.js" />
         <option value="$PROJECT_DIR$/Modules/CHGS/CHGS.php" />
         <option value="$PROJECT_DIR$/Modules/Mailboxes/Mailboxes.php" />
-        <option value="$PROJECT_DIR$/Modules/PostIt/PostIt.php" />
         <option value="$PROJECT_DIR$/classes/Admin/Admin.php" />
         <option value="$PROJECT_DIR$/Modules/ModuleCreator/ModuleCreator.php" />
         <option value="$PROJECT_DIR$/css/less/internal/variables.less" />
@@ -471,7 +313,15 @@
         <option value="$PROJECT_DIR$/Modules/Transmission/Transmission.php" />
         <option value="$PROJECT_DIR$/js/DataTables/Readme.md" />
         <option value="$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.php" />
+        <option value="$PROJECT_DIR$/Modules/BandesTina/BandesTina.php" />
+        <option value="$PROJECT_DIR$/classes/Db/Db.php" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/classes/Ldap/Connection.php" />
+        <option value="$PROJECT_DIR$/classes/Ldap/Ldap.php" />
+        <option value="$PROJECT_DIR$/Modules/PostIt/PostIt.php" />
+        <option value="$PROJECT_DIR$/Modules/DenyAppAccess/DenyAppAccess.php" />
+        <option value="$PROJECT_DIR$/classes/Db/DbFieldSettings.php" />
+        <option value="$PROJECT_DIR$/classes/Db/DbTable.php" />
       </list>
     </option>
   </component>
@@ -482,10 +332,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
+    <option name="x" value="32" />
     <option name="y" value="-8" />
-    <option name="width" value="1696" />
-    <option name="height" value="1026" />
+    <option name="width" value="1896" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -586,7 +436,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -598,6 +448,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -612,7 +463,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Poulpe2" />
+              <option name="myItemId" value="tools2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -622,7 +473,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Poulpe2" />
+              <option name="myItemId" value="tools2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -636,7 +487,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Poulpe2" />
+              <option name="myItemId" value="tools2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -644,7 +495,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Transmission" />
+              <option name="myItemId" value="PostIt" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -654,7 +505,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Poulpe2" />
+              <option name="myItemId" value="tools2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -662,7 +513,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Shutdown" />
+              <option name="myItemId" value="DenyAppAccess" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -672,7 +523,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Poulpe2" />
+              <option name="myItemId" value="tools2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -680,7 +531,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Salsifis" />
+              <option name="myItemId" value="BandesTina" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -690,325 +541,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Poulpe2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FileBrowser" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
               <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Poulpe2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FileBrowser" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TMDB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Poulpe2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FileBrowser" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TMDB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="structures" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Poulpe2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Poulpe2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DataTables" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Poulpe2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DataTables" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Poulpe2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DataTables" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="integration" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Poulpe2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DataTables" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="integration" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bootstrap" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Poulpe2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DataTables" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="integration" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bootstrap" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Poulpe2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DataTables" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="extensions" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Poulpe2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DataTables" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="extensions" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Responsive" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Poulpe2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DataTables" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="extensions" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Responsive" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Poulpe2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DataTables" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="extensions" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Responsive" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Poulpe2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -1016,9 +549,44 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tools2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tools2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ldap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tools2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tools2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Db" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1070,7 +638,7 @@
     <configuration default="true" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server">
       <method />
     </configuration>
-    <configuration default="true" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="CHROME" server_name="srv-intratest" start_url="/test/admin/tools2">
+    <configuration default="true" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" server_name="srv-intratest" start_url="/test/admin/tools2">
       <method />
     </configuration>
     <configuration default="true" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug" server_name="srv-intratest">
@@ -1082,7 +650,7 @@
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
     <configuration default="true" type="XSLT" factoryName="XSLT">
@@ -1102,12 +670,6 @@
       <method />
     </configuration>
     <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="7cb34bf3-b1b8-42ed-9e88-da19eab67a27" server_name="srv-intratest">
-      <method />
-    </configuration>
-    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
-      <option name="VM_PARAMETERS" value="" />
-      <option name="USER_CFG_CLASS" />
-      <option name="CONTEXT_PROVIDER" />
       <method />
     </configuration>
     <list size="1">
@@ -1143,177 +705,268 @@
     <task active="true" id="Default" summary="Default task">
       <changelist id="0b517d7b-6e6e-44e4-a303-f637474520ff" name="Default" comment="" />
       <created>1394612367537</created>
+      <option name="number" value="Default" />
       <updated>1394612367537</updated>
     </task>
     <task id="LOCAL-00001" summary="Ajout d'un champ pour autoriser les utilisateurs à personnaliser les paramètres ayant la catégorie 'user'.">
       <created>1402584975120</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
       <updated>1402584975120</updated>
     </task>
     <task id="LOCAL-00002" summary="Ajout d'une vérification de config.php">
       <created>1402642711498</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
       <updated>1402642711498</updated>
     </task>
     <task id="LOCAL-00003" summary="+ Correction de caractères dans index.php&#10;&#10;+ Correction d'un bug dans ACL qui empêchait de récupérer les ACL.">
       <created>1402644203081</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
       <updated>1402644203081</updated>
     </task>
     <task id="LOCAL-00004" summary="Correction d'un warning dans la création de menu pour le module DenyAppAccess si celui-ci n'a pas d'applis référencées.">
       <created>1402644376729</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
       <updated>1402644376729</updated>
     </task>
     <task id="LOCAL-00005" summary="+ Correction d'un bug dans la déclaration d'index multiples dans la création d'une table dans la bdd.&#10;&#10;+ Correction d'une valeur d'auto-incrémentation dans install.md">
       <created>1402644814679</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
       <updated>1402644814679</updated>
     </task>
     <task id="LOCAL-00006" summary="+ Améliorations de détection d'erreurs dans le module BandesTina et changement de valeur par défaut pour le répertoire d'accès aux fichiers">
       <created>1402646264839</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
       <updated>1402646264839</updated>
     </task>
     <task id="LOCAL-00007" summary="Ajout d'une vérification sur les événements dans le module DenyAppAccess">
       <created>1402646471034</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
       <updated>1402646471034</updated>
     </task>
     <task id="LOCAL-00008" summary="Correction de la vérification sur les événements dans le module DenyAppAccess">
       <created>1402646858755</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
       <updated>1402646858755</updated>
     </task>
     <task id="LOCAL-00009" summary="Amélioration du visuel du formulaire de connexion">
       <created>1402647901824</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
       <updated>1402647901824</updated>
     </task>
     <task id="LOCAL-00010" summary="Ajout d'une case à cocher pour ne pas rester connecté après fermeture du navigateur.">
       <created>1403853350355</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
       <updated>1403853350355</updated>
     </task>
     <task id="LOCAL-00011" summary="Mise à jour de Bootstrap de la version 3.1.1 à 3.2.0">
       <created>1404123676926</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
       <updated>1404123676926</updated>
     </task>
     <task id="LOCAL-00012" summary="- Ajout de la possibilité de ne pas s'authentifier&#10;- Ajout de la possibilité de mettre un module donné en page d'accueil">
       <created>1404389270874</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
       <updated>1404389270874</updated>
     </task>
     <task id="LOCAL-00013" summary="- Ajout du module portal">
       <created>1404389334393</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
       <updated>1404389334393</updated>
     </task>
     <task id="LOCAL-00014" summary="- Réécriture complète des formulaires, une classe par type de champ">
       <created>1405065953088</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
       <updated>1405065953088</updated>
     </task>
     <task id="LOCAL-00015" summary="- Gestion possible des utilisateurs via sql (sans passer par un annuaire ldap)&#10;- Ajout automatique d'un jeton de sécurité sur les formulaires&#10;- Gestion automatique du jeton de sécurité pendant les traitements de formulaires&#10;- Affichage de création d'un utilisateur si l'authentification se fait via sql et qu'il n'y a pas encore d'utilisateurs dans la base.&#10;- Ecran de gestion des utilisateurs dans l'administration du site&#10;- Correction de bugs&#10;- Ajout et correction de doc dans le code&#10;">
       <created>1405517175266</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
       <updated>1405517175266</updated>
     </task>
     <task id="LOCAL-00016" summary="- Référence au nom de l'utilisateur courant supprimé dans la gestion du jeton de sécurité, afin de pouvoir s'en servir même si aucun utilisateur n'est connecté">
       <created>1405517994700</created>
+      <option name="number" value="00016" />
+      <option name="project" value="LOCAL" />
       <updated>1405517994700</updated>
     </task>
     <task id="LOCAL-00017" summary="- Correction d'un oubli de constante dans le fichier config.default.php&#10;- Correction des commandes SQL pour peupler la base de données à l'installation">
       <created>1405518357443</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
       <updated>1405518357443</updated>
     </task>
     <task id="LOCAL-00018" summary="- Suppression de l'argument $id dans les objets Field&#10;- Correction de bugs suite à l'ajout d'un jeton de sécurité dans les formulaires&#10;- Corrections de bugs&#10;- On peut maintenant choisir l'ordre d'affichage des Post-it dans le module Post-it.">
       <created>1405596378391</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
       <updated>1405596378391</updated>
     </task>
     <task id="LOCAL-00019" summary="- Correction d'un bug dans la classe Fs pour retrouver les métadonnées d'un fichier&#10;- Le fichier de config peut maintenant être modifié depuis l'admin en changeant dynamiquement les permissions et en les remettant une fois le fichier modifié.&#10;- Changement de l'ordre des arguments pour les objets JSSwitch, car les arguments les plus utilisés étaient passés en dernier&#10;- Suppression des jetons de sécurité au bout de 4 heures&#10;- Correction de bugs et améliorations diverses dans les modules&#10;">
       <created>1405604996847</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
       <updated>1405604996847</updated>
     </task>
     <task id="LOCAL-00020" summary="- Les champs importants sont maintenant entourés en jaune&#10;- Correction d'un bug sur les champs dans le module DenyAppAccess&#10;">
       <created>1405684844109</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
       <updated>1405684844109</updated>
     </task>
     <task id="LOCAL-00021" summary="- Classe Arg remplacée par une classe Filter&#10;- Corrections/améliorations de classes de champs de formulaires&#10;- Correction d'un bug à la connexion du premier utilisateur en authentification sql&#10;">
       <created>1405938010123</created>
+      <option name="number" value="00021" />
+      <option name="project" value="LOCAL" />
       <updated>1405938010123</updated>
     </task>
     <task id="LOCAL-00022" summary="- Corrections dans les classes Filter et Get&#10;">
       <created>1405939957868</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
       <updated>1405939957868</updated>
     </task>
     <task id="LOCAL-00023" summary="- Corrections dans la classe Filter">
       <created>1405941778667</created>
+      <option name="number" value="00023" />
+      <option name="project" value="LOCAL" />
       <updated>1405941778667</updated>
     </task>
     <task id="LOCAL-00024" summary="- Grosse mise à jour des commentaires de code&#10;- Ajout d'un type de champ de formulaire Time&#10;- Corrections de bugs&#10;- Ajout de scripts js pour la saisie de dates et heures&#10;&#10;">
       <created>1406277802139</created>
+      <option name="number" value="00024" />
+      <option name="project" value="LOCAL" />
       <updated>1406277802139</updated>
     </task>
     <task id="LOCAL-00025" summary="- Correction d'un bug dans Forms\Fields\Bool">
       <created>1406278671025</created>
+      <option name="number" value="00025" />
+      <option name="project" value="LOCAL" />
       <updated>1406278671025</updated>
     </task>
     <task id="LOCAL-00026" summary="- Correction d'un bug de chargement de js dans les champs Date et Time">
       <created>1406279650138</created>
+      <option name="number" value="00026" />
+      <option name="project" value="LOCAL" />
       <updated>1406279650138</updated>
     </task>
     <task id="LOCAL-00027" summary="- Amélioration de l'affichage de certains champs">
       <created>1406289907833</created>
+      <option name="number" value="00027" />
+      <option name="project" value="LOCAL" />
       <updated>1406289907833</updated>
     </task>
     <task id="LOCAL-00028" summary="- Modification des champs de formulaire à des fin de simplification d'usage.">
       <created>1406535508391</created>
+      <option name="number" value="00028" />
+      <option name="project" value="LOCAL" />
       <updated>1406535508391</updated>
     </task>
     <task id="LOCAL-00029" summary="- Ajout d'un pas d'incrémentation pour les champs Int et Float.">
       <created>1406537177664</created>
+      <option name="number" value="00029" />
+      <option name="project" value="LOCAL" />
       <updated>1406537177664</updated>
     </task>
     <task id="LOCAL-00030" summary="- Correction d'un bug dans le champs Int">
       <created>1406537349288</created>
+      <option name="number" value="00030" />
+      <option name="project" value="LOCAL" />
       <updated>1406537349288</updated>
     </task>
     <task id="LOCAL-00031" summary="- Les champs d'heure sont retournés en timestamp et plus en chaîne de caractères.">
       <created>1406537788244</created>
+      <option name="number" value="00031" />
+      <option name="project" value="LOCAL" />
       <updated>1406537788244</updated>
     </task>
     <task id="LOCAL-00032" summary="- Amélioration du champ checkboxList">
       <created>1406544087608</created>
+      <option name="number" value="00032" />
+      <option name="project" value="LOCAL" />
       <updated>1406544087608</updated>
     </task>
     <task id="LOCAL-00033" summary="- Amélioration du champ checkboxList">
       <created>1406553316339</created>
+      <option name="number" value="00033" />
+      <option name="project" value="LOCAL" />
       <updated>1406553316339</updated>
     </task>
     <task id="LOCAL-00034" summary="- Déplacement des fichiers Module.php et ModulesManagement.php&#10;- Modification de fonctionnement de poulpe2.less&#10;- Correction d'un bug sur les switchs bootstrap&#10;- Ajout d'une propriété `advChmod` pour récupérer les permissions avancées sur un fichier dans la classe Fs&#10;- Le paramètre de configuration du module de page d'accueil est maintenant changé en liste contenant tous les modules actifs.&#10;&#10;">
       <created>1406888972016</created>
+      <option name="number" value="00034" />
+      <option name="project" value="LOCAL" />
       <updated>1406888972016</updated>
     </task>
     <task id="LOCAL-00035" summary="- Ajout de la doc du code générée par ApiGen">
       <created>1406894815962</created>
+      <option name="number" value="00035" />
+      <option name="project" value="LOCAL" />
       <updated>1406894815962</updated>
     </task>
     <task id="LOCAL-00036" summary="- Changements de la récupération des ressources du serveur">
       <created>1406984704675</created>
+      <option name="number" value="00036" />
+      <option name="project" value="LOCAL" />
       <updated>1406984704675</updated>
     </task>
     <task id="LOCAL-00037" summary="- Classe serverResource utilisée par la module admin et Salsifis">
       <created>1406989848501</created>
+      <option name="number" value="00037" />
+      <option name="project" value="LOCAL" />
       <updated>1406989848501</updated>
     </task>
     <task id="LOCAL-00038" summary="- Changement dans les filtres du module Transmission&#10;- Ajout d'une fonction de rendu de durée.">
       <created>1407071674463</created>
+      <option name="number" value="00038" />
+      <option name="project" value="LOCAL" />
       <updated>1407071674463</updated>
     </task>
     <task id="LOCAL-00039" summary="- Utilisation de la fonction timeDuration dans le module Salsifis">
       <created>1407071921840</created>
+      <option name="number" value="00039" />
+      <option name="project" value="LOCAL" />
       <updated>1407071921840</updated>
     </task>
     <task id="LOCAL-00040" summary="- Correction d'un bug sur la mesure du CPU dans serverResource">
       <created>1407076508417</created>
+      <option name="number" value="00040" />
+      <option name="project" value="LOCAL" />
       <updated>1407076508417</updated>
     </task>
     <task id="LOCAL-00041" summary="- Ajout d'un module d'aide à la création de modules&#10;- Affichage de la version dans le panneau d'admin">
       <created>1407160938364</created>
+      <option name="number" value="00041" />
+      <option name="project" value="LOCAL" />
       <updated>1407160938364</updated>
     </task>
     <task id="LOCAL-00042" summary="- Utilisation de Font-Awesome en remplacement de Glyphicons.&#10;- Mise à jour de la doc du code et de README.md.">
       <created>1407227798487</created>
+      <option name="number" value="00042" />
+      <option name="project" value="LOCAL" />
       <updated>1407227798487</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="- Correction d'un bug dans le module BandesTina.&#10;">
+      <created>1410532939756</created>
+      <option name="number" value="00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1410532939756</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1337,59 +990,63 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="false" />
+    <frame x="32" y="-8" width="1896" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328125" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279396" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24972796" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297062" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21367522" sideWeight="0.49946064" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22252448" sideWeight="0.49946064" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19477694" sideWeight="0.50053936" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32700893" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.206041" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="61" y="424" width="1838" height="191" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32615715" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3257821" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Assets" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32901832" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="CSS Styles" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.399137" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.206041" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="61" y="424" width="1838" height="191" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Assets" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279396" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32901832" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="CSS Styles" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297062" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19477694" sideWeight="0.50053936" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3257821" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24972796" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19260065" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.206041" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="61" y="424" width="1838" height="191" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21817192" sideWeight="0.49946064" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.399137" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.206041" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="61" y="424" width="1838" height="191" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
       <collection />
     </option>
   </component>
@@ -1402,7 +1059,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="- Suppression de l'argument $id dans les objets Field&#10;- Correction de bugs suite à l'ajout d'un jeton de sécurité dans les formulaires&#10;- Corrections de bugs&#10;- On peut maintenant choisir l'ordre d'affichage des Post-it dans le module Post-it." />
     <MESSAGE value="- Correction d'un bug dans la classe Fs pour retrouver les métadonnées d'un fichier&#10;- Le fichier de config peut maintenant être modifié depuis l'admin en changeant dynamiquement les permissions et en les remettant une fois le fichier modifié.&#10;- Changement de l'ordre des arguments pour les objets JSSwitch, car les arguments les plus utilisés étaient passés en dernier&#10;- Suppression des jetons de sécurité au bout de 4 heures&#10;- Correction de bugs et améliorations diverses dans les modules&#10;" />
     <MESSAGE value="- Les champs importants sont maintenant entourés en jaune&#10;- Correction d'un bug sur les champs dans le module DenyAppAccess&#10;" />
     <MESSAGE value="- Classe Arg remplacée par une classe Filter&#10;- Corrections/améliorations de classes de champs de formulaires&#10;- Correction d'un bug à la connexion du premier utilisateur en authentification sql&#10;" />
@@ -1427,12 +1083,14 @@
     <MESSAGE value="- Ajout d'un module d'aide à la création de modules&#10;- Affichage de la version dans le panneau d'admin" />
     <MESSAGE value="- Utilisation de Font-Awesome en remplacement de Glyphicons.&#10;- Mise à jour de la doc du code et de README.md." />
     <MESSAGE value="- Contournement des limitations de php 32bits sur des fichiers ayant une taille supérieure à 2Go dans la classe \FileSystem\File.&#10;- L'authentification des partages samba est contenue dans un fichier dfs_creds qui doit être placé dans /classes/FileSystem&#10;- Doc de code mise à jour.&#10;- Salage du cookie modifié pour pouvoir conserver la connexion depuis différents postes simultanément.&#10;- Visualisation des fichiers texte corrigée et améliorée.&#10;&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Contournement des limitations de php 32bits sur des fichiers ayant une taille supérieure à 2Go dans la classe \FileSystem\File.&#10;- L'authentification des partages samba est contenue dans un fichier dfs_creds qui doit être placé dans /classes/FileSystem&#10;- Doc de code mise à jour.&#10;- Salage du cookie modifié pour pouvoir conserver la connexion depuis différents postes simultanément.&#10;- Visualisation des fichiers texte corrigée et améliorée.&#10;&#10;" />
+    <MESSAGE value="- Correction d'un bug dans le module BandesTina.&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Correction d'un bug dans le module BandesTina.&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <option name="time" value="7" />
     </breakpoint-manager>
+    <watches-manager />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <PATH>
@@ -1461,311 +1119,393 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/classes/Forms/Field.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="210" column="53" selection-start="7068" selection-end="7068" vertical-scroll-proportion="-11.166667" vertical-offset="2762" max-vertical-offset="5190" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Forms/Fields/Password.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="160" selection-start="2634" selection-end="2634" vertical-scroll-proportion="-15.208333" vertical-offset="355" max-vertical-offset="915" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Modules/Module.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="295" column="150" selection-start="8520" selection-end="8520" vertical-scroll-proportion="-9.291667" vertical-offset="3917" max-vertical-offset="8205" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Docs/Poulpe2/views/render.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="4" selection-start="1118" selection-end="1118" vertical-scroll-proportion="-7.625" vertical-offset="207" max-vertical-offset="2505" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Docs/Poulpe2/views/tree.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="83" selection-start="1414" selection-end="1414" vertical-scroll-proportion="-7.625" vertical-offset="372" max-vertical-offset="2190" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/bootstrap-datetimepicker.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="447" selection-start="2109" selection-end="2109" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1260" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/Bootstrap-Confirmation/bootstrap-confirmation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="31" selection-start="3099" selection-end="3099" vertical-scroll-proportion="0.0" vertical-offset="979" max-vertical-offset="3450" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/Bootstrap-Confirmation/bootstrap-confirmation.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="1426" selection-start="1672" selection-end="1672" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="105" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/pagedown-bootstrap/js/jquery.pagedown-bootstrap.combined.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="36782" selection-start="36782" selection-end="36782" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/pnotify/jquery.pnotify.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="37" selection-start="1752" selection-end="1752" vertical-scroll-proportion="-7.72" vertical-offset="17" max-vertical-offset="750" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Modules/CHGS/CHGS.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="255" selection-start="1692" selection-end="1692" vertical-scroll-proportion="-12.083333" vertical-offset="445" max-vertical-offset="1005" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/pnotify/jquery.pnotify.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="21" selection-start="2542" selection-end="2553" vertical-scroll-proportion="0.0" vertical-offset="819" max-vertical-offset="15225" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="819" max-vertical-offset="15225">
+          <caret line="88" column="21" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/Mailboxes/Mailboxes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="486" column="53" selection-start="15550" selection-end="15550" vertical-scroll-proportion="-7.75" vertical-offset="6804" max-vertical-offset="7905" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Modules/PostIt/PostIt.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="373" column="60" selection-start="15512" selection-end="15512" vertical-scroll-proportion="0.0" vertical-offset="5595" max-vertical-offset="6885" />
+        <state vertical-scroll-proportion="-7.75" vertical-offset="6804" max-vertical-offset="7905">
+          <caret line="486" column="53" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Admin/Admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="55" selection-start="1076" selection-end="1076" vertical-scroll-proportion="0.0" vertical-offset="930" max-vertical-offset="9210" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="930" max-vertical-offset="9210">
+          <caret line="62" column="55" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/less/internal/front.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="795" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="795">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/less/internal/help.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="573" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="573">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/less/internal/fixes.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="573" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="573">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/less/poulpe2.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="25" selection-start="628" selection-end="628" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="570" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="570">
+          <caret line="25" column="25" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/less/external/yeti-variables.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="773" column="42" selection-start="23700" selection-end="23783" vertical-scroll-proportion="0.0" vertical-offset="11389" max-vertical-offset="12045" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="11389" max-vertical-offset="12045">
+          <caret line="773" column="42" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/less/internal/variables.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="21" selection-start="667" selection-end="667" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="1200" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="1200">
+          <caret line="24" column="21" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/UsersTraces/UsersTraces.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="8" selection-start="952" selection-end="952" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
+          <caret line="21" column="8" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/UsersTraces/UsersTraces.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="763" selection-end="1190" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="2880" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="2880">
+          <caret line="32" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/DataTables/plugins/sorting/file-size.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="578" selection-end="578" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
+          <caret line="18" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Get.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="0" selection-start="2953" selection-end="2953" vertical-scroll-proportion="0.8360656" vertical-offset="966" max-vertical-offset="1515" />
+        <state vertical-scroll-proportion="0.8360656" vertical-offset="966" max-vertical-offset="1515">
+          <caret line="100" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Front.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="324" column="28" selection-start="9515" selection-end="9515" vertical-scroll-proportion="0.0" vertical-offset="4860" max-vertical-offset="6135" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="4860" max-vertical-offset="6135">
+          <caret line="324" column="28" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/mbstring.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="588" column="9" selection-start="18768" selection-end="18768" vertical-scroll-proportion="0.5" vertical-offset="8391" max-vertical-offset="18870" />
+        <state vertical-scroll-proportion="0.5" vertical-offset="8391" max-vertical-offset="18870">
+          <caret line="588" column="9" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Check.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="4" selection-start="1825" selection-end="1825" vertical-scroll-proportion="0.0" vertical-offset="1170" max-vertical-offset="1515">
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1170" max-vertical-offset="1515">
+          <caret line="78" column="4" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/ModuleCreator/ModuleCreator.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="1" selection-start="0" selection-end="3189" vertical-scroll-proportion="0.0" vertical-offset="1455" max-vertical-offset="1545">
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1455" max-vertical-offset="1545">
+          <caret line="97" column="1" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Users/Login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="162" column="37" selection-start="4245" selection-end="4245" vertical-scroll-proportion="0.0" vertical-offset="2430" max-vertical-offset="5460">
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2430" max-vertical-offset="5460">
+          <caret line="162" column="37" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/FileSystem/Fs.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="95" selection-start="250" selection-end="250" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="6795">
+        <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="6795">
+          <caret line="15" column="95" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Sanitize.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="170" column="35" selection-start="5928" selection-end="5928" vertical-scroll-proportion="0.0" vertical-offset="2550" max-vertical-offset="5115">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="5" selection-start="955" selection-end="955" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="2460">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2550" max-vertical-offset="5115">
+          <caret line="170" column="35" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Users/UsersManagement.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="40" selection-start="1725" selection-end="1725" vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="3030">
-          <folding>
-            <marker date="1407427690386" expanded="true" signature="900:921" placeholder="SELECT * FRO..." />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="3030">
+          <caret line="68" column="40" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/TMDB/structures/Asset.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="34" selection-start="227" selection-end="227" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="765">
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="765">
+          <caret line="9" column="34" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/TMDB/structures/Tv.php">
+    <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/TMDB/structures/TV.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="37" selection-start="1045" selection-end="1045" vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="870">
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="870">
+          <caret line="45" column="37" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/TMDB/structures/Movie.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="3" selection-start="2897" selection-end="3119" vertical-scroll-proportion="0.0" vertical-offset="1243" max-vertical-offset="2385">
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1243" max-vertical-offset="2385">
+          <caret line="103" column="3" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/TMDB/Client.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="0" selection-start="3840" selection-end="3840" vertical-scroll-proportion="0.0" vertical-offset="1728" max-vertical-offset="3165">
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1728" max-vertical-offset="3165">
+          <caret line="134" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/Shutdown/Shutdown.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="156" column="39" selection-start="4466" selection-end="5745" vertical-scroll-proportion="0.0" vertical-offset="2340" max-vertical-offset="2925">
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2340" max-vertical-offset="2925">
+          <caret line="156" column="39" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/Salsifis/Salsifis.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="16" selection-start="2110" selection-end="2110" vertical-scroll-proportion="0.0" vertical-offset="1275" max-vertical-offset="2835">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Modules/Transmission/Torrent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="433" column="0" selection-start="14057" selection-end="14057" vertical-scroll-proportion="0.0" vertical-offset="6495" max-vertical-offset="6885">
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1275" max-vertical-offset="2835">
+          <caret line="85" column="16" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/FileSystem/File.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="324" column="18" selection-start="9025" selection-end="9025" vertical-scroll-proportion="0.0" vertical-offset="4860" max-vertical-offset="5220">
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="4860" max-vertical-offset="5220">
+          <caret line="324" column="18" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/poulpe2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="265" column="4" selection-start="8655" selection-end="8655" vertical-scroll-proportion="0.0" vertical-offset="3666" max-vertical-offset="4545">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3945" max-vertical-offset="4545">
+          <caret line="265" column="4" selection-start-line="265" selection-start-column="4" selection-end-line="265" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="27" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
+        <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="195">
+          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/DataTables/media/js/jquery.dataTables.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="511" column="53" selection-start="15299" selection-end="15299" vertical-scroll-proportion="0.0" vertical-offset="7665" max-vertical-offset="219420">
+        <state vertical-scroll-proportion="0.0" vertical-offset="7635" max-vertical-offset="219390">
+          <caret line="511" column="53" selection-start-line="511" selection-start-column="53" selection-end-line="511" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/Transmission/Transmission.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="387" column="17" selection-start="18097" selection-end="18097" vertical-scroll-proportion="-219.375" vertical-offset="135" max-vertical-offset="8145">
+        <state vertical-scroll-proportion="0.0" vertical-offset="5400" max-vertical-offset="8145">
+          <caret line="387" column="17" selection-start-line="387" selection-start-column="17" selection-end-line="387" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/DataTables/Readme.md">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="43" selection-start="434" selection-end="434" vertical-scroll-proportion="-1.92" vertical-offset="72" max-vertical-offset="885">
+        <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="885">
+          <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/DataTables/extensions/Responsive/css/dataTables.responsive.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1425">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1425">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/DataTables/plugins/integration/bootstrap/3/dataTables.bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4305">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4305">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.php">
+    <entry file="file://$PROJECT_DIR$/Modules/BandesTina/BandesTina.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="98" selection-start="1726" selection-end="1726" vertical-scroll-proportion="-15.0" vertical-offset="150" max-vertical-offset="6525">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4080" max-vertical-offset="4755">
+          <caret line="287" column="28" selection-start-line="287" selection-start-column="28" selection-end-line="287" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/Transmission/Torrent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="6105" max-vertical-offset="6765">
+          <caret line="415" column="21" selection-start-line="415" selection-start-column="21" selection-end-line="415" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/PostIt/Post.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="1620">
+          <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="2295">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Db/Db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2745" max-vertical-offset="6855">
+          <caret line="196" column="20" selection-start-line="196" selection-start-column="20" selection-end-line="196" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Logs/EventsManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1920">
+          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Settings/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1710">
+          <caret line="36" column="7" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Ldap/Connection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="2130">
+          <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="45" selection-start="2551" selection-end="2551" vertical-scroll-proportion="0.375765" vertical-offset="443" max-vertical-offset="1485">
+        <state vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="1485">
+          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="6525">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Ldap/Ldap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1395" max-vertical-offset="3900">
+          <caret line="103" column="4" selection-start-line="103" selection-start-column="4" selection-end-line="103" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/PostIt/PostIt.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.125" vertical-offset="2370" max-vertical-offset="6825">
+          <caret line="158" column="0" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
+          <folding>
+            <element signature="e#124#144#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/DenyAppAccess/DenyAppAccess.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.375" vertical-offset="585" max-vertical-offset="5430">
+          <caret line="81" column="131" selection-start-line="81" selection-start-column="131" selection-end-line="81" selection-end-column="131" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Forms/Field.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.583333" vertical-offset="154" max-vertical-offset="5190">
+          <caret line="40" column="12" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Db/DbFieldSettings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.375" vertical-offset="822" max-vertical-offset="2430">
+          <caret line="94" column="80" selection-start-line="94" selection-start-column="80" selection-end-line="94" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Db/DbTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31553975" vertical-offset="2359" max-vertical-offset="5670">
+          <caret line="183" column="21" selection-start-line="183" selection-start-column="21" selection-end-line="183" selection-end-column="21" />
+          <folding>
+            <marker date="1411560148572" expanded="true" signature="3518:3564" placeholder="CREATE TABLE..IF..." />
+            <marker date="1411560148572" expanded="true" signature="7554:7585" placeholder="INSERT INTO ..." />
+          </folding>
         </state>
       </provider>
     </entry>

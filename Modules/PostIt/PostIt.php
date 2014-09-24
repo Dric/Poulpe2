@@ -157,6 +157,7 @@ class PostIt extends Module{
 					$this->page = $filters['page'];
 				}
 				?>
+
 				<div class="row">
 					<div class="col-lg-6 col-md-6">
 						<p>
@@ -169,7 +170,7 @@ class PostIt extends Module{
 				</div>
 				<?php if (ACL::canModify('module', $this->id)){ ?>
 				<h3>Ajouter un Post-it <a class="btn btn-default btn-xs" href="#" id="toggleEditForm"><?php echo ($this->settings['alwaysShowAddPost']->getValue() and !(isset($req['action']) and $req['action'] == 'editPost')) ? 'Masquer' : 'Afficher'; ?> l'ajout de Post-it</a></h3>
-				<div id="editForm" <?php if (!$this->settings['alwaysShowAddPost']->getValue() and !(isset($req['action']) and $req['action'] == 'editPost')) echo 'style="display:none;"'; ?>>
+				<div id="editForm" <?php if (!$this->settings['alwaysShowAddPost']->getValue() and !(isset($this->postedData['action']) and $this->postedData['action'] == 'editPost')) echo 'style="display:none;"'; ?>>
 					<div class="row">
 						<div class="col-md-8">
 							<?php

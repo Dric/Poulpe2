@@ -191,8 +191,9 @@ class DbTable {
 					$uniqueIndexes[] = $field->getName();
 					break;
 			}
+			// Si le champ fait partie de l'index multiple, on l'ajoute au tableau
 			if ($settings->getInMultipleIndex()){
-				$multipleIndexes[] = $settings->getInMultipleIndex();
+				$multipleIndexes[] = $field->getName();
 			}
 			if ($settings->getForeignKey() !== null){
 				$foreignKeys[$field->getName()] = $settings->getForeignKey();

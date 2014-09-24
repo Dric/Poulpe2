@@ -20,6 +20,15 @@ use Sanitize;
  *
  * Les instances de connexions LDAP ne sont instanciées que si nécessaire, afin d'éviter des requêtes LDAP inutiles.
  *
+ * Les mêmes identifiants sont utilisés pour tous les serveurs ldap
+ *
+ * <h4>Exemple</h4>
+ * <code>
+ * use \Ldap\Ldap;
+ * $ldapServers = array('dc1', 'dc2', 'dc3');
+ * $ldap = new Ldap('contoso.com', 'bob.morane', 'happyPwd', $ldapServers);
+ * </code>
+ *
  * @package Ldap
  */
 class Ldap {
@@ -92,6 +101,7 @@ class Ldap {
 	 * @param array $attributes Tableau des attributs à retourner. (facultatif)
 	 * @param bool $strict Effectue la recherche en cherchant le terme $searched exact (par défaut, les termes retournés contiennent $searched) (facultatif)
 	 * @param string $dc Contrôleur de domaine sur lequel effectuer la recherche. Si nul, récupère la valeur de $pdc (facultatif)
+	 *
 	 * @return array Tableau des informations de l'objet.(ex : sAMAccountName (nom unique), whenCreated, thumbnailPhoto, sn (nom), givenName (prénom), cn (prénom nom), description, displayName (nom affiché), lastLogon, mail (adresse mail), memberOf (liste des groupes)) (facultatif)
 	 *
 	 */

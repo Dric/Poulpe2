@@ -14,6 +14,31 @@ use Logs\Alert;
 /**
  * Connexion à un annuaire LDAP
  *
+ * La connexion à l'annuaire LDAP est fermée à la fin de l'exécution du script.
+ *
+ * Bien que cette classe n'ait été testée qu'avec des annuaires Active Directory, elle devrait fonctionner avec des annuaires LDAP autres que ceux de Microsoft.
+ *
+ * <h4>Exemple</h4>
+ * <code>
+ * use \Ldap\Connection;
+ * $LDAPConnection = new Connection('dc1', 'bob.morane', 'happyPwd', 'contoso.com');
+ * </code>
+ *
+ * <h4>Usage</h4>
+ * La connexion est stockée dans la propriété `connection` de l'objet, et est accessible via la méthode `connection()` :
+ * <code>
+ * $connection = $LDAPConnection->connection();
+ * </code>
+ *
+ * Si la connexion a échoué, la propriété `badCreds` accessible par la méthode `badCreds()` prendra la valeur `true` :
+ * <code>
+ * use \Ldap\Connection;
+ * // le mot de passe de bob.morane n'est pas `badPwd`
+ * $LDAPConnection = new Connection('dc1', 'bob.morane', 'badPwd', 'contoso.com');
+ * // Une alerte est générée pour l'utilisateur et $LDAPConnection->badCreds passe à `true`.
+ * echo $LDAPConnection->badCreds; // renvoie true
+ * </code>
+ *
  * @package Ldap
  */
 class Connection {
@@ -79,8 +104,8 @@ class Connection {
 		$this->bindPwd  = htmlspecialchars($bindPwd);
 		$this->dc       = htmlspecialchars($dc);
 		if ($this->connection = ldap_connect($this->dc.'.'.$this->domain, $this->port)){
-			ldap_set_option($this->connection, LDAP_OPT_PROTOCOL_VERSION, 3); //Option à ajouter si vous utilisez Windows server2k3
-			ldap_set_option($this->connection, LDAP_OPT_REFERRALS, 0); //Option à ajouter si vous utilisez Windows server2k3
+			ldap_set_option($this->connection, LDAP_OPT_PROTOCOL_VERSION, 3); //Option à ajouter si vous utilisez Windows server2k3 minimum
+			ldap_set_option($this->connection, LDAP_OPT_REFERRALS, 0); //Option à ajouter si vous utilisez Windows server2k3 minimum
 			/** Connexion à l'AD avec les identifiants saisis à la connexion.. */
 			$this->badCreds = false;
 			// Méfiance, si le mot de passe est vide, une connexion anonyme sera tentée et la connexion peut retourner true...

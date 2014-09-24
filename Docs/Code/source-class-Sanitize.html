@@ -274,174 +274,177 @@
 </span></span><span id="163" class="l"><a class="l" href="#163">163 </a><span class="php-comment">     */</span>
 </span><span id="164" class="l"><a class="l" href="#164">164 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_timeDuration" href="#_timeDuration">timeDuration</a>(<span class="php-var">$time</span>){
 </span><span id="165" class="l"><a class="l" href="#165">165 </a>        <span class="php-var">$s</span> = <span class="php-var">$time</span> % <span class="php-num">60</span>;
-</span><span id="166" class="l"><a class="l" href="#166">166 </a>        <span class="php-var">$m</span> = (<span class="php-keyword2">floor</span>((<span class="php-var">$time</span>%<span class="php-num">3600</span>)/<span class="php-num">60</span>)&gt;<span class="php-num">0</span>)?<span class="php-keyword2">floor</span>((<span class="php-var">$time</span>%<span class="php-num">3600</span>)/<span class="php-num">60</span>).<span class="php-quote">' minutes'</span> : <span class="php-quote">''</span>;
-</span><span id="167" class="l"><a class="l" href="#167">167 </a>        <span class="php-var">$h</span> = (<span class="php-keyword2">floor</span>((<span class="php-var">$time</span> % <span class="php-num">86400</span>) / <span class="php-num">3600</span>)&gt;<span class="php-num">0</span>)?<span class="php-keyword2">floor</span>((<span class="php-var">$time</span> % <span class="php-num">86400</span>) / <span class="php-num">3600</span>).<span class="php-quote">' heures'</span> : <span class="php-quote">''</span>;
-</span><span id="168" class="l"><a class="l" href="#168">168 </a>        <span class="php-var">$d</span> = (<span class="php-keyword2">floor</span>((<span class="php-var">$time</span> % <span class="php-num">2592000</span>) / <span class="php-num">86400</span>)&gt;<span class="php-num">0</span>)?<span class="php-keyword2">floor</span>((<span class="php-var">$time</span> % <span class="php-num">2592000</span>) / <span class="php-num">86400</span>).<span class="php-quote">' jours'</span> : <span class="php-quote">''</span>;
-</span><span id="169" class="l"><a class="l" href="#169">169 </a>        <span class="php-var">$M</span> = (<span class="php-keyword2">floor</span>(<span class="php-var">$time</span> / <span class="php-num">2592000</span>)&gt;<span class="php-num">0</span>)?<span class="php-keyword2">floor</span>(<span class="php-var">$time</span> / <span class="php-num">2592000</span>).<span class="php-quote">' mois'</span> : <span class="php-quote">''</span>;
-</span><span id="170" class="l"><a class="l" href="#170">170 </a>        <span class="php-keyword1">return</span> <span class="php-var">$M</span>.<span class="php-quote">' '</span>.<span class="php-var">$d</span>.<span class="php-quote">' '</span>.<span class="php-var">$h</span>.<span class="php-quote">' '</span>.<span class="php-var">$m</span>.<span class="php-quote">' et '</span>.<span class="php-var">$s</span>.<span class="php-quote">' secondes'</span>;
-</span><span id="171" class="l"><a class="l" href="#171">171 </a>    }
-</span><span id="172" class="l"><a class="l" href="#172">172 </a>
-</span><span id="173" class="l"><a class="l" href="#173">173 </a>    <span class="php-comment">/**
-</span></span><span id="174" class="l"><a class="l" href="#174">174 </a><span class="php-comment">     * Trie un tableau d'objets selon les propriétés de ceux-ci.
-</span></span><span id="175" class="l"><a class="l" href="#175">175 </a><span class="php-comment">     *
-</span></span><span id="176" class="l"><a class="l" href="#176">176 </a><span class="php-comment">     * Le tableau d'origine n'est pas affecté
-</span></span><span id="177" class="l"><a class="l" href="#177">177 </a><span class="php-comment">     *
-</span></span><span id="178" class="l"><a class="l" href="#178">178 </a><span class="php-comment">     * @param array $arrayOrig Tableau d'objets à trier
-</span></span><span id="179" class="l"><a class="l" href="#179">179 </a><span class="php-comment">     * @param array $props Tableau contenant les propriétés sur lesquelles faire le tri
-</span></span><span id="180" class="l"><a class="l" href="#180">180 </a><span class="php-comment">   * @param string $sortOrder
-</span></span><span id="181" class="l"><a class="l" href="#181">181 </a><span class="php-comment">     *
-</span></span><span id="182" class="l"><a class="l" href="#182">182 </a><span class="php-comment">     * @return array Tableau trié
-</span></span><span id="183" class="l"><a class="l" href="#183">183 </a><span class="php-comment">     */</span>
-</span><span id="184" class="l"><a class="l" href="#184">184 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_sortObjectList" href="#_sortObjectList">sortObjectList</a>(<span class="php-var">$arrayOrig</span>, <span class="php-var">$props</span>, <span class="php-var">$sortOrder</span> = <span class="php-quote">'ASC'</span>)   {
-</span><span id="185" class="l"><a class="l" href="#185">185 </a>        <span class="php-var">$array</span> = <span class="php-var">$arrayOrig</span>;
-</span><span id="186" class="l"><a class="l" href="#186">186 </a>
-</span><span id="187" class="l"><a class="l" href="#187">187 </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_array</span>(<span class="php-var">$props</span>)){
-</span><span id="188" class="l"><a class="l" href="#188">188 </a>            <span class="php-var">$props</span> = <span class="php-keyword1">array</span>(<span class="php-var">$props</span>);
-</span><span id="189" class="l"><a class="l" href="#189">189 </a>        }
-</span><span id="190" class="l"><a class="l" href="#190">190 </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_array</span>(<span class="php-var">$sortOrder</span>)){
-</span><span id="191" class="l"><a class="l" href="#191">191 </a>            <span class="php-var">$sortOrder</span> = <span class="php-keyword1">array</span>(<span class="php-var">$sortOrder</span>);
+</span><span id="166" class="l"><a class="l" href="#166">166 </a>        <span class="php-var">$m</span> = (<span class="php-keyword2">floor</span>((<span class="php-var">$time</span>%<span class="php-num">3600</span>)/<span class="php-num">60</span>)&gt;<span class="php-num">0</span>)?<span class="php-keyword2">floor</span>((<span class="php-var">$time</span>%<span class="php-num">3600</span>)/<span class="php-num">60</span>) : <span class="php-quote">''</span>;
+</span><span id="167" class="l"><a class="l" href="#167">167 </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword1">empty</span>(<span class="php-var">$m</span>)) <span class="php-var">$m</span> .= <span class="php-quote">' minute'</span>.((<span class="php-var">$m</span> != <span class="php-num">1</span>) ? <span class="php-quote">'s'</span> : <span class="php-quote">''</span>);
+</span><span id="168" class="l"><a class="l" href="#168">168 </a>        <span class="php-var">$h</span> = (<span class="php-keyword2">floor</span>((<span class="php-var">$time</span> % <span class="php-num">86400</span>) / <span class="php-num">3600</span>)&gt;<span class="php-num">0</span>)?<span class="php-keyword2">floor</span>((<span class="php-var">$time</span> % <span class="php-num">86400</span>) / <span class="php-num">3600</span>) : <span class="php-quote">''</span>;
+</span><span id="169" class="l"><a class="l" href="#169">169 </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword1">empty</span>(<span class="php-var">$h</span>)) <span class="php-var">$h</span> .= <span class="php-quote">' heure'</span>.((<span class="php-var">$h</span> != <span class="php-num">1</span>) ? <span class="php-quote">'s'</span> : <span class="php-quote">''</span>);
+</span><span id="170" class="l"><a class="l" href="#170">170 </a>        <span class="php-var">$d</span> = (<span class="php-keyword2">floor</span>((<span class="php-var">$time</span> % <span class="php-num">2592000</span>) / <span class="php-num">86400</span>)&gt;<span class="php-num">0</span>)?<span class="php-keyword2">floor</span>((<span class="php-var">$time</span> % <span class="php-num">2592000</span>) / <span class="php-num">86400</span>) : <span class="php-quote">''</span>;
+</span><span id="171" class="l"><a class="l" href="#171">171 </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword1">empty</span>(<span class="php-var">$d</span>)) <span class="php-var">$d</span> .= <span class="php-quote">' jour'</span>.((<span class="php-var">$d</span> != <span class="php-num">1</span>) ? <span class="php-quote">'s'</span> : <span class="php-quote">''</span>);
+</span><span id="172" class="l"><a class="l" href="#172">172 </a>        <span class="php-var">$M</span> = (<span class="php-keyword2">floor</span>(<span class="php-var">$time</span> / <span class="php-num">2592000</span>)&gt;<span class="php-num">0</span>)?<span class="php-keyword2">floor</span>(<span class="php-var">$time</span> / <span class="php-num">2592000</span>).<span class="php-quote">' mois'</span> : <span class="php-quote">''</span>;
+</span><span id="173" class="l"><a class="l" href="#173">173 </a>        <span class="php-keyword1">return</span> <span class="php-var">$M</span>.<span class="php-quote">' '</span>.<span class="php-var">$d</span>.<span class="php-quote">' '</span>.<span class="php-var">$h</span>.<span class="php-quote">' '</span>.<span class="php-var">$m</span>.<span class="php-quote">' et '</span>.<span class="php-var">$s</span>.<span class="php-quote">' seconde'</span>.((<span class="php-var">$s</span> != <span class="php-num">1</span>) ? <span class="php-quote">'s'</span>: <span class="php-quote">''</span>);
+</span><span id="174" class="l"><a class="l" href="#174">174 </a>    }
+</span><span id="175" class="l"><a class="l" href="#175">175 </a>
+</span><span id="176" class="l"><a class="l" href="#176">176 </a>    <span class="php-comment">/**
+</span></span><span id="177" class="l"><a class="l" href="#177">177 </a><span class="php-comment">     * Trie un tableau d'objets selon les propriétés de ceux-ci.
+</span></span><span id="178" class="l"><a class="l" href="#178">178 </a><span class="php-comment">     *
+</span></span><span id="179" class="l"><a class="l" href="#179">179 </a><span class="php-comment">     * Le tableau d'origine n'est pas affecté
+</span></span><span id="180" class="l"><a class="l" href="#180">180 </a><span class="php-comment">     *
+</span></span><span id="181" class="l"><a class="l" href="#181">181 </a><span class="php-comment">     * @param array $arrayOrig Tableau d'objets à trier
+</span></span><span id="182" class="l"><a class="l" href="#182">182 </a><span class="php-comment">     * @param array $props Tableau contenant les propriétés sur lesquelles faire le tri
+</span></span><span id="183" class="l"><a class="l" href="#183">183 </a><span class="php-comment">   * @param string $sortOrder
+</span></span><span id="184" class="l"><a class="l" href="#184">184 </a><span class="php-comment">     *
+</span></span><span id="185" class="l"><a class="l" href="#185">185 </a><span class="php-comment">     * @return array Tableau trié
+</span></span><span id="186" class="l"><a class="l" href="#186">186 </a><span class="php-comment">     */</span>
+</span><span id="187" class="l"><a class="l" href="#187">187 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_sortObjectList" href="#_sortObjectList">sortObjectList</a>(<span class="php-var">$arrayOrig</span>, <span class="php-var">$props</span>, <span class="php-var">$sortOrder</span> = <span class="php-quote">'ASC'</span>)   {
+</span><span id="188" class="l"><a class="l" href="#188">188 </a>        <span class="php-var">$array</span> = <span class="php-var">$arrayOrig</span>;
+</span><span id="189" class="l"><a class="l" href="#189">189 </a>
+</span><span id="190" class="l"><a class="l" href="#190">190 </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_array</span>(<span class="php-var">$props</span>)){
+</span><span id="191" class="l"><a class="l" href="#191">191 </a>            <span class="php-var">$props</span> = <span class="php-keyword1">array</span>(<span class="php-var">$props</span>);
 </span><span id="192" class="l"><a class="l" href="#192">192 </a>        }
-</span><span id="193" class="l"><a class="l" href="#193">193 </a>        <span class="php-keyword2">usort</span>(<span class="php-var">$array</span>, <span class="php-keyword1">function</span>(<span class="php-var">$a</span>, <span class="php-var">$b</span>) <span class="php-keyword1">use</span> (&amp;<span class="php-var">$props</span>, &amp;<span class="php-var">$sortOrder</span>) {
-</span><span id="194" class="l"><a class="l" href="#194">194 </a>            <span class="php-keyword1">foreach</span> (<span class="php-var">$props</span> <span class="php-keyword1">as</span> <span class="php-var">$i</span> =&gt; <span class="php-var">$prop</span>) {
-</span><span id="195" class="l"><a class="l" href="#195">195 </a>                <span class="php-keyword1">if</span> (<span class="php-keyword1">isset</span> (<span class="php-var">$sortOrder</span>[<span class="php-var">$i</span>]) <span class="php-keyword1">and</span> <span class="php-var">$sortOrder</span>[<span class="php-var">$i</span>] == <span class="php-quote">'DESC'</span>){
-</span><span id="196" class="l"><a class="l" href="#196">196 </a>                    <span class="php-keyword1">if</span> (<span class="php-keyword1">isset</span>(<span class="php-var">$a</span>-&gt;<span class="php-var">$prop</span>)){
-</span><span id="197" class="l"><a class="l" href="#197">197 </a>                        <span class="php-keyword1">if</span> (<span class="php-keyword2">is_numeric</span>(<span class="php-var">$a</span>-&gt;<span class="php-var">$prop</span>) <span class="php-keyword1">and</span> <span class="php-keyword2">is_numeric</span>(<span class="php-var">$b</span>-&gt;<span class="php-var">$prop</span>)){
-</span><span id="198" class="l"><a class="l" href="#198">198 </a>                            <span class="php-keyword1">return</span> <span class="php-var">$b</span>-&gt;<span class="php-var">$prop</span> - <span class="php-var">$a</span>-&gt;<span class="php-var">$prop</span>;
-</span><span id="199" class="l"><a class="l" href="#199">199 </a>                        }
-</span><span id="200" class="l"><a class="l" href="#200">200 </a>                        <span class="php-keyword1">return</span> <span class="php-keyword2">strcasecmp</span>(<span class="php-var">$b</span>-&gt;<span class="php-var">$prop</span>, <span class="php-var">$a</span>-&gt;<span class="php-var">$prop</span>);
-</span><span id="201" class="l"><a class="l" href="#201">201 </a>                    }<span class="php-keyword1">else</span>{
-</span><span id="202" class="l"><a class="l" href="#202">202 </a>                        <span class="php-keyword1">if</span> (<span class="php-keyword2">is_numeric</span>(<span class="php-var">$a</span>-&gt;{<span class="php-quote">'get'</span>.<span class="php-keyword2">ucfirst</span>(<span class="php-var">$prop</span>)}()) <span class="php-keyword1">and</span> <span class="php-keyword2">is_numeric</span>(<span class="php-var">$b</span>-&gt;{<span class="php-quote">'get'</span>.<span class="php-keyword2">ucfirst</span>(<span class="php-var">$prop</span>)}())){
-</span><span id="203" class="l"><a class="l" href="#203">203 </a>                            <span class="php-keyword1">return</span> <span class="php-var">$b</span>-&gt;{<span class="php-quote">'get'</span>.<span class="php-keyword2">ucfirst</span>(<span class="php-var">$prop</span>)}() - <span class="php-var">$a</span>-&gt;{<span class="php-quote">'get'</span>.<span class="php-keyword2">ucfirst</span>(<span class="php-var">$prop</span>)}();
-</span><span id="204" class="l"><a class="l" href="#204">204 </a>                        }
-</span><span id="205" class="l"><a class="l" href="#205">205 </a>                        <span class="php-keyword1">return</span> <span class="php-keyword2">strcasecmp</span>(<span class="php-var">$b</span>-&gt;{<span class="php-quote">'get'</span>.<span class="php-keyword2">ucfirst</span>(<span class="php-var">$prop</span>)}(), <span class="php-var">$a</span>-&gt;{<span class="php-quote">'get'</span>.<span class="php-keyword2">ucfirst</span>(<span class="php-var">$prop</span>)}());
-</span><span id="206" class="l"><a class="l" href="#206">206 </a>                    }
-</span><span id="207" class="l"><a class="l" href="#207">207 </a>                }<span class="php-keyword1">else</span>{
-</span><span id="208" class="l"><a class="l" href="#208">208 </a>                    <span class="php-keyword1">if</span> (<span class="php-keyword1">isset</span>(<span class="php-var">$a</span>-&gt;<span class="php-var">$prop</span>)){
-</span><span id="209" class="l"><a class="l" href="#209">209 </a>                        <span class="php-keyword1">if</span> (<span class="php-keyword2">is_numeric</span>(<span class="php-var">$a</span>-&gt;<span class="php-var">$prop</span>) <span class="php-keyword1">and</span> <span class="php-keyword2">is_numeric</span>(<span class="php-var">$b</span>-&gt;<span class="php-var">$prop</span>)){
-</span><span id="210" class="l"><a class="l" href="#210">210 </a>                            <span class="php-keyword1">return</span> <span class="php-var">$a</span>-&gt;<span class="php-var">$prop</span> - <span class="php-var">$b</span>-&gt;<span class="php-var">$prop</span>;
-</span><span id="211" class="l"><a class="l" href="#211">211 </a>                        }
-</span><span id="212" class="l"><a class="l" href="#212">212 </a>                        <span class="php-keyword1">return</span> <span class="php-keyword2">strcasecmp</span>(<span class="php-var">$a</span>-&gt;<span class="php-var">$prop</span>, <span class="php-var">$b</span>-&gt;<span class="php-var">$prop</span>);
-</span><span id="213" class="l"><a class="l" href="#213">213 </a>                    }<span class="php-keyword1">else</span>{
-</span><span id="214" class="l"><a class="l" href="#214">214 </a>                        <span class="php-keyword1">if</span> (<span class="php-keyword2">is_numeric</span>(<span class="php-var">$a</span>-&gt;{<span class="php-quote">'get'</span>.<span class="php-keyword2">ucfirst</span>(<span class="php-var">$prop</span>)}()) <span class="php-keyword1">and</span> <span class="php-keyword2">is_numeric</span>(<span class="php-var">$b</span>-&gt;{<span class="php-quote">'get'</span>.<span class="php-keyword2">ucfirst</span>(<span class="php-var">$prop</span>)}())){
-</span><span id="215" class="l"><a class="l" href="#215">215 </a>                            <span class="php-keyword1">return</span> <span class="php-var">$a</span>-&gt;{<span class="php-quote">'get'</span>.<span class="php-keyword2">ucfirst</span>(<span class="php-var">$prop</span>)}() - <span class="php-var">$b</span>-&gt;{<span class="php-quote">'get'</span>.<span class="php-keyword2">ucfirst</span>(<span class="php-var">$prop</span>)}();
-</span><span id="216" class="l"><a class="l" href="#216">216 </a>                        }
-</span><span id="217" class="l"><a class="l" href="#217">217 </a>                        <span class="php-keyword1">return</span> <span class="php-keyword2">strcasecmp</span>(<span class="php-var">$a</span>-&gt;{<span class="php-quote">'get'</span>.<span class="php-keyword2">ucfirst</span>(<span class="php-var">$prop</span>)}(), <span class="php-var">$b</span>-&gt;{<span class="php-quote">'get'</span>.<span class="php-keyword2">ucfirst</span>(<span class="php-var">$prop</span>)}());
-</span><span id="218" class="l"><a class="l" href="#218">218 </a>                    }
-</span><span id="219" class="l"><a class="l" href="#219">219 </a>                }
-</span><span id="220" class="l"><a class="l" href="#220">220 </a>
-</span><span id="221" class="l"><a class="l" href="#221">221 </a>            }
-</span><span id="222" class="l"><a class="l" href="#222">222 </a>            <span class="php-keyword1">return</span> <span class="php-num">0</span>;
-</span><span id="223" class="l"><a class="l" href="#223">223 </a>        });
-</span><span id="224" class="l"><a class="l" href="#224">224 </a>        <span class="php-keyword1">return</span> <span class="php-var">$array</span>;
-</span><span id="225" class="l"><a class="l" href="#225">225 </a>    }
-</span><span id="226" class="l"><a class="l" href="#226">226 </a>
-</span><span id="227" class="l"><a class="l" href="#227">227 </a>    <span class="php-comment">/**
-</span></span><span id="228" class="l"><a class="l" href="#228">228 </a><span class="php-comment">     * Met en forme une valeur pour l'enregistrer en bdd
-</span></span><span id="229" class="l"><a class="l" href="#229">229 </a><span class="php-comment">     *
-</span></span><span id="230" class="l"><a class="l" href="#230">230 </a><span class="php-comment">     * @param mixed $value Valeur à mettre en forme
-</span></span><span id="231" class="l"><a class="l" href="#231">231 </a><span class="php-comment">     * @param bool  $quotes Entoure la valeur avec des guillemets si c'est une chaîne.
+</span><span id="193" class="l"><a class="l" href="#193">193 </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_array</span>(<span class="php-var">$sortOrder</span>)){
+</span><span id="194" class="l"><a class="l" href="#194">194 </a>            <span class="php-var">$sortOrder</span> = <span class="php-keyword1">array</span>(<span class="php-var">$sortOrder</span>);
+</span><span id="195" class="l"><a class="l" href="#195">195 </a>        }
+</span><span id="196" class="l"><a class="l" href="#196">196 </a>        <span class="php-keyword2">usort</span>(<span class="php-var">$array</span>, <span class="php-keyword1">function</span>(<span class="php-var">$a</span>, <span class="php-var">$b</span>) <span class="php-keyword1">use</span> (&amp;<span class="php-var">$props</span>, &amp;<span class="php-var">$sortOrder</span>) {
+</span><span id="197" class="l"><a class="l" href="#197">197 </a>            <span class="php-keyword1">foreach</span> (<span class="php-var">$props</span> <span class="php-keyword1">as</span> <span class="php-var">$i</span> =&gt; <span class="php-var">$prop</span>) {
+</span><span id="198" class="l"><a class="l" href="#198">198 </a>                <span class="php-keyword1">if</span> (<span class="php-keyword1">isset</span> (<span class="php-var">$sortOrder</span>[<span class="php-var">$i</span>]) <span class="php-keyword1">and</span> <span class="php-var">$sortOrder</span>[<span class="php-var">$i</span>] == <span class="php-quote">'DESC'</span>){
+</span><span id="199" class="l"><a class="l" href="#199">199 </a>                    <span class="php-keyword1">if</span> (<span class="php-keyword1">isset</span>(<span class="php-var">$a</span>-&gt;<span class="php-var">$prop</span>)){
+</span><span id="200" class="l"><a class="l" href="#200">200 </a>                        <span class="php-keyword1">if</span> (<span class="php-keyword2">is_numeric</span>(<span class="php-var">$a</span>-&gt;<span class="php-var">$prop</span>) <span class="php-keyword1">and</span> <span class="php-keyword2">is_numeric</span>(<span class="php-var">$b</span>-&gt;<span class="php-var">$prop</span>)){
+</span><span id="201" class="l"><a class="l" href="#201">201 </a>                            <span class="php-keyword1">return</span> <span class="php-var">$b</span>-&gt;<span class="php-var">$prop</span> - <span class="php-var">$a</span>-&gt;<span class="php-var">$prop</span>;
+</span><span id="202" class="l"><a class="l" href="#202">202 </a>                        }
+</span><span id="203" class="l"><a class="l" href="#203">203 </a>                        <span class="php-keyword1">return</span> <span class="php-keyword2">strcasecmp</span>(<span class="php-var">$b</span>-&gt;<span class="php-var">$prop</span>, <span class="php-var">$a</span>-&gt;<span class="php-var">$prop</span>);
+</span><span id="204" class="l"><a class="l" href="#204">204 </a>                    }<span class="php-keyword1">else</span>{
+</span><span id="205" class="l"><a class="l" href="#205">205 </a>                        <span class="php-keyword1">if</span> (<span class="php-keyword2">is_numeric</span>(<span class="php-var">$a</span>-&gt;{<span class="php-quote">'get'</span>.<span class="php-keyword2">ucfirst</span>(<span class="php-var">$prop</span>)}()) <span class="php-keyword1">and</span> <span class="php-keyword2">is_numeric</span>(<span class="php-var">$b</span>-&gt;{<span class="php-quote">'get'</span>.<span class="php-keyword2">ucfirst</span>(<span class="php-var">$prop</span>)}())){
+</span><span id="206" class="l"><a class="l" href="#206">206 </a>                            <span class="php-keyword1">return</span> <span class="php-var">$b</span>-&gt;{<span class="php-quote">'get'</span>.<span class="php-keyword2">ucfirst</span>(<span class="php-var">$prop</span>)}() - <span class="php-var">$a</span>-&gt;{<span class="php-quote">'get'</span>.<span class="php-keyword2">ucfirst</span>(<span class="php-var">$prop</span>)}();
+</span><span id="207" class="l"><a class="l" href="#207">207 </a>                        }
+</span><span id="208" class="l"><a class="l" href="#208">208 </a>                        <span class="php-keyword1">return</span> <span class="php-keyword2">strcasecmp</span>(<span class="php-var">$b</span>-&gt;{<span class="php-quote">'get'</span>.<span class="php-keyword2">ucfirst</span>(<span class="php-var">$prop</span>)}(), <span class="php-var">$a</span>-&gt;{<span class="php-quote">'get'</span>.<span class="php-keyword2">ucfirst</span>(<span class="php-var">$prop</span>)}());
+</span><span id="209" class="l"><a class="l" href="#209">209 </a>                    }
+</span><span id="210" class="l"><a class="l" href="#210">210 </a>                }<span class="php-keyword1">else</span>{
+</span><span id="211" class="l"><a class="l" href="#211">211 </a>                    <span class="php-keyword1">if</span> (<span class="php-keyword1">isset</span>(<span class="php-var">$a</span>-&gt;<span class="php-var">$prop</span>)){
+</span><span id="212" class="l"><a class="l" href="#212">212 </a>                        <span class="php-keyword1">if</span> (<span class="php-keyword2">is_numeric</span>(<span class="php-var">$a</span>-&gt;<span class="php-var">$prop</span>) <span class="php-keyword1">and</span> <span class="php-keyword2">is_numeric</span>(<span class="php-var">$b</span>-&gt;<span class="php-var">$prop</span>)){
+</span><span id="213" class="l"><a class="l" href="#213">213 </a>                            <span class="php-keyword1">return</span> <span class="php-var">$a</span>-&gt;<span class="php-var">$prop</span> - <span class="php-var">$b</span>-&gt;<span class="php-var">$prop</span>;
+</span><span id="214" class="l"><a class="l" href="#214">214 </a>                        }
+</span><span id="215" class="l"><a class="l" href="#215">215 </a>                        <span class="php-keyword1">return</span> <span class="php-keyword2">strcasecmp</span>(<span class="php-var">$a</span>-&gt;<span class="php-var">$prop</span>, <span class="php-var">$b</span>-&gt;<span class="php-var">$prop</span>);
+</span><span id="216" class="l"><a class="l" href="#216">216 </a>                    }<span class="php-keyword1">else</span>{
+</span><span id="217" class="l"><a class="l" href="#217">217 </a>                        <span class="php-keyword1">if</span> (<span class="php-keyword2">is_numeric</span>(<span class="php-var">$a</span>-&gt;{<span class="php-quote">'get'</span>.<span class="php-keyword2">ucfirst</span>(<span class="php-var">$prop</span>)}()) <span class="php-keyword1">and</span> <span class="php-keyword2">is_numeric</span>(<span class="php-var">$b</span>-&gt;{<span class="php-quote">'get'</span>.<span class="php-keyword2">ucfirst</span>(<span class="php-var">$prop</span>)}())){
+</span><span id="218" class="l"><a class="l" href="#218">218 </a>                            <span class="php-keyword1">return</span> <span class="php-var">$a</span>-&gt;{<span class="php-quote">'get'</span>.<span class="php-keyword2">ucfirst</span>(<span class="php-var">$prop</span>)}() - <span class="php-var">$b</span>-&gt;{<span class="php-quote">'get'</span>.<span class="php-keyword2">ucfirst</span>(<span class="php-var">$prop</span>)}();
+</span><span id="219" class="l"><a class="l" href="#219">219 </a>                        }
+</span><span id="220" class="l"><a class="l" href="#220">220 </a>                        <span class="php-keyword1">return</span> <span class="php-keyword2">strcasecmp</span>(<span class="php-var">$a</span>-&gt;{<span class="php-quote">'get'</span>.<span class="php-keyword2">ucfirst</span>(<span class="php-var">$prop</span>)}(), <span class="php-var">$b</span>-&gt;{<span class="php-quote">'get'</span>.<span class="php-keyword2">ucfirst</span>(<span class="php-var">$prop</span>)}());
+</span><span id="221" class="l"><a class="l" href="#221">221 </a>                    }
+</span><span id="222" class="l"><a class="l" href="#222">222 </a>                }
+</span><span id="223" class="l"><a class="l" href="#223">223 </a>
+</span><span id="224" class="l"><a class="l" href="#224">224 </a>            }
+</span><span id="225" class="l"><a class="l" href="#225">225 </a>            <span class="php-keyword1">return</span> <span class="php-num">0</span>;
+</span><span id="226" class="l"><a class="l" href="#226">226 </a>        });
+</span><span id="227" class="l"><a class="l" href="#227">227 </a>        <span class="php-keyword1">return</span> <span class="php-var">$array</span>;
+</span><span id="228" class="l"><a class="l" href="#228">228 </a>    }
+</span><span id="229" class="l"><a class="l" href="#229">229 </a>
+</span><span id="230" class="l"><a class="l" href="#230">230 </a>    <span class="php-comment">/**
+</span></span><span id="231" class="l"><a class="l" href="#231">231 </a><span class="php-comment">     * Met en forme une valeur pour l'enregistrer en bdd
 </span></span><span id="232" class="l"><a class="l" href="#232">232 </a><span class="php-comment">     *
-</span></span><span id="233" class="l"><a class="l" href="#233">233 </a><span class="php-comment">     * @return string
-</span></span><span id="234" class="l"><a class="l" href="#234">234 </a><span class="php-comment">     */</span>
-</span><span id="235" class="l"><a class="l" href="#235">235 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_SanitizeForDb" href="#_SanitizeForDb">SanitizeForDb</a>(<span class="php-var">$value</span>, <span class="php-var">$quotes</span> = <span class="php-keyword1">true</span>){
-</span><span id="236" class="l"><a class="l" href="#236">236 </a>        <span class="php-keyword1">if</span> (<span class="php-keyword2">is_array</span>(<span class="php-var">$value</span>)){
-</span><span id="237" class="l"><a class="l" href="#237">237 </a>            <span class="php-var">$value</span> = Sanitize::arrayToString(<span class="php-var">$value</span>, <span class="php-quote">', '</span>, <span class="php-quote">'db'</span>);
-</span><span id="238" class="l"><a class="l" href="#238">238 </a>        }<span class="php-keyword1">elseif</span> (<span class="php-keyword2">is_bool</span>(<span class="php-var">$value</span>)){
-</span><span id="239" class="l"><a class="l" href="#239">239 </a>            <span class="php-var">$value</span> = (<span class="php-var">$value</span>) ? <span class="php-num">1</span> : <span class="php-num">0</span>;
-</span><span id="240" class="l"><a class="l" href="#240">240 </a>        }<span class="php-keyword1">else</span>{
-</span><span id="241" class="l"><a class="l" href="#241">241 </a>            <span class="php-var">$value</span> = <span class="php-keyword2">str_replace</span>(<span class="php-quote">'\\'</span>, <span class="php-quote">'\\\\'</span>, <span class="php-var">$value</span>);
-</span><span id="242" class="l"><a class="l" href="#242">242 </a>            <span class="php-var">$value</span> = <span class="php-keyword2">htmlspecialchars</span>(<span class="php-var">$value</span>);
-</span><span id="243" class="l"><a class="l" href="#243">243 </a>        }
-</span><span id="244" class="l"><a class="l" href="#244">244 </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_numeric</span>(<span class="php-var">$value</span>) <span class="php-keyword1">and</span> <span class="php-var">$quotes</span>) <span class="php-var">$value</span> = <span class="php-quote">'\''</span>.<span class="php-var">$value</span>.<span class="php-quote">'\''</span>;
-</span><span id="245" class="l"><a class="l" href="#245">245 </a>        <span class="php-keyword1">return</span> <span class="php-var">$value</span>;
-</span><span id="246" class="l"><a class="l" href="#246">246 </a>    }
-</span><span id="247" class="l"><a class="l" href="#247">247 </a>
-</span><span id="248" class="l"><a class="l" href="#248">248 </a>    <span class="php-comment">/**
-</span></span><span id="249" class="l"><a class="l" href="#249">249 </a><span class="php-comment">     * Met en forme une chaîne de caractères pour un affichage via javascript
-</span></span><span id="250" class="l"><a class="l" href="#250">250 </a><span class="php-comment">     * @param string $text Chaîne de caractères
-</span></span><span id="251" class="l"><a class="l" href="#251">251 </a><span class="php-comment">     *
-</span></span><span id="252" class="l"><a class="l" href="#252">252 </a><span class="php-comment">     * @return string
-</span></span><span id="253" class="l"><a class="l" href="#253">253 </a><span class="php-comment">     */</span>
-</span><span id="254" class="l"><a class="l" href="#254">254 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_SanitizeForJs" href="#_SanitizeForJs">SanitizeForJs</a>(<span class="php-var">$text</span>){
-</span><span id="255" class="l"><a class="l" href="#255">255 </a>        <span class="php-var">$text</span> = <span class="php-keyword2">str_replace</span>(<span class="php-quote">'\''</span>, <span class="php-quote">'&amp;#39;'</span>, <span class="php-var">$text</span>);
-</span><span id="256" class="l"><a class="l" href="#256">256 </a>        <span class="php-var">$text</span> = <span class="php-keyword2">str_replace</span>(PHP_EOL, <span class="php-quote">'&lt;br&gt;'</span>, <span class="php-var">$text</span>);
-</span><span id="257" class="l"><a class="l" href="#257">257 </a>        <span class="php-keyword1">return</span> <span class="php-var">$text</span>;
-</span><span id="258" class="l"><a class="l" href="#258">258 </a>    }
-</span><span id="259" class="l"><a class="l" href="#259">259 </a>
-</span><span id="260" class="l"><a class="l" href="#260">260 </a>    <span class="php-comment">/**
-</span></span><span id="261" class="l"><a class="l" href="#261">261 </a><span class="php-comment">     * Transforme un timestamp Active Directory en timestamp unix
-</span></span><span id="262" class="l"><a class="l" href="#262">262 </a><span class="php-comment">     *
-</span></span><span id="263" class="l"><a class="l" href="#263">263 </a><span class="php-comment">     * @see &lt;http://stackoverflow.com/a/4647445/1749967&gt;
-</span></span><span id="264" class="l"><a class="l" href="#264">264 </a><span class="php-comment">     * @see &lt;http://maxvit.net/convert_ldap_dates&gt;
-</span></span><span id="265" class="l"><a class="l" href="#265">265 </a><span class="php-comment">     * @param string $date Timestamp Active directory
-</span></span><span id="266" class="l"><a class="l" href="#266">266 </a><span class="php-comment">     * @return int
-</span></span><span id="267" class="l"><a class="l" href="#267">267 </a><span class="php-comment">     */</span>
-</span><span id="268" class="l"><a class="l" href="#268">268 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_ADToUnixTimestamp" href="#_ADToUnixTimestamp">ADToUnixTimestamp</a>(<span class="php-var">$date</span>){
-</span><span id="269" class="l"><a class="l" href="#269">269 </a>        <span class="php-keyword1">if</span> (<span class="php-keyword2">strpos</span>(<span class="php-var">$date</span>, <span class="php-quote">'.'</span>) === <span class="php-keyword1">false</span>){
-</span><span id="270" class="l"><a class="l" href="#270">270 </a>            <span class="php-var">$win_secs</span> = <span class="php-keyword2">substr</span>(<span class="php-var">$date</span>,<span class="php-num">0</span>,<span class="php-keyword2">strlen</span>(<span class="php-var">$date</span>)-<span class="php-num">7</span>); <span class="php-comment">// divide by 10 000 000 to get seconds</span>
-</span><span id="271" class="l"><a class="l" href="#271">271 </a>            <span class="php-keyword1">return</span> (<span class="php-var">$win_secs</span> - <span class="php-num">11644473600</span>); <span class="php-comment">// 1.1.1600 -&gt; 1.1.1970 difference in seconds</span>
-</span><span id="272" class="l"><a class="l" href="#272">272 </a>        }<span class="php-keyword1">else</span>{
-</span><span id="273" class="l"><a class="l" href="#273">273 </a>            <span class="php-comment">// La date dans l'AD est déjà réglée selon le fuseau horaire dans lequel se trouve le serveur, pour obtenir un timestamp correct, il faut remettre tricher avec les fuseaux horaires</span>
-</span><span id="274" class="l"><a class="l" href="#274">274 </a>            <span class="php-keyword2">date_default_timezone_set</span>(<span class="php-quote">'UTC'</span>);
-</span><span id="275" class="l"><a class="l" href="#275">275 </a>            <span class="php-var">$tab</span> = <span class="php-keyword2">explode</span>(<span class="php-quote">'.'</span>, <span class="php-var">$date</span>);
-</span><span id="276" class="l"><a class="l" href="#276">276 </a>            <span class="php-keyword1">list</span>(<span class="php-var">$millenium</span>, <span class="php-var">$year</span>, <span class="php-var">$month</span>, <span class="php-var">$day</span>, <span class="php-var">$hours</span>, <span class="php-var">$minutes</span>, <span class="php-var">$seconds</span>) = <span class="php-keyword2">str_split</span>(<span class="php-var">$tab</span>[<span class="php-num">0</span>], <span class="php-num">2</span>);
-</span><span id="277" class="l"><a class="l" href="#277">277 </a>            <span class="php-var">$time</span> = <span class="php-keyword2">mktime</span>(<span class="php-var">$hours</span>, <span class="php-var">$minutes</span>, <span class="php-var">$seconds</span>, <span class="php-var">$month</span>, <span class="php-var">$day</span>, <span class="php-var">$millenium</span>.<span class="php-var">$year</span>);
-</span><span id="278" class="l"><a class="l" href="#278">278 </a>            <span class="php-keyword2">date_default_timezone_set</span>(<span class="php-quote">'Europe/Paris'</span>);
-</span><span id="279" class="l"><a class="l" href="#279">279 </a>            <span class="php-keyword1">return</span> <span class="php-var">$time</span>;
-</span><span id="280" class="l"><a class="l" href="#280">280 </a>        }
-</span><span id="281" class="l"><a class="l" href="#281">281 </a>    }
-</span><span id="282" class="l"><a class="l" href="#282">282 </a>
-</span><span id="283" class="l"><a class="l" href="#283">283 </a>    <span class="php-comment">/**
-</span></span><span id="284" class="l"><a class="l" href="#284">284 </a><span class="php-comment">     * Converti une valeur en octets en taille lisible (Mo, Go, etc.)
-</span></span><span id="285" class="l"><a class="l" href="#285">285 </a><span class="php-comment">     *
-</span></span><span id="286" class="l"><a class="l" href="#286">286 </a><span class="php-comment">     * @param int $size Taille en octets
-</span></span><span id="287" class="l"><a class="l" href="#287">287 </a><span class="php-comment">     * @param int $NbDecimals Nombre de décimales après la virgule
+</span></span><span id="233" class="l"><a class="l" href="#233">233 </a><span class="php-comment">     * @param mixed $value Valeur à mettre en forme
+</span></span><span id="234" class="l"><a class="l" href="#234">234 </a><span class="php-comment">     * @param bool  $quotes Entoure la valeur avec des guillemets si c'est une chaîne.
+</span></span><span id="235" class="l"><a class="l" href="#235">235 </a><span class="php-comment">     *
+</span></span><span id="236" class="l"><a class="l" href="#236">236 </a><span class="php-comment">     * @return string
+</span></span><span id="237" class="l"><a class="l" href="#237">237 </a><span class="php-comment">     */</span>
+</span><span id="238" class="l"><a class="l" href="#238">238 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_SanitizeForDb" href="#_SanitizeForDb">SanitizeForDb</a>(<span class="php-var">$value</span>, <span class="php-var">$quotes</span> = <span class="php-keyword1">true</span>){
+</span><span id="239" class="l"><a class="l" href="#239">239 </a>        <span class="php-keyword1">if</span> (<span class="php-keyword2">is_array</span>(<span class="php-var">$value</span>)){
+</span><span id="240" class="l"><a class="l" href="#240">240 </a>            <span class="php-var">$value</span> = Sanitize::arrayToString(<span class="php-var">$value</span>, <span class="php-quote">', '</span>, <span class="php-quote">'db'</span>);
+</span><span id="241" class="l"><a class="l" href="#241">241 </a>        }<span class="php-keyword1">elseif</span> (<span class="php-keyword2">is_bool</span>(<span class="php-var">$value</span>)){
+</span><span id="242" class="l"><a class="l" href="#242">242 </a>            <span class="php-var">$value</span> = (<span class="php-var">$value</span>) ? <span class="php-num">1</span> : <span class="php-num">0</span>;
+</span><span id="243" class="l"><a class="l" href="#243">243 </a>        }<span class="php-keyword1">else</span>{
+</span><span id="244" class="l"><a class="l" href="#244">244 </a>            <span class="php-var">$value</span> = <span class="php-keyword2">str_replace</span>(<span class="php-quote">'\\'</span>, <span class="php-quote">'\\\\'</span>, <span class="php-var">$value</span>);
+</span><span id="245" class="l"><a class="l" href="#245">245 </a>            <span class="php-var">$value</span> = <span class="php-keyword2">htmlspecialchars</span>(<span class="php-var">$value</span>);
+</span><span id="246" class="l"><a class="l" href="#246">246 </a>        }
+</span><span id="247" class="l"><a class="l" href="#247">247 </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_numeric</span>(<span class="php-var">$value</span>) <span class="php-keyword1">and</span> <span class="php-var">$quotes</span>) <span class="php-var">$value</span> = <span class="php-quote">'\''</span>.<span class="php-var">$value</span>.<span class="php-quote">'\''</span>;
+</span><span id="248" class="l"><a class="l" href="#248">248 </a>        <span class="php-keyword1">return</span> <span class="php-var">$value</span>;
+</span><span id="249" class="l"><a class="l" href="#249">249 </a>    }
+</span><span id="250" class="l"><a class="l" href="#250">250 </a>
+</span><span id="251" class="l"><a class="l" href="#251">251 </a>    <span class="php-comment">/**
+</span></span><span id="252" class="l"><a class="l" href="#252">252 </a><span class="php-comment">     * Met en forme une chaîne de caractères pour un affichage via javascript
+</span></span><span id="253" class="l"><a class="l" href="#253">253 </a><span class="php-comment">     * @param string $text Chaîne de caractères
+</span></span><span id="254" class="l"><a class="l" href="#254">254 </a><span class="php-comment">     *
+</span></span><span id="255" class="l"><a class="l" href="#255">255 </a><span class="php-comment">     * @return string
+</span></span><span id="256" class="l"><a class="l" href="#256">256 </a><span class="php-comment">     */</span>
+</span><span id="257" class="l"><a class="l" href="#257">257 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_SanitizeForJs" href="#_SanitizeForJs">SanitizeForJs</a>(<span class="php-var">$text</span>){
+</span><span id="258" class="l"><a class="l" href="#258">258 </a>        <span class="php-var">$text</span> = <span class="php-keyword2">str_replace</span>(<span class="php-quote">'\''</span>, <span class="php-quote">'&amp;#39;'</span>, <span class="php-var">$text</span>);
+</span><span id="259" class="l"><a class="l" href="#259">259 </a>        <span class="php-var">$text</span> = <span class="php-keyword2">str_replace</span>(PHP_EOL, <span class="php-quote">'&lt;br&gt;'</span>, <span class="php-var">$text</span>);
+</span><span id="260" class="l"><a class="l" href="#260">260 </a>        <span class="php-keyword1">return</span> <span class="php-var">$text</span>;
+</span><span id="261" class="l"><a class="l" href="#261">261 </a>    }
+</span><span id="262" class="l"><a class="l" href="#262">262 </a>
+</span><span id="263" class="l"><a class="l" href="#263">263 </a>    <span class="php-comment">/**
+</span></span><span id="264" class="l"><a class="l" href="#264">264 </a><span class="php-comment">     * Transforme un timestamp Active Directory en timestamp unix
+</span></span><span id="265" class="l"><a class="l" href="#265">265 </a><span class="php-comment">     *
+</span></span><span id="266" class="l"><a class="l" href="#266">266 </a><span class="php-comment">     * @see &lt;http://stackoverflow.com/a/4647445/1749967&gt;
+</span></span><span id="267" class="l"><a class="l" href="#267">267 </a><span class="php-comment">     * @see &lt;http://maxvit.net/convert_ldap_dates&gt;
+</span></span><span id="268" class="l"><a class="l" href="#268">268 </a><span class="php-comment">     * @param string $date Timestamp Active directory
+</span></span><span id="269" class="l"><a class="l" href="#269">269 </a><span class="php-comment">     * @return int
+</span></span><span id="270" class="l"><a class="l" href="#270">270 </a><span class="php-comment">     */</span>
+</span><span id="271" class="l"><a class="l" href="#271">271 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_ADToUnixTimestamp" href="#_ADToUnixTimestamp">ADToUnixTimestamp</a>(<span class="php-var">$date</span>){
+</span><span id="272" class="l"><a class="l" href="#272">272 </a>        <span class="php-keyword1">if</span> (<span class="php-keyword2">strpos</span>(<span class="php-var">$date</span>, <span class="php-quote">'.'</span>) === <span class="php-keyword1">false</span>){
+</span><span id="273" class="l"><a class="l" href="#273">273 </a>            <span class="php-var">$win_secs</span> = <span class="php-keyword2">substr</span>(<span class="php-var">$date</span>,<span class="php-num">0</span>,<span class="php-keyword2">strlen</span>(<span class="php-var">$date</span>)-<span class="php-num">7</span>); <span class="php-comment">// divide by 10 000 000 to get seconds</span>
+</span><span id="274" class="l"><a class="l" href="#274">274 </a>            <span class="php-keyword1">return</span> (<span class="php-var">$win_secs</span> - <span class="php-num">11644473600</span>); <span class="php-comment">// 1.1.1600 -&gt; 1.1.1970 difference in seconds</span>
+</span><span id="275" class="l"><a class="l" href="#275">275 </a>        }<span class="php-keyword1">else</span>{
+</span><span id="276" class="l"><a class="l" href="#276">276 </a>            <span class="php-comment">// La date dans l'AD est déjà réglée selon le fuseau horaire dans lequel se trouve le serveur, pour obtenir un timestamp correct, il faut remettre tricher avec les fuseaux horaires</span>
+</span><span id="277" class="l"><a class="l" href="#277">277 </a>            <span class="php-keyword2">date_default_timezone_set</span>(<span class="php-quote">'UTC'</span>);
+</span><span id="278" class="l"><a class="l" href="#278">278 </a>            <span class="php-var">$tab</span> = <span class="php-keyword2">explode</span>(<span class="php-quote">'.'</span>, <span class="php-var">$date</span>);
+</span><span id="279" class="l"><a class="l" href="#279">279 </a>            <span class="php-keyword1">list</span>(<span class="php-var">$millenium</span>, <span class="php-var">$year</span>, <span class="php-var">$month</span>, <span class="php-var">$day</span>, <span class="php-var">$hours</span>, <span class="php-var">$minutes</span>, <span class="php-var">$seconds</span>) = <span class="php-keyword2">str_split</span>(<span class="php-var">$tab</span>[<span class="php-num">0</span>], <span class="php-num">2</span>);
+</span><span id="280" class="l"><a class="l" href="#280">280 </a>            <span class="php-var">$time</span> = <span class="php-keyword2">mktime</span>(<span class="php-var">$hours</span>, <span class="php-var">$minutes</span>, <span class="php-var">$seconds</span>, <span class="php-var">$month</span>, <span class="php-var">$day</span>, <span class="php-var">$millenium</span>.<span class="php-var">$year</span>);
+</span><span id="281" class="l"><a class="l" href="#281">281 </a>            <span class="php-keyword2">date_default_timezone_set</span>(<span class="php-quote">'Europe/Paris'</span>);
+</span><span id="282" class="l"><a class="l" href="#282">282 </a>            <span class="php-keyword1">return</span> <span class="php-var">$time</span>;
+</span><span id="283" class="l"><a class="l" href="#283">283 </a>        }
+</span><span id="284" class="l"><a class="l" href="#284">284 </a>    }
+</span><span id="285" class="l"><a class="l" href="#285">285 </a>
+</span><span id="286" class="l"><a class="l" href="#286">286 </a>    <span class="php-comment">/**
+</span></span><span id="287" class="l"><a class="l" href="#287">287 </a><span class="php-comment">     * Converti une valeur en octets en taille lisible (Mo, Go, etc.)
 </span></span><span id="288" class="l"><a class="l" href="#288">288 </a><span class="php-comment">     *
-</span></span><span id="289" class="l"><a class="l" href="#289">289 </a><span class="php-comment">     * @return string
-</span></span><span id="290" class="l"><a class="l" href="#290">290 </a><span class="php-comment">     */</span>
-</span><span id="291" class="l"><a class="l" href="#291">291 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_readableFileSize" href="#_readableFileSize">readableFileSize</a>(<span class="php-var">$size</span>, <span class="php-var">$NbDecimals</span> = <span class="php-num">2</span>){
-</span><span id="292" class="l"><a class="l" href="#292">292 </a>        <span class="php-keyword1">if</span> (<span class="php-var">$size</span> == <span class="php-num">0</span>) <span class="php-keyword1">return</span> <span class="php-quote">'Vide'</span>;
-</span><span id="293" class="l"><a class="l" href="#293">293 </a>        <span class="php-var">$siPrefix</span> = <span class="php-keyword1">array</span>( <span class="php-quote">'o'</span>, <span class="php-quote">'Ko'</span>, <span class="php-quote">'Mo'</span>, <span class="php-quote">'Go'</span>, <span class="php-quote">'To'</span>, <span class="php-quote">'Eo'</span>, <span class="php-quote">'Zo'</span>, <span class="php-quote">'Yo'</span> );
-</span><span id="294" class="l"><a class="l" href="#294">294 </a>        <span class="php-var">$base</span> = <span class="php-keyword2">log</span>(<span class="php-keyword2">floatval</span>(<span class="php-var">$size</span>)) / <span class="php-keyword2">log</span>(<span class="php-num">1024</span>);
-</span><span id="295" class="l"><a class="l" href="#295">295 </a>        <span class="php-keyword1">return</span> <span class="php-keyword2">round</span>(<span class="php-keyword2">pow</span>(<span class="php-num">1024</span>, <span class="php-var">$base</span> - <span class="php-keyword2">floor</span>(<span class="php-var">$base</span>)), <span class="php-var">$NbDecimals</span>) . <span class="php-var">$siPrefix</span>[<span class="php-keyword2">floor</span>(<span class="php-var">$base</span>)];
-</span><span id="296" class="l"><a class="l" href="#296">296 </a>    }
-</span><span id="297" class="l"><a class="l" href="#297">297 </a>
-</span><span id="298" class="l"><a class="l" href="#298">298 </a>    <span class="php-comment">/**
-</span></span><span id="299" class="l"><a class="l" href="#299">299 </a><span class="php-comment">     * Transforme un type PHP en type SQL
-</span></span><span id="300" class="l"><a class="l" href="#300">300 </a><span class="php-comment">     * @param string $type Type à transformer
-</span></span><span id="301" class="l"><a class="l" href="#301">301 </a><span class="php-comment">     *
-</span></span><span id="302" class="l"><a class="l" href="#302">302 </a><span class="php-comment">     * @see &lt;http://dev.mysql.com/doc/refman/5.0/fr/numeric-type-overview.html&gt;
-</span></span><span id="303" class="l"><a class="l" href="#303">303 </a><span class="php-comment">     *
-</span></span><span id="304" class="l"><a class="l" href="#304">304 </a><span class="php-comment">     * @return string
-</span></span><span id="305" class="l"><a class="l" href="#305">305 </a><span class="php-comment">     */</span>
-</span><span id="306" class="l"><a class="l" href="#306">306 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_PHPToSQLType" href="#_PHPToSQLType">PHPToSQLType</a>(<span class="php-var">$type</span>){
-</span><span id="307" class="l"><a class="l" href="#307">307 </a>        <span class="php-keyword1">switch</span> (<span class="php-var">$type</span>){
-</span><span id="308" class="l"><a class="l" href="#308">308 </a>            <span class="php-keyword1">case</span> <span class="php-quote">'string'</span> : <span class="php-keyword1">return</span> <span class="php-quote">'varchar'</span>;
-</span><span id="309" class="l"><a class="l" href="#309">309 </a>            <span class="php-keyword1">default</span>: <span class="php-keyword1">return</span> <span class="php-var">$type</span>;
-</span><span id="310" class="l"><a class="l" href="#310">310 </a>        }
-</span><span id="311" class="l"><a class="l" href="#311">311 </a>    }
-</span><span id="312" class="l"><a class="l" href="#312">312 </a>
-</span><span id="313" class="l"><a class="l" href="#313">313 </a>    <span class="php-comment">/**
-</span></span><span id="314" class="l"><a class="l" href="#314">314 </a><span class="php-comment">     * Transforme une chaîne en mettant en majuscule les premières lettre de chaque mot.
-</span></span><span id="315" class="l"><a class="l" href="#315">315 </a><span class="php-comment">     *
-</span></span><span id="316" class="l"><a class="l" href="#316">316 </a><span class="php-comment">     * Utile pour mettre en forme les prénoms
-</span></span><span id="317" class="l"><a class="l" href="#317">317 </a><span class="php-comment">     *
-</span></span><span id="318" class="l"><a class="l" href="#318">318 </a><span class="php-comment">     * @param string $string Chaîne à mettre en forme
-</span></span><span id="319" class="l"><a class="l" href="#319">319 </a><span class="php-comment">     *
-</span></span><span id="320" class="l"><a class="l" href="#320">320 </a><span class="php-comment">     * @return string
-</span></span><span id="321" class="l"><a class="l" href="#321">321 </a><span class="php-comment">     */</span>
-</span><span id="322" class="l"><a class="l" href="#322">322 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_ucname" href="#_ucname">ucname</a>(<span class="php-var">$string</span>) {
-</span><span id="323" class="l"><a class="l" href="#323">323 </a>
-</span><span id="324" class="l"><a class="l" href="#324">324 </a>        <span class="php-var">$string</span> =<span class="php-keyword2">ucwords</span>(<span class="php-keyword2">strtolower</span>(<span class="php-var">$string</span>));
-</span><span id="325" class="l"><a class="l" href="#325">325 </a>        <span class="php-keyword1">foreach</span> (<span class="php-keyword1">array</span>(<span class="php-quote">'-'</span>, <span class="php-quote">'\''</span>) <span class="php-keyword1">as</span> <span class="php-var">$delimiter</span>) {
-</span><span id="326" class="l"><a class="l" href="#326">326 </a>            <span class="php-keyword1">if</span> (<span class="php-keyword2">strpos</span>(<span class="php-var">$string</span>, <span class="php-var">$delimiter</span>)!==<span class="php-keyword1">false</span>) {
-</span><span id="327" class="l"><a class="l" href="#327">327 </a>                <span class="php-var">$string</span> =<span class="php-keyword2">implode</span>(<span class="php-var">$delimiter</span>, <span class="php-keyword2">array_map</span>(<span class="php-quote">'ucfirst'</span>, <span class="php-keyword2">explode</span>(<span class="php-var">$delimiter</span>, <span class="php-var">$string</span>)));
-</span><span id="328" class="l"><a class="l" href="#328">328 </a>            }
-</span><span id="329" class="l"><a class="l" href="#329">329 </a>        }
-</span><span id="330" class="l"><a class="l" href="#330">330 </a>        <span class="php-keyword1">return</span> <span class="php-var">$string</span>;
-</span><span id="331" class="l"><a class="l" href="#331">331 </a>    }
-</span><span id="332" class="l"><a class="l" href="#332">332 </a>
-</span><span id="333" class="l"><a class="l" href="#333">333 </a></span>}</code></pre>
+</span></span><span id="289" class="l"><a class="l" href="#289">289 </a><span class="php-comment">     * @param int $size Taille en octets
+</span></span><span id="290" class="l"><a class="l" href="#290">290 </a><span class="php-comment">     * @param int $NbDecimals Nombre de décimales après la virgule
+</span></span><span id="291" class="l"><a class="l" href="#291">291 </a><span class="php-comment">     *
+</span></span><span id="292" class="l"><a class="l" href="#292">292 </a><span class="php-comment">     * @return string
+</span></span><span id="293" class="l"><a class="l" href="#293">293 </a><span class="php-comment">     */</span>
+</span><span id="294" class="l"><a class="l" href="#294">294 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_readableFileSize" href="#_readableFileSize">readableFileSize</a>(<span class="php-var">$size</span>, <span class="php-var">$NbDecimals</span> = <span class="php-num">2</span>){
+</span><span id="295" class="l"><a class="l" href="#295">295 </a>        <span class="php-keyword1">if</span> (<span class="php-var">$size</span> == <span class="php-num">0</span>) <span class="php-keyword1">return</span> <span class="php-quote">'Vide'</span>;
+</span><span id="296" class="l"><a class="l" href="#296">296 </a>        <span class="php-var">$siPrefix</span> = <span class="php-keyword1">array</span>( <span class="php-quote">'o'</span>, <span class="php-quote">'Ko'</span>, <span class="php-quote">'Mo'</span>, <span class="php-quote">'Go'</span>, <span class="php-quote">'To'</span>, <span class="php-quote">'Eo'</span>, <span class="php-quote">'Zo'</span>, <span class="php-quote">'Yo'</span> );
+</span><span id="297" class="l"><a class="l" href="#297">297 </a>        <span class="php-var">$base</span> = <span class="php-keyword2">log</span>(<span class="php-keyword2">floatval</span>(<span class="php-var">$size</span>)) / <span class="php-keyword2">log</span>(<span class="php-num">1024</span>);
+</span><span id="298" class="l"><a class="l" href="#298">298 </a>        <span class="php-keyword1">return</span> <span class="php-keyword2">round</span>(<span class="php-keyword2">pow</span>(<span class="php-num">1024</span>, <span class="php-var">$base</span> - <span class="php-keyword2">floor</span>(<span class="php-var">$base</span>)), <span class="php-var">$NbDecimals</span>) . <span class="php-var">$siPrefix</span>[<span class="php-keyword2">floor</span>(<span class="php-var">$base</span>)];
+</span><span id="299" class="l"><a class="l" href="#299">299 </a>    }
+</span><span id="300" class="l"><a class="l" href="#300">300 </a>
+</span><span id="301" class="l"><a class="l" href="#301">301 </a>    <span class="php-comment">/**
+</span></span><span id="302" class="l"><a class="l" href="#302">302 </a><span class="php-comment">     * Transforme un type PHP en type SQL
+</span></span><span id="303" class="l"><a class="l" href="#303">303 </a><span class="php-comment">     * @param string $type Type à transformer
+</span></span><span id="304" class="l"><a class="l" href="#304">304 </a><span class="php-comment">     *
+</span></span><span id="305" class="l"><a class="l" href="#305">305 </a><span class="php-comment">     * @see &lt;http://dev.mysql.com/doc/refman/5.0/fr/numeric-type-overview.html&gt;
+</span></span><span id="306" class="l"><a class="l" href="#306">306 </a><span class="php-comment">     *
+</span></span><span id="307" class="l"><a class="l" href="#307">307 </a><span class="php-comment">     * @return string
+</span></span><span id="308" class="l"><a class="l" href="#308">308 </a><span class="php-comment">     */</span>
+</span><span id="309" class="l"><a class="l" href="#309">309 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_PHPToSQLType" href="#_PHPToSQLType">PHPToSQLType</a>(<span class="php-var">$type</span>){
+</span><span id="310" class="l"><a class="l" href="#310">310 </a>        <span class="php-keyword1">switch</span> (<span class="php-var">$type</span>){
+</span><span id="311" class="l"><a class="l" href="#311">311 </a>            <span class="php-keyword1">case</span> <span class="php-quote">'string'</span> : <span class="php-keyword1">return</span> <span class="php-quote">'varchar'</span>;
+</span><span id="312" class="l"><a class="l" href="#312">312 </a>            <span class="php-keyword1">default</span>: <span class="php-keyword1">return</span> <span class="php-var">$type</span>;
+</span><span id="313" class="l"><a class="l" href="#313">313 </a>        }
+</span><span id="314" class="l"><a class="l" href="#314">314 </a>    }
+</span><span id="315" class="l"><a class="l" href="#315">315 </a>
+</span><span id="316" class="l"><a class="l" href="#316">316 </a>    <span class="php-comment">/**
+</span></span><span id="317" class="l"><a class="l" href="#317">317 </a><span class="php-comment">     * Transforme une chaîne en mettant en majuscule les premières lettre de chaque mot.
+</span></span><span id="318" class="l"><a class="l" href="#318">318 </a><span class="php-comment">     *
+</span></span><span id="319" class="l"><a class="l" href="#319">319 </a><span class="php-comment">     * Utile pour mettre en forme les prénoms
+</span></span><span id="320" class="l"><a class="l" href="#320">320 </a><span class="php-comment">     *
+</span></span><span id="321" class="l"><a class="l" href="#321">321 </a><span class="php-comment">     * @param string $string Chaîne à mettre en forme
+</span></span><span id="322" class="l"><a class="l" href="#322">322 </a><span class="php-comment">     *
+</span></span><span id="323" class="l"><a class="l" href="#323">323 </a><span class="php-comment">     * @return string
+</span></span><span id="324" class="l"><a class="l" href="#324">324 </a><span class="php-comment">     */</span>
+</span><span id="325" class="l"><a class="l" href="#325">325 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_ucname" href="#_ucname">ucname</a>(<span class="php-var">$string</span>) {
+</span><span id="326" class="l"><a class="l" href="#326">326 </a>
+</span><span id="327" class="l"><a class="l" href="#327">327 </a>        <span class="php-var">$string</span> =<span class="php-keyword2">ucwords</span>(<span class="php-keyword2">strtolower</span>(<span class="php-var">$string</span>));
+</span><span id="328" class="l"><a class="l" href="#328">328 </a>        <span class="php-keyword1">foreach</span> (<span class="php-keyword1">array</span>(<span class="php-quote">'-'</span>, <span class="php-quote">'\''</span>) <span class="php-keyword1">as</span> <span class="php-var">$delimiter</span>) {
+</span><span id="329" class="l"><a class="l" href="#329">329 </a>            <span class="php-keyword1">if</span> (<span class="php-keyword2">strpos</span>(<span class="php-var">$string</span>, <span class="php-var">$delimiter</span>)!==<span class="php-keyword1">false</span>) {
+</span><span id="330" class="l"><a class="l" href="#330">330 </a>                <span class="php-var">$string</span> =<span class="php-keyword2">implode</span>(<span class="php-var">$delimiter</span>, <span class="php-keyword2">array_map</span>(<span class="php-quote">'ucfirst'</span>, <span class="php-keyword2">explode</span>(<span class="php-var">$delimiter</span>, <span class="php-var">$string</span>)));
+</span><span id="331" class="l"><a class="l" href="#331">331 </a>            }
+</span><span id="332" class="l"><a class="l" href="#332">332 </a>        }
+</span><span id="333" class="l"><a class="l" href="#333">333 </a>        <span class="php-keyword1">return</span> <span class="php-var">$string</span>;
+</span><span id="334" class="l"><a class="l" href="#334">334 </a>    }
+</span><span id="335" class="l"><a class="l" href="#335">335 </a>
+</span><span id="336" class="l"><a class="l" href="#336">336 </a></span>}</code></pre>
 	</div>
 
 	<div id="footer">

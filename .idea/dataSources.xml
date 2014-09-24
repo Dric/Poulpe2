@@ -6,8 +6,6 @@
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://srv-intratest:3306/tools2</jdbc-url>
-      <user-name>tools2</user-name>
-      <user-password>dfdedfc5dfc5dfc6dfd9df98</user-password>
       <driver-properties>
         <property name="zeroDateTimeBehavior" value="convertToNull" />
         <property name="tinyInt1isBit" value="false" />

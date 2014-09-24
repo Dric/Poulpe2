@@ -91,6 +91,7 @@ class DbFieldSettings extends Pattern{
 		$this->show = (bool)$show;
 		$this->onDuplicateKeyUpdate = (bool)$onDuplicateKeyUpdate;
 		if ($index !== false and in_array($index, $this->indexTypes)) $this->index = $index;
+		// On ne peut mettre un champ dans un index multiple que si celui-ci est déjà indexé
 		if ($this->index !== false) $this->inMultipleIndex = (bool)$inMultipleIndex;
 		parent::__construct($type, $required, 0, $length);
 	}
