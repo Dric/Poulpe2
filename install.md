@@ -130,6 +130,10 @@ Les clés de salage doivent être changées impérativement. Vous pouvez vous co
 ## Serveur Linux
 
 - Le répertoire `/mnt` doit être accessible en écriture à l'utilisateur apache (`www-data` par défaut)
+- La possibilité de monter des répertoires en cifs doit être active sur le serveur. Avec Ubuntu 14, il faut installer :
+
+    sudo apt-get install cifs-utils
+
 - L'utilisateur apache doit avoir le droit d'invoquer sudo sans mot de passe. Ceci est quand même un gros trou de sécurité...
 
 Dans un terminal, saisir :
