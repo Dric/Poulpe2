@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="TemplateDataLanguageMappings">
+    <file url="file://$PROJECT_DIR$/css" dialect="CSS" />
+    <file url="file://$PROJECT_DIR$/css/less" dialect="LESS" />
+    <file url="file://$PROJECT_DIR$/js" dialect="JavaScript" />
+  </component>
+</project>
+

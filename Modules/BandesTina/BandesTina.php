@@ -133,10 +133,10 @@ class BandesTina extends Module{
 				</div>
 				<h2>Etape 2 : réinitialiser les code-barres</h2>
 				<p>Pour que Tina prenne en compte les bandes que vous avez enlevées et remises, il faut refaire une lecture des code-barres de toutes les bandes.<br />La logique voudrait que Tina et le robot communiquent sur le sujet, puisque le robot fait justement cette vérification quand on manipule les cartouches, mais la logique en informatique étant un concept assez flou, cette info n'est pas remontée jusqu'à Tina.</p>
-				<div class="alert alert-warning">
+				<p>
 					Si vous avez déplacé des bandes dans le lecteur, il vous faudra lancer deux fois la réinitialisation des bandes pour que tout soit pris en compte.<br>
 					La cartouche de nettoyage ne doit pas être déplacée, car Tina n'ira la chercher que dans le <code>slot 0</code>.
-				</div>
+				</p>
 				<div class="text-center">
 					<form method="post">
 						<button id="reinit-barcodes" class="btn btn-lg btn-warning" type="submit" name="action" value="reinitBarcodes" <?php if (!ACL::canModify('module', $this->id)) echo 'disabled'; ?>>Réinitialiser les code-barres</button>

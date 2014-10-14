@@ -302,15 +302,18 @@ class Fs {
 	/**
 	 * Crée un fichier si celui-ci n'existe pas
 	 *
-	 * La date de modification du fichier sera modifiée à l'heure actuelle si celui-ci existe
+	 * La date de modification du fichier sera modifiée à l'heure actuelle si celui-ci existe.
+	 * La fonction touch de php ne semble pas fonctionner si l'utilisateur apache n'est pas propriétaire du fichier. On emploie donc la commande Unix
+	 *
 	 * @param string $fileName Nom du fichier à créer si inexistant
 	 *
 	 * @return bool
 	 */
 	public function touchFile($fileName){
-		$ret = touch($this->mountName . DIRECTORY_SEPARATOR .$fileName);
-		if (!$ret) new Alert('error', 'Impossible de trouver ou de créer le fichier <code>'.$fileName.'</code>');
-		return $ret;
+		//$ret = touch($this->mountName . DIRECTORY_SEPARATOR .$fileName);
+		$ret = exec("touch {$fileName}");
+		if (!empty($ret)) new Alert('error', 'Impossible de trouver ou de créer le fichier <code>'.$fileName.'</code>.<br>Erreur : <code>'.$ret.'</code>');
+		return (empty($ret)) ? true : false;
 	}
 
 	/**
