@@ -125,7 +125,7 @@ class AlertsManager {
 	 * Affiche les alertes de type 'debug'
 	 */
 	public static function debug(){
-		global $db, $classesUsed;
+		global $db, $classesUsed, $startTime;
 		new Alert('debug', '<code>Db->getQueriesCount</code> : <strong>'.$db->getQueriesCount().'</strong> requête(s) SQL effectuées.');
 		new Alert('debug', '<code>PHP</code> : Mémoire utilisée : <ul><li>Script :  <strong>'.Sanitize::readableFileSize(memory_get_usage()).'</strong></li><li>Total :   <strong>'.Sanitize::readableFileSize(memory_get_usage(true)).'</strong></li></ul>');
 		if (DETAILED_DEBUG){
@@ -157,5 +157,6 @@ class AlertsManager {
 			$classesDisplay .= '</ul>';
 			new Alert('debug', '<code>Classes chargées</code> : '.$classesDisplay);
 		}
+		new Alert('debug', '<code>PHP</code> : Page créée en <strong>'.(microtime(true) - $startTime).'s</strong>');
 	}
 } 

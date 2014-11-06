@@ -13,6 +13,11 @@ if (!file_exists('classes/Settings/config.php')){
 }
 require_once 'classes/Settings/config.php';
 
+if (DEBUG) {
+	ini_set('xdebug.profiler_enable_trigger', '1');
+	$startTime = microtime(true);
+}
+
 if (DETAILED_DEBUG) $classesUsed = array();
 
 /**

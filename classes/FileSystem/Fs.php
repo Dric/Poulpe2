@@ -130,7 +130,7 @@ class Fs {
 			/* On vérifie que les répertoires sont bien montés sous Linux, et on les monte le cas échéant. */
 			/* Si le répertoire n'est pas créé, on le crée. */
 			if (!file_exists($this->mountName)){
-				$ret = exec('mkdir '.$this->mountName.' 2>&1', $output);
+				$ret = exec('mkdir -m 777 '.$this->mountName.' 2>&1', $output);
 				if (!file_exists($this->mountName)){
 					new Alert('error', 'Impossible de créer le point de montage <code>'.$this->mountName.'</code> pour la raison suivante : <br /><code>'.$ret.'</code>.<br />Assurez-vous que le répertoire /mnt est accessible en écriture à tous les utilisateurs Linux, ou que vous avez les droits de créer un répertoire sur le serveur local.');
 					return false;
@@ -150,7 +150,7 @@ class Fs {
 					new Alert('error', 'Le fichier <code>'.$dfsCredsFile.'</code> permettant de s\'authentifier auprès des serveurs Windows est introuvable !<br> Veuillez créer ce fichier et saisir dedans ces 3 lignes : <pre><code>username=&lt;nom_user&gt;<br>password=&lt;mot_de_passe&gt;<br>domain=&lt;nom_de_domaine&gt;</code></pre>');
 					return false;
 				}
-				$cmd = 'sudo mount -t cifs "'.$winShare.'" '.$this->mountName.' -o uid=administrateur,gid=www-data,credentials='.$dfsCredsFile.' 2>&1';
+				$cmd = 'sudo mount -t cifs "'.$winShare.'" '.$this->mountName.' -o uid=www-data,gid=www-data,credentials='.$dfsCredsFile.' 2>&1';
 				$ret = exec($cmd, $retArray, $varRet);
 				if (!empty($ret)){
 					new Alert('error', 'Impossible de monter le partage <code>'.$winShare.'</code>.<br />Assurez-vous que l\'utilisateur Apache a les droits d\'invoquer sudo mount sans mot de passe.<br />'.$ret.'<br />'.$varRet);
