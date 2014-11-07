@@ -84,7 +84,16 @@ class User {
 			$this->id = (int)$this->id;
 			if (!$loginOnly){
 				if (AUTH_MODE == 'ldap'){
-					$this->LDAPProps = UsersManagement::getLDAPUser($this->name);
+					/*
+					 * On détermine si on est en train d'instancier l'utilisateur actuel, auquel cas on ne retourne pas les infos longues à charger
+					 *
+					 * Les propriétés longues à charger sont accessibles à la demande via des méthodes `$cUser->getLDAP<propriété>`
+					 */
+					if (isset($this->isLoggedIn)){
+						$this->LDAPProps = UsersManagement::getLDAPUser($this->name, false);
+					}else{
+						$this->LDAPProps = UsersManagement::getLDAPUser($this->name);
+					}
 					if (isset($this->LDAPProps->email)) $this->email = strtolower($this->LDAPProps->email); //Sur Active Directory, les adresses email comportent parfois des majuscules, inutile de s'en encombrer.
 				}
 			}

@@ -86,10 +86,11 @@ class UsersManagement {
 	 * Retourne les infos d'un utilisateur LDAP
 	 *
 	 * @param string $userName Nom de l'utilisateur
+	 * @param bool   $complete Retourne toutes les propriétés. Passer à `false` pour éviter de remplir les propriétés qui demandent beaucoup de ressources à rechercher
 	 *
 	 * @return object|bool Informations de l'utilisateur LDAP ou false en cas d'erreur
 	 */
-	static function getLDAPUser($userName){
+	static function getLDAPUser($userName, $complete = true){
 		global $ldap;
 		$user = $ldap->search('person', $userName, 'OU='.LDAP_AUTH_OU, array(), true);
 		// Comme on a cherché un seul résultat, on ne veut que le premier item
@@ -115,8 +116,10 @@ class UsersManagement {
 			$LDAPUser->exchangeBdd = ltrim($mdbs[0], 'CN=');
 		}
 		$LDAPUser->created = (isset($user['whencreated'])) ? Sanitize::ADToUnixTimestamp($user['whencreated'][0]) : null;
-		$LDAPUser->lastLogon = $ldap->lastLogon($userName);
-		$LDAPUser->groups = $ldap->userMembership($userName);
+		if ($complete){
+			$LDAPUser->lastLogon = $ldap->lastLogon($userName);
+			$LDAPUser->groups = $ldap->userMembership($userName);
+		}
 		$LDAPUser->avatar = (isset($user['thumbnailphoto'])) ? $user['thumbnailphoto'][0] : null;
 		return $LDAPUser;
 	}

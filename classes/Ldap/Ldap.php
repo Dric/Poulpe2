@@ -71,6 +71,12 @@ class Ldap {
 	protected $ldapServers = array();
 
 	/**
+	 * Liste des groupes présents dans l'AD
+	 * @var array
+	 */
+	protected $ldapGroups = array();
+
+	/**
 	 * Classe de gestion des requêtes LDAP
 	 *
 	 * @param string  $domain Nom DNS du domaine (facultatif)
@@ -206,7 +212,21 @@ class Ldap {
 		if(empty($searched)){
 			$res = $this->search('user', $userSAM, null, array('memberOf'));
 		}else{
-			$res = $this->search('group', strtolower($searched), null, array('memberOf'), true);
+			// On met en cache tous les groupes LDAP, afin d'éviter de faire des requêtes LDAP
+			if (empty($this->ldapGroups)){
+				$ldapGroups = $this->search('group', null, null, array('memberOf'));
+				foreach ($ldapGroups as $group){
+					if (is_array($group)) {
+						$tab = explode(',', $group['dn']);
+						$groupName = substr($tab[0], 3);
+						$this->ldapGroups[strtolower($groupName)] = array(array(
+							'memberof'  => (isset($group['memberof'])) ? $group['memberof'] : null),
+						  'count'     => $group['count']
+						);
+					}
+				}
+			}
+			$res = $this->ldapGroups[strtolower($searched)];
 		}
 		$recLevel++;
 		// Afin d'éviter de potentiels boucles infinies, on stoppe après le 50e niveau
@@ -215,12 +235,12 @@ class Ldap {
 				if (isset($item['memberof'])){
 					foreach ($item['memberof'] as $group){
 						//On parcoure la liste des groupes
-						if (!(int)$group){
+						if (is_string($group)){
 							$tab = explode(',', $group);
 							$group = substr($tab[0], 3);
 							$membership[] = ucfirst($group);
 							if ($recursive){
-								//On récupère les groupes auxquel appartient le groupe
+								//On récupère les groupes auxquels appartient le groupe
 								$recurs = array();
 								$recurs = $this->userMembership($userSAM, $group, true, $recLevel);
 								if (!empty($recurs)){

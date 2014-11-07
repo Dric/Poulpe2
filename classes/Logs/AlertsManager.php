@@ -157,6 +157,6 @@ class AlertsManager {
 			$classesDisplay .= '</ul>';
 			new Alert('debug', '<code>Classes chargées</code> : '.$classesDisplay);
 		}
-		new Alert('debug', '<code>PHP</code> : Page créée en <strong>'.(microtime(true) - $startTime).'s</strong>');
+		new Alert('debug', '<code>PHP</code> : Page générée en <strong>'.round((microtime(true) - $startTime), 3).'s</strong>');
 	}
 } 

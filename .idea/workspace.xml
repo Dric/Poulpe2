@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/classes/FileSystem/Fs.php" line="216" mnemonic="1" />
-    <bookmark url="file://$PROJECT_DIR$/classes/FileSystem/Fs.php" line="262" mnemonic="2" />
+    <bookmark url="file://$PROJECT_DIR$/classes/Ldap/Ldap.php" line="216" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/classes/Ldap/Ldap.php" line="113" mnemonic="2" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b517d7b-6e6e-44e4-a303-f637474520ff" name="Default" comment="Amélioration de l'aide pour les bandes de sauvegarde dans le module BandesTina&#10;">
+    <list default="true" id="0b517d7b-6e6e-44e4-a303-f637474520ff" name="Default" comment="Ajout du temps de génération de la page si le mode DEBUG est activé&#10;Correction d'un bug de montage de partages réseau&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Logs/AlertsManager.php" afterPath="$PROJECT_DIR$/classes/Logs/AlertsManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/FileSystem/Fs.php" afterPath="$PROJECT_DIR$/classes/FileSystem/Fs.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/tools2.iml" afterPath="$PROJECT_DIR$/.idea/tools2.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Ldap/Connection.php" afterPath="$PROJECT_DIR$/classes/Ldap/Connection.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Users/CurrentUser.php" afterPath="$PROJECT_DIR$/classes/Users/CurrentUser.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Ldap/Ldap.php" afterPath="$PROJECT_DIR$/classes/Ldap/Ldap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Users/User.php" afterPath="$PROJECT_DIR$/classes/Users/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Users/UsersManagement.php" afterPath="$PROJECT_DIR$/classes/Users/UsersManagement.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tools2.iws" />
@@ -35,11 +38,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="FileBrowser.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.php">
+      <file leaf-file-name="BandesTina.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Modules/BandesTina/BandesTina.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="105" max-vertical-offset="6525">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1437" max-vertical-offset="4815">
+              <caret line="134" column="29" selection-start-line="134" selection-start-column="29" selection-end-line="134" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -51,18 +54,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="1485">
-              <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BandesTina.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Modules/BandesTina/BandesTina.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1437" max-vertical-offset="4815">
-              <caret line="134" column="29" selection-start-line="134" selection-start-column="29" selection-end-line="134" selection-end-column="29" />
+            <state vertical-scroll-proportion="-26.75" vertical-offset="706" max-vertical-offset="1545">
+              <caret line="97" column="200" selection-start-line="97" selection-start-column="200" selection-end-line="97" selection-end-column="200" />
               <folding />
             </state>
           </provider>
@@ -74,7 +67,7 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1965" max-vertical-offset="2400">
+            <state vertical-scroll-proportion="-14.428572" vertical-offset="1561" max-vertical-offset="2400">
               <caret line="131" column="56" selection-start-line="131" selection-start-column="56" selection-end-line="131" selection-end-column="56" />
               <folding />
             </state>
@@ -91,31 +84,73 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EventsManager.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/Logs/EventsManager.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1920">
-              <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Connection.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/Ldap/Connection.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="2130">
-              <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Ldap.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/Ldap/Ldap.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="1395" max-vertical-offset="3900">
-              <caret line="103" column="4" selection-start-line="103" selection-start-column="4" selection-end-line="103" selection-end-column="4" />
+            <state vertical-scroll-proportion="-4.375" vertical-offset="1530" max-vertical-offset="4200">
+              <caret line="119" column="41" selection-start-line="119" selection-start-column="41" selection-end-line="119" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UsersManagement.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/Users/UsersManagement.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-18.75" vertical-offset="1215" max-vertical-offset="2940">
+              <caret line="120" column="47" selection-start-line="120" selection-start-column="33" selection-end-line="120" selection-end-column="47" />
+              <folding>
+                <marker date="1415354220000" expanded="true" signature="900:921" placeholder="SELECT * FRO..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Admin.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/Admin/Admin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.7916665" vertical-offset="3338" max-vertical-offset="8805">
+              <caret line="262" column="47" selection-start-line="262" selection-start-column="47" selection-end-line="262" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Connection.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/classes/Ldap/Connection.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.41238317" vertical-offset="1117" max-vertical-offset="2220">
+              <caret line="105" column="104" selection-start-line="105" selection-start-column="104" selection-end-line="105" selection-end-column="104" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CurrentUser.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/Users/CurrentUser.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-27.958334" vertical-offset="244" max-vertical-offset="1245">
+              <caret line="67" column="5" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Login.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/Users/Login.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-15.166667" vertical-offset="731" max-vertical-offset="5175">
+              <caret line="92" column="24" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/Users/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.083333" vertical-offset="916" max-vertical-offset="3150">
+              <caret line="89" column="121" selection-start-line="89" selection-start-column="121" selection-end-line="89" selection-end-column="121" />
               <folding />
             </state>
           </provider>
@@ -124,30 +159,8 @@
       <file leaf-file-name="config.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/Settings/config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="510" max-vertical-offset="1710">
-              <caret line="36" column="7" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PostIt.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Modules/PostIt/PostIt.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2370" max-vertical-offset="6825">
-              <caret line="158" column="0" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
-              <folding>
-                <element signature="e#124#144#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DenyAppAccess.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Modules/DenyAppAccess/DenyAppAccess.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="585" max-vertical-offset="5430">
-              <caret line="81" column="131" selection-start-line="81" selection-start-column="131" selection-end-line="81" selection-end-column="131" />
+            <state vertical-scroll-proportion="-15.0" vertical-offset="240" max-vertical-offset="1710">
+              <caret line="42" column="35" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -173,11 +186,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Fs.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Fs.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/FileSystem/Fs.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.72938687" vertical-offset="1845" max-vertical-offset="6750">
-              <caret line="152" column="101" selection-start-line="152" selection-start-column="101" selection-end-line="152" selection-end-column="101" />
+            <state vertical-scroll-proportion="-11.25" vertical-offset="1845" max-vertical-offset="6750">
+              <caret line="147" column="41" selection-start-line="147" selection-start-column="41" selection-end-line="147" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -226,8 +239,8 @@
       <file leaf-file-name="AlertsManager.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/Logs/AlertsManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.416666" vertical-offset="1892" max-vertical-offset="2430">
-              <caret line="159" column="4" selection-start-line="159" selection-start-column="4" selection-end-line="159" selection-end-column="112" />
+            <state vertical-scroll-proportion="-30.125" vertical-offset="1587" max-vertical-offset="2430">
+              <caret line="159" column="109" selection-start-line="159" selection-start-column="109" selection-end-line="159" selection-end-column="109" />
               <folding />
             </state>
           </provider>
@@ -251,9 +264,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/classes/Forms/Fields/Password.php" />
-        <option value="$PROJECT_DIR$/classes/Modules/Module.php" />
-        <option value="$PROJECT_DIR$/classes/Users/Login.php" />
         <option value="$PROJECT_DIR$/Docs/Code/class-Forms.Field.html" />
         <option value="$PROJECT_DIR$/Docs/Poulpe2/views/render.php" />
         <option value="$PROJECT_DIR$/Docs/Poulpe2/views/tree.php" />
@@ -272,7 +282,6 @@
         <option value="$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.js" />
         <option value="$PROJECT_DIR$/classes/Get.php" />
         <option value="$PROJECT_DIR$/classes/Check.php" />
-        <option value="$PROJECT_DIR$/classes/Users/UsersManagement.php" />
         <option value="$PROJECT_DIR$/Modules/FileBrowser/api-allocine/AlloHelper.class.php" />
         <option value="$PROJECT_DIR$/Modules/FileBrowser/api-allocine/AlloData.class.php" />
         <option value="$PROJECT_DIR$/Modules/FileBrowser/api-allocine/api-allocine-helper.php" />
@@ -289,9 +298,6 @@
         <option value="$PROJECT_DIR$/js/DataTables/Readme.md" />
         <option value="$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.php" />
         <option value="$PROJECT_DIR$/classes/Db/Db.php" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/classes/Ldap/Connection.php" />
-        <option value="$PROJECT_DIR$/classes/Ldap/Ldap.php" />
         <option value="$PROJECT_DIR$/Modules/PostIt/PostIt.php" />
         <option value="$PROJECT_DIR$/Modules/DenyAppAccess/DenyAppAccess.php" />
         <option value="$PROJECT_DIR$/classes/Db/DbFieldSettings.php" />
@@ -299,9 +305,16 @@
         <option value="$PROJECT_DIR$/Modules/BandesTina/BandesTina.php" />
         <option value="$PROJECT_DIR$/install.md" />
         <option value="$PROJECT_DIR$/classes/Logs/Debug.php" />
-        <option value="$PROJECT_DIR$/classes/Logs/AlertsManager.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/classes/FileSystem/Fs.php" />
+        <option value="$PROJECT_DIR$/classes/Users/UsersManagement.php" />
+        <option value="$PROJECT_DIR$/classes/Users/User.php" />
+        <option value="$PROJECT_DIR$/classes/Users/CurrentUser.php" />
+        <option value="$PROJECT_DIR$/classes/Ldap/Ldap.php" />
+        <option value="$PROJECT_DIR$/classes/Settings/config.php" />
+        <option value="$PROJECT_DIR$/classes/Logs/AlertsManager.php" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/classes/Ldap/Connection.php" />
       </list>
     </option>
   </component>
@@ -457,6 +470,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tools2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="classes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -475,7 +502,43 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Users" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tools2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Logs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tools2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ldap" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -919,7 +982,13 @@
       <option name="project" value="LOCAL" />
       <updated>1412259524017</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Ajout du temps de génération de la page si le mode DEBUG est activé&#10;Correction d'un bug de montage de partages réseau&#10;">
+      <created>1415289648859</created>
+      <option name="number" value="00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1415289648859</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -948,24 +1017,24 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279396" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297062" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.399137" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.399137" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19477694" sideWeight="0.50053936" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3257821" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24972796" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297062" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2312296" sideWeight="0.49946064" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.399137" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.206041" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="61" y="424" width="1838" height="191" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19477694" sideWeight="0.50053936" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.399137" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3257821" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Assets" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32901832" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="CSS Styles" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.399137" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1012,7 +1081,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="- Classe Arg remplacée par une classe Filter&#10;- Corrections/améliorations de classes de champs de formulaires&#10;- Correction d'un bug à la connexion du premier utilisateur en authentification sql&#10;" />
     <MESSAGE value="- Corrections dans les classes Filter et Get&#10;" />
     <MESSAGE value="- Corrections dans la classe Filter" />
     <MESSAGE value="- Grosse mise à jour des commentaires de code&#10;- Ajout d'un type de champ de formulaire Time&#10;- Corrections de bugs&#10;- Ajout de scripts js pour la saisie de dates et heures&#10;&#10;" />
@@ -1037,7 +1105,8 @@
     <MESSAGE value="- Correction d'un bug dans le module BandesTina.&#10;" />
     <MESSAGE value="- Ajout de doc de code&#10;- Correction d'un bug sur les clés étrangères dans l'installation des tables SQL&#10;- Correction d'un bug dans l'affichage de l'écran d'édition des Post-It.&#10;" />
     <MESSAGE value="Amélioration de l'aide pour les bandes de sauvegarde dans le module BandesTina&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Amélioration de l'aide pour les bandes de sauvegarde dans le module BandesTina&#10;" />
+    <MESSAGE value="Ajout du temps de génération de la page si le mode DEBUG est activé&#10;Correction d'un bug de montage de partages réseau&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout du temps de génération de la page si le mode DEBUG est activé&#10;Correction d'un bug de montage de partages réseau&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1072,20 +1141,6 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/css/less/internal/fixes.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="573">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/less/poulpe2.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="570">
-          <caret line="25" column="25" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/less/external/yeti-variables.less">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="11389" max-vertical-offset="12045">
@@ -1149,24 +1204,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Users/Login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2430" max-vertical-offset="5460">
-          <caret line="162" column="37" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classes/Sanitize.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2550" max-vertical-offset="5115">
           <caret line="170" column="35" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Users/UsersManagement.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="3030">
-          <caret line="68" column="40" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1304,25 +1345,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Ldap/Connection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="2130">
-          <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="1485">
-          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Modules/FileBrowser/FileBrowser.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="6525">
@@ -1381,32 +1403,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/install.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1965" max-vertical-offset="2400">
-          <caret line="131" column="56" selection-start-line="131" selection-start-column="56" selection-end-line="131" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Modules/Mailboxes/Mailboxes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="5959" max-vertical-offset="7905">
           <caret line="448" column="21" selection-start-line="448" selection-start-column="21" selection-end-line="448" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Front.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-196.25" vertical-offset="270" max-vertical-offset="5985">
-          <caret line="342" column="57" selection-start-line="342" selection-start-column="57" selection-end-line="342" selection-end-column="57" />
           <folding />
         </state>
       </provider>
@@ -1419,14 +1419,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Logs/AlertsManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.416666" vertical-offset="1892" max-vertical-offset="2430">
-          <caret line="159" column="4" selection-start-line="159" selection-start-column="4" selection-end-line="159" selection-end-column="112" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="2370">
@@ -1435,26 +1427,117 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/classes/FileSystem/Fs.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.25" vertical-offset="1845" max-vertical-offset="6750">
+          <caret line="147" column="41" selection-start-line="147" selection-start-column="41" selection-end-line="147" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Admin/Admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.7916665" vertical-offset="3338" max-vertical-offset="8805">
+          <caret line="262" column="47" selection-start-line="262" selection-start-column="47" selection-end-line="262" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Users/Login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.166667" vertical-offset="731" max-vertical-offset="5175">
+          <caret line="92" column="24" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Users/UsersManagement.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.75" vertical-offset="1215" max-vertical-offset="2940">
+          <caret line="120" column="47" selection-start-line="120" selection-start-column="33" selection-end-line="120" selection-end-column="47" />
+          <folding>
+            <marker date="1415354220000" expanded="true" signature="900:921" placeholder="SELECT * FRO..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Users/CurrentUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-27.958334" vertical-offset="244" max-vertical-offset="1245">
+          <caret line="67" column="5" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Users/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.083333" vertical-offset="916" max-vertical-offset="3150">
+          <caret line="89" column="121" selection-start-line="89" selection-start-column="121" selection-end-line="89" selection-end-column="121" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/install.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.428572" vertical-offset="1561" max-vertical-offset="2400">
+          <caret line="131" column="56" selection-start-line="131" selection-start-column="56" selection-end-line="131" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/classes/Settings/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="510" max-vertical-offset="1710">
-          <caret line="36" column="7" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+        <state vertical-scroll-proportion="-15.0" vertical-offset="240" max-vertical-offset="1710">
+          <caret line="42" column="35" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Front.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-196.25" vertical-offset="270" max-vertical-offset="5985">
+          <caret line="342" column="57" selection-start-line="342" selection-start-column="57" selection-end-line="342" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Logs/AlertsManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-30.125" vertical-offset="1587" max-vertical-offset="2430">
+          <caret line="159" column="109" selection-start-line="159" selection-start-column="109" selection-end-line="159" selection-end-column="109" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-26.75" vertical-offset="706" max-vertical-offset="1545">
+          <caret line="97" column="200" selection-start-line="97" selection-start-column="200" selection-end-line="97" selection-end-column="200" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Ldap/Ldap.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1395" max-vertical-offset="3900">
-          <caret line="103" column="4" selection-start-line="103" selection-start-column="4" selection-end-line="103" selection-end-column="4" />
+        <state vertical-scroll-proportion="-4.375" vertical-offset="1530" max-vertical-offset="4200">
+          <caret line="119" column="41" selection-start-line="119" selection-start-column="41" selection-end-line="119" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/FileSystem/Fs.php">
+    <entry file="file://$PROJECT_DIR$/classes/Ldap/Connection.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.72938687" vertical-offset="1845" max-vertical-offset="6750">
-          <caret line="152" column="101" selection-start-line="152" selection-start-column="101" selection-end-line="152" selection-end-column="101" />
+        <state vertical-scroll-proportion="0.41238317" vertical-offset="1117" max-vertical-offset="2220">
+          <caret line="105" column="104" selection-start-line="105" selection-start-column="104" selection-end-line="105" selection-end-column="104" />
           <folding />
         </state>
       </provider>

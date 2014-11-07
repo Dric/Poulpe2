@@ -103,7 +103,13 @@ class Connection {
 		$this->bindName = htmlspecialchars($bindName);
 		$this->bindPwd  = htmlspecialchars($bindPwd);
 		$this->dc       = htmlspecialchars($dc);
-		if ($this->connection = ldap_connect($this->dc.'.'.$this->domain, $this->port)){
+		// on regarde si c'est une adresse IP ou un nom. si c'est un nom, on complète avec le nom de domaine
+		if (\Check::isIpAddress($this->dc)){
+			$this->connection = ldap_connect($this->dc, $this->port);
+		}else{
+			$this->connection = ldap_connect($this->dc.'.'.$this->domain, $this->port);
+		}
+		if ($this->connection){
 			ldap_set_option($this->connection, LDAP_OPT_PROTOCOL_VERSION, 3); //Option à ajouter si vous utilisez Windows server2k3 minimum
 			ldap_set_option($this->connection, LDAP_OPT_REFERRALS, 0); //Option à ajouter si vous utilisez Windows server2k3 minimum
 			/** Connexion à l'AD avec les identifiants saisis à la connexion.. */

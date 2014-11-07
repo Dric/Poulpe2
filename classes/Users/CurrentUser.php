@@ -62,4 +62,23 @@ class CurrentUser extends User{
 		return $this->pwd;
 	}
 
+	/**
+	 * Retourne la dernière connexion à LDAP de l'utilisateur actuel
+	 * @return int
+	 */
+	public function getLDAPLastLogon(){
+		global $ldap;
+		if (!isset($this->LDAPLastLogon)) $this->LDAPLastLogon = $ldap->lastLogon($this->name);
+		return $this->LDAPLastLogon;
+	}
+
+	/**
+	 * Retourne les groupes LDAP dont fait partie l'utilisateur actuel
+	 * @return array|bool
+	 */
+	public function getLDAPUserMembership(){
+		global $ldap;
+		if (!isset($this->LDAPUserMembership)) $this->LDAPUserMembership = $ldap->userMembership($this->name);
+		return $this->LDAPUserMembership;
+	}
 } 

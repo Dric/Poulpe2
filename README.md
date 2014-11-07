@@ -92,3 +92,7 @@ Paramètres de génération de doc (commande lancée à partir du répertoire ra
 ### Régressions depuis la v1
 
 - Faible utilisation des requêtes asynchrones, rendant la navigation potentiellement moins légère
+
+### Troubleshooting
+
+- Si les interrogations à LDAP mettent 5s à se faire, c'est qu'il y a un problème de résolution DNS sur le serveur. Le plus simple est d'indiquer les adresses IP des serveurs LDAP au lieu de leur nom.
