@@ -56,10 +56,14 @@ class UsersManagement {
 	 *
 	 * @param int $userId Id de l'utilisateur
 	 *
-	 * @return string
+	 * @return string|bool
 	 */
 	static function getUserName($userId){
-		return self::getDBUsers($userId)->name;
+		$user = self::getDBUsers($userId);
+		if ($user === false){
+			return false;
+		}
+		return $user->name;
 	}
 
 	/**

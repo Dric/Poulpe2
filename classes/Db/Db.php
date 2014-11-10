@@ -414,7 +414,7 @@ class Db {
 		}
 		$ret = $statement->execute();
 		$this->queriesCount ++;
-		if (!$ret){
+		if ($ret === false){
 			new Alert('error', 'Erreur lors de l\'exécution de la requête !<br>'.$statement->errorInfo()[2]);
 			return false;
 		}

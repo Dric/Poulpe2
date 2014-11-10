@@ -9,6 +9,7 @@
 namespace Users;
 
 
+use Forms\PostedData;
 use Logs\Alert;
 use Components\Help;
 use Get;
@@ -237,31 +238,69 @@ class ACL {
 
 	/**
 	 * Récupère l'envoi d'un formulaire pour sauvegarder des ACL
+	 *
+	 * @param string $action Action à traiter.
+	 *  - `restoreDefault` : restaure les droits d'accès par défaut pour un utilisateur
+	 *
 	 * @return bool
 	 */
-	public static function requestACLSave(){
-		$ACLArr = array();
-		foreach ($_REQUEST as $key => $value){
-			if (substr($key, 0, 4) == 'ACL_'){
-				list($dummy, $component, $componentId, $user, $type, $field) = explode('_', $key);
-				if (!in_array($type, array_keys(self::$typesLabels))){
-					New Alert('debug', '<code>ACL::requestACLSave()</code> : <code>$type='.$type.'</code> ne fait pas partie des typesLabels autorisés !');
+	public static function requestACLSave($action = null){
+		switch ($action){
+			case 'restoreDefault':
+				$ret = PostedData::checkToken('adminUserACL', $_REQUEST['token']);
+				if (!$ret){
+					new Alert('error', 'Erreur de traitement : Ce formulaire a déjà été envoyé, ou bien vous n\'êtes pas la personne qui a initié l\'envoi !');
 					return false;
 				}
-				$ACLArr[$component][$componentId][$user][$type][$field] = ($value == 1) ? true : false;
-			}
+				if (!self::canAdmin('admin', 0)){
+					new Alert('error', 'Vous n\'avez pas l\'autorisation de faire ceci !');
+					return false;
+				}
+				$user = (int)$_REQUEST['user'];
+				if (!UsersManagement::getDBUsers($user)){
+					new Alert('error', 'Cet utilisateur n\'existe pas !');
+					return false;
+				}
+				return self::delete(null, null, $user);
+				break;
+			case 'updateACL':
+			default:
+				$ret = PostedData::checkToken('adminACL', $_REQUEST['token']);
+				if (!$ret){
+					new Alert('error', 'Erreur de traitement : Ce formulaire a déjà été envoyé, ou bien vous n\'êtes pas la personne qui a initié l\'envoi !');
+					return false;
+				}
+				$ACLArr = array();
+				foreach ($_REQUEST as $key => $value){
+					if (substr($key, 0, 4) == 'ACL_'){
+						list($dummy, $component, $componentId, $user, $type, $field) = explode('_', $key);
+						if (!self::canAdmin($component, $componentId)){
+							new Alert('error', 'Vous n\'avez pas l\'autorisation de faire ceci !');
+							return false;
+						}
+						if (!in_array($type, array_keys(self::$typesLabels))){
+							New Alert('debug', '<code>ACL::requestACLSave()</code> : <code>$type='.$type.'</code> ne fait pas partie des typesLabels autorisés !');
+							return false;
+						}
+						$ACLArr[$component][$componentId][$user][$type][$field] = ($value == 1) ? true : false;
+					}
+				}
+				foreach ($ACLArr as $component => $ACLArrComponent) {
+					foreach ($ACLArrComponent as $componentId => $ACLArrComponentId) {
+						foreach ($ACLArrComponentId as $user => $ACLUser) {
+							foreach ($ACLUser as $type => $ACLType) {
+								$ACLArr[$component][$componentId][$user][$type] = (isset($ACLType['checkbox'])) ? $ACLType['checkbox'] : $ACLType['hidden'];
+							}
+						}
+					}
+				}
+				if ($ret = self::setArray($ACLArr)){
+					new Alert('success', 'Les autorisations ont été sauvegardées !');
+				}else{
+					new Alert('error', 'Les autorisations n\'ont pas été sauvegardées !');
+				}
+				return $ret;
 		}
-		foreach ($ACLArr[$component][$componentId] as $user => $ACLUser){
-			foreach ($ACLUser as $type => $ACLType){
-				$ACLArr[$component][$componentId][$user][$type] = (isset($ACLType['checkbox'])) ? $ACLType['checkbox'] : $ACLType['hidden'];
-			}
-		}
-		if ($ret = self::setArray($ACLArr)){
-			new Alert('success', 'Les autorisations ont été sauvegardées !');
-		}else{
-			new Alert('error', 'Les autorisations n\'ont pas été sauvegardées !');
-		}
-		return $ret;
 	}
 
 	/**
@@ -309,12 +348,126 @@ class ACL {
 			new Alert('debug', '<code>ACL::delete()</code> : Aucun paramètre n\'est renseigné !');
 			return false;
 		}
-		if ($ret = $db->delete('ACL', $where, $format)){
+		$ret = $db->delete('ACL', $where, $format);
+		if ($ret === false){
 			new Alert('error', 'Impossible de supprimer les autorisations !');
 			return false;
 		}
 		new Alert('success', 'Les autorisations ont été correctement supprimées !');
 		return true;
+	}
+
+	/**
+	 * Affiche le formulaire de réglage de l'ensemble des autorisations d'un utilisateur
+	 *
+	 * @param int     $userId
+	 */
+	public static function adminUserACL($userId){
+		global $db;
+		$userName = '';
+		if ($userId != 10000) {
+			$userName = UsersManagement::getUserName($userId);
+		}
+		if ($userName === false){
+			new Alert('error', 'Cet utilisateur n\'existe pas !');
+			$userId = 10000;
+		}
+		$acls = $db->query('SELECT a.user as user, m.name as module, a.id as componentId, a.type as type, a.value as value FROM `modules` as m, `ACL` as a WHERE m.id = a.id AND `user` IN ('.$userId.', 10000) AND `component` = "module" ORDER BY `name`');
+		$types = array_flip(array_keys(self::$typesLabels));
+		$ACLArr = array();
+		foreach ($acls as $acl){
+			$ACLArr[$acl->module][$acl->user][$acl->type] = ($acl->value == 1) ? true : false;
+			$ACLArr[$acl->module]['componentId'] = $acl->componentId;
+		}
+		$adminUsers = $db->query('SELECT user FROM `ACL` WHERE `component` = "admin" and `type` = "admin" AND `value` = 1 ORDER BY `user`');
+		$admins = array();
+		foreach ($adminUsers as $adminUser){
+			$admins[] = $adminUser->user;
+		}
+		?>
+		<div class="row">
+			<div class="col-md-12">
+				<h2><?php echo ($userId == 10000) ? 'Droits par défaut' :'Droits de '.$userName; ?></h2>
+				<?php
+				if (in_array($userId, $admins)){
+					?><div class="alert alert-warning">Cet utilisateur est administrateur, il a automatiquement tous les droits sur tous les modules.</div><?php
+				}
+				?>
+				<p>Si vous modifiez un droit d'accès ici, cela enregistrera les droits d'accès de tous les modules. L'utilisateur n'héritera plus des droits d'accès par défaut.</p>
+				<form id="adminUserACL" class="" method="post" role="form" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Module</th>
+								<?php
+								foreach (self::$typesLabels as $type => $label){
+									?>
+									<th><?php echo $type; ?> <?php Help::iconHelp($label); ?></th>
+								<?php
+								}
+								?>
+								<th>Remarques</th>
+							</tr>
+						</thead>
+						<tbody>
+						<?php
+						foreach ($ACLArr as $module=>$acl){
+							$component = 'module';
+							$componentId = $acl['componentId'];
+							$sanitizedModule = Sanitize::sanitizeFilename($module);
+							?>
+							<tr id="ACL_<?php echo $sanitizedModule; ?>">
+								<td><?php echo $module; ?></td>
+								<?php
+								$inherited = true;
+								$disabled = false;
+								foreach(self::$typesLabels as $type => $label){
+									$checked = false;
+									if(in_array($userId, $admins)){
+										$checked = true;
+										$disabled = true;
+									}elseif (isset($acl[$userId][$type])){
+										if ($acl[$userId][$type]) {
+											$checked = true;
+										}
+										$inherited = false;
+									}elseif(isset($acl[10000][$type]) and $acl[10000][$type]){
+										$checked = true;
+									}
+									?>
+									<td>
+										<input type="checkbox" class="form-control checkbox-ACL" id="ACL_<?php echo $sanitizedModule.'_'.$type; ?>_checkbox" name="ACL_<?php echo $component.'_'.$componentId.'_'.$userId.'_'.$type; ?>_checkbox" data-type-value="<?php echo $types[$type]; ?>" data-tr-id="#ACL_<?php echo $sanitizedModule; ?>" value="1" <?php if ($checked) echo 'checked'; ?> <?php if ($disabled) echo 'disabled'; ?>>
+										<input type="hidden" id="ACL_<?php echo $sanitizedModule.'_'.$type; ?>_hidden" name="ACL_<?php echo  $component.'_'.$componentId.'_'.$userId.'_'.$type;  ?>_hidden" value="0">
+									</td>
+								<?php
+								}
+								?>
+								<td>
+									<i>
+										<?php
+										if (in_array($userId, $admins)){
+											echo 'Administrateur global';
+										}elseif ($inherited) {
+											echo 'Hérité des ACL par défaut';
+										}
+										?>
+									</i>
+								</td>
+							</tr>
+						<?php
+						}
+						?>
+						</tbody>
+					</table>
+					<input type="hidden" name="user" value="<?php echo $userId; ?>">
+					<input type="hidden" name="token" value="<?php echo PostedData::setToken('adminUserACL'); ?>">
+					<input type="hidden" name="formName" value="adminUserACL">
+					<button class="btn btn-primary" type="submit" name="action" value="saveACL" <?php if(in_array($userId, $admins)) echo 'disabled'; ?>>Sauvegarder</button>
+					<button class="btn btn-default" type="submit" name="action" value="restoreDefaultACL" <?php if(in_array($userId, $admins) or $userId == 10000) echo 'disabled'; ?>>Droits par défaut</button>
+				</form>
+			</div>
+		</div>
+		<?php
 	}
 
 	/**
@@ -326,6 +479,10 @@ class ACL {
 	 */
 	public static function adminACL($component, $componentId, $title = null){
 		global $db;
+		if (!self::canAdmin($component, $componentId)){
+			new Alert('error', 'Vous n\'avez pas l\'autorisation de faire ceci !');
+			return false;
+		}
 		$users = UsersManagement::getDBUsers();
 		$acls = $db->query('SELECT user, type, value FROM `ACL` WHERE `component` = "'.$component.'" AND `id` = '.$componentId.' ORDER BY `user`');
 		$adminUsers = $db->query('SELECT user FROM `ACL` WHERE `component` = "admin" and `type` = "admin" AND `value` = 1 ORDER BY `user`');
@@ -333,7 +490,13 @@ class ACL {
 		foreach ($adminUsers as $adminUser){
 			$admins[] = $adminUser->user;
 		}
-		$types = array_flip(array_keys(self::$typesLabels));
+		if ($component != 'admin'){
+			$types = array_flip(array_keys(self::$typesLabels));
+			$typesLabels = self::$typesLabels;
+		}else{
+			$types = array('admin' => 2);
+			$typesLabels = array('admin'  => 'Permet d\'administrer le site entier !');
+		}
 		$ACLArr = array();
 		foreach ($acls as $acl){
 			$ACLArr[$acl->user][$acl->type] = ($acl->value == 1) ? true : false;
@@ -351,10 +514,10 @@ class ACL {
 							<tr>
 								<th>Utilisateur</th>
 								<?php
-								foreach (self::$typesLabels as $type => $label){
-								?>
-								<th><?php echo $type; ?> <?php Help::iconHelp($label); ?></th>
-								<?php
+								foreach ($typesLabels as $type => $label){
+									?>
+									<th><?php echo $type; ?> <?php Help::iconHelp($label); ?></th>
+									<?php
 								}
 								?>
 								<th>Remarques</th>
@@ -369,7 +532,7 @@ class ACL {
 								<td><?php echo $user->name; ?></td>
 								<?php
 								$inherited = true;
-								foreach(self::$typesLabels as $type => $label){
+								foreach($typesLabels as $type => $label){
 									$checked = false;
 									if (isset($ACLArr[$user->id][$type])){
 										if ($ACLArr[$user->id][$type]) {
@@ -407,7 +570,7 @@ class ACL {
 							<tr id="ACL_<?php echo $component.'_'.$componentId.'_10000'; ?>">
 									<td>Tout le monde</td>
 							<?php
-							foreach(self::$typesLabels as $type => $label){
+							foreach($typesLabels as $type => $label){
 								?>
 								<td>
 									<input type="checkbox" class="form-control checkbox-ACL" id="ACL_<?php echo $component.'_'.$componentId.'_10000_'.$type; ?>_checkbox" name="ACL_<?php echo $component.'_'.$componentId.'_10000_'.$type; ?>_checkbox" data-type-value="<?php echo $types[$type]; ?>" data-tr-id="#ACL_<?php echo $component.'_'.$componentId.'_10000'; ?>" value="1" <?php if (isset($ACLArr['default'][$type]) and $ACLArr['default'][$type]) echo 'checked'; ?>>
@@ -421,6 +584,8 @@ class ACL {
 						</tbody>
 					</table>
 					<button class="btn btn-primary" type="submit" name="action" value="saveACL">Sauvegarder</button>
+					<input type="hidden" name="token" value="<?php echo PostedData::setToken('adminACL'); ?>">
+					<input type="hidden" name="formName" value="adminACL">
 				</form>
 			</div>
 		</div>

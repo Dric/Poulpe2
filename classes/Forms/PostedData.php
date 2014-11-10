@@ -169,7 +169,7 @@ class PostedData {
 	 *
 	 * @return bool
 	 */
-	static protected function checkToken($formName, $token){
+	static public function checkToken($formName, $token){
 		self::delOldTokens();
 		if (isset($_SESSION[$formName.'_Token'])){
 			if ($_SESSION[$formName.'_Token'] == $token){

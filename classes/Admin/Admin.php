@@ -62,7 +62,8 @@ class Admin extends Module {
 	protected function moduleMenu(){
 		$menu = new Menu($this->name, 'Administration', '', '', '');
 		$menu->add(new Item('modules', 'Modules', $this->url.'&page=modules', 'Administration des modules', 'puzzle-piece'));
-		$menu->add(new Item('acl', 'Autorisations', $this->url.'&page=ACL', 'Gestion des autorisations', 'lock'));
+		$menu->add(new Item('acl', 'Administrateurs', $this->url.'&page=ACL', 'Gestion des administrateurs', 'unlock-alt'));
+		$menu->add(new Item('acl', 'Droits d\'accès', $this->url.'&page=userACL', 'Gestion des autorisations', 'lock'));
 		$menu->add(new Item('config', 'Configuration', $this->url.'&page=config', 'Fichier de configuration', 'floppy-o'));
 		$menu->add(new Item('users', 'Utilisateurs', $this->url.'&page=users', 'Gestion des utilisateurs', 'users'));
 		Front::setSecondaryMenus($menu);
@@ -221,13 +222,65 @@ class Admin extends Module {
 	 * @see ACL
 	 */
 	protected function adminACL(){
+		if (!ACL::canModify('admin', $this->id)){
+			new Alert('error', 'Vous n\'avez pas l\'autorisation de faire ceci !');
+			return false;
+		}
 		?>
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
 				<div class="page-header">
-					<h1>Autorisations de <?php echo SITE_NAME; ?></h1>
+					<h1>Droits d'accès de <?php echo SITE_NAME; ?></h1>
 				</div>
 				<?php ACL::adminACL('admin', 0, 'l\'administration du site'); ?>
+			</div>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Administration des droits d'accès d'un utilisateur
+	 * @see ACL
+	 */
+	protected function adminUserACL(){
+		if (!ACL::canModify('admin', $this->id)){
+			new Alert('error', 'Vous n\'avez pas l\'autorisation de faire ceci !');
+			return false;
+		}
+		$req = $this->postedData;
+		if (isset($req['user'])){
+			$userSearched = $req['user'];
+		}elseif(isset($_REQUEST['user'])){
+			$userSearched = $_REQUEST['user'];
+		}
+		?>
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="page-header">
+					<h1>Droits d'accès des utilisateurs</h1>
+				</div>
+				<?php
+				if (isset($userSearched) and is_numeric($userSearched)) {
+					ACL::adminuserACL($userSearched);
+				}else{
+					?>
+					<ul>
+					<?php
+					$usersDb = UsersManagement::getDBUsers();
+					$users = array();
+					foreach ($usersDb as $user){
+						$users[$user->id] = $user->name;
+					}
+					$users[10000] = 'Droits par défaut';
+					$form = new Form('UsersACL', null, null, 'admin', 0, 'post', 'form-inline');
+					$form->addField(new Select('user', null, 'Utilisateur', null, false, 'modify', null, false, $users, true));
+					$form->addField(new Button('page', 'userACL', 'Voir/Modifier', 'modify'));
+					$form->display();
+					?>
+					</ul>
+					<?php
+				}
+				?>
 			</div>
 		</div>
 		<?php
@@ -237,6 +290,10 @@ class Admin extends Module {
 	 * Administration des utilisateurs
 	 */
 	protected function adminUsers(){
+		if (!ACL::canModify('admin', $this->id)){
+			new Alert('error', 'Vous n\'avez pas l\'autorisation de faire ceci !');
+			return false;
+		}
 		$users = UsersManagement::getDBUsers();
 		?>
 		<div class="row">
@@ -252,7 +309,8 @@ class Admin extends Module {
 							<th>Nom</th>
 							<th>Avatar</th>
 							<th>Email</th>
-							<th>Actions</th>
+							<th>Droits d'accès</th>
+							<th>Profil/Compte</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -275,6 +333,7 @@ class Admin extends Module {
 								<td><?php echo $user->name; ?></td>
 								<td><?php echo Avatar::display($avatar, 'Avatar de '.$user->name); ?></td>
 								<td><?php echo $user->email; ?></td>
+								<td><a class="btn btn-default" href="<?php echo $this->url; ?>&page=userACL&user=<?php echo $user->id; ?>">Modifier</a></td>
 								<td><a class="btn btn-default" href="<?php echo MODULE_URL; ?>profil&user=<?php echo $user->id; ?>">Modifier</a></td>
 							</tr>
 							<?php

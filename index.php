@@ -14,7 +14,9 @@ if (!file_exists('classes/Settings/config.php')){
 require_once 'classes/Settings/config.php';
 
 if (DEBUG) {
-	ini_set('xdebug.profiler_enable_trigger', '1');
+	// Permet de faire du profilage avec XDebug et (<http://github.com/jokkedk/webgrind/>), à condition d'avoir activé le profilage XDebug
+	setcookie('XDEBUG_PROFILE');
+	// Pour obtenir le temps passé à générer la page.
 	$startTime = microtime(true);
 }
 
@@ -73,14 +75,26 @@ if (isset($_REQUEST['action'])){
 		case 'loginForm':
 			Login::loginForm((isset($_REQUEST['from']) ? $_REQUEST['from'] : null));
 			break;
-		case 'saveACL':
-			ACL::requestACLSave();
 	}
 }
 $cUser = new CurrentUser();
 if ((!$cUser->isLoggedIn() or $redirectToLogin) and AUTH_MANDATORY){
 	header('location: index.php?action=loginForm&from='.urlencode($_SERVER['REQUEST_URI']));
 }else{
+	/**
+	 * Les ACL étant des formulaires particuliers à gérer, leur traitement et leur sécurisation se fait directement dans la classe ACL et non dans PostedData.
+	 *
+	 * Par ailleurs, la sécurisation du traitement impose d'avoir instancié l'utilisateur courant
+	 */
+	if (isset($_REQUEST['action'])) {
+		switch ($_REQUEST['action']) {
+			case 'saveACL':
+				ACL::requestACLSave();
+				break;
+			case 'restoreDefaultACL':
+				ACL::requestACLSave('restoreDefault');
+		}
+	}
 	/**
 	 * Récupération du module demandé (affiche l'index par défaut)
 	 * @var $module Module
