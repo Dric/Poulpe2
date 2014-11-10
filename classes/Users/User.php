@@ -70,9 +70,12 @@ class User {
 	 * Construction d'un objet User
 	 *
 	 * @param int|string  $user ID de l'utilisateur
-	 * @param bool $loginOnly Si true, on zappe toutes les infos inutiles (typiquement pour vérifier une authentification)
+	 * @param int $level Niveau de propriétés à renseigner :
+	 *  - 0 : propriétés de l'objet instancié réduites au minimum (pas de propriétés LDAP, surtout utilisé pour l'authentification),
+	 *  - 1 : propriétés partiellement renseignées (les infos les plus coûteuses en terme de performance comme la date de dernière connexion à LDAP et l'appartenance aux groupes ne sont pas renseignées),
+	 *  - 2 : propriétés entièrement renseignées
 	 */
-	public function __construct($user, $loginOnly = false){
+	public function __construct($user, $level = 2){
 		// Si l'ID de l'utilisateur est différente de 0 (0 = connexion anonyme)
 		if ($user !== 0){
 			$userDB = UsersManagement::getDBUsers($user);
@@ -82,14 +85,14 @@ class User {
 				}
 			}
 			$this->id = (int)$this->id;
-			if (!$loginOnly){
+			if ($level > 0){
 				if (AUTH_MODE == 'ldap'){
 					/*
-					 * On détermine si on est en train d'instancier l'utilisateur actuel, auquel cas on ne retourne pas les infos longues à charger
+					 * Si `level` vaut `1`, on ne retourne pas les infos longues à charger
 					 *
 					 * Les propriétés longues à charger sont accessibles à la demande via des méthodes `$cUser->getLDAP<propriété>`
 					 */
-					if (isset($this->isLoggedIn)){
+					if ($level < 2){
 						$this->LDAPProps = UsersManagement::getLDAPUser($this->name, false);
 					}else{
 						$this->LDAPProps = UsersManagement::getLDAPUser($this->name);
@@ -98,7 +101,7 @@ class User {
 				}
 			}
 		}
-		if (!$loginOnly){
+		if ($level > 0){
 			$this->ACL = ACL::getUserACL($this->id);
 		}
 	}

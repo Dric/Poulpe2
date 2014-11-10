@@ -6,18 +6,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b517d7b-6e6e-44e4-a303-f637474520ff" name="Default" comment="- Amélioration des performances dans la récupération des informations LDAP d'un utilisateur : à l'instanciation, on peut définir un niveau d'éléments récupérés afin de minimiser le coût en requêtes et en temps de réponse.&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Users/ACL.php" afterPath="$PROJECT_DIR$/classes/Users/ACL.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Admin/Admin.php" afterPath="$PROJECT_DIR$/classes/Admin/Admin.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Users/CurrentUser.php" afterPath="$PROJECT_DIR$/classes/Users/CurrentUser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Db/Db.php" afterPath="$PROJECT_DIR$/classes/Db/Db.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Front.php" afterPath="$PROJECT_DIR$/classes/Front.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Poulpe2/library/Formulaires/Gestion des formulaires.md" afterPath="$PROJECT_DIR$/Docs/Poulpe2/library/Formulaires/Gestion des formulaires.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Users/Login.php" afterPath="$PROJECT_DIR$/classes/Users/Login.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/PostIt/PostIt.php" afterPath="$PROJECT_DIR$/Modules/PostIt/PostIt.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Forms/PostedData.php" afterPath="$PROJECT_DIR$/classes/Forms/PostedData.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Users/User.php" afterPath="$PROJECT_DIR$/classes/Users/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Users/UsersManagement.php" afterPath="$PROJECT_DIR$/classes/Users/UsersManagement.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docs/Poulpe2/index.php" afterPath="$PROJECT_DIR$/Docs/Poulpe2/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/poulpe2.js" afterPath="$PROJECT_DIR$/js/poulpe2.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -1230,7 +1224,13 @@
       <option name="project" value="LOCAL" />
       <updated>1415360020698</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="- La gestion des droits d'accès a été revue, elle est maintenant bien plus sécurisée.&#10;- On peut modifier sur une page l'ensemble des droits d'accès d'un utilisateur&#10;- La méthode PostedData::checkToken est maintenant accessible publiquement&#10;- Si le mode DEBUG est activé, un cookie est créé afin de pouvoir faire du profilage via Xdebug et WebGrind&#10;">
+      <created>1415626772458</created>
+      <option name="number" value="00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1415626772458</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1266,6 +1266,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.399137" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19477694" sideWeight="0.50053936" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3257821" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24972796" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -1276,7 +1277,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="CSS Styles" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.399137" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1323,7 +1323,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="- Corrections dans la classe Filter" />
     <MESSAGE value="- Grosse mise à jour des commentaires de code&#10;- Ajout d'un type de champ de formulaire Time&#10;- Corrections de bugs&#10;- Ajout de scripts js pour la saisie de dates et heures&#10;&#10;" />
     <MESSAGE value="- Correction d'un bug dans Forms\Fields\Bool" />
     <MESSAGE value="- Correction d'un bug de chargement de js dans les champs Date et Time" />
@@ -1348,7 +1347,8 @@
     <MESSAGE value="Amélioration de l'aide pour les bandes de sauvegarde dans le module BandesTina&#10;" />
     <MESSAGE value="Ajout du temps de génération de la page si le mode DEBUG est activé&#10;Correction d'un bug de montage de partages réseau&#10;" />
     <MESSAGE value="- Prise en charge des serveurs LDAP via leur IP&#10;- Meilleurs performances sur la recherche de groupes LDAP&#10;- Certaines informations LDAP concernant l'utilisateur connecté ne sont plus automatiquement remontées pour des raisons de performance&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Prise en charge des serveurs LDAP via leur IP&#10;- Meilleurs performances sur la recherche de groupes LDAP&#10;- Certaines informations LDAP concernant l'utilisateur connecté ne sont plus automatiquement remontées pour des raisons de performance&#10;" />
+    <MESSAGE value="- La gestion des droits d'accès a été revue, elle est maintenant bien plus sécurisée.&#10;- On peut modifier sur une page l'ensemble des droits d'accès d'un utilisateur&#10;- La méthode PostedData::checkToken est maintenant accessible publiquement&#10;- Si le mode DEBUG est activé, un cookie est créé afin de pouvoir faire du profilage via Xdebug et WebGrind&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="- La gestion des droits d'accès a été revue, elle est maintenant bien plus sécurisée.&#10;- On peut modifier sur une page l'ensemble des droits d'accès d'un utilisateur&#10;- La méthode PostedData::checkToken est maintenant accessible publiquement&#10;- Si le mode DEBUG est activé, un cookie est créé afin de pouvoir faire du profilage via Xdebug et WebGrind&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

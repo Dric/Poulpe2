@@ -18,7 +18,7 @@ Astuce : pour créer des formulaires horizontaux, utilisez la classe CSS `form-i
 
 Les champs sont des objets qui doivent avoir un nom et une catégorie.
 
-Chaque type de champ est géré par une classe PHP. Pour voir les propriétés de chque type de champ, référez-vous à la [documentation du code](../Code/namespace-Forms.Fields.html).
+Chaque type de champ est géré par une classe PHP. Pour voir les propriétés de chaque type de champ, référez-vous à la [documentation du code](../Code/namespace-Forms.Fields.html).
 
 Un paramètre de module peut être personnalisable par les utilisateurs. Pour passer un paramètre en paramètre personnalisable, il suffit de faire :
 

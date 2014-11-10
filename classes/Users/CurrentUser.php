@@ -36,7 +36,7 @@ class CurrentUser extends User{
 		if ($cookie !== false and Login::isLoggedIn($cookie->id)){
 			if (DETAILED_DEBUG) new Alert('debug', '<code>CurrentUser constructor</code> : Authentification réussie par le cookie !');
 			// On appelle la construction de la classe User
-			parent::__construct($cookie->id);
+			parent::__construct($cookie->id, 1);
 			$this->isLoggedIn = true;
 
 		}else{

@@ -25,6 +25,9 @@ if(!defined('ENABLE_EDITING')) {
 if(!defined('ENABLE_CREATING')) {
     define('ENABLE_CREATING', false);
 }
+if(!defined('ENABLE_PASTEBIN')) {
+	define('ENABLE_PASTEBIN', false);
+}
 
 define('PLUGINS', __DIR__ . DIRECTORY_SEPARATOR . 'plugins');
 

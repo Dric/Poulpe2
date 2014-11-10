@@ -90,7 +90,7 @@ class Login {
 	 */
 	static function isLoggedIn($user){
 		if ($cookie = self::getCookie()){
-			$userLogin = new User($user, true);
+			$userLogin = new User($user, 0);
 			if ($cookie->id === $user and $userLogin->getHash() == $cookie->hash)	return true;
 		}
 		return false;

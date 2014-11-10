@@ -116,7 +116,9 @@ function ACLSwitchs(){
 	$('.checkbox-ACL').on('switchChange.bootstrapSwitch', function(event, state) {
 		var $changed = $(this);
 		var $tr = $($changed.data('tr-id'));
+		console.log($tr.find('.checkbox-ACL'));
 		$tr.find('.checkbox-ACL').each(function(){
+			console.log($(this));
 			if (($(this).data('type-value') < $changed.data('type-value')) && state == true){
 				$(this).bootstrapSwitch('state', true, true);
 			}else if(($(this).data('type-value') > $changed.data('type-value')) && state == false){
@@ -186,17 +188,22 @@ var substringMatcher = function(strs) {
 function menuNavigation(){
 	$('.secondary-menu-title').css('margin-bottom', 16).before('<a class="display-main-menu pull-left" href="#" title="Afficher le menu principal"><span class="fa fa-chevron-circle-down"></span></a>');
 	// Si un menu secondaire existe, on planque le menu principal
-	if ($('.secondary-menu-title').length > 0) $('#menu-main').hide();
+	if ($('.secondary-menu-title').length > 0) {
+		$('#menu-main').hide();
+		$('.secondary-menu-ul').prepend('<li id="item-home" class="menuItem menu-highlight"><a title="" href="." data-original-title="Revenir à l\'accueil">Accueil</a></li>');
+	}
 	$('.display-main-menu').click(function(e){
 		$('#menu-main').slideToggle(300, function() {
 			if ($('.display-main-menu span').hasClass('fa-chevron-circle-down')){
 				// On veut afficher le menu principal
+				$('.secondary-menu-ul').hide();
 				$('.display-main-menu span').removeClass('fa-chevron-circle-down').addClass('fa-chevron-circle-up');
 				$('.display-main-menu').attr('data-original-title', 'Masquer le menu principal').tooltip('fixTitle');
 			}else{
 				// On veut masquer le menu principal
 				$('.display-main-menu span').removeClass('fa-chevron-circle-up').addClass('fa-chevron-circle-down');
 				$('.display-main-menu').attr('data-original-title', 'Afficher le menu principal').tooltip('fixTitle');
+				$('.secondary-menu-ul').show();
 			}
 		});
 	});

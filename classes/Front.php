@@ -293,7 +293,7 @@ class Front {
 	public static function displaySecondaryMenus(){
 		foreach (self::$secondaryMenus as $menu){
 			/** @var Menu $menu */
-			$menu->build('sidebar-nav', null, true);
+			$menu->build('sidebar-nav secondary-menu-ul', null, true);
 		}
 	}
 

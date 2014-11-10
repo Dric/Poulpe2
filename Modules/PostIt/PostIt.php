@@ -356,7 +356,7 @@ class PostIt extends Module{
 		global $cUser;
 		// Les avatars sont mis en mémoire afin de ne pas refaire une requête à chaque fois
 		if (!isset($this->authorAvatars[$post->getAuthor(true)])){
-			$author = new User($post->getAuthor(true));
+			$author = new User($post->getAuthor(true), 1);
 			$this->authorAvatars[$post->getAuthor(true)] = $author->getAvatar();
 		}
 		?>
