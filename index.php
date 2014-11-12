@@ -6,6 +6,14 @@
  */
 
 /**
+ * Si un paramètre `debug` est présent, on active le mode debug.
+ * Dans le fichier de config, il faut que la définition de la constante `DEBUG` soit préfixée par un `@`, sans quoi un message d'erreur peut s'afficher si la constante est définie deux fois.
+ */
+if (isset($_REQUEST['debug'])){
+ define('DEBUG', true);
+}
+
+/**
  * On charge les paramètres du site
  */
 if (!file_exists('classes/Settings/config.php')){
@@ -77,10 +85,23 @@ if (isset($_REQUEST['action'])){
 			break;
 	}
 }
+
+/**
+ * On instancie l'utilisateur courant
+ * @var $cUser CurrentUser
+ */
 $cUser = new CurrentUser();
+
+/**
+ * Si l'utilisateur courant n'est pas authentifié et que l'authentification est obligatoire, on redirige l'utilisateur vers la page de connexion
+ */
 if ((!$cUser->isLoggedIn() or $redirectToLogin) and AUTH_MANDATORY){
 	header('location: index.php?action=loginForm&from='.urlencode($_SERVER['REQUEST_URI']));
 }else{
+	/**
+	 * Utilisateur connecté, on passe à la suite !
+	 */
+
 	/**
 	 * Les ACL étant des formulaires particuliers à gérer, leur traitement et leur sécurisation se fait directement dans la classe ACL et non dans PostedData.
 	 *
@@ -112,6 +133,9 @@ if ((!$cUser->isLoggedIn() or $redirectToLogin) and AUTH_MANDATORY){
 	 */
 	Front::initMainMenu();
 
+	/**
+	 * Affichage de la page
+	 */
 	?>
 	<!DOCTYPE html>
 	<html lang="fr">
@@ -126,6 +150,7 @@ if ((!$cUser->isLoggedIn() or $redirectToLogin) and AUTH_MANDATORY){
 				<!-- Affichage du menu secondaire -->
 				<?php Front::displaySecondaryMenus(); ?>
 			</div>
+			<!-- Fin de la Sidebar -->
 			<!-- Page content -->
 			<div id="page-content-wrapper" class="container">
 				<!-- Si javascript n'est pas activé, on prévient l'utilisateur que ça peut merder... -->
@@ -156,6 +181,8 @@ if ((!$cUser->isLoggedIn() or $redirectToLogin) and AUTH_MANDATORY){
 					</div>
 				</div>
 			</div>
+			<!-- Fin de Page content -->
+			<!-- Pied de page -->
 			<footer>
 				<?php Front::footer(); ?> <?php if (DEBUG) echo ' | Mode debug activé | '; ?>
 				<img class="tooltip-top" alt="Je suis Monsieur Poulpe !" src="img/poulpe2-logo-23x32.png" style="vertical-align: text-bottom;"/> <span class="logo-highlight">P</span>oulpe<span class="logo-highlight">2</span> 2012-2014
@@ -174,5 +201,6 @@ if ((!$cUser->isLoggedIn() or $redirectToLogin) and AUTH_MANDATORY){
 			</noscript>
 		</div>
 		<?php Front::jsFooter(); ?>
+		<!-- Fin du pied de page -->
 	</body>
 <?php } ?>

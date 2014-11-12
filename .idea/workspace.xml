@@ -7,7 +7,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0b517d7b-6e6e-44e4-a303-f637474520ff" name="Default" comment="- Mise à jour de Font Awesome en 4.2.0">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Modules/ModuleCreator/ModuleCreator.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Docs/Poulpe2/library/Organisation du module/Propriétés accessibles.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Users/ACL.php" afterPath="$PROJECT_DIR$/classes/Users/ACL.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Admin/Admin.php" afterPath="$PROJECT_DIR$/classes/Admin/Admin.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/FileSystem/Fs.php" afterPath="$PROJECT_DIR$/classes/FileSystem/Fs.php" />
@@ -68,7 +67,7 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4036036" vertical-offset="571" max-vertical-offset="1545">
+            <state vertical-scroll-proportion="0.4014337" vertical-offset="571" max-vertical-offset="1545">
               <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
               <folding />
             </state>
@@ -885,6 +884,22 @@
     <property name="SearchEverywhereHistory" value="" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="ignore_missing_gitignore" value="true" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="68" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="68" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="69" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="670" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="69" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="59" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="65" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="682" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -1308,7 +1323,13 @@
       <option name="project" value="LOCAL" />
       <updated>1415795822735</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="- Doc ajoutée dans la doc du framework sur les propriétés de base des modules">
+      <created>1415796067928</created>
+      <option name="number" value="00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1415796067928</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1333,17 +1354,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="32" y="-8" width="1896" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279396" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32901832" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297062" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297062" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.399137" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.399137" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3257821" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19477694" sideWeight="0.50053936" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3257821" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3257821" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24972796" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1401,7 +1422,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="- Correction d'un bug de chargement de js dans les champs Date et Time" />
     <MESSAGE value="- Amélioration de l'affichage de certains champs" />
     <MESSAGE value="- Modification des champs de formulaire à des fin de simplification d'usage." />
     <MESSAGE value="- Ajout d'un pas d'incrémentation pour les champs Int et Float." />
@@ -1426,7 +1446,8 @@
     <MESSAGE value="- La gestion des droits d'accès a été revue, elle est maintenant bien plus sécurisée.&#10;- On peut modifier sur une page l'ensemble des droits d'accès d'un utilisateur&#10;- La méthode PostedData::checkToken est maintenant accessible publiquement&#10;- Si le mode DEBUG est activé, un cookie est créé afin de pouvoir faire du profilage via Xdebug et WebGrind&#10;" />
     <MESSAGE value="- Amélioration des performances dans la récupération des informations LDAP d'un utilisateur : à l'instanciation, on peut définir un niveau d'éléments récupérés afin de minimiser le coût en requêtes et en temps de réponse.&#10;- Un item de menu `Accueil` est ajouté aux menus secondaires, afin d'éviter de devoir retourner sur le menu principal pour y accéder.&#10;" />
     <MESSAGE value="- Mise à jour de Font Awesome en 4.2.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Mise à jour de Font Awesome en 4.2.0" />
+    <MESSAGE value="- Doc ajoutée dans la doc du framework sur les propriétés de base des modules" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Doc ajoutée dans la doc du framework sur les propriétés de base des modules" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1922,7 +1943,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4036036" vertical-offset="571" max-vertical-offset="1545">
+        <state vertical-scroll-proportion="0.4014337" vertical-offset="571" max-vertical-offset="1545">
           <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding />
         </state>

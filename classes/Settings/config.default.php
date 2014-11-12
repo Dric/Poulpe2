@@ -68,6 +68,6 @@ define('DISPLAY_HOME', true);
 /** Module en page d'accueil */
 define('HOME_MODULE', 'home');
 /** Debug mode */
-define('DEBUG', false);
+@define('DEBUG', false);
 /** Debug détaillé */
 define('DETAILED_DEBUG', false);
