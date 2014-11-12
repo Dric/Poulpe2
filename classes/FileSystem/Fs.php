@@ -98,6 +98,7 @@ class Fs {
 	 *
 	 * Si le serveur est localhost, on vérifie juste que l'accès est possible.
 	 *
+	 * @warning : retournera `false` si le répertoire à monter est vide
 	 * @return bool
 	 */
 	protected function isMounted(){
@@ -130,6 +131,7 @@ class Fs {
 			/* On vérifie que les répertoires sont bien montés sous Linux, et on les monte le cas échéant. */
 			/* Si le répertoire n'est pas créé, on le crée. */
 			if (!file_exists($this->mountName)){
+				// On crée le point de montage avec les droits `777` pour que tout le monde puisse y accéder, y compris en écriture
 				$ret = exec('mkdir -m 777 '.$this->mountName.' 2>&1', $output);
 				if (!file_exists($this->mountName)){
 					new Alert('error', 'Impossible de créer le point de montage <code>'.$this->mountName.'</code> pour la raison suivante : <br /><code>'.$ret.'</code>.<br />Assurez-vous que le répertoire /mnt est accessible en écriture à tous les utilisateurs Linux, ou que vous avez les droits de créer un répertoire sur le serveur local.');
@@ -150,6 +152,7 @@ class Fs {
 					new Alert('error', 'Le fichier <code>'.$dfsCredsFile.'</code> permettant de s\'authentifier auprès des serveurs Windows est introuvable !<br> Veuillez créer ce fichier et saisir dedans ces 3 lignes : <pre><code>username=&lt;nom_user&gt;<br>password=&lt;mot_de_passe&gt;<br>domain=&lt;nom_de_domaine&gt;</code></pre>');
 					return false;
 				}
+				// Montage du partage. En cas d'erreur, il se peut que le package permettant les montages CIFS ne soit pas installé sur le serveur.
 				$cmd = 'sudo mount -t cifs "'.$winShare.'" '.$this->mountName.' -o uid=www-data,gid=www-data,credentials='.$dfsCredsFile.' 2>&1';
 				$ret = exec($cmd, $retArray, $varRet);
 				if (!empty($ret)){
@@ -168,9 +171,9 @@ class Fs {
 	 * Si `$absolutePath` est à `true`, les fichiers sont retournés avec leur chemin absolu dans un tableau séquentiel
 	 * Si `$absolutePath` est à `false` (défaut), les fichiers sont retournés dans un tableau associatif dont les clés sont les sous-répertoires
 	 *
-	 * @param string $path Chemin à inventorier dans le chemin de base de l'objet Fs instancié (facultatif)
-	 * @param string $extension Pour ne répertorier que les fichiers ayant une certaine extension (facultatif)
-	 * @param bool   $absolutePath Retourne un tableau à plat avec tous les fichiers, avec leur chemin absolu (facultatif)
+	 * @param string $path          Chemin à inventorier dans le chemin de base de l'objet Fs instancié (facultatif)
+	 * @param string $extension     Pour ne répertorier que les fichiers ayant une certaine extension (facultatif)
+	 * @param bool   $absolutePath  Retourne un tableau à plat avec tous les fichiers, avec leur chemin absolu (facultatif)
 	 *
 	 * @return string[]|array[]
 	 */
@@ -209,9 +212,9 @@ class Fs {
 	 * @param bool      $filesOnly  Ne retourne que les fichiers (facultatif, `false` par défaut)
 	 *
 	 * @return array Objets fichiers avec les propriétés suivantes :
-	 *  - `name` : Nom du fichier
-	 *  - `type` : `folder` ou `file`
-	 *  - `hidden` : Fichier caché
+	 *  - `name` :      Nom du fichier
+	 *  - `type` :      `folder` ou `file`
+	 *  - `hidden` :    Fichier caché
 	 *  - `extension` : Extension du fichier (propriété disponible seulement pour les fichiers non cachés)
 	 */
 	public function getFilesInDir($path = null, $extension = null, $filters = array(), $filesOnly = false){
@@ -247,8 +250,8 @@ class Fs {
 	 * Cette méthode est lente à exécuter, aussi vaut-il mieux filtrer les champs à retourner afin de n'obtenir que ceux qui seront utilisés.
 	 *
 	 * @see File
-	 * @param string $fileName Nom du fichier
-	 * @param string[]|string  $filters Filtres facultatifs sous forme de chaîne ou de tableau séquentiel (facultatif)
+	 * @param string            $fileName Nom du fichier
+	 * @param string[]|string   $filters  Filtres facultatifs sous forme de chaîne ou de tableau séquentiel (facultatif)
 	 *
 	 * @return bool|File
 	 */
@@ -265,10 +268,10 @@ class Fs {
 	/**
 	 * Lit un fichier
 	 *
-	 * @param string $fileName Nom du fichier
-	 * @param string $format Format de retour (array ou string) - par défaut, renvoie toutes les lignes dans un tableau (facultatif)
-	 * @param bool   $ignoreNewLines N'ajoute pas les caractères de passage à la ligne à la fin de chaque ligne dans le tableau retourné (facultatif)
-	 * @param bool   $skipEmptyLines Ignore les lignes vides (désactivé par défaut) (facultatif)
+	 * @param string $fileName        Nom du fichier
+	 * @param string $format          Format de retour (array ou string) - par défaut, renvoie toutes les lignes dans un tableau (facultatif)
+	 * @param bool   $ignoreNewLines  N'ajoute pas les caractères de passage à la ligne à la fin de chaque ligne dans le tableau retourné (facultatif)
+	 * @param bool   $skipEmptyLines  Ignore les lignes vides (désactivé par défaut) (facultatif)
 	 *
 	 * @return string[]|string|bool renvoie le fichier dans le format de demandé, ou false en cas d'erreur
 	 */
@@ -303,7 +306,7 @@ class Fs {
 	 * Crée un fichier si celui-ci n'existe pas
 	 *
 	 * La date de modification du fichier sera modifiée à l'heure actuelle si celui-ci existe.
-	 * La fonction touch de php ne semble pas fonctionner si l'utilisateur apache n'est pas propriétaire du fichier. On emploie donc la commande Unix
+	 * La fonction `touch` de php ne semble pas fonctionner si l'utilisateur apache n'est pas propriétaire du fichier. On emploie donc la commande Unix
 	 *
 	 * @param string $fileName Nom du fichier à créer si inexistant
 	 *
@@ -319,10 +322,10 @@ class Fs {
 	/**
 	 * Ecrit dans un fichier
 	 *
-	 * @param string       $fileName Nom du fichier
-	 * @param array|string $content Contenu du fichier
-	 * @param bool         $append Ajoute le contenu à la suite du fichier au lieu de l'écraser si celui-ci existe (facultatif)
-	 * @param bool         $backupFile Crée un backup du fichier avec l'extension .backup (facultatif)
+	 * @param string       $fileName    Nom du fichier
+	 * @param array|string $content     Contenu du fichier
+	 * @param bool         $append      Ajoute le contenu à la suite du fichier au lieu de l'écraser si celui-ci existe (facultatif)
+	 * @param bool         $backupFile  Crée un backup du fichier avec l'extension .backup (facultatif)
 	 *
 	 * @return bool
 	 */
@@ -356,9 +359,10 @@ class Fs {
 	 * Lit les x dernières lignes d'un fichier
 	 *
 	 * @from <http://stackoverflow.com/questions/15025875/what-is-the-best-way-in-php-to-read-last-lines-from-a-file/15025877#15025877>
-	 * @param string $fileName Nom du fichier
-	 * @param int  $lines Nombre de lignes à retourner (facultatif)
-	 * @param bool $adaptive (facultatif)
+	 *
+	 * @param string  $fileName Nom du fichier
+	 * @param int     $lines    Nombre de lignes à retourner (facultatif)
+	 * @param bool    $adaptive (facultatif)
 	 *
 	 * @return bool|string[]
 	 */
@@ -424,7 +428,7 @@ class Fs {
 	/**
 	 * Définit les permissions sur un fichier (chmod)
 	 *
-	 * Dans le doute, mieux vaut s'abstenir de faire ceci sur des fichiers Windows
+	 * @warning Dans le doute, mieux vaut s'abstenir de faire ceci sur des fichiers Windows
 	 *
 	 * @param string  $fileName Nom du fichier
 	 * @param int     $chmod    Chmod à appliquer au fichier
