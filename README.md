@@ -40,7 +40,7 @@ Attention : si vous lancez apache sous un autre nom (`administrateur` par exempl
 ## Composants externes
 
 - [Twitter Bootstrap](http://getbootstrap.com) 3.2.0 : est un framework html, css et javascript. En clair il peut gérer toute la partie affichage dès lors qu'on lui file quelque chose à afficher.
-- [Font Awesome](http://fortawesome.github.io/Font-Awesome/) 4.1.0 : ensemble d'icônes contenues dans une police d'écriture, remplaçant `Glyphicon` de Bootstrap.
+- [Font Awesome](http://fortawesome.github.io/Font-Awesome/) 4.2.0 : ensemble d'icônes contenues dans une police d'écriture, remplaçant `Glyphicon` de Bootstrap.
 - [jQuery](http://jquery.com) 1.11.0 : framework Javascript utilisé par Bootstrap.
 - [Bootstrap Switch](http://www.bootstrap-switch.org) 3 : plugin jQuery qui change les cases à cocher en switch d'activation (similaire à ce qu'on voit sur les smartphones).
 - [PNotify Plugin](http://sciactive.com/pnotify/) 1.3.1 : plugin jQuery de notifications flottantes.
