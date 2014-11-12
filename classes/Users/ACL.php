@@ -392,8 +392,17 @@ class ACL {
 				if (in_array($userId, $admins)){
 					?><div class="alert alert-warning">Cet utilisateur est administrateur, il a automatiquement tous les droits sur tous les modules.</div><?php
 				}
+				if ($userId == 10000){
+					?><p>Vous pouvez ici modifier les droits par défaut pour tous les modules.</p><?php
+				}else{
+					?>
+					<p>
+						Si vous modifiez un droit d'accès ici, cela enregistrera les droits d'accès de tous les modules. L'utilisateur n'héritera plus des droits d'accès par défaut.<br>
+						Vous pouvez supprimer tous les droits d'accès de l'utilisateur en cliquant sur le bouton <code>Droits par défaut</code>.
+					</p>
+				<?php
+				}
 				?>
-				<p>Si vous modifiez un droit d'accès ici, cela enregistrera les droits d'accès de tous les modules. L'utilisateur n'héritera plus des droits d'accès par défaut.</p>
 				<form id="adminUserACL" class="" method="post" role="form" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 					<table class="table">
 						<thead>

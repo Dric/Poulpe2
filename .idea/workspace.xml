@@ -11,8 +11,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Admin/Admin.php" afterPath="$PROJECT_DIR$/classes/Admin/Admin.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/FileSystem/Fs.php" afterPath="$PROJECT_DIR$/classes/FileSystem/Fs.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/ModuleCreator/ModuleCreator.php" afterPath="$PROJECT_DIR$/Modules/ModuleCreator/ModuleCreator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Settings/config.default.php" afterPath="$PROJECT_DIR$/classes/Settings/config.default.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tools2.iws" />
@@ -1329,7 +1327,13 @@
       <option name="project" value="LOCAL" />
       <updated>1415796067928</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="- Activation possible du mode debug si le paramètre `debug` est présent dans une requête POST, GET ou cookie">
+      <created>1415796177918</created>
+      <option name="number" value="00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1415796177918</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1422,7 +1426,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="- Amélioration de l'affichage de certains champs" />
     <MESSAGE value="- Modification des champs de formulaire à des fin de simplification d'usage." />
     <MESSAGE value="- Ajout d'un pas d'incrémentation pour les champs Int et Float." />
     <MESSAGE value="- Correction d'un bug dans le champs Int" />
@@ -1447,7 +1450,8 @@
     <MESSAGE value="- Amélioration des performances dans la récupération des informations LDAP d'un utilisateur : à l'instanciation, on peut définir un niveau d'éléments récupérés afin de minimiser le coût en requêtes et en temps de réponse.&#10;- Un item de menu `Accueil` est ajouté aux menus secondaires, afin d'éviter de devoir retourner sur le menu principal pour y accéder.&#10;" />
     <MESSAGE value="- Mise à jour de Font Awesome en 4.2.0" />
     <MESSAGE value="- Doc ajoutée dans la doc du framework sur les propriétés de base des modules" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Doc ajoutée dans la doc du framework sur les propriétés de base des modules" />
+    <MESSAGE value="- Activation possible du mode debug si le paramètre `debug` est présent dans une requête POST, GET ou cookie" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Activation possible du mode debug si le paramètre `debug` est présent dans une requête POST, GET ou cookie" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

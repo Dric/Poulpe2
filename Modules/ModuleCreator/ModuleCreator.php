@@ -47,6 +47,7 @@ class ModuleCreator extends Module{
 		$menu = new Menu($this->name, 'Aide à la création de modules', '', '', '');
 		$menu->add(new Item('moduleCreator', 'Aide', $this->url, '', 'book'), 2);
 		$menu->add(new Item('formCreator', 'Création de formulaires', $this->url.'&page=formCreator', 'Création de formulaire', 'edit'));
+		$menu->add(new Item('phpInfo', 'PHPInfo du serveur', $this->url.'&page=phpInfo', 'PHPInfo du serveur', 'plug'));
 		Front::setSecondaryMenus($menu);
 	}
 
@@ -90,9 +91,34 @@ class ModuleCreator extends Module{
 					<li>Mettre à jour Poulpe2 : <code>git pull</code></li>
 					<li>Enlever les modifications locales sur les fichiers avant de mettre à jour : <code>git stash</code></li>
 				</ul>
+				<h3>Mode DEBUG</h3>
+				<p>Pour faciliter le debug des modules, vous pouvez passer la constante <code>DEBUG</code> à <code>true</code> pour activer globalement le mode DEBUG, ou bien ponctuellement avec une variable nommé <code>debug</code> en <code>POST</code>, <code>GET</code> ou via un cookie.</p>
+				<p>Ex : <code><?php echo $this->url; ?>&debug</code></p>
+				<?php
+				//var_dump(crack_check('poney'));
+				?>
 			</div>
 		</div>
 		<?php
 	}
 
+	protected function modulePhpInfo(){
+		Front::setJsFooter('<script src="Modules/ModuleCreator/ModuleCreator.js"></script>');
+		ob_start();
+		phpinfo();
+		$pinfo = ob_get_contents();
+		ob_end_clean();
+
+		$pinfo = preg_replace( '%^.*<body>(.*)</body>.*$%ms','$1',$pinfo);
+		?>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<div class="page-header">
+					<h1>PHPInfo du serveur  <?php $this->manageModuleButtons(); ?></h1>
+				</div>
+				<small><?php echo $pinfo; ?></small>
+			</div>
+		</div>
+		<?php
+	}
 }

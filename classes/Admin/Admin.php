@@ -274,7 +274,7 @@ class Admin extends Module {
 					$users[10000] = 'Droits par défaut';
 					$form = new Form('UsersACL', null, null, 'admin', 0, 'post', 'form-inline');
 					$form->addField(new Select('user', null, 'Utilisateur', null, false, 'modify', null, false, $users, true));
-					$form->addField(new Button('page', 'userACL', 'Voir/Modifier', 'modify'));
+					$form->addField(new Button('page', 'userACL', 'Voir/Modifier', 'modify', 'btn-sm'));
 					$form->display();
 					?>
 					</ul>
@@ -425,7 +425,7 @@ class Admin extends Module {
 				$readOnly = ($fileMeta->writable) ? false : true;
 			}
 			// On remet en lecture seule
-			$share->setChmod('config.php', 644);
+			//$share->setChmod('config.php', 644);
 		}
 		$form = new Form('configFile', null, null, 'admin');
 		?>
@@ -510,10 +510,14 @@ class Admin extends Module {
 		$req = $this->postedData;
 		$dir = str_replace('/Admin', '/Settings', __DIR__);
 		$share = new Fs($dir);
-		$ret = $share->setChmod('config.php', 777);
-		if (!$ret){
-			new Alert('error', 'Le fichier <code>config.php</code> n\'est pas accessible en écriture !');
-			return false;
+		$fileMeta = $share->getFileMeta('config.php');
+		$readOnly = ($fileMeta->writable) ? false : true;
+		if ($readOnly){
+			$ret = $share->setChmod('config.php', 777);
+			if (!$ret){
+				new Alert('error', 'Le fichier <code>config.php</code> n\'est pas accessible en écriture !');
+				return false;
+			}
 		}
 		$configFile = $share->readFile('config.php');
 		foreach ($configFile as $key => &$line){
