@@ -8,30 +8,12 @@
     <list default="true" id="0b517d7b-6e6e-44e4-a303-f637474520ff" name="Default" comment="- Mise à jour de Font Awesome en 4.2.0">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Modules/ModuleCreator/ModuleCreator.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Docs/Poulpe2/library/Organisation du module/Propriétés accessibles.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fonts/FontAwesome.otf" afterPath="$PROJECT_DIR$/fonts/FontAwesome.otf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fonts/fontawesome-webfont.eot" afterPath="$PROJECT_DIR$/fonts/fontawesome-webfont.eot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fonts/fontawesome-webfont.ttf" afterPath="$PROJECT_DIR$/fonts/fontawesome-webfont.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fonts/fontawesome-webfont.woff" afterPath="$PROJECT_DIR$/fonts/fontawesome-webfont.woff" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Users/ACL.php" afterPath="$PROJECT_DIR$/classes/Users/ACL.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Admin/Admin.php" afterPath="$PROJECT_DIR$/classes/Admin/Admin.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/FileSystem/Fs.php" afterPath="$PROJECT_DIR$/classes/FileSystem/Fs.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/ModuleCreator/ModuleCreator.php" afterPath="$PROJECT_DIR$/Modules/ModuleCreator/ModuleCreator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/cedric_gallard.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/cedric_gallard.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Settings/config.default.php" afterPath="$PROJECT_DIR$/classes/Settings/config.default.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/less/external/font-awesome/core.less" afterPath="$PROJECT_DIR$/css/less/external/font-awesome/core.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/less/external/font-awesome/font-awesome.less" afterPath="$PROJECT_DIR$/css/less/external/font-awesome/font-awesome.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fonts/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/fonts/fontawesome-webfont.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/less/external/font-awesome/icons.less" afterPath="$PROJECT_DIR$/css/less/external/font-awesome/icons.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/lessc/lessc.xml" afterPath="$PROJECT_DIR$/.idea/lessc/lessc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/less/external/font-awesome/list.less" afterPath="$PROJECT_DIR$/css/less/external/font-awesome/list.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/less/external/font-awesome/mixins.less" afterPath="$PROJECT_DIR$/css/less/external/font-awesome/mixins.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/less/external/font-awesome/path.less" afterPath="$PROJECT_DIR$/css/less/external/font-awesome/path.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/poulpe2.css" afterPath="$PROJECT_DIR$/css/poulpe2.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/less/external/font-awesome/rotated-flipped.less" afterPath="$PROJECT_DIR$/css/less/external/font-awesome/rotated-flipped.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/less/external/font-awesome/spinning.less" afterPath="$PROJECT_DIR$/css/less/external/font-awesome/spinning.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/less/external/font-awesome/variables.less" afterPath="$PROJECT_DIR$/css/less/external/font-awesome/variables.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tools2.iws" />
@@ -86,28 +68,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.10607866" vertical-offset="571" max-vertical-offset="1545">
-              <caret line="44" column="90" selection-start-line="44" selection-start-column="90" selection-end-line="44" selection-end-column="90" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserInfo.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Modules/UserInfo/UserInfo.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.25" vertical-offset="270" max-vertical-offset="2280">
-              <caret line="53" column="4" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="79" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Mailboxes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Modules/Mailboxes/Mailboxes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="81.875" vertical-offset="5760" max-vertical-offset="7905">
-              <caret line="273" column="32" selection-start-line="273" selection-start-column="32" selection-end-line="273" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.4036036" vertical-offset="571" max-vertical-offset="1545">
+              <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1340,7 +1302,13 @@
       <option name="project" value="LOCAL" />
       <updated>1415626832450</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="- Mise à jour de Font Awesome en 4.2.0">
+      <created>1415795822735</created>
+      <option name="number" value="00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1415795822735</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1369,7 +1337,7 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279396" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32901832" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297062" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297062" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.399137" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1433,7 +1401,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="- Correction d'un bug dans Forms\Fields\Bool" />
     <MESSAGE value="- Correction d'un bug de chargement de js dans les champs Date et Time" />
     <MESSAGE value="- Amélioration de l'affichage de certains champs" />
     <MESSAGE value="- Modification des champs de formulaire à des fin de simplification d'usage." />
@@ -1458,7 +1425,8 @@
     <MESSAGE value="- Prise en charge des serveurs LDAP via leur IP&#10;- Meilleurs performances sur la recherche de groupes LDAP&#10;- Certaines informations LDAP concernant l'utilisateur connecté ne sont plus automatiquement remontées pour des raisons de performance&#10;" />
     <MESSAGE value="- La gestion des droits d'accès a été revue, elle est maintenant bien plus sécurisée.&#10;- On peut modifier sur une page l'ensemble des droits d'accès d'un utilisateur&#10;- La méthode PostedData::checkToken est maintenant accessible publiquement&#10;- Si le mode DEBUG est activé, un cookie est créé afin de pouvoir faire du profilage via Xdebug et WebGrind&#10;" />
     <MESSAGE value="- Amélioration des performances dans la récupération des informations LDAP d'un utilisateur : à l'instanciation, on peut définir un niveau d'éléments récupérés afin de minimiser le coût en requêtes et en temps de réponse.&#10;- Un item de menu `Accueil` est ajouté aux menus secondaires, afin d'éviter de devoir retourner sur le menu principal pour y accéder.&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Amélioration des performances dans la récupération des informations LDAP d'un utilisateur : à l'instanciation, on peut définir un niveau d'éléments récupérés afin de minimiser le coût en requêtes et en temps de réponse.&#10;- Un item de menu `Accueil` est ajouté aux menus secondaires, afin d'éviter de devoir retourner sur le menu principal pour y accéder.&#10;" />
+    <MESSAGE value="- Mise à jour de Font Awesome en 4.2.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Mise à jour de Font Awesome en 4.2.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1779,14 +1747,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Modules/Mailboxes/Mailboxes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="81.875" vertical-offset="5760" max-vertical-offset="7905">
-          <caret line="273" column="32" selection-start-line="273" selection-start-column="32" selection-end-line="273" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Docs/Poulpe2/library/Organisation du module/Modèle de module.md">
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
@@ -1874,14 +1834,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Modules/UserInfo/UserInfo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.25" vertical-offset="270" max-vertical-offset="2280">
-          <caret line="53" column="4" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="79" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/less/external/font-awesome/variables.less">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34228972" vertical-offset="5302" max-vertical-offset="8505">
@@ -1949,13 +1901,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/Mailboxes/Mailboxes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6951673" vertical-offset="5236" max-vertical-offset="7905">
+          <caret line="394" column="4" selection-start-line="394" selection-start-column="4" selection-end-line="394" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/UserInfo/UserInfo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5018587" vertical-offset="270" max-vertical-offset="2280">
+          <caret line="53" column="4" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10607866" vertical-offset="571" max-vertical-offset="1545">
-          <caret line="44" column="90" selection-start-line="44" selection-start-column="90" selection-end-line="44" selection-end-column="90" />
+        <state vertical-scroll-proportion="0.4036036" vertical-offset="571" max-vertical-offset="1545">
+          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding />
         </state>
       </provider>
