@@ -41,7 +41,8 @@ class Dupliqueur extends Module {
 	 * Permet d'ajouter des items au menu général
 	 */
 	public static function getMainMenuItems(){
-		Front::$mainMenu->add(new Item('dupliqueur', 'Dupliqueur de fichiers', MODULE_URL.end(explode('\\', get_class())), 'Copie de fichier sur plein de serveurs à la fois', null, null));
+		$module = explode('\\', get_class());
+		Front::$mainMenu->add(new Item('dupliqueur', 'Dupliqueur de fichiers', MODULE_URL.end($module), 'Copie de fichier sur plein de serveurs à la fois', null, null));
 	}
 
 	/**
@@ -142,7 +143,8 @@ class Dupliqueur extends Module {
 			return false;
 		}
 		// On monte le partage et on vérifie que le fichier d'origine existe
-		$share[$req['serverFrom']] = new Fs($path, $req['serverFrom'], end(explode('\\', get_class())));
+		$module = explode('\\', get_class());
+		$share[$req['serverFrom']] = new Fs($path, $req['serverFrom'], end($module));
 		if (!$share[$req['serverFrom']]){
 			$this->logs[] = array(
 				'time'  => time(),
@@ -175,7 +177,7 @@ class Dupliqueur extends Module {
 			}
 			// On ne copie évidemment pas le fichier sur lui-même
 			if ($req['serverFrom'] != $serverTo){
-				$share[$serverTo] = new Fs($path, $serverTo, end(explode('\\', get_class())));
+				$share[$serverTo] = new Fs($path, $serverTo, end($module));
 				if (!$share[$serverTo]){
 					$this->logs[] = array(
 						'time'  => time(),

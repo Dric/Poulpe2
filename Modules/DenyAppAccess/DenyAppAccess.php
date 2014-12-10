@@ -92,7 +92,8 @@ class DenyAppAccess extends Module{
 	 * Permet d'ajouter des items au menu général
 	 */
 	public static function getMainMenuItems(){
-		Front::$mainMenu->add(new Item('acces', 'Accès aux applications', '?module='.end(explode('\\', get_class())), 'Empêcher les utilisateurs d\'accéder à certaines applications', null, null));
+		$module = explode('\\', get_class());
+		Front::$mainMenu->add(new Item('acces', 'Accès aux applications', '?module='.end($module), 'Empêcher les utilisateurs d\'accéder à certaines applications', null, null));
 	}
 
 	public function display(){
@@ -140,7 +141,8 @@ class DenyAppAccess extends Module{
 				<?php $this->displayAppList(); ?>
 				<h3>Logs de la gestion d'accès</h3>
 				<?php
-				$events = EventsManager::displayLogs(null, null, end(explode('\\', get_class())), null, true);
+				$module = explode('\\', get_class());
+				$events = EventsManager::displayLogs(null, null, end($module), null, true);
 				if (!empty($events) or !is_bool($events)){
 					$usersList = array();
 					$usersDb = $db->get('users', array('id', 'name'));
@@ -308,7 +310,8 @@ class DenyAppAccess extends Module{
 		}
 		$logType = ($app->getMaintenance()) ? 'BLOCK' : 'ALLOW';
 		// On log la modification de l'accès
-		new EventLog($logType, end(explode('\\', get_class())), $app->getName());
+		$module = explode('\\', get_class());
+		new EventLog($logType, end($module), $app->getName());
 		// On écrit dans le fichier
 		$ret = $share->writeFile($app->getFile(), $file);
 		if (!$ret){

@@ -42,7 +42,8 @@ class UsersTraces extends Module {
 	 * Permet d'ajouter des items au menu général
 	 */
 	public static function getMainMenuItems(){
-		Front::$mainMenu->add(new Item('UsersTraces', 'Logs de connexion', MODULE_URL.end(explode('\\', get_class())), 'Lecture de logs de connexions aux applications ou aux systèmes', null, null));
+		$module = explode('\\', get_class());
+		Front::$mainMenu->add(new Item('UsersTraces', 'Logs de connexion', MODULE_URL.end($module), 'Lecture de logs de connexions aux applications ou aux systèmes', null, null));
 	}
 
 	/**

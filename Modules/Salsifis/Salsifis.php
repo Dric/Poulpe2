@@ -30,7 +30,11 @@ class Salsifis extends Module{
 	 * Permet d'ajouter des items au menu général
 	 */
 	public static function getMainMenuItems(){
-		//Front::$mainMenu->add(new Item('shutdown', 'Arrêt/redémarrage', MODULE_URL.end(explode('\\', get_class())), 'Arrêter ou redémarrer le serveur'));
+		/*
+		 * $module = explode('\\', get_class());
+		 * Front::$mainMenu->add(new Item('shutdown', 'Arrêt/redémarrage', MODULE_URL.end($module), 'Arrêter ou redémarrer le serveur'));
+		 *
+		 */
 	}
 
 	/**

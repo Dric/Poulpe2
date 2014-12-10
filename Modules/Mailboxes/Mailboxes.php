@@ -81,7 +81,8 @@ class Mailboxes extends Module {
 	 * Permet d'ajouter des items au menu général
 	 */
 	public static function getMainMenuItems(){
-		Front::$mainMenu->add(new Item('mailboxes', 'Boîtes Exchange', MODULE_URL.end(explode('\\', get_class())), 'Permet de migrer des boîtes Exchange d\'une base à une autre', null, null));
+		$module = explode('\\', get_class());
+		Front::$mainMenu->add(new Item('mailboxes', 'Boîtes Exchange', MODULE_URL.end($module), 'Permet de migrer des boîtes Exchange d\'une base à une autre', null, null));
 	}
 
 	/**
@@ -141,7 +142,8 @@ class Mailboxes extends Module {
 	 * Lit les fichiers liés au déplacement et remplit les variables !
 	 */
 	protected function readLogFile(){
-		if (!$share = new Fs($this->settings['scriptsPath']->getValue(), null, end(explode('\\', get_class())))){
+		$module = explode('\\', get_class());
+		if (!$share = new Fs($this->settings['scriptsPath']->getValue(), null, end($module))){
 			return false;
 		}
 		$logs = array();
@@ -177,7 +179,8 @@ class Mailboxes extends Module {
 	 * @return bool
 	 */
 	protected function populateFailed(){
-		if (!$share = new Fs($this->settings['scriptsPath']->getValue(), null, end(explode('\\', get_class())))){
+		$module = explode('\\', get_class());
+		if (!$share = new Fs($this->settings['scriptsPath']->getValue(), null, end($module))){
 			return false;
 		}
 		$logs = array();
@@ -211,7 +214,8 @@ class Mailboxes extends Module {
 	 * @return bool
 	 */
 	protected function populateDatabases(){
-		if (!$share = new Fs($this->settings['scriptsPath']->getValue(), null, end(explode('\\', get_class())))){
+		$module = explode('\\', get_class());
+		if (!$share = new Fs($this->settings['scriptsPath']->getValue(), null, end($module))){
 			return false;
 		}
 		// On lit le fichier qui liste les bases Exchange
@@ -372,7 +376,8 @@ class Mailboxes extends Module {
 			new Alert('error', 'Une demande de déplacement a déjà été faite pour la boîte Exchange de <code>'.$reqUser.'</code> !');
 			return false;
 		}
-		$share = new Fs($this->settings['scriptsPath']->getValue(), null, end(explode('\\', get_class())));
+		$module = explode('\\', get_class());
+		$share = new Fs($this->settings['scriptsPath']->getValue(), null, end($module));
 
 		// Si le fichier lié à la base de données n'existe pas, on le crée.
 		if (!$share->touchFile($this->filePrefix.$req['mdb'].'.TXT')){
@@ -416,8 +421,8 @@ class Mailboxes extends Module {
 			new Alert('error', 'La base Exchange <code>'.$req['mdb'].'</code> n\'existe pas !');
 			return false;
 		}
-
-		$share = new Fs($this->settings['scriptsPath']->getValue(), null, end(explode('\\', get_class())));
+		$module = explode('\\', get_class());
+		$share = new Fs($this->settings['scriptsPath']->getValue(), null, end($module));
 		// Si le fichier lié à la base de données n'existe pas, on le crée.
 		if (!$share->touchFile($this->filePrefix.$req['mdb'].'.TXT')) return false;
 		$mbxFile = $share->readFile($this->filePrefix.$req['mdb'].'.TXT');
@@ -448,7 +453,8 @@ class Mailboxes extends Module {
 	 */
 	protected function displayMoves($mdb){
 		$canModify = ACL::canModify('module', $this->id);
-		$share = new Fs($this->settings['scriptsPath']->getValue(), null, end(explode('\\', get_class())));
+		$module = explode('\\', get_class());
+		$share = new Fs($this->settings['scriptsPath']->getValue(), null, end($module));
 
 		// Si le fichier lié à la base de données n'existe pas, on le crée.
 		if (!$share->touchFile($this->filePrefix.$mdb.'.TXT')) return false;

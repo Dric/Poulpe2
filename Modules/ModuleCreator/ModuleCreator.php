@@ -11,6 +11,13 @@ namespace Modules\ModuleCreator;
 
 use Components\Item;
 use Components\Menu;
+use Forms\Fields\Button;
+use Forms\Fields\CheckboxList;
+use Forms\Fields\RadioList;
+use Forms\Fields\Select;
+use Forms\Fields\String;
+use Forms\Form;
+use Forms\Pattern;
 use Front;
 use Modules\Module;
 use Modules\ModulesManagement;
@@ -25,7 +32,8 @@ class ModuleCreator extends Module{
 	 * Permet d'ajouter des items au menu général
 	 */
 	public static function getMainMenuItems(){
-		Front::$mainMenu->add(new Item('ModuleCreator', 'Aide à la création de modules', MODULE_URL.end(explode('\\', get_class())), 'Pour faciliter le développement de modules'));
+		$module = explode('\\', get_class());
+		Front::$mainMenu->add(new Item('ModuleCreator', 'Aide à la création de modules', MODULE_URL.end($module), 'Pour faciliter le développement de modules'));
 	}
 
 	/**
@@ -102,21 +110,73 @@ class ModuleCreator extends Module{
 		<?php
 	}
 
-	protected function modulePhpInfo(){
-		Front::setJsFooter('<script src="Modules/ModuleCreator/ModuleCreator.js"></script>');
-		ob_start();
-		phpinfo();
-		$pinfo = ob_get_contents();
-		ob_end_clean();
+	/********* Méthodes propres au module *********/
 
-		$pinfo = preg_replace( '%^.*<body>(.*)</body>.*$%ms','$1',$pinfo);
+	/**
+	 * Générateur de code pour créer des formulaires
+	 */
+	protected function moduleFormCreator(){
+		$form = new Form('formSettings');
+		$form->addField(new String('formName', null, 'Nom du formulaire', null, 'Ce nom doit respecter au maximum la nomenclature de Perl : en minuscules, avec une majuscule pour séparer les mots mais pas au début, pas de séparateur, pas de caractères spéciaux ou accents. ex : formName, nomDeFormulaire', new Pattern('text', true, 1, 0, null, null, '^\w*$'), true));
+		$form->addField(new RadioList('formMethod', 'post', 'Méthode d\'envoi du formulaire', 'Envoi en \'post\' ou en \'get\'', false, null, null, false, array('post' => 'POST', 'get' => 'GET')));
+		$choices = array(
+			'form-inline' => 'Formulaire sur une ligne'
+		);
+		$form->addField(new CheckboxList('formOptions', null, 'Options du formulaire', 'Options applicables au formulaire', false, null, null, false, $choices));
+		$form->addField(new Button('action', 'showCode', 'Afficher le code'));
 		?>
 		<div class="row">
-			<div class="col-md-8 col-md-offset-2">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="page-header">
+					<h1>Générateur de code pour créer des formulaires  <?php $this->manageModuleButtons(); ?></h1>
+				</div>
+				<?php $form->display(); ?>
+			</div>
+		</div>
+		<?php
+	}
+
+	protected function showCode(){
+
+	}
+
+	/**
+	 * Affiche le PHPInfo du serveur
+	 */
+	protected function modulePhpInfo(){
+		// PHPInfo possède son propre style CSS, si on veut l'intégrer il faut capturer ce qu'il produit pour le réinjecter proprement
+		ob_start();
+		phpinfo();
+		$phpInfo = ob_get_contents();
+		ob_end_clean();
+		$phpInfo = preg_replace( '%^.*<body>(.*)</body>.*$%ms','$1',$phpInfo);
+		$phpInfo = preg_replace('/<table/i', '<table class="table table-bordered table-striped"', $phpInfo);
+		preg_match_all('/<a name="(.*)".*>(.*)<\/a>/i', $phpInfo, $matches);
+		?>
+		<style>
+			td.e{font-weight:bold}
+			td.v{word-break:break-all}
+		</style>
+		<div class="row">
+			<div class="col-md-10 col-md-offset-2">
 				<div class="page-header">
 					<h1>PHPInfo du serveur  <?php $this->manageModuleButtons(); ?></h1>
 				</div>
-				<small><?php echo $pinfo; ?></small>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-1">
+				<small><?php echo $phpInfo; ?></small>
+			</div>
+			<div class="col-md-2">
+				<h2>Sommaire</h2>
+				<ul>
+					<?php
+					foreach ($matches[1] as $key => $anchor){
+						?><li><a href="#<?php echo $anchor; ?>"><?php echo $matches[2][$key]; ?></a></li><?php
+					}
+					?>
+				</ul>
 			</div>
 		</div>
 		<?php

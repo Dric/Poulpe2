@@ -76,7 +76,8 @@ class PostIt extends Module{
 	 * Permet d'ajouter des items au menu général
 	 */
 	public static function getMainMenuItems(){
-		Front::$mainMenu->add(new Item('PostIt', 'Post-It', MODULE_URL.end(explode('\\', get_class())), 'Permet de noter des petites choses, des astuces, des bouts de code, etc.', null, null));
+		$module = explode('\\', get_class());
+		Front::$mainMenu->add(new Item('PostIt', 'Post-It', MODULE_URL.end($module), 'Permet de noter des petites choses, des astuces, des bouts de code, etc.', null, null));
 	}
 
 	/**

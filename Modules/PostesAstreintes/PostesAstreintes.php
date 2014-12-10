@@ -34,7 +34,8 @@ class PostesAstreintes extends Module{
 	 * Permet d'ajouter des items au menu général
 	 */
 	public static function getMainMenuItems(){
-		Front::$mainMenu->add(new Item('postesAstreintes', 'Postes astreintes', MODULE_URL.end(explode('\\', get_class())), 'Gestion des mappages d\'adresses IP des postes d\'astreinte', null, null));
+		$module = explode('\\', get_class());
+		Front::$mainMenu->add(new Item('postesAstreintes', 'Postes astreintes', MODULE_URL.end($module), 'Gestion des mappages d\'adresses IP des postes d\'astreinte', null, null));
 	}
 
 	/**
@@ -158,7 +159,8 @@ class PostesAstreintes extends Module{
 		$filePath = $this->settings['filePath']->getValue();
 		preg_match('/(.*)\\\(.*\.vbs)/i', $filePath, $matches);
 		list(, $path, $fileName) = $matches;
-		$share = new Fs($path, null, end(explode('\\', get_class())));
+		$module = explode('\\', get_class());
+		$share = new Fs($path, null, end($module));
 		if ($file = $share->readFile($fileName)){
 			foreach ($file as $line) {
 				if (strtolower(substr($line, 0, 16)) == 'ipastreintes.add'){
@@ -200,7 +202,8 @@ class PostesAstreintes extends Module{
 		$filePath = $this->settings['filePath']->getValue();
 		preg_match('/(.*)\\\(.*\.vbs)/i', $filePath, $matches);
 		list(, $path, $fileName) = $matches;
-		$share = new Fs($path, null, end(explode('\\', get_class())));
+		$module = explode('\\', get_class());
+		$share = new Fs($path, null, end($module));
 		if ($file = $share->readFile($fileName)){
 			$inPostes = false;
 			$fileToSave = array();

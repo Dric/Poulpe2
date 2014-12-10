@@ -22,7 +22,8 @@ class CitrixDesktops extends Module {
 	 * Permet d'ajouter des items au menu général
 	 */
 	public static function getMainMenuItems(){
-		Front::$mainMenu->add(new Item('CitrixDesktops', 'Bureaux Citrix', MODULE_URL.end(explode('\\', get_class())), 'Permet d\'ouvrir un bureau Citrix avec d\'autres identifiants que le PNAgent', null, null));
+		$module = explode('\\', get_class());
+		Front::$mainMenu->add(new Item('CitrixDesktops', 'Bureaux Citrix', MODULE_URL.end($module), 'Permet d\'ouvrir un bureau Citrix avec d\'autres identifiants que le PNAgent', null, null));
 	}
 
 	/**

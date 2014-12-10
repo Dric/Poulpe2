@@ -105,7 +105,8 @@ class Module {
 		}
 		// Fil d'Ariane. Si la page demandée est l'accueil, on ne la raffiche pas étant donné qu'elle est systématiquement indiquée
 		if ($this->name != 'home'){
-			$this->url = MODULE_URL.end(explode('\\', get_class($this)));
+			$module = explode('\\', get_class($this));
+			$this->url = MODULE_URL.end($module);
 			$this->breadCrumb = array(
 				'title' => $this->name,
 				'link'  => $this->url

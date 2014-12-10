@@ -83,7 +83,8 @@ class Transmission extends Module{
 	 * Permet d'ajouter des items au menu général
 	 */
 	public static function getMainMenuItems(){
-		Front::$mainMenu->add(new Item('downloads', 'Téléchargements', MODULE_URL.end(explode('\\', get_class())), 'Gestion des téléchargements via torrents'));
+		$module = explode('\\', get_class());
+		Front::$mainMenu->add(new Item('downloads', 'Téléchargements', MODULE_URL.end($module), 'Gestion des téléchargements via torrents'));
 	}
 
 	/**

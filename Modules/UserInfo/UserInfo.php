@@ -31,7 +31,8 @@ class UserInfo extends Module{
 	 * Permet d'ajouter des items au menu général
 	 */
 	public static function getMainMenuItems(){
-		Front::$mainMenu->add(new Item('userInfo', 'Infos utilisateur', MODULE_URL.end(explode('\\', get_class())), 'Affiche les informations d\'un utilisateur Active Directory', null, null));
+		$module = explode('\\', get_class());
+		Front::$mainMenu->add(new Item('userInfo', 'Infos utilisateur', MODULE_URL.end($module), 'Affiche les informations d\'un utilisateur Active Directory', null, null));
 	}
 
 	/**

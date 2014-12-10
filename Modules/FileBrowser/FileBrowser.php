@@ -33,7 +33,8 @@ class FileBrowser extends Module{
 	 * Permet d'ajouter des items au menu général
 	 */
 	public static function getMainMenuItems(){
-		Front::$mainMenu->add(new Item('FileBrowser', 'Fichiers', MODULE_URL.end(explode('\\', get_class())), 'Parcourir répertoires et fichiers'));
+		$module = explode('\\', get_class());
+		Front::$mainMenu->add(new Item('FileBrowser', 'Fichiers', MODULE_URL.end($module), 'Parcourir répertoires et fichiers'));
 	}
 
 	/**

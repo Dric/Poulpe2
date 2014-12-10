@@ -71,7 +71,8 @@ class BandesTina extends Module{
 	 * Permet d'ajouter des items au menu général
 	 */
 	public static function getMainMenuItems(){
-		Front::$mainMenu->add(new Item('bandesTina', 'Bandes de sauvegarde', MODULE_URL.end(explode('\\', get_class())), 'Gestion de l\'externalisation des bandes du robot de sauvegarde', null, null));
+		$module = explode('\\', get_class());
+		Front::$mainMenu->add(new Item('bandesTina', 'Bandes de sauvegarde', MODULE_URL.end($module), 'Gestion de l\'externalisation des bandes du robot de sauvegarde', null, null));
 	}
 
 	/**
@@ -166,7 +167,8 @@ class BandesTina extends Module{
 	protected function refreshCartsList($force = false){
 		if (!$force){
 			//On monte le partage réseau
-			if (!$share = new Fs($this->settings['scriptsPath']->getValue(), null, end(explode('\\', get_class())))){
+			$module = explode('\\', get_class());
+			if (!$share = new Fs($this->settings['scriptsPath']->getValue(), null, end($module))){
 				new Alert('error', 'Impossible d\'accéder aux fichiers du serveur !');
 				return false;
 			}
@@ -221,7 +223,8 @@ class BandesTina extends Module{
 			'Out'	=> 'to_export.txt'
 		);
 		//On monte le partage réseau
-		if (!$share = new Fs($this->settings['scriptsPath']->getValue(), null, end(explode('\\', get_class())))){
+		$module = explode('\\', get_class());
+		if (!$share = new Fs($this->settings['scriptsPath']->getValue(), null, end($module))){
 			return false;
 		}
 		$file = $share->readFile($files[$IO]);
@@ -291,7 +294,8 @@ class BandesTina extends Module{
 		$cmd = 'cat </dev/null | winexe --interactive=0 -U '.$this->settings['tinaServerAdminLogin']->getValue().'%'.$this->settings['tinaServerAdminPwd']->getValue().' //'.$server.' "cmd /C C:\Progra~1\Atempo\tina\Bin\tina_library_control -library '.$this->settings['tinaLibrary']->getValue().' -identity '.$this->settings['tinaServerAdminLogin']->getValue().':'.$this->settings['tinaServerAdminPwd']->getValue().' -reinit_barcode"';
 		$ret = shell_exec($cmd);
 
-		$share = new Fs('\\\\'.$server.'\c$\program files\atempo\tina\adm', null, end(explode('\\', get_class())));
+		$module = explode('\\', get_class());
+		$share = new Fs('\\\\'.$server.'\c$\program files\atempo\tina\adm', null, end($module));
 
 		// On récupère les 5 dernières lignes du fichier d'événements Tina
 		$file = $share->tailFile('event.txt', 5);
