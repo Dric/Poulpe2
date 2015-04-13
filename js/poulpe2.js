@@ -190,7 +190,8 @@ function menuNavigation(){
 	// Si un menu secondaire existe, on planque le menu principal
 	if ($('.secondary-menu-title').length > 0) {
 		$('#menu-main').hide();
-		$('.secondary-menu-ul').prepend('<li id="item-home" class="menuItem menu-highlight"><a title="" href="." data-original-title="Revenir à l\'accueil">Accueil</a></li>');
+		var homeLi = $('#item-home');
+		$('.secondary-menu-ul').prepend(homeLi);
 	}
 	$('.display-main-menu').click(function(e){
 		$('#menu-main').slideToggle(300, function() {

@@ -128,6 +128,7 @@ class AlertsManager {
 		global $db, $classesUsed, $startTime;
 		new Alert('debug', '<code>Db->getQueriesCount</code> : <strong>'.$db->getQueriesCount().'</strong> requête(s) SQL effectuées.');
 		new Alert('debug', '<code>PHP</code> : Mémoire utilisée : <ul><li>Script :  <strong>'.Sanitize::readableFileSize(memory_get_usage()).'</strong></li><li>Total :   <strong>'.Sanitize::readableFileSize(memory_get_usage(true)).'</strong></li></ul>');
+		//new Alert('debug', '<code>URL demandée</code> : <code>'.\Get::varDump($_SERVER).'</code>');
 		if (DETAILED_DEBUG){
 			$classesDisplay = '<ul>';
 			asort($classesUsed);

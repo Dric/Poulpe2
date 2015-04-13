@@ -84,7 +84,7 @@ class Item {
 		?>
 		<li class="menuItem<?php echo (!empty($itemClass)) ? ' '.$itemClass : ''; ?>" id="item-<?php echo $this->name; ?>">
 			<a href="<?php echo $this->link; ?>" title="<?php echo $this->desc; ?>">
-				<?php if (!empty($this->icon)) { ?><span class="fa fa-<?php echo $this->icon; ?>"></span>&nbsp;<?php } ?>
+				<?php if (!empty($this->icon)) { ?><span class="fa fa-<?php echo $this->icon; ?> fa-fw"></span>&nbsp;<?php } ?>
 				<?php echo $this->title; ?>
 			</a>
 		</li>

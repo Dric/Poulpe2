@@ -234,14 +234,31 @@ class Fs {
 	}
 
 	/**
-	 * Vérifie si un fichier existe
+	 * Vérifie si un fichier existe, et retourne son nom avec sa casse si tel est le cas
 	 *
-	 * @param string $fileName Nom du fichier
+	 * @param string  $fileName Nom du fichier
+	 * @param bool    $caseSensitive Effectue une recherche en respectant la casse ou non (non par défaut)
+	 * @return bool|string retourne `false` si le fichier n'existe pas, retourne le nom du fichier avec sa casse sinon.
 	 *
-	 * @return bool
+	 * @from <http://stackoverflow.com/a/3964927/1749967>
 	 */
-	public function fileExists($fileName){
-		return file_exists($this->mountName.DIRECTORY_SEPARATOR.$fileName);
+	public function fileExists($fileName, $caseSensitive = false){
+		$fileName = $this->mountName.DIRECTORY_SEPARATOR.$fileName;
+		if(file_exists($fileName)) {
+			return $fileName;
+		}
+		if($caseSensitive) return false;
+
+		// Handle case insensitive requests
+		$directoryName = dirname($fileName);
+		$fileArray = glob($directoryName . '/*', GLOB_NOSORT);
+		$fileNameLowerCase = strtolower($fileName);
+		foreach($fileArray as $file) {
+			if(strtolower($file) == $fileNameLowerCase) {
+				return str_replace($this->mountName.DIRECTORY_SEPARATOR, '', $file);
+			}
+		}
+		return false;
 	}
 
 	/**

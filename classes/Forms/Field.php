@@ -36,7 +36,7 @@ class Field extends Setting{
 
 	/**
 	 * Objet de validation du champ ou paramètres du champ dans une base de données
-	 * @var Pattern|DbFieldSettings
+	 * @var DbFieldSettings|Pattern
 	 */
 	protected $pattern = null;
 
@@ -103,17 +103,17 @@ class Field extends Setting{
 	/**
 	 * Construction du champ
 	 *
-	 * @param string  $name         Nom du champ - repris dans la propriété name et id
-	 * @param string  $type         Type du champ - type élargi par rapport au type de Setting
-	 * @param mixed   $value        Valeur à mettre dans la propriété value
-	 * @param string  $label        Libellé du champ - repris dans l'élément `<label>`
-	 * @param string  $placeholder  Placeholder - repris dans la propriété du même nom
-	 * @param string  $help         Message d'aide du champ - facultatif
-	 * @param Pattern $pattern      Validation de saisie
-	 * @param bool    $important    Paramètre à signaler comme étant important
-	 * @param string  $ACLLevel     Niveau minimum d'autorisation (`access`, `modify` ou `admin`)
-	 * @param string  $class        Classe optionnelle à ajouter au champ
-	 * @param bool    $disabled     Champ désactivé si à true
+	 * @param string                  $name        Nom du champ - repris dans la propriété name et id
+	 * @param string                  $type        Type du champ - type élargi par rapport au type de Setting
+	 * @param mixed                   $value       Valeur à mettre dans la propriété value
+	 * @param string                  $label       Libellé du champ - repris dans l'élément `<label>`
+	 * @param string                  $placeholder Placeholder - repris dans la propriété du même nom
+	 * @param string                  $help        Message d'aide du champ - facultatif
+	 * @param DbFieldSettings|Pattern $pattern     Validation de saisie
+	 * @param bool                    $important   Paramètre à signaler comme étant important
+	 * @param string                  $ACLLevel    Niveau minimum d'autorisation (`access`, `modify` ou `admin`)
+	 * @param string                  $class       Classe optionnelle à ajouter au champ
+	 * @param bool                    $disabled    Champ désactivé si à true
 	 */
 	public function __construct($name, $type, $value, $label = null, $placeholder = null, $help = null, Pattern $pattern = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false){
 		self::$types = Setting::$types;
@@ -225,7 +225,7 @@ class Field extends Setting{
 
 	/**
 	 * Retourne l'objet de validation de saisie du champ
-	 * @return Pattern
+	 * @return Pattern|DbFieldSettings
 	 */
 	public function getPattern() {
 		return $this->pattern;

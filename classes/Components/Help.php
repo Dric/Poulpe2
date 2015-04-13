@@ -33,4 +33,23 @@ class Help {
 		<span class="fa fa-question-circle tooltip-<?php echo $tooltipPosition; ?> help-icon" title="<?php echo $text; ?>"></span>
 		<?php
 	}
+
+	/**
+	 * Affichage d'une icône d'alerte
+	 *
+	 * Le contenu de l'alerte est affiché dans une infobulle
+	 *
+	 * @param string $text
+	 * @param string $tooltipPosition
+	 *  Ce paramètre peut prendre les valeurs suivantes
+	 *  - bottom
+	 *  - top
+	 *  - left
+	 *  - right
+	 */
+	public static function iconWarning($text, $tooltipPosition = 'bottom'){
+		?>
+		<span class="fa fa-warning tooltip-<?php echo $tooltipPosition; ?> warning-icon" title="<?php echo $text; ?>"></span>
+	<?php
+	}
 } 

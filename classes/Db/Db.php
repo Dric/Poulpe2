@@ -130,25 +130,27 @@ class Db {
 	 *
 	 * @param string $sql requête SQL
 	 * @param string $get Renvoie <br>
-	 * 'row' une ligne <br>
-	 * 'col' une colonne <br>
-	 * 'all' un tableau de résultat <br>
-	 * 'val' une valeur <br>
+	 *                    'row' une ligne <br>
+	 *                    'col' une colonne <br>
+	 *                    'all' un tableau de résultat <br>
+	 *                    'val' une valeur <br>
 	 *
-	 * @return object|bool Résultat de la requête
+	 * @param bool   $noAlert Si `true`, n'affiche pas d'alerte en cas d'erreur
+	 *
+	 * @return bool|object Résultat de la requête
 	 */
-	public function query($sql, $get = 'all'){
+	public function query($sql, $get = 'all', $noAlert = false){
 
 		$sql = str_replace('"', '\'', $sql);
 		$statement = $this->db->prepare($sql);
 		if ($statement === false){
-			new Alert('debug', '<code>Db->query</code> : Impossible d\'effectuer la requête car elle est mal formée.<br /><pre>'.$sql.'</pre>');
+			if (!$noAlert) new Alert('debug', '<code>Db->query</code> : Impossible d\'effectuer la requête car elle est mal formée.<br /><pre>'.$sql.'</pre>');
 			return false;
 		}
 		$ret = $statement->execute();
 		$this->queriesCount ++;
 		if (!$ret){
-			new Alert('error', 'Erreur lors de l\'exécution de la requête !<br><code>'.$statement->errorInfo()[2].'</code><br><code>'.$sql.'</code>');
+			if (!$noAlert) new Alert('error', 'Erreur lors de l\'exécution de la requête !<br><code>'.$statement->errorInfo()[2].'</code><br><code>'.$sql.'</code>');
 			return false;
 		}
 		switch ($get){
@@ -161,7 +163,7 @@ class Db {
 			case 'val':
 				return $statement->fetch()[0];
 		}
-		new Alert('debug', '<code>Db->query</code> : Impossible de retourner la requête.<br /><code>get='.$get.'</code> n\'est pas dans la liste des codes autorisés (all, row ou col)');
+		if (!$noAlert) new Alert('debug', '<code>Db->query</code> : Impossible de retourner la requête.<br /><code>get='.$get.'</code> n\'est pas dans la liste des codes autorisés (all, row ou col)');
 		return false;
 	}
 

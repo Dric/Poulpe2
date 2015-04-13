@@ -132,12 +132,148 @@ class DbTable {
 	}
 
 	/**
+	 * Extrait la structure de la table dans la base de données
+	 */
+	protected function extractTableFromDb(){
+		global $db;
+		$fields = $indexes = $fieldsInIndex = $foreignKeys = array();
+		$sql = $db->query('SHOW CREATE TABLE `'.$this->name.'`');
+		//var_dump($sql);
+		$columns = explode("\n", $sql[0]->{'Create Table'});
+		// On supprime le premier et le dernier item du tableau car ils ne sont d'aucune utilité
+		array_shift($columns);
+		array_pop($columns);
+		foreach ($columns as $column){
+			$matches = null;
+			trim($column, ',');
+			//var_dump($column);
+			// Champs de la table
+			preg_match("/\s*`(.*)` ((\w*)\((\d*)\)|\w*text|\w*blob)\s?(NOT NULL|NULL|)\s?(DEFAULT '\w*'|DEFAULT \w*|)\s?(AUTO_INCREMENT|)\s?(COMMENT '.*'|)/i", $column, $matches);
+			/*
+			 * Renvoie :
+			 *  0 : Ligne complète
+			 *  1 : Nom de champ
+			 *  2 : Type de champ + longueur
+			 *  3 : Type de champ
+			 *  4 : Longueur de champ
+			 *  5 : Valeur `null` acceptée (oui si vide)
+			 *  6 : Valeur par défaut (aucune si vide)
+			 *  7 : Auto-Incrémentation (non si vide)
+			 *  8 : Commentaire (rien si vide)
+			 */
+			if (!empty($matches)) {
+				// On supprime la ligne complète
+				// On ajoute le tableau du champ à la liste des champs, indexée par le nom des champs
+				$fields[$matches[1]] = $matches;
+			}
+			if (empty($matches)){
+				// Indexes de la table
+				preg_match("/^\s*(PRIMARY|UNIQUE|)\s*KEY\s?(`\w*`|)\s?\((.*)\)/i", $column, $matches);
+				/*
+				 * Renvoie :
+				 *  0 : Ligne complète
+				 *  1 : Type d'index (index si vide)
+				 *  2 : Nom d'index
+				 *  3 : Champs sur lesquels sont construits l'index
+				 */
+				if (!empty($matches)){
+					//var_dump($matches);
+					$fieldsFoundInIndex = explode(',', $matches[3]);
+					if (count($fieldsFoundInIndex) > 1 ){
+						foreach ($fieldsFoundInIndex as $fieldInIndex){
+							$fieldInIndex = str_replace('`', '', $fieldInIndex);
+							$fieldsInIndex[] = $fieldInIndex;
+						}
+					}else{
+						$matches[3] = str_replace('`', '', $matches[3]);
+						$indexes[$matches[3]] = $matches;
+					}
+				}
+				if (empty($matches)){
+					preg_match("/\s*CONSTRAINT `\w*` FOREIGN KEY \(`(\w*)`\) REFERENCES `(\w*)` \(`(\w*)`\) ON DELETE (\w+\s?\w*) ON UPDATE (\w+\s?\w*)/i", $column, $matches);
+					/*
+					 * Renvoie :
+					 *  0 : Ligne complète
+					 *  1 : Nom du champ sur lequel on applique la contrainte
+					 *  2 : Nom de la table liée
+					 *  3 : Nom du champ dans la table liée
+					 *  4 : Action sur suppression
+					 *  5 : Action sur mise à jour
+					 */
+					if (!empty($matches)){
+						//var_dump($matches);
+						//array_shift($matches);
+						$foreignKeys[$matches[1]] = $matches;
+					}
+				}
+			}
+		}
+		$removeFromDb = array();
+		$alterDb = $addToDb = array(
+			'fields'  => null,
+			'indexes' => null
+		);
+		//var_dump($this->fields);
+		foreach ($fields as $dbFieldName => $dbField){
+			if (isset($this->fields[$dbFieldName])){
+				$scriptField = $this->fields[$dbFieldName];
+				// Si l'index du type n'est pas rempli, on le compplète avec l'index 2 qui contient le type complet
+				if (empty($dbField[3])) $dbField[3] = $dbField[2];
+				// l'index 4 étant la taille du champ, on le transforme en entier
+				$dbField[4] = (empty($dbField[4])) ? 0 : (int)$dbField[4];
+				// l'index 5 définit si le champ doit avoir une valeur ou non, on le transforme donc en booléen
+				$dbField[5] = (empty($dbField[5])) ? false : true;
+				// l'index 6 est la valeur par défaut, il faut donc la transformer pour être raccord avec la valeur du champ Field
+				$dbField[6] = trim(str_replace('DEFAULT ', '', $dbField[6]), "'");
+				if ($dbField[6] == 'NULL' or $dbField[6] == '') $dbField[6] = null;
+				if ($dbField[3] == 'tinyint') $dbField[6] = (bool)(int)$dbField[6];
+				// l'index 7 définit si le champ est auto-incrémenté ou non, on le transforme en booléen
+				$dbField[7] = (!empty($dbField[7])) ? true : false;
+				// l'index 8 est le commentaire du champ. Comme MySQL peut mettre le bazar avec les apostrophes, on les vire du champ Field
+				$dbField[8] = substr(preg_replace("/COMMENT '/i", '', $dbField[8]), 0, -1);
+
+				if (
+					$scriptField->getDbType() != $dbField[3] or // Type de champ
+					$scriptField->getPattern()->getMaxLength() != $dbField[4] or // Longueur de champ
+					$scriptField->getPattern()->getRequired() != $dbField[5] or // Peut être `null` ou non
+					$scriptField->getValue() != $dbField[6] or // Valeur par défaut
+					$scriptField->getPattern()->getAutoIncrement() != $dbField[7] or // Auto-incrémentation
+					str_replace("'", ' ', $scriptField->getLabel()) != $dbField[8] // Commentaire
+				){
+					var_dump($dbField);
+					var_dump($scriptField);
+					$alterDb['fields'][$dbFieldName] = $scriptField;
+				}
+			}else{
+				$removeFromDb[$dbFieldName] = $dbField;
+			}
+		}
+		//foreach ()
+		/*var_dump($indexes);
+		var_dump($fieldsInIndex);
+		var_dump($foreignKeys);*/
+	}
+
+	/**
+	 * Vérifie si la table existe dans la base de données
+	 * @return bool
+	 */
+	protected function existsInDb(){
+		global $db;
+		$ret = $db->query('DESCRIBE `'.$this->name.'`', 'all', true);
+		return ($ret === false) ? false : true;
+	}
+
+	/**
 	 * Création de la table en base de données
 	 *
 	 * @return bool
 	 */
 	public function createInDb(){
 		global $db;
+
+		if ($this->existsInDb()) $this->extractTableFromDb();
+
 		$sql = 'CREATE TABLE IF NOT EXISTS `'.$this->name.'` (';
 		if (count($this->fields) == 0){
 			new Alert('debug', '<code>DbTable->createInDb()</code> : aucun champ n\'est défini dans le tableau d\'entrée !');

@@ -48,9 +48,9 @@ class Date extends String{
 	 */
 	public function __construct($name, $value = null, $label = null, $placeholder = null, $help = null, $pattern = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false, $dateType = 'date'){
 		parent::__construct($name, $value, $label, $placeholder, $help, $pattern, $important, $ACLLevel, $class, $disabled, false);
-		Front::setJsFooter('<script src="js/moment-fr.js"></script>');
-		Front::setJsFooter('<script src="js/bootstrap-datetimepicker.min.js"></script>');
-		Front::setJsFooter('<script src="js/bootstrap-datetimepicker.fr.js"></script>');
+		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/js/moment-fr.js"></script>');
+		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/js/bootstrap-datetimepicker.min.js"></script>');
+		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/js/bootstrap-datetimepicker.fr.js"></script>');
 		Front::setJsFooter('<script>dateTimePick();</script>');
 		$this->dateType = (in_array($dateType, array('date', 'dateTime', 'fullDateTime'))) ? $this->dateType : 'date';
 	}

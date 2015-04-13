@@ -129,6 +129,15 @@ class Setting {
 	}
 
 	/**
+	 * Retourne le type de champ MySQL
+	 * @return string
+	 */
+	public function getDbType() {
+		if ($this->type == 'bool') return 'tinyint';
+		return $this->type;
+	}
+
+	/**
 	 * Retourne le nom du paramètre
 	 * @return string
 	 */
