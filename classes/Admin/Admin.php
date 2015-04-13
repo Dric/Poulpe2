@@ -25,6 +25,7 @@ use Components\Item;
 use Components\Menu;
 use FileSystem\Fs;
 use Front;
+use Michelf\MarkdownExtra;
 use Modules\Module;
 use Modules\ModulesManagement;
 use Forms\Form;
@@ -78,82 +79,87 @@ class Admin extends Module {
 		$modulesDb = ModulesManagement::getActiveModules();
 		foreach ($modulesDb as $moduleDb){
 			$activeModules[$moduleDb->name] = array(
-				'id'    => $moduleDb->id,
+				'id'    => $moduleDb->id
 			);
 		}
-		?>
-		<div class="row">
-			<div class="col-md-10 col-md-offset-1">
-				<div class="page-header">
-					<h1>Modules de <?php echo SITE_NAME; ?></h1>
-				</div>
-				<?php
-					$modules = array();
-					$modulesPath = Front::getAbsolutePath().DIRECTORY_SEPARATOR.'Modules';
-					$fs = new Fs($modulesPath, 'localhost');
-					$files = $fs->getRecursiveFilesInDir(null, 'php', true);
-					foreach ($files as $file){
-						if ($file != $modulesPath.DIRECTORY_SEPARATOR.'Module.php' and $file != $modulesPath.DIRECTORY_SEPARATOR.'ModulesManagement.php'){
-							// On lit les 60 premières lignes de chaque fichier pour récupérer les infos nécessaires
-							$lines=array();
-							$className = $moduleName = $moduleTitle = '';
-							$fp = fopen($file, 'r');
-							while(!feof($fp)){
-								$line = fgets($fp);
-								$lines[] = $line;
-								if (preg_match('/^class (\w*) extends Module/i', $line, $matches)){
-									// On récupère le nom de la classe du module si c'est une extension de la classe Module
-									$className = $matches[1];
-								}elseif(!empty($className) and empty($moduleName) and preg_match('/protected \$name = \'(.*)\'/i', $line, $matches)){
-									// On récupère le nom du module
-									$moduleName = $matches[1];
-								}elseif(!empty($className) and empty($moduleTitle) and preg_match('/protected \$title = \'(.*)\'/i', $line, $matches)){
-									// On récupère la description du module
-									$moduleTitle = $matches[1];
-									$moduleTitle = str_replace("\'", '&#39', $moduleTitle);
-								}
-								if (count($lines) > 60) break;
-							}
-							fclose($fp);
-							if (!empty($className) and !empty($moduleName)){
-								$modules[$className] = array(
-									'name'  => $moduleName,
-								  'title' => $moduleTitle,
-								  'path'  => str_replace(Front::getAbsolutePath().DIRECTORY_SEPARATOR.'Modules'.DIRECTORY_SEPARATOR, '', $file)
-								);
-							}
-						}
+		$modules = array();
+		$modulesPath = Front::getAbsolutePath().DIRECTORY_SEPARATOR.'Modules';
+		$fs = new Fs($modulesPath, 'localhost');
+		$files = $fs->getRecursiveFilesInDir(null, 'php', true);
+		foreach ($files as $file){
+			if ($file != $modulesPath.DIRECTORY_SEPARATOR.'Module.php' and $file != $modulesPath.DIRECTORY_SEPARATOR.'ModulesManagement.php'){
+				// On lit les 60 premières lignes de chaque fichier pour récupérer les infos nécessaires
+				$lines=array();
+				$className = $moduleName = $moduleTitle = '';
+				$fp = fopen($file, 'r');
+				while(!feof($fp)){
+					$line = fgets($fp);
+					$lines[] = $line;
+					if (preg_match('/^class (\w*) extends Module/i', $line, $matches)){
+						// On récupère le nom de la classe du module si c'est une extension de la classe Module
+						$className = $matches[1];
+					}elseif(!empty($className) and empty($moduleName) and preg_match('/protected \$name = \'(.*)\'/i', $line, $matches)){
+						// On récupère le nom du module
+						$moduleName = $matches[1];
+					}elseif(!empty($className) and empty($moduleTitle) and preg_match('/protected \$title = \'(.*)\'/i', $line, $matches)){
+						// On récupère la description du module
+						$moduleTitle = $matches[1];
+						$moduleTitle = str_replace("\'", '&#39', $moduleTitle);
 					}
-					ksort($modules);
-				?>
-				<form class="" method="post" role="form">
-					<table class="table table-responsive table-striped">
-						<thead>
-						<tr>
-							<th>Id</th>
-							<th>Nom</th>
-							<th>Description</th>
-							<th>Chemin</th>
-							<th>ACL</th>
-							<th>Paramètres</th>
-							<th>Activé</th>
-						</tr>
-						</thead>
-						<tbody>
-						<?php
-						foreach ($modules as $className => $module){
-							?>
+					if (count($lines) > 60) break;
+				}
+				fclose($fp);
+				if (!empty($className) and !empty($moduleName)){
+					$modules[$className] = array(
+						'name'  => $moduleName,
+					  'title' => $moduleTitle,
+					  'path'  => str_replace(Front::getAbsolutePath().DIRECTORY_SEPARATOR.'Modules'.DIRECTORY_SEPARATOR, '', $file)
+					);
+				}
+			}
+		}
+		ksort($modules);
+	// Si on veut les détails d'un module, il est temps d'aller les afficher
+		if (isset($_REQUEST['name']) and isset($modules[$_REQUEST['name']])){
+			$requestedModule = $modules[$_REQUEST['name']];
+			$requestedModule['className'] = $_REQUEST['name'];
+			$requestedModule['id'] = (isset($activeModules[$requestedModule['name']])) ? $activeModules[$requestedModule['name']]['id'] : null;
+			$this->adminModuleInfo($requestedModule);
+		}else {
+			?>
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<div class="page-header">
+						<h1>Modules de <?php echo SITE_NAME; ?></h1>
+					</div>
+					<form class="" method="post" role="form">
+						<table class="table table-responsive table-striped">
+							<thead>
+							<tr>
+								<th>Id</th>
+								<th>Nom</th>
+								<th>Description</th>
+								<!--<th>Chemin</th>-->
+								<th>ACL</th>
+								<th>Paramètres</th>
+								<th>Activé</th>
+							</tr>
+							</thead>
+							<tbody>
+							<?php
+							foreach ($modules as $className => $module) {
+								?>
 							<tr class="<?php echo (isset($activeModules[$module['name']])) ? '' : 'info text-muted'; ?>">
 								<td><?php echo (isset($activeModules[$module['name']])) ? $activeModules[$module['name']]['id'] : ''; ?></td>
-								<td><?php echo $module['name']; ?></td>
+								<td><a href="<?php echo $this->url . '&page=modules&name=' . $className; ?>"><?php echo $module['name']; ?></a></td>
 								<td><?php echo str_replace('\\\'', '&#39;', $module['title']); ?></td>
-								<td><?php echo $module['path']; ?></td>
-								<?php if (isset($activeModules[$module['name']])){ ?>
-								<td><a class="btn btn-default btn-xs" href="<?php echo MODULE_URL.$className.'&page=ACL'; ?>" title="Cliquez ici pour quitter cette page et vous rendre sur les autorisations du module">Autorisations</a></td>
-								<td><a class="btn btn-default btn-xs" href="<?php echo MODULE_URL.$className.'&page=settings'; ?>" title="Cliquez ici pour quitter cette page et vous rendre sur les paramètres du module">Paramètres</a></td>
-								<?php }else{ ?>
-								<td></td>
-								<td></td>
+								<!--<td><?php echo $module['path']; ?></td>-->
+								<?php if (isset($activeModules[$module['name']])) { ?>
+									<td><a class="btn btn-default btn-xs" href="<?php echo Front::getModuleUrl() . $className . '&page=ACL'; ?>" title="Cliquez ici pour quitter cette page et vous rendre sur les autorisations du module">Autorisations</a></td>
+									<td><a class="btn btn-default btn-xs" href="<?php echo Front::getModuleUrl() . $className . '&page=settings'; ?>" title="Cliquez ici pour quitter cette page et vous rendre sur les paramètres du module">Paramètres</a></td>
+								<?php } else { ?>
+									<td></td>
+									<td></td>
 								<?php } ?>
 								<td>
 									<label>
@@ -161,19 +167,53 @@ class Admin extends Module {
 										<input type="hidden" id="enable_<?php echo $className; ?>_hidden" name="enable_<?php echo $className; ?>_hidden" value="0">
 									</label>
 								</td>
-							</tr><?php
-						}
-						?>
-						</tbody>
-					</table>
-					<button type="submit" class="btn btn-primary" id="" name="action" value="saveModules">Sauvegarder</button>
-				</form>
-				<?php
+								</tr><?php
+							}
+							?>
+							</tbody>
+						</table>
+						<button type="submit" class="btn btn-primary" id="" name="action" value="saveModules">Sauvegarder</button>
+					</form>
+					<?php
 
-				?>
+					?>
+					</div>
+				</div>
+			<?php
+		}
+	}
+
+	/**
+	 * Affiche les infos d'un module
+	 *
+	 * Cette fonction ne doit être accédée que via le panneau d'admin des modules
+	 *
+	 * @param array $module Tableau recensant le chemin, la classe, le nom et la description du module.
+	 */
+	protected function adminModuleInfo(array $module){
+		//var_dump($module);
+		$fs = new Fs('Modules' . DIRECTORY_SEPARATOR . $module['className']);
+		$readMe = $fs->fileExists('readme.md');
+		?>
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="page-header">
+					<h1>Module <?php echo $module['name']; ?> <?php if (!empty($module['id'])){	?><span class="label label-success">Activé</span><?php }else{	?><span class="label label-danger">Désactivé</span><?php } ?></h1>
+				</div>
+				<h3>Description</h3>
+				<?php
+				if ($readMe !== false) {
+					$text = $fs->readFile($readMe, 'string');
+					?>
+					<div class="well">
+						<?php
+							echo MarkdownExtra::defaultTransform($text);
+						?>
+					</div>
+				<?php	}	?>
 			</div>
 		</div>
-	<?php
+		<?php
 	}
 
 	/**
@@ -333,8 +373,8 @@ class Admin extends Module {
 								<td><?php echo $user->name; ?></td>
 								<td><?php echo Avatar::display($avatar, 'Avatar de '.$user->name); ?></td>
 								<td><?php echo $user->email; ?></td>
-								<td><a class="btn btn-default" href="<?php echo $this->url; ?>&page=userACL&user=<?php echo $user->id; ?>">Modifier</a></td>
-								<td><a class="btn btn-default" href="<?php echo MODULE_URL; ?>profil&user=<?php echo $user->id; ?>">Modifier</a></td>
+								<td><a class="btn btn-default" href="<?php echo $this->buildArgsURL(array('page' => 'userACL', 'user' => $user->id)); ?>">Modifier</a></td>
+								<td><a class="btn btn-default" href="<?php echo Front::getModuleUrl(); ?>profil&user=<?php echo $user->id; ?>">Modifier</a></td>
 							</tr>
 							<?php
 						}
@@ -661,10 +701,10 @@ class Admin extends Module {
 		<ul>
 			<li>Utilisateurs : <strong><?php echo count(UsersManagement::getUsersList()); ?></strong></li>
 			<li>Modules actifs : <strong><?php echo count(ModulesManagement::getActiveModules()); ?></strong></li>
-			<li>Base de données : <strong><?php echo DB_NAME; ?></strong></li>
+			<li>Base de données : <strong><?php echo DB_NAME; ?></strong> sur <?php echo DB_HOST; ?></li>
 			<li>Taille de la base de données : <strong><?php echo \Sanitize::readableFileSize($dbSize); ?></strong></li>
 			<li>Nombre de tables dans la base : <strong><?php echo $nbTables; ?></strong></li>
-			<li>Mode d'authentification : <strong><?php echo AUTH_MODE; ?></strong></li>
+			<li>Mode d'authentification : <strong><?php echo AUTH_MODE; ?></strong> <?php if (AUTH_MODE == 'ldap') { ?><small>(<?php echo LDAP_DOMAIN; ?>)</small><?php } ?></li>
 			<li>Version de Poulpe2 : <a href="https://github.com/Dric/Poulpe2/commit/<?php echo $commit->fullHash; ?>"><?php echo $commit->hash; ?></a> du <?php echo Sanitize::date($commit->date, 'dateTime'); ?></li>
 		</ul>
 		<?php

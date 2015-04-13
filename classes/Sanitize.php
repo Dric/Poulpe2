@@ -156,7 +156,7 @@ class Sanitize {
 	}
 
 	/**
-	 * Transforme unee durée en secondes en durée lisible par l'être humain
+	 * Transforme une durée en secondes en durée lisible par l'être humain
 	 *
 	 * @param int $time Durée en secondes
 	 * @return string
@@ -170,6 +170,13 @@ class Sanitize {
 		$d = (floor(($time % 2592000) / 86400)>0)?floor(($time % 2592000) / 86400) : '';
 		if (!empty($d)) $d .= ' jour'.(($d != 1) ? 's' : '');
 		$M = (floor($time / 2592000)>0)?floor($time / 2592000).' mois' : '';
+		$ret = '';
+		if (!empty($M)) $ret .= $M.' ';
+		if (!empty($d)) $ret .= $d.' ';
+		if (!empty($h)) $ret .= $h.' ';
+		if (!empty($m)) $ret .= $m.' ';
+		if (!empty($ret)) $ret .= 'et ';
+		if (!empty($s)) $ret .= $s.' seconde'.(($s != 1) ? 's': '');
 		return $M.' '.$d.' '.$h.' '.$m.' et '.$s.' seconde'.(($s != 1) ? 's': '');
 	}
 
