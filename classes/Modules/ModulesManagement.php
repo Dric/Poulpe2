@@ -162,6 +162,18 @@ class ModulesManagement {
 	}
 
 	/**
+	 * Charge les éventuels traitements globaux des modules
+	 */
+	public static function initModulesLoading(){
+		$modules = self::getActiveModules();
+		foreach ($modules as $module){
+			/** @var Module $class */
+			$class = $module->class;
+			$class::initModuleLoading();
+		}
+	}
+
+	/**
 	 * Sauvegarde les paramètres d'un module
 	 * @param Module $Module Module dont on veut sauvegarder les paramètres
 	 * @param array  $settings Tableau d'objets Setting

@@ -23,7 +23,7 @@ class CitrixDesktops extends Module {
 	 */
 	public static function getMainMenuItems(){
 		$module = explode('\\', get_class());
-		Front::$mainMenu->add(new Item('CitrixDesktops', 'Bureaux Citrix', MODULE_URL.end($module), 'Permet d\'ouvrir un bureau Citrix avec d\'autres identifiants que le PNAgent', null, null));
+		Front::$mainMenu->add(new Item('CitrixDesktops', 'Bureaux Citrix', Front::getModuleUrl().end($module), 'Permet d\'ouvrir un bureau Citrix avec d\'autres identifiants que le PNAgent', null, null));
 	}
 
 	/**
@@ -61,9 +61,9 @@ class CitrixDesktops extends Module {
 				</p>
 				<h3>Liste des bureaux Citrix</h3>
 				<ul>
-					<li><a href="<?php echo str_replace(getcwd().'/', '', dirname(__FILE__)); ?>/bureaux/Bureau.ica" title="Bureau de base" class="tooltip-right" target="_blank">Bureau</a></li>
-					<li><a href="<?php echo str_replace(getcwd().'/', '', dirname(__FILE__)); ?>/bureaux/BureauTest.ica" title="Bureau de Test" class="tooltip-right" target="_blank">Bureau Test</a></li>
-					<li><a href="<?php echo str_replace(getcwd().'/', '', dirname(__FILE__)); ?>/bureaux/BureauXen.ica" title="Bureau Xen. Utilisé pour se connecter sur un serveur précis. Le serveur de connexion est à modifier dans la console Citrix." class="tooltip-right" target="_blank">Bureau Xen</a></li>
+					<li><a href="<?php echo Front::getBaseUrl() ?>/Modules/CitrixDesktops/bureaux/Bureau.ica" title="Bureau de base" class="tooltip-right" target="_blank">Bureau</a></li>
+					<li><a href="<?php echo Front::getBaseUrl() ?>/Modules/CitrixDesktops/bureaux/BureauTest.ica" title="Bureau de Test" class="tooltip-right" target="_blank">Bureau Test</a></li>
+					<li><a href="<?php echo Front::getBaseUrl() ?>/Modules/CitrixDesktops/bureaux/BureauXen.ica" title="Bureau Xen. Utilisé pour se connecter sur un serveur précis. Le serveur de connexion est à modifier dans la console Citrix." class="tooltip-right" target="_blank">Bureau Xen</a></li>
 				</ul>
 				<p>
 					Si vous êtes sous Firefox, vous pouvez ensuite fermer l'onglet ou la fenêtre qui vient de s'ouvrir, elle n'est plus d'aucune utilité.<br />

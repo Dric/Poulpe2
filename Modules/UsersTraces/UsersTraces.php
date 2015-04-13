@@ -31,11 +31,11 @@ class UsersTraces extends Module {
 
 	public function __construct(){
 		parent::__construct();
-		//Front::setCssHeader('<link href="js/DataTables/media/css/jquery.dataTables.min.css" rel="stylesheet">');
-		Front::setCssHeader('<link href="js/DataTables/plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">');
-		Front::setJsFooter('<script src="js/DataTables/media/js/jquery.dataTables.min.js"></script>');
-		Front::setJsFooter('<script src="js/DataTables/plugins/integration/bootstrap/3/dataTables.bootstrap.js"></script>');
-		Front::setJsFooter('<script src="Modules/UsersTraces/UsersTraces.js"></script>');
+		//Front::setCssHeader('<link href="'.Front::getBaseUrl().'/js/DataTables/media/css/jquery.dataTables.min.css" rel="stylesheet">');
+		Front::setCssHeader('<link href="'.Front::getBaseUrl().'/js/DataTables/plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">');
+		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/js/DataTables/media/js/jquery.dataTables.min.js"></script>');
+		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/js/DataTables/plugins/integration/bootstrap/3/dataTables.bootstrap.js"></script>');
+		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/Modules/UsersTraces/UsersTraces.js"></script>');
 	}
 
 	/**
@@ -43,7 +43,7 @@ class UsersTraces extends Module {
 	 */
 	public static function getMainMenuItems(){
 		$module = explode('\\', get_class());
-		Front::$mainMenu->add(new Item('UsersTraces', 'Logs de connexion', MODULE_URL.end($module), 'Lecture de logs de connexions aux applications ou aux systèmes', null, null));
+		Front::$mainMenu->add(new Item('UsersTraces', 'Logs de connexion', Front::getModuleUrl().end($module), 'Lecture de logs de connexions aux applications ou aux systèmes', null, null));
 	}
 
 	/**

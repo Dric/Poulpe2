@@ -34,7 +34,7 @@ class FileBrowser extends Module{
 	 */
 	public static function getMainMenuItems(){
 		$module = explode('\\', get_class());
-		Front::$mainMenu->add(new Item('FileBrowser', 'Fichiers', MODULE_URL.end($module), 'Parcourir répertoires et fichiers'));
+		Front::$mainMenu->add(new Item('FileBrowser', 'Fichiers', Front::getModuleUrl().end($module), 'Parcourir répertoires et fichiers'));
 	}
 
 	/**
@@ -44,14 +44,14 @@ class FileBrowser extends Module{
 	 */
 	public function defineSettings(){
 		$this->settings['rootFolder']  = new String('rootFolder', '/media/salsifis','Répertoire racine des fichiers', '/media/salsifis', null, new Pattern('string', true), true);
-		Front::setCssHeader('<link href="js/DataTables/extensions/Responsive/css/dataTables.responsive.css" rel="stylesheet">');
-		Front::setCssHeader('<link href="js/DataTables/plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">');
-		Front::setCssHeader('<link href="js/highlight/styles/default.css" rel="stylesheet">');
-		Front::setJsFooter('<script src="js/DataTables/media/js/jquery.dataTables.min.js"></script>');
-		Front::setJsFooter('<script src="js/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>');
-		Front::setJsFooter('<script src="js/DataTables/plugins/integration/bootstrap/3/dataTables.bootstrap.js"></script>');
-		Front::setJsFooter('<script src="js/highlight/highlight.pack.js"></script>');
-		Front::setJsFooter('<script src="Modules/FileBrowser/FileBrowser.js"></script>');
+		Front::setCssHeader('<link href="'.Front::getBaseUrl().'/js/DataTables/extensions/Responsive/css/dataTables.responsive.css" rel="stylesheet">');
+		Front::setCssHeader('<link href="'.Front::getBaseUrl().'/js/DataTables/plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">');
+		Front::setCssHeader('<link href="'.Front::getBaseUrl().'/js/highlight/styles/default.css" rel="stylesheet">');
+		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/js/DataTables/media/js/jquery.dataTables.min.js"></script>');
+		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/js/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>');
+		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/js/DataTables/plugins/integration/bootstrap/3/dataTables.bootstrap.js"></script>');
+		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/js/highlight/highlight.pack.js"></script>');
+		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/Modules/FileBrowser/FileBrowser.js"></script>');
 	}
 
 	/**
@@ -120,7 +120,7 @@ class FileBrowser extends Module{
 
 		?>
 		<h2><span class="fa fa-<?php echo $fileMeta->getIcon(); ?>"></span>&nbsp;&nbsp;<?php echo $file; ?></h2>
-		<p>&nbsp;&nbsp;Dans <a href="<?php echo $this->url.'&folder='.urlencode($fileMeta->parentFolder); ?>"><?php echo $fileMeta->parentFolder; ?></a></p>
+		<p>&nbsp;&nbsp;Dans <a href="<?php echo $this->buildArgsURL(array('folder' => urlencode($fileMeta->parentFolder))); ?>"><?php echo $fileMeta->parentFolder; ?></a></p>
 		<ul>
 			<li>Date de création : <?php echo \Sanitize::date($fileMeta->dateCreated, 'dateTime'); ?></li>
 			<li>Date de dernière modification : <?php echo \Sanitize::date($fileMeta->dateModified, 'dateTime'); ?></li>
@@ -378,7 +378,7 @@ class FileBrowser extends Module{
 		$parentFolder = dirname($folder);
 		?>
 		<?php echo $this->breadcrumbTitle($folder); ?>
-		<?php if (strpos($parentFolder, $rootFolder) !== false and $parentFolder != '/') { ?><p>&nbsp;&nbsp;<a href="<?php echo $this->url.'&folder='.urlencode($parentFolder); ?>"><span class="fa fa-arrow-up"></span> Remonter d'un niveau</a></p><?php } ?>
+		<?php if (strpos($parentFolder, $rootFolder) !== false and $parentFolder != '/') { ?><p>&nbsp;&nbsp;<a href="<?php echo $this->buildArgsURL(array('folder' => urlencode($parentFolder))); ?>"><span class="fa fa-arrow-up"></span> Remonter d'un niveau</a></p><?php } ?>
 		<div class="table-responsive">
 			<table id="fileBrowser" class="table table-striped" width="100%">
 				<thead>
@@ -393,12 +393,26 @@ class FileBrowser extends Module{
 				<tbody>
 				<?php
 				foreach ($files as $i => $item){
-					$itemUrl = ($item->type != 'Répertoire') ? '&file='.urlencode($item->fullName).'&folder='.urlencode($item->parentFolder) : '&folder='.urlencode($item->fullName);
+					//$itemUrl = ($item->type != 'Répertoire') ? '&file='.urlencode($item->fullName).'&folder='.urlencode($item->parentFolder) : '&folder='.urlencode($item->fullName);
+					if ($item->type != 'Répertoire') {
+						$itemUrl = $this->buildArgsURL(
+							array(
+								'file' => urlencode($item->fullName),
+								'folder' => urlencode($item->parentFolder)
+							)
+						);
+					}else{
+						$itemUrl = $this->buildArgsURL(
+							array(
+								'folder' => urlencode($item->fullName)
+							)
+						);
+					}
 					?>
 					<tr class="<?php echo $item->colorClass(); ?>">
 						<td data-order="<?php echo $i; ?>">
 							&nbsp;
-							<a href="<?php echo $this->url.$itemUrl; ?>" class="<?php echo $item->colorClass(); ?>">
+							<a href="<?php echo $itemUrl; ?>" class="<?php echo $item->colorClass(); ?>">
 								<?php $item->display(); ?>
 							</a>
 						</td>
@@ -437,7 +451,7 @@ class FileBrowser extends Module{
 			$currentFolderPath = $folder;
 			$folder = dirname($folder);
 			$currentFolderName = str_replace($folder.DIRECTORY_SEPARATOR, '', $currentFolderPath);
-			$breadcrumb = '<li><a href="'.$this->url.'&folder='.urlencode($currentFolderPath).'">'.$currentFolderName.'</a></li>'.$breadcrumb;
+			$breadcrumb = '<li><a href="'.$this->buildArgsURL(array('folder' => urlencode($currentFolderPath))).'">'.$currentFolderName.'</a></li>'.$breadcrumb;
 		} while (strpos($folder, $rootFolder) !== false and $folder != '/');
 		$breadcrumb = '<ol class="breadcrumb">'.$breadcrumb;
 		return $breadcrumb;

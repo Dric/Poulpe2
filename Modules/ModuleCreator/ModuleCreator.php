@@ -33,7 +33,7 @@ class ModuleCreator extends Module{
 	 */
 	public static function getMainMenuItems(){
 		$module = explode('\\', get_class());
-		Front::$mainMenu->add(new Item('ModuleCreator', 'Aide à la création de modules', MODULE_URL.end($module), 'Pour faciliter le développement de modules'));
+		Front::$mainMenu->add(new Item('ModuleCreator', 'Aide à la création de modules', Front::getModuleUrl().end($module), 'Pour faciliter le développement de modules'));
 	}
 
 	/**
@@ -70,20 +70,20 @@ class ModuleCreator extends Module{
 					<h1><?php echo $this->name; ?>  <?php $this->manageModuleButtons(); ?></h1>
 				</div>
 				<p><?php echo $this->title; ?>.</p>
-				<img class="pull-right" alt="MonsieurPoulpe !" src="./img/poulpe2-logo-145x200.png">
+				<img class="pull-right" alt="MonsieurPoulpe !" src="<?php echo Front::getBaseUrl(); ?>/img/poulpe2-logo-145x200.png">
 				<p>Ce module vous donnera accès aux ressources disponibles pour vous aider dans la création de modules pour Poulpe2.</p>
 				<h3>Documentations</h3>
 				<ul>
 					<li>
-						<a href="./Docs/Poulpe2" target="_blank">Documentation du framework</a>
+						<a href="<?php echo Front::getBaseUrl(); ?>/Docs/Poulpe2" target="_blank">Documentation du framework</a>
 					</li>
-					<li><a href="./Docs/Code" target="_blank">Documentation du code de Poulpe2</a></li>
+					<li><a href="<?php echo Front::getBaseUrl(); ?>/Docs/Code" target="_blank">Documentation du code de Poulpe2</a></li>
 					<li>
-						<a href="./Docs/Bootstrap" target="_blank">Documentation de Bootstrap</a>
+						<a href="<?php echo Front::getBaseUrl(); ?>/Docs/Bootstrap" target="_blank">Documentation de Bootstrap</a>
 						<ul>
-							<li><a href="./Docs/Bootstrap/css.html#forms" target="_blank">Formulaires Bootstrap</a></li>
+							<li><a href="<?php echo Front::getBaseUrl(); ?>/Docs/Bootstrap/css.html#forms" target="_blank">Formulaires Bootstrap</a></li>
 							<li><a href="http://fortawesome.github.io/Font-Awesome/icons/" target="_blank">Icônes de Font Awesome</a></li>
-							<li><a href="./Docs/Bootstrap/css.html#helper-classes" target="_blank">Helpers Bootstrap</a></li>
+							<li><a href="<?php echo Front::getBaseUrl(); ?>/Docs/Bootstrap/css.html#helper-classes" target="_blank">Helpers Bootstrap</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -101,7 +101,7 @@ class ModuleCreator extends Module{
 				</ul>
 				<h3>Mode DEBUG</h3>
 				<p>Pour faciliter le debug des modules, vous pouvez passer la constante <code>DEBUG</code> à <code>true</code> pour activer globalement le mode DEBUG, ou bien ponctuellement avec une variable nommé <code>debug</code> en <code>POST</code>, <code>GET</code> ou via un cookie.</p>
-				<p>Ex : <code><?php echo $this->url; ?>&debug</code></p>
+				<p>Ex : <code><?php echo $this->buildArgsURL(array('debug' => true)); ?></code></p>
 				<?php
 				//var_dump(crack_check('poney'));
 				?>
@@ -158,7 +158,7 @@ class ModuleCreator extends Module{
 			td.v{word-break:break-all}
 		</style>
 		<div class="row">
-			<div class="col-md-10 col-md-offset-2">
+			<div class="col-md-10 col-md-offset-1">
 				<div class="page-header">
 					<h1>PHPInfo du serveur  <?php $this->manageModuleButtons(); ?></h1>
 				</div>

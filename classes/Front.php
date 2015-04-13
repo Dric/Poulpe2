@@ -92,6 +92,28 @@ class Front {
 	protected static $absolutePath = '';
 
 	/**
+	 * URL de base
+	 *
+	 * Généré automatiquement
+	 * @var string
+	 */
+	protected static $baseUrl = '';
+
+	/**
+	 * URL de base pour accéder au module
+	 *
+	 * @var string
+	 */
+	protected static $moduleUrl = MODULE_URL;
+
+	/**
+	 * Charge les éventuels traitements globaux des modules
+	 */
+	public static function initModulesLoading(){
+		ModulesManagement::initModulesLoading();
+	}
+
+	/**
 	 * Initialise le menu général
 	 */
 	public static function initMainMenu(){
@@ -99,15 +121,15 @@ class Front {
 		self::$mainMenu = new Menu('main', 'Menu');
 		// Menu vers l'administration
 		if (ACL::canAccess('admin', 0)){
-			self::$mainMenu->add(new Item('admin', 'Administration', '?module=Admin', 'Administration', null, 'menu-warning'), 98);
+			self::$mainMenu->add(new Item('admin', 'Administration', Front::getModuleUrl().'Admin', 'Administration', null, 'menu-warning'), 98);
 		}
 		if (DISPLAY_HOME or (!DISPLAY_HOME and $module->getName() != 'home')){
-			self::$mainMenu->add(new Item('home', 'Accueil', '.', 'Revenir à l\'accueil', null, 'menu-highlight'), 2);
+			self::$mainMenu->add(new Item('home', 'Accueil', self::$baseUrl, 'Revenir à l\'accueil', null, 'menu-highlight'), 2);
 		}
 		if ($cUser->isLoggedIn()){
-			self::$mainMenu->add(new Item('logoff', 'Déconnexion', '?action=logoff', 'Déconnexion de '.$cUser->getName()), 99);
+			self::$mainMenu->add(new Item('logoff', 'Déconnexion', self::$baseUrl.'/action/logoff', 'Déconnexion de '.$cUser->getName()), 99);
 		}else{
-			self::$mainMenu->add(new Item('login', 'Connexion', '?action=loginForm', 'Authentification'), 99);
+			self::$mainMenu->add(new Item('login', 'Connexion', self::$baseUrl.'/action/loginForm', 'Authentification'), 99);
 		}
 		ModulesManagement::getModulesMenuItems();
 	}
@@ -122,7 +144,7 @@ class Front {
 		//Affichage de l'avatar
 		?>
 		<h4 class="text-center">
-			<a href="?module=profil">
+			<a href="<?php echo Front::getModuleUrl(); ?>profil">
 			<?php echo $cUser->getAvatar(false, $title); ?>
 			</a>
 		</h4>
@@ -144,13 +166,13 @@ class Front {
 			<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 			<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 			<!--[if lt IE 9]>
-			<script src="js/html5shiv.js"></script>
-			<script src="js/respond.min.js"></script>
+			<script src="<?php echo self::$baseUrl; ?>/js/html5shiv.js"></script>
+			<script src="<?php echo self::$baseUrl; ?>/js/respond.min.js"></script>
 			<![endif]-->
 			<title><?php echo self::$defaultTitle.' - '.$title; ?></title>
 
 			<!-- The CSS -->
-			<link href="css/poulpe2.css" rel="stylesheet">
+			<link href="<?php echo self::$baseUrl; ?>/css/poulpe2.css" rel="stylesheet">
 			<?php self::cssHeader(); ?>
 			<?php
 			// On ajoute le contenu de $header
@@ -158,23 +180,23 @@ class Front {
 				echo $headerLine.PHP_EOL;
 			}
 			?>
-			<link rel="shortcut icon" href="img/favicons/favicon.ico">
-			<link rel="apple-touch-icon" sizes="57x57" href="img/favicons/apple-touch-icon-57x57.png">
-			<link rel="apple-touch-icon" sizes="114x114" href="img/favicons/apple-touch-icon-114x114.png">
-			<link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-touch-icon-72x72.png">
-			<link rel="apple-touch-icon" sizes="144x144" href="img/favicons/apple-touch-icon-144x144.png">
-			<link rel="apple-touch-icon" sizes="60x60" href="img/favicons/apple-touch-icon-60x60.png">
-			<link rel="apple-touch-icon" sizes="120x120" href="img/favicons/apple-touch-icon-120x120.png">
-			<link rel="apple-touch-icon" sizes="76x76" href="img/favicons/apple-touch-icon-76x76.png">
-			<link rel="apple-touch-icon" sizes="152x152" href="img/favicons/apple-touch-icon-152x152.png">
-			<link rel="icon" type="image/png" href="img/favicons/favicon-196x196.png" sizes="196x196">
-			<link rel="icon" type="image/png" href="img/favicons/favicon-160x160.png" sizes="160x160">
-			<link rel="icon" type="image/png" href="img/favicons/favicon-96x96.png" sizes="96x96">
-			<link rel="icon" type="image/png" href="img/favicons/favicon-16x16.png" sizes="16x16">
-			<link rel="icon" type="image/png" href="img/favicons/favicon-32x32.png" sizes="32x32">
+			<link rel="shortcut icon" href="<?php echo self::$baseUrl; ?>/img/favicons/favicon.ico">
+			<link rel="apple-touch-icon" sizes="57x57" href="<?php echo self::$baseUrl; ?>/img/favicons/apple-touch-icon-57x57.png">
+			<link rel="apple-touch-icon" sizes="114x114" href="<?php echo self::$baseUrl; ?>/img/favicons/apple-touch-icon-114x114.png">
+			<link rel="apple-touch-icon" sizes="72x72" href="<?php echo self::$baseUrl; ?>/img/favicons/apple-touch-icon-72x72.png">
+			<link rel="apple-touch-icon" sizes="144x144" href="<?php echo self::$baseUrl; ?>/img/favicons/apple-touch-icon-144x144.png">
+			<link rel="apple-touch-icon" sizes="60x60" href="<?php echo self::$baseUrl; ?>/img/favicons/apple-touch-icon-60x60.png">
+			<link rel="apple-touch-icon" sizes="120x120" href="<?php echo self::$baseUrl; ?>/img/favicons/apple-touch-icon-120x120.png">
+			<link rel="apple-touch-icon" sizes="76x76" href="<?php echo self::$baseUrl; ?>/img/favicons/apple-touch-icon-76x76.png">
+			<link rel="apple-touch-icon" sizes="152x152" href="<?php echo self::$baseUrl; ?>/img/favicons/apple-touch-icon-152x152.png">
+			<link rel="icon" type="image/png" href="<?php echo self::$baseUrl; ?>/img/favicons/favicon-196x196.png" sizes="196x196">
+			<link rel="icon" type="image/png" href="<?php echo self::$baseUrl; ?>/img/favicons/favicon-160x160.png" sizes="160x160">
+			<link rel="icon" type="image/png" href="<?php echo self::$baseUrl; ?>/img/favicons/favicon-96x96.png" sizes="96x96">
+			<link rel="icon" type="image/png" href="<?php echo self::$baseUrl; ?>/img/favicons/favicon-16x16.png" sizes="16x16">
+			<link rel="icon" type="image/png" href="<?php echo self::$baseUrl; ?>/img/favicons/favicon-32x32.png" sizes="32x32">
 			<meta name="msapplication-TileColor" content="#2d89ef">
-			<meta name="msapplication-TileImage" content="img/favicons/mstile-144x144.png">
-			<meta name="msapplication-config" content="img/favicons/browserconfig.xml">
+			<meta name="msapplication-TileImage" content="<?php echo self::$baseUrl; ?>/img/favicons/mstile-144x144.png">
+			<meta name="msapplication-config" content="<?php echo self::$baseUrl; ?>/img/favicons/browserconfig.xml">
 		</head>
 		<?php
 	}
@@ -212,13 +234,13 @@ class Front {
 	public static function jsFooter(){
 		?>
 		<!-- JavaScript -->
-		<script src="js/jquery-1.11.0.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/pnotify/jquery.pnotify.min.js"></script>
-		<script src="js/bootstrap-switch/bootstrap-switch.min.js"></script>
-		<script src="js/Bootstrap-Confirmation/bootstrap-confirmation.min.js"></script>
-		<script src="js/bootstrap-validator/validator.min.js"></script>
-		<script src="js/poulpe2.js"></script>
+		<script src="<?php echo self::$baseUrl; ?>/js/jquery-1.11.0.min.js"></script>
+		<script src="<?php echo self::$baseUrl; ?>/js/bootstrap.min.js"></script>
+		<script src="<?php echo self::$baseUrl; ?>/js/pnotify/jquery.pnotify.min.js"></script>
+		<script src="<?php echo self::$baseUrl; ?>/js/bootstrap-switch/bootstrap-switch.min.js"></script>
+		<script src="<?php echo self::$baseUrl; ?>/js/Bootstrap-Confirmation/bootstrap-confirmation.min.js"></script>
+		<script src="<?php echo self::$baseUrl; ?>/js/bootstrap-validator/validator.min.js"></script>
+		<script src="<?php echo self::$baseUrl; ?>/js/poulpe2.js"></script>
 
 		<!-- Custom JavaScript for the Menu Toggle -->
 		<script>
@@ -302,6 +324,7 @@ class Front {
 	 * @param array $breadCrumb
 	 */
 	public static function displayBreadCrumb($breadCrumb) {
+		if (self::$breadCrumb['link'] == '.') self::$breadCrumb['link'] = Front::getBaseUrl();
 		if (!empty($breadCrumb)) self::$breadCrumb['children'] = $breadCrumb;
 		?>
 		<ol class="breadcrumb">
@@ -342,6 +365,51 @@ class Front {
 	 */
 	public static function setAbsolutePath($absolutePath) {
 		self::$absolutePath = $absolutePath;
+		if (isset($_SESSION)) $_SESSION['absolutePath'] = $absolutePath;
+	}
+
+	/**
+	 * Retourne l'URL de base du script
+	 *
+	 * Cette méthode permet de ne pas avoir de problèmes en cas d'utilisation des Pretty URL (de type `http://poulpe2/module/Admin`)
+	 *
+	 * Méthodes associées :
+	 *  * Dans un module, `this->buildArgsUrl()` permet d'appeler un module en passant des arguments sans se soucier de si les pretty url sont utilisées
+	 *  * `Front::getModuleUrl()` retourne toute l'URL pour appeler un module (lorsqu'on l'appelle hors du module)
+	 *
+	 * @return string
+	 */
+	public static function getBaseUrl() {
+		return self::$baseUrl;
+	}
+
+	/**
+	 * Définit le chemin absolu du script
+	 *
+	 * @param string $baseUrl
+	 */
+	public static function setBaseUrl($baseUrl) {
+		if (!isset($_SESSION) or !isset($_SESSION['baseUrl'])) {
+			self::$baseUrl = sprintf(
+				"%s://%s/%s",
+				isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
+				$_SERVER['SERVER_NAME'],
+				$baseUrl
+			);
+			$_SESSION['baseUrl'] = self::$baseUrl;
+		}elseif (isset($_SESSION)){
+			self::$baseUrl = $_SESSION['baseUrl'];
+		}
+		self::$moduleUrl = self::$baseUrl.'/'.MODULE_URL;
+	}
+
+
+	/**
+	 * Retourne l'url de base pour accéder aux modules
+	 * @return string
+	 */
+	public static function getModuleUrl() {
+		return self::$moduleUrl;
 	}
 
 	/**
@@ -391,7 +459,7 @@ class Front {
 		$fs = new \FileSystem\Fs(Front::getAbsolutePath());
 		$lastCommitFile = 'cache/lastCommit.cache';
 		$heads = '.git/refs/heads';
-		if (!$fs->fileExists($lastCommitFile) or $force or $fs->getFileMeta($heads, 'dateModified')->dateModified > $fs->getFileMeta($lastCommitFile, 'dateModified')->dateModified){
+		if ($fs->fileExists($lastCommitFile) === false or $force or $fs->getFileMeta($heads, 'dateModified')->dateModified > $fs->getFileMeta($lastCommitFile, 'dateModified')->dateModified){
 			exec('git log -1 --format="%H %h %ct"', $out);
 			$fs->writeFile($lastCommitFile, $out[0]);
 		}

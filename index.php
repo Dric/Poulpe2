@@ -42,8 +42,10 @@ spl_autoload_register(function ($class) {
 	}
 	$tab = explode('\\', $class);
 	// Les modules sont dans un répertoire à part
-	if ($tab[0] == 'Modules' and !in_array($tab[1], array('Module', 'ModulesManagement'))){
+	if ($tab[0] == 'Modules' and !in_array($tab[1], array('Module', 'ModulesManagement'))) {
 		@include_once str_replace("\\", "/", $class) . '.php';
+	}elseif($tab[0] == 'phpseclib'){
+		@include_once 'classes/FileSystem/' . str_replace("\\", "/", $class) . '.php';
 	}else{
 		@include_once 'classes/' . str_replace("\\", "/", $class) . '.php';
 	}
@@ -58,9 +60,16 @@ use Users\ACL;
 use Users\CurrentUser;
 use Users\Login;
 
-Front::setAbsolutePath(realpath(dirname(__FILE__)));
-
 session_start();
+//unset($_SESSION['baseUrl']);
+if (!isset($_SESSION['absolutePath']) or !isset($_SESSION['baseUrl'])){
+	Front::setAbsolutePath(realpath(dirname(__FILE__)));
+	Front::setBaseUrl(trim(str_replace('index.php', '', $_SERVER['SCRIPT_NAME']), '/'));
+}else{
+	Front::setAbsolutePath($_SESSION['absolutePath']);
+	Front::setBaseUrl($_SESSION['baseUrl']);
+}
+//var_dump($_SERVER);
 
 /**
  * Connexion à la base de données
@@ -91,6 +100,10 @@ if (isset($_REQUEST['action'])){
  * @var $cUser CurrentUser
  */
 $cUser = new CurrentUser();
+
+/** On gère les api */
+Front::initModulesLoading();
+\API\APIManagement::checkAPIRequest();
 
 /**
  * Si l'utilisateur courant n'est pas authentifié et que l'authentification est obligatoire, on redirige l'utilisateur vers la page de connexion
@@ -168,7 +181,7 @@ if ((!$cUser->isLoggedIn() or $redirectToLogin) and AUTH_MANDATORY){
 					<div class="col-md-12">
 						<h1>
 							<a id="menu-toggle" href="#" class="btn btn-default btn-sm">Menu</a>
-							<a href="."><?php echo SITE_NAME; ?></a>
+							<a href="<?php echo Front::getBaseUrl(); ?>"><?php echo SITE_NAME; ?></a>
 						</h1>
 					</div>
 				</div>
@@ -185,7 +198,7 @@ if ((!$cUser->isLoggedIn() or $redirectToLogin) and AUTH_MANDATORY){
 			<!-- Pied de page -->
 			<footer>
 				<?php Front::footer(); ?> <?php if (DEBUG) echo ' | Mode debug activé | '; ?>
-				<img class="tooltip-top" alt="Je suis Monsieur Poulpe !" src="img/poulpe2-logo-23x32.png" style="vertical-align: text-bottom;"/> <span class="logo-highlight">P</span>oulpe<span class="logo-highlight">2</span> 2012-2014
+				<img class="tooltip-top" alt="Je suis Monsieur Poulpe !" src="<?php echo Front::getBaseUrl(); ?>/img/poulpe2-logo-23x32.png" style="vertical-align: text-bottom;"/> <span class="logo-highlight">P</span>oulpe<span class="logo-highlight">2</span> 2012-2015
 			</footer>
 			<?php
 			if (DEBUG){
@@ -203,4 +216,5 @@ if ((!$cUser->isLoggedIn() or $redirectToLogin) and AUTH_MANDATORY){
 		<?php Front::jsFooter(); ?>
 		<!-- Fin du pied de page -->
 	</body>
+	</html>
 <?php } ?>

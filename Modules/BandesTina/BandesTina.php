@@ -72,7 +72,7 @@ class BandesTina extends Module{
 	 */
 	public static function getMainMenuItems(){
 		$module = explode('\\', get_class());
-		Front::$mainMenu->add(new Item('bandesTina', 'Bandes de sauvegarde', MODULE_URL.end($module), 'Gestion de l\'externalisation des bandes du robot de sauvegarde', null, null));
+		Front::$mainMenu->add(new Item('bandesTina', 'Bandes de sauvegarde', Front::getModuleUrl().end($module), 'Gestion de l\'externalisation des bandes du robot de sauvegarde', null, null));
 	}
 
 	/**

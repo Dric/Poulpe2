@@ -32,7 +32,7 @@ class UserInfo extends Module{
 	 */
 	public static function getMainMenuItems(){
 		$module = explode('\\', get_class());
-		Front::$mainMenu->add(new Item('userInfo', 'Infos utilisateur', MODULE_URL.end($module), 'Affiche les informations d\'un utilisateur Active Directory', null, null));
+		Front::$mainMenu->add(new Item('userInfo', 'Infos utilisateur', Front::getModuleUrl().end($module), 'Affiche les informations d\'un utilisateur Active Directory', null, null));
 	}
 
 	/**
@@ -51,8 +51,8 @@ class UserInfo extends Module{
 	 * Affichage principal
 	 */
 	protected function mainDisplay(){
-		Front::setJsFooter('<script src="js/bootstrap3-typeahead.min.js"></script>');
-		Front::setJsFooter('<script src="Modules/UserInfo/UserInfo.js"></script>');
+		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/js/bootstrap3-typeahead.min.js"></script>');
+		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/Modules/UserInfo/UserInfo.js"></script>');
 		?>
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">

@@ -35,7 +35,7 @@ class PostesAstreintes extends Module{
 	 */
 	public static function getMainMenuItems(){
 		$module = explode('\\', get_class());
-		Front::$mainMenu->add(new Item('postesAstreintes', 'Postes astreintes', MODULE_URL.end($module), 'Gestion des mappages d\'adresses IP des postes d\'astreinte', null, null));
+		Front::$mainMenu->add(new Item('postesAstreintes', 'Postes astreintes', Front::getModuleUrl().end($module), 'Gestion des mappages d\'adresses IP des postes d\'astreinte', null, null));
 	}
 
 	/**

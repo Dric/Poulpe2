@@ -37,7 +37,7 @@ class Shutdown extends Module{
 	 */
 	public static function getMainMenuItems(){
 		$module = explode('\\', get_class());
-		Front::$mainMenu->add(new Item('shutdown', 'Arrêt/redémarrage', MODULE_URL.end($module), 'Arrêter ou redémarrer le serveur'));
+		Front::$mainMenu->add(new Item('shutdown', 'Arrêt/redémarrage', Front::getModuleUrl().end($module), 'Arrêter ou redémarrer le serveur'));
 	}
 
 	/**
@@ -97,11 +97,11 @@ class Shutdown extends Module{
 	 */
 	protected function checkFiles(){
 		$fs = new Fs('/usr/local/bin/');
-		if (!$fs->fileExists('shutdown_suid')){
+		if ($fs->fileExists('shutdown_suid') === false){
 			new Alert('error', 'Le fichier permettant l\'arrêt du serveur n\'est pas dans <code>/usr/local/bin</code> !');
 			return false;
 		}
-		if (!$fs->fileExists('reboot_suid')){
+		if ($fs->fileExists('reboot_suid') === false){
 			new Alert('error', 'Le fichier permettant le redémarrage du serveur n\'est pas dans <code>/usr/local/bin</code> !');
 			return false;
 		}

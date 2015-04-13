@@ -93,7 +93,7 @@ class DenyAppAccess extends Module{
 	 */
 	public static function getMainMenuItems(){
 		$module = explode('\\', get_class());
-		Front::$mainMenu->add(new Item('acces', 'Accès aux applications', '?module='.end($module), 'Empêcher les utilisateurs d\'accéder à certaines applications', null, null));
+		Front::$mainMenu->add(new Item('acces', 'Accès aux applications', Front::getModuleUrl().end($module), 'Empêcher les utilisateurs d\'accéder à certaines applications', null, null));
 	}
 
 	public function display(){
@@ -380,7 +380,7 @@ class DenyAppAccess extends Module{
 			}
 			?></table><?php
 		}else{
-			?><div class="alert alert-warning">Vous n'avez renseigné aucune application ! Ajoutez-en dans les <a href="<?php echo $this->url; ?>&page=settings">paramètres du module</a>.</div><?php
+			?><div class="alert alert-warning">Vous n'avez renseigné aucune application ! Ajoutez-en dans les <a href="<?php echo $this->buildArgsURL(array('page' => 'settings')); ?>">paramètres du module</a>.</div><?php
 		}
 	}
 

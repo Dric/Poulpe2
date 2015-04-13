@@ -106,7 +106,7 @@ class Module {
 		// Fil d'Ariane. Si la page demandée est l'accueil, on ne la raffiche pas étant donné qu'elle est systématiquement indiquée
 		if ($this->name != 'home'){
 			$module = explode('\\', get_class($this));
-			$this->url = MODULE_URL.end($module);
+			$this->url = Front::getModuleUrl().end($module);
 			$this->breadCrumb = array(
 				'title' => $this->name,
 				'link'  => $this->url
@@ -156,6 +156,47 @@ class Module {
 	}
 
 	/**
+	 * Permet de lancer des traitements globaux sans charger tout le module
+	 */
+	public static function initModuleLoading(){
+
+	}
+
+	/**
+	 * Permet de construire une URL pour appeler le module avec des arguments
+	 *
+	 * Exemple pour un module `Users` :
+	 *  <code>$this->buildModuleQuery(array(id => 2));</code>
+	 *  Donne l'URL :
+	 *  <code>http://poulpe2/module/Users?id=2</code>
+	 *
+	 * @param Array $args Arguments à passer dans l'URL de la forme array(`argument` => `valeur`)
+	 *
+	 * @return string
+	 */
+	protected function buildArgsURL(Array $args){
+		$url = $this->url;
+		if (stripos($url, '?') !== false) {
+			// Pas de pretty Url du type `poulpe2/module/<moduleName>`
+			foreach ($args as $key => $value){
+				$url .= '&'.$key.'='.$value;
+			}
+		}else{
+			// Pretty Url
+			$isFirst = true;
+			foreach ($args as $key => $value){
+				if ($isFirst){
+					$url .= '?'.$key.'='.$value;
+					$isFirst = false;
+				}else{
+					$url .= '&'.$key.'='.$value;
+				}
+			}
+		}
+		return $url;
+	}
+
+	/**
 	 * Traite les requêtes de formulaire
 	 *
 	 * Les formulaires doivent envoyer une propriété 'action', qui sera traitée ici.
@@ -175,10 +216,14 @@ class Module {
 	 *
 	 * Affiche aussi le fil d'Ariane en dessous du titre
 	 * Pour que ça fonctionne correctement, les fonctions appelées doivent être nommées 'module'.$Page (avec la première lettre en majuscules)
+	 *
+	 * Vous pouvez aussi définir des sous-pages avec un paramètre `subPage`. Dans ce cas, c'est la méthode `module.$subPage` qui est appelée, le paramètre `page` ne servant que pour le fil d'ariane.
+	 *
 	 * @return bool
 	 */
 	protected function getPage(){
 		$component = (isset($this->type)) ? $this->type : 'module';
+		$subPage = false;
 		if (isset($_REQUEST['page'])){
 			switch ($_REQUEST['page']){
 				default:
@@ -187,13 +232,47 @@ class Module {
 							'title' => $_REQUEST['page'],
 							'link'  => $this->url.'&page='.$_REQUEST['page']
 						);
+						// Recherche d'une sous-page. Si la méthode liée existe, c'est elle qui sera ensuite appelée
+						if (isset($_REQUEST['subPage']) and method_exists($this, $component.ucfirst($_REQUEST['subPage']))){
+							$subPage = true;
+							// Le fil d'ariane est construit sur une imbrication de tableaux référencés par la clé `children`.
+							$this->breadCrumb['children']['children'] = array(
+								'title' => $_REQUEST['subPage'],
+								'link'  => $this->url.'&page='.$_REQUEST['page'].'&subPage='.$_REQUEST['subPage']
+							);
+						}
+						// Si les paramètres `item`, `id` ou `name` existent, on l'ajoute au fil d'ariane.
+						if (isset($_REQUEST['item']) or isset($_REQUEST['id']) or isset($_REQUEST['name'])){
+							if (isset($_REQUEST['item'])) {
+								$item = $_REQUEST['item'];
+							}elseif (isset($_REQUEST['id'])){
+								$item = $_REQUEST['id'];
+							}else{
+								$item = $_REQUEST['name'];
+							}
+							$itemBreadCrumb = array(
+								'title' => $item,
+								'link'  => null
+							);
+							if ($subPage) {
+								$this->breadCrumb['children']['children']['children'] = $itemBreadCrumb;
+							}else{
+								$this->breadCrumb['children']['children'] = $itemBreadCrumb;
+							}
+						}
+						// Pas de sous-page ou méthode liée inexistante, on appelle la méthode liée à `page`
 						Front::displayBreadCrumb($this->breadCrumb);
-						$this->{$component.ucfirst($_REQUEST['page'])}();
+						if ($subPage) {
+							$this->{$component.ucfirst($_REQUEST['subPage'])}();
+						}else{
+							$this->{$component.ucfirst($_REQUEST['page'])}();
+						}
 						return true;
 					}
 					new Alert('error', 'La page demandée n\'existe pas !');
 			}
 		}
+		// Pas de page demandée, on renvoie `false` pour déclencher l'affichage principal du module
 		return false;
 	}
 
@@ -291,10 +370,10 @@ class Module {
 	 */
 	protected function manageModuleButtons(){
 		if (!empty($this->settings) and (ACL::canAdmin('module', $this->id) or $this->allowUsersSettings)) {
-			?>&nbsp;<a class="settingsButton btn btn-default btn-xs" title="Paramètres du module" href="<?php echo $this->url; ?>&page=settings"><span class="fa fa-cog"></span> Paramètres</a><?php
+			?>&nbsp;<a class="settingsButton btn btn-default btn-xs" title="Paramètres du module" href="<?php echo $this->buildArgsURL(array('page' => 'settings')); ?>"><span class="fa fa-cog"></span> Paramètres</a><?php
 		}
 		if (ACL::canAdmin('module', $this->id)){
-			?>&nbsp;<a class="ACLButton btn btn-default btn-xs" title="Autorisations du module" href="<?php echo $this->url; ?>&page=ACL"><span class="fa fa-user"></span> Autorisations</a><?php
+			?>&nbsp;<a class="ACLButton btn btn-default btn-xs" title="Autorisations du module" href="<?php echo $this->buildArgsURL(array('page' => 'ACL')); ?>"><span class="fa fa-user"></span> Autorisations</a><?php
 		}
 	}
 
@@ -558,5 +637,12 @@ class Module {
 	 */
 	public function getDbTables() {
 		return $this->dbTables;
+	}
+
+	/**
+	 * Traite une requête envoyée par API
+	 */
+	public function runAPI(){
+
 	}
 } 

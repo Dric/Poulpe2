@@ -32,7 +32,7 @@ class Salsifis extends Module{
 	public static function getMainMenuItems(){
 		/*
 		 * $module = explode('\\', get_class());
-		 * Front::$mainMenu->add(new Item('shutdown', 'Arrêt/redémarrage', MODULE_URL.end($module), 'Arrêter ou redémarrer le serveur'));
+		 * Front::$mainMenu->add(new Item('shutdown', 'Arrêt/redémarrage', Front::getModuleUrl().end($module), 'Arrêter ou redémarrer le serveur'));
 		 *
 		 */
 	}

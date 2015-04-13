@@ -84,7 +84,7 @@ class Transmission extends Module{
 	 */
 	public static function getMainMenuItems(){
 		$module = explode('\\', get_class());
-		Front::$mainMenu->add(new Item('downloads', 'Téléchargements', MODULE_URL.end($module), 'Gestion des téléchargements via torrents'));
+		Front::$mainMenu->add(new Item('downloads', 'Téléchargements', Front::getModuleUrl().end($module), 'Gestion des téléchargements via torrents'));
 	}
 
 	/**

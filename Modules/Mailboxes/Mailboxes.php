@@ -82,7 +82,7 @@ class Mailboxes extends Module {
 	 */
 	public static function getMainMenuItems(){
 		$module = explode('\\', get_class());
-		Front::$mainMenu->add(new Item('mailboxes', 'Boîtes Exchange', MODULE_URL.end($module), 'Permet de migrer des boîtes Exchange d\'une base à une autre', null, null));
+		Front::$mainMenu->add(new Item('mailboxes', 'Boîtes Exchange', Front::getModuleUrl().end($module), 'Permet de migrer des boîtes Exchange d\'une base à une autre', null, null));
 	}
 
 	/**
@@ -319,8 +319,8 @@ class Mailboxes extends Module {
 	 * Affiche le formulaire de programmation de déplacement de boîte
 	 */
 	protected function scheduleMove(){
-		Front::setJsFooter('<script src="js/bootstrap3-typeahead.min.js"></script>');
-		Front::setJsFooter('<script src="Modules/Mailboxes/Mailboxes.js"></script>');
+		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/js/bootstrap3-typeahead.min.js"></script>');
+		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/Modules/Mailboxes/Mailboxes.js"></script>');
 		$form = new Form('addMove', null, null, 'module', $this->id, 'post');
 		$form->addField(new String('user', '', 'Nom de l\'utilisateur', 'prénom.nom', 'La recherche peut se faire sur un login utilisateur complet (prénom.nom) ou sur une partie de celui-ci. Seuls les comptes possédant une boîte exchange sont affichés', null, true, 'modify', null, false, false));
 		$form->addField(new Select('mdb', '', 'Base de destination', null, true, 'modify', null, false, array_combine($this->databases, $this->databases)));

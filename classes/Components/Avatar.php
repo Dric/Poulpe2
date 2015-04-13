@@ -8,6 +8,7 @@
 
 namespace Components;
 use Check;
+use Front;
 
 /**
  * Class de gestion de l'avatar
@@ -27,9 +28,9 @@ class Avatar {
 	public static function display($avatar = null,  $avatarTitle = 'Avatar') {
 		$pathInfo = pathinfo($avatar);
 		if (empty($avatar) or $avatar == 'default'){
-			$src = AVATAR_PATH.AVATAR_DEFAULT;
+			$src = Front::getBaseUrl() . '/'. AVATAR_PATH . AVATAR_DEFAULT;
 		}elseif (isset($pathInfo['extension']) and in_array($pathInfo['extension'], array('jpg', 'jpeg', 'gif', 'png', 'bmp'))){
-			$src = AVATAR_PATH.$avatar;
+			$src = Front::getBaseUrl() . '/'. AVATAR_PATH . $avatar;
 		}elseif(Check::isEmail($avatar)){
 			$src = 'http://www.gravatar.com/avatar/' . md5( strtolower( trim( $avatar ) ) ) . '?s=80';
 		}else{

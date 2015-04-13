@@ -29,6 +29,8 @@ Ajouter à la dernière ligne :
 
 Attention : si vous lancez apache sous un autre nom (`administrateur` par exemple), modifiez la ligne du dessus en conséquence.
 
+Les pretty URL (du type `http://poulpe2/module/FileBrowser`) sont disponibles seulement sous Apache. Pour les activer, il faut modifier la constante `MODULE_URL` dans le fichier `config.php` en `module/`.
+
 ### Client
 
 - Javascript recommandé (c'est activé par défaut) mais pas obligatoire
@@ -40,7 +42,7 @@ Attention : si vous lancez apache sous un autre nom (`administrateur` par exempl
 ## Composants externes
 
 - [Twitter Bootstrap](http://getbootstrap.com) 3.2.0 : est un framework html, css et javascript. En clair il peut gérer toute la partie affichage dès lors qu'on lui file quelque chose à afficher.
-- [Font Awesome](http://fortawesome.github.io/Font-Awesome/) 4.2.0 : ensemble d'icônes contenues dans une police d'écriture, remplaçant `Glyphicon` de Bootstrap.
+- [Font Awesome](http://fortawesome.github.io/Font-Awesome/) 4.3.0 : ensemble d'icônes contenues dans une police d'écriture, remplaçant `Glyphicon` de Bootstrap.
 - [jQuery](http://jquery.com) 1.11.0 : framework Javascript utilisé par Bootstrap.
 - [Bootstrap Switch](http://www.bootstrap-switch.org) 3 : plugin jQuery qui change les cases à cocher en switch d'activation (similaire à ce qu'on voit sur les smartphones).
 - [PNotify Plugin](http://sciactive.com/pnotify/) 1.3.1 : plugin jQuery de notifications flottantes.

@@ -42,7 +42,7 @@ class Dupliqueur extends Module {
 	 */
 	public static function getMainMenuItems(){
 		$module = explode('\\', get_class());
-		Front::$mainMenu->add(new Item('dupliqueur', 'Dupliqueur de fichiers', MODULE_URL.end($module), 'Copie de fichier sur plein de serveurs à la fois', null, null));
+		Front::$mainMenu->add(new Item('dupliqueur', 'Dupliqueur de fichiers', Front::getModuleUrl().end($module), 'Copie de fichier sur plein de serveurs à la fois', null, null));
 	}
 
 	/**
@@ -77,7 +77,7 @@ class Dupliqueur extends Module {
 	 * Affichage principal
 	 */
 	protected function mainDisplay(){
-		Front::setJsFooter('<script src="Modules/Dupliqueur/Dupliqueur.js"></script>');
+		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/Modules/Dupliqueur/Dupliqueur.js"></script>');
 		?>
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">

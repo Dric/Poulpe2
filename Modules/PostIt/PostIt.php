@@ -65,11 +65,11 @@ class PostIt extends Module{
 	 */
 	public function __construct(){
 		parent::__construct();
-		Front::setCssHeader('<link href="js/pagedown-bootstrap/css/jquery.pagedown-bootstrap.css" rel="stylesheet">');
-		Front::setCssHeader('<link href="js/highlight/styles/default.css" rel="stylesheet">');
-		Front::setJsFooter('<script src="js/pagedown-bootstrap/js/jquery.pagedown-bootstrap.combined.min.js"></script>');
-		Front::setJsFooter('<script src="js/highlight/highlight.pack.js"></script>');
-		Front::setJsFooter('<script src="Modules/PostIt/PostIt.js"></script>');
+		Front::setCssHeader('<link href="'.Front::getBaseUrl().'/js/pagedown-bootstrap/css/jquery.pagedown-bootstrap.css" rel="stylesheet">');
+		Front::setCssHeader('<link href="'.Front::getBaseUrl().'/js/highlight/styles/default.css" rel="stylesheet">');
+		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/js/pagedown-bootstrap/js/jquery.pagedown-bootstrap.combined.min.js"></script>');
+		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/js/highlight/highlight.pack.js"></script>');
+		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/Modules/PostIt/PostIt.js"></script>');
 	}
 
 	/**
@@ -77,7 +77,7 @@ class PostIt extends Module{
 	 */
 	public static function getMainMenuItems(){
 		$module = explode('\\', get_class());
-		Front::$mainMenu->add(new Item('PostIt', 'Post-It', MODULE_URL.end($module), 'Permet de noter des petites choses, des astuces, des bouts de code, etc.', null, null));
+		Front::$mainMenu->add(new Item('PostIt', 'Post-It', Front::getModuleUrl().end($module), 'Permet de noter des petites choses, des astuces, des bouts de code, etc.', null, null));
 	}
 
 	/**
@@ -106,7 +106,7 @@ class PostIt extends Module{
 		$postIt->addField(new Int('id', null, null, null, null, new DbFieldSettings('number', true, 11, 'primary', false, true, 0, null, false, false)));
 		$postIt->addField(new Int('author', null, 'ID de l\'auteur du post', null, null, new DbFieldSettings('number', false, 6, 'index', false, false, 0, new ForeignKey('users', 'id', 'CASCADE', 'SET NULL'), false)));
 		$postIt->addField(new Text('content', null, 'Texte du post-it', null, null, new DbFieldSettings('text', true, null, false, false, false, 0, null, true)));
-		$postIt->addField(new Bool('shared', false, 'Post-it public ou privé', null, new DbFieldSettings('checkbox', false, 1, 'index', false, false, 0, null, true)));
+		$postIt->addField(new Bool('shared', false, 'Post-it public ou privé', null, new DbFieldSettings('checkbox', true, 1, 'index', false, false, 0, null, true)));
 		$postIt->addField(new Int('created', null, 'Timestamp de création', null, null, new DbFieldSettings('number', true, 11)));
 		$postIt->addField(new Int('modified', null, 'Timestamp de dernière modification', null, null, new DbFieldSettings('number', true, 11, false, false, false, 0, null, true)));
 
@@ -334,7 +334,7 @@ class PostIt extends Module{
 			// Pagination en haut de la liste
 			?><div class="pull-right clearfix"><?php Front::paginate($this->page, $postsPerPage, $nbPaginate, $this->url); ?></div><?php
 		}
-		?><h3><?php echo $title.((ceil($nbPaginate / $postsPerPage) > 1) ? ' (page '.$this->page.')' : ''); ?> <span class="badge alert-info"><?php echo ($min < $max) ? $min.'-'.$max : $max; ?><?php if (isset($filters['search'])) echo ' sur '.$nbPaginate.' filtré'.((count($postsDb) != 1) ? 's':''); ?> sur <?php echo $this->nbPosts; ?></span><?php if (isset($filters['search'])) echo ' - <span class="small"><a href="'.MODULE_URL.'PostIt">Voir tous les Post-It</a></small>'; ?></h3><?php
+		?><h3><?php echo $title.((ceil($nbPaginate / $postsPerPage) > 1) ? ' (page '.$this->page.')' : ''); ?> <span class="badge alert-info"><?php echo ($min < $max) ? $min.'-'.$max : $max; ?><?php if (isset($filters['search'])) echo ' sur '.$nbPaginate.' filtré'.((count($postsDb) != 1) ? 's':''); ?> sur <?php echo $this->nbPosts; ?></span><?php if (isset($filters['search'])) echo ' - <span class="small"><a href="'.Front::getModuleUrl().'PostIt">Voir tous les Post-It</a></small>'; ?></h3><?php
 		if (!empty($postsDb)){
 			// Affichage des post-it
 			foreach ($postsDb as $post){
