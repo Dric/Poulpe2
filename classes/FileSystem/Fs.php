@@ -331,6 +331,7 @@ class Fs {
 	 */
 	public function touchFile($fileName){
 		//$ret = touch($this->mountName . DIRECTORY_SEPARATOR .$fileName);
+		$fileName = $this->mountName . DIRECTORY_SEPARATOR .$fileName;
 		$ret = exec("touch {$fileName}");
 		if (!empty($ret)) new Alert('error', 'Impossible de trouver ou de créer le fichier <code>'.$fileName.'</code>.<br>Erreur : <code>'.$ret.'</code>');
 		return (empty($ret)) ? true : false;

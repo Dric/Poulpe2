@@ -231,7 +231,7 @@ class DenyAppAccess extends Module{
 		$formMaintenance->addField(new Button('action', 'saveAppStatus', 'Sauvegarder', 'modify', 'btn-primary'));
 		if ($app->isInfoEnabled()){
 			$formInfo = new Form('appInfo', null, null, 'module', $this->id);
-			$formInfo->addField(new Bool('info', $app->getInfo(), 'Message au lancement de l\'application', 'Activez ce paramètre pour que les utilisateurs voient un message à chaque lancement de '.$app->getTitle(), null, true, 'modify', null, false, new JSSwitch('large', 'left', 'Activée', 'Non', 'warning')));
+			$formInfo->addField(new Bool('info', $app->getInfo(), 'Message au lancement de l\'application', 'Activez ce paramètre pour que les utilisateurs voient un message à chaque lancement de '.$app->getTitle(), null, true, 'modify', null, false, new JSSwitch('large', 'left', 'Activé', 'Non', 'warning')));
 			$formInfo->addField(new Text('infoMessage', $app->getInfoMessage(), 'Message', null, 'Saisissez le message que verront les utilisateurs en lançant '.$app->getTitle(), null, false, 'modify'));
 			$formInfo->addField(new Hidden('formType', 'Info'));
 			$formInfo->addField(new Button('action', 'saveAppStatus', 'Sauvegarder', 'modify', 'btn-primary'));
