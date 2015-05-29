@@ -16,6 +16,7 @@ use Db\DbTable;
 use FileSystem\Fs;
 use Forms\Fields\Bool;
 use Forms\Fields\Button;
+use Forms\Fields\Hidden;
 use Forms\Fields\Int;
 use Forms\Fields\String;
 use Forms\Fields\Table;
@@ -81,9 +82,9 @@ class DenyAppAccess extends Module{
 		$applis = new DbTable('module_applis', 'Liste des applications');
 		$applis->addField(new Int('id', null, 'ID de l\'application', null, null, new DbFieldSettings('number', true, 11, 'primary', true, true, 0, null, false, false)));
 		$applis->addField(new String('title', null, 'Nom affiché dans le menu', null, null, new DbFieldSettings('text', true, 150, 'unique', true, false, 0, null, true)));
-		$applis->addField(new String('file', null, 'Script VBS', null, null, new DbFieldSettings('text', true, 255, false, false, false, 0, null, true)));
+		$applis->addField(new String('path', null, 'Emplacement du script', null, null, new DbFieldSettings('text', true, 255, true, false, false, 0, null, true)));
+		$applis->addField(new String('file', null, 'Script VBS ou Powershell', null, null, new DbFieldSettings('text', true, 255, false, false, false, 0, null, true)));
 		$this->dbTables['module_applis'] = $applis;
-		$this->settings['vbsPath'] = new String('vbsPath', '\\\\intra.epsi.fr\profils\xen\xenlogin\scripts', 'Chemin des scripts de lancement VBS', '\\\\intra.epsi.fr\profils\xen\xenlogin\scripts', null, null, true);
 		// Cette table sera gérée via les paramètres
 		$this->settings['module_applis'] = new Table($applis);
 	}
@@ -196,7 +197,11 @@ class DenyAppAccess extends Module{
 		if (!empty($appsDb)){
 			foreach ($appsDb as $app){
 				$appName = Sanitize::sanitizeFilename($app->title);
-				$this->apps[$appName] = new App($app->title, $app->file);
+				$this->apps[$appName] = new App($app->title, $app->file, $app->path);
+				switch (strtolower(pathinfo($app->file, PATHINFO_EXTENSION))) {
+					case 'vbs' : $this->apps[$appName]->setLanguage('vbs'); break;
+					case 'ps1' : $this->apps[$appName]->setLanguage('powershell'); break;
+				}
 				$this->getAppStatus($this->apps[$appName]);
 				if (ACL::canModify('module', $this->id)){
 					$menu->add(new Item($appName, $app->title, $this->url.'&app='.$appName, 'Accès à '.$app->title, 'file'));
@@ -219,29 +224,85 @@ class DenyAppAccess extends Module{
 			return false;
 		}
 		// Construction du formulaire
-		$form = new Form('appMaintenance', null, null, 'module', $this->id);
-		$form->addField(new Bool('maintenance', $app->getMaintenance(), 'Maintenance', 'Passez la maintenance sur \'Active\' pour empêcher les utilisateurs d\'accéder à '.$app->getTitle(), null, true, 'modify', null, false, new JSSwitch('large', 'left', 'Activée', 'Désactivée', 'warning')));
-		$form->addField(new Text('message', $app->getMessage(), 'Message', null, 'Saisissez le message que verront les utilisateurs en essayant de se connecter à '.$app->getTitle().' lorsque l\'accès est bloqué.', null, false, 'modify'));
-		$form->addField(new Button('action', 'saveAppStatus', 'Sauvegarder', 'modify', 'btn-primary'));
+		$formMaintenance = new Form('appMaintenance', null, null, 'module', $this->id);
+		$formMaintenance->addField(new Bool('maintenance', $app->getMaintenance(), 'Maintenance', 'Passez la maintenance sur \'Active\' pour empêcher les utilisateurs d\'accéder à '.$app->getTitle(), null, true, 'modify', null, false, new JSSwitch('large', 'left', 'Activée', 'Non', 'warning')));
+		$formMaintenance->addField(new Text('maintenanceMessage', $app->getMaintenanceMessage(), 'Message', null, 'Saisissez le message que verront les utilisateurs en essayant de se connecter à '.$app->getTitle().' lorsque l\'accès est bloqué.', null, false, 'modify'));
+		$formMaintenance->addField(new Hidden('formType', 'Maintenance'));
+		$formMaintenance->addField(new Button('action', 'saveAppStatus', 'Sauvegarder', 'modify', 'btn-primary'));
+		if ($app->isInfoEnabled()){
+			$formInfo = new Form('appInfo', null, null, 'module', $this->id);
+			$formInfo->addField(new Bool('info', $app->getInfo(), 'Message au lancement de l\'application', 'Activez ce paramètre pour que les utilisateurs voient un message à chaque lancement de '.$app->getTitle(), null, true, 'modify', null, false, new JSSwitch('large', 'left', 'Activée', 'Non', 'warning')));
+			$formInfo->addField(new Text('infoMessage', $app->getInfoMessage(), 'Message', null, 'Saisissez le message que verront les utilisateurs en lançant '.$app->getTitle(), null, false, 'modify'));
+			$formInfo->addField(new Hidden('formType', 'Info'));
+			$formInfo->addField(new Button('action', 'saveAppStatus', 'Sauvegarder', 'modify', 'btn-primary'));
+		}
+
 		?>
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
 				<div class="page-header">
 					<h1>Accès à <?php echo $app->getTitle(); ?>  <?php $this->manageModuleButtons(); ?></h1>
+					<div class="help-block"><?php echo $app->getPath().'\\'.$app->getFile(); ?></div>
 				</div>
-				<div class="maintenanceWarning">
-				<?php if ($app->getMaintenance()) { ?>
-					<div class="alert alert-warning">
-						La maintenance est activée !<br />
-						Les utilisateurs ne peuvent pas se connecter à <?php echo $app->getTitle(); ?>.
+
+				<?php
+				if ($app->isInfoEnabled()){
+					$activeTab = (isset($this->postedData['formType'])) ? $this->postedData['formType'] : 'Maintenance';
+					?>
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs">
+						<li <?php if ($activeTab == 'Maintenance') { echo 'class="active"'; } ?>><a href="#maintenance" data-toggle="tab">Maintenance</a></li>
+						<li <?php if ($activeTab == 'Info') { echo 'class="active"'; } ?>><a href="#info" data-toggle="tab">Message au lancement</a></li>
+					</ul>
+					<?php
+				}
+				?>
+				<?php
+				if ($app->isInfoEnabled()){
+				?>
+				<div class="tab-content">
+					<div class="tab-pane <?php if ($activeTab == 'Maintenance') { echo 'active'; } ?>" id="maintenance">
+						<noscript>
+							<h3>Maintenance</h3>
+						</noscript>
+						<br /><br />
+				<?php } ?>
+						<div class="maintenanceWarning">
+						<?php if ($app->getMaintenance()) { ?>
+							<div class="alert alert-warning">
+								La maintenance est activée !<br />
+								Les utilisateurs ne peuvent pas se connecter à <?php echo $app->getTitle(); ?>.
+							</div>
+						<?php
+							}
+						?>
+						</div>
+						<?php
+						$formMaintenance->display();
+						?>
+					<?php if ($app->isInfoEnabled()){	?>
 					</div>
-				<?php
-					}
-				?>
+					<div class="tab-pane <?php if ($activeTab == 'Info') { echo 'active'; } ?>" id="info">
+						<noscript>
+							<h3>Message au lancement</h3>
+						</noscript>
+						<br /><br />
+						<div class="InfoWarning">
+							<?php if ($app->getInfo()) { ?>
+								<div class="alert alert-warning">
+									Le message d'information au lancement de l'application est activé !<br />
+									Les utilisateurs verront ce message chaque fois qu'ils lanceront <?php echo $app->getTitle(); ?>.
+								</div>
+							<?php
+							}
+							?>
+						</div>
+						<?php
+						$formInfo->display();
+						?>
+					</div>
 				</div>
-				<?php
-				$form->display();
-				?>
+				<?php } ?>
 			</div>
 		</div>
 		<?php
@@ -256,24 +317,53 @@ class DenyAppAccess extends Module{
 	 * @return bool
 	 */
 	protected function getAppStatus(App $app){
-		$share = new Fs($this->settings['vbsPath']->getValue(), null, 'appaccess');
+		$share = new Fs($app->getPath(), null, 'appaccess');
 		$file = $share->readFile($app->getFile());
 		if (!$file) return false;
 		if (empty($file)){
 			new Alert('error', 'Le fichier <code>'.$app->getFile().'</code> est vide !');
 			return false;
 		}
-		foreach ($file as $line) {
-			if (strtolower(substr($line, 0, 11)) == 'maintenance'){
-				$lineTab = explode(' = ', $line);
-				$app->setMaintenance($lineTab[1]);
-			}elseif (strtolower(substr($line, 0, 7)) == 'message'){
-				$lineTab = explode(' = ', $line);
-				$message = $lineTab[1];
-				$message = iconv("WINDOWS-1252", "UTF-8", $message);
-				$message = str_replace(' & VbCrLf', PHP_EOL, $message);
-				$message = str_replace(' & ', '', $message);
-				$app->setMessage(str_replace('"', '', $message));
+		if ($app->getLanguage() == 'vbs') {
+			foreach ($file as $line) {
+				if (strtolower(substr($line, 0, 11)) == 'maintenance') {
+					$lineTab = explode('= ', $line);
+					$app->setMaintenance($lineTab[1]);
+				} elseif (strtolower(substr($line, 0, 7)) == 'message') {
+					$lineTab = explode('= ', $line);
+					$message = $lineTab[1];
+					$message = iconv("WINDOWS-1252", "UTF-8", $message);
+					$message = str_replace(' & VbCrLf', PHP_EOL, $message);
+					$message = str_replace(' & ', '', $message);
+					$app->setMaintenanceMessage(str_replace('"', '', $message));
+				}
+			}
+		}elseif($app->getLanguage() == 'powershell') {
+			foreach ($file as $line) {
+				if (strtolower(substr($line, 0, 12)) == '$maintenance') {
+					$lineTab = explode('= ', $line);
+					$maintenanceStatus = (strtolower($lineTab[1]) == '$true') ? true : false;
+					$app->setMaintenance($maintenanceStatus);
+				} elseif (strtolower(rtrim(substr($line, 0, 9))) == '$message' or strtolower(substr($line, 0, 19)) == '$messagemaintenance') {
+					$lineTab = explode('= ', $line);
+					$message = $lineTab[1];
+					$message = iconv("WINDOWS-1252", "UTF-8", $message);
+					$message = str_replace('`n', PHP_EOL, $message);
+					//$message = str_replace(' & ', '', $message);
+					$app->setMaintenanceMessage(str_replace('"', '', $message));
+				} elseif (strtolower(substr($line, 0, 5)) == '$info') {
+					$lineTab = explode('= ', $line);
+					$infoStatus = (strtolower($lineTab[1]) == '$true') ? true : false;
+					$this->apps[$app->getName()]->setInfoEnabled(true);
+					$app->setInfo($infoStatus);
+				} elseif (strtolower(substr($line, 0, 12)) == '$messageinfo') {
+					$lineTab = explode('= ', $line);
+					$message = $lineTab[1];
+					$message = iconv("WINDOWS-1252", "UTF-8", $message);
+					$message = str_replace('`n', PHP_EOL, $message);
+					//$message = str_replace(' & ', '', $message);
+					$app->setInfoMessage(str_replace('"', '', $message));
+				}
 			}
 		}
 		return true;
@@ -290,22 +380,50 @@ class DenyAppAccess extends Module{
 			new Alert('error', 'Vous n\'avez pas l\'autorisation de faire ceci !');
 			return false;
 		}
-		$share = new Fs($this->settings['vbsPath']->getValue(), null, 'appaccess');
+		$share = new Fs($app->getPath(), null, 'appaccess');
 		$file = $share->readFile($app->getFile());
-		if (!$file) return false;
+		if (!$file) {
+			new Alert('error', 'Impossible de trouver le fichier <code>'.$app->getFile().'</code> !');
+			return false;
+		}
 		if (empty($file)){
 			new Alert('error', 'Le fichier <code>'.$app->getFile().'</code> est vide !');
 			return false;
 		}
-		foreach ($file as &$line) {
-			if (strtolower(substr($line, 0, 11)) == 'maintenance'){
-				$line = "Maintenance = ".((int)$app->getMaintenance());
-			}elseif (strtolower(substr($line, 0, 7)) == 'message'){
-				$message = iconv("UTF-8", "WINDOWS-1252", $app->getMessage());
-				$message = str_replace("\r", '', $message);
-				$message = str_replace(PHP_EOL, '" & VbCrLf & "', $message);
-				$message = rtrim($message,'" & VbCrLf & "');
-				$line = 'Message = "'.$message.'"';
+		if ($app->getLanguage() == 'vbs') {
+			foreach ($file as &$line) {
+				if (strtolower(substr($line, 0, 11)) == 'maintenance') {
+					$line = "Maintenance = " . ((int)$app->getMaintenance());
+				} elseif (strtolower(substr($line, 0, 7)) == 'message') {
+					$message = iconv("UTF-8", "WINDOWS-1252", $app->getMaintenanceMessage());
+					$message = str_replace("\r", '', $message);
+					$message = str_replace(PHP_EOL, '" & VbCrLf & "', $message);
+					// Le texte pouvant se terminer par un retour à la ligne, on supprime le dernier
+					$message = preg_replace('/" & VbCrLf & "$/', '', $message);
+					$line    = 'Message = "' . $message . '"';
+				}
+			}
+		}elseif($app->getLanguage() == 'powershell') {
+			foreach ($file as &$line) {
+				if (strtolower(substr($line, 0, 12)) == '$maintenance') {
+					$line = '$Maintenance = ' . (($app->getMaintenance() == true) ? '$True' : '$False');
+				} elseif (strtolower(substr($line, 0, 19)) == '$messagemaintenance') {
+					$message = iconv("UTF-8", "WINDOWS-1252", $app->getMaintenanceMessage());
+					$message = str_replace("\r", '', $message);
+					$message = str_replace(PHP_EOL, '`n', $message);
+					// Le texte pouvant se terminer par un retour à la ligne, on supprime le dernier
+					$message = preg_replace('/`n$/', '', $message);
+					$line    = '$MessageMaintenance = "' . $message . '"';
+				} elseif ($app->isInfoEnabled() and strtolower(substr($line, 0, 5)) == '$info') {
+					$line = '$Info = ' . (($app->getInfo() == true) ? '$True' : '$False');
+				} elseif ($app->isInfoEnabled() and strtolower(substr($line, 0, 12)) == '$messageinfo') {
+					$message = iconv("UTF-8", "WINDOWS-1252", $app->getInfoMessage());
+					$message = str_replace("\r", '', $message);
+					$message = str_replace(PHP_EOL, '`n', $message);
+					// Le texte pouvant se terminer par un retour à la ligne, on supprime le dernier
+					$message = preg_replace('/`n$/', '', $message);
+					$line    = '$MessageInfo = "' . $message . '"';
+				}
 			}
 		}
 		$logType = ($app->getMaintenance()) ? 'BLOCK' : 'ALLOW';
@@ -315,10 +433,10 @@ class DenyAppAccess extends Module{
 		// On écrit dans le fichier
 		$ret = $share->writeFile($app->getFile(), $file);
 		if (!$ret){
-			new Alert('error', 'La modification de l\'accès à <code>'.$app->getTitle().'</code> n\'a pas été prise en compte !');
+			new Alert('error', 'La modification de l\'accès et/ou le message au lancement de <code>'.$app->getTitle().'</code> n\'a pas été prise en compte !');
 			return false;
 		}
-		new Alert('success', 'La modification de l\'accès à <code>'.$app->getTitle().'</code> a été prise en compte !');
+		new Alert('success', 'La modification de l\'accès et/ou le message au lancement de <code>'.$app->getTitle().'</code> a été prise en compte !');
 		return true;
 	}
 
@@ -340,21 +458,45 @@ class DenyAppAccess extends Module{
 		$app = $oldApp = $this->apps[$appReq];
 		// On récupère les variables postées par le formulaire
 		$req = $this->postedData;
-		if (!isset($req['maintenance']) or $req['maintenance'] === null){
-			$this->apps[$appReq] = $oldApp;
-			new Alert('Error', 'Le champ <code>maintenance</code> n\'a pas été envoyé par le formulaire !');
+		if (!isset($req['formType'])){
+			new Alert('Error', 'Le type de formulaire n\'a pas été envoyé !');
 			return false;
-		}else{
-			$app->setMaintenance($req['maintenance']);
 		}
-		if (!isset($req['message'])){
-			$this->apps[$appReq] = $oldApp;
-			new Alert('Error', 'Le champ <code>message</code> n\'a pas été envoyé par le formulaire !');
+		if ($req['formType'] == 'Maintenance'){
+			if (!isset($req['maintenance']) or $req['maintenance'] === null){
+				$this->apps[$appReq] = $oldApp;
+				new Alert('Error', 'Le champ <code>maintenance</code> n\'a pas été envoyé par le formulaire !');
+				return false;
+			}else{
+				$app->setMaintenance($req['maintenance']);
+			}
+			if (!isset($req['maintenanceMessage'])){
+				$this->apps[$appReq] = $oldApp;
+				new Alert('Error', 'Le champ <code>maintenanceMessage</code> n\'a pas été envoyé par le formulaire !');
+				return false;
+			}else{
+				$app->setMaintenanceMessage($req['maintenanceMessage']);
+			}
+		}elseif ($req['formType'] == 'Info') {
+			if (!isset($req['info']) or $req['info'] === null){
+				$this->apps[$appReq] = $oldApp;
+				new Alert('Error', 'Le champ <code>info</code> n\'a pas été envoyé par le formulaire !');
+				return false;
+			}else{
+				$app->setInfo($req['info']);
+			}
+			if (!isset($req['infoMessage'])){
+				$this->apps[$appReq] = $oldApp;
+				new Alert('Error', 'Le champ <code>infoMessage</code> n\'a pas été envoyé par le formulaire !');
+				return false;
+			}else{
+				$app->setInfoMessage($req['infoMessage']);
+			}
+		}else{
+			new Alert('Error', 'Type de formulaire envoyé inconnu !');
 			return false;
-		}else{
-			$app->setMessage($req['message']);
 		}
-		// On sauvegarde dans le fichier VBS
+		// On sauvegarde dans le fichier de script
 		if (!$this->saveAppFile($app)){
 			$this->apps[$appReq] = $oldApp;
 			return false;

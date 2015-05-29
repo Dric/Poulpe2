@@ -64,6 +64,10 @@ Voir Le fichier `install.md`.
 - Doc de développement de modules (en cours)
 - Gérer la barre de menu avec JS désactivé
 
+## Bugs connus
+
+- L'affichage des mots de passe ne permet plus au champ de mot de passe de passer la validation.
+
 ## Documentation
 
 - Activer le module `ModuleCreator` qui donne les liens vers les différentes documentations disponibles

@@ -32,10 +32,22 @@ class App {
 	protected $title = '';
 
 	/**
-	 * Fichier VBS pour gérer l'accès à l'application
+	 * Fichier du script gérant l'accès à l'application
 	 * @var string
 	 */
 	protected $file = '';
+
+	/**
+	 * Emplacement du script
+	 * @var string
+	 */
+	protected $path = '';
+
+	/**
+	 * Type de script (vbs, powershell...)
+	 * @var string
+	 */
+	protected $language = 'powershell';
 
 	/**
 	 * Etat de la maintenance de l'application
@@ -47,23 +59,49 @@ class App {
 	 * Message diffusé aux utilisateurs lorsque l'application est en maintenance
 	 * @var string
 	 */
-	protected $message = '';
+	protected $maintenanceMessage = '';
+
+	/**
+	 * Message d'information activable ou non
+	 * @var bool
+	 */
+	protected $infoEnabled = false;
+	/**
+	 * Etat du message d'information lors du lancement de l'application
+	 * @var bool
+	 */
+	protected $info = false;
+
+	/**
+	 * Message diffusé aux utilisateurs lors du lancement de l'application
+	 * @var string
+	 */
+	protected $infoMessage = '';
 
 	/**
 	 * Objet d'une application
-	 * @param string $title Titre de l'application
-	 * @param string $file Fichier VBS
-	 * @param bool $maintenance Status de la maintenance
-	 * @param string $message Message diffusé aux utilisateurs en cas de maintenance
+	 *
+	 * @param string $title              Titre de l'application
+	 * @param string $file               Fichier VBS
+	 * @param string $path               Emplacement du script
+	 * @param bool   $maintenance        Status de la maintenance
+	 * @param string $maintenanceMessage Message diffusé aux utilisateurs en cas de maintenance
+	 * @param bool   $infoEnabled        Message d'information activable ou non
+	 * @param bool   $info               Status de l'information
+	 * @param string $infoMessage        Message d'information aux utilsiateurs lors du lancement
 	 */
-	public function __construct($title = null, $file = null, $maintenance = false, $message = null){
+	public function __construct($title = null, $file = null, $path = null, $maintenance = false, $maintenanceMessage = null, $infoEnabled = false, $info = false, $infoMessage = null){
 		if (!empty($title)){
 			$this->name = Sanitize::sanitizeFilename($title);
 			$this->title = $title;
 		}
 		if (!empty($file))    $this->file     = $file;
-		if (!empty($message)) $this->message  = $message;
+		if (!empty($path))    $this->path     = $path;
+		if (!empty($maintenanceMessage)) $this->maintenanceMessage  = $maintenanceMessage;
 		$this->maintenance = $maintenance;
+		$this->infoEnabled = $infoEnabled;
+		if (!empty($infoMessage)) $this->infoMessage  = $infoMessage;
+		$this->info = $info;
 	}
 
 	/**
@@ -120,14 +158,84 @@ class App {
 	/**
 	 * @return string
 	 */
-	public function getMessage() {
-		return $this->message;
+	public function getMaintenanceMessage() {
+		return $this->maintenanceMessage;
 	}
 
 	/**
-	 * @param string $message
+	 * @param string $maintenanceMessage
 	 */
-	public function setMessage($message) {
-		$this->message = $message;
+	public function setMaintenanceMessage($maintenanceMessage) {
+		$this->maintenanceMessage = $maintenanceMessage;
+	}
+
+	/**
+	 * @return boolean
+	 */
+	public function getInfo() {
+		return $this->info;
+	}
+
+	/**
+	 * @param boolean $info
+	 */
+	public function setInfo($info) {
+		$this->info = $info;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getInfoMessage() {
+		return $this->infoMessage;
+	}
+
+	/**
+	 * @param string $infoMessage
+	 */
+	public function setInfoMessage($infoMessage) {
+		$this->infoMessage = $infoMessage;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getPath() {
+		return $this->path;
+	}
+
+	/**
+	 * @param string $path
+	 */
+	public function setPath($path) {
+		$this->path = $path;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getLanguage() {
+		return $this->language;
+	}
+
+	/**
+	 * @param string $language
+	 */
+	public function setLanguage($language) {
+		$this->language = $language;
+	}
+
+	/**
+	 * @return boolean
+	 */
+	public function isInfoEnabled() {
+		return $this->infoEnabled;
+	}
+
+	/**
+	 * @param boolean $infoEnabled
+	 */
+	public function setInfoEnabled($infoEnabled) {
+		$this->infoEnabled = $infoEnabled;
 	}
 }
