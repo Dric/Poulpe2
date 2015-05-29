@@ -13,6 +13,7 @@ use Components\Item;
 use Components\Menu;
 use FileSystem\Fs;
 use Forms\Fields\Button;
+use Forms\Fields\Hidden;
 use Forms\Fields\Select;
 use Forms\Fields\String;
 use Forms\Pattern;
@@ -350,7 +351,6 @@ class Mailboxes extends Module {
 			return false;
 		}
 		$req = $this->postedData;
-
 		// C'est parti pour les vérifications !
 		if (!isset($req['user'])){
 			new Alert('error', 'L\'utilisateur n\'est pas renseigné !');
@@ -406,12 +406,12 @@ class Mailboxes extends Module {
 			return false;
 		}
 		$req = $this->postedData;
-		$reqUser = htmlspecialchars($req['user']);
 		// C'est parti pour les vérifications !
 		if (!isset($req['user'])){
 			new Alert('error', 'L\'utilisateur n\'est pas renseigné !');
 			return false;
 		}
+		$reqUser = htmlspecialchars($req['user']);
 		if (!isset($req['mdb'])){
 			new Alert('error', 'La base Exchange n\'est pas renseignée !');
 			return false;
@@ -481,18 +481,16 @@ class Mailboxes extends Module {
 					$class = 'danger';
 					$statut = 'En erreur';
 				}
+				$form = new Form('delMove_'.$line, null, null, 'module', $this->id);
+				$form->addField(new Hidden('user', $line));
+				$form->addField(new Hidden('mdb', $mdb));
+				$form->addField(new Button('action', 'delMove', 'Supprimer', 'modify', 'btn-xs move-del'));
 				?>
 					<tr class="<?php echo $class; ?> text-<?php echo $class; ?>" id="line_<?php echo $line; ?>">
 						<td><?php echo $line; ?></td>
 						<td><?php echo $statut; ?></td>
 						<td width="4%">
-							<form method="post">
-								<input type="hidden" name="field_string_user" value="<?php echo $line; ?>">
-								<input type="hidden" name="field_string_mdb" value="<?php echo $mdb; ?>">
-								<button class="btn btn-xs tooltip-bottom move-del" title="Supprimer la demande de déplacement" name="action" value="delMove" <?php if(!$canModify) echo 'disabled'; ?>>
-									<span class="fa fa-trash-o"></span>
-								</button>
-							</form>
+							<?php $form->display(); ?>
 						</td>
 					</tr>
 				<?php
