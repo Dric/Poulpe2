@@ -12,6 +12,7 @@ namespace Forms\Fields;
 use Components\Help;
 use Forms\Field;
 use Forms\Pattern;
+use Front;
 
 /**
  * Champ de saisie de texte long (textarea)
@@ -44,6 +45,11 @@ class Text extends Field{
 	 */
 	public function __construct($name, $value, $label = null, $placeholder = null, $help = null, $pattern = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false, $rows = null){
 		if (!empty($rows)) $this->rows = (int)$rows;
+		// Hauteur automatiquement adaptée au contenu
+		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/js/autosize.min.js"></script>');
+		Front::setJsFooter('<script>autosize($(\'textarea\'));</script>');
+		// Avec les onglets, les textarea ne sont pas forcément affichés dès le départ, ce qui empêche `autosize` de bien calculer leur hauteur initiale. Il faut donc mettre à jour la hauteur lors du changement d'onglet
+		Front::setJsFooter('<script>$(\'a[data-toggle="tab"]\').on(\'shown.bs.tab\', function (e) {autosize.update($(\'textarea\'));});</script>');
 		parent::__construct($name, $this->type, $value, $label, $placeholder, $help, $pattern, $important, $ACLLevel, $class, $disabled);
 	}
 
