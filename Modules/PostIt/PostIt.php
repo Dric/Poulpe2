@@ -249,15 +249,17 @@ class PostIt extends Module{
 		$content = (!empty($post)) ? $post->getContent(true) : '';
 		$shared = (!empty($post)) ? $post->getShared() : $this->settings['sharedByDefault']->getValue();
 
-		$action = (!empty($post)) ? '#post_'.$post->getId() : '#postsEnd';
+		$action = (!empty($post)) ? '#post_'.$post->getId() : ($this->settings['order']->getValue() == "asc") ? '#postsEnd' : '';
 		$form = new Form('addPost', $action, null, 'module', $this->id);
 		$form->addField(new Text('content', $content, 'Post-It', 'Merci de veiller à ce que votre prose soit correctement orthographiée !', null, new Pattern('text', true), true, 'modify'));
 		$form->addField(new Bool('shared', $shared, 'Post-It partagé', 'Si actif, votre post-it sera visible par tout le monde', null, false, 'modify', null, false, new JSSwitch(null, 'left')));
 		if (!empty($post)){
 			$form->addField(new Hidden('id', $post->getId()));
 			$form->addField(new Hidden('page', $this->page));
-		}else{
+		}elseif ($this->settings['order']->getValue() == "asc") {
 			$form->addField(new Hidden('page', ceil($this->nbPosts / $this->settings['postsPerPage']->getValue())));
+		}else{
+			$form->addField(new Hidden('page', 1));
 		}
 		$label = (!empty($post)) ? 'Modifier' : 'Ajouter';
 		$form->addField(new Button('action', 'savePost', $label, 'modify', 'btn-primary'));

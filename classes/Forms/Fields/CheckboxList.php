@@ -72,7 +72,10 @@ class CheckboxList extends Field{
 			?>
 			<div class="<?php echo $this->htmlType.' '.$this->class; ?>" id="<?php echo $this->type.'_'.$choice; ?>">
 				<label>
-					<input id="field_<?php echo $this->type; ?>_<?php echo $this->name.'_'.$i; ?>" name="field_<?php echo $this->type; ?>_<?php echo $this->name; ?><?php if ($this->htmlType == 'checkbox') echo '[]'; ?>" type="<?php echo $this->htmlType; ?>" value="<?php echo $choice; ?>" <?php if ((in_array($choice, $value)) or (in_array($choice, $this->defaultChecked) or in_array('all', $this->defaultChecked) and empty($value))) echo 'checked'; ?> <?php if ($this->disabled or !$enabled) echo 'disabled'; ?>>
+					<?php
+
+					?>
+					<input id="field_<?php echo $this->type; ?>_<?php echo $this->name.'_'.$i; ?>" name="field_<?php echo $this->type; ?>_<?php echo $this->name; ?><?php if ($this->htmlType == 'checkbox') echo '[]'; ?>" type="<?php echo $this->htmlType; ?>" value="<?php echo $choice; ?>" <?php if ((in_array($choice, $value)) or (in_array($choice, $this->defaultChecked) or $this->defaultChecked[0] == 'all' and empty($value[0]))) echo 'checked'; ?> <?php if ($this->disabled or !$enabled) echo 'disabled'; ?>>
 					<?php echo $label; ?>
 				</label>
 				<div class="help-block with-errors"></div>

@@ -16,7 +16,7 @@ use Modules\Module;
 use Modules\ModulesManagement;
 
 class CHGS extends Module{
-	protected $name = 'Petits Outils Informatique';
+	protected $name = 'Petits Outils Informatiques';
 	protected $title = 'Des petits outils pour faciliter la vie des informaticiens';
 
 

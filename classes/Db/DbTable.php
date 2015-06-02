@@ -84,7 +84,7 @@ class DbTable {
 					 */
 					foreach ($this->fields as $field){
 						if ($field->getSettings() !== null and $field->getSettings()->getShow()){
-							?><th><?php echo ($field->getLabel() != null) ? $field->getLabel() : $field->getName(); ?></th><?php
+							?><th><?php echo ($field->getLabel() != null) ? $field->getLabel() : $field->getName(); ?>  <?php if($field->getHelp() != '') Help::iconHelp($field->getHelp()); ?></th><?php
 						}
 					}
 					?>

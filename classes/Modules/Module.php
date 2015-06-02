@@ -103,10 +103,10 @@ class Module {
 		if ($this->name != 'home'){
 			$this->checkACL();
 		}
+		$module = explode('\\', get_class($this));
+		$this->url = Front::getModuleUrl().end($module);
 		// Fil d'Ariane. Si la page demandée est l'accueil, on ne la raffiche pas étant donné qu'elle est systématiquement indiquée
-		if ($this->name != 'home'){
-			$module = explode('\\', get_class($this));
-			$this->url = Front::getModuleUrl().end($module);
+		if ($this->name != 'home' and HOME_MODULE != end($module)){
 			$this->breadCrumb = array(
 				'title' => $this->name,
 				'link'  => $this->url
@@ -372,7 +372,8 @@ class Module {
 		if (!empty($this->settings) and (ACL::canAdmin('module', $this->id) or $this->allowUsersSettings)) {
 			?>&nbsp;<a class="settingsButton btn btn-default btn-xs" title="Paramètres du module" href="<?php echo $this->buildArgsURL(array('page' => 'settings')); ?>"><span class="fa fa-cog"></span> Paramètres</a><?php
 		}
-		if (ACL::canAdmin('module', $this->id)){
+		$module = explode('\\', get_class($this));
+		if (ACL::canAdmin('module', $this->id) and HOME_MODULE != end($module)){
 			?>&nbsp;<a class="ACLButton btn btn-default btn-xs" title="Autorisations du module" href="<?php echo $this->buildArgsURL(array('page' => 'ACL')); ?>"><span class="fa fa-user"></span> Autorisations</a><?php
 		}
 	}

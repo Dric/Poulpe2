@@ -72,7 +72,7 @@ class UsersTraces2 extends Module {
 	}
 
 	public static function initModuleLoading(){
-		APIManagement::setAPIs(new API('traces', get_class(), ':server/:app/:user/:event/:client/:data'));
+		APIManagement::setAPIs(new API('traces', get_class(), ':server/:app/:user/:event/:client/:session/:data'));
 	}
 
 	/**
@@ -109,6 +109,8 @@ class UsersTraces2 extends Module {
 		$event->setPattern(new DbFieldSettings('text', true, 15, 'index'));
 		$client = new String('client');
 		$client->setPattern(new DbFieldSettings('text', false, 20, 'index'));
+		$session = new Int('$session');
+		$session->setPattern(new DbFieldSettings('number', true, 5));
 		$data = new String('data');
 		$data->setPattern(new DbFieldSettings('text', false, 80));
 		$timestamp = new Int('timestamp');
@@ -121,6 +123,7 @@ class UsersTraces2 extends Module {
 		$usersTraces2->addField($user);
 		$usersTraces2->addField($event);
 		$usersTraces2->addField($client);
+		$usersTraces2->addField($session);
 		$usersTraces2->addField($data);
 		$usersTraces2->addField($timestamp);
 		$this->dbTables['module_userstraces2'] = $usersTraces2;
@@ -220,10 +223,13 @@ class UsersTraces2 extends Module {
 		$toDb['timestamp'] = time();
 		if ($toDb['user'] == '0') $toDb['user'] = null;
 		if ($toDb['client'] == '0') $toDb['client'] = null;
+		if ($toDb['session'] == '0') $toDb['session'] = 0;
 		if ($toDb['event'] == 'Demarrage') $toDb['event'] = 'Démarrage';
 		if ($toDb['event'] == 'Arret') $toDb['event'] = 'Arrêt';
 		switch ($toDb['app']){
 			case 'System':
+				// On ne sait pas si le serveur est déjà répertorié dans la liste des serveurs. Pas de problème, on fait une insertion qui échouera silencieusement si le serveur existe déjà dans la base.
+				$db->query('INSERT IGNORE INTO `module_userstraces2_servers` (`server`) VALUES ("'.$toDb['server'].'")');
 				switch($toDb['event']){
 					case 'Démarrage':
 						$lastServerEvent = $db->query('SELECT * FROM module_userstraces2 WHERE `app` = "System" AND `server` = "'.$toDb['server'].'" ORDER BY `timestamp` DESC LIMIT 1');
@@ -235,7 +241,7 @@ class UsersTraces2 extends Module {
 							$lastServerStart = (int)$db->getVal('module_userstraces2_servers', 'lastStart', array('server' => $toDb['server']));
 							if (empty($lastServerStart)) $lastServerStart = 0;
 							// On remet à 0 les compteurs de sessions
-							$retU = $db->update('module_userstraces2_servers', array('actives' => 0, 'disconnected' => 0), array('server' => $toDb['server']));
+							//$retU = $db->update('module_userstraces2_servers', array('actives' => 0, 'disconnected' => 0), array('server' => $toDb['server']));
 							// On récupère tous les événements de session depuis le dernier démarrage
 							$sessionsDb = $db->query('SELECT * FROM module_userstraces2 WHERE `timestamp` >= '.$lastServerStart.' AND `server` = "'.$toDb['server'].'" ORDER BY `timestamp`');
 							$openedSessions = array();
@@ -261,16 +267,15 @@ class UsersTraces2 extends Module {
 										'user'      => $user,
 										'event'     => 'Fermeture_PS',
 										'client'    => $client,
+										'session'   => 0,
 										'timestamp' => $toDb['timestamp']
 									);
 									$db->insert('module_userstraces2', $array);
 								}
 							}
 							$toDb['event'] = 'Démarrage_PS';
-							$ret = $db->insert('module_userstraces2', $toDb);
-						}else{
-							$ret = $db->insert('module_userstraces2', $toDb);
 						}
+						$ret = $db->insert('module_userstraces2', $toDb);
 						// On met à jour la valeur du dernier démarrage du serveur
 						$sql = 'INSERT INTO `module_userstraces2_servers` (`server`, `lastStart`) VALUES ("'.$toDb['server'].'", '.$toDb['timestamp'].') ON DUPLICATE KEY UPDATE `lastStart` = VALUES(`lastStart`)';
 						$ret2 = $db->query($sql);
@@ -307,6 +312,7 @@ class UsersTraces2 extends Module {
 											'user'      => $session->user,
 											'event'     => 'Fermeture',
 											'client'    => $session->client,
+											'session'   => $session->session,
 											'timestamp' => $toDb['timestamp']
 										);
 										$db->insert('module_userstraces2', $array);
@@ -322,8 +328,8 @@ class UsersTraces2 extends Module {
 							}
 						}
 						// On remet à zéro les sessions actives et déconnectées du serveur
-						$sql = 'INSERT INTO `module_userstraces2_servers` (`server`, `actives`, `disconnected`) VALUES ("'.$toDb['server'].'", 0, 0) ON DUPLICATE KEY UPDATE `actives` = VALUES(`actives`), `disconnected` = VALUES(`disconnected`)';
-						$db->query($sql);
+						//$sql = 'INSERT INTO `module_userstraces2_servers` (`server`, `actives`, `disconnected`) VALUES ("'.$toDb['server'].'", 0, 0) ON DUPLICATE KEY UPDATE `actives` = VALUES(`actives`), `disconnected` = VALUES(`disconnected`)';
+						//$db->query($sql);
 						$ret = $db->insert('module_userstraces2', $toDb);
 						break;
 					default:
@@ -343,7 +349,7 @@ class UsersTraces2 extends Module {
 					$toDb['client'] = strtoupper($ClientName[0]);
 				}
 				// On ne sait pas si le serveur est déjà répertorié dans la liste des serveurs. Pas de problème, on fait une insertion qui échouera silencieusement si le serveur existe déjà dans la base.
-				$db->query('INSERT IGNORE INTO `module_userstraces2_servers` (`server`) VALUES ("'.$toDb['server'].'")');
+				//$db->query('INSERT IGNORE INTO `module_userstraces2_servers` (`server`) VALUES ("'.$toDb['server'].'")');
 				// On cherche si l'événement n'est pas déjà dans la base, Windows ayant parfois tendance à envoyer plusieurs fois la même chose.
 				$sameEvents = $db->query('SELECT * FROM module_userstraces2 WHERE `server` = "'.$toDb['server'].'" AND `user` = "'.$toDb['user'].'" AND `event` = "'.$toDb['event'].'" AND `timestamp` > '.(time() - $delay));
 				if (empty($sameEvents)) {
@@ -355,19 +361,19 @@ class UsersTraces2 extends Module {
 							exit();
 						}
 						// On incrémente le compteur de sessions déconnectées
-						$db->query('UPDATE module_userstraces2_servers SET `actives` = IF(`actives > 0, `actives` - 1, 0), `disconnected` = `disconnected` + 1 WHERE `server` = "' . $toDb['server'] . '"');
+						//$db->query('UPDATE module_userstraces2_servers SET `actives` = IF(`actives > 0, `actives` - 1, 0), `disconnected` = `disconnected` + 1 WHERE `server` = "' . $toDb['server'] . '"');
 					} elseif ($toDb['event'] == 'Ouverture') {
 						// On incrémente le compteur de sessions actives
-						$db->query('UPDATE module_userstraces2_servers SET `actives` = `actives` + 1 WHERE `server` = "' . $toDb['server'] . '"');
+						//$db->query('UPDATE module_userstraces2_servers SET `actives` = `actives` + 1 WHERE `server` = "' . $toDb['server'] . '"');
 					} elseif ($toDb['event'] == 'Reconnexion') {
 						// On incrémente le compteur de sessions actives tout en décrémentant le cmpteur de sessions inactives
-						$db->query('UPDATE module_userstraces2_servers SET `actives` = `actives` + 1, `disconnected` = IF(`disconnected` > 0, `disconnected` - 1, 0) WHERE `server` = "' . $toDb['server'] . '"');
+						//$db->query('UPDATE module_userstraces2_servers SET `actives` = `actives` + 1, `disconnected` = IF(`disconnected` > 0, `disconnected` - 1, 0) WHERE `server` = "' . $toDb['server'] . '"');
 					} else {
 						// Fermeture de session
 						// On récupère le nom du client depuis un événement de connexion/reconnexion car les fermetures de sessions ne le renvoient pas
-						$toDb['client'] = $db->query('SELECT client FROM module_userstraces2 WHERE `server` = "' . $toDb['server'] . '" AND `app` = "' . $toDb['app'] . '" AND `user` = "' . $toDb['user'] . '" and `data` = "'.$toDb['data'].'" and `event` IN ("Reconnexion", "Ouverture") ORDER BY `timestamp` DESC LIMIT 1', 'val');
+						$toDb['client'] = $db->query('SELECT client FROM module_userstraces2 WHERE `server` = "' . $toDb['server'] . '" AND `app` = "' . $toDb['app'] . '" AND `user` = "' . $toDb['user'] . '" and `session` = "'.$toDb['session'].'" and `event` IN ("Reconnexion", "Ouverture") ORDER BY `timestamp` DESC LIMIT 1', 'val');
 						// On décrémente le compteur de sessions actives
-						$db->query('UPDATE module_userstraces2_servers SET `actives` = IF(`actives` > 0, `actives` - 1, 0) WHERE `server` = "' . $toDb['server'] . '"');
+						//$db->query('UPDATE module_userstraces2_servers SET `actives` = IF(`actives` > 0, `actives` - 1, 0) WHERE `server` = "' . $toDb['server'] . '"');
 					}
 					$ret = $db->insert('module_userstraces2', $toDb);
 					if ($ret) {
@@ -461,8 +467,8 @@ class UsersTraces2 extends Module {
 		if (!empty($stats)){
 			?>
 			<ul>
-				<li>Sessions actives : <b><?php echo $stats->actives; ?></b></li>
-				<li>Sessions déconnectées : <b><?php echo $stats->disconnected; ?></b></li>
+				<!--<li>Sessions actives : <b><?php echo $stats->actives; ?></b></li>
+				<li>Sessions déconnectées : <b><?php echo $stats->disconnected; ?></b></li>-->
 				<li>Dernier démarrage : <b><?php echo ($stats->lastStart > 0) ? Sanitize::date($stats->lastStart, 'fullDateTime') : 'Inconnu'; ?></b> (allumé depuis <?php echo ($stats->lastStart > 0) ? Sanitize::timeDuration(time() - $stats->lastStart) : 'Inconnu'; ?>)</li>
 			</ul>
 			<br>
@@ -526,8 +532,9 @@ class UsersTraces2 extends Module {
 							</a>
 						</td>
 					<?php } ?>
-					<td><?php echo $event->app; ?></td>
 					<?php if ($subject == 'server' or $subject == 'all') { ?>
+					<td><?php echo $event->app; ?></td>
+					<?php } ?>
 					<td>
 						<?php
 						switch ($event->event){
@@ -548,7 +555,7 @@ class UsersTraces2 extends Module {
 						}
 						?>
 					</td>
-					<?php } ?>
+
 					<?php if ($subject != 'user') { ?>
 						<td>
 							<a class="tooltip-left" href="<?php echo $this->buildArgsURL(array('page' => 'user', 'user' => $event->user)); ?>" title="Voir toutes les connexions de <?php echo $event->user; ?>">
