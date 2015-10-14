@@ -345,8 +345,14 @@ class UsersTraces2 extends Module {
 			case 'Login':
 				// On récupère le nom du poste via le DNS. L'avantage c'est que même si le poste change d'adresse IP, le suivi reste possible.
 				if (\Check::isIpAddress($toDb['client'])) {
-					$ClientName     = explode('.', gethostbyaddr($toDb['client']));
-					$toDb['client'] = strtoupper($ClientName[0]);
+					$ClientName = gethostbyaddr($toDb['client']);
+					// Si la requête DNS parvient à retourner le nom du poste, on récupère celui-ci. Sinon, on garde l'adresse IP comme nom de client.
+					if (!\Check::isIpAddress($ClientName)){
+						$ClientName     = explode('.', $ClientName);
+						$toDb['client'] = strtoupper($ClientName[0]);
+					}else{
+						$toDb['client'] = $ClientName;
+					}
 				}
 				// On ne sait pas si le serveur est déjà répertorié dans la liste des serveurs. Pas de problème, on fait une insertion qui échouera silencieusement si le serveur existe déjà dans la base.
 				//$db->query('INSERT IGNORE INTO `module_userstraces2_servers` (`server`) VALUES ("'.$toDb['server'].'")');

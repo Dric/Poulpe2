@@ -135,7 +135,22 @@ class Dupliqueur extends Module {
 		$servers = array();
 		$serversDb = $db->get('module_dupliqueur');
 		foreach ($serversDb as $server){
-			$servers[] = $server->name;
+			// On regarde si une plage de serveurs a été saisie. La plage n'est détectée que si elle est du genre SRV-CITRIX01-10, ça ne fontionnera pas pour SRV-CITRIX01-TESTXEN
+			preg_match('/^([^0-9]*)(\d{0,2}-\d{0,2}|\d{0,2})/i', $server->name, $matches);
+			// Si aucune plage n'est détectée, on prend le nom complet
+			if (empty($matches[2]) or strpos($matches[2], '-') === false) {
+				$servers[] = $server->name;
+			} else {
+				list($firstServer, $lastServer) = explode('-', $matches[2]);
+				// On récupère le nombre de chiffres dans l'identifiant du serveur (2 pour SVR-CITRIX01, 1 pour SRV-CARIAAPPLI2)
+				$intSize = strlen((string)$firstServer);
+				if (strlen((string)$lastServer) > $intSize) $intSize = strlen((string)$lastServer);
+				// On crée un serveur par item
+				for ($i = $firstServer; $i <= $lastServer; $i++) {
+					$serverName = $matches[1] . str_pad($i, $intSize, '0', STR_PAD_LEFT);
+					$servers[]  = $serverName;
+				}
+			}
 		}
 		// On vérifie que le serveur d'origine fait bien partie de la liste des serveurs en bdd
 		if (!in_array($req['serverFrom'], $servers)){
@@ -170,7 +185,7 @@ class Dupliqueur extends Module {
 			'text'  => $text
 		);
 		foreach ($req['serversTo'] as $serverTo){
-			// On vérifie que les seerveurs de destination font bien partie de la liste des serveurs autorisés
+			// On vérifie que les serveurs de destination font bien partie de la liste des serveurs autorisés
 			if (!in_array($serverTo, $servers)){
 				new Alert('error', 'Le serveur <code>'.$serverTo.'</code> ne fait pas partie des serveurs autorisés !');
 				return false;

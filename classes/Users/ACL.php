@@ -247,7 +247,7 @@ class ACL {
 	public static function requestACLSave($action = null){
 		switch ($action){
 			case 'restoreDefault':
-				$ret = PostedData::checkToken('adminUserACL', $_REQUEST['token']);
+				$ret = PostedData::checkToken('adminACL', $_REQUEST['token']);
 				if (!$ret){
 					new Alert('error', 'Erreur de traitement : Ce formulaire a déjà été envoyé, ou bien vous n\'êtes pas la personne qui a initié l\'envoi !');
 					return false;
@@ -403,7 +403,7 @@ class ACL {
 				<?php
 				}
 				?>
-				<form id="adminUserACL" class="" method="post" role="form" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+				<form id="adminACL" class="" method="post" role="form" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 					<table class="table">
 						<thead>
 							<tr>
@@ -469,8 +469,8 @@ class ACL {
 						</tbody>
 					</table>
 					<input type="hidden" name="user" value="<?php echo $userId; ?>">
-					<input type="hidden" name="token" value="<?php echo PostedData::setToken('adminUserACL'); ?>">
-					<input type="hidden" name="formName" value="adminUserACL">
+					<input type="hidden" name="token" value="<?php echo PostedData::setToken('adminACL'); ?>">
+					<input type="hidden" name="formName" value="adminACL">
 					<button class="btn btn-primary" type="submit" name="action" value="saveACL" <?php if(in_array($userId, $admins)) echo 'disabled'; ?>>Sauvegarder</button>
 					<button class="btn btn-default" type="submit" name="action" value="restoreDefaultACL" <?php if(in_array($userId, $admins) or $userId == 10000) echo 'disabled'; ?>>Droits par défaut</button>
 				</form>
@@ -482,9 +482,11 @@ class ACL {
 	/**
 	 * Affiche le formulaire de réglage des ACL
 	 *
-	 * @param string $component Type de composant (module, admin, etc.)
+	 * @param string $component   Type de composant (module, admin, etc.)
 	 * @param string $componentId ID du composant
-	 * @param string $title Nom du composant administré (facultatif)
+	 * @param string $title       Nom du composant administré (facultatif)
+	 *
+	 * @return bool
 	 */
 	public static function adminACL($component, $componentId, $title = null){
 		global $db;

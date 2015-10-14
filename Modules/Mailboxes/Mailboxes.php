@@ -148,8 +148,8 @@ class Mailboxes extends Module {
 			return false;
 		}
 		$logs = array();
-		// On lit le fichier de logs
-		$logFile = $share->readFile($this->logFile);
+		// On lit le fichier de logs et on le trie dans le sens inverse. Ainsi, les derniers événements apparaissent en premier.
+		$logFile = array_reverse($share->readFile($this->logFile));
 		foreach ($logFile as $line){
 			// On ne récupère que les logs dans le fichier
 			if (preg_match('/^([0-9]{2}\/[0-9]{2}\/[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{1,2}) - (.*)$/i', $line, $matches)){
