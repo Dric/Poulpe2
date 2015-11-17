@@ -14,4 +14,6 @@ Ouvrez une session sur le serveur :
 
 Winexe installe un petit service sur le serveur Windows, nommé `winexesvc`. Pour le supprimer après exécution, utlisez le paramètre `--uninstall`.
 
+Si pour une raison ou une autre le service `winexesvc` était en erreur, il faut le supprimer depuis le serveur sur lequel il est installé avec la commande (en mode administrateur) `sc delete winexesvc`
+
 Liste des paramètres : <http://opensourceinfo.blogspot.fr/2010/01/winexe.html>

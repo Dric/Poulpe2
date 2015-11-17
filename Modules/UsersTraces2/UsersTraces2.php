@@ -223,7 +223,7 @@ class UsersTraces2 extends Module {
 		$toDb['timestamp'] = time();
 		if ($toDb['user'] == '0') $toDb['user'] = null;
 		if ($toDb['client'] == '0') $toDb['client'] = null;
-		if ($toDb['session'] == '0') $toDb['session'] = 0;
+		if ($toDb['session'] == '0' or $toDb['session'] == null) $toDb['session'] = 0;
 		if ($toDb['event'] == 'Demarrage') $toDb['event'] = 'Démarrage';
 		if ($toDb['event'] == 'Arret') $toDb['event'] = 'Arrêt';
 		switch ($toDb['app']){
@@ -284,7 +284,7 @@ class UsersTraces2 extends Module {
 						break;
 					case 'Arrêt':
 						/**
-						 * A l'arrêt du serveur, les événements de déconnexion n'ont souvent pas le temps d'être trnasmis, ce qui empêche le module de compléter l'événement de fermeture avec le nom du client.
+						 * A l'arrêt du serveur, les événements de déconnexion n'ont souvent pas le temps d'être transmis, ce qui empêche le module de compléter l'événement de fermeture avec le nom du client.
 						 * On va donc chercher les événements sans client pour les compléter.
 						 */
 						$lastServerStart = (int)$db->getVal('module_userstraces2_servers', 'lastStart', array('server' => $toDb['server']));
@@ -343,6 +343,18 @@ class UsersTraces2 extends Module {
 				// Fin case `System`
 				break;
 			case 'Login':
+				// On sépare le nom de client de la notification de compte admin
+				$isAdmin = false;
+				$tab = explode('@@', $toDb['client']);
+				If (isset($tab[1])){
+					$toDb['client'] = $tab[0];
+					if ($tab[1] == 'RDSAdmin'){
+						$isAdmin = true;
+					}
+				}
+				If ($isAdmin){
+					$toDb['event'] .= "_Admin";
+				}
 				// On récupère le nom du poste via le DNS. L'avantage c'est que même si le poste change d'adresse IP, le suivi reste possible.
 				if (\Check::isIpAddress($toDb['client'])) {
 					$ClientName = gethostbyaddr($toDb['client']);
@@ -377,7 +389,9 @@ class UsersTraces2 extends Module {
 					} else {
 						// Fermeture de session
 						// On récupère le nom du client depuis un événement de connexion/reconnexion car les fermetures de sessions ne le renvoient pas
-						$toDb['client'] = $db->query('SELECT client FROM module_userstraces2 WHERE `server` = "' . $toDb['server'] . '" AND `app` = "' . $toDb['app'] . '" AND `user` = "' . $toDb['user'] . '" and `session` = "'.$toDb['session'].'" and `event` IN ("Reconnexion", "Ouverture") ORDER BY `timestamp` DESC LIMIT 1', 'val');
+						If ($toDb['client'] == null){
+							$toDb['client'] = $db->query('SELECT client FROM module_userstraces2 WHERE `server` = "' . $toDb['server'] . '" AND `app` = "' . $toDb['app'] . '" AND `user` = "' . $toDb['user'] . '" and `session` = "'.$toDb['session'].'" and `event` IN ("Reconnexion", "Ouverture") ORDER BY `timestamp` DESC LIMIT 1', 'val');
+						}
 						// On décrémente le compteur de sessions actives
 						//$db->query('UPDATE module_userstraces2_servers SET `actives` = IF(`actives` > 0, `actives` - 1, 0) WHERE `server` = "' . $toDb['server'] . '"');
 					}
@@ -546,13 +560,25 @@ class UsersTraces2 extends Module {
 						switch ($event->event){
 							case 'Démarrage_PS':
 								?>Démarrage	<span class="pull-right">
-								<?php	Help::iconWarning('Le serveur a démarré suite à un plantage !', 'left');	?>
+								<?php	Help::iconWarning('Pas d\'événement de fermeture référencé. Le serveur a peut-être démarré suite à un plantage !', 'left');	?>
 								</span>
 								<?php
 								break;
 							case 'Fermeture_PS':
 								?>Fermeture	<span class="pull-right">
-								<?php	Help::iconWarning('La session a été fermée brutalement suite à un plantage serveur !', 'left');	?>
+								<?php	Help::iconWarning('La session a été fermée brutalement, peut-être suite à un plantage serveur !', 'left');	?>
+								</span>
+								<?php
+								break;
+							case 'Ouverture_Admin':
+								?>Ouverture	<span class="pull-right">
+								<?php	Help::icon('star', 'warning', 'Connexion d\'un compte administrateur !', 'left');	?>
+								</span>
+								<?php
+								break;
+							case 'Fermeture_Admin':
+								?>Fermeture	<span class="pull-right">
+								<?php	Help::icon('star', 'warning', 'Fermeture d\'un compte administrateur !', 'left');	?>
 								</span>
 								<?php
 								break;

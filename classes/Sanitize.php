@@ -177,7 +177,7 @@ class Sanitize {
 		if (!empty($m)) $ret .= $m.' ';
 		if (!empty($ret)) $ret .= 'et ';
 		if (!empty($s)) $ret .= $s.' seconde'.(($s != 1) ? 's': '');
-		return $M.' '.$d.' '.$h.' '.$m.' et '.$s.' seconde'.(($s != 1) ? 's': '');
+		return $ret;
 	}
 
 	/**

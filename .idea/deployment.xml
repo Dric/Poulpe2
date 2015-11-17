@@ -2,6 +2,13 @@
 <project version="4">
   <component name="PublishConfigData" serverName="srv-glpitest">
     <serverData>
+      <paths name="Local">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="srv-glpitest">
         <serverdata>
           <mappings>
@@ -12,4 +19,3 @@
     </serverData>
   </component>
 </project>
-

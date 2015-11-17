@@ -10,8 +10,6 @@
         <property name="zeroDateTimeBehavior" value="convertToNull" />
         <property name="tinyInt1isBit" value="false" />
       </driver-properties>
-      <libraries />
     </data-source>
   </component>
 </project>
-
