@@ -88,7 +88,7 @@ class UsersTraces extends Module {
 		$logsDb = $db->get('module_userstraces');
 		foreach ($logsDb as $log){
 			if (!isset($this->logs[$log->type])){
-				$menu->add(new Item($log->type, $log->type, $this->url.'&logs='.$log->type, 'Accès à '.$log->type, 'file'));
+				$menu->add(new Item($log->type, $log->type, $this->url.'&logs='.$log->type, 'Accès à '.$log->type, 'file', 'loadPage'));
 				$this->logs[$log->type] = new LogType($log->type);
 
 			}
@@ -148,7 +148,7 @@ class UsersTraces extends Module {
 				foreach ($this->logs as $type => $log){
 					?>
 					<li>
-						<a href="<?php echo $this->url.'&logs='.$type; ?>"><?php echo $type; ?></a>
+						<a class="loadPage" href="<?php echo $this->url.'&logs='.$type; ?>"><?php echo $type; ?></a>
 						<ul>
 						<?php
 						foreach ($log->servers as $server){

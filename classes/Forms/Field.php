@@ -291,6 +291,14 @@ class Field extends Setting{
 	}
 
 	/**
+	 * Définit l'aide du champ
+	 * @param string $help
+	 */
+	public function setHelp($help) {
+		$this->help = $help;
+	}
+
+	/**
 	 * Valeur du paramètre définie par l'utilisateur
 	 * @param mixed $userValue
 	 */

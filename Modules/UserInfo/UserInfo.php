@@ -124,6 +124,7 @@ class UserInfo extends Module{
 		<ul>
 			<li>Compte <span <?php echo ($user["useraccountcontrol"][0] == "514" or $user["useraccountcontrol"][0] == "66050") ? 'class="text-error">désactivé' : 'class="text-success">activé' ; ?></span></li>
 			<li>Nom affiché : <strong><?php echo $user['displayname'][0]; ?></strong></li>
+			<li>Matricule : <?php echo (isset($user['employeeid'][0])) ? '<strong>'.$user['employeeid'][0].'</strong>' : '<span class="text-danger">manquant</span>'; ?></li>
 			<li>Description : <?php echo (isset($user['description'][0])) ? '<strong>'.$user['description'][0].'</strong>' : '<span class="text-danger">manquante</span>'; ?></li>
 			<?php if (isset($user['proxyaddresses'])) {
 				$email = 'manquante';

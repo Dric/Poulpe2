@@ -192,7 +192,7 @@ class BandesTina extends Module{
 			$filePath = str_replace('$', ':', implode('\\', $tab));
 
 			// On recrée les fichiers
-			passthru('cat </dev/null | winexe --interactive=0 -U '.$this->settings['tinaServerAdminLogin']->getValue().'%'.$this->settings['tinaServerAdminPwd']->getValue().' //'.$server.' "cmd /C '.$filePath.'/'.$this->settings['scriptName']->getValue().'"', $retCode);
+			passthru('cat </dev/null | winexe --interactive=0 --uninstall -U '.$this->settings['tinaServerAdminLogin']->getValue().'%'.$this->settings['tinaServerAdminPwd']->getValue().' //'.$server.' "cmd /C '.$filePath.'/'.$this->settings['scriptName']->getValue().'"', $retCode);
 			if ($retCode != 0){
 				new Alert('error', 'Impossible d\'exécuter la commande de rafraîchissement des listes de bandes. Le code d\'erreur retourné est <code>'.$retCode.'</code>');
 				return false;
@@ -291,9 +291,12 @@ class BandesTina extends Module{
 		$tab = explode('\\', $path);
 		$server = $tab[0];
 		unset($tab[0]);
-		$cmd = 'cat </dev/null | winexe --interactive=0 -U '.$this->settings['tinaServerAdminLogin']->getValue().'%'.$this->settings['tinaServerAdminPwd']->getValue().' //'.$server.' "cmd /C C:\Progra~1\Atempo\tina\Bin\tina_library_control -library '.$this->settings['tinaLibrary']->getValue().' -identity '.$this->settings['tinaServerAdminLogin']->getValue().':'.$this->settings['tinaServerAdminPwd']->getValue().' -reinit_barcode"';
-		$ret = shell_exec($cmd);
-
+		$cmd = 'cat </dev/null | winexe --interactive=0 --uninstall -U '.$this->settings['tinaServerAdminLogin']->getValue().'%'.$this->settings['tinaServerAdminPwd']->getValue().' //'.$server.' "cmd /C C:\Progra~1\Atempo\tina\Bin\tina_library_control -library '.$this->settings['tinaLibrary']->getValue().' -identity '.$this->settings['tinaServerAdminLogin']->getValue().':'.$this->settings['tinaServerAdminPwd']->getValue().' -reinit_barcode"';
+		$retString = exec($cmd, $output, $retCode);
+		if ($retCode != 0){
+			new Alert('error', 'Impossible d\'exécuter la commande de rafraîchissement des listes de bandes. L\'erreur retournée est <code>'.$retString.'</code>.<br>Il est possible que le service <code>winexesvc</code> soit en erreur sur le serveur <code>'.$server.'</code>.');
+			return false;
+		}
 		$module = explode('\\', get_class());
 		$share = new Fs('\\\\'.$server.'\c$\program files\atempo\tina\adm', null, end($module));
 

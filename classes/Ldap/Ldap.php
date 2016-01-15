@@ -157,9 +157,13 @@ class Ldap {
 		if ($connect->badCreds() !== false){
 			return false ;
 		}else{
-			$userLDAP = $this->search('person', $user, 'OU='.LDAP_AUTH_OU, array(), true);
+			$filter = null;
+			If (!empty(LDAP_AUTH_OU) and LDAP_AUTH_OU != '*'){
+				$filter = 'OU='.LDAP_AUTH_OU;
+			}
+			$userLDAP = $this->search('person', $user, $filter, array(), true);
 			if ($userLDAP['count'] == 0){
-				new Alert('error', 'L\'utilisateur n\'est pas autorisé à se connecter car il n\'est pas dans la bonne OU !');
+				new Alert('error', 'Cet utilisateur n\'est pas autorisé à se connecter !');
 				return false;
 			}
 			return true;

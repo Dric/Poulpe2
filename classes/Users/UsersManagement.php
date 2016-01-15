@@ -96,7 +96,11 @@ class UsersManagement {
 	 */
 	static function getLDAPUser($userName, $complete = true){
 		global $ldap;
-		$user = $ldap->search('person', $userName, 'OU='.LDAP_AUTH_OU, array(), true);
+		$filter = null;
+		If (!empty(LDAP_AUTH_OU) and LDAP_AUTH_OU != '*'){
+			$filter = 'OU='.LDAP_AUTH_OU;
+		}
+		$user = $ldap->search('person', $userName, $filter, array(), true);
 		// Comme on a cherché un seul résultat, on ne veut que le premier item
 		if ($user['count'] == 0){
 			new Alert('error', 'Erreur : Impossible de retrouver l\'utilisateur dans l\'annuaire LDAP !');
@@ -105,6 +109,7 @@ class UsersManagement {
 		$user = $user[0];
 		$LDAPUser = new LDAPUser();
 		$LDAPUser->cn = $user['cn'][0];
+		$LDAPUser->employeeID = $user['employeeid'][0];
 		$LDAPUser->givenName = (isset($user['givenname'])) ? $user['givenname'][0] : null;
 		$LDAPUser->sn = (isset($user['sn'])) ? $user['sn'][0] : null;
 		$LDAPUser->isDisabled = ($user["useraccountcontrol"][0] == "514" or $user["useraccountcontrol"][0] == "66050") ? true : false;

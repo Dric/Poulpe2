@@ -81,4 +81,10 @@ class LDAPUser {
 	 */
 	public $groups = array();
 
+	/**
+	 * Matricule de l'utilisateur
+	 * @var string
+	 */
+	public $employeeID = null;
+
 } 

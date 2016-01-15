@@ -240,6 +240,7 @@ class Front {
 		<script src="<?php echo self::$baseUrl; ?>/js/bootstrap-switch/bootstrap-switch.min.js"></script>
 		<script src="<?php echo self::$baseUrl; ?>/js/Bootstrap-Confirmation/bootstrap-confirmation.min.js"></script>
 		<script src="<?php echo self::$baseUrl; ?>/js/bootstrap-validator/validator.min.js"></script>
+		<script src="<?php echo self::$baseUrl; ?>/js/bootstrap-waitingfor.min.js"></script>
 		<script src="<?php echo self::$baseUrl; ?>/js/poulpe2.js"></script>
 
 		<!-- Custom JavaScript for the Menu Toggle -->
@@ -282,7 +283,7 @@ class Front {
 	 * @param string $js
 	 */
 	public static function setJsHeader($js) {
-		self::$jsHeader[] = $js;
+		if (!in_array($js, self::$jsHeader)) self::$jsHeader[] = $js;
 	}
 
 	/**
@@ -290,7 +291,7 @@ class Front {
 	 * @param string $css
 	 */
 	public static function setCssHeader($css) {
-		self::$cssHeader[] = $css;
+		if (!in_array($css, self::$cssHeader)) self::$cssHeader[] = $css;
 	}
 
 	/**
@@ -298,7 +299,7 @@ class Front {
 	 * @param string $js
 	 */
 	public static function setJsFooter($js) {
-		self::$jsFooter[] = $js;
+		if (!in_array($js, self::$jsFooter)) self::$jsFooter[] = $js;
 	}
 
 	/**

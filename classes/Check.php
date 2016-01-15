@@ -93,4 +93,20 @@ class Check {
 		return true;
 	}
 
+	/**
+	 * Vérifie qu'une valeur est un nombre flottant ou non, même s'il est de type chaîne (string)
+	 *
+	 * `is_float()` ne permet que de vérifier si un nombre est un flottant ou non, alors que cette fonction traite également les chaînes de caractères et permet   * `is_float()` ne permet que de vérifier si un nombre est un flottant ou non, alors que cette fonction traite également les chaînes de caractères.
+	 *  Elle permet par exemple de récupérer une valeur de formulaire et de savoir comment la typer avec précision.
+	 *
+	 * @from <http://php.net/manual/fr/function.is-float.php#118169>
+	 *
+*@param string|int|float $value Valeur à tester
+	 *
+	 * @return bool
+	 */
+	public static function isFloat($value){
+		return ((int)$value != $value) ;
+	}
+
 } 

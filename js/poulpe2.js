@@ -208,6 +208,13 @@ function menuNavigation(){
 			}
 		});
 	});
+
+	if ( ($(window).height() + 100) < $(document).height() ) {
+		$('#top-link-block').removeClass('hidden').affix({
+			// how far to scroll down before link "slides" into view
+			offset: {top:100}
+		});
+	}
 }
 
 /**
@@ -299,9 +306,30 @@ var dataTablesOptions = {
 	"renderer"  : "bootstrap"
 };
 
+/**
+ * Affiche un message indiquant que la page demandée est en cours de chargement
+ */
+function displayLoadIcon(){
+	$('a').click(function(e){
+		var url = null;
+		var $this = $(this)[0];
+		if ($this.href.indexOf('#') > 0){
+			url = $this.href.split('#')[0];
+		}
+		var currentURI = window.location.href.split('#')[0];
+		if (url != currentURI || $(this).parents('.breadcrumb').length > 0){
+			setTimeout(function () {waitingDialog.show('Chargement', {dialogSize: 'lg', progressType: 'warning'})}, 200);
+		}
+	});
+	$('form').submit(function(){
+		setTimeout(function () {waitingDialog.show('Chargement', {dialogSize: 'lg', progressType: 'warning'})}, 200);
+	});
+}
+
 menuNavigation();
 bootstrapSwitch();
 ACLSwitchs();
 dbTables();
 confirmation();
 toolTips();
+displayLoadIcon();

@@ -46,3 +46,13 @@ footer, .push {
 .logo-highlight{
   color: @brand-primary;
 }
+
+#top-link-block.affix-top {
+  position: absolute; /* allows it to "slide" up into view */
+  left: -300px; /* padding from the left side of the window */
+}
+#top-link-block.affix {
+  position: fixed; /* keeps it on the bottom once in view */
+  left: 10px; /* padding from the left side of the window */
+  bottom: 10px
+}

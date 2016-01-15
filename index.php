@@ -162,6 +162,12 @@ if ((!$cUser->isLoggedIn() or $redirectToLogin) and AUTH_MANDATORY){
 				<?php Front::displayMainMenu(); ?>
 				<!-- Affichage du menu secondaire -->
 				<?php Front::displaySecondaryMenus(); ?>
+
+				<span id="top-link-block" class="hidden">
+			    <a href="#wrapper" class="btn btn-default btn-xs tooltip-top" title="Retourner en haut de la page" onclick="$('html,body').animate({scrollTop:0});return false;">
+				    <i class="fa fa-chevron-up"></i> Haut de page
+			    </a>
+				</span><!-- /top-link-block -->
 			</div>
 			<!-- Fin de la Sidebar -->
 			<!-- Page content -->

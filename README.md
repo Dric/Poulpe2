@@ -42,7 +42,8 @@ Les pretty URL (du type `http://poulpe2/module/FileBrowser`) sont disponibles se
 ## Composants externes
 
 - [Twitter Bootstrap](http://getbootstrap.com) 3.2.0 : est un framework html, css et javascript. En clair il peut gérer toute la partie affichage dès lors qu'on lui file quelque chose à afficher.
-- [Font Awesome](http://fortawesome.github.io/Font-Awesome/) 4.3.0 : ensemble d'icônes contenues dans une police d'écriture, remplaçant `Glyphicon` de Bootstrap.
+- [Yeti](https://bootswatch.com/yeti/) 3.3.6 : Thème pour Bootstrap
+- [Font Awesome](http://fortawesome.github.io/Font-Awesome/) 4.5.0 : ensemble d'icônes contenues dans une police d'écriture, remplaçant `Glyphicon` de Bootstrap.
 - [jQuery](http://jquery.com) 1.11.0 : framework Javascript utilisé par Bootstrap.
 - [Bootstrap Switch](http://www.bootstrap-switch.org) 3 : plugin jQuery qui change les cases à cocher en switch d'activation (similaire à ce qu'on voit sur les smartphones).
 - [PNotify Plugin](http://sciactive.com/pnotify/) 1.3.1 : plugin jQuery de notifications flottantes.
@@ -54,6 +55,7 @@ Les pretty URL (du type `http://poulpe2/module/FileBrowser`) sont disponibles se
 - [Bootstrap Validator](https://github.com/1000hz/bootstrap-validator) 0.5 : plugin jQuery et Bootstrap qui gère la validation des champs de formulaires
 - [Bootstrap v3 datetimepicker](https://github.com/Eonasdan/bootstrap-datetimepicker) 3.0.0 : Plugin jQuery de saisie de date et heure
 - [Autosize](http://www.jacklmoore.com/autosize/) 3.0.5 : Plugin jQuery permettant de changer dynamiquement la hauteur des Textareas pour qu'ils s'adaptent à leurs contenus
+- [bootstrap-waitingfor](https://github.com/ehpc/bootstrap-waitingfor) Affiche un modal pour patienter un peu pendant un chargement
 
 ## Installation
 
@@ -81,7 +83,7 @@ Paramètres de génération de doc (commande lancée à partir du répertoire ra
 
 ## Divers
 
-- Codé sous PHPStorm 7
+- Codé sous PHPStorm
 - Favicons générées sur <http://realfavicongenerator.net>
 - Expressions régulières créées à l'aide de <http://regex101.com>
 

@@ -294,7 +294,7 @@ class UsersTraces2 extends Module {
 						 * On récupère tous les événements de session depuis le dernier démarrage, avec les événements les plus récents en premier.
 						 * Le but est de récupérer tous les événements de fermeture qui n'ont pas de client renseigné, ainsi que de créer des événements de fermeture pour les sessions qui n'en ont pas.
 						 */
-						$sessionsDb = $db->query('SELECT * FROM module_userstraces2 WHERE `timestamp` >= '.$lastServerStart.' AND `server` = "'.$toDb['server'].'" ORDER BY `timestamp` DESC');
+						/*$sessionsDb = $db->query('SELECT * FROM module_userstraces2 WHERE `timestamp` >= '.$lastServerStart.' AND `server` = "'.$toDb['server'].'" ORDER BY `timestamp` DESC');
 						$badClosedSessions = $goodClosedSession = array();
 						foreach ($sessionsDb as $session){
 							switch ($session->event){
@@ -326,7 +326,7 @@ class UsersTraces2 extends Module {
 									}
 									break;
 							}
-						}
+						}*/
 						// On remet à zéro les sessions actives et déconnectées du serveur
 						//$sql = 'INSERT INTO `module_userstraces2_servers` (`server`, `actives`, `disconnected`) VALUES ("'.$toDb['server'].'", 0, 0) ON DUPLICATE KEY UPDATE `actives` = VALUES(`actives`), `disconnected` = VALUES(`disconnected`)';
 						//$db->query($sql);
@@ -373,11 +373,11 @@ class UsersTraces2 extends Module {
 				if (empty($sameEvents)) {
 					if ($toDb['event'] == 'Deconnexion') {
 						// Windows envoie systématiquement un événement de déconnexion après un événement de fermeture de session. Si la déconnexion fait suite à une fermeture, on ignore l'événement.
-						$closeEvent = $db->query('SELECT * FROM module_userstraces2 WHERE `timestamp` >= ' . (time() - $delay) . ' AND `server` = "' . $toDb['server'] . '" AND `app` = "' . $toDb['app'] . '" AND `user` = "' . $toDb['user'] . '" and `event` = "Fermeture"');
+						/*$closeEvent = $db->query('SELECT * FROM module_userstraces2 WHERE `timestamp` >= ' . (time() - $delay) . ' AND `server` = "' . $toDb['server'] . '" AND `app` = "' . $toDb['app'] . '" AND `user` = "' . $toDb['user'] . '" and `event` = "Fermeture"');
 						if (!empty($closeEvent)) {
 							echo json_encode(array('result' => 'ignored'));
 							exit();
-						}
+						}*/
 						// On incrémente le compteur de sessions déconnectées
 						//$db->query('UPDATE module_userstraces2_servers SET `actives` = IF(`actives > 0, `actives` - 1, 0), `disconnected` = `disconnected` + 1 WHERE `server` = "' . $toDb['server'] . '"');
 					} elseif ($toDb['event'] == 'Ouverture') {

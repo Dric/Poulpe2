@@ -45,7 +45,7 @@ class Select extends Field{
 	 * @param array     $choices        Choix possibles dans la liste sous forme de tableau associatif 'valeur' => 'libellé'
 	 * @param bool      $addEmpty       Valeur cochée par défaut dans la liste $choices ('all' pour cocher toutes les valeurs)
 	 */
-	public function __construct($name, $value, $label = null, $help = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false, $choices = null, $addEmpty = false){
+	public function __construct($name, $value = null, $label = null, $help = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false, $choices = null, $addEmpty = false){
 		$this->choices = (array)$choices;
 		$this->addEmpty = (bool)$addEmpty;
 		parent::__construct($name, $this->type, $value, $label, null, $help, null, $important, $ACLLevel, $class, $disabled);
@@ -88,7 +88,7 @@ class Select extends Field{
 	}
 
 	/**
-	 * Affichage du champ dans un table de bdd
+	 * Affichage du champ dans une table de bdd
 	 *
 	 * @param string      $tableName  Nom de la table
 	 * @param int|string  $rowId      ID de la ligne
@@ -116,4 +116,48 @@ class Select extends Field{
 		</select>
 	<?php
 	}
+
+	/**
+	 * Retourne la liste des choix
+	 *
+	 * @return \string[]
+	 */
+	public function getChoices() {
+		return $this->choices;
+	}
+
+	/**
+	 *
+	 * Ajoute un choix dans la liste des choix
+	 *
+	 * @param string $label Libellé du choix
+	 * @param string $value Valeur du choix
+	 *
+	 * @internal param \string[] $choices
+	 */
+	public function addChoice($label, $value) {
+		$this->choices[$value] = $label;
+	}
+
+	/**
+	 * Ajoute plusieurs choix dans la liste des choix
+	 *
+	 * @param \string[string] $choicesToAdd Choix à ajouter, sous la forme d'un tableau associatif 'valeur' => 'libellé'
+	 */
+	public function addChoices(array $choicesToAdd){
+		array_merge($this->choices, $choicesToAdd);
+	}
+
+	/**
+	 * Définit la liste des choix
+	 *
+	 * Si des choix existent déjà, ils seront écrasés.
+	 *
+	 * @param \string[] $choices
+	 *
+	 */
+	public function setChoices($choices) {
+		$this->choices = $choices;
+	}
+
 } 
