@@ -109,7 +109,7 @@ class UsersTraces2 extends Module {
 		$event->setPattern(new DbFieldSettings('text', true, 15, 'index'));
 		$client = new String('client');
 		$client->setPattern(new DbFieldSettings('text', false, 20, 'index'));
-		$session = new Int('$session');
+		$session = new Int('session');
 		$session->setPattern(new DbFieldSettings('number', true, 5));
 		$data = new String('data');
 		$data->setPattern(new DbFieldSettings('text', false, 80));
@@ -134,12 +134,13 @@ class UsersTraces2 extends Module {
 		$disconnectedSessions->setPattern(new DbFieldSettings('number', false, 3));
 		$lastStart = new Int('lastStart', 0);
 		$lastStart->setPattern(new DbFieldSettings('number', true, 10));
-		$server->setPattern(new DbFieldSettings('text', true, 25, 'unique'));
+		$server2 = new String('server');
+		$server2->setPattern(new DbFieldSettings('text', true, 25, 'unique'));
 		$id->setPattern(new DbFieldSettings('number', true, 3, 'primary', false, true));
 
 		$servers = new DbTable('module_userstraces2_servers', $this->name);
 		$servers->addField($id);
-		$servers->addField($server);
+		$servers->addField($server2);
 		$servers->addField($activeSessions);
 		$servers->addField($disconnectedSessions);
 		$servers->addField($lastStart);
@@ -240,8 +241,6 @@ class UsersTraces2 extends Module {
 							 */
 							$lastServerStart = (int)$db->getVal('module_userstraces2_servers', 'lastStart', array('server' => $toDb['server']));
 							if (empty($lastServerStart)) $lastServerStart = 0;
-							// On remet à 0 les compteurs de sessions
-							//$retU = $db->update('module_userstraces2_servers', array('actives' => 0, 'disconnected' => 0), array('server' => $toDb['server']));
 							// On récupère tous les événements de session depuis le dernier démarrage
 							$sessionsDb = $db->query('SELECT * FROM module_userstraces2 WHERE `timestamp` >= '.$lastServerStart.' AND `server` = "'.$toDb['server'].'" ORDER BY `timestamp`');
 							$openedSessions = array();
@@ -327,9 +326,6 @@ class UsersTraces2 extends Module {
 									break;
 							}
 						}*/
-						// On remet à zéro les sessions actives et déconnectées du serveur
-						//$sql = 'INSERT INTO `module_userstraces2_servers` (`server`, `actives`, `disconnected`) VALUES ("'.$toDb['server'].'", 0, 0) ON DUPLICATE KEY UPDATE `actives` = VALUES(`actives`), `disconnected` = VALUES(`disconnected`)';
-						//$db->query($sql);
 						$ret = $db->insert('module_userstraces2', $toDb);
 						break;
 					default:
@@ -368,32 +364,26 @@ class UsersTraces2 extends Module {
 				}
 				// On ne sait pas si le serveur est déjà répertorié dans la liste des serveurs. Pas de problème, on fait une insertion qui échouera silencieusement si le serveur existe déjà dans la base.
 				//$db->query('INSERT IGNORE INTO `module_userstraces2_servers` (`server`) VALUES ("'.$toDb['server'].'")');
+
 				// On cherche si l'événement n'est pas déjà dans la base, Windows ayant parfois tendance à envoyer plusieurs fois la même chose.
-				$sameEvents = $db->query('SELECT * FROM module_userstraces2 WHERE `server` = "'.$toDb['server'].'" AND `user` = "'.$toDb['user'].'" AND `event` = "'.$toDb['event'].'" AND `timestamp` > '.(time() - $delay));
-				if (empty($sameEvents)) {
+				$lastSameEvent = $db->query('SELECT event FROM module_userstraces2 WHERE `server` = "'.$toDb['server'].'" AND `user` = "'.$toDb['user'].'" AND `event` = "'.$toDb['event'].'" AND `timestamp` > '.(time() - $delay), 'val');
+				if ($lastSameEvent != $toDb['event'] or empty($lastSameEvent)) {
 					if ($toDb['event'] == 'Deconnexion') {
-						// Windows envoie systématiquement un événement de déconnexion après un événement de fermeture de session. Si la déconnexion fait suite à une fermeture, on ignore l'événement.
-						/*$closeEvent = $db->query('SELECT * FROM module_userstraces2 WHERE `timestamp` >= ' . (time() - $delay) . ' AND `server` = "' . $toDb['server'] . '" AND `app` = "' . $toDb['app'] . '" AND `user` = "' . $toDb['user'] . '" and `event` = "Fermeture"');
-						if (!empty($closeEvent)) {
-							echo json_encode(array('result' => 'ignored'));
-							exit();
-						}*/
-						// On incrémente le compteur de sessions déconnectées
-						//$db->query('UPDATE module_userstraces2_servers SET `actives` = IF(`actives > 0, `actives` - 1, 0), `disconnected` = `disconnected` + 1 WHERE `server` = "' . $toDb['server'] . '"');
 					} elseif ($toDb['event'] == 'Ouverture') {
-						// On incrémente le compteur de sessions actives
-						//$db->query('UPDATE module_userstraces2_servers SET `actives` = `actives` + 1 WHERE `server` = "' . $toDb['server'] . '"');
 					} elseif ($toDb['event'] == 'Reconnexion') {
-						// On incrémente le compteur de sessions actives tout en décrémentant le cmpteur de sessions inactives
-						//$db->query('UPDATE module_userstraces2_servers SET `actives` = `actives` + 1, `disconnected` = IF(`disconnected` > 0, `disconnected` - 1, 0) WHERE `server` = "' . $toDb['server'] . '"');
+						// On récupère l'événement de déconnexion survenu avant si celui-ci a le même nom de poste. Et on le supprime (SessionStateMonitor a tendance à renvoyer des événements de déconnexion/reconnexion fantômes en cas d'inactivité).
+						$lastUserEvent = $db->query('SELECT id, event FROM module_userstraces2 WHERE `timestamp` >= '.(time() - (30*60)).' AND `server` = "'.$toDb['server'].'" AND `user` = "'.$toDb['user'].'"  AND `client` = "'.$toDb['client'].'" ORDER BY `timestamp` DESC LIMIT 1', 'row');
+						if ($lastUserEvent->event == 'Deconnexion'){
+							$db->delete('module_userstraces2', array('id' => $lastUserEvent->id));
+							echo json_encode(array('result' => 'deleted'));
+							break;
+						}
 					} else {
 						// Fermeture de session
 						// On récupère le nom du client depuis un événement de connexion/reconnexion car les fermetures de sessions ne le renvoient pas
 						If ($toDb['client'] == null){
 							$toDb['client'] = $db->query('SELECT client FROM module_userstraces2 WHERE `server` = "' . $toDb['server'] . '" AND `app` = "' . $toDb['app'] . '" AND `user` = "' . $toDb['user'] . '" and `session` = "'.$toDb['session'].'" and `event` IN ("Reconnexion", "Ouverture") ORDER BY `timestamp` DESC LIMIT 1', 'val');
 						}
-						// On décrémente le compteur de sessions actives
-						//$db->query('UPDATE module_userstraces2_servers SET `actives` = IF(`actives` > 0, `actives` - 1, 0) WHERE `server` = "' . $toDb['server'] . '"');
 					}
 					$ret = $db->insert('module_userstraces2', $toDb);
 					if ($ret) {

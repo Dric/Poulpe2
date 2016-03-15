@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/Modules/BandesTina/BandesTina.php" line="293" mnemonic="1" />
     <bookmark url="file://$PROJECT_DIR$/Modules/BandesTina/BandesTina.php" line="194" mnemonic="2" />
+    <bookmark url="file://$PROJECT_DIR$/Modules/UsersTraces2/UsersTraces2.php" line="374" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b517d7b-6e6e-44e4-a303-f637474520ff" name="Default" comment="- Ajout de module `UsersTraces2`, qui archive les événements de connexion des utilisateurs sur la ferme Citrix XenApp 7.6&#10;">
@@ -35,12 +35,10 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/highcharts/graphics/skies.jpg" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/highcharts/graphics/snow.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/highcharts/graphics/sun.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Modules/Charts/Charts.php" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/Charts/Axis.php" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/Charts/Chart.php" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/Charts/Serie.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/bootstrap-waitingfor.min.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/highcharts/api/css/font-awesome.min.css" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/highcharts/api/css/jquery-ui.min.css" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/highcharts/api/css/ref.css" />
@@ -168,37 +166,9 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/highcharts/js/themes/grid.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/highcharts/js/themes/sand-signika.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/highcharts/js/themes/skies.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fonts/FontAwesome.otf" afterPath="$PROJECT_DIR$/fonts/FontAwesome.otf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fonts/fontawesome-webfont.eot" afterPath="$PROJECT_DIR$/fonts/fontawesome-webfont.eot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fonts/fontawesome-webfont.ttf" afterPath="$PROJECT_DIR$/fonts/fontawesome-webfont.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fonts/fontawesome-webfont.woff" afterPath="$PROJECT_DIR$/fonts/fontawesome-webfont.woff" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fonts/fontawesome-webfont.woff2" afterPath="$PROJECT_DIR$/fonts/fontawesome-webfont.woff2" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/BandesTina/BandesTina.php" afterPath="$PROJECT_DIR$/Modules/BandesTina/BandesTina.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/UserInfo/UserInfo.php" afterPath="$PROJECT_DIR$/Modules/UserInfo/UserInfo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/UsersTraces/UsersTraces.php" afterPath="$PROJECT_DIR$/Modules/UsersTraces/UsersTraces.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/UsersTraces2/UsersTraces2.php" afterPath="$PROJECT_DIR$/Modules/UsersTraces2/UsersTraces2.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Check.php" afterPath="$PROJECT_DIR$/classes/Check.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Forms/Field.php" afterPath="$PROJECT_DIR$/classes/Forms/Field.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Forms/Fields/Select.php" afterPath="$PROJECT_DIR$/classes/Forms/Fields/Select.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Front.php" afterPath="$PROJECT_DIR$/classes/Front.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Ldap/Ldap.php" afterPath="$PROJECT_DIR$/classes/Ldap/Ldap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Users/LDAPUser.php" afterPath="$PROJECT_DIR$/classes/Users/LDAPUser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Users/UsersManagement.php" afterPath="$PROJECT_DIR$/classes/Users/UsersManagement.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/less/external/font-awesome/bordered-pulled.less" afterPath="$PROJECT_DIR$/css/less/external/font-awesome/bordered-pulled.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/less/external/font-awesome/core.less" afterPath="$PROJECT_DIR$/css/less/external/font-awesome/core.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/less/external/font-awesome/font-awesome.less" afterPath="$PROJECT_DIR$/css/less/external/font-awesome/font-awesome.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/less/external/font-awesome/icons.less" afterPath="$PROJECT_DIR$/css/less/external/font-awesome/icons.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/less/external/font-awesome/mixins.less" afterPath="$PROJECT_DIR$/css/less/external/font-awesome/mixins.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/less/external/font-awesome/variables.less" afterPath="$PROJECT_DIR$/css/less/external/font-awesome/variables.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/less/external/yeti-bootswatch.less" afterPath="$PROJECT_DIR$/css/less/external/yeti-bootswatch.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/less/external/yeti-variables.less" afterPath="$PROJECT_DIR$/css/less/external/yeti-variables.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/less/internal/front.less" afterPath="$PROJECT_DIR$/css/less/internal/front.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/poulpe2.css" afterPath="$PROJECT_DIR$/css/poulpe2.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fonts/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/fonts/fontawesome-webfont.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/poulpe2.js" afterPath="$PROJECT_DIR$/js/poulpe2.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Admin/Admin.php" afterPath="$PROJECT_DIR$/classes/Admin/Admin.php" />
     </list>
     <ignored path="tools2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -286,39 +256,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Charts.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Modules/Charts/Charts.php">
+      <file leaf-file-name="UsersTraces2.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Modules/UsersTraces2/UsersTraces2.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-123.75">
-              <caret line="202" column="60" selection-start-line="202" selection-start-column="60" selection-end-line="202" selection-end-column="60" />
+            <state vertical-scroll-proportion="0.4596871">
+              <caret line="377" column="35" selection-start-line="377" selection-start-column="35" selection-end-line="377" selection-end-column="35" />
               <folding>
-                <element signature="e#93#113#0#PHP" expanded="true" />
+                <marker date="1458036185000" expanded="true" signature="8549:8676" placeholder="SELECT * FRO... module_userstraces2" />
+                <marker date="1458036185000" expanded="true" signature="9303:9436" placeholder="SELECT * FRO... module_userstraces2" />
+                <marker date="1458036185000" expanded="true" signature="10888:11066" placeholder="INSERT INTO `module_userstraces2_servers`... " />
+                <marker date="1458036185000" expanded="true" signature="15126:15289" placeholder="SELECT * FRO... module_userstraces2" />
+                <marker date="1458036185000" expanded="true" signature="15796:15969" placeholder="SELECT * FRO... module_userstraces2" />
+                <marker date="1458036185000" expanded="true" signature="15796:16010" placeholder="SELECT * FRO... module_userstraces2" />
+                <marker date="1458036185000" expanded="true" signature="15796:16023" placeholder="SELECT id FR... module_userstraces2" />
+                <marker date="1458036185000" expanded="true" signature="16491:16761" placeholder="SELECT clien... module_userstraces2" />
+                <marker date="1458036185000" expanded="true" signature="17413:17515" placeholder="SELECT * FRO... module_userstraces2" />
+                <marker date="1458036185000" expanded="true" signature="21896:22262" placeholder="..." />
+                <marker date="1458036185000" expanded="true" signature="21904:22250" placeholder="..." />
+                <marker date="1458036185000" expanded="true" signature="22273:22351" placeholder="..." />
+                <marker date="1458036185000" expanded="true" signature="22330:22351" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Chart.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/Charts/Chart.php">
+      <file leaf-file-name="Db.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/Db/Db.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-26.958334">
-              <caret line="257" column="15" selection-start-line="257" selection-start-column="15" selection-end-line="257" selection-end-column="15" />
+            <state vertical-scroll-proportion="-11.875">
+              <caret line="159" column="30" selection-start-line="159" selection-start-column="30" selection-end-line="159" selection-end-column="30" />
               <folding>
-                <element signature="e#85#93#0#PHP" expanded="true" />
+                <marker date="1427795678000" expanded="true" signature="9822:9935" placeholder="INSERT INTO `${htmlspecialchars($table)}`... " />
+                <marker date="1427795678000" expanded="true" signature="13340:13389" placeholder="DELETE FROM " />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Modules/BandesTina/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="FIRST">
-              <first_editor vertical-scroll-proportion="0.0">
-                <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
             </state>
           </provider>
         </entry>
@@ -326,17 +296,17 @@
       <file leaf-file-name="LDAPUser.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/Users/LDAPUser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
+            <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UsersManagement.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UsersManagement.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/Users/UsersManagement.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.3652276">
+            <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <marker date="1450179281000" expanded="true" signature="900:921" placeholder="SELECT * FRO... users" />
@@ -348,7 +318,7 @@
       <file leaf-file-name="Select.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/Forms/Fields/Select.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.083333">
+            <state vertical-scroll-proportion="0.0">
               <caret line="135" column="39" selection-start-line="135" selection-start-column="39" selection-end-line="135" selection-end-column="39" />
               <folding />
             </state>
@@ -527,13 +497,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/classes/API/APIManagement.php" />
         <option value="$PROJECT_DIR$/classes/API/API.php" />
         <option value="$PROJECT_DIR$/Modules/UsersTraces2/UsersTraces2.js" />
         <option value="$PROJECT_DIR$/classes/Components/Item.php" />
         <option value="$PROJECT_DIR$/Modules/ModuleCreator/ModuleCreator.php" />
         <option value="$PROJECT_DIR$/Modules/UsersTraces2/searchForm.js" />
-        <option value="$PROJECT_DIR$/classes/Db/Db.php" />
         <option value="$PROJECT_DIR$/Modules/DenyAppAccess/App.php" />
         <option value="$PROJECT_DIR$/Modules/DenyAppAccess/DenyAppAccess.php" />
         <option value="$PROJECT_DIR$/classes/FileSystem/Fs.php" />
@@ -555,7 +523,6 @@
         <option value="$PROJECT_DIR$/classes/Users/LDAPUser.php" />
         <option value="$PROJECT_DIR$/Modules/UserInfo/UserInfo.php" />
         <option value="$PROJECT_DIR$/Modules/BandesTina/BandesTina.php" />
-        <option value="$PROJECT_DIR$/Modules/UsersTraces2/UsersTraces2.php" />
         <option value="$PROJECT_DIR$/classes/Settings/config.php" />
         <option value="$PROJECT_DIR$/classes/Users/UsersManagement.php" />
         <option value="$PROJECT_DIR$/classes/Ldap/Ldap.php" />
@@ -578,6 +545,9 @@
         <option value="$PROJECT_DIR$/css/less/external/yeti-variables.less" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/classes/Charts/Chart.php" />
+        <option value="$PROJECT_DIR$/classes/Db/Db.php" />
+        <option value="$PROJECT_DIR$/classes/Admin/Admin.php" />
+        <option value="$PROJECT_DIR$/Modules/UsersTraces2/UsersTraces2.php" />
       </list>
     </option>
   </component>
@@ -707,7 +677,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -1003,171 +972,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="highcharts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="highcharts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="bootstrap-switch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="less" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="less" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="internal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="less" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="external" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="less" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bootstrap3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="less" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bootstrap3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mixins" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1457,6 +1262,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1465,7 +1271,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="T:/fei" />
     <property name="recentsLimit" value="5" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
@@ -1492,23 +1298,23 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="915" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
-    <property name="settings.editor.selected.configurable" value="lessc" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Language Defaults" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="T:\tools\classes\API" />
-      <recent name="T:\tools\classes\FileSystem" />
-      <recent name="T:\tools\classes" />
-      <recent name="T:\test\admin\tools2\classes\FileSystem" />
-      <recent name="T:\test\admin\tools2\classes\Modules" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="T:\tools\classes\Forms\Fields" />
       <recent name="T:\tools\Modules\UsersTraces2" />
       <recent name="T:\tools\classes\FileSystem\phpSecLib" />
       <recent name="T:\test\admin\tools2\Modules\FileBrowser" />
       <recent name="T:\test\admin\tools2\classes\Forms\Fields" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="T:\tools\classes\API" />
+      <recent name="T:\tools\classes\FileSystem" />
+      <recent name="T:\tools\classes" />
+      <recent name="T:\test\admin\tools2\classes\FileSystem" />
+      <recent name="T:\test\admin\tools2\classes\Modules" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.index.php">
@@ -1607,12 +1413,6 @@
       <created>1394612367537</created>
       <option name="number" value="Default" />
       <updated>1394612367537</updated>
-    </task>
-    <task id="LOCAL-00018" summary="- Suppression de l'argument $id dans les objets Field&#10;- Correction de bugs suite à l'ajout d'un jeton de sécurité dans les formulaires&#10;- Corrections de bugs&#10;- On peut maintenant choisir l'ordre d'affichage des Post-it dans le module Post-it.">
-      <created>1405596378391</created>
-      <option name="number" value="00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1405596378391</updated>
     </task>
     <task id="LOCAL-00019" summary="- Correction d'un bug dans la classe Fs pour retrouver les métadonnées d'un fichier&#10;- Le fichier de config peut maintenant être modifié depuis l'admin en changeant dynamiquement les permissions et en les remettant une fois le fichier modifié.&#10;- Changement de l'ordre des arguments pour les objets JSSwitch, car les arguments les plus utilisés étaient passés en dernier&#10;- Suppression des jetons de sécurité au bout de 4 heures&#10;- Correction de bugs et améliorations diverses dans les modules&#10;">
       <created>1405604996847</created>
@@ -1902,7 +1702,13 @@
       <option name="project" value="LOCAL" />
       <updated>1444806727267</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="- BugFixes + améliorations diverses">
+      <created>1452856161184</created>
+      <option name="number" value="00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1452856161187</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1910,7 +1716,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20660277" sideWeight="0.49946064" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22151224" sideWeight="0.49946064" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32829374" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32686085" sideWeight="0.5021763" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1972,7 +1778,6 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="- Contournement des limitations de php 32bits sur des fichiers ayant une taille supérieure à 2Go dans la classe \FileSystem\File.&#10;- L'authentification des partages samba est contenue dans un fichier dfs_creds qui doit être placé dans /classes/FileSystem&#10;- Doc de code mise à jour.&#10;- Salage du cookie modifié pour pouvoir conserver la connexion depuis différents postes simultanément.&#10;- Visualisation des fichiers texte corrigée et améliorée.&#10;&#10;" />
     <MESSAGE value="- Correction d'un bug dans le module BandesTina.&#10;" />
     <MESSAGE value="- Ajout de doc de code&#10;- Correction d'un bug sur les clés étrangères dans l'installation des tables SQL&#10;- Correction d'un bug dans l'affichage de l'écran d'édition des Post-It.&#10;" />
     <MESSAGE value="Amélioration de l'aide pour les bandes de sauvegarde dans le module BandesTina&#10;" />
@@ -1997,7 +1802,8 @@
     <MESSAGE value="- Corrections diverses de petits bugs embêtants mais non bloquants&#10;- Ajout du numéro de session dans les logs de connexion v2, utilisés pour lier de façon plus sûre les événements&#10;- Ajout d'une saisie de plage de serveurs dans le dupliqueur de fichiers&#10;" />
     <MESSAGE value="- Ajout d'un plugin javascript `autosize` permettant d'adapeter automatiquement la hauteur d'un textarea à son contenu.&#10;" />
     <MESSAGE value="- Correction d'un bug dans les ACL&#10;- Correction d'un bug dans le module Dupliqueur (les plages de serveurs n'étaient pas prises en compte lors de la copie)&#10;- Inversion du sens d'affichage des logs de déplacement de boîtes Exchange dans le module Mailboxes&#10;- Meilleure gestion du nom de poste dans le module UsersTraces2&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Correction d'un bug dans les ACL&#10;- Correction d'un bug dans le module Dupliqueur (les plages de serveurs n'étaient pas prises en compte lors de la copie)&#10;- Inversion du sens d'affichage des logs de déplacement de boîtes Exchange dans le module Mailboxes&#10;- Meilleure gestion du nom de poste dans le module UsersTraces2&#10;" />
+    <MESSAGE value="- BugFixes + améliorations diverses" />
+    <option name="LAST_COMMIT_MESSAGE" value="- BugFixes + améliorations diverses" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2018,27 +1824,6 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/classes/Components/Item.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.25">
-          <caret line="66" column="79" selection-start-line="66" selection-start-column="79" selection-end-line="66" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/bootstrap-waitingfor.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="279" selection-start-line="0" selection-start-column="279" selection-end-line="0" selection-end-column="279" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Modules/ModulesManagement.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44755244">
-          <caret line="158" column="35" selection-start-line="158" selection-start-column="35" selection-end-line="158" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Modules/CHGS/CHGS.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.625">
@@ -2137,13 +1922,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Modules/UsersTraces2/UsersTraces2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="438" column="23" selection-start-line="438" selection-start-column="6" selection-end-line="438" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classes/Forms/Fields/Table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2162,7 +1940,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2170,7 +1947,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2178,7 +1954,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2193,7 +1968,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2201,70 +1975,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34265736">
           <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Get.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="25" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Check.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="101" column="58" selection-start-line="101" selection-start-column="58" selection-end-line="101" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/poulpe2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="214" column="23" selection-start-line="214" selection-start-column="23" selection-end-line="214" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/less/poulpe2.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/less/internal/variables.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/less/internal/fixes.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/less/internal/front.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="1" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="166" column="70" selection-start-line="166" selection-start-column="70" selection-end-line="166" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2303,6 +2013,80 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/Charts/Charts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="202" column="60" selection-start-line="202" selection-start-column="60" selection-end-line="202" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Charts/Chart.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.458334">
+          <caret line="244" column="47" selection-start-line="244" selection-start-column="47" selection-end-line="244" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/BandesTina/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor vertical-scroll-proportion="0.0">
+            <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Users/LDAPUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Users/UsersManagement.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1450179281000" expanded="true" signature="900:921" placeholder="SELECT * FRO... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Forms/Fields/Select.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="135" column="39" selection-start-line="135" selection-start-column="39" selection-end-line="135" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="166" column="70" selection-start-line="166" selection-start-column="70" selection-end-line="166" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44609666">
+          <caret line="49" column="27" selection-start-line="49" selection-start-column="27" selection-end-line="49" selection-end-column="27" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor vertical-scroll-proportion="0.0">
+            <caret line="43" column="52" selection-start-line="43" selection-start-column="52" selection-end-line="43" selection-end-column="52" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/css/less/bootstrap3/bootstrap.less">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2329,26 +2113,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.0">
-            <caret line="43" column="52" selection-start-line="43" selection-start-column="52" selection-end-line="43" selection-end-column="52" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44609666">
-          <caret line="49" column="27" selection-start-line="49" selection-start-column="27" selection-end-line="49" selection-end-column="27" />
+    <entry file="file://$PROJECT_DIR$/js/poulpe2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="214" column="23" selection-start-line="214" selection-start-column="23" selection-end-line="214" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Charts/Serie.php">
+    <entry file="file://$PROJECT_DIR$/css/less/internal/front.less">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="61" selection-start-line="26" selection-start-column="61" selection-end-line="26" selection-end-column="61" />
+          <caret line="52" column="1" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/less/internal/variables.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/less/internal/fixes.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/less/poulpe2.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Get.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="25" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Check.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="101" column="58" selection-start-line="101" selection-start-column="58" selection-end-line="101" selection-end-column="58" />
           <folding />
         </state>
       </provider>
@@ -2363,59 +2179,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Forms/Fields/Select.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.083333">
-          <caret line="135" column="39" selection-start-line="135" selection-start-column="39" selection-end-line="135" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Modules/Charts/Charts.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-123.75">
-          <caret line="202" column="60" selection-start-line="202" selection-start-column="60" selection-end-line="202" selection-end-column="60" />
-          <folding>
-            <element signature="e#93#113#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Charts/Chart.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-26.958334">
-          <caret line="257" column="15" selection-start-line="257" selection-start-column="15" selection-end-line="257" selection-end-column="15" />
-          <folding>
-            <element signature="e#85#93#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Modules/BandesTina/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.0">
-            <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Users/LDAPUser.php">
+    <entry file="file://$PROJECT_DIR$/classes/Charts/Serie.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="26" column="61" selection-start-line="26" selection-start-column="61" selection-end-line="26" selection-end-column="61" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Users/UsersManagement.php">
+    <entry file="file://$PROJECT_DIR$/classes/Admin/Admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3652276">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.2730455">
+          <caret line="659" column="11" selection-start-line="659" selection-start-column="2" selection-end-line="659" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/PDO.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3418903">
+          <caret line="1009" column="18" selection-start-line="1009" selection-start-column="18" selection-end-line="1009" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Db/Db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.875">
+          <caret line="159" column="30" selection-start-line="159" selection-start-column="30" selection-end-line="159" selection-end-column="30" />
           <folding>
-            <marker date="1450179281000" expanded="true" signature="900:921" placeholder="SELECT * FRO... users" />
+            <marker date="1427795678000" expanded="true" signature="9822:9935" placeholder="INSERT INTO `${htmlspecialchars($table)}`... " />
+            <marker date="1427795678000" expanded="true" signature="13340:13389" placeholder="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/UsersTraces2/UsersTraces2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4596871">
+          <caret line="377" column="35" selection-start-line="377" selection-start-column="35" selection-end-line="377" selection-end-column="35" />
+          <folding>
+            <marker date="1458036185000" expanded="true" signature="8549:8676" placeholder="SELECT * FRO... module_userstraces2" />
+            <marker date="1458036185000" expanded="true" signature="9303:9436" placeholder="SELECT * FRO... module_userstraces2" />
+            <marker date="1458036185000" expanded="true" signature="10888:11066" placeholder="INSERT INTO `module_userstraces2_servers`... " />
+            <marker date="1458036185000" expanded="true" signature="15126:15289" placeholder="SELECT * FRO... module_userstraces2" />
+            <marker date="1458036185000" expanded="true" signature="15796:15969" placeholder="SELECT * FRO... module_userstraces2" />
+            <marker date="1458036185000" expanded="true" signature="15796:16010" placeholder="SELECT * FRO... module_userstraces2" />
+            <marker date="1458036185000" expanded="true" signature="15796:16023" placeholder="SELECT id FR... module_userstraces2" />
+            <marker date="1458036185000" expanded="true" signature="16491:16761" placeholder="SELECT clien... module_userstraces2" />
+            <marker date="1458036185000" expanded="true" signature="17413:17515" placeholder="SELECT * FRO... module_userstraces2" />
+            <marker date="1458036185000" expanded="true" signature="21896:22262" placeholder="..." />
+            <marker date="1458036185000" expanded="true" signature="21904:22250" placeholder="..." />
+            <marker date="1458036185000" expanded="true" signature="22273:22351" placeholder="..." />
+            <marker date="1458036185000" expanded="true" signature="22330:22351" placeholder="..." />
           </folding>
         </state>
       </provider>
