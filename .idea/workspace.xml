@@ -175,7 +175,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Modules/Module.php" afterPath="$PROJECT_DIR$/classes/Modules/Module.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Modules/ModulesManagement.php" afterPath="$PROJECT_DIR$/classes/Modules/ModulesManagement.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Sanitize.php" afterPath="$PROJECT_DIR$/classes/Sanitize.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Users/ACL.php" afterPath="$PROJECT_DIR$/classes/Users/ACL.php" />
     </list>
     <ignored path="tools2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -266,7 +265,7 @@
       <file leaf-file-name="UsersTraces2.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Modules/UsersTraces2/UsersTraces2.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.14054054">
+            <state vertical-scroll-proportion="0.09101517">
               <caret line="416" column="26" selection-start-line="416" selection-start-column="26" selection-end-line="416" selection-end-column="26" />
               <folding>
                 <marker date="1458645368000" expanded="true" signature="8665:8792" placeholder="SELECT * FRO... module_userstraces2" />
@@ -1342,12 +1341,6 @@
       <option name="number" value="Default" />
       <updated>1394612367537</updated>
     </task>
-    <task id="LOCAL-00021" summary="- Classe Arg remplacée par une classe Filter&#10;- Corrections/améliorations de classes de champs de formulaires&#10;- Correction d'un bug à la connexion du premier utilisateur en authentification sql&#10;">
-      <created>1405938010123</created>
-      <option name="number" value="00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1405938010123</updated>
-    </task>
     <task id="LOCAL-00022" summary="- Corrections dans les classes Filter et Get&#10;">
       <created>1405939957868</created>
       <option name="number" value="00022" />
@@ -1636,7 +1629,13 @@
       <option name="project" value="LOCAL" />
       <updated>1458645565315</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="Correction d'un bug qui permettait d'ignorer les ACL pour un utilisateur anonyme si l'authentification est paramétrée en obligatoire.&#10;">
+      <created>1458645672301</created>
+      <option name="number" value="00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1458645672301</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1649,7 +1648,7 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901832" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32686085" sideWeight="0.5021763" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3264865" sideWeight="0.49782372" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3264865" sideWeight="0.49782372" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3257821" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24972796" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279396" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1707,7 +1706,6 @@
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Amélioration de l'aide pour les bandes de sauvegarde dans le module BandesTina&#10;" />
     <MESSAGE value="Ajout du temps de génération de la page si le mode DEBUG est activé&#10;Correction d'un bug de montage de partages réseau&#10;" />
     <MESSAGE value="- Prise en charge des serveurs LDAP via leur IP&#10;- Meilleurs performances sur la recherche de groupes LDAP&#10;- Certaines informations LDAP concernant l'utilisateur connecté ne sont plus automatiquement remontées pour des raisons de performance&#10;" />
     <MESSAGE value="- La gestion des droits d'accès a été revue, elle est maintenant bien plus sécurisée.&#10;- On peut modifier sur une page l'ensemble des droits d'accès d'un utilisateur&#10;- La méthode PostedData::checkToken est maintenant accessible publiquement&#10;- Si le mode DEBUG est activé, un cookie est créé afin de pouvoir faire du profilage via Xdebug et WebGrind&#10;" />
@@ -1732,7 +1730,8 @@
     <MESSAGE value="- BugFixes + améliorations diverses" />
     <MESSAGE value="Prise en compte d'événements fantômes de déconnexion/reconnexion dans le module userstraces2 dûs à SessionStateMonitor.&#10;&#10;La paire d'événements de déco/reco est ignorée si le nom de client est le même et que la durée de déconnexion ne dépasse pas une demi-heure.&#10;" />
     <MESSAGE value="- Ajout de l'information d'architecture du serveur (32 ou 64 bits) dans le panneau d'admin&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Ajout de l'information d'architecture du serveur (32 ou 64 bits) dans le panneau d'admin&#10;" />
+    <MESSAGE value="Correction d'un bug qui permettait d'ignorer les ACL pour un utilisateur anonyme si l'authentification est paramétrée en obligatoire.&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correction d'un bug qui permettait d'ignorer les ACL pour un utilisateur anonyme si l'authentification est paramétrée en obligatoire.&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2179,7 +2178,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Modules/UsersTraces2/UsersTraces2.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14054054">
+        <state vertical-scroll-proportion="0.09101517">
           <caret line="416" column="26" selection-start-line="416" selection-start-column="26" selection-end-line="416" selection-end-column="26" />
           <folding>
             <marker date="1458645368000" expanded="true" signature="8665:8792" placeholder="SELECT * FRO... module_userstraces2" />

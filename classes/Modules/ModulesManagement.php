@@ -84,6 +84,19 @@ class ModulesManagement {
 	}
 
 	/**
+	 * Vérifie si un module est activé
+	 *
+	 * @param string $moduleClass Classe du module
+	 * @return bool
+	 */
+	public static function isActiveModule($moduleClass){
+		foreach (self::getActiveModules() as $activeModule){
+			if ($moduleClass == $activeModule->class) return true;
+		}
+		return false;
+	}
+
+	/**
 	 * Retourne le chemin du fichier principal d'un module
 	 * @param string $moduleName Nom du module
 	 *

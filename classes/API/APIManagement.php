@@ -6,7 +6,9 @@
  */
 
 namespace API;
+use Front;
 use Modules\Module;
+use Modules\ModulesManagement;
 
 /**
  * Classe de gestion des APIs
@@ -45,6 +47,8 @@ class APIManagement {
 
 	/**
 	 * Vérifie si une API est appelée
+	 *
+	 * Cette méthode est appelée via index.php à chaque chargement de page
 	 */
 	public static function checkAPIRequest(){
 		$requestURI = htmlspecialchars(trim(str_replace(basename(dirname($_SERVER['PHP_SELF'])), '', trim($_SERVER['REQUEST_URI'], '/')), '/'));
@@ -57,12 +61,41 @@ class APIManagement {
 				$API = self::$APIs[$requestedAPI];
 				if ($API->isActive){
 					$API->populateParams(str_replace('api/', '', $requestURI));
-					/** @var Module $module */
-					$module = new $API->moduleClass;
-					$module->runAPI();
+					$moduleName = $API->moduleClass;
+					if (ModulesManagement::isActiveModule($moduleName)){
+						header('Content-Type: application/json; charset=utf-8');
+						/** @var Module $module */
+						$module = new $moduleName($API->bypassACL);
+						$module->{$API->methodName}();
+						exit();
+					}
 				}
 			}
 		}
 	}
 
+	/**
+	 * Envoie une requête vers une API via cURL (sorte de requête asynchrone avec PHP)
+	 *
+	 * Si l'url commence par `api/`, elle est automatiquement complétée par l'url de base des POIs
+	 *
+	 * @param string $url URL de la requête vers l'API
+	 *
+	 * @return array
+	 */
+	public static function sendAPIRequest($url){
+		if (ltrim(substr($url, 0, 4), '/') == 'api/'){
+			$url = Front::getBaseUrl().'/'.ltrim($url, '/');
+		}
+		$curl = curl_init();
+		curl_setopt($curl, CURLOPT_URL, $url);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		// On fait passer le cookie d'authentification
+		curl_setopt($curl, CURLOPT_COOKIE, COOKIE_NAME.'='.urlencode($_COOKIE[COOKIE_NAME]));
+		curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+		curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 3);
+		$curlResult = curl_exec($curl);
+		curl_close($curl);
+		return json_decode($curlResult, true);
+	}
 }

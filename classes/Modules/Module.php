@@ -91,8 +91,10 @@ class Module {
 
 	/**
 	 * Instantiation du module
+	 *
+	 * @param bool $bypassACL Ne vérifie pas les ACL - A utiliser avec prudence
 	 */
-	public function __construct(){
+	public function __construct($bypassACL = false){
 		// On vérifie si le module est activé dans la bdd
 		if (!$this->inDb() and !in_array($this->name, array('home', 'admin', 'userProfile'))){
 			// S'il ne l'est pas, on l'installe (s'il est demandé et non actif, c'est forcément qu'on veut l'installer)
@@ -100,7 +102,7 @@ class Module {
 			$this->id = ModulesManagement::activateModule($this);
 			if (!$this->install()) ModulesManagement::disableModule($this);
 		}
-		if ($this->name != 'home'){
+		if ($this->name != 'home' and !$bypassACL){
 			$this->checkACL();
 		}
 		$module = explode('\\', get_class($this));

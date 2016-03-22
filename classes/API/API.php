@@ -22,13 +22,14 @@ use Modules\ModulesManagement;
  * Depuis un module, pour déclarer et activer une API, il suffit de redéfinir la méthode `initModuleLoading()` :
  * <code>
  * public static function initModuleLoading(){
- *  \API\APIManagement::setAPIs(new API('traces', get_class(), ':server/:app/:user/:event/:data'));
+ *  \API\APIManagement::setAPIs(new API('traces', get_class(), 'APIgetEvents', ':server/:app/:user/:event/:data'));
  * }
  * </code>
  * <h5>Usage</h5>
  * La récupération des appels à l'API est automatiquement traitée par la classe `APIManagement`.
  *
- * Il faut définir une méthode `runAPI()` au sein du module dans lequel est déclaré l'API pour pouvoir traiter les requêtes.
+ * Il faut définir une méthode `APIgetEvents()` au sein du module dans lequel est déclaré l'API pour pouvoir traiter les requêtes.
+ * On peut ainsi définir plusieurs API pour un module grâce au nom de la méthode.
  *
  * Cette méthode pourra récupérer l'API avec `APIManagement::getAPI('traces')` (ou `traces` est le nom déclaré de l'API)
  *
@@ -49,7 +50,9 @@ use Modules\ModulesManagement;
  * @property-read bool    $isActive     Vérifie qu'une API est active
  * @property-read string  $name         Nom de l'API
  * @property-read string  $moduleClass  Module propriétaire de l'API
+ * @property-read string  $methodName   Nom de la méthode appelée par l'API au sein du module
  * @property-read string  $params       Paramètres de l'API
+ * @property-read string  $bypassACL    Passe outre les ACL si `true` pour permettre un accès anonyme
  *
  * @package API
  */
@@ -61,6 +64,10 @@ class API {
 	protected $moduleClass = null;
 	/** @var int Version de l'API */
 	public $version = 0;
+	/** @var bool Passer outre les ACL pour avoir une API accessible en anonyme */
+	protected $bypassACL = false;
+	/** @var string Fonction appelée par l'API au sein du module */
+	protected $methodName = 'runAPI';
 	/** @var bool Si `false`, l'API est désactivée car le module vers lequel elle est redirigée n'est pas actif */
 	protected $active = false;
 	/** @var string Arguments passés dans l'URL */
@@ -75,10 +82,12 @@ class API {
 	 *
 	 * @param string $name        Nom de l'API
 	 * @param string $moduleClass Classe de module vers laquelle rediriger l'API
+	 * @param string $methodName  Nom de la méthode appelée par l'API au sein du module. `runAPI` par défaut
 	 * @param string $args        Gabarit de l'API (de type :var1/:var2/:var3)
+	 * @param bool   $bypassACL   Passe outre les ACL si `true` pour permettre un accès anonyme
 	 * @param int    $version     Version de l'API (facultatif)
 	 */
-	public function __construct($name, $moduleClass, $args = '', $version = 1){
+	public function __construct($name, $moduleClass, $methodName, $args = '', $bypassACL = false, $version = 1){
 		$this->name = $name;
 		$activeModules = ModulesManagement::getActiveModules();
 		foreach ($activeModules as $activeModule){
@@ -88,6 +97,8 @@ class API {
 				break;
 			}
 		}
+		$this->methodName = $methodName;
+		$this->bypassACL = (bool)$bypassACL;
 		if (!$this->active) {
 			new Alert('debug', 'La classe de module <code>'.$moduleClass.'</code> est introuvable dans les modules actifs !');
 		}
@@ -151,7 +162,9 @@ class API {
 			case 'isActive':    return $this->active;
 			case 'name':        return $this->name;
 			case 'moduleClass': return $this->moduleClass;
+			case 'methodName' : return $this->methodName;
 			case 'params':      return $this->params;
+			case 'bypassACL' :  return $this->bypassACL;
 			default:            return null;
 		}
 	}
