@@ -9,8 +9,10 @@
 namespace Modules\UserInfo;
 
 
+use API\APIManagement;
 use Components\Help;
 use Components\Item;
+use DateInterval;
 use Forms\Fields\Button;
 use Forms\Fields\String;
 use Front;
@@ -144,7 +146,43 @@ class UserInfo extends Module{
 			<?php } ?>
 
 			<li>Créé le <strong><?php echo Sanitize::date(Sanitize::ADToUnixTimestamp($user['whencreated'][0]), 'dateTime'); ?></strong></li>
-			<li>Dernière connexion le <strong><?php echo Sanitize::date($ldap->lastlogon($userSearched), 'dateTime'); ?></strong></li>
+			<?php
+			$hasXenAppLogs = false;
+			if (ModulesManagement::isActiveModule('Modules\UsersTraces2\UsersTraces2')){
+				// On envoie la requête pour récupérer la date de dernière connexion à Citrix à l'API
+				$curlResult = APIManagement::sendAPIRequest('api/getLogData/user/'.$userSearched.'/lastCitrixLogin');
+				if ($curlResult['result'] == 'success' and isset($curlResult['data'])) {
+					$lastCitrixLogin = key($curlResult['data']);
+					?>
+					<li>Dernière ouverture de session sous Citrix XenApp 7 : <strong><?php echo Sanitize::date($lastCitrixLogin, 'dateAtTime'); ?></strong></li>
+					<?php
+					$hasXenAppLogs = true;
+					// On envoie la requête pour récupérer les derniers postes utilisés à l'API
+					$limit = new \DateTime();
+					$limit->setTimestamp($lastCitrixLogin);
+					$limit->sub(DateInterval::createFromDateString("1 month"));
+					$curlResult = APIManagement::sendAPIRequest('api/getLogData/user/'.$userSearched.'/lastClients/'.$limit->getTimestamp());
+					if ($curlResult['result'] == 'success' and isset($curlResult['data'])) {
+						?><li>Liste des postes utilisés le mois précédent la dernière connexion : <ul><?php
+						// On inverse clés et valeurs
+						$clients = array_flip($curlResult['data']);
+						// On trie par ordre décroissant pour afficher les postes les plus utilisés d'abord
+						krsort($clients);
+						foreach ($clients as $count => $client){
+							if (!empty($client)){
+								?><li><strong><?php echo $client; ?></strong> (<?php echo $count;?> connexions)</li><?php
+							}
+						}
+						?></ul></li><?php
+					}
+				}
+			}
+			if (!$hasXenAppLogs){
+				?>
+				<li>Dernière connexion à Active Directory le <strong><?php echo Sanitize::date($ldap->lastlogon($userSearched), 'dateTime'); ?></strong></li>
+				<?php
+			}
+			?>
 			<li>Membre des groupes <?php Help::iconHelp('L\'appartenance aux groupes est recherchée de façon récursive : si un groupe de l\'utilisateur est membre d\'un autre groupe, ce dernier apparaîtra aussi dans la liste.'); ?> :
 				<ol>
 					<?php

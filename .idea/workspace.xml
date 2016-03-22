@@ -169,11 +169,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/UserInfo/UserInfo.php" afterPath="$PROJECT_DIR$/Modules/UserInfo/UserInfo.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modules/UsersTraces2/UsersTraces2.php" afterPath="$PROJECT_DIR$/Modules/UsersTraces2/UsersTraces2.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/API/API.php" afterPath="$PROJECT_DIR$/classes/API/API.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/API/APIManagement.php" afterPath="$PROJECT_DIR$/classes/API/APIManagement.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Get.php" afterPath="$PROJECT_DIR$/classes/Get.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Modules/Module.php" afterPath="$PROJECT_DIR$/classes/Modules/Module.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Modules/ModulesManagement.php" afterPath="$PROJECT_DIR$/classes/Modules/ModulesManagement.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Sanitize.php" afterPath="$PROJECT_DIR$/classes/Sanitize.php" />
     </list>
     <ignored path="tools2.iws" />
@@ -1341,12 +1337,6 @@
       <option name="number" value="Default" />
       <updated>1394612367537</updated>
     </task>
-    <task id="LOCAL-00022" summary="- Corrections dans les classes Filter et Get&#10;">
-      <created>1405939957868</created>
-      <option name="number" value="00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1405939957868</updated>
-    </task>
     <task id="LOCAL-00023" summary="- Corrections dans la classe Filter">
       <created>1405941778667</created>
       <option name="number" value="00023" />
@@ -1635,7 +1625,13 @@
       <option name="project" value="LOCAL" />
       <updated>1458645672301</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="Amélioration de l'utilisation des APIs.&#10;">
+      <created>1458645752576</created>
+      <option name="number" value="00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1458645752576</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1706,7 +1702,6 @@
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Ajout du temps de génération de la page si le mode DEBUG est activé&#10;Correction d'un bug de montage de partages réseau&#10;" />
     <MESSAGE value="- Prise en charge des serveurs LDAP via leur IP&#10;- Meilleurs performances sur la recherche de groupes LDAP&#10;- Certaines informations LDAP concernant l'utilisateur connecté ne sont plus automatiquement remontées pour des raisons de performance&#10;" />
     <MESSAGE value="- La gestion des droits d'accès a été revue, elle est maintenant bien plus sécurisée.&#10;- On peut modifier sur une page l'ensemble des droits d'accès d'un utilisateur&#10;- La méthode PostedData::checkToken est maintenant accessible publiquement&#10;- Si le mode DEBUG est activé, un cookie est créé afin de pouvoir faire du profilage via Xdebug et WebGrind&#10;" />
     <MESSAGE value="- Amélioration des performances dans la récupération des informations LDAP d'un utilisateur : à l'instanciation, on peut définir un niveau d'éléments récupérés afin de minimiser le coût en requêtes et en temps de réponse.&#10;- Un item de menu `Accueil` est ajouté aux menus secondaires, afin d'éviter de devoir retourner sur le menu principal pour y accéder.&#10;" />
@@ -1731,7 +1726,8 @@
     <MESSAGE value="Prise en compte d'événements fantômes de déconnexion/reconnexion dans le module userstraces2 dûs à SessionStateMonitor.&#10;&#10;La paire d'événements de déco/reco est ignorée si le nom de client est le même et que la durée de déconnexion ne dépasse pas une demi-heure.&#10;" />
     <MESSAGE value="- Ajout de l'information d'architecture du serveur (32 ou 64 bits) dans le panneau d'admin&#10;" />
     <MESSAGE value="Correction d'un bug qui permettait d'ignorer les ACL pour un utilisateur anonyme si l'authentification est paramétrée en obligatoire.&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correction d'un bug qui permettait d'ignorer les ACL pour un utilisateur anonyme si l'authentification est paramétrée en obligatoire.&#10;" />
+    <MESSAGE value="Amélioration de l'utilisation des APIs.&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Amélioration de l'utilisation des APIs.&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

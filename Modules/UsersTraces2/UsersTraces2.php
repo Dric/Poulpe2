@@ -45,9 +45,8 @@ class UsersTraces2 extends Module {
 	protected $title = 'Logs de connexions aux serveurs Citrix XenApp 7 ou supérieur';
 	protected $logs = array();
 
-	public function __construct(){
-		parent::__construct();
-		//Front::setCssHeader('<link href="'.Front::getBaseUrl().'/js/DataTables/media/css/jquery.dataTables.min.css" rel="stylesheet">');
+	public function __construct($bypassACL = false){
+		parent::__construct($bypassACL);
 		Front::setCssHeader('<link href="'.Front::getBaseUrl().'/js/DataTables/plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">');
 	}
 
@@ -72,7 +71,8 @@ class UsersTraces2 extends Module {
 	}
 
 	public static function initModuleLoading(){
-		APIManagement::setAPIs(new API('traces', get_class(), ':server/:app/:user/:event/:client/:session/:data'));
+		APIManagement::setAPIs(new API('traces', get_class(), 'getEvents', ':server/:app/:user/:event/:client/:session/:data', true));
+		APIManagement::setAPIs(new API('getLogData', get_class(), 'getData', ':object/:objectName/:requested/:limit'));
 	}
 
 	/**
@@ -181,6 +181,7 @@ class UsersTraces2 extends Module {
 			}
 			Front::displayBreadCrumb($this->breadCrumb);
 			$this->mainDisplay();
+			return null;
 	}
 
 	/**
@@ -205,8 +206,10 @@ class UsersTraces2 extends Module {
 	<?php
 	}
 
+	/********* Méthodes propres au module *********/
+
 	/**
-	 * Traite les requêtes d'API
+	 * Collecte les événements au travers de l'API
 	 *
 	 * @see initModuleLoading() pour la définition de l'API
 	 *
@@ -215,7 +218,7 @@ class UsersTraces2 extends Module {
 	 * L'accès à l'API n'est pas authentifié. Il serait donc possible de créer de faux événements dans la base de données en faisant des appels bidon à l'API.
 	 * Pour autant, il n'est pas possible de falsifier les événements réels.
 	 */
-	public function runAPI(){
+	public function getEvents(){
 		global $db;
 		// Délai entre l'événement de fermeture et celui de déconnexion
 		$delay = 20;
@@ -362,8 +365,6 @@ class UsersTraces2 extends Module {
 						$toDb['client'] = $ClientName;
 					}
 				}
-				// On ne sait pas si le serveur est déjà répertorié dans la liste des serveurs. Pas de problème, on fait une insertion qui échouera silencieusement si le serveur existe déjà dans la base.
-				//$db->query('INSERT IGNORE INTO `module_userstraces2_servers` (`server`) VALUES ("'.$toDb['server'].'")');
 
 				// On cherche si l'événement n'est pas déjà dans la base, Windows ayant parfois tendance à envoyer plusieurs fois la même chose.
 				$lastSameEvent = $db->query('SELECT event FROM module_userstraces2 WHERE `server` = "'.$toDb['server'].'" AND `user` = "'.$toDb['user'].'" AND `event` = "'.$toDb['event'].'" AND `timestamp` > '.(time() - $delay), 'val');
@@ -402,8 +403,62 @@ class UsersTraces2 extends Module {
 		exit();
 	}
 
-	/********* Méthodes propres au module *********/
-
+	/**
+	 * Retourne des informations au travers de l'API
+	 *
+	 * Nécessite d'être authentifié. comme l'API ne gère pas elle-même les authentifications, il va de soi que cette API ne sert que pour des échanges entre modules.
+	 */
+	public function getData(){
+		global $db;
+		$API = APIManagement::getAPI('getLogData');
+		// args : `:object/:objectName/:requested/:limit`
+		$requested  = $API->params;
+		$limit = $requested['limit'];
+		if (is_numeric($limit)) $limit = (int)$limit;
+		$whereArray = array($requested['object'] => $requested['objectName']);
+		switch ($requested['requested']) {
+			// Derniers clients sur lesquels s'est connecté l'utilisateur
+			case 'lastClients':
+				$filter = 'client';
+				$whereArray['event'] = 'Ouverture';
+				break;
+			// Derniers utilisateurs connectés sur un poste
+			case 'lastUsers':
+				$filter = 'user';
+				break;
+			// Dernière connexion d'un utilisateur sur Citrix
+			case 'lastCitrixLogin':
+				$filter = 'timestamp';
+				$whereArray['event'] = 'Ouverture';
+				$limit = 1;
+				break;
+			default:
+				echo json_encode(array('result'=>'badRequest'));
+				exit();
+		}
+		$res = $db->get('module_userstraces2', array($filter, 'timestamp'), $whereArray, array('timestamp'=>'DESC'));
+		if ($res and !empty($res)){
+			$retArray = array('result'  => 'success');
+			$i = 0;
+			foreach ($res as $object){
+				// Si la limite (sous forme de timestamp) est une date ayant une année supérieure à 2016 (début de la mise en place du module), on teste alors un timestamp qui doit être supérieur à la limite. Sinon on teste un nombre d'items
+				if (!empty($limit) and is_int($limit) and ((((int)date('Y', $limit) >= 2016) and $object->timestamp < $limit) or (((int)date('Y', $limit) < 2016) and $i >= $limit))) {
+					break;
+				}
+				if (!isset($retArray['data'][$object->$filter])){
+					$retArray['data'][$object->$filter] = 1;
+				}else{
+					$retArray['data'][$object->$filter]++;
+				}
+				$i++;
+			}
+			$retArray['itemsCount'] = $i;
+			echo json_encode($retArray);
+		}else{
+			echo json_encode(array('result'  => 'success', 'itemsCount' => 0));
+		}
+		exit();
+	}
 
 
 	/**
