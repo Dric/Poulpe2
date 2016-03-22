@@ -673,11 +673,14 @@ class Admin extends Module {
 		}else{
 			$linuxDistro = $versionArr[0];
 		}
+		@exec('getconf LONG_BIT', $architecture);
+		$architecture = (!isset($architecture[0]) or empty($architecture)) ? 'Inconnue' : $architecture[0];
 		?>
 		<ul>
 			<li>Version de php : <strong class="text-<?php echo ((float)$phpVersion >= 5.4) ? 'success' : 'danger'; ?>"><?php echo $phpVersion; ?></strong></li>
 			<li>Version de MySQL : <strong class="text-<?php echo ((float)$mysqlVersion >= 5.5) ? 'success' : 'danger';?>"><?php echo $mysqlVersion; ?></strong></li>
 			<li>Distribution serveur : <strong><?php echo $linuxDistro; ?></strong></li>
+			<li>Architecture serveur : <strong><?php echo $architecture; ?></strong> bits</li>
 			<li>Serveur Web : <strong><?php echo $_SERVER['SERVER_SOFTWARE']; ?></strong></li>
 			<li>Répertoire racine : <strong><?php echo $_SERVER['DOCUMENT_ROOT']; ?></strong></li>
 		</ul>
