@@ -123,6 +123,8 @@ class ACL {
 			return false;
 		}
 		if (empty($userId) or $userId == $cUser->getId()){
+			// Il va de soi qu'on refuse les utilisateurs non connectés si l'authentification est obligatoire.
+			if (!$cUser->isLoggedIn() and AUTH_MANDATORY) return false;
 			// On demande donc une autorisation pour l'utilisateur courant. Comme on a déjà la liste de ses autorisations, on va la chercher dans son objet
 			$userACL = $cUser->getACL();
 			return (isset($userACL[$component][$componentId][$type])) ? $userACL[$component][$componentId][$type] : false;
