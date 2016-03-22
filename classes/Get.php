@@ -98,4 +98,33 @@ class Get {
 		$increments = 1 / $increments;
 		return (round($number * $increments) / $increments);
 	}
+
+	/**
+	 * retourne une chaîne tronquée à x caractères
+	 *
+	 * @from http://stackoverflow.com/a/79986/1749967
+	 * @param string $text
+	 * @param int $charNumber
+	 *
+	 * @return string
+	 */
+	public static function excerpt($text, $charNumber){
+		$parts = preg_split('/([\s\n\r]+)/', $text, null, PREG_SPLIT_DELIM_CAPTURE);
+		$partsCount = count($parts);
+		$addFinal = false;
+		$length = 0;
+		$lastPart = 0;
+		for (; $lastPart < $partsCount; ++$lastPart) {
+			$length += strlen($parts[$lastPart]);
+			if ($length > ($charNumber - 6)) {
+				$addFinal = true;
+				break;
+			}
+		}
+		$ret = implode(array_slice($parts, 0, $lastPart));
+		if ($addFinal){
+			$ret .= ' [...]';
+		}
+		return $ret;
+	}
 }

@@ -340,4 +340,24 @@ class Sanitize {
 		return $string;
 	}
 
+	/**
+	 * Transforme une URL en lien html
+	 *
+	 * @from http://www.phpro.org/examples/URL-to-Link.html
+	 * @param string $string URL
+	 * @return string
+	 *
+	 **/
+	public static function makeLinks($string){
+
+		/*** make sure there is an http:// on all URLs ***/
+		$string = preg_replace("/([^\w\/])(www\.[a-z0-9\-]+\.[a-z0-9\-]+)/i", "$1http://$2",$string);
+		/*** make all URLs links ***/
+		$string = preg_replace("/([\w]+:\/\/[\w-?&;#~=\.\/\@]+[\w\/])/i","<a target=\"_blank\" href=\"$1\">$1</a>",$string);
+		/*** make all emails hot links ***/
+		$string = preg_replace("/([\w-?&;#~=\.\/]+\@(\[?)[a-zA-Z0-9\-\.]+\.([a-zA-Z]{2,3}|[0-9]{1,3})(\]?))/i","<a href==\"mailto:$1\">$1</a>",$string);
+
+		return $string;
+	}
+
 }
