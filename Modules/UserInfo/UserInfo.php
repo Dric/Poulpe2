@@ -177,12 +177,8 @@ class UserInfo extends Module{
 					}
 				}
 			}
-			if (!$hasXenAppLogs){
-				?>
-				<li>Dernière connexion à Active Directory le <strong><?php echo Sanitize::date($ldap->lastlogon($userSearched), 'dateTime'); ?></strong></li>
-				<?php
-			}
 			?>
+			<li>Dernière connexion à Active Directory <?php Help::iconHelp('Si la dernière connexion à Active Directory est postérieure ou est très différente de la date de dernière connexion à Citrix, ça indique la plupart du temps que l\'utilisateur a un PC et qu\'il se sert d\'une session locale.'); ?> le <strong><?php echo Sanitize::date($ldap->lastlogon($userSearched), 'dateTime'); ?></strong></li>
 			<li>Membre des groupes <?php Help::iconHelp('L\'appartenance aux groupes est recherchée de façon récursive : si un groupe de l\'utilisateur est membre d\'un autre groupe, ce dernier apparaîtra aussi dans la liste.'); ?> :
 				<ol>
 					<?php
