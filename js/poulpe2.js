@@ -56,6 +56,21 @@ $.pnotify.defaults.width = "350px";
 var stack_bottomright = {"dir1": "up", "dir2": "left", "push": "top"};
 
 /**
+ * Affiche une icône d'aide à côté des items de menu
+ */
+$('.menu-item-desc').hide();
+$('.menuItem').hover(function(){
+	$(this).children('.menu-item-desc').fadeIn(500);
+}, function(){
+	$(this).children('.menu-item-desc').stop().hide();
+});
+/*$('.menuItem').mouseover(function() {
+	$(this).children('.menu-item-desc').fadeIn(200);
+}).mouseout(function() {
+	$(this).children('.menu-item-desc').stop().hide();
+	});*/
+
+/**
  * Gestion des switchs remplaçant les checkbox.
  *
  * Paramètres de base :

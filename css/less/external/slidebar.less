@@ -1,13 +1,13 @@
 /** Sidebar Wrapper **/
 #wrapper {
-  padding-left: 250px;
+  padding-left: 20%;
   transition: all 0.4s ease 0s;
 }
 
 #sidebar-wrapper {
-  margin-left: -250px;
-  left: 250px;
-  width: 250px;
+  margin-left: -20%;
+  left: 20%;
+  width: 20%;
   background: @gray-light;
   position: fixed;
   height: 100%;
@@ -43,16 +43,18 @@
 }
 
 .sidebar-nav li a {
-  color: #FFF;
+  color: @body-bg;
   display: block;
   text-decoration: none;
   padding-left: 20px;
+  transition: background-color 300ms ease-out;
 }
 
 .sidebar-nav li a:hover {
-  color: #fff;
+  color: @body-bg;
   background: @link-color;
   text-decoration: none;
+  transition: background-color 300ms ease-out;
 }
 
 .sidebar-nav li a:active,
@@ -69,16 +71,16 @@
 }
 
 .sidebar-nav > .sidebar-brand a {
-  color: #FFF;
+  color: @body-bg;
 }
 
 .sidebar-nav > .sidebar-brand a:hover {
-  color:  #FFF;
+  color:  @body-bg;
   background: none;
 }
 
 .content-header {
-  height: 65px;
+  //height: 65px;
   line-height: 65px;
 }
 
@@ -97,6 +99,30 @@
   padding: 20px;
 }
 
+@media(min-width:1600px){
+  #wrapper {
+    padding-left: 15%;
+  }
+
+  #sidebar-wrapper {
+    margin-left: -15%;
+    left: 15%;
+    width: 15%;
+  }
+}
+
+@media(max-width:992px){
+  #wrapper {
+    padding-left: 30%;
+  }
+
+  #sidebar-wrapper {
+    margin-left: -30%;
+    left: 30%;
+    width: 30%;
+  }
+}
+
 @media (max-width:767px) {
 
   #wrapper {
@@ -109,17 +135,22 @@
 
   #wrapper.active {
     position: relative;
-    left: 250px;
+    //left: 260px;
+    left: 0;
   }
 
   #wrapper.active #sidebar-wrapper {
-    left: 250px;
-    width: 250px;
+    //left: 260px;
+    //width: 260px;
+    left: 20%;
+    width: 60%;
+    margin-left: -20%;
     transition: all 0.4s ease 0s;
   }
 
   #menu-toggle {
     display: inline-block;
+    margin-top: 10px;
   }
 
   .inset {

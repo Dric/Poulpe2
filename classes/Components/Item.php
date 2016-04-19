@@ -83,7 +83,8 @@ class Item {
 		if (!empty($this->class)) $itemClass = $this->class.' '.$itemClass;
 		?>
 		<li class="menuItem<?php echo (!empty($itemClass)) ? ' '.$itemClass : ''; ?>" id="item-<?php echo $this->name; ?>">
-			<a href="<?php echo $this->link; ?>" title="<?php echo $this->desc; ?>">
+			<span class="fa fa-question-circle tooltip-left pull-right menu-item-desc" title="<?php echo $this->desc; ?>"></span>
+			<a href="<?php echo $this->link; ?>" title="<?php //echo $this->desc; ?>">
 				<?php if (!empty($this->icon)) { ?><span class="fa fa-<?php echo $this->icon; ?> fa-fw"></span>&nbsp;<?php } ?>
 				<?php echo $this->title; ?>
 			</a>

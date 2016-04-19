@@ -165,6 +165,13 @@ class Module {
 	}
 
 	/**
+	 * @return array
+	 */
+	public function getBreadCrumb() {
+		return $this->breadCrumb;
+	}
+
+	/**
 	 * Permet de construire une URL pour appeler le module avec des arguments
 	 *
 	 * Exemple pour un module `Users` :

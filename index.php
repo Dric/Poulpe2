@@ -184,11 +184,13 @@ if ((!$cUser->isLoggedIn() or $redirectToLogin) and AUTH_MANDATORY){
 					</style>
 				</noscript>
 				<div class="content-header row">
-					<div class="col-md-12">
-						<h1>
-							<a id="menu-toggle" href="#" class="btn btn-default btn-sm">Menu</a>
+					<div class="col-xs-10">
+						<h1 class="content-header-title">
 							<a href="<?php echo Front::getBaseUrl(); ?>"><?php echo SITE_NAME; ?></a>
 						</h1>
+					</div>
+					<div class="col-xs-2">
+						<a id="menu-toggle" href="#" class="btn btn-default btn-sm pull-right">Menu</a>
 					</div>
 				</div>
 				<div class="page-content inset row">
@@ -204,7 +206,7 @@ if ((!$cUser->isLoggedIn() or $redirectToLogin) and AUTH_MANDATORY){
 			<!-- Pied de page -->
 			<footer>
 				<?php Front::footer(); ?> <?php if (DEBUG) echo ' | Mode debug activé | '; ?>
-				<img class="tooltip-top" alt="Je suis Monsieur Poulpe !" src="<?php echo Front::getBaseUrl(); ?>/img/poulpe2-logo-23x32.png" style="vertical-align: text-bottom;"/> <span class="logo-highlight">P</span>oulpe<span class="logo-highlight">2</span> 2012-2015
+				<img class="tooltip-top" alt="Je suis Monsieur Poulpe !" src="<?php echo Front::getBaseUrl(); ?>/img/poulpe2-logo-23x32.png" style="vertical-align: text-bottom;"/> <span class="logo-highlight">P</span>oulpe<span class="logo-highlight">2</span> 2012-<?php echo date('Y'); ?>
 			</footer>
 			<?php
 			if (DEBUG){
