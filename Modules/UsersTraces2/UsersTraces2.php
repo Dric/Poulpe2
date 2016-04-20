@@ -158,30 +158,28 @@ class UsersTraces2 extends Module {
 	 * @return int
 	 */
 	public function display(){
-			if (isset($_REQUEST['page'])){
+		if (!$this->getPage()) {
+			if (isset($_REQUEST['page'])) {
 				$subject = htmlspecialchars($_REQUEST['page']);
-				if (in_array($subject, array('server', 'user', 'client'))){
-					$this->breadCrumb['children'] = array(
-						'title' => $subject,
-						'link'  => $this->url.'&page='.$subject
+				if (in_array($subject, array('server', 'user', 'client'))) {
+					$this->breadCrumb['children'] = array('title' => $subject, 'link' => $this->url . '&page=' . $subject
 					);
-					if (isset($_REQUEST[$subject])){
-						$item = htmlspecialchars($_REQUEST[$subject]);
-						$this->breadCrumb['children']['children'] = array(
-							'title' => $item,
-							'link'  => $this->url.'&page='.$subject.'&'.$subject.'='.$item
+					if (isset($_REQUEST[$subject])) {
+						$item                                     = htmlspecialchars($_REQUEST[$subject]);
+						$this->breadCrumb['children']['children'] = array('title' => $item, 'link' => $this->url . '&page=' . $subject . '&' . $subject . '=' . $item
 						);
 					}
 					Front::displayBreadCrumb($this->breadCrumb);
 					$this->displaySubjectLogs($subject);
 					return 0;
-				}else{
+				} else {
 					new Alert('error', 'La page demandée n\'existe pas !');
 				}
 			}
 			Front::displayBreadCrumb($this->breadCrumb);
 			$this->mainDisplay();
-			return null;
+		}
+		return null;
 	}
 
 	/**

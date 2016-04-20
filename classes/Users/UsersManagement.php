@@ -109,7 +109,7 @@ class UsersManagement {
 		$user = $user[0];
 		$LDAPUser = new LDAPUser();
 		$LDAPUser->cn = $user['cn'][0];
-		$LDAPUser->employeeID = $user['employeeid'][0];
+		$LDAPUser->employeeID = (isset($user['employeeid'])) ? $user['employeeid'][0] : null;
 		$LDAPUser->givenName = (isset($user['givenname'])) ? $user['givenname'][0] : null;
 		$LDAPUser->sn = (isset($user['sn'])) ? $user['sn'][0] : null;
 		$LDAPUser->isDisabled = ($user["useraccountcontrol"][0] == "514" or $user["useraccountcontrol"][0] == "66050") ? true : false;
