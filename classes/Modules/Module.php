@@ -288,7 +288,7 @@ class Module {
 	/**
 	 * Gestion de l'affichage du module
 	 */
-	public function display(){
+	public function initDisplay(){
 		if (!$this->getPage()){
 			if (DISPLAY_BREADCRUMB) Front::displayBreadCrumb($this->breadCrumb);
 			$this->mainDisplay();

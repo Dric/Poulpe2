@@ -198,7 +198,7 @@ if ((!$cUser->isLoggedIn() or $redirectToLogin) and AUTH_MANDATORY){
 						<div>
 						</div>
 						<!-- Affichage du module demandé ! -->
-						<?php $module->display(); ?>
+						<?php $module->initDisplay(); ?>
 					</div>
 				</div>
 			</div>

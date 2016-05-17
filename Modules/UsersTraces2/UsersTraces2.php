@@ -148,6 +148,7 @@ class UsersTraces2 extends Module {
 
 		$this->settings['defaultDisplayTime'] = new Int('defaultDisplayTime', 15, 'Affichage des x derniers jours par défaut', 'Nombre de jours', 'Afficher les événements datant de moins de x jours sur la vue par défaut');
 		$this->settings['defaultDisplayTime']->setUserDefinable();
+		$this->settings['IgnoredDisconnectEventsDuration'] = new Int('IgnoredDisconnectEventsDuration', 60, 'Durée pendant laquelle sont ignorées les déconnexions (en minutes)  <span class="fa fa-exclamation-triangle text-danger tooltip-bottom" title="Attention : les événements ignorés ne sont pas enregistrés dans la base de données, si vous mettez une plage trop grande, vous risquez de passer à côté d\'événénements de déco/reco réels."></span>', 60, 'SessionStateMonitor, qui envoie les événements de déconnexion/reconnexion aux POIs a tendance à générer de faux événements de déconnexion lorsque l\'utilisateur ne fait rien sur sa session (idle). Pour éviter celà, on ignore les événements de déconnexion suivis de reconnexions s\'ils sont générés dans un certain laps de temps.',null, true, 'admin');
 	}
 
 	/**
@@ -157,7 +158,7 @@ class UsersTraces2 extends Module {
 	 *
 	 * @return int
 	 */
-	public function display(){
+	public function initDisplay(){
 		if (!$this->getPage()) {
 			if (isset($_REQUEST['page'])) {
 				$subject = htmlspecialchars($_REQUEST['page']);
@@ -371,7 +372,8 @@ class UsersTraces2 extends Module {
 					} elseif ($toDb['event'] == 'Ouverture') {
 					} elseif ($toDb['event'] == 'Reconnexion') {
 						// On récupère l'événement de déconnexion survenu avant si celui-ci a le même nom de poste. Et on le supprime (SessionStateMonitor a tendance à renvoyer des événements de déconnexion/reconnexion fantômes en cas d'inactivité).
-						$lastUserEvent = $db->query('SELECT id, event FROM module_userstraces2 WHERE `timestamp` >= '.(time() - (30*60)).' AND `server` = "'.$toDb['server'].'" AND `user` = "'.$toDb['user'].'"  AND `client` = "'.$toDb['client'].'" ORDER BY `timestamp` DESC LIMIT 1', 'row');
+						$IgnoredDisconnectEventsDuration = (isset($this->settings['IgnoredDisconnectEventsDuration']) and !empty($this->settings['IgnoredDisconnectEventsDuration']->getValue())) ? $this->settings['IgnoredDisconnectEventsDuration']->getValue() : 60;
+						$lastUserEvent = $db->query('SELECT id, event FROM module_userstraces2 WHERE `timestamp` >= '.(time() - ($IgnoredDisconnectEventsDuration*60)).' AND `server` = "'.$toDb['server'].'" AND `user` = "'.$toDb['user'].'"  AND `client` = "'.$toDb['client'].'" ORDER BY `timestamp` DESC LIMIT 1', 'row');
 						if ($lastUserEvent->event == 'Deconnexion'){
 							$db->delete('module_userstraces2', array('id' => $lastUserEvent->id));
 							echo json_encode(array('result' => 'deleted'));

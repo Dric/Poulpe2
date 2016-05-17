@@ -97,7 +97,7 @@ class UsersTraces extends Module {
 		Front::setSecondaryMenus($menu);
 	}
 
-	public function display(){
+	public function initDisplay(){
 		if (!$this->getPage()){
 			if (isset($_REQUEST['logs'])){
 				$logR = htmlspecialchars($_REQUEST['logs']);

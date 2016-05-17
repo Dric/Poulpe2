@@ -97,7 +97,7 @@ class DenyAppAccess extends Module{
 		Front::$mainMenu->add(new Item('acces', 'Accès aux applications', Front::getModuleUrl().end($module), 'Empêcher les utilisateurs d\'accéder à certaines applications', null, null));
 	}
 
-	public function display(){
+	public function initDisplay(){
 		if (!$this->getPage()){
 			if (isset($_REQUEST['app'])){
 				$appR = htmlspecialchars($_REQUEST['app']);
