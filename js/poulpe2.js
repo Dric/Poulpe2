@@ -150,7 +150,9 @@ function confirmation(){
 	$('[data-toggle=confirmation]').confirmation({
 		title:          'Êtes-vous sûr(e) ?',
 		btnOkLabel:     'Oui',
-		btnCancelLabel: 'Non'
+		btnOkClass:     'btn-xs btn-primary noLoadMessage',
+		btnCancelLabel: 'Non',
+		btnCancelClass: 'btn-xs btn-default noLoadMessage'
 	});
 }
 
@@ -161,7 +163,7 @@ function dbTables(){
 	$('.tr_dbTable_header').append('<th>Actions</th>');
 	$('.tr_dbTable').each(function(){
 		var id = $(this).attr('id');
-		$(this).append('<td class="td_dbtable_actions"><a href="#" title="Supprimer la ligne" class="btn btn-default btn-sm dbtable_delete_item" data-toggle="confirmation" data-title="Supprimer la ligne ?<br ><small>(La ligne ne sera vraiment supprimée qu\'à la sauvegarde des paramètres</small>"><span class="fa fa-trash-o"></span></a></td>')
+		$(this).append('<td class="td_dbtable_actions"><a href="#" title="Supprimer la ligne" class="btn btn-default btn-sm dbtable_delete_item noLoadMessage" data-toggle="confirmation" data-title="Supprimer la ligne ?<br ><small>(La ligne ne sera vraiment supprimée qu\'à la sauvegarde des paramètres</small>"><span class="fa fa-trash-o"></span></a></td>')
 		$(this).on('confirmed.bs.confirmation', function(){
 			$(this).remove();
 		});
@@ -324,8 +326,8 @@ var dataTablesOptions = {
 /**
  * Affiche un message indiquant que la page demandée est en cours de chargement
  */
-function displayLoadIcon(){
-	$('a').click(function(e){
+function displayLoadMessage(){
+	$("a:not('.noLoadMessage')").click(function(e){
 		var url = null;
 		var $this = $(this)[0];
 		if ($this.href.indexOf('#') > 0){
@@ -347,4 +349,4 @@ ACLSwitchs();
 dbTables();
 confirmation();
 toolTips();
-displayLoadIcon();
+displayLoadMessage();
