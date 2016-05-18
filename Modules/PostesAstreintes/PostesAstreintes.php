@@ -70,8 +70,12 @@ class PostesAstreintes extends Module{
 					<h1>IP des postes d'astreintes  <?php $this->manageModuleButtons(); ?></h1>
 				</div>
 				<p>
-					Cette page vous permet de gérer les adresses IP affectées aux PC portables d'astreintes.<br >Ça évite d'aller modifier à la main le fichier VBS qui s'occupe de l'affectation d'adresse IP dans la variable d'environnement utilisée par Cariatides.
+					Cette page vous permet de gérer les adresses IP affectées aux PC portables d'astreintes.<br >Ça évite d'aller modifier à la main le fichier CSV qui s'occupe de l'affectation d'adresse IP dans la variable d'environnement utilisée par Cariatides.
 				</p>
+				<p>
+					Ce paramétrage est valable pour les fermes Citrix XenApp 5 et XenApp 7.6.
+				</p>
+				<br>
 				<?php
 				$this->displayIPTable();
 				?>
@@ -89,9 +93,6 @@ class PostesAstreintes extends Module{
 		if ($this->getPostes()){
 			$canModify = ACL::canModify('module', $this->id);
 			?>
-			<div class="alert alert-warning">
-				Ne supprimez pas toutes les lignes, sinon il sera impossible d'en ajouter de nouvelles (les nouvelles lignes sont ajoutées après les anciennes - pas d'anciennes lignes, pas d'ajout).
-			</div>
 			<div class="row">
 				<div class="col-md-6">
 					<form method="post">
@@ -157,21 +158,16 @@ class PostesAstreintes extends Module{
 	 */
 	protected function getPostes(){
 		$filePath = $this->settings['filePath']->getValue();
-		preg_match('/(.*)\\\(.*\.vbs)/i', $filePath, $matches);
+		preg_match('/(.*)\\\(.*\.csv)/i', $filePath, $matches);
 		list(, $path, $fileName) = $matches;
 		$module = explode('\\', get_class());
 		$share = new Fs($path, null, end($module));
 		if ($file = $share->readFile($fileName)){
+			// On enlève les entêtes de colonne du CSV
+			array_shift($file);
 			foreach ($file as $line) {
-				if (strtolower(substr($line, 0, 16)) == 'ipastreintes.add'){
-					$lineTab = explode(' ', $line);
-					$poste = $lineTab[1];
-					$poste = str_replace('"', '', $poste);
-					$poste = rtrim($poste, ',');
-					$ip = $lineTab[2];
-					$ip = str_replace('"', '', $ip);
-					$this->postes[$poste] = $ip;
-				}
+				list($poste, $ip) = explode(';', $line);
+				$this->postes[$poste] = $ip;
 			}
 			return true;
 		}
@@ -200,31 +196,16 @@ class PostesAstreintes extends Module{
 		}
 		$postesList = $this->postes;
 		$filePath = $this->settings['filePath']->getValue();
-		preg_match('/(.*)\\\(.*\.vbs)/i', $filePath, $matches);
+		preg_match('/(.*)\\\(.*\.csv)/i', $filePath, $matches);
 		list(, $path, $fileName) = $matches;
 		$module = explode('\\', get_class());
 		$share = new Fs($path, null, end($module));
 		if ($file = $share->readFile($fileName)){
-			$inPostes = false;
 			$fileToSave = array();
-			foreach ($file as $line) {
-				if (strtolower(substr($line, 0, 16)) == 'ipastreintes.add'){
-					$inPostes = true;
-					$lineTab = explode(' ', $line);
-					$poste = $lineTab[1];
-					if (isset($this->postes[$poste])){
-						$fileToSave[] = 'IPAstreintes.Add "'.$poste.'", "'.$this->$postes[$poste].'"';
-						unset ($postesList[$poste]);
-					}
-				}elseif($inPostes){
-					foreach ($postesList as $poste => $ip){
-						$fileToSave[] = 'IPAstreintes.Add "'.$poste.'", "'.$ip.'"';
-					}
-					$fileToSave[] = $line;
-					$inPostes = false;
-				}else{
-					$fileToSave[] = $line;
-				}
+			// On inscrit les entêtes de colonnes du CSV
+			$fileToSave[] = 'Poste;IP';
+			foreach ($postesList as $poste=>$ip){
+				$fileToSave[] = strtoupper($poste).';'.$ip;
 			}
 
 			$ret = $share->writeFile($fileName, $fileToSave);
