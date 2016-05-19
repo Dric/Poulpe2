@@ -30,6 +30,7 @@ use Modules\Module;
 use Modules\ModulesManagement;
 use Forms\Form;
 use Sanitize;
+use Settings\Version;
 use Users\ACL;
 use Users\UsersManagement;
 
@@ -709,6 +710,7 @@ class Admin extends Module {
 			<li>Nombre de tables dans la base : <strong><?php echo $nbTables; ?></strong></li>
 			<li>Mode d'authentification : <strong><?php echo AUTH_MODE; ?></strong> <?php if (AUTH_MODE == 'ldap') { ?><small>(<?php echo LDAP_DOMAIN; ?>)</small><?php } ?></li>
 			<li>Version de Poulpe2 : <a href="https://github.com/Dric/Poulpe2/commit/<?php echo $commit->fullHash; ?>"><?php echo $commit->hash; ?></a> du <?php echo Sanitize::date($commit->date, 'dateTime'); ?></li>
+			<li>Version de base de données de Poulpe2 : <strong><?php echo Version::getDbVersion(); ?></strong></li>
 		</ul>
 		<?php
 	}

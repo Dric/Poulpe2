@@ -77,6 +77,12 @@ if (!isset($_SESSION['absolutePath']) or !isset($_SESSION['baseUrl'])){
  */
 $db = new Db();
 $ldap = new Ldap();
+
+// Vérification du schéma de base de données
+if (!\Settings\Version::checkDbVersion()){
+	\Settings\Version::updateDbSchema();
+}
+
 $ret = $param = null;
 $redirectToLogin = false;
 

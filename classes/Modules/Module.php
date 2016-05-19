@@ -21,6 +21,7 @@ use Sanitize;
 use Forms\Form;
 use Forms\PostedData;
 use Settings\Setting;
+use Settings\Version;
 use Users\ACL;
 
 /**
@@ -90,6 +91,13 @@ class Module {
 	protected $url = '';
 
 	/**
+	 * Version du module
+	 *
+	 * @var string
+	 */
+	protected $version = '1.0';
+
+	/**
 	 * Instantiation du module
 	 *
 	 * @param bool $bypassACL Ne vérifie pas les ACL - A utiliser avec prudence
@@ -105,6 +113,7 @@ class Module {
 		if ($this->name != 'home' and !$bypassACL){
 			$this->checkACL();
 		}
+		$this->checkUpdate();
 		$module = explode('\\', get_class($this));
 		$this->url = Front::getModuleUrl().end($module);
 		// Fil d'Ariane. Si la page demandée est l'accueil, on ne la raffiche pas étant donné qu'elle est systématiquement indiquée
@@ -179,7 +188,7 @@ class Module {
 	 *  Donne l'URL :
 	 *  <code>http://poulpe2/module/Users?id=2</code>
 	 *
-	 * @param Array $args Arguments à passer dans l'URL de la forme array(`argument` => `valeur`)
+	 * @param array $args Arguments à passer dans l'URL de la forme array(`argument` => `valeur`)
 	 *
 	 * @return string
 	 */
@@ -614,6 +623,48 @@ class Module {
 
 		return ModulesManagement::installModule($this, $defaultACL, $sql);
 		*/
+		return true;
+	}
+
+	/**
+	 * Teste si la version du module est la plus récente en base de données et exécute des opérations de mise à jour du module (souvent des manipulations en base de données) le cas échéant.
+	 *
+	 * @return bool
+	 */
+	protected function checkUpdate(){
+		if (Version::checkDbVersion($this->id, $this->version)) return true;
+		$ret = $this->runUpdateScript();
+		if ($ret) {
+			return Version::updateDbSchema($this->id, $this->version, $this->getUpgradeQueries());
+		}
+		return false;
+	}
+
+	/**
+	 * Commandes SQL de mise à jour du schéma de BD du module
+	 * Exemple :
+	 * array(
+	 *  '1.0' => array(
+	 *    'CREATE TABLE IF NOT EXISTS `global_settings` (`id` int(6) NOT NULL AUTO_INCREMENT, `setting` varchar(150) NOT NULL, `value` varchar(255) NOT NULL, PRIMARY KEY (`id`), UNIQUE KEY `setting` (`setting`)) ENGINE=InnoDB DEFAULT CHARSET=utf8',
+	 *    'INSERT INTO `global_settings` (`setting`, `value`) VALUES ("poulpe2DbVersion", "0") ON DUPLICATE KEY UPDATE `value` = 0',
+	 *    'ALTER TABLE `modules` ADD `version` VARCHAR( 15 ) NOT NULL DEFAULT "0" COMMENT "Version du module"'
+	 * ),
+	 *  '1.1' => array(
+	 *    'ALTER TABLE `modules` ADD `pingouin` VARCHAR( 15 ) DEFAULT NULL'
+	 * )
+	 * );
+	 *
+	 * @return array
+	 */
+	protected function getUpgradeQueries(){
+		return null;
+	}
+
+	/**
+	 * Effectue des opérations (ne comprenant pas les mises à jour de schéma de base de données) pour mettre à jour un module
+	 * @return bool
+	 */
+	protected function runUpdateScript(){
 		return true;
 	}
 

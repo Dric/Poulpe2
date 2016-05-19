@@ -10,6 +10,7 @@
 namespace Db;
 
 
+use Exception;
 use Forms\Field;
 use Forms\Pattern;
 use Logs\Alert;
@@ -165,6 +166,58 @@ class Db {
 		}
 		if (!$noAlert) new Alert('debug', '<code>Db->query</code> : Impossible de retourner la requête.<br /><code>get='.$get.'</code> n\'est pas dans la liste des codes autorisés (all, row ou col)');
 		return false;
+	}
+
+	/**
+	 * Exécute un groupe de commandes SQL via une transaction
+	 *
+	 * Si une des commandes échoue, toutes les modifications sont annulées.
+	 * On est ainsi certain soit que tout s'est bien passé, soit qu'aucune modification n'aura été faite dans la base de données si une erreur survient.
+	 *
+	 * @warning Avec MySQL, un commit implicite est réalisé à chaque commande DDL :
+	 *    CREATE – to create table (objects) in the database
+	 *    ALTER – alters the structure of the database
+	 *    DROP – delete table from the database
+	 *    TRUNCATE – remove all records from a table, including all spaces allocated for the records are removed
+	 *    COMMENT – add comments to the data dictionary
+	 *    RENAME – rename a table
+	 * @see <http://php.net/manual/en/pdo.rollback.php>
+	 * @see <http://www.nextstep4it.com/ddl-statements-in-mysql/>
+	 *
+	 * @param array $sqlQueries Requêtes SQL sous forme de tableau
+	 *
+	 * @return bool
+	 */
+	public function queryGroup(Array $sqlQueries){
+		$noRollBack = false;
+		$this->startTransaction();
+		foreach ($sqlQueries as $query){
+			if (preg_match('/(CREATE|ALTER|DROP|TRUNCATE|COMMENT|RENAME)/mi', $query)){
+				$noRollBack = true;
+			}
+			$ret = $this->query($query);
+			if ($ret === false){
+				if ($noRollBack){
+					new Alert('warning', 'ATTENTION : la présence de commandes DDL (CREATE, ALTER, DROP, COMMENT, TRUNCATE, RENAME) empêche l\'annulation des modifications !');
+				}
+				$this->rollBackTransaction();
+				return false;
+			}
+		}
+		$this->commitTransaction();
+		return true;
+	}
+
+	public function startTransaction(){
+		$this->db->beginTransaction();
+	}
+
+	public function commitTransaction(){
+		$this->db->commit();
+	}
+
+	public function rollBackTransaction(){
+		$this->db->rollBack();
 	}
 
 	/**
