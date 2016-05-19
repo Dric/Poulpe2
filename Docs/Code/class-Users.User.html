@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.8.0" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Class Users\User</title>
 
-	<script type="text/javascript" src="resources/combined.js?522072721"></script>
-	<script type="text/javascript" src="elementlist.js?1088796348"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+	<script type="text/javascript" src="resources/combined.js?1467300313"></script>
+	<script type="text/javascript" src="elementlist.js?2065545106"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822">
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609">
 
 </head>
 
@@ -42,9 +42,9 @@
 	<div id="left">
 	<div id="menu">
 		<form id="search" class="form-search">
-			<input type="hidden" name="cx" value="" />
-			<input type="hidden" name="ie" value="UTF-8" />
-			<input type="text" name="q" class="search-query" placeholder="Search" />
+			<input type="hidden" name="cx" value="">
+			<input type="hidden" name="ie" value="UTF-8">
+			<input type="text" name="q" class="search-query" placeholder="Search">
 		</form>
 
 
@@ -52,6 +52,10 @@
 			<h3>Namespaces</h3>
 			<ul>
 				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-API.html">API</a>
+						</li>
+				<li><a href="namespace-Charts.html">Charts</a>
 						</li>
 				<li><a href="namespace-Components.html">Components</a>
 						</li>
@@ -76,6 +80,29 @@
 						</li>
 				<li><a href="namespace-PHP.html">PHP</a>
 						</li>
+				<li><a href="namespace-phpseclib.html">phpseclib<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.Crypt.html">Crypt</a>
+						</li>
+				<li><a href="namespace-phpseclib.File.html">File<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.File.ASN1.html">ASN1</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-phpseclib.Math.html">Math</a>
+						</li>
+				<li><a href="namespace-phpseclib.Net.html">Net<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.Net.SFTP.html">SFTP</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-phpseclib.System.html">System<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.System.SSH.html">SSH<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.System.SSH.Agent.html">Agent</a>
+						</li>
+							</ul></li></ul></li></ul></li>
 				<li><a href="namespace-Profiles.html">Profiles</a>
 						</li>
 				<li><a href="namespace-Settings.html">Settings</a>
@@ -136,10 +163,10 @@
 	<div class="alert alert-info">
 		
 		
-		<b>Namespace:</b> <a href="namespace-Users.html">Users</a><br />
-		<b>Package:</b> Users<br />
+		<b>Namespace:</b> <a href="namespace-Users.html">Users</a><br>
+		<b>Package:</b> Users<br>
 
-		<b>Located at</b> <a href="source-class-Users.User.html#14-203" title="Go to source code">classes/Users/User.php</a><br />
+		<b>Located at</b> <a href="source-class-Users.User.html#14-215" title="Go to source code">classes/Users/User.php</a><br>
 	</div>
 
 
@@ -157,7 +184,7 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#___construct">#</a>
-			<code><a href="source-class-Users.User.html#69-95" title="Go to source code">__construct</a>( <span>integer|string <var>$user</var></span>, <span>boolean <var>$loginOnly</var> = <span class="php-keyword1">false</span></span> )</code>
+			<code><a href="source-class-Users.User.html#69-107" title="Go to source code">__construct</a>( <span>integer|string <var>$user</var></span>, <span>integer <var>$level</var> = <span class="php-num">2</span></span> )</code>
 
 			<div class="description short">
 				
@@ -175,9 +202,13 @@
 					<div class="list"><dl>
 						<dt><var>$user</var></dt>
 						<dd><code>integer|string</code><br>$user ID de l'utilisateur</dd>
-						<dt><var>$loginOnly</var></dt>
-						<dd><code>boolean</code><br>$loginOnly Si true, on zappe toutes les infos inutiles (typiquement pour
-vérifier une authentification)</dd>
+						<dt><var>$level</var></dt>
+						<dd><code>integer</code><br>$level Niveau de propriétés à renseigner : - 0 : propriétés de l'objet
+instancié réduites au minimum (pas de propriétés LDAP, surtout utilisé pour
+l'authentification), - 1 : propriétés partiellement renseignées (les infos
+les plus coûteuses en terme de performance comme la date de dernière connexion
+à LDAP et l'appartenance aux groupes ne sont pas renseignées), - 2 :
+propriétés entièrement renseignées</dd>
 					</dl></div>
 
 
@@ -198,7 +229,7 @@ vérifier une authentification)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getId">#</a>
-			<code><a href="source-class-Users.User.html#97-103" title="Go to source code">getId</a>( )</code>
+			<code><a href="source-class-Users.User.html#109-115" title="Go to source code">getId</a>( )</code>
 
 			<div class="description short">
 				
@@ -215,7 +246,7 @@ vérifier une authentification)</dd>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>integer</code><br />
+						<code>integer</code><br>
 					</div>
 
 
@@ -235,7 +266,7 @@ vérifier une authentification)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getName">#</a>
-			<code><a href="source-class-Users.User.html#105-111" title="Go to source code">getName</a>( )</code>
+			<code><a href="source-class-Users.User.html#117-123" title="Go to source code">getName</a>( )</code>
 
 			<div class="description short">
 				
@@ -252,7 +283,7 @@ vérifier une authentification)</dd>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>string</code><br />
+						<code>string</code><br>
 					</div>
 
 
@@ -272,7 +303,7 @@ vérifier une authentification)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getAvatar">#</a>
-			<code><a href="source-class-Users.User.html#113-132" title="Go to source code">getAvatar</a>( <span>boolean <var>$realValue</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$title</var> = <span class="php-quote">''</span></span> )</code>
+			<code><a href="source-class-Users.User.html#125-144" title="Go to source code">getAvatar</a>( <span>boolean <var>$realValue</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$title</var> = <span class="php-quote">''</span></span> )</code>
 
 			<div class="description short">
 				
@@ -297,7 +328,7 @@ de l'avatar)</dd>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>string</code><br />
+						<code>string</code><br>
 					</div>
 
 
@@ -317,7 +348,7 @@ de l'avatar)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getEmail">#</a>
-			<code><a href="source-class-Users.User.html#134-140" title="Go to source code">getEmail</a>( )</code>
+			<code><a href="source-class-Users.User.html#146-152" title="Go to source code">getEmail</a>( )</code>
 
 			<div class="description short">
 				
@@ -334,7 +365,7 @@ de l'avatar)</dd>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>string</code><br />
+						<code>string</code><br>
 					</div>
 
 
@@ -354,7 +385,7 @@ de l'avatar)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getACL">#</a>
-			<code><a href="source-class-Users.User.html#142-148" title="Go to source code">getACL</a>( )</code>
+			<code><a href="source-class-Users.User.html#154-160" title="Go to source code">getACL</a>( )</code>
 
 			<div class="description short">
 				
@@ -371,7 +402,7 @@ de l'avatar)</dd>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>array</code><br />
+						<code>array</code><br>
 					</div>
 
 
@@ -391,7 +422,7 @@ de l'avatar)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getHash">#</a>
-			<code><a href="source-class-Users.User.html#150-159" title="Go to source code">getHash</a>( )</code>
+			<code><a href="source-class-Users.User.html#162-171" title="Go to source code">getHash</a>( )</code>
 
 			<div class="description short">
 				
@@ -411,7 +442,7 @@ l'utilisateur via un cookie</p>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>string</code><br />
+						<code>string</code><br>
 					</div>
 
 
@@ -431,7 +462,7 @@ l'utilisateur via un cookie</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getLDAPProps">#</a>
-			<code><a href="source-class-Users.User.html#161-167" title="Go to source code">getLDAPProps</a>( )</code>
+			<code><a href="source-class-Users.User.html#173-179" title="Go to source code">getLDAPProps</a>( )</code>
 
 			<div class="description short">
 				
@@ -448,7 +479,7 @@ l'utilisateur via un cookie</p>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>array</code><br />
+						<code>array</code><br>
 					</div>
 
 
@@ -468,7 +499,7 @@ l'utilisateur via un cookie</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_setLDAPProps">#</a>
-			<code><a href="source-class-Users.User.html#169-175" title="Go to source code">setLDAPProps</a>( <span>array <var>$LDAPProps</var></span> )</code>
+			<code><a href="source-class-Users.User.html#181-187" title="Go to source code">setLDAPProps</a>( <span>array <var>$LDAPProps</var></span> )</code>
 
 			<div class="description short">
 				
@@ -506,7 +537,7 @@ l'utilisateur via un cookie</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_setAvatar">#</a>
-			<code><a href="source-class-Users.User.html#177-183" title="Go to source code">setAvatar</a>( <span>string <var>$avatar</var></span> )</code>
+			<code><a href="source-class-Users.User.html#189-195" title="Go to source code">setAvatar</a>( <span>string <var>$avatar</var></span> )</code>
 
 			<div class="description short">
 				
@@ -544,7 +575,7 @@ l'utilisateur via un cookie</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getPwd">#</a>
-			<code><a href="source-class-Users.User.html#185-191" title="Go to source code">getPwd</a>( )</code>
+			<code><a href="source-class-Users.User.html#197-203" title="Go to source code">getPwd</a>( )</code>
 
 			<div class="description short">
 				
@@ -561,7 +592,7 @@ l'utilisateur via un cookie</p>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>string</code><br />
+						<code>string</code><br>
 					</div>
 
 
@@ -581,7 +612,7 @@ l'utilisateur via un cookie</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_setPwd">#</a>
-			<code><a href="source-class-Users.User.html#193-201" title="Go to source code">setPwd</a>( <span>string <var>$pwd</var></span> )</code>
+			<code><a href="source-class-Users.User.html#205-213" title="Go to source code">setPwd</a>( <span>string <var>$pwd</var></span> )</code>
 
 			<div class="description short">
 				

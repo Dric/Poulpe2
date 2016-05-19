@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.8.0" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Class Ldap\Connection</title>
 
-	<script type="text/javascript" src="resources/combined.js?522072721"></script>
-	<script type="text/javascript" src="elementlist.js?1088796348"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+	<script type="text/javascript" src="resources/combined.js?1467300313"></script>
+	<script type="text/javascript" src="elementlist.js?2065545106"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822">
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609">
 
 </head>
 
@@ -42,9 +42,9 @@
 	<div id="left">
 	<div id="menu">
 		<form id="search" class="form-search">
-			<input type="hidden" name="cx" value="" />
-			<input type="hidden" name="ie" value="UTF-8" />
-			<input type="text" name="q" class="search-query" placeholder="Search" />
+			<input type="hidden" name="cx" value="">
+			<input type="hidden" name="ie" value="UTF-8">
+			<input type="text" name="q" class="search-query" placeholder="Search">
 		</form>
 
 
@@ -52,6 +52,10 @@
 			<h3>Namespaces</h3>
 			<ul>
 				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-API.html">API</a>
+						</li>
+				<li><a href="namespace-Charts.html">Charts</a>
 						</li>
 				<li><a href="namespace-Components.html">Components</a>
 						</li>
@@ -76,6 +80,29 @@
 						</li>
 				<li><a href="namespace-PHP.html">PHP</a>
 						</li>
+				<li><a href="namespace-phpseclib.html">phpseclib<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.Crypt.html">Crypt</a>
+						</li>
+				<li><a href="namespace-phpseclib.File.html">File<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.File.ASN1.html">ASN1</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-phpseclib.Math.html">Math</a>
+						</li>
+				<li><a href="namespace-phpseclib.Net.html">Net<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.Net.SFTP.html">SFTP</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-phpseclib.System.html">System<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.System.SSH.html">SSH<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.System.SSH.Agent.html">Agent</a>
+						</li>
+							</ul></li></ul></li></ul></li>
 				<li><a href="namespace-Profiles.html">Profiles</a>
 						</li>
 				<li><a href="namespace-Settings.html">Settings</a>
@@ -113,6 +140,57 @@
 	
 <p>Connexion à un annuaire LDAP</p>
 
+<p>La connexion à l'annuaire LDAP est fermée à la fin de l'exécution du
+script.</p>
+
+<p>Bien que cette classe n'ait été testée qu'avec des annuaires Active
+Directory, elle devrait fonctionner avec des annuaires LDAP autres que ceux de
+Microsoft.</p>
+
+<h4>Exemple</h4>
+
+<pre>
+<span class="php-keyword1">use</span> \Ldap\Connection;
+<span
+class="php-var">$LDAPConnection</span> = <span
+class="php-keyword1">new</span> Connection(<span
+class="php-quote">'dc1'</span>, <span
+class="php-quote">'bob.morane'</span>, <span
+class="php-quote">'happyPwd'</span>, <span
+class="php-quote">'contoso.com'</span>);
+</pre>
+
+<h4>Usage</h4>
+ La connexion est stockée dans la propriété <code>connection</code> de
+l'objet, et est accessible via la méthode <code>connection()</code> :
+<pre>
+<span class="php-var">$connection</span> = <span
+class="php-var">$LDAPConnection</span>-&gt;connection();
+</pre>
+
+<p>Si la connexion a échoué, la propriété <code>badCreds</code> accessible
+par la méthode <code>badCreds()</code> prendra la valeur <code>true</code>
+:</p>
+
+<pre>
+<span class="php-keyword1">use</span> \Ldap\Connection;
+<span
+class="php-comment">// le mot de passe de bob.morane n'est pas `badPwd`</span>
+<span
+class="php-var">$LDAPConnection</span> = <span
+class="php-keyword1">new</span> Connection(<span
+class="php-quote">'dc1'</span>, <span
+class="php-quote">'bob.morane'</span>, <span
+class="php-quote">'badPwd'</span>, <span
+class="php-quote">'contoso.com'</span>);
+<span
+class="php-comment">// Une alerte est générée pour l'utilisateur et $LDAPConnection-&gt;badCreds passe à `true`.</span>
+<span
+class="php-keyword1">echo</span> <span
+class="php-var">$LDAPConnection</span>-&gt;badCreds; <span
+class="php-comment">// renvoie true</span>
+</pre>
+
 	</div>
 
 
@@ -126,10 +204,10 @@
 	<div class="alert alert-info">
 		
 		
-		<b>Namespace:</b> <a href="namespace-Ldap.html">Ldap</a><br />
-		<b>Package:</b> Ldap<br />
+		<b>Namespace:</b> <a href="namespace-Ldap.html">Ldap</a><br>
+		<b>Package:</b> Ldap<br>
 
-		<b>Located at</b> <a href="source-class-Ldap.Connection.html#14-117" title="Go to source code">classes/Ldap/Connection.php</a><br />
+		<b>Located at</b> <a href="source-class-Ldap.Connection.html#14-148" title="Go to source code">classes/Ldap/Connection.php</a><br>
 	</div>
 
 
@@ -147,7 +225,7 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#___construct">#</a>
-			<code><a href="source-class-Ldap.Connection.html#63-93" title="Go to source code">__construct</a>( <span>string <var>$dc</var></span>, <span>string <var>$bindName</var></span>, <span>string <var>$bindPwd</var></span>, <span>string <var>$domain</var> = <span class="php-quote">''</span></span> )</code>
+			<code><a href="source-class-Ldap.Connection.html#88-124" title="Go to source code">__construct</a>( <span>string <var>$dc</var></span>, <span>string <var>$bindName</var></span>, <span>string <var>$bindPwd</var></span>, <span>string <var>$domain</var> = <span class="php-quote">''</span></span> )</code>
 
 			<div class="description short">
 				
@@ -191,7 +269,7 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#___destruct">#</a>
-			<code><a href="source-class-Ldap.Connection.html#95-100" title="Go to source code">__destruct</a>( )</code>
+			<code><a href="source-class-Ldap.Connection.html#126-131" title="Go to source code">__destruct</a>( )</code>
 
 			<div class="description short">
 				
@@ -224,7 +302,7 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_connection">#</a>
-			<code><a href="source-class-Ldap.Connection.html#102-108" title="Go to source code">connection</a>( )</code>
+			<code><a href="source-class-Ldap.Connection.html#133-139" title="Go to source code">connection</a>( )</code>
 
 			<div class="description short">
 				
@@ -241,7 +319,7 @@
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>object|resource</code><br />
+						<code>object|resource</code><br>
 					</div>
 
 
@@ -261,7 +339,7 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_badCreds">#</a>
-			<code><a href="source-class-Ldap.Connection.html#110-116" title="Go to source code">badCreds</a>( )</code>
+			<code><a href="source-class-Ldap.Connection.html#141-147" title="Go to source code">badCreds</a>( )</code>
 
 			<div class="description short">
 				
@@ -278,7 +356,7 @@
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>boolean</code><br />
+						<code>boolean</code><br>
 					</div>
 
 
@@ -309,7 +387,7 @@
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Ldap.Connection.html#21-25" title="Go to source code"><var>$dc</var></a>
+					<a href="source-class-Ldap.Connection.html#46-50" title="Go to source code"><var>$dc</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$dc" class="anchor">#</a>
@@ -335,7 +413,7 @@
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Ldap.Connection.html#27-31" title="Go to source code"><var>$bindName</var></a>
+					<a href="source-class-Ldap.Connection.html#52-56" title="Go to source code"><var>$bindName</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$bindName" class="anchor">#</a>
@@ -361,7 +439,7 @@
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Ldap.Connection.html#33-37" title="Go to source code"><var>$bindPwd</var></a>
+					<a href="source-class-Ldap.Connection.html#58-62" title="Go to source code"><var>$bindPwd</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$bindPwd" class="anchor">#</a>
@@ -387,7 +465,7 @@
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Ldap.Connection.html#39-43" title="Go to source code"><var>$domain</var></a>
+					<a href="source-class-Ldap.Connection.html#64-68" title="Go to source code"><var>$domain</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$domain" class="anchor">#</a>
@@ -413,7 +491,7 @@
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Ldap.Connection.html#45-49" title="Go to source code"><var>$port</var></a>
+					<a href="source-class-Ldap.Connection.html#70-74" title="Go to source code"><var>$port</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$port" class="anchor">#</a>
@@ -439,7 +517,7 @@
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Ldap.Connection.html#51-55" title="Go to source code"><var>$connection</var></a>
+					<a href="source-class-Ldap.Connection.html#76-80" title="Go to source code"><var>$connection</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$connection" class="anchor">#</a>
@@ -465,7 +543,7 @@
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Ldap.Connection.html#57-61" title="Go to source code"><var>$badCreds</var></a>
+					<a href="source-class-Ldap.Connection.html#82-86" title="Go to source code"><var>$badCreds</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$badCreds" class="anchor">#</a>

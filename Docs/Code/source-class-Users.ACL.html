@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.8.0" />
-	<meta name="robots" content="noindex" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+	<meta name="robots" content="noindex">
 
 	<title>File classes/Users/ACL.php</title>
 
-	<script type="text/javascript" src="resources/combined.js?522072721"></script>
-	<script type="text/javascript" src="elementlist.js?1088796348"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+	<script type="text/javascript" src="resources/combined.js?1467300313"></script>
+	<script type="text/javascript" src="elementlist.js?2065545106"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822">
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609">
 
 </head>
 
@@ -44,9 +44,9 @@
 	<div id="left">
 	<div id="menu">
 		<form id="search" class="form-search">
-			<input type="hidden" name="cx" value="" />
-			<input type="hidden" name="ie" value="UTF-8" />
-			<input type="text" name="q" class="search-query" placeholder="Search" />
+			<input type="hidden" name="cx" value="">
+			<input type="hidden" name="ie" value="UTF-8">
+			<input type="text" name="q" class="search-query" placeholder="Search">
 		</form>
 
 
@@ -54,6 +54,10 @@
 			<h3>Namespaces</h3>
 			<ul>
 				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-API.html">API</a>
+						</li>
+				<li><a href="namespace-Charts.html">Charts</a>
 						</li>
 				<li><a href="namespace-Components.html">Components</a>
 						</li>
@@ -78,6 +82,29 @@
 						</li>
 				<li><a href="namespace-PHP.html">PHP</a>
 						</li>
+				<li><a href="namespace-phpseclib.html">phpseclib<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.Crypt.html">Crypt</a>
+						</li>
+				<li><a href="namespace-phpseclib.File.html">File<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.File.ASN1.html">ASN1</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-phpseclib.Math.html">Math</a>
+						</li>
+				<li><a href="namespace-phpseclib.Net.html">Net<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.Net.SFTP.html">SFTP</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-phpseclib.System.html">System<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.System.SSH.html">SSH<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.System.SSH.Agent.html">Agent</a>
+						</li>
+							</ul></li></ul></li></ul></li>
 				<li><a href="namespace-Profiles.html">Profiles</a>
 						</li>
 				<li><a href="namespace-Settings.html">Settings</a>
@@ -122,424 +149,602 @@
 </span><span id="9" class="l"><a class="l" href="#9">  9 </a><span class="php-keyword1">namespace</span> Users;
 </span><span id="10" class="l"><a class="l" href="#10"> 10 </a>
 </span><span id="11" class="l"><a class="l" href="#11"> 11 </a>
-</span><span id="12" class="l"><a class="l" href="#12"> 12 </a><span class="php-keyword1">use</span> Logs\Alert;
-</span><span id="13" class="l"><a class="l" href="#13"> 13 </a><span class="php-keyword1">use</span> Components\Help;
-</span><span id="14" class="l"><a class="l" href="#14"> 14 </a><span class="php-keyword1">use</span> Get;
-</span><span id="15" class="l"><a class="l" href="#15"> 15 </a><span class="php-keyword1">use</span> Sanitize;
-</span><span id="16" class="l"><a class="l" href="#16"> 16 </a>
-</span><span id="17" class="l"><a class="l" href="#17"> 17 </a><span class="php-comment">/**
-</span></span><span id="18" class="l"><a class="l" href="#18"> 18 </a><span class="php-comment"> * Classe de gestion des ACL
-</span></span><span id="19" class="l"><a class="l" href="#19"> 19 </a><span class="php-comment"> *
-</span></span><span id="20" class="l"><a class="l" href="#20"> 20 </a><span class="php-comment"> * Permet de définir des droits sur des composants du site pour des utilisateurs.
-</span></span><span id="21" class="l"><a class="l" href="#21"> 21 </a><span class="php-comment"> * l'ID d'utilisateur 0 signifie 'tout le monde' et sert à définir des ACL par défaut pour un composant.
-</span></span><span id="22" class="l"><a class="l" href="#22"> 22 </a><span class="php-comment"> *
-</span></span><span id="23" class="l"><a class="l" href="#23"> 23 </a><span class="php-comment"> * Pour gérer les ACL de tout composant, on essaie de faire un tableau associatif de la forme $ACL[$component][$id][$user][$type] = $value
-</span></span><span id="24" class="l"><a class="l" href="#24"> 24 </a><span class="php-comment"> * Pour les ACL d'un utilisateur, on aura ainsi $userACL[$component][$id][$type] = $value
-</span></span><span id="25" class="l"><a class="l" href="#25"> 25 </a><span class="php-comment"> * Pour les ACL d'un module, on aura $moduleACL[$user][$type] = $value
-</span></span><span id="26" class="l"><a class="l" href="#26"> 26 </a><span class="php-comment"> *
-</span></span><span id="27" class="l"><a class="l" href="#27"> 27 </a><span class="php-comment"> * @package Users
-</span></span><span id="28" class="l"><a class="l" href="#28"> 28 </a><span class="php-comment"> */</span>
-</span><span id="29" class="l"><a class="l" href="#29"> 29 </a><span class="php-keyword1">class</span> <a id="ACL" href="#ACL">ACL</a> {
-</span><span id="30" class="l"><a class="l" href="#30"> 30 </a>
-</span><span id="31" class="l"><a class="l" href="#31"> 31 </a>    <span class="php-comment">/**
-</span></span><span id="32" class="l"><a class="l" href="#32"> 32 </a><span class="php-comment">     * Types d'autorisations
-</span></span><span id="33" class="l"><a class="l" href="#33"> 33 </a><span class="php-comment">     * @var array
-</span></span><span id="34" class="l"><a class="l" href="#34"> 34 </a><span class="php-comment">     */</span>
-</span><span id="35" class="l"><a class="l" href="#35"> 35 </a>    <span class="php-keyword1">protected</span> <span class="php-keyword1">static</span> <span class="php-var"><a id="$typesLabels" href="#$typesLabels">$typesLabels</a></span> = <span class="php-keyword1">array</span>(
-</span><span id="36" class="l"><a class="l" href="#36"> 36 </a>        <span class="php-quote">'access'</span> =&gt; <span class="php-quote">'Permet d\'accéder à la ressource'</span>,
-</span><span id="37" class="l"><a class="l" href="#37"> 37 </a>        <span class="php-quote">'modify'</span> =&gt; <span class="php-quote">'Permet la modification d\'éléments dans la ressource'</span>,
-</span><span id="38" class="l"><a class="l" href="#38"> 38 </a>      <span class="php-quote">'admin'</span>  =&gt; <span class="php-quote">'Permet d\'administrer la ressource'</span>
-</span><span id="39" class="l"><a class="l" href="#39"> 39 </a>    );
-</span><span id="40" class="l"><a class="l" href="#40"> 40 </a>
-</span><span id="41" class="l"><a class="l" href="#41"> 41 </a>    <span class="php-comment">/**
-</span></span><span id="42" class="l"><a class="l" href="#42"> 42 </a><span class="php-comment">     * Retourne les autorisations d'un utilisateur
-</span></span><span id="43" class="l"><a class="l" href="#43"> 43 </a><span class="php-comment">     *
-</span></span><span id="44" class="l"><a class="l" href="#44"> 44 </a><span class="php-comment">     * @param int $user ID d'un utilisateur
-</span></span><span id="45" class="l"><a class="l" href="#45"> 45 </a><span class="php-comment">     *
-</span></span><span id="46" class="l"><a class="l" href="#46"> 46 </a><span class="php-comment">     * @return bool|array
-</span></span><span id="47" class="l"><a class="l" href="#47"> 47 </a><span class="php-comment">     */</span>
-</span><span id="48" class="l"><a class="l" href="#48"> 48 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_getUserACL" href="#_getUserACL">getUserACL</a>(<span class="php-var">$user</span>){
-</span><span id="49" class="l"><a class="l" href="#49"> 49 </a>        <span class="php-keyword1">global</span> <span class="php-var">$db</span>;
-</span><span id="50" class="l"><a class="l" href="#50"> 50 </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_int</span>(<span class="php-var">$user</span>)){
-</span><span id="51" class="l"><a class="l" href="#51"> 51 </a>            <span class="php-keyword1">new</span> Alert(<span class="php-quote">'debug'</span>, <span class="php-quote">'&lt;code&gt;ACL::getUserACL()&lt;/code&gt; : &lt;code&gt;$user&lt;/code&gt; n\'est pas un nombre entier ! '</span>. Get::varDump(<span class="php-var">$user</span>));
-</span><span id="52" class="l"><a class="l" href="#52"> 52 </a>            <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
-</span><span id="53" class="l"><a class="l" href="#53"> 53 </a>        }
-</span><span id="54" class="l"><a class="l" href="#54"> 54 </a>        <span class="php-var">$dbACL</span> = <span class="php-var">$db</span>-&gt;get(<span class="php-quote">'ACL'</span>, <span class="php-quote">'*'</span>, <span class="php-keyword1">array</span>(<span class="php-quote">'user'</span>=&gt;<span class="php-var">$user</span>));
-</span><span id="55" class="l"><a class="l" href="#55"> 55 </a>        <span class="php-keyword1">if</span> (<span class="php-var">$dbACL</span> === <span class="php-keyword1">false</span>) <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
-</span><span id="56" class="l"><a class="l" href="#56"> 56 </a>        <span class="php-var">$retACL</span> = <span class="php-keyword1">array</span>();
-</span><span id="57" class="l"><a class="l" href="#57"> 57 </a>        <span class="php-keyword1">foreach</span> (<span class="php-var">$dbACL</span> <span class="php-keyword1">as</span> <span class="php-var">$acl</span>){
-</span><span id="58" class="l"><a class="l" href="#58"> 58 </a>            <span class="php-var">$acl</span>-&gt;value = (<span class="php-var">$acl</span>-&gt;value == <span class="php-num">1</span>) ? <span class="php-keyword1">true</span> : <span class="php-keyword1">false</span>;
-</span><span id="59" class="l"><a class="l" href="#59"> 59 </a>            <span class="php-var">$retACL</span>[<span class="php-var">$acl</span>-&gt;component][<span class="php-var">$acl</span>-&gt;id][<span class="php-var">$acl</span>-&gt;type] = <span class="php-var">$acl</span>-&gt;value;
-</span><span id="60" class="l"><a class="l" href="#60"> 60 </a>        }
-</span><span id="61" class="l"><a class="l" href="#61"> 61 </a>        <span class="php-var">$dbACL</span> = <span class="php-var">$db</span>-&gt;get(<span class="php-quote">'ACL'</span>, <span class="php-quote">'*'</span>, <span class="php-keyword1">array</span>(<span class="php-quote">'user'</span>=&gt;<span class="php-num">10000</span>));
-</span><span id="62" class="l"><a class="l" href="#62"> 62 </a>        <span class="php-keyword1">if</span> (<span class="php-var">$dbACL</span> === <span class="php-keyword1">false</span>) <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
-</span><span id="63" class="l"><a class="l" href="#63"> 63 </a>        <span class="php-keyword1">foreach</span> (<span class="php-var">$dbACL</span> <span class="php-keyword1">as</span> <span class="php-var">$acl</span>){
-</span><span id="64" class="l"><a class="l" href="#64"> 64 </a>            <span class="php-var">$acl</span>-&gt;value = (<span class="php-var">$acl</span>-&gt;value == <span class="php-num">1</span>) ? <span class="php-keyword1">true</span> : <span class="php-keyword1">false</span>;
-</span><span id="65" class="l"><a class="l" href="#65"> 65 </a>            <span class="php-keyword1">if</span> (!<span class="php-keyword1">isset</span>(<span class="php-var">$retACL</span>[<span class="php-var">$acl</span>-&gt;component][<span class="php-var">$acl</span>-&gt;id][<span class="php-var">$acl</span>-&gt;type])) <span class="php-var">$retACL</span>[<span class="php-var">$acl</span>-&gt;component][<span class="php-var">$acl</span>-&gt;id][<span class="php-var">$acl</span>-&gt;type] = <span class="php-var">$acl</span>-&gt;value;
-</span><span id="66" class="l"><a class="l" href="#66"> 66 </a>        }
-</span><span id="67" class="l"><a class="l" href="#67"> 67 </a>        <span class="php-keyword1">return</span> <span class="php-var">$retACL</span>;
-</span><span id="68" class="l"><a class="l" href="#68"> 68 </a>    }
-</span><span id="69" class="l"><a class="l" href="#69"> 69 </a>
-</span><span id="70" class="l"><a class="l" href="#70"> 70 </a>    <span class="php-comment">/**
-</span></span><span id="71" class="l"><a class="l" href="#71"> 71 </a><span class="php-comment">     * Détermine si l'utilisateur a le droit d'administrer un composant
-</span></span><span id="72" class="l"><a class="l" href="#72"> 72 </a><span class="php-comment">     * @param string $component Composant (module, site,...)
-</span></span><span id="73" class="l"><a class="l" href="#73"> 73 </a><span class="php-comment">     * @param int $componentId Id du composant
-</span></span><span id="74" class="l"><a class="l" href="#74"> 74 </a><span class="php-comment">     * @param int $userId Id de l'utilisateur (utilisateur courant si vide)
-</span></span><span id="75" class="l"><a class="l" href="#75"> 75 </a><span class="php-comment">     *
-</span></span><span id="76" class="l"><a class="l" href="#76"> 76 </a><span class="php-comment">     * @return bool
-</span></span><span id="77" class="l"><a class="l" href="#77"> 77 </a><span class="php-comment">     */</span>
-</span><span id="78" class="l"><a class="l" href="#78"> 78 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_canAdmin" href="#_canAdmin">canAdmin</a>(<span class="php-var">$component</span>, <span class="php-var">$componentId</span>, <span class="php-var">$userId</span> = <span class="php-keyword1">null</span>){
-</span><span id="79" class="l"><a class="l" href="#79"> 79 </a>        <span class="php-keyword1">if</span> (self::can(<span class="php-quote">'admin'</span>, <span class="php-num">0</span>, <span class="php-var">$userId</span>, <span class="php-quote">'admin'</span>)) <span class="php-keyword1">return</span> <span class="php-keyword1">true</span>;
-</span><span id="80" class="l"><a class="l" href="#80"> 80 </a>        <span class="php-keyword1">return</span> self::can(<span class="php-var">$component</span>, <span class="php-var">$componentId</span>, <span class="php-var">$userId</span>, <span class="php-quote">'admin'</span>);
-</span><span id="81" class="l"><a class="l" href="#81"> 81 </a>    }
-</span><span id="82" class="l"><a class="l" href="#82"> 82 </a>
-</span><span id="83" class="l"><a class="l" href="#83"> 83 </a>    <span class="php-comment">/**
-</span></span><span id="84" class="l"><a class="l" href="#84"> 84 </a><span class="php-comment">     * Détermine si l'utilisateur a le droit de modifier un composant
-</span></span><span id="85" class="l"><a class="l" href="#85"> 85 </a><span class="php-comment">     * @param string $component Composant (module, site,...)
-</span></span><span id="86" class="l"><a class="l" href="#86"> 86 </a><span class="php-comment">     * @param int $componentId Id du composant
-</span></span><span id="87" class="l"><a class="l" href="#87"> 87 </a><span class="php-comment">     * @param int $userId Id de l'utilisateur (utilisateur courant si vide)
-</span></span><span id="88" class="l"><a class="l" href="#88"> 88 </a><span class="php-comment">     *
-</span></span><span id="89" class="l"><a class="l" href="#89"> 89 </a><span class="php-comment">     * @return bool
-</span></span><span id="90" class="l"><a class="l" href="#90"> 90 </a><span class="php-comment">     */</span>
-</span><span id="91" class="l"><a class="l" href="#91"> 91 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_canModify" href="#_canModify">canModify</a>(<span class="php-var">$component</span>, <span class="php-var">$componentId</span>, <span class="php-var">$userId</span> = <span class="php-keyword1">null</span>){
-</span><span id="92" class="l"><a class="l" href="#92"> 92 </a>        <span class="php-keyword1">if</span> (self::can(<span class="php-quote">'admin'</span>, <span class="php-num">0</span>, <span class="php-var">$userId</span>, <span class="php-quote">'admin'</span>)) <span class="php-keyword1">return</span> <span class="php-keyword1">true</span>;
-</span><span id="93" class="l"><a class="l" href="#93"> 93 </a>        <span class="php-keyword1">return</span> self::can(<span class="php-var">$component</span>, <span class="php-var">$componentId</span>, <span class="php-var">$userId</span>, <span class="php-quote">'modify'</span>);
-</span><span id="94" class="l"><a class="l" href="#94"> 94 </a>    }
-</span><span id="95" class="l"><a class="l" href="#95"> 95 </a>
-</span><span id="96" class="l"><a class="l" href="#96"> 96 </a>    <span class="php-comment">/**
-</span></span><span id="97" class="l"><a class="l" href="#97"> 97 </a><span class="php-comment">     * Détermine si l'utilisateur a le droit d'accéder à un composant
-</span></span><span id="98" class="l"><a class="l" href="#98"> 98 </a><span class="php-comment">     * @param string $component Composant (module, site,...)
-</span></span><span id="99" class="l"><a class="l" href="#99"> 99 </a><span class="php-comment">     * @param int $componentId Id du composant
-</span></span><span id="100" class="l"><a class="l" href="#100">100 </a><span class="php-comment">     * @param int $userId Id de l'utilisateur (utilisateur courant si vide)
-</span></span><span id="101" class="l"><a class="l" href="#101">101 </a><span class="php-comment">     *
-</span></span><span id="102" class="l"><a class="l" href="#102">102 </a><span class="php-comment">     * @return bool
-</span></span><span id="103" class="l"><a class="l" href="#103">103 </a><span class="php-comment">     */</span>
-</span><span id="104" class="l"><a class="l" href="#104">104 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_canAccess" href="#_canAccess">canAccess</a>(<span class="php-var">$component</span>, <span class="php-var">$componentId</span>, <span class="php-var">$userId</span> = <span class="php-keyword1">null</span>){
-</span><span id="105" class="l"><a class="l" href="#105">105 </a>        <span class="php-keyword1">if</span> (self::can(<span class="php-quote">'admin'</span>, <span class="php-num">0</span>, <span class="php-var">$userId</span>, <span class="php-quote">'admin'</span>)) <span class="php-keyword1">return</span> <span class="php-keyword1">true</span>;
-</span><span id="106" class="l"><a class="l" href="#106">106 </a>        <span class="php-keyword1">return</span> self::can(<span class="php-var">$component</span>, <span class="php-var">$componentId</span>, <span class="php-var">$userId</span>, <span class="php-quote">'access'</span>);
-</span><span id="107" class="l"><a class="l" href="#107">107 </a>    }
-</span><span id="108" class="l"><a class="l" href="#108">108 </a>
-</span><span id="109" class="l"><a class="l" href="#109">109 </a>    <span class="php-comment">/**
-</span></span><span id="110" class="l"><a class="l" href="#110">110 </a><span class="php-comment">     * Détermine si l'utilisateur a le droit d'effectuer une action $type sur un composant
-</span></span><span id="111" class="l"><a class="l" href="#111">111 </a><span class="php-comment">     * @param string $component Composant (module, site,...)
-</span></span><span id="112" class="l"><a class="l" href="#112">112 </a><span class="php-comment">     * @param int $componentId Id du composant
-</span></span><span id="113" class="l"><a class="l" href="#113">113 </a><span class="php-comment">     * @param int $userId Id de l'utilisateur (utilisateur courant si vide)
-</span></span><span id="114" class="l"><a class="l" href="#114">114 </a><span class="php-comment">     * @param string $type Type d'ACL (admin, access)
-</span></span><span id="115" class="l"><a class="l" href="#115">115 </a><span class="php-comment">     *
-</span></span><span id="116" class="l"><a class="l" href="#116">116 </a><span class="php-comment">     * @return bool
-</span></span><span id="117" class="l"><a class="l" href="#117">117 </a><span class="php-comment">     */</span>
-</span><span id="118" class="l"><a class="l" href="#118">118 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_can" href="#_can">can</a>(<span class="php-var">$component</span>, <span class="php-var">$componentId</span>, <span class="php-var">$userId</span> = <span class="php-keyword1">null</span>, <span class="php-var">$type</span>){
-</span><span id="119" class="l"><a class="l" href="#119">119 </a>        <span class="php-keyword1">global</span> <span class="php-var">$db</span>, <span class="php-var">$cUser</span>;
-</span><span id="120" class="l"><a class="l" href="#120">120 </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">in_array</span>(<span class="php-var">$type</span>, <span class="php-keyword2">array_keys</span>(self::<span class="php-var">$typesLabels</span>))){
-</span><span id="121" class="l"><a class="l" href="#121">121 </a>            <span class="php-keyword1">New</span> Alert(<span class="php-quote">'debug'</span>, <span class="php-quote">'&lt;code&gt;ACL::can()&lt;/code&gt; : &lt;code&gt;$type='</span>.<span class="php-var">$type</span>.<span class="php-quote">'&lt;/code&gt; ne fait pas partie des types autorisés !'</span>);
-</span><span id="122" class="l"><a class="l" href="#122">122 </a>            <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
-</span><span id="123" class="l"><a class="l" href="#123">123 </a>        }
-</span><span id="124" class="l"><a class="l" href="#124">124 </a>        <span class="php-keyword1">if</span> (<span class="php-keyword1">empty</span>(<span class="php-var">$userId</span>) <span class="php-keyword1">or</span> <span class="php-var">$userId</span> == <span class="php-var">$cUser</span>-&gt;getId()){
-</span><span id="125" class="l"><a class="l" href="#125">125 </a>            <span class="php-comment">// On demande donc une autorisation pour l'utilisateur courant. Comme on a déjà la liste de ses autorisations, on va la chercher dans son objet</span>
-</span><span id="126" class="l"><a class="l" href="#126">126 </a>            <span class="php-var">$userACL</span> = <span class="php-var">$cUser</span>-&gt;getACL();
-</span><span id="127" class="l"><a class="l" href="#127">127 </a>            <span class="php-keyword1">return</span> (<span class="php-keyword1">isset</span>(<span class="php-var">$userACL</span>[<span class="php-var">$component</span>][<span class="php-var">$componentId</span>][<span class="php-var">$type</span>])) ? <span class="php-var">$userACL</span>[<span class="php-var">$component</span>][<span class="php-var">$componentId</span>][<span class="php-var">$type</span>] : <span class="php-keyword1">false</span>;
-</span><span id="128" class="l"><a class="l" href="#128">128 </a>        }<span class="php-keyword1">else</span>{
-</span><span id="129" class="l"><a class="l" href="#129">129 </a>            <span class="php-var">$where</span> = <span class="php-keyword1">array</span>(
-</span><span id="130" class="l"><a class="l" href="#130">130 </a>                <span class="php-quote">'component'</span> =&gt; <span class="php-var">$component</span>,
-</span><span id="131" class="l"><a class="l" href="#131">131 </a>              <span class="php-quote">'id'</span>        =&gt; <span class="php-var">$componentId</span>,
-</span><span id="132" class="l"><a class="l" href="#132">132 </a>              <span class="php-quote">'user'</span>      =&gt; <span class="php-var">$userId</span>,
-</span><span id="133" class="l"><a class="l" href="#133">133 </a>              <span class="php-quote">'type'</span>      =&gt; <span class="php-var">$type</span>
-</span><span id="134" class="l"><a class="l" href="#134">134 </a>            );
-</span><span id="135" class="l"><a class="l" href="#135">135 </a>            <span class="php-var">$ret</span> = <span class="php-var">$db</span>-&gt;getVal(<span class="php-quote">'ACL'</span>, <span class="php-quote">'value'</span>, <span class="php-var">$where</span>);
-</span><span id="136" class="l"><a class="l" href="#136">136 </a>            <span class="php-keyword1">switch</span> (<span class="php-var">$ret</span>){
-</span><span id="137" class="l"><a class="l" href="#137">137 </a>                <span class="php-keyword1">case</span> <span class="php-keyword1">null</span>:
-</span><span id="138" class="l"><a class="l" href="#138">138 </a>                    <span class="php-comment">// On regarde s'il existe une valeur pour tous les utilisateurs (10000 = tout le monde)</span>
-</span><span id="139" class="l"><a class="l" href="#139">139 </a>                    <span class="php-var">$where</span>[<span class="php-quote">'user'</span>] = <span class="php-num">10000</span>;
-</span><span id="140" class="l"><a class="l" href="#140">140 </a>                    <span class="php-var">$ret</span> = <span class="php-var">$db</span>-&gt;getVal(<span class="php-quote">'ACL'</span>, <span class="php-quote">'value'</span>, <span class="php-var">$where</span>);
-</span><span id="141" class="l"><a class="l" href="#141">141 </a>                    <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_null</span>(<span class="php-var">$ret</span>) <span class="php-keyword1">or</span> <span class="php-var">$ret</span>) <span class="php-keyword1">return</span> <span class="php-keyword1">true</span>;
-</span><span id="142" class="l"><a class="l" href="#142">142 </a>                    <span class="php-keyword1">break</span>;
-</span><span id="143" class="l"><a class="l" href="#143">143 </a>                <span class="php-keyword1">case</span> <span class="php-num">0</span>:
-</span><span id="144" class="l"><a class="l" href="#144">144 </a>                <span class="php-keyword1">case</span> <span class="php-keyword1">false</span>:
-</span><span id="145" class="l"><a class="l" href="#145">145 </a>                    <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
-</span><span id="146" class="l"><a class="l" href="#146">146 </a>                <span class="php-keyword1">case</span> <span class="php-num">1</span>:
-</span><span id="147" class="l"><a class="l" href="#147">147 </a>                <span class="php-keyword1">case</span> <span class="php-keyword1">true</span>:
-</span><span id="148" class="l"><a class="l" href="#148">148 </a>                    <span class="php-keyword1">return</span> <span class="php-keyword1">true</span>;
-</span><span id="149" class="l"><a class="l" href="#149">149 </a>            }
-</span><span id="150" class="l"><a class="l" href="#150">150 </a>        }
-</span><span id="151" class="l"><a class="l" href="#151">151 </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
-</span><span id="152" class="l"><a class="l" href="#152">152 </a>    }
-</span><span id="153" class="l"><a class="l" href="#153">153 </a>
-</span><span id="154" class="l"><a class="l" href="#154">154 </a>    <span class="php-comment">/**
-</span></span><span id="155" class="l"><a class="l" href="#155">155 </a><span class="php-comment">     * Définit une règle $type sur un composant
-</span></span><span id="156" class="l"><a class="l" href="#156">156 </a><span class="php-comment">     *
-</span></span><span id="157" class="l"><a class="l" href="#157">157 </a><span class="php-comment">     * @param string $component Composant (module, site,...)
-</span></span><span id="158" class="l"><a class="l" href="#158">158 </a><span class="php-comment">     * @param int    $componentId Id du composant
-</span></span><span id="159" class="l"><a class="l" href="#159">159 </a><span class="php-comment">     * @param int    $userId Id de l'utilisateur
-</span></span><span id="160" class="l"><a class="l" href="#160">160 </a><span class="php-comment">     * @param string $type Type d'ACL (admin, access)
-</span></span><span id="161" class="l"><a class="l" href="#161">161 </a><span class="php-comment">     * @param bool   $value Valeur de l'ACL (true : permis, false : refusé)
-</span></span><span id="162" class="l"><a class="l" href="#162">162 </a><span class="php-comment">     *
-</span></span><span id="163" class="l"><a class="l" href="#163">163 </a><span class="php-comment">     * @return bool
-</span></span><span id="164" class="l"><a class="l" href="#164">164 </a><span class="php-comment">     */</span>
-</span><span id="165" class="l"><a class="l" href="#165">165 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_set" href="#_set">set</a>(<span class="php-var">$component</span>, <span class="php-var">$componentId</span>, <span class="php-var">$userId</span>, <span class="php-var">$type</span>, <span class="php-var">$value</span>){
-</span><span id="166" class="l"><a class="l" href="#166">166 </a>        <span class="php-keyword1">global</span> <span class="php-var">$db</span>;
-</span><span id="167" class="l"><a class="l" href="#167">167 </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">in_array</span>(<span class="php-var">$type</span>, <span class="php-keyword2">array_keys</span>(self::<span class="php-var">$typesLabels</span>))){
-</span><span id="168" class="l"><a class="l" href="#168">168 </a>            <span class="php-keyword1">New</span> Alert(<span class="php-quote">'debug'</span>, <span class="php-quote">'&lt;code&gt;ACL::set()&lt;/code&gt; : &lt;code&gt;$type='</span>.<span class="php-var">$type</span>.<span class="php-quote">'&lt;/code&gt; ne fait pas partie des typesLabels autorisés !'</span>);
-</span><span id="169" class="l"><a class="l" href="#169">169 </a>            <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
-</span><span id="170" class="l"><a class="l" href="#170">170 </a>        }
-</span><span id="171" class="l"><a class="l" href="#171">171 </a>        <span class="php-var">$value</span> = Sanitize::SanitizeForDb(<span class="php-var">$value</span>);
-</span><span id="172" class="l"><a class="l" href="#172">172 </a>        <span class="php-var">$types</span> = <span class="php-keyword2">array_flip</span>(<span class="php-keyword2">array_keys</span>(self::<span class="php-var">$typesLabels</span>));
-</span><span id="173" class="l"><a class="l" href="#173">173 </a>        <span class="php-var">$ret</span> = <span class="php-keyword1">false</span>;
-</span><span id="174" class="l"><a class="l" href="#174">174 </a>        <span class="php-var">$sql</span> = <span class="php-quote">''</span>;
-</span><span id="175" class="l"><a class="l" href="#175">175 </a>        <span class="php-keyword1">if</span> (<span class="php-var">$value</span> == <span class="php-num">1</span>){
-</span><span id="176" class="l"><a class="l" href="#176">176 </a>            <span class="php-comment">// On inscrit aussi les permissions inférieures si c'est une autorisation</span>
-</span><span id="177" class="l"><a class="l" href="#177">177 </a>            <span class="php-keyword1">for</span> (<span class="php-var">$i</span> = <span class="php-num">0</span>; <span class="php-var">$i</span> &lt;= <span class="php-var">$types</span>[<span class="php-var">$type</span>]; <span class="php-var">$i</span>++){
-</span><span id="178" class="l"><a class="l" href="#178">178 </a>                <span class="php-var">$typeI</span> = <span class="php-keyword2">array_search</span>(<span class="php-var">$i</span>, <span class="php-var">$types</span>);
-</span><span id="179" class="l"><a class="l" href="#179">179 </a>                <span class="php-var">$sql</span> = <span class="php-quote">'INSERT INTO `ACL` (`component`, `id`, `user`, `type`, `value`) VALUES (&quot;'</span>.<span class="php-var">$component</span>.<span class="php-quote">'&quot;, '</span>.<span class="php-var">$componentId</span>.<span class="php-quote">', '</span>.<span class="php-var">$userId</span>.<span class="php-quote">', &quot;'</span>.<span class="php-var">$typeI</span>.<span class="php-quote">'&quot;, '</span>.<span class="php-var">$value</span>.<span class="php-quote">') ON DUPLICATE KEY UPDATE value = '</span>.<span class="php-var">$value</span>;
-</span><span id="180" class="l"><a class="l" href="#180">180 </a>                <span class="php-var">$ret</span> = <span class="php-var">$db</span>-&gt;query(<span class="php-var">$sql</span>);
-</span><span id="181" class="l"><a class="l" href="#181">181 </a>                <span class="php-keyword1">if</span> (<span class="php-var">$ret</span> === <span class="php-keyword1">false</span>){
-</span><span id="182" class="l"><a class="l" href="#182">182 </a>                    <span class="php-keyword1">new</span> Alert(<span class="php-quote">'error'</span>, <span class="php-quote">'Impossible de sauvegarder les permissions !&lt;br&gt;'</span>.<span class="php-var">$sql</span>);
-</span><span id="183" class="l"><a class="l" href="#183">183 </a>                    <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
-</span><span id="184" class="l"><a class="l" href="#184">184 </a>                }
-</span><span id="185" class="l"><a class="l" href="#185">185 </a>            }
-</span><span id="186" class="l"><a class="l" href="#186">186 </a>        }<span class="php-keyword1">else</span>{
-</span><span id="187" class="l"><a class="l" href="#187">187 </a>            <span class="php-comment">// On inscrit aussi les permissions supérieures si c'est un refus</span>
-</span><span id="188" class="l"><a class="l" href="#188">188 </a>            <span class="php-keyword1">for</span> (<span class="php-var">$i</span> = <span class="php-num">2</span>; <span class="php-var">$i</span> &gt; <span class="php-var">$types</span>[<span class="php-var">$type</span>]; <span class="php-var">$i</span>--){
-</span><span id="189" class="l"><a class="l" href="#189">189 </a>                <span class="php-var">$typeI</span> = <span class="php-keyword2">array_search</span>(<span class="php-var">$i</span>, <span class="php-var">$types</span>);
-</span><span id="190" class="l"><a class="l" href="#190">190 </a>                <span class="php-var">$sql</span> = <span class="php-quote">'INSERT INTO `ACL` (`component`, `id`, `user`, `type`, `value`) VALUES (&quot;'</span>.<span class="php-var">$component</span>.<span class="php-quote">'&quot;, '</span>.<span class="php-var">$componentId</span>.<span class="php-quote">', '</span>.<span class="php-var">$userId</span>.<span class="php-quote">', &quot;'</span>.<span class="php-var">$typeI</span>.<span class="php-quote">'&quot;, '</span>.<span class="php-var">$value</span>.<span class="php-quote">') ON DUPLICATE KEY UPDATE value = '</span>.<span class="php-var">$value</span>;
-</span><span id="191" class="l"><a class="l" href="#191">191 </a>                <span class="php-var">$ret</span> = <span class="php-var">$db</span>-&gt;query(<span class="php-var">$sql</span>);
-</span><span id="192" class="l"><a class="l" href="#192">192 </a>                <span class="php-keyword1">if</span> (<span class="php-var">$ret</span> === <span class="php-keyword1">false</span>){
-</span><span id="193" class="l"><a class="l" href="#193">193 </a>                    <span class="php-keyword1">new</span> Alert(<span class="php-quote">'error'</span>, <span class="php-quote">'Impossible de sauvegarder les permissions !&lt;br&gt;'</span>.<span class="php-var">$sql</span>);
-</span><span id="194" class="l"><a class="l" href="#194">194 </a>                    <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
-</span><span id="195" class="l"><a class="l" href="#195">195 </a>                }
-</span><span id="196" class="l"><a class="l" href="#196">196 </a>            }
-</span><span id="197" class="l"><a class="l" href="#197">197 </a>        }
-</span><span id="198" class="l"><a class="l" href="#198">198 </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">true</span>;
-</span><span id="199" class="l"><a class="l" href="#199">199 </a>    }
-</span><span id="200" class="l"><a class="l" href="#200">200 </a>
-</span><span id="201" class="l"><a class="l" href="#201">201 </a>    <span class="php-comment">/**
-</span></span><span id="202" class="l"><a class="l" href="#202">202 </a><span class="php-comment">     * Définit des règles $type sur des composants
-</span></span><span id="203" class="l"><a class="l" href="#203">203 </a><span class="php-comment">     *
-</span></span><span id="204" class="l"><a class="l" href="#204">204 </a><span class="php-comment">     * Cette fonction fait la même chose que ACL::set(), mais avec un tableau d'ACL.
-</span></span><span id="205" class="l"><a class="l" href="#205">205 </a><span class="php-comment">     * @param array $ACLArr Tableau d'ACL de la forme $array[(string)$component][(int)$componentId][(int)$user][(string)$type] = (bool)$value
+</span><span id="12" class="l"><a class="l" href="#12"> 12 </a><span class="php-keyword1">use</span> Forms\PostedData;
+</span><span id="13" class="l"><a class="l" href="#13"> 13 </a><span class="php-keyword1">use</span> Logs\Alert;
+</span><span id="14" class="l"><a class="l" href="#14"> 14 </a><span class="php-keyword1">use</span> Components\Help;
+</span><span id="15" class="l"><a class="l" href="#15"> 15 </a><span class="php-keyword1">use</span> Get;
+</span><span id="16" class="l"><a class="l" href="#16"> 16 </a><span class="php-keyword1">use</span> Sanitize;
+</span><span id="17" class="l"><a class="l" href="#17"> 17 </a>
+</span><span id="18" class="l"><a class="l" href="#18"> 18 </a><span class="php-comment">/**
+</span></span><span id="19" class="l"><a class="l" href="#19"> 19 </a><span class="php-comment"> * Classe de gestion des ACL
+</span></span><span id="20" class="l"><a class="l" href="#20"> 20 </a><span class="php-comment"> *
+</span></span><span id="21" class="l"><a class="l" href="#21"> 21 </a><span class="php-comment"> * Permet de définir des droits sur des composants du site pour des utilisateurs.
+</span></span><span id="22" class="l"><a class="l" href="#22"> 22 </a><span class="php-comment"> * l'ID d'utilisateur 0 signifie 'tout le monde' et sert à définir des ACL par défaut pour un composant.
+</span></span><span id="23" class="l"><a class="l" href="#23"> 23 </a><span class="php-comment"> *
+</span></span><span id="24" class="l"><a class="l" href="#24"> 24 </a><span class="php-comment"> * Pour gérer les ACL de tout composant, on essaie de faire un tableau associatif de la forme $ACL[$component][$id][$user][$type] = $value
+</span></span><span id="25" class="l"><a class="l" href="#25"> 25 </a><span class="php-comment"> * Pour les ACL d'un utilisateur, on aura ainsi $userACL[$component][$id][$type] = $value
+</span></span><span id="26" class="l"><a class="l" href="#26"> 26 </a><span class="php-comment"> * Pour les ACL d'un module, on aura $moduleACL[$user][$type] = $value
+</span></span><span id="27" class="l"><a class="l" href="#27"> 27 </a><span class="php-comment"> *
+</span></span><span id="28" class="l"><a class="l" href="#28"> 28 </a><span class="php-comment"> * @package Users
+</span></span><span id="29" class="l"><a class="l" href="#29"> 29 </a><span class="php-comment"> */</span>
+</span><span id="30" class="l"><a class="l" href="#30"> 30 </a><span class="php-keyword1">class</span> <a id="ACL" href="#ACL">ACL</a> {
+</span><span id="31" class="l"><a class="l" href="#31"> 31 </a>
+</span><span id="32" class="l"><a class="l" href="#32"> 32 </a>    <span class="php-comment">/**
+</span></span><span id="33" class="l"><a class="l" href="#33"> 33 </a><span class="php-comment">     * Types d'autorisations
+</span></span><span id="34" class="l"><a class="l" href="#34"> 34 </a><span class="php-comment">     * @var array
+</span></span><span id="35" class="l"><a class="l" href="#35"> 35 </a><span class="php-comment">     */</span>
+</span><span id="36" class="l"><a class="l" href="#36"> 36 </a>    <span class="php-keyword1">protected</span> <span class="php-keyword1">static</span> <span class="php-var"><a id="$typesLabels" href="#$typesLabels">$typesLabels</a></span> = <span class="php-keyword1">array</span>(
+</span><span id="37" class="l"><a class="l" href="#37"> 37 </a>        <span class="php-quote">'access'</span> =&gt; <span class="php-quote">'Permet d\'accéder à la ressource'</span>,
+</span><span id="38" class="l"><a class="l" href="#38"> 38 </a>        <span class="php-quote">'modify'</span> =&gt; <span class="php-quote">'Permet la modification d\'éléments dans la ressource'</span>,
+</span><span id="39" class="l"><a class="l" href="#39"> 39 </a>      <span class="php-quote">'admin'</span>  =&gt; <span class="php-quote">'Permet d\'administrer la ressource'</span>
+</span><span id="40" class="l"><a class="l" href="#40"> 40 </a>    );
+</span><span id="41" class="l"><a class="l" href="#41"> 41 </a>
+</span><span id="42" class="l"><a class="l" href="#42"> 42 </a>    <span class="php-comment">/**
+</span></span><span id="43" class="l"><a class="l" href="#43"> 43 </a><span class="php-comment">     * Retourne les autorisations d'un utilisateur
+</span></span><span id="44" class="l"><a class="l" href="#44"> 44 </a><span class="php-comment">     *
+</span></span><span id="45" class="l"><a class="l" href="#45"> 45 </a><span class="php-comment">     * @param int $user ID d'un utilisateur
+</span></span><span id="46" class="l"><a class="l" href="#46"> 46 </a><span class="php-comment">     *
+</span></span><span id="47" class="l"><a class="l" href="#47"> 47 </a><span class="php-comment">     * @return bool|array
+</span></span><span id="48" class="l"><a class="l" href="#48"> 48 </a><span class="php-comment">     */</span>
+</span><span id="49" class="l"><a class="l" href="#49"> 49 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_getUserACL" href="#_getUserACL">getUserACL</a>(<span class="php-var">$user</span>){
+</span><span id="50" class="l"><a class="l" href="#50"> 50 </a>        <span class="php-keyword1">global</span> <span class="php-var">$db</span>;
+</span><span id="51" class="l"><a class="l" href="#51"> 51 </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_int</span>(<span class="php-var">$user</span>)){
+</span><span id="52" class="l"><a class="l" href="#52"> 52 </a>            <span class="php-keyword1">new</span> Alert(<span class="php-quote">'debug'</span>, <span class="php-quote">'&lt;code&gt;ACL::getUserACL()&lt;/code&gt; : &lt;code&gt;$user&lt;/code&gt; n\'est pas un nombre entier ! '</span>. Get::varDump(<span class="php-var">$user</span>));
+</span><span id="53" class="l"><a class="l" href="#53"> 53 </a>            <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
+</span><span id="54" class="l"><a class="l" href="#54"> 54 </a>        }
+</span><span id="55" class="l"><a class="l" href="#55"> 55 </a>        <span class="php-var">$dbACL</span> = <span class="php-var">$db</span>-&gt;get(<span class="php-quote">'ACL'</span>, <span class="php-quote">'*'</span>, <span class="php-keyword1">array</span>(<span class="php-quote">'user'</span>=&gt;<span class="php-var">$user</span>));
+</span><span id="56" class="l"><a class="l" href="#56"> 56 </a>        <span class="php-keyword1">if</span> (<span class="php-var">$dbACL</span> === <span class="php-keyword1">false</span>) <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
+</span><span id="57" class="l"><a class="l" href="#57"> 57 </a>        <span class="php-var">$retACL</span> = <span class="php-keyword1">array</span>();
+</span><span id="58" class="l"><a class="l" href="#58"> 58 </a>        <span class="php-keyword1">foreach</span> (<span class="php-var">$dbACL</span> <span class="php-keyword1">as</span> <span class="php-var">$acl</span>){
+</span><span id="59" class="l"><a class="l" href="#59"> 59 </a>            <span class="php-var">$acl</span>-&gt;value = (<span class="php-var">$acl</span>-&gt;value == <span class="php-num">1</span>) ? <span class="php-keyword1">true</span> : <span class="php-keyword1">false</span>;
+</span><span id="60" class="l"><a class="l" href="#60"> 60 </a>            <span class="php-var">$retACL</span>[<span class="php-var">$acl</span>-&gt;component][<span class="php-var">$acl</span>-&gt;id][<span class="php-var">$acl</span>-&gt;type] = <span class="php-var">$acl</span>-&gt;value;
+</span><span id="61" class="l"><a class="l" href="#61"> 61 </a>        }
+</span><span id="62" class="l"><a class="l" href="#62"> 62 </a>        <span class="php-var">$dbACL</span> = <span class="php-var">$db</span>-&gt;get(<span class="php-quote">'ACL'</span>, <span class="php-quote">'*'</span>, <span class="php-keyword1">array</span>(<span class="php-quote">'user'</span>=&gt;<span class="php-num">10000</span>));
+</span><span id="63" class="l"><a class="l" href="#63"> 63 </a>        <span class="php-keyword1">if</span> (<span class="php-var">$dbACL</span> === <span class="php-keyword1">false</span>) <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
+</span><span id="64" class="l"><a class="l" href="#64"> 64 </a>        <span class="php-keyword1">foreach</span> (<span class="php-var">$dbACL</span> <span class="php-keyword1">as</span> <span class="php-var">$acl</span>){
+</span><span id="65" class="l"><a class="l" href="#65"> 65 </a>            <span class="php-var">$acl</span>-&gt;value = (<span class="php-var">$acl</span>-&gt;value == <span class="php-num">1</span>) ? <span class="php-keyword1">true</span> : <span class="php-keyword1">false</span>;
+</span><span id="66" class="l"><a class="l" href="#66"> 66 </a>            <span class="php-keyword1">if</span> (!<span class="php-keyword1">isset</span>(<span class="php-var">$retACL</span>[<span class="php-var">$acl</span>-&gt;component][<span class="php-var">$acl</span>-&gt;id][<span class="php-var">$acl</span>-&gt;type])) <span class="php-var">$retACL</span>[<span class="php-var">$acl</span>-&gt;component][<span class="php-var">$acl</span>-&gt;id][<span class="php-var">$acl</span>-&gt;type] = <span class="php-var">$acl</span>-&gt;value;
+</span><span id="67" class="l"><a class="l" href="#67"> 67 </a>        }
+</span><span id="68" class="l"><a class="l" href="#68"> 68 </a>        <span class="php-keyword1">return</span> <span class="php-var">$retACL</span>;
+</span><span id="69" class="l"><a class="l" href="#69"> 69 </a>    }
+</span><span id="70" class="l"><a class="l" href="#70"> 70 </a>
+</span><span id="71" class="l"><a class="l" href="#71"> 71 </a>    <span class="php-comment">/**
+</span></span><span id="72" class="l"><a class="l" href="#72"> 72 </a><span class="php-comment">     * Détermine si l'utilisateur a le droit d'administrer un composant
+</span></span><span id="73" class="l"><a class="l" href="#73"> 73 </a><span class="php-comment">     * @param string $component Composant (module, site,...)
+</span></span><span id="74" class="l"><a class="l" href="#74"> 74 </a><span class="php-comment">     * @param int $componentId Id du composant
+</span></span><span id="75" class="l"><a class="l" href="#75"> 75 </a><span class="php-comment">     * @param int $userId Id de l'utilisateur (utilisateur courant si vide)
+</span></span><span id="76" class="l"><a class="l" href="#76"> 76 </a><span class="php-comment">     *
+</span></span><span id="77" class="l"><a class="l" href="#77"> 77 </a><span class="php-comment">     * @return bool
+</span></span><span id="78" class="l"><a class="l" href="#78"> 78 </a><span class="php-comment">     */</span>
+</span><span id="79" class="l"><a class="l" href="#79"> 79 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_canAdmin" href="#_canAdmin">canAdmin</a>(<span class="php-var">$component</span>, <span class="php-var">$componentId</span>, <span class="php-var">$userId</span> = <span class="php-keyword1">null</span>){
+</span><span id="80" class="l"><a class="l" href="#80"> 80 </a>        <span class="php-keyword1">if</span> (self::can(<span class="php-quote">'admin'</span>, <span class="php-num">0</span>, <span class="php-var">$userId</span>, <span class="php-quote">'admin'</span>)) <span class="php-keyword1">return</span> <span class="php-keyword1">true</span>;
+</span><span id="81" class="l"><a class="l" href="#81"> 81 </a>        <span class="php-keyword1">return</span> self::can(<span class="php-var">$component</span>, <span class="php-var">$componentId</span>, <span class="php-var">$userId</span>, <span class="php-quote">'admin'</span>);
+</span><span id="82" class="l"><a class="l" href="#82"> 82 </a>    }
+</span><span id="83" class="l"><a class="l" href="#83"> 83 </a>
+</span><span id="84" class="l"><a class="l" href="#84"> 84 </a>    <span class="php-comment">/**
+</span></span><span id="85" class="l"><a class="l" href="#85"> 85 </a><span class="php-comment">     * Détermine si l'utilisateur a le droit de modifier un composant
+</span></span><span id="86" class="l"><a class="l" href="#86"> 86 </a><span class="php-comment">     * @param string $component Composant (module, site,...)
+</span></span><span id="87" class="l"><a class="l" href="#87"> 87 </a><span class="php-comment">     * @param int $componentId Id du composant
+</span></span><span id="88" class="l"><a class="l" href="#88"> 88 </a><span class="php-comment">     * @param int $userId Id de l'utilisateur (utilisateur courant si vide)
+</span></span><span id="89" class="l"><a class="l" href="#89"> 89 </a><span class="php-comment">     *
+</span></span><span id="90" class="l"><a class="l" href="#90"> 90 </a><span class="php-comment">     * @return bool
+</span></span><span id="91" class="l"><a class="l" href="#91"> 91 </a><span class="php-comment">     */</span>
+</span><span id="92" class="l"><a class="l" href="#92"> 92 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_canModify" href="#_canModify">canModify</a>(<span class="php-var">$component</span>, <span class="php-var">$componentId</span>, <span class="php-var">$userId</span> = <span class="php-keyword1">null</span>){
+</span><span id="93" class="l"><a class="l" href="#93"> 93 </a>        <span class="php-keyword1">if</span> (self::can(<span class="php-quote">'admin'</span>, <span class="php-num">0</span>, <span class="php-var">$userId</span>, <span class="php-quote">'admin'</span>)) <span class="php-keyword1">return</span> <span class="php-keyword1">true</span>;
+</span><span id="94" class="l"><a class="l" href="#94"> 94 </a>        <span class="php-keyword1">return</span> self::can(<span class="php-var">$component</span>, <span class="php-var">$componentId</span>, <span class="php-var">$userId</span>, <span class="php-quote">'modify'</span>);
+</span><span id="95" class="l"><a class="l" href="#95"> 95 </a>    }
+</span><span id="96" class="l"><a class="l" href="#96"> 96 </a>
+</span><span id="97" class="l"><a class="l" href="#97"> 97 </a>    <span class="php-comment">/**
+</span></span><span id="98" class="l"><a class="l" href="#98"> 98 </a><span class="php-comment">     * Détermine si l'utilisateur a le droit d'accéder à un composant
+</span></span><span id="99" class="l"><a class="l" href="#99"> 99 </a><span class="php-comment">     * @param string $component Composant (module, site,...)
+</span></span><span id="100" class="l"><a class="l" href="#100">100 </a><span class="php-comment">     * @param int $componentId Id du composant
+</span></span><span id="101" class="l"><a class="l" href="#101">101 </a><span class="php-comment">     * @param int $userId Id de l'utilisateur (utilisateur courant si vide)
+</span></span><span id="102" class="l"><a class="l" href="#102">102 </a><span class="php-comment">     *
+</span></span><span id="103" class="l"><a class="l" href="#103">103 </a><span class="php-comment">     * @return bool
+</span></span><span id="104" class="l"><a class="l" href="#104">104 </a><span class="php-comment">     */</span>
+</span><span id="105" class="l"><a class="l" href="#105">105 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_canAccess" href="#_canAccess">canAccess</a>(<span class="php-var">$component</span>, <span class="php-var">$componentId</span>, <span class="php-var">$userId</span> = <span class="php-keyword1">null</span>){
+</span><span id="106" class="l"><a class="l" href="#106">106 </a>        <span class="php-keyword1">if</span> (self::can(<span class="php-quote">'admin'</span>, <span class="php-num">0</span>, <span class="php-var">$userId</span>, <span class="php-quote">'admin'</span>)) <span class="php-keyword1">return</span> <span class="php-keyword1">true</span>;
+</span><span id="107" class="l"><a class="l" href="#107">107 </a>        <span class="php-keyword1">return</span> self::can(<span class="php-var">$component</span>, <span class="php-var">$componentId</span>, <span class="php-var">$userId</span>, <span class="php-quote">'access'</span>);
+</span><span id="108" class="l"><a class="l" href="#108">108 </a>    }
+</span><span id="109" class="l"><a class="l" href="#109">109 </a>
+</span><span id="110" class="l"><a class="l" href="#110">110 </a>    <span class="php-comment">/**
+</span></span><span id="111" class="l"><a class="l" href="#111">111 </a><span class="php-comment">     * Détermine si l'utilisateur a le droit d'effectuer une action $type sur un composant
+</span></span><span id="112" class="l"><a class="l" href="#112">112 </a><span class="php-comment">     * @param string $component Composant (module, site,...)
+</span></span><span id="113" class="l"><a class="l" href="#113">113 </a><span class="php-comment">     * @param int $componentId Id du composant
+</span></span><span id="114" class="l"><a class="l" href="#114">114 </a><span class="php-comment">     * @param int $userId Id de l'utilisateur (utilisateur courant si vide)
+</span></span><span id="115" class="l"><a class="l" href="#115">115 </a><span class="php-comment">     * @param string $type Type d'ACL (admin, access)
+</span></span><span id="116" class="l"><a class="l" href="#116">116 </a><span class="php-comment">     *
+</span></span><span id="117" class="l"><a class="l" href="#117">117 </a><span class="php-comment">     * @return bool
+</span></span><span id="118" class="l"><a class="l" href="#118">118 </a><span class="php-comment">     */</span>
+</span><span id="119" class="l"><a class="l" href="#119">119 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_can" href="#_can">can</a>(<span class="php-var">$component</span>, <span class="php-var">$componentId</span>, <span class="php-var">$userId</span> = <span class="php-keyword1">null</span>, <span class="php-var">$type</span>){
+</span><span id="120" class="l"><a class="l" href="#120">120 </a>        <span class="php-keyword1">global</span> <span class="php-var">$db</span>, <span class="php-var">$cUser</span>;
+</span><span id="121" class="l"><a class="l" href="#121">121 </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">in_array</span>(<span class="php-var">$type</span>, <span class="php-keyword2">array_keys</span>(self::<span class="php-var">$typesLabels</span>))){
+</span><span id="122" class="l"><a class="l" href="#122">122 </a>            <span class="php-keyword1">New</span> Alert(<span class="php-quote">'debug'</span>, <span class="php-quote">'&lt;code&gt;ACL::can()&lt;/code&gt; : &lt;code&gt;$type='</span>.<span class="php-var">$type</span>.<span class="php-quote">'&lt;/code&gt; ne fait pas partie des types autorisés !'</span>);
+</span><span id="123" class="l"><a class="l" href="#123">123 </a>            <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
+</span><span id="124" class="l"><a class="l" href="#124">124 </a>        }
+</span><span id="125" class="l"><a class="l" href="#125">125 </a>        <span class="php-keyword1">if</span> (<span class="php-keyword1">empty</span>(<span class="php-var">$userId</span>) <span class="php-keyword1">or</span> <span class="php-var">$userId</span> == <span class="php-var">$cUser</span>-&gt;getId()){
+</span><span id="126" class="l"><a class="l" href="#126">126 </a>            <span class="php-comment">// Il va de soi qu'on refuse les utilisateurs non connectés si l'authentification est obligatoire.</span>
+</span><span id="127" class="l"><a class="l" href="#127">127 </a>            <span class="php-keyword1">if</span> (!<span class="php-var">$cUser</span>-&gt;isLoggedIn() <span class="php-keyword1">and</span> AUTH_MANDATORY) <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
+</span><span id="128" class="l"><a class="l" href="#128">128 </a>            <span class="php-comment">// On demande donc une autorisation pour l'utilisateur courant. Comme on a déjà la liste de ses autorisations, on va la chercher dans son objet</span>
+</span><span id="129" class="l"><a class="l" href="#129">129 </a>            <span class="php-var">$userACL</span> = <span class="php-var">$cUser</span>-&gt;getACL();
+</span><span id="130" class="l"><a class="l" href="#130">130 </a>            <span class="php-keyword1">return</span> (<span class="php-keyword1">isset</span>(<span class="php-var">$userACL</span>[<span class="php-var">$component</span>][<span class="php-var">$componentId</span>][<span class="php-var">$type</span>])) ? <span class="php-var">$userACL</span>[<span class="php-var">$component</span>][<span class="php-var">$componentId</span>][<span class="php-var">$type</span>] : <span class="php-keyword1">false</span>;
+</span><span id="131" class="l"><a class="l" href="#131">131 </a>        }<span class="php-keyword1">else</span>{
+</span><span id="132" class="l"><a class="l" href="#132">132 </a>            <span class="php-var">$where</span> = <span class="php-keyword1">array</span>(
+</span><span id="133" class="l"><a class="l" href="#133">133 </a>                <span class="php-quote">'component'</span> =&gt; <span class="php-var">$component</span>,
+</span><span id="134" class="l"><a class="l" href="#134">134 </a>              <span class="php-quote">'id'</span>        =&gt; <span class="php-var">$componentId</span>,
+</span><span id="135" class="l"><a class="l" href="#135">135 </a>              <span class="php-quote">'user'</span>      =&gt; <span class="php-var">$userId</span>,
+</span><span id="136" class="l"><a class="l" href="#136">136 </a>              <span class="php-quote">'type'</span>      =&gt; <span class="php-var">$type</span>
+</span><span id="137" class="l"><a class="l" href="#137">137 </a>            );
+</span><span id="138" class="l"><a class="l" href="#138">138 </a>            <span class="php-var">$ret</span> = <span class="php-var">$db</span>-&gt;getVal(<span class="php-quote">'ACL'</span>, <span class="php-quote">'value'</span>, <span class="php-var">$where</span>);
+</span><span id="139" class="l"><a class="l" href="#139">139 </a>            <span class="php-keyword1">switch</span> (<span class="php-var">$ret</span>){
+</span><span id="140" class="l"><a class="l" href="#140">140 </a>                <span class="php-keyword1">case</span> <span class="php-keyword1">null</span>:
+</span><span id="141" class="l"><a class="l" href="#141">141 </a>                    <span class="php-comment">// On regarde s'il existe une valeur pour tous les utilisateurs (10000 = tout le monde)</span>
+</span><span id="142" class="l"><a class="l" href="#142">142 </a>                    <span class="php-var">$where</span>[<span class="php-quote">'user'</span>] = <span class="php-num">10000</span>;
+</span><span id="143" class="l"><a class="l" href="#143">143 </a>                    <span class="php-var">$ret</span> = <span class="php-var">$db</span>-&gt;getVal(<span class="php-quote">'ACL'</span>, <span class="php-quote">'value'</span>, <span class="php-var">$where</span>);
+</span><span id="144" class="l"><a class="l" href="#144">144 </a>                    <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_null</span>(<span class="php-var">$ret</span>) <span class="php-keyword1">or</span> <span class="php-var">$ret</span>) <span class="php-keyword1">return</span> <span class="php-keyword1">true</span>;
+</span><span id="145" class="l"><a class="l" href="#145">145 </a>                    <span class="php-keyword1">break</span>;
+</span><span id="146" class="l"><a class="l" href="#146">146 </a>                <span class="php-keyword1">case</span> <span class="php-num">0</span>:
+</span><span id="147" class="l"><a class="l" href="#147">147 </a>                <span class="php-keyword1">case</span> <span class="php-keyword1">false</span>:
+</span><span id="148" class="l"><a class="l" href="#148">148 </a>                    <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
+</span><span id="149" class="l"><a class="l" href="#149">149 </a>                <span class="php-keyword1">case</span> <span class="php-num">1</span>:
+</span><span id="150" class="l"><a class="l" href="#150">150 </a>                <span class="php-keyword1">case</span> <span class="php-keyword1">true</span>:
+</span><span id="151" class="l"><a class="l" href="#151">151 </a>                    <span class="php-keyword1">return</span> <span class="php-keyword1">true</span>;
+</span><span id="152" class="l"><a class="l" href="#152">152 </a>            }
+</span><span id="153" class="l"><a class="l" href="#153">153 </a>        }
+</span><span id="154" class="l"><a class="l" href="#154">154 </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
+</span><span id="155" class="l"><a class="l" href="#155">155 </a>    }
+</span><span id="156" class="l"><a class="l" href="#156">156 </a>
+</span><span id="157" class="l"><a class="l" href="#157">157 </a>    <span class="php-comment">/**
+</span></span><span id="158" class="l"><a class="l" href="#158">158 </a><span class="php-comment">     * Définit une règle $type sur un composant
+</span></span><span id="159" class="l"><a class="l" href="#159">159 </a><span class="php-comment">     *
+</span></span><span id="160" class="l"><a class="l" href="#160">160 </a><span class="php-comment">     * @param string $component Composant (module, site,...)
+</span></span><span id="161" class="l"><a class="l" href="#161">161 </a><span class="php-comment">     * @param int    $componentId Id du composant
+</span></span><span id="162" class="l"><a class="l" href="#162">162 </a><span class="php-comment">     * @param int    $userId Id de l'utilisateur
+</span></span><span id="163" class="l"><a class="l" href="#163">163 </a><span class="php-comment">     * @param string $type Type d'ACL (admin, access)
+</span></span><span id="164" class="l"><a class="l" href="#164">164 </a><span class="php-comment">     * @param bool   $value Valeur de l'ACL (true : permis, false : refusé)
+</span></span><span id="165" class="l"><a class="l" href="#165">165 </a><span class="php-comment">     *
+</span></span><span id="166" class="l"><a class="l" href="#166">166 </a><span class="php-comment">     * @return bool
+</span></span><span id="167" class="l"><a class="l" href="#167">167 </a><span class="php-comment">     */</span>
+</span><span id="168" class="l"><a class="l" href="#168">168 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_set" href="#_set">set</a>(<span class="php-var">$component</span>, <span class="php-var">$componentId</span>, <span class="php-var">$userId</span>, <span class="php-var">$type</span>, <span class="php-var">$value</span>){
+</span><span id="169" class="l"><a class="l" href="#169">169 </a>        <span class="php-keyword1">global</span> <span class="php-var">$db</span>;
+</span><span id="170" class="l"><a class="l" href="#170">170 </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">in_array</span>(<span class="php-var">$type</span>, <span class="php-keyword2">array_keys</span>(self::<span class="php-var">$typesLabels</span>))){
+</span><span id="171" class="l"><a class="l" href="#171">171 </a>            <span class="php-keyword1">New</span> Alert(<span class="php-quote">'debug'</span>, <span class="php-quote">'&lt;code&gt;ACL::set()&lt;/code&gt; : &lt;code&gt;$type='</span>.<span class="php-var">$type</span>.<span class="php-quote">'&lt;/code&gt; ne fait pas partie des typesLabels autorisés !'</span>);
+</span><span id="172" class="l"><a class="l" href="#172">172 </a>            <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
+</span><span id="173" class="l"><a class="l" href="#173">173 </a>        }
+</span><span id="174" class="l"><a class="l" href="#174">174 </a>        <span class="php-var">$value</span> = Sanitize::SanitizeForDb(<span class="php-var">$value</span>);
+</span><span id="175" class="l"><a class="l" href="#175">175 </a>        <span class="php-var">$types</span> = <span class="php-keyword2">array_flip</span>(<span class="php-keyword2">array_keys</span>(self::<span class="php-var">$typesLabels</span>));
+</span><span id="176" class="l"><a class="l" href="#176">176 </a>        <span class="php-var">$ret</span> = <span class="php-keyword1">false</span>;
+</span><span id="177" class="l"><a class="l" href="#177">177 </a>        <span class="php-var">$sql</span> = <span class="php-quote">''</span>;
+</span><span id="178" class="l"><a class="l" href="#178">178 </a>        <span class="php-keyword1">if</span> (<span class="php-var">$value</span> == <span class="php-num">1</span>){
+</span><span id="179" class="l"><a class="l" href="#179">179 </a>            <span class="php-comment">// On inscrit aussi les permissions inférieures si c'est une autorisation</span>
+</span><span id="180" class="l"><a class="l" href="#180">180 </a>            <span class="php-keyword1">for</span> (<span class="php-var">$i</span> = <span class="php-num">0</span>; <span class="php-var">$i</span> &lt;= <span class="php-var">$types</span>[<span class="php-var">$type</span>]; <span class="php-var">$i</span>++){
+</span><span id="181" class="l"><a class="l" href="#181">181 </a>                <span class="php-var">$typeI</span> = <span class="php-keyword2">array_search</span>(<span class="php-var">$i</span>, <span class="php-var">$types</span>);
+</span><span id="182" class="l"><a class="l" href="#182">182 </a>                <span class="php-var">$sql</span> = <span class="php-quote">'INSERT INTO `ACL` (`component`, `id`, `user`, `type`, `value`) VALUES (&quot;'</span>.<span class="php-var">$component</span>.<span class="php-quote">'&quot;, '</span>.<span class="php-var">$componentId</span>.<span class="php-quote">', '</span>.<span class="php-var">$userId</span>.<span class="php-quote">', &quot;'</span>.<span class="php-var">$typeI</span>.<span class="php-quote">'&quot;, '</span>.<span class="php-var">$value</span>.<span class="php-quote">') ON DUPLICATE KEY UPDATE value = '</span>.<span class="php-var">$value</span>;
+</span><span id="183" class="l"><a class="l" href="#183">183 </a>                <span class="php-var">$ret</span> = <span class="php-var">$db</span>-&gt;query(<span class="php-var">$sql</span>);
+</span><span id="184" class="l"><a class="l" href="#184">184 </a>                <span class="php-keyword1">if</span> (<span class="php-var">$ret</span> === <span class="php-keyword1">false</span>){
+</span><span id="185" class="l"><a class="l" href="#185">185 </a>                    <span class="php-keyword1">new</span> Alert(<span class="php-quote">'error'</span>, <span class="php-quote">'Impossible de sauvegarder les permissions !&lt;br&gt;'</span>.<span class="php-var">$sql</span>);
+</span><span id="186" class="l"><a class="l" href="#186">186 </a>                    <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
+</span><span id="187" class="l"><a class="l" href="#187">187 </a>                }
+</span><span id="188" class="l"><a class="l" href="#188">188 </a>            }
+</span><span id="189" class="l"><a class="l" href="#189">189 </a>        }<span class="php-keyword1">else</span>{
+</span><span id="190" class="l"><a class="l" href="#190">190 </a>            <span class="php-comment">// On inscrit aussi les permissions supérieures si c'est un refus</span>
+</span><span id="191" class="l"><a class="l" href="#191">191 </a>            <span class="php-keyword1">for</span> (<span class="php-var">$i</span> = <span class="php-num">2</span>; <span class="php-var">$i</span> &gt; <span class="php-var">$types</span>[<span class="php-var">$type</span>]; <span class="php-var">$i</span>--){
+</span><span id="192" class="l"><a class="l" href="#192">192 </a>                <span class="php-var">$typeI</span> = <span class="php-keyword2">array_search</span>(<span class="php-var">$i</span>, <span class="php-var">$types</span>);
+</span><span id="193" class="l"><a class="l" href="#193">193 </a>                <span class="php-var">$sql</span> = <span class="php-quote">'INSERT INTO `ACL` (`component`, `id`, `user`, `type`, `value`) VALUES (&quot;'</span>.<span class="php-var">$component</span>.<span class="php-quote">'&quot;, '</span>.<span class="php-var">$componentId</span>.<span class="php-quote">', '</span>.<span class="php-var">$userId</span>.<span class="php-quote">', &quot;'</span>.<span class="php-var">$typeI</span>.<span class="php-quote">'&quot;, '</span>.<span class="php-var">$value</span>.<span class="php-quote">') ON DUPLICATE KEY UPDATE value = '</span>.<span class="php-var">$value</span>;
+</span><span id="194" class="l"><a class="l" href="#194">194 </a>                <span class="php-var">$ret</span> = <span class="php-var">$db</span>-&gt;query(<span class="php-var">$sql</span>);
+</span><span id="195" class="l"><a class="l" href="#195">195 </a>                <span class="php-keyword1">if</span> (<span class="php-var">$ret</span> === <span class="php-keyword1">false</span>){
+</span><span id="196" class="l"><a class="l" href="#196">196 </a>                    <span class="php-keyword1">new</span> Alert(<span class="php-quote">'error'</span>, <span class="php-quote">'Impossible de sauvegarder les permissions !&lt;br&gt;'</span>.<span class="php-var">$sql</span>);
+</span><span id="197" class="l"><a class="l" href="#197">197 </a>                    <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
+</span><span id="198" class="l"><a class="l" href="#198">198 </a>                }
+</span><span id="199" class="l"><a class="l" href="#199">199 </a>            }
+</span><span id="200" class="l"><a class="l" href="#200">200 </a>        }
+</span><span id="201" class="l"><a class="l" href="#201">201 </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">true</span>;
+</span><span id="202" class="l"><a class="l" href="#202">202 </a>    }
+</span><span id="203" class="l"><a class="l" href="#203">203 </a>
+</span><span id="204" class="l"><a class="l" href="#204">204 </a>    <span class="php-comment">/**
+</span></span><span id="205" class="l"><a class="l" href="#205">205 </a><span class="php-comment">     * Définit des règles $type sur des composants
 </span></span><span id="206" class="l"><a class="l" href="#206">206 </a><span class="php-comment">     *
-</span></span><span id="207" class="l"><a class="l" href="#207">207 </a><span class="php-comment">     * @return bool
-</span></span><span id="208" class="l"><a class="l" href="#208">208 </a><span class="php-comment">     */</span>
-</span><span id="209" class="l"><a class="l" href="#209">209 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_setArray" href="#_setArray">setArray</a>(<span class="php-keyword1">array</span> <span class="php-var">$ACLArr</span>){
-</span><span id="210" class="l"><a class="l" href="#210">210 </a>        <span class="php-keyword1">global</span> <span class="php-var">$db</span>;
-</span><span id="211" class="l"><a class="l" href="#211">211 </a>        <span class="php-var">$types</span> = <span class="php-keyword2">array_flip</span>(<span class="php-keyword2">array_keys</span>(self::<span class="php-var">$typesLabels</span>));
-</span><span id="212" class="l"><a class="l" href="#212">212 </a>        <span class="php-var">$setACLArray</span> = <span class="php-keyword1">array</span>();
-</span><span id="213" class="l"><a class="l" href="#213">213 </a>        <span class="php-keyword1">foreach</span> (<span class="php-var">$ACLArr</span> <span class="php-keyword1">as</span> <span class="php-var">$component</span> =&gt; <span class="php-var">$ACLComponent</span>){
-</span><span id="214" class="l"><a class="l" href="#214">214 </a>            <span class="php-keyword1">foreach</span> (<span class="php-var">$ACLComponent</span> <span class="php-keyword1">as</span> <span class="php-var">$componentId</span> =&gt; <span class="php-var">$ACLCompId</span>){
-</span><span id="215" class="l"><a class="l" href="#215">215 </a>                <span class="php-keyword1">foreach</span> (<span class="php-var">$ACLCompId</span> <span class="php-keyword1">as</span> <span class="php-var">$user</span> =&gt; <span class="php-var">$ACLUser</span>){
-</span><span id="216" class="l"><a class="l" href="#216">216 </a>                    <span class="php-comment">/*
-</span></span><span id="217" class="l"><a class="l" href="#217">217 </a><span class="php-comment">                     * Si on donne l'autorisation d'admin sur une ressource, il faut également autoriser les accès plus restrictifs.
-</span></span><span id="218" class="l"><a class="l" href="#218">218 </a><span class="php-comment">                     * Ex : Si on donne le droit d'admin sur une ressource, il faut également accorder les droits access et modif.
-</span></span><span id="219" class="l"><a class="l" href="#219">219 </a><span class="php-comment">                     */</span>
-</span><span id="220" class="l"><a class="l" href="#220">220 </a>                    <span class="php-var">$max</span> = <span class="php-num">0</span>;
-</span><span id="221" class="l"><a class="l" href="#221">221 </a>                    <span class="php-var">$valueMax</span> = <span class="php-num">0</span>;
-</span><span id="222" class="l"><a class="l" href="#222">222 </a>                    <span class="php-keyword1">foreach</span> (<span class="php-var">$ACLUser</span> <span class="php-keyword1">as</span> <span class="php-var">$type</span> =&gt; <span class="php-var">$value</span>){
-</span><span id="223" class="l"><a class="l" href="#223">223 </a>                        <span class="php-keyword1">if</span> (<span class="php-var">$types</span>[<span class="php-var">$type</span>] &gt;= <span class="php-var">$max</span> <span class="php-keyword1">and</span> <span class="php-var">$value</span> === <span class="php-keyword1">true</span>) {
-</span><span id="224" class="l"><a class="l" href="#224">224 </a>                            <span class="php-var">$valueMax</span> = Sanitize::SanitizeForDb(<span class="php-var">$value</span>);
-</span><span id="225" class="l"><a class="l" href="#225">225 </a>                            <span class="php-var">$max</span> = <span class="php-var">$types</span>[<span class="php-var">$type</span>];
-</span><span id="226" class="l"><a class="l" href="#226">226 </a>                        }
-</span><span id="227" class="l"><a class="l" href="#227">227 </a>                    }
-</span><span id="228" class="l"><a class="l" href="#228">228 </a>                    <span class="php-keyword1">foreach</span> (<span class="php-var">$ACLUser</span> <span class="php-keyword1">as</span> <span class="php-var">$type</span> =&gt; <span class="php-var">$value</span>){
-</span><span id="229" class="l"><a class="l" href="#229">229 </a>                        <span class="php-var">$setACLArray</span>[] = <span class="php-quote">'(&quot;'</span>.<span class="php-var">$component</span>.<span class="php-quote">'&quot;, '</span>.<span class="php-var">$componentId</span>.<span class="php-quote">', '</span>.<span class="php-var">$user</span>.<span class="php-quote">', &quot;'</span>.<span class="php-var">$type</span>.<span class="php-quote">'&quot;, '</span>.((<span class="php-var">$types</span>[<span class="php-var">$type</span>] &lt;= <span class="php-var">$max</span>) ? <span class="php-var">$valueMax</span> : Sanitize::SanitizeForDb(<span class="php-var">$value</span>)).<span class="php-quote">')'</span>;
+</span></span><span id="207" class="l"><a class="l" href="#207">207 </a><span class="php-comment">     * Cette fonction fait la même chose que ACL::set(), mais avec un tableau d'ACL.
+</span></span><span id="208" class="l"><a class="l" href="#208">208 </a><span class="php-comment">     * @param array $ACLArr Tableau d'ACL de la forme $array[(string)$component][(int)$componentId][(int)$user][(string)$type] = (bool)$value
+</span></span><span id="209" class="l"><a class="l" href="#209">209 </a><span class="php-comment">     *
+</span></span><span id="210" class="l"><a class="l" href="#210">210 </a><span class="php-comment">     * @return bool
+</span></span><span id="211" class="l"><a class="l" href="#211">211 </a><span class="php-comment">     */</span>
+</span><span id="212" class="l"><a class="l" href="#212">212 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_setArray" href="#_setArray">setArray</a>(<span class="php-keyword1">array</span> <span class="php-var">$ACLArr</span>){
+</span><span id="213" class="l"><a class="l" href="#213">213 </a>        <span class="php-keyword1">global</span> <span class="php-var">$db</span>;
+</span><span id="214" class="l"><a class="l" href="#214">214 </a>        <span class="php-var">$types</span> = <span class="php-keyword2">array_flip</span>(<span class="php-keyword2">array_keys</span>(self::<span class="php-var">$typesLabels</span>));
+</span><span id="215" class="l"><a class="l" href="#215">215 </a>        <span class="php-var">$setACLArray</span> = <span class="php-keyword1">array</span>();
+</span><span id="216" class="l"><a class="l" href="#216">216 </a>        <span class="php-keyword1">foreach</span> (<span class="php-var">$ACLArr</span> <span class="php-keyword1">as</span> <span class="php-var">$component</span> =&gt; <span class="php-var">$ACLComponent</span>){
+</span><span id="217" class="l"><a class="l" href="#217">217 </a>            <span class="php-keyword1">foreach</span> (<span class="php-var">$ACLComponent</span> <span class="php-keyword1">as</span> <span class="php-var">$componentId</span> =&gt; <span class="php-var">$ACLCompId</span>){
+</span><span id="218" class="l"><a class="l" href="#218">218 </a>                <span class="php-keyword1">foreach</span> (<span class="php-var">$ACLCompId</span> <span class="php-keyword1">as</span> <span class="php-var">$user</span> =&gt; <span class="php-var">$ACLUser</span>){
+</span><span id="219" class="l"><a class="l" href="#219">219 </a>                    <span class="php-comment">/*
+</span></span><span id="220" class="l"><a class="l" href="#220">220 </a><span class="php-comment">                     * Si on donne l'autorisation d'admin sur une ressource, il faut également autoriser les accès plus restrictifs.
+</span></span><span id="221" class="l"><a class="l" href="#221">221 </a><span class="php-comment">                     * Ex : Si on donne le droit d'admin sur une ressource, il faut également accorder les droits access et modif.
+</span></span><span id="222" class="l"><a class="l" href="#222">222 </a><span class="php-comment">                     */</span>
+</span><span id="223" class="l"><a class="l" href="#223">223 </a>                    <span class="php-var">$max</span> = <span class="php-num">0</span>;
+</span><span id="224" class="l"><a class="l" href="#224">224 </a>                    <span class="php-var">$valueMax</span> = <span class="php-num">0</span>;
+</span><span id="225" class="l"><a class="l" href="#225">225 </a>                    <span class="php-keyword1">foreach</span> (<span class="php-var">$ACLUser</span> <span class="php-keyword1">as</span> <span class="php-var">$type</span> =&gt; <span class="php-var">$value</span>){
+</span><span id="226" class="l"><a class="l" href="#226">226 </a>                        <span class="php-keyword1">if</span> (<span class="php-var">$types</span>[<span class="php-var">$type</span>] &gt;= <span class="php-var">$max</span> <span class="php-keyword1">and</span> <span class="php-var">$value</span> === <span class="php-keyword1">true</span>) {
+</span><span id="227" class="l"><a class="l" href="#227">227 </a>                            <span class="php-var">$valueMax</span> = Sanitize::SanitizeForDb(<span class="php-var">$value</span>);
+</span><span id="228" class="l"><a class="l" href="#228">228 </a>                            <span class="php-var">$max</span> = <span class="php-var">$types</span>[<span class="php-var">$type</span>];
+</span><span id="229" class="l"><a class="l" href="#229">229 </a>                        }
 </span><span id="230" class="l"><a class="l" href="#230">230 </a>                    }
-</span><span id="231" class="l"><a class="l" href="#231">231 </a>                }
-</span><span id="232" class="l"><a class="l" href="#232">232 </a>            }
-</span><span id="233" class="l"><a class="l" href="#233">233 </a>        }
-</span><span id="234" class="l"><a class="l" href="#234">234 </a>        <span class="php-var">$ret</span> = <span class="php-var">$db</span>-&gt;query(<span class="php-quote">'INSERT INTO `ACL` (`component`, `id`, `user`, `type`, `value`) VALUES '</span>.<span class="php-keyword2">implode</span>(<span class="php-quote">', '</span>, <span class="php-var">$setACLArray</span>).<span class="php-quote">' ON DUPLICATE KEY UPDATE `value` = VALUES(`value`)'</span>);
-</span><span id="235" class="l"><a class="l" href="#235">235 </a>        <span class="php-keyword1">return</span> ( <span class="php-var">$ret</span> === <span class="php-keyword1">false</span>) ? <span class="php-keyword1">false</span> : <span class="php-keyword1">true</span>;
-</span><span id="236" class="l"><a class="l" href="#236">236 </a>    }
-</span><span id="237" class="l"><a class="l" href="#237">237 </a>
-</span><span id="238" class="l"><a class="l" href="#238">238 </a>    <span class="php-comment">/**
-</span></span><span id="239" class="l"><a class="l" href="#239">239 </a><span class="php-comment">     * Récupère l'envoi d'un formulaire pour sauvegarder des ACL
-</span></span><span id="240" class="l"><a class="l" href="#240">240 </a><span class="php-comment">     * @return bool
-</span></span><span id="241" class="l"><a class="l" href="#241">241 </a><span class="php-comment">     */</span>
-</span><span id="242" class="l"><a class="l" href="#242">242 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_requestACLSave" href="#_requestACLSave">requestACLSave</a>(){
-</span><span id="243" class="l"><a class="l" href="#243">243 </a>        <span class="php-var">$ACLArr</span> = <span class="php-keyword1">array</span>();
-</span><span id="244" class="l"><a class="l" href="#244">244 </a>        <span class="php-keyword1">foreach</span> (<span class="php-var">$_REQUEST</span> <span class="php-keyword1">as</span> <span class="php-var">$key</span> =&gt; <span class="php-var">$value</span>){
-</span><span id="245" class="l"><a class="l" href="#245">245 </a>            <span class="php-keyword1">if</span> (<span class="php-keyword2">substr</span>(<span class="php-var">$key</span>, <span class="php-num">0</span>, <span class="php-num">4</span>) == <span class="php-quote">'ACL_'</span>){
-</span><span id="246" class="l"><a class="l" href="#246">246 </a>                <span class="php-keyword1">list</span>(<span class="php-var">$dummy</span>, <span class="php-var">$component</span>, <span class="php-var">$componentId</span>, <span class="php-var">$user</span>, <span class="php-var">$type</span>, <span class="php-var">$field</span>) = <span class="php-keyword2">explode</span>(<span class="php-quote">'_'</span>, <span class="php-var">$key</span>);
-</span><span id="247" class="l"><a class="l" href="#247">247 </a>                <span class="php-keyword1">if</span> (!<span class="php-keyword2">in_array</span>(<span class="php-var">$type</span>, <span class="php-keyword2">array_keys</span>(self::<span class="php-var">$typesLabels</span>))){
-</span><span id="248" class="l"><a class="l" href="#248">248 </a>                    <span class="php-keyword1">New</span> Alert(<span class="php-quote">'debug'</span>, <span class="php-quote">'&lt;code&gt;ACL::requestACLSave()&lt;/code&gt; : &lt;code&gt;$type='</span>.<span class="php-var">$type</span>.<span class="php-quote">'&lt;/code&gt; ne fait pas partie des typesLabels autorisés !'</span>);
-</span><span id="249" class="l"><a class="l" href="#249">249 </a>                    <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
-</span><span id="250" class="l"><a class="l" href="#250">250 </a>                }
-</span><span id="251" class="l"><a class="l" href="#251">251 </a>                <span class="php-var">$ACLArr</span>[<span class="php-var">$component</span>][<span class="php-var">$componentId</span>][<span class="php-var">$user</span>][<span class="php-var">$type</span>][<span class="php-var">$field</span>] = (<span class="php-var">$value</span> == <span class="php-num">1</span>) ? <span class="php-keyword1">true</span> : <span class="php-keyword1">false</span>;
-</span><span id="252" class="l"><a class="l" href="#252">252 </a>            }
-</span><span id="253" class="l"><a class="l" href="#253">253 </a>        }
-</span><span id="254" class="l"><a class="l" href="#254">254 </a>        <span class="php-keyword1">foreach</span> (<span class="php-var">$ACLArr</span>[<span class="php-var">$component</span>][<span class="php-var">$componentId</span>] <span class="php-keyword1">as</span> <span class="php-var">$user</span> =&gt; <span class="php-var">$ACLUser</span>){
-</span><span id="255" class="l"><a class="l" href="#255">255 </a>            <span class="php-keyword1">foreach</span> (<span class="php-var">$ACLUser</span> <span class="php-keyword1">as</span> <span class="php-var">$type</span> =&gt; <span class="php-var">$ACLType</span>){
-</span><span id="256" class="l"><a class="l" href="#256">256 </a>                <span class="php-var">$ACLArr</span>[<span class="php-var">$component</span>][<span class="php-var">$componentId</span>][<span class="php-var">$user</span>][<span class="php-var">$type</span>] = (<span class="php-keyword1">isset</span>(<span class="php-var">$ACLType</span>[<span class="php-quote">'checkbox'</span>])) ? <span class="php-var">$ACLType</span>[<span class="php-quote">'checkbox'</span>] : <span class="php-var">$ACLType</span>[<span class="php-quote">'hidden'</span>];
-</span><span id="257" class="l"><a class="l" href="#257">257 </a>            }
-</span><span id="258" class="l"><a class="l" href="#258">258 </a>        }
-</span><span id="259" class="l"><a class="l" href="#259">259 </a>        <span class="php-keyword1">if</span> (<span class="php-var">$ret</span> = self::setArray(<span class="php-var">$ACLArr</span>)){
-</span><span id="260" class="l"><a class="l" href="#260">260 </a>            <span class="php-keyword1">new</span> Alert(<span class="php-quote">'success'</span>, <span class="php-quote">'Les autorisations ont été sauvegardées !'</span>);
-</span><span id="261" class="l"><a class="l" href="#261">261 </a>        }<span class="php-keyword1">else</span>{
-</span><span id="262" class="l"><a class="l" href="#262">262 </a>            <span class="php-keyword1">new</span> Alert(<span class="php-quote">'error'</span>, <span class="php-quote">'Les autorisations n\'ont pas été sauvegardées !'</span>);
-</span><span id="263" class="l"><a class="l" href="#263">263 </a>        }
-</span><span id="264" class="l"><a class="l" href="#264">264 </a>        <span class="php-keyword1">return</span> <span class="php-var">$ret</span>;
-</span><span id="265" class="l"><a class="l" href="#265">265 </a>    }
-</span><span id="266" class="l"><a class="l" href="#266">266 </a>
-</span><span id="267" class="l"><a class="l" href="#267">267 </a>    <span class="php-comment">/**
-</span></span><span id="268" class="l"><a class="l" href="#268">268 </a><span class="php-comment">     * Supprime des ACL
-</span></span><span id="269" class="l"><a class="l" href="#269">269 </a><span class="php-comment">     *
-</span></span><span id="270" class="l"><a class="l" href="#270">270 </a><span class="php-comment">     * Si $component est vide, alors on supprime tout (si $type est vide) ou une partie (si $type est renseigné) des ACL d'un utilisateur
-</span></span><span id="271" class="l"><a class="l" href="#271">271 </a><span class="php-comment">     * Si $userId est vide, on réinitialise les ACL pour un composant (ou une partie si $type est renseigné)
-</span></span><span id="272" class="l"><a class="l" href="#272">272 </a><span class="php-comment">     *
-</span></span><span id="273" class="l"><a class="l" href="#273">273 </a><span class="php-comment">     * @param string $component Composant (module, site,...)
-</span></span><span id="274" class="l"><a class="l" href="#274">274 </a><span class="php-comment">     * @param int $componentId Id du composant
-</span></span><span id="275" class="l"><a class="l" href="#275">275 </a><span class="php-comment">     * @param int $userId Id de l'utilisateur
-</span></span><span id="276" class="l"><a class="l" href="#276">276 </a><span class="php-comment">     * @param string $type Type d'ACL (admin, access)
-</span></span><span id="277" class="l"><a class="l" href="#277">277 </a><span class="php-comment">     *
-</span></span><span id="278" class="l"><a class="l" href="#278">278 </a><span class="php-comment">     * @return bool
-</span></span><span id="279" class="l"><a class="l" href="#279">279 </a><span class="php-comment">     */</span>
-</span><span id="280" class="l"><a class="l" href="#280">280 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <span class="php-keyword2">delete</span>(<span class="php-var">$component</span> = <span class="php-keyword1">null</span>, <span class="php-var">$componentId</span> = <span class="php-keyword1">null</span>, <span class="php-var">$userId</span> = <span class="php-keyword1">null</span>, <span class="php-var">$type</span> = <span class="php-keyword1">null</span>){
-</span><span id="281" class="l"><a class="l" href="#281">281 </a>        <span class="php-keyword1">global</span> <span class="php-var">$db</span>;
-</span><span id="282" class="l"><a class="l" href="#282">282 </a>        <span class="php-var">$where</span> = <span class="php-keyword1">array</span>();
-</span><span id="283" class="l"><a class="l" href="#283">283 </a>        <span class="php-var">$format</span> = <span class="php-keyword1">array</span>(
-</span><span id="284" class="l"><a class="l" href="#284">284 </a>            <span class="php-quote">'component'</span> =&gt; <span class="php-quote">'string'</span>,
-</span><span id="285" class="l"><a class="l" href="#285">285 </a>          <span class="php-quote">'id'</span>        =&gt; <span class="php-quote">'int'</span>,
-</span><span id="286" class="l"><a class="l" href="#286">286 </a>          <span class="php-quote">'user'</span>      =&gt; <span class="php-quote">'int'</span>,
-</span><span id="287" class="l"><a class="l" href="#287">287 </a>          <span class="php-quote">'type'</span>      =&gt; <span class="php-quote">'string'</span>
-</span><span id="288" class="l"><a class="l" href="#288">288 </a>        );
-</span><span id="289" class="l"><a class="l" href="#289">289 </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_null</span>(<span class="php-var">$component</span>)){
-</span><span id="290" class="l"><a class="l" href="#290">290 </a>            <span class="php-keyword1">if</span> (<span class="php-keyword2">is_null</span>(<span class="php-var">$componentId</span>)) {
-</span><span id="291" class="l"><a class="l" href="#291">291 </a>                <span class="php-keyword1">new</span> Alert(<span class="php-quote">'debug'</span>, <span class="php-quote">'&lt;code&gt;ACL::delete()&lt;/code&gt; : $componentId est vide alors que $component est renseigné !'</span>);
-</span><span id="292" class="l"><a class="l" href="#292">292 </a>                <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
-</span><span id="293" class="l"><a class="l" href="#293">293 </a>            }
-</span><span id="294" class="l"><a class="l" href="#294">294 </a>            <span class="php-var">$where</span>[<span class="php-quote">'component'</span>] = <span class="php-var">$component</span>;
-</span><span id="295" class="l"><a class="l" href="#295">295 </a>            <span class="php-var">$where</span>[<span class="php-quote">'id'</span>] = <span class="php-var">$componentId</span>;
-</span><span id="296" class="l"><a class="l" href="#296">296 </a>        }
-</span><span id="297" class="l"><a class="l" href="#297">297 </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_null</span>(<span class="php-var">$userId</span>)){
-</span><span id="298" class="l"><a class="l" href="#298">298 </a>            <span class="php-var">$where</span>[<span class="php-quote">'user'</span>] = <span class="php-var">$userId</span>;
-</span><span id="299" class="l"><a class="l" href="#299">299 </a>        }
-</span><span id="300" class="l"><a class="l" href="#300">300 </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_null</span>(<span class="php-var">$type</span>)){
-</span><span id="301" class="l"><a class="l" href="#301">301 </a>            <span class="php-keyword1">if</span> (!<span class="php-keyword2">in_array</span>(<span class="php-var">$type</span>, <span class="php-keyword2">array_keys</span>(self::<span class="php-var">$typesLabels</span>))){
-</span><span id="302" class="l"><a class="l" href="#302">302 </a>                <span class="php-keyword1">New</span> Alert(<span class="php-quote">'debug'</span>, <span class="php-quote">'&lt;code&gt;ACL::delete()&lt;/code&gt; : &lt;code&gt;$type='</span>.<span class="php-var">$type</span>.<span class="php-quote">'&lt;/code&gt; ne fait pas partie des typesLabels autorisés !'</span>);
-</span><span id="303" class="l"><a class="l" href="#303">303 </a>                <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
-</span><span id="304" class="l"><a class="l" href="#304">304 </a>            }
-</span><span id="305" class="l"><a class="l" href="#305">305 </a>            <span class="php-var">$where</span>[<span class="php-quote">'type'</span>] = <span class="php-var">$type</span>;
-</span><span id="306" class="l"><a class="l" href="#306">306 </a>        }
-</span><span id="307" class="l"><a class="l" href="#307">307 </a>        <span class="php-keyword1">if</span> (<span class="php-keyword1">empty</span>(<span class="php-var">$where</span>) <span class="php-keyword1">or</span> (<span class="php-keyword1">isset</span>(<span class="php-var">$where</span>[<span class="php-quote">'type'</span>]) <span class="php-keyword1">and</span> <span class="php-keyword2">count</span>(<span class="php-var">$where</span>) == <span class="php-num">1</span>)){
-</span><span id="308" class="l"><a class="l" href="#308">308 </a>            <span class="php-comment">// Si aucun paramètre (ou seulement le type) n'est renseigné, on annule tout</span>
-</span><span id="309" class="l"><a class="l" href="#309">309 </a>            <span class="php-keyword1">new</span> Alert(<span class="php-quote">'debug'</span>, <span class="php-quote">'&lt;code&gt;ACL::delete()&lt;/code&gt; : Aucun paramètre n\'est renseigné !'</span>);
-</span><span id="310" class="l"><a class="l" href="#310">310 </a>            <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
-</span><span id="311" class="l"><a class="l" href="#311">311 </a>        }
-</span><span id="312" class="l"><a class="l" href="#312">312 </a>        <span class="php-keyword1">if</span> (<span class="php-var">$ret</span> = <span class="php-var">$db</span>-&gt;<span class="php-keyword2">delete</span>(<span class="php-quote">'ACL'</span>, <span class="php-var">$where</span>, <span class="php-var">$format</span>)){
-</span><span id="313" class="l"><a class="l" href="#313">313 </a>            <span class="php-keyword1">new</span> Alert(<span class="php-quote">'error'</span>, <span class="php-quote">'Impossible de supprimer les autorisations !'</span>);
-</span><span id="314" class="l"><a class="l" href="#314">314 </a>            <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
-</span><span id="315" class="l"><a class="l" href="#315">315 </a>        }
-</span><span id="316" class="l"><a class="l" href="#316">316 </a>        <span class="php-keyword1">new</span> Alert(<span class="php-quote">'success'</span>, <span class="php-quote">'Les autorisations ont été correctement supprimées !'</span>);
-</span><span id="317" class="l"><a class="l" href="#317">317 </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">true</span>;
-</span><span id="318" class="l"><a class="l" href="#318">318 </a>    }
-</span><span id="319" class="l"><a class="l" href="#319">319 </a>
-</span><span id="320" class="l"><a class="l" href="#320">320 </a>    <span class="php-comment">/**
-</span></span><span id="321" class="l"><a class="l" href="#321">321 </a><span class="php-comment">     * Affiche le formulaire de réglage des ACL
-</span></span><span id="322" class="l"><a class="l" href="#322">322 </a><span class="php-comment">     *
-</span></span><span id="323" class="l"><a class="l" href="#323">323 </a><span class="php-comment">     * @param string $component Type de composant (module, admin, etc.)
-</span></span><span id="324" class="l"><a class="l" href="#324">324 </a><span class="php-comment">     * @param string $componentId ID du composant
-</span></span><span id="325" class="l"><a class="l" href="#325">325 </a><span class="php-comment">     * @param string $title Nom du composant administré (facultatif)
-</span></span><span id="326" class="l"><a class="l" href="#326">326 </a><span class="php-comment">     */</span>
-</span><span id="327" class="l"><a class="l" href="#327">327 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_adminACL" href="#_adminACL">adminACL</a>(<span class="php-var">$component</span>, <span class="php-var">$componentId</span>, <span class="php-var">$title</span> = <span class="php-keyword1">null</span>){
-</span><span id="328" class="l"><a class="l" href="#328">328 </a>        <span class="php-keyword1">global</span> <span class="php-var">$db</span>;
-</span><span id="329" class="l"><a class="l" href="#329">329 </a>        <span class="php-var">$users</span> = UsersManagement::getDBUsers();
-</span><span id="330" class="l"><a class="l" href="#330">330 </a>        <span class="php-var">$acls</span> = <span class="php-var">$db</span>-&gt;query(<span class="php-quote">'SELECT user, type, value FROM `ACL` WHERE `component` = &quot;'</span>.<span class="php-var">$component</span>.<span class="php-quote">'&quot; AND `id` = '</span>.<span class="php-var">$componentId</span>.<span class="php-quote">' ORDER BY `user`'</span>);
-</span><span id="331" class="l"><a class="l" href="#331">331 </a>        <span class="php-var">$adminUsers</span> = <span class="php-var">$db</span>-&gt;query(<span class="php-quote">'SELECT user FROM `ACL` WHERE `component` = &quot;admin&quot; and `type` = &quot;admin&quot; AND `value` = 1 ORDER BY `user`'</span>);
-</span><span id="332" class="l"><a class="l" href="#332">332 </a>        <span class="php-var">$admins</span> = <span class="php-keyword1">array</span>();
-</span><span id="333" class="l"><a class="l" href="#333">333 </a>        <span class="php-keyword1">foreach</span> (<span class="php-var">$adminUsers</span> <span class="php-keyword1">as</span> <span class="php-var">$adminUser</span>){
-</span><span id="334" class="l"><a class="l" href="#334">334 </a>            <span class="php-var">$admins</span>[] = <span class="php-var">$adminUser</span>-&gt;user;
-</span><span id="335" class="l"><a class="l" href="#335">335 </a>        }
-</span><span id="336" class="l"><a class="l" href="#336">336 </a>        <span class="php-var">$types</span> = <span class="php-keyword2">array_flip</span>(<span class="php-keyword2">array_keys</span>(self::<span class="php-var">$typesLabels</span>));
-</span><span id="337" class="l"><a class="l" href="#337">337 </a>        <span class="php-var">$ACLArr</span> = <span class="php-keyword1">array</span>();
-</span><span id="338" class="l"><a class="l" href="#338">338 </a>        <span class="php-keyword1">foreach</span> (<span class="php-var">$acls</span> <span class="php-keyword1">as</span> <span class="php-var">$acl</span>){
-</span><span id="339" class="l"><a class="l" href="#339">339 </a>            <span class="php-var">$ACLArr</span>[<span class="php-var">$acl</span>-&gt;user][<span class="php-var">$acl</span>-&gt;type] = (<span class="php-var">$acl</span>-&gt;value == <span class="php-num">1</span>) ? <span class="php-keyword1">true</span> : <span class="php-keyword1">false</span>;
-</span><span id="340" class="l"><a class="l" href="#340">340 </a>            <span class="php-keyword1">if</span> (<span class="php-var">$acl</span>-&gt;user == <span class="php-num">10000</span>){
-</span><span id="341" class="l"><a class="l" href="#341">341 </a>                <span class="php-var">$ACLArr</span>[<span class="php-quote">'default'</span>][<span class="php-var">$acl</span>-&gt;type] = (<span class="php-var">$acl</span>-&gt;value == <span class="php-num">1</span>) ? <span class="php-keyword1">true</span> : <span class="php-keyword1">false</span>;
-</span><span id="342" class="l"><a class="l" href="#342">342 </a>            }
-</span><span id="343" class="l"><a class="l" href="#343">343 </a>        }
-</span><span id="344" class="l"><a class="l" href="#344">344 </a>        <span class="xlang">?&gt;</span>
-</span><span id="345" class="l"><a class="l" href="#345">345 </a>        &lt;div <span class="php-keyword1">class</span>=<span class="php-quote">&quot;row&quot;</span>&gt;
-</span><span id="346" class="l"><a class="l" href="#346">346 </a>            &lt;div <span class="php-keyword1">class</span>=<span class="php-quote">&quot;col-md-12&quot;</span>&gt;
-</span><span id="347" class="l"><a class="l" href="#347">347 </a>                <span class="xlang">&lt;?php</span> <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_null</span>(<span class="php-var">$title</span>)) { <span class="xlang">?&gt;</span>&lt;h2&gt;Droits sur <span class="xlang">&lt;?php</span> <span class="php-keyword1">echo</span> <span class="php-var">$title</span>; <span class="xlang">?&gt;</span>&lt;/h2&gt;<span class="xlang">&lt;?php</span> } <span class="xlang">?&gt;</span>
-</span><span id="348" class="l"><a class="l" href="#348">348 </a>                &lt;form id=<span class="php-quote">&quot;adminACL&quot;</span> <span class="php-keyword1">class</span>=<span class="php-quote">&quot;&quot;</span> method=<span class="php-quote">&quot;post&quot;</span> role=<span class="php-quote">&quot;form&quot;</span> action=<span class="php-quote">&quot;&lt;?php echo </span><span class="php-var">$_SERVER</span><span class="php-quote">['REQUEST_URI']; ?&gt;&quot;</span>&gt;
-</span><span id="349" class="l"><a class="l" href="#349">349 </a>                    &lt;table <span class="php-keyword1">class</span>=<span class="php-quote">&quot;table&quot;</span>&gt;
-</span><span id="350" class="l"><a class="l" href="#350">350 </a>                        &lt;thead&gt;
-</span><span id="351" class="l"><a class="l" href="#351">351 </a>                            &lt;tr&gt;
-</span><span id="352" class="l"><a class="l" href="#352">352 </a>                                &lt;th&gt;Utilisateur&lt;/th&gt;
-</span><span id="353" class="l"><a class="l" href="#353">353 </a>                                <span class="xlang">&lt;?php</span>
-</span><span id="354" class="l"><a class="l" href="#354">354 </a>                                <span class="php-keyword1">foreach</span> (self::<span class="php-var">$typesLabels</span> <span class="php-keyword1">as</span> <span class="php-var">$type</span> =&gt; <span class="php-var">$label</span>){
-</span><span id="355" class="l"><a class="l" href="#355">355 </a>                                <span class="xlang">?&gt;</span>
-</span><span id="356" class="l"><a class="l" href="#356">356 </a>                                &lt;th&gt;<span class="xlang">&lt;?php</span> <span class="php-keyword1">echo</span> <span class="php-var">$type</span>; <span class="xlang">?&gt;</span> <span class="xlang">&lt;?php</span> Help::iconHelp(<span class="php-var">$label</span>); <span class="xlang">?&gt;</span>&lt;/th&gt;
-</span><span id="357" class="l"><a class="l" href="#357">357 </a>                                <span class="xlang">&lt;?php</span>
-</span><span id="358" class="l"><a class="l" href="#358">358 </a>                                }
-</span><span id="359" class="l"><a class="l" href="#359">359 </a>                                <span class="xlang">?&gt;</span>
-</span><span id="360" class="l"><a class="l" href="#360">360 </a>                                &lt;th&gt;Remarques&lt;/th&gt;
-</span><span id="361" class="l"><a class="l" href="#361">361 </a>                            &lt;/tr&gt;
-</span><span id="362" class="l"><a class="l" href="#362">362 </a>                        &lt;/thead&gt;
-</span><span id="363" class="l"><a class="l" href="#363">363 </a>                        &lt;tbody&gt;
-</span><span id="364" class="l"><a class="l" href="#364">364 </a>                        <span class="xlang">&lt;?php</span>
-</span><span id="365" class="l"><a class="l" href="#365">365 </a>                        <span class="php-keyword1">foreach</span> (<span class="php-var">$users</span> <span class="php-keyword1">as</span> <span class="php-var">$user</span>){
-</span><span id="366" class="l"><a class="l" href="#366">366 </a>
-</span><span id="367" class="l"><a class="l" href="#367">367 </a>                            <span class="xlang">?&gt;</span>
-</span><span id="368" class="l"><a class="l" href="#368">368 </a>                            &lt;tr id=<span class="php-quote">&quot;ACL_&lt;?php echo </span><span class="php-var">$component</span><span class="php-quote">.'_'.</span><span class="php-var">$componentId</span><span class="php-quote">.'_'.</span><span class="php-var">$user</span><span class="php-quote">-&gt;id; ?&gt;&quot;</span>&gt;
-</span><span id="369" class="l"><a class="l" href="#369">369 </a>                                &lt;td&gt;<span class="xlang">&lt;?php</span> <span class="php-keyword1">echo</span> <span class="php-var">$user</span>-&gt;name; <span class="xlang">?&gt;</span>&lt;/td&gt;
-</span><span id="370" class="l"><a class="l" href="#370">370 </a>                                <span class="xlang">&lt;?php</span>
-</span><span id="371" class="l"><a class="l" href="#371">371 </a>                                <span class="php-var">$inherited</span> = <span class="php-keyword1">true</span>;
-</span><span id="372" class="l"><a class="l" href="#372">372 </a>                                <span class="php-keyword1">foreach</span>(self::<span class="php-var">$typesLabels</span> <span class="php-keyword1">as</span> <span class="php-var">$type</span> =&gt; <span class="php-var">$label</span>){
-</span><span id="373" class="l"><a class="l" href="#373">373 </a>                                    <span class="php-var">$checked</span> = <span class="php-keyword1">false</span>;
-</span><span id="374" class="l"><a class="l" href="#374">374 </a>                                    <span class="php-keyword1">if</span> (<span class="php-keyword1">isset</span>(<span class="php-var">$ACLArr</span>[<span class="php-var">$user</span>-&gt;id][<span class="php-var">$type</span>])){
-</span><span id="375" class="l"><a class="l" href="#375">375 </a>                                        <span class="php-keyword1">if</span> (<span class="php-var">$ACLArr</span>[<span class="php-var">$user</span>-&gt;id][<span class="php-var">$type</span>]) {
-</span><span id="376" class="l"><a class="l" href="#376">376 </a>                                            <span class="php-var">$checked</span> = <span class="php-keyword1">true</span>;
-</span><span id="377" class="l"><a class="l" href="#377">377 </a>                                        }
-</span><span id="378" class="l"><a class="l" href="#378">378 </a>                                        <span class="php-var">$inherited</span> = <span class="php-keyword1">false</span>;
-</span><span id="379" class="l"><a class="l" href="#379">379 </a>                                    }<span class="php-keyword1">elseif</span>(<span class="php-keyword1">isset</span>(<span class="php-var">$ACLArr</span>[<span class="php-quote">'default'</span>][<span class="php-var">$type</span>]) <span class="php-keyword1">and</span> <span class="php-var">$ACLArr</span>[<span class="php-quote">'default'</span>][<span class="php-var">$type</span>]){
-</span><span id="380" class="l"><a class="l" href="#380">380 </a>                                        <span class="php-var">$checked</span> = <span class="php-keyword1">true</span>;
-</span><span id="381" class="l"><a class="l" href="#381">381 </a>                                    }<span class="php-keyword1">elseif</span>(<span class="php-keyword2">in_array</span>(<span class="php-var">$user</span>-&gt;id, <span class="php-var">$admins</span>)){
-</span><span id="382" class="l"><a class="l" href="#382">382 </a>                                        <span class="php-var">$checked</span> = <span class="php-keyword1">true</span>;
-</span><span id="383" class="l"><a class="l" href="#383">383 </a>                                    }
-</span><span id="384" class="l"><a class="l" href="#384">384 </a>                                    <span class="xlang">?&gt;</span>
-</span><span id="385" class="l"><a class="l" href="#385">385 </a>                                    &lt;td&gt;
-</span><span id="386" class="l"><a class="l" href="#386">386 </a>                                        &lt;input type=<span class="php-quote">&quot;checkbox&quot;</span> <span class="php-keyword1">class</span>=<span class="php-quote">&quot;form-control checkbox-ACL&quot;</span> id=<span class="php-quote">&quot;ACL_&lt;?php echo </span><span class="php-var">$component</span><span class="php-quote">.'_'.</span><span class="php-var">$componentId</span><span class="php-quote">.'_'.</span><span class="php-var">$user</span><span class="php-quote">-&gt;id.'_'.</span><span class="php-var">$type</span><span class="php-quote">; ?&gt;_checkbox&quot;</span> name=<span class="php-quote">&quot;ACL_&lt;?php echo </span><span class="php-var">$component</span><span class="php-quote">.'_'.</span><span class="php-var">$componentId</span><span class="php-quote">.'_'.</span><span class="php-var">$user</span><span class="php-quote">-&gt;id.'_'.</span><span class="php-var">$type</span><span class="php-quote">; ?&gt;_checkbox&quot;</span> data-type-value=<span class="php-quote">&quot;&lt;?php echo </span><span class="php-var">$types</span><span class="php-quote">[</span><span class="php-var">$type</span><span class="php-quote">]; ?&gt;&quot;</span> data-tr-id=<span class="php-quote">&quot;#ACL_&lt;?php echo </span><span class="php-var">$component</span><span class="php-quote">.'_'.</span><span class="php-var">$componentId</span><span class="php-quote">.'_'.</span><span class="php-var">$user</span><span class="php-quote">-&gt;id; ?&gt;&quot;</span> value=<span class="php-quote">&quot;1&quot;</span> <span class="xlang">&lt;?php</span> <span class="php-keyword1">if</span> (<span class="php-var">$checked</span>) <span class="php-keyword1">echo</span> <span class="php-quote">'checked'</span>; <span class="xlang">?&gt;</span>&gt;
-</span><span id="387" class="l"><a class="l" href="#387">387 </a>                                        &lt;input type=<span class="php-quote">&quot;hidden&quot;</span> id=<span class="php-quote">&quot;ACL_&lt;?php echo </span><span class="php-var">$component</span><span class="php-quote">.'_'.</span><span class="php-var">$componentId</span><span class="php-quote">.'_'.</span><span class="php-var">$user</span><span class="php-quote">-&gt;id.'_'.</span><span class="php-var">$type</span><span class="php-quote">; ?&gt;_hidden&quot;</span> name=<span class="php-quote">&quot;ACL_&lt;?php echo </span><span class="php-var">$component</span><span class="php-quote">.'_'.</span><span class="php-var">$componentId</span><span class="php-quote">.'_'.</span><span class="php-var">$user</span><span class="php-quote">-&gt;id.'_'.</span><span class="php-var">$type</span><span class="php-quote">; ?&gt;_hidden&quot;</span> value=<span class="php-quote">&quot;0&quot;</span>&gt;
-</span><span id="388" class="l"><a class="l" href="#388">388 </a>                                    &lt;/td&gt;
-</span><span id="389" class="l"><a class="l" href="#389">389 </a>                                <span class="xlang">&lt;?php</span>
-</span><span id="390" class="l"><a class="l" href="#390">390 </a>                                }
-</span><span id="391" class="l"><a class="l" href="#391">391 </a>                                <span class="xlang">?&gt;</span>
-</span><span id="392" class="l"><a class="l" href="#392">392 </a>                                &lt;td&gt;
-</span><span id="393" class="l"><a class="l" href="#393">393 </a>                                    &lt;i&gt;
-</span><span id="394" class="l"><a class="l" href="#394">394 </a>                                    <span class="xlang">&lt;?php</span>
-</span><span id="395" class="l"><a class="l" href="#395">395 </a>                                    <span class="php-keyword1">if</span> (<span class="php-keyword2">in_array</span>(<span class="php-var">$user</span>-&gt;id, <span class="php-var">$admins</span>)){
-</span><span id="396" class="l"><a class="l" href="#396">396 </a>                                        <span class="php-keyword1">echo</span> <span class="php-quote">'Administrateur global'</span>;
-</span><span id="397" class="l"><a class="l" href="#397">397 </a>                                    }<span class="php-keyword1">elseif</span> (<span class="php-var">$inherited</span>) {
-</span><span id="398" class="l"><a class="l" href="#398">398 </a>                                        <span class="php-keyword1">echo</span> <span class="php-quote">'Hérité des ACL par défaut'</span>;
-</span><span id="399" class="l"><a class="l" href="#399">399 </a>                  }
-</span><span id="400" class="l"><a class="l" href="#400">400 </a>                                    <span class="xlang">?&gt;</span>
-</span><span id="401" class="l"><a class="l" href="#401">401 </a>                                    &lt;/i&gt;
-</span><span id="402" class="l"><a class="l" href="#402">402 </a>                                &lt;/td&gt;
-</span><span id="403" class="l"><a class="l" href="#403">403 </a>                            &lt;/tr&gt;
-</span><span id="404" class="l"><a class="l" href="#404">404 </a>                        <span class="xlang">&lt;?php</span>
-</span><span id="405" class="l"><a class="l" href="#405">405 </a>                        }
-</span><span id="406" class="l"><a class="l" href="#406">406 </a>                        <span class="xlang">?&gt;</span>
-</span><span id="407" class="l"><a class="l" href="#407">407 </a>                            &lt;tr id=<span class="php-quote">&quot;ACL_&lt;?php echo </span><span class="php-var">$component</span><span class="php-quote">.'_'.</span><span class="php-var">$componentId</span><span class="php-quote">.'_10000'; ?&gt;&quot;</span>&gt;
-</span><span id="408" class="l"><a class="l" href="#408">408 </a>                                    &lt;td&gt;Tout le monde&lt;/td&gt;
-</span><span id="409" class="l"><a class="l" href="#409">409 </a>                            <span class="xlang">&lt;?php</span>
-</span><span id="410" class="l"><a class="l" href="#410">410 </a>                            <span class="php-keyword1">foreach</span>(self::<span class="php-var">$typesLabels</span> <span class="php-keyword1">as</span> <span class="php-var">$type</span> =&gt; <span class="php-var">$label</span>){
-</span><span id="411" class="l"><a class="l" href="#411">411 </a>                                <span class="xlang">?&gt;</span>
-</span><span id="412" class="l"><a class="l" href="#412">412 </a>                                &lt;td&gt;
-</span><span id="413" class="l"><a class="l" href="#413">413 </a>                                    &lt;input type=<span class="php-quote">&quot;checkbox&quot;</span> <span class="php-keyword1">class</span>=<span class="php-quote">&quot;form-control checkbox-ACL&quot;</span> id=<span class="php-quote">&quot;ACL_&lt;?php echo </span><span class="php-var">$component</span><span class="php-quote">.'_'.</span><span class="php-var">$componentId</span><span class="php-quote">.'_10000_'.</span><span class="php-var">$type</span><span class="php-quote">; ?&gt;_checkbox&quot;</span> name=<span class="php-quote">&quot;ACL_&lt;?php echo </span><span class="php-var">$component</span><span class="php-quote">.'_'.</span><span class="php-var">$componentId</span><span class="php-quote">.'_10000_'.</span><span class="php-var">$type</span><span class="php-quote">; ?&gt;_checkbox&quot;</span> data-type-value=<span class="php-quote">&quot;&lt;?php echo </span><span class="php-var">$types</span><span class="php-quote">[</span><span class="php-var">$type</span><span class="php-quote">]; ?&gt;&quot;</span> data-tr-id=<span class="php-quote">&quot;#ACL_&lt;?php echo </span><span class="php-var">$component</span><span class="php-quote">.'_'.</span><span class="php-var">$componentId</span><span class="php-quote">.'_10000'; ?&gt;&quot;</span> value=<span class="php-quote">&quot;1&quot;</span> <span class="xlang">&lt;?php</span> <span class="php-keyword1">if</span> (<span class="php-keyword1">isset</span>(<span class="php-var">$ACLArr</span>[<span class="php-quote">'default'</span>][<span class="php-var">$type</span>]) <span class="php-keyword1">and</span> <span class="php-var">$ACLArr</span>[<span class="php-quote">'default'</span>][<span class="php-var">$type</span>]) <span class="php-keyword1">echo</span> <span class="php-quote">'checked'</span>; <span class="xlang">?&gt;</span>&gt;
-</span><span id="414" class="l"><a class="l" href="#414">414 </a>                                    &lt;input type=<span class="php-quote">&quot;hidden&quot;</span> id=<span class="php-quote">&quot;ACL_&lt;?php echo </span><span class="php-var">$component</span><span class="php-quote">.'_'.</span><span class="php-var">$componentId</span><span class="php-quote">.'_10000_'.</span><span class="php-var">$type</span><span class="php-quote">; ?&gt;_hidden&quot;</span> name=<span class="php-quote">&quot;ACL_&lt;?php echo </span><span class="php-var">$component</span><span class="php-quote">.'_'.</span><span class="php-var">$componentId</span><span class="php-quote">.'_10000_'.</span><span class="php-var">$type</span><span class="php-quote">; ?&gt;_hidden&quot;</span> value=<span class="php-quote">&quot;0&quot;</span>&gt;
-</span><span id="415" class="l"><a class="l" href="#415">415 </a>                                &lt;/td&gt;
-</span><span id="416" class="l"><a class="l" href="#416">416 </a>                            <span class="xlang">&lt;?php</span>
-</span><span id="417" class="l"><a class="l" href="#417">417 </a>                            }
-</span><span id="418" class="l"><a class="l" href="#418">418 </a>                            <span class="xlang">?&gt;</span>
-</span><span id="419" class="l"><a class="l" href="#419">419 </a>                            &lt;td&gt;&lt;/td&gt;
-</span><span id="420" class="l"><a class="l" href="#420">420 </a>                            &lt;/tr&gt;
-</span><span id="421" class="l"><a class="l" href="#421">421 </a>                        &lt;/tbody&gt;
-</span><span id="422" class="l"><a class="l" href="#422">422 </a>                    &lt;/table&gt;
-</span><span id="423" class="l"><a class="l" href="#423">423 </a>                    &lt;button <span class="php-keyword1">class</span>=<span class="php-quote">&quot;btn btn-primary&quot;</span> type=<span class="php-quote">&quot;submit&quot;</span> name=<span class="php-quote">&quot;action&quot;</span> value=<span class="php-quote">&quot;saveACL&quot;</span>&gt;Sauvegarder&lt;/button&gt;
-</span><span id="424" class="l"><a class="l" href="#424">424 </a>                &lt;/form&gt;
-</span><span id="425" class="l"><a class="l" href="#425">425 </a>            &lt;/div&gt;
-</span><span id="426" class="l"><a class="l" href="#426">426 </a>        &lt;/div&gt;
-</span><span id="427" class="l"><a class="l" href="#427">427 </a>        <span class="xlang">&lt;?php</span>
-</span><span id="428" class="l"><a class="l" href="#428">428 </a>    }
-</span><span id="429" class="l"><a class="l" href="#429">429 </a></span>} </code></pre>
+</span><span id="231" class="l"><a class="l" href="#231">231 </a>                    <span class="php-keyword1">foreach</span> (<span class="php-var">$ACLUser</span> <span class="php-keyword1">as</span> <span class="php-var">$type</span> =&gt; <span class="php-var">$value</span>){
+</span><span id="232" class="l"><a class="l" href="#232">232 </a>                        <span class="php-var">$setACLArray</span>[] = <span class="php-quote">'(&quot;'</span>.<span class="php-var">$component</span>.<span class="php-quote">'&quot;, '</span>.<span class="php-var">$componentId</span>.<span class="php-quote">', '</span>.<span class="php-var">$user</span>.<span class="php-quote">', &quot;'</span>.<span class="php-var">$type</span>.<span class="php-quote">'&quot;, '</span>.((<span class="php-var">$types</span>[<span class="php-var">$type</span>] &lt;= <span class="php-var">$max</span>) ? <span class="php-var">$valueMax</span> : Sanitize::SanitizeForDb(<span class="php-var">$value</span>)).<span class="php-quote">')'</span>;
+</span><span id="233" class="l"><a class="l" href="#233">233 </a>                    }
+</span><span id="234" class="l"><a class="l" href="#234">234 </a>                }
+</span><span id="235" class="l"><a class="l" href="#235">235 </a>            }
+</span><span id="236" class="l"><a class="l" href="#236">236 </a>        }
+</span><span id="237" class="l"><a class="l" href="#237">237 </a>        <span class="php-var">$ret</span> = <span class="php-var">$db</span>-&gt;query(<span class="php-quote">'INSERT INTO `ACL` (`component`, `id`, `user`, `type`, `value`) VALUES '</span>.<span class="php-keyword2">implode</span>(<span class="php-quote">', '</span>, <span class="php-var">$setACLArray</span>).<span class="php-quote">' ON DUPLICATE KEY UPDATE `value` = VALUES(`value`)'</span>);
+</span><span id="238" class="l"><a class="l" href="#238">238 </a>        <span class="php-keyword1">return</span> ( <span class="php-var">$ret</span> === <span class="php-keyword1">false</span>) ? <span class="php-keyword1">false</span> : <span class="php-keyword1">true</span>;
+</span><span id="239" class="l"><a class="l" href="#239">239 </a>    }
+</span><span id="240" class="l"><a class="l" href="#240">240 </a>
+</span><span id="241" class="l"><a class="l" href="#241">241 </a>    <span class="php-comment">/**
+</span></span><span id="242" class="l"><a class="l" href="#242">242 </a><span class="php-comment">     * Récupère l'envoi d'un formulaire pour sauvegarder des ACL
+</span></span><span id="243" class="l"><a class="l" href="#243">243 </a><span class="php-comment">     *
+</span></span><span id="244" class="l"><a class="l" href="#244">244 </a><span class="php-comment">     * @param string $action Action à traiter.
+</span></span><span id="245" class="l"><a class="l" href="#245">245 </a><span class="php-comment">     *  - `restoreDefault` : restaure les droits d'accès par défaut pour un utilisateur
+</span></span><span id="246" class="l"><a class="l" href="#246">246 </a><span class="php-comment">     *
+</span></span><span id="247" class="l"><a class="l" href="#247">247 </a><span class="php-comment">     * @return bool
+</span></span><span id="248" class="l"><a class="l" href="#248">248 </a><span class="php-comment">     */</span>
+</span><span id="249" class="l"><a class="l" href="#249">249 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_requestACLSave" href="#_requestACLSave">requestACLSave</a>(<span class="php-var">$action</span> = <span class="php-keyword1">null</span>){
+</span><span id="250" class="l"><a class="l" href="#250">250 </a>        <span class="php-keyword1">switch</span> (<span class="php-var">$action</span>){
+</span><span id="251" class="l"><a class="l" href="#251">251 </a>            <span class="php-keyword1">case</span> <span class="php-quote">'restoreDefault'</span>:
+</span><span id="252" class="l"><a class="l" href="#252">252 </a>                <span class="php-var">$ret</span> = PostedData::checkToken(<span class="php-quote">'adminACL'</span>, <span class="php-var">$_REQUEST</span>[<span class="php-quote">'token'</span>]);
+</span><span id="253" class="l"><a class="l" href="#253">253 </a>                <span class="php-keyword1">if</span> (!<span class="php-var">$ret</span>){
+</span><span id="254" class="l"><a class="l" href="#254">254 </a>                    <span class="php-keyword1">new</span> Alert(<span class="php-quote">'error'</span>, <span class="php-quote">'Erreur de traitement : Ce formulaire a déjà été envoyé, ou bien vous n\'êtes pas la personne qui a initié l\'envoi !'</span>);
+</span><span id="255" class="l"><a class="l" href="#255">255 </a>                    <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
+</span><span id="256" class="l"><a class="l" href="#256">256 </a>                }
+</span><span id="257" class="l"><a class="l" href="#257">257 </a>                <span class="php-keyword1">if</span> (!self::canAdmin(<span class="php-quote">'admin'</span>, <span class="php-num">0</span>)){
+</span><span id="258" class="l"><a class="l" href="#258">258 </a>                    <span class="php-keyword1">new</span> Alert(<span class="php-quote">'error'</span>, <span class="php-quote">'Vous n\'avez pas l\'autorisation de faire ceci !'</span>);
+</span><span id="259" class="l"><a class="l" href="#259">259 </a>                    <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
+</span><span id="260" class="l"><a class="l" href="#260">260 </a>                }
+</span><span id="261" class="l"><a class="l" href="#261">261 </a>                <span class="php-var">$user</span> = (int)<span class="php-var">$_REQUEST</span>[<span class="php-quote">'user'</span>];
+</span><span id="262" class="l"><a class="l" href="#262">262 </a>                <span class="php-keyword1">if</span> (!UsersManagement::getDBUsers(<span class="php-var">$user</span>)){
+</span><span id="263" class="l"><a class="l" href="#263">263 </a>                    <span class="php-keyword1">new</span> Alert(<span class="php-quote">'error'</span>, <span class="php-quote">'Cet utilisateur n\'existe pas !'</span>);
+</span><span id="264" class="l"><a class="l" href="#264">264 </a>                    <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
+</span><span id="265" class="l"><a class="l" href="#265">265 </a>                }
+</span><span id="266" class="l"><a class="l" href="#266">266 </a>                <span class="php-keyword1">return</span> self::<span class="php-keyword2">delete</span>(<span class="php-keyword1">null</span>, <span class="php-keyword1">null</span>, <span class="php-var">$user</span>);
+</span><span id="267" class="l"><a class="l" href="#267">267 </a>                <span class="php-keyword1">break</span>;
+</span><span id="268" class="l"><a class="l" href="#268">268 </a>            <span class="php-keyword1">case</span> <span class="php-quote">'updateACL'</span>:
+</span><span id="269" class="l"><a class="l" href="#269">269 </a>            <span class="php-keyword1">default</span>:
+</span><span id="270" class="l"><a class="l" href="#270">270 </a>                <span class="php-var">$ret</span> = PostedData::checkToken(<span class="php-quote">'adminACL'</span>, <span class="php-var">$_REQUEST</span>[<span class="php-quote">'token'</span>]);
+</span><span id="271" class="l"><a class="l" href="#271">271 </a>                <span class="php-keyword1">if</span> (!<span class="php-var">$ret</span>){
+</span><span id="272" class="l"><a class="l" href="#272">272 </a>                    <span class="php-keyword1">new</span> Alert(<span class="php-quote">'error'</span>, <span class="php-quote">'Erreur de traitement : Ce formulaire a déjà été envoyé, ou bien vous n\'êtes pas la personne qui a initié l\'envoi !'</span>);
+</span><span id="273" class="l"><a class="l" href="#273">273 </a>                    <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
+</span><span id="274" class="l"><a class="l" href="#274">274 </a>                }
+</span><span id="275" class="l"><a class="l" href="#275">275 </a>                <span class="php-var">$ACLArr</span> = <span class="php-keyword1">array</span>();
+</span><span id="276" class="l"><a class="l" href="#276">276 </a>                <span class="php-keyword1">foreach</span> (<span class="php-var">$_REQUEST</span> <span class="php-keyword1">as</span> <span class="php-var">$key</span> =&gt; <span class="php-var">$value</span>){
+</span><span id="277" class="l"><a class="l" href="#277">277 </a>                    <span class="php-keyword1">if</span> (<span class="php-keyword2">substr</span>(<span class="php-var">$key</span>, <span class="php-num">0</span>, <span class="php-num">4</span>) == <span class="php-quote">'ACL_'</span>){
+</span><span id="278" class="l"><a class="l" href="#278">278 </a>                        <span class="php-keyword1">list</span>(<span class="php-var">$dummy</span>, <span class="php-var">$component</span>, <span class="php-var">$componentId</span>, <span class="php-var">$user</span>, <span class="php-var">$type</span>, <span class="php-var">$field</span>) = <span class="php-keyword2">explode</span>(<span class="php-quote">'_'</span>, <span class="php-var">$key</span>);
+</span><span id="279" class="l"><a class="l" href="#279">279 </a>                        <span class="php-keyword1">if</span> (!self::canAdmin(<span class="php-var">$component</span>, <span class="php-var">$componentId</span>)){
+</span><span id="280" class="l"><a class="l" href="#280">280 </a>                            <span class="php-keyword1">new</span> Alert(<span class="php-quote">'error'</span>, <span class="php-quote">'Vous n\'avez pas l\'autorisation de faire ceci !'</span>);
+</span><span id="281" class="l"><a class="l" href="#281">281 </a>                            <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
+</span><span id="282" class="l"><a class="l" href="#282">282 </a>                        }
+</span><span id="283" class="l"><a class="l" href="#283">283 </a>                        <span class="php-keyword1">if</span> (!<span class="php-keyword2">in_array</span>(<span class="php-var">$type</span>, <span class="php-keyword2">array_keys</span>(self::<span class="php-var">$typesLabels</span>))){
+</span><span id="284" class="l"><a class="l" href="#284">284 </a>                            <span class="php-keyword1">New</span> Alert(<span class="php-quote">'debug'</span>, <span class="php-quote">'&lt;code&gt;ACL::requestACLSave()&lt;/code&gt; : &lt;code&gt;$type='</span>.<span class="php-var">$type</span>.<span class="php-quote">'&lt;/code&gt; ne fait pas partie des typesLabels autorisés !'</span>);
+</span><span id="285" class="l"><a class="l" href="#285">285 </a>                            <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
+</span><span id="286" class="l"><a class="l" href="#286">286 </a>                        }
+</span><span id="287" class="l"><a class="l" href="#287">287 </a>                        <span class="php-var">$ACLArr</span>[<span class="php-var">$component</span>][<span class="php-var">$componentId</span>][<span class="php-var">$user</span>][<span class="php-var">$type</span>][<span class="php-var">$field</span>] = (<span class="php-var">$value</span> == <span class="php-num">1</span>) ? <span class="php-keyword1">true</span> : <span class="php-keyword1">false</span>;
+</span><span id="288" class="l"><a class="l" href="#288">288 </a>                    }
+</span><span id="289" class="l"><a class="l" href="#289">289 </a>                }
+</span><span id="290" class="l"><a class="l" href="#290">290 </a>                <span class="php-keyword1">foreach</span> (<span class="php-var">$ACLArr</span> <span class="php-keyword1">as</span> <span class="php-var">$component</span> =&gt; <span class="php-var">$ACLArrComponent</span>) {
+</span><span id="291" class="l"><a class="l" href="#291">291 </a>                    <span class="php-keyword1">foreach</span> (<span class="php-var">$ACLArrComponent</span> <span class="php-keyword1">as</span> <span class="php-var">$componentId</span> =&gt; <span class="php-var">$ACLArrComponentId</span>) {
+</span><span id="292" class="l"><a class="l" href="#292">292 </a>                        <span class="php-keyword1">foreach</span> (<span class="php-var">$ACLArrComponentId</span> <span class="php-keyword1">as</span> <span class="php-var">$user</span> =&gt; <span class="php-var">$ACLUser</span>) {
+</span><span id="293" class="l"><a class="l" href="#293">293 </a>                            <span class="php-keyword1">foreach</span> (<span class="php-var">$ACLUser</span> <span class="php-keyword1">as</span> <span class="php-var">$type</span> =&gt; <span class="php-var">$ACLType</span>) {
+</span><span id="294" class="l"><a class="l" href="#294">294 </a>                                <span class="php-var">$ACLArr</span>[<span class="php-var">$component</span>][<span class="php-var">$componentId</span>][<span class="php-var">$user</span>][<span class="php-var">$type</span>] = (<span class="php-keyword1">isset</span>(<span class="php-var">$ACLType</span>[<span class="php-quote">'checkbox'</span>])) ? <span class="php-var">$ACLType</span>[<span class="php-quote">'checkbox'</span>] : <span class="php-var">$ACLType</span>[<span class="php-quote">'hidden'</span>];
+</span><span id="295" class="l"><a class="l" href="#295">295 </a>                            }
+</span><span id="296" class="l"><a class="l" href="#296">296 </a>                        }
+</span><span id="297" class="l"><a class="l" href="#297">297 </a>                    }
+</span><span id="298" class="l"><a class="l" href="#298">298 </a>                }
+</span><span id="299" class="l"><a class="l" href="#299">299 </a>                <span class="php-keyword1">if</span> (<span class="php-var">$ret</span> = self::setArray(<span class="php-var">$ACLArr</span>)){
+</span><span id="300" class="l"><a class="l" href="#300">300 </a>                    <span class="php-keyword1">new</span> Alert(<span class="php-quote">'success'</span>, <span class="php-quote">'Les autorisations ont été sauvegardées !'</span>);
+</span><span id="301" class="l"><a class="l" href="#301">301 </a>                }<span class="php-keyword1">else</span>{
+</span><span id="302" class="l"><a class="l" href="#302">302 </a>                    <span class="php-keyword1">new</span> Alert(<span class="php-quote">'error'</span>, <span class="php-quote">'Les autorisations n\'ont pas été sauvegardées !'</span>);
+</span><span id="303" class="l"><a class="l" href="#303">303 </a>                }
+</span><span id="304" class="l"><a class="l" href="#304">304 </a>                <span class="php-keyword1">return</span> <span class="php-var">$ret</span>;
+</span><span id="305" class="l"><a class="l" href="#305">305 </a>        }
+</span><span id="306" class="l"><a class="l" href="#306">306 </a>    }
+</span><span id="307" class="l"><a class="l" href="#307">307 </a>
+</span><span id="308" class="l"><a class="l" href="#308">308 </a>    <span class="php-comment">/**
+</span></span><span id="309" class="l"><a class="l" href="#309">309 </a><span class="php-comment">     * Supprime des ACL
+</span></span><span id="310" class="l"><a class="l" href="#310">310 </a><span class="php-comment">     *
+</span></span><span id="311" class="l"><a class="l" href="#311">311 </a><span class="php-comment">     * Si $component est vide, alors on supprime tout (si $type est vide) ou une partie (si $type est renseigné) des ACL d'un utilisateur
+</span></span><span id="312" class="l"><a class="l" href="#312">312 </a><span class="php-comment">     * Si $userId est vide, on réinitialise les ACL pour un composant (ou une partie si $type est renseigné)
+</span></span><span id="313" class="l"><a class="l" href="#313">313 </a><span class="php-comment">     *
+</span></span><span id="314" class="l"><a class="l" href="#314">314 </a><span class="php-comment">     * @param string $component Composant (module, site,...)
+</span></span><span id="315" class="l"><a class="l" href="#315">315 </a><span class="php-comment">     * @param int $componentId Id du composant
+</span></span><span id="316" class="l"><a class="l" href="#316">316 </a><span class="php-comment">     * @param int $userId Id de l'utilisateur
+</span></span><span id="317" class="l"><a class="l" href="#317">317 </a><span class="php-comment">     * @param string $type Type d'ACL (admin, access)
+</span></span><span id="318" class="l"><a class="l" href="#318">318 </a><span class="php-comment">     *
+</span></span><span id="319" class="l"><a class="l" href="#319">319 </a><span class="php-comment">     * @return bool
+</span></span><span id="320" class="l"><a class="l" href="#320">320 </a><span class="php-comment">     */</span>
+</span><span id="321" class="l"><a class="l" href="#321">321 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <span class="php-keyword2">delete</span>(<span class="php-var">$component</span> = <span class="php-keyword1">null</span>, <span class="php-var">$componentId</span> = <span class="php-keyword1">null</span>, <span class="php-var">$userId</span> = <span class="php-keyword1">null</span>, <span class="php-var">$type</span> = <span class="php-keyword1">null</span>){
+</span><span id="322" class="l"><a class="l" href="#322">322 </a>        <span class="php-keyword1">global</span> <span class="php-var">$db</span>;
+</span><span id="323" class="l"><a class="l" href="#323">323 </a>        <span class="php-var">$where</span> = <span class="php-keyword1">array</span>();
+</span><span id="324" class="l"><a class="l" href="#324">324 </a>        <span class="php-var">$format</span> = <span class="php-keyword1">array</span>(
+</span><span id="325" class="l"><a class="l" href="#325">325 </a>            <span class="php-quote">'component'</span> =&gt; <span class="php-quote">'string'</span>,
+</span><span id="326" class="l"><a class="l" href="#326">326 </a>          <span class="php-quote">'id'</span>        =&gt; <span class="php-quote">'int'</span>,
+</span><span id="327" class="l"><a class="l" href="#327">327 </a>          <span class="php-quote">'user'</span>      =&gt; <span class="php-quote">'int'</span>,
+</span><span id="328" class="l"><a class="l" href="#328">328 </a>          <span class="php-quote">'type'</span>      =&gt; <span class="php-quote">'string'</span>
+</span><span id="329" class="l"><a class="l" href="#329">329 </a>        );
+</span><span id="330" class="l"><a class="l" href="#330">330 </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_null</span>(<span class="php-var">$component</span>)){
+</span><span id="331" class="l"><a class="l" href="#331">331 </a>            <span class="php-keyword1">if</span> (<span class="php-keyword2">is_null</span>(<span class="php-var">$componentId</span>)) {
+</span><span id="332" class="l"><a class="l" href="#332">332 </a>                <span class="php-keyword1">new</span> Alert(<span class="php-quote">'debug'</span>, <span class="php-quote">'&lt;code&gt;ACL::delete()&lt;/code&gt; : $componentId est vide alors que $component est renseigné !'</span>);
+</span><span id="333" class="l"><a class="l" href="#333">333 </a>                <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
+</span><span id="334" class="l"><a class="l" href="#334">334 </a>            }
+</span><span id="335" class="l"><a class="l" href="#335">335 </a>            <span class="php-var">$where</span>[<span class="php-quote">'component'</span>] = <span class="php-var">$component</span>;
+</span><span id="336" class="l"><a class="l" href="#336">336 </a>            <span class="php-var">$where</span>[<span class="php-quote">'id'</span>] = <span class="php-var">$componentId</span>;
+</span><span id="337" class="l"><a class="l" href="#337">337 </a>        }
+</span><span id="338" class="l"><a class="l" href="#338">338 </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_null</span>(<span class="php-var">$userId</span>)){
+</span><span id="339" class="l"><a class="l" href="#339">339 </a>            <span class="php-var">$where</span>[<span class="php-quote">'user'</span>] = <span class="php-var">$userId</span>;
+</span><span id="340" class="l"><a class="l" href="#340">340 </a>        }
+</span><span id="341" class="l"><a class="l" href="#341">341 </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_null</span>(<span class="php-var">$type</span>)){
+</span><span id="342" class="l"><a class="l" href="#342">342 </a>            <span class="php-keyword1">if</span> (!<span class="php-keyword2">in_array</span>(<span class="php-var">$type</span>, <span class="php-keyword2">array_keys</span>(self::<span class="php-var">$typesLabels</span>))){
+</span><span id="343" class="l"><a class="l" href="#343">343 </a>                <span class="php-keyword1">New</span> Alert(<span class="php-quote">'debug'</span>, <span class="php-quote">'&lt;code&gt;ACL::delete()&lt;/code&gt; : &lt;code&gt;$type='</span>.<span class="php-var">$type</span>.<span class="php-quote">'&lt;/code&gt; ne fait pas partie des typesLabels autorisés !'</span>);
+</span><span id="344" class="l"><a class="l" href="#344">344 </a>                <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
+</span><span id="345" class="l"><a class="l" href="#345">345 </a>            }
+</span><span id="346" class="l"><a class="l" href="#346">346 </a>            <span class="php-var">$where</span>[<span class="php-quote">'type'</span>] = <span class="php-var">$type</span>;
+</span><span id="347" class="l"><a class="l" href="#347">347 </a>        }
+</span><span id="348" class="l"><a class="l" href="#348">348 </a>        <span class="php-keyword1">if</span> (<span class="php-keyword1">empty</span>(<span class="php-var">$where</span>) <span class="php-keyword1">or</span> (<span class="php-keyword1">isset</span>(<span class="php-var">$where</span>[<span class="php-quote">'type'</span>]) <span class="php-keyword1">and</span> <span class="php-keyword2">count</span>(<span class="php-var">$where</span>) == <span class="php-num">1</span>)){
+</span><span id="349" class="l"><a class="l" href="#349">349 </a>            <span class="php-comment">// Si aucun paramètre (ou seulement le type) n'est renseigné, on annule tout</span>
+</span><span id="350" class="l"><a class="l" href="#350">350 </a>            <span class="php-keyword1">new</span> Alert(<span class="php-quote">'debug'</span>, <span class="php-quote">'&lt;code&gt;ACL::delete()&lt;/code&gt; : Aucun paramètre n\'est renseigné !'</span>);
+</span><span id="351" class="l"><a class="l" href="#351">351 </a>            <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
+</span><span id="352" class="l"><a class="l" href="#352">352 </a>        }
+</span><span id="353" class="l"><a class="l" href="#353">353 </a>        <span class="php-var">$ret</span> = <span class="php-var">$db</span>-&gt;<span class="php-keyword2">delete</span>(<span class="php-quote">'ACL'</span>, <span class="php-var">$where</span>, <span class="php-var">$format</span>);
+</span><span id="354" class="l"><a class="l" href="#354">354 </a>        <span class="php-keyword1">if</span> (<span class="php-var">$ret</span> === <span class="php-keyword1">false</span>){
+</span><span id="355" class="l"><a class="l" href="#355">355 </a>            <span class="php-keyword1">new</span> Alert(<span class="php-quote">'error'</span>, <span class="php-quote">'Impossible de supprimer les autorisations !'</span>);
+</span><span id="356" class="l"><a class="l" href="#356">356 </a>            <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
+</span><span id="357" class="l"><a class="l" href="#357">357 </a>        }
+</span><span id="358" class="l"><a class="l" href="#358">358 </a>        <span class="php-keyword1">new</span> Alert(<span class="php-quote">'success'</span>, <span class="php-quote">'Les autorisations ont été correctement supprimées !'</span>);
+</span><span id="359" class="l"><a class="l" href="#359">359 </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">true</span>;
+</span><span id="360" class="l"><a class="l" href="#360">360 </a>    }
+</span><span id="361" class="l"><a class="l" href="#361">361 </a>
+</span><span id="362" class="l"><a class="l" href="#362">362 </a>    <span class="php-comment">/**
+</span></span><span id="363" class="l"><a class="l" href="#363">363 </a><span class="php-comment">     * Affiche le formulaire de réglage de l'ensemble des autorisations d'un utilisateur
+</span></span><span id="364" class="l"><a class="l" href="#364">364 </a><span class="php-comment">     *
+</span></span><span id="365" class="l"><a class="l" href="#365">365 </a><span class="php-comment">     * @param int     $userId
+</span></span><span id="366" class="l"><a class="l" href="#366">366 </a><span class="php-comment">     */</span>
+</span><span id="367" class="l"><a class="l" href="#367">367 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_adminUserACL" href="#_adminUserACL">adminUserACL</a>(<span class="php-var">$userId</span>){
+</span><span id="368" class="l"><a class="l" href="#368">368 </a>        <span class="php-keyword1">global</span> <span class="php-var">$db</span>;
+</span><span id="369" class="l"><a class="l" href="#369">369 </a>        <span class="php-var">$userName</span> = <span class="php-quote">''</span>;
+</span><span id="370" class="l"><a class="l" href="#370">370 </a>        <span class="php-keyword1">if</span> (<span class="php-var">$userId</span> != <span class="php-num">10000</span>) {
+</span><span id="371" class="l"><a class="l" href="#371">371 </a>            <span class="php-var">$userName</span> = UsersManagement::getUserName(<span class="php-var">$userId</span>);
+</span><span id="372" class="l"><a class="l" href="#372">372 </a>        }
+</span><span id="373" class="l"><a class="l" href="#373">373 </a>        <span class="php-keyword1">if</span> (<span class="php-var">$userName</span> === <span class="php-keyword1">false</span>){
+</span><span id="374" class="l"><a class="l" href="#374">374 </a>            <span class="php-keyword1">new</span> Alert(<span class="php-quote">'error'</span>, <span class="php-quote">'Cet utilisateur n\'existe pas !'</span>);
+</span><span id="375" class="l"><a class="l" href="#375">375 </a>            <span class="php-var">$userId</span> = <span class="php-num">10000</span>;
+</span><span id="376" class="l"><a class="l" href="#376">376 </a>        }
+</span><span id="377" class="l"><a class="l" href="#377">377 </a>        <span class="php-var">$acls</span> = <span class="php-var">$db</span>-&gt;query(<span class="php-quote">'SELECT a.user as user, m.name as module, a.id as componentId, a.type as type, a.value as value FROM `modules` as m, `ACL` as a WHERE m.id = a.id AND `user` IN ('</span>.<span class="php-var">$userId</span>.<span class="php-quote">', 10000) AND `component` = &quot;module&quot; ORDER BY `name`'</span>);
+</span><span id="378" class="l"><a class="l" href="#378">378 </a>        <span class="php-var">$types</span> = <span class="php-keyword2">array_flip</span>(<span class="php-keyword2">array_keys</span>(self::<span class="php-var">$typesLabels</span>));
+</span><span id="379" class="l"><a class="l" href="#379">379 </a>        <span class="php-var">$ACLArr</span> = <span class="php-keyword1">array</span>();
+</span><span id="380" class="l"><a class="l" href="#380">380 </a>        <span class="php-keyword1">foreach</span> (<span class="php-var">$acls</span> <span class="php-keyword1">as</span> <span class="php-var">$acl</span>){
+</span><span id="381" class="l"><a class="l" href="#381">381 </a>            <span class="php-var">$ACLArr</span>[<span class="php-var">$acl</span>-&gt;module][<span class="php-var">$acl</span>-&gt;user][<span class="php-var">$acl</span>-&gt;type] = (<span class="php-var">$acl</span>-&gt;value == <span class="php-num">1</span>) ? <span class="php-keyword1">true</span> : <span class="php-keyword1">false</span>;
+</span><span id="382" class="l"><a class="l" href="#382">382 </a>            <span class="php-var">$ACLArr</span>[<span class="php-var">$acl</span>-&gt;module][<span class="php-quote">'componentId'</span>] = <span class="php-var">$acl</span>-&gt;componentId;
+</span><span id="383" class="l"><a class="l" href="#383">383 </a>        }
+</span><span id="384" class="l"><a class="l" href="#384">384 </a>        <span class="php-var">$adminUsers</span> = <span class="php-var">$db</span>-&gt;query(<span class="php-quote">'SELECT user FROM `ACL` WHERE `component` = &quot;admin&quot; and `type` = &quot;admin&quot; AND `value` = 1 ORDER BY `user`'</span>);
+</span><span id="385" class="l"><a class="l" href="#385">385 </a>        <span class="php-var">$admins</span> = <span class="php-keyword1">array</span>();
+</span><span id="386" class="l"><a class="l" href="#386">386 </a>        <span class="php-keyword1">foreach</span> (<span class="php-var">$adminUsers</span> <span class="php-keyword1">as</span> <span class="php-var">$adminUser</span>){
+</span><span id="387" class="l"><a class="l" href="#387">387 </a>            <span class="php-var">$admins</span>[] = <span class="php-var">$adminUser</span>-&gt;user;
+</span><span id="388" class="l"><a class="l" href="#388">388 </a>        }
+</span><span id="389" class="l"><a class="l" href="#389">389 </a>        <span class="xlang">?&gt;</span>
+</span><span id="390" class="l"><a class="l" href="#390">390 </a>        &lt;div <span class="php-keyword1">class</span>=<span class="php-quote">&quot;row&quot;</span>&gt;
+</span><span id="391" class="l"><a class="l" href="#391">391 </a>            &lt;div <span class="php-keyword1">class</span>=<span class="php-quote">&quot;col-md-12&quot;</span>&gt;
+</span><span id="392" class="l"><a class="l" href="#392">392 </a>                &lt;h2&gt;<span class="xlang">&lt;?php</span> <span class="php-keyword1">echo</span> (<span class="php-var">$userId</span> == <span class="php-num">10000</span>) ? <span class="php-quote">'Droits par défaut'</span> :<span class="php-quote">'Droits de '</span>.<span class="php-var">$userName</span>; <span class="xlang">?&gt;</span>&lt;/h2&gt;
+</span><span id="393" class="l"><a class="l" href="#393">393 </a>                <span class="xlang">&lt;?php</span>
+</span><span id="394" class="l"><a class="l" href="#394">394 </a>                <span class="php-keyword1">if</span> (<span class="php-keyword2">in_array</span>(<span class="php-var">$userId</span>, <span class="php-var">$admins</span>)){
+</span><span id="395" class="l"><a class="l" href="#395">395 </a>                    <span class="xlang">?&gt;</span>&lt;div <span class="php-keyword1">class</span>=<span class="php-quote">&quot;alert alert-warning&quot;</span>&gt;Cet utilisateur est administrateur, il a automatiquement tous les droits sur tous les modules.&lt;/div&gt;<span class="xlang">&lt;?php</span>
+</span><span id="396" class="l"><a class="l" href="#396">396 </a>                }
+</span><span id="397" class="l"><a class="l" href="#397">397 </a>                <span class="php-keyword1">if</span> (<span class="php-var">$userId</span> == <span class="php-num">10000</span>){
+</span><span id="398" class="l"><a class="l" href="#398">398 </a>                    <span class="xlang">?&gt;</span>&lt;p&gt;Vous pouvez ici modifier les droits par défaut pour tous les modules.&lt;/p&gt;<span class="xlang">&lt;?php</span>
+</span><span id="399" class="l"><a class="l" href="#399">399 </a>                }<span class="php-keyword1">else</span>{
+</span><span id="400" class="l"><a class="l" href="#400">400 </a>                    <span class="xlang">?&gt;</span>
+</span><span id="401" class="l"><a class="l" href="#401">401 </a>                    &lt;p&gt;
+</span><span id="402" class="l"><a class="l" href="#402">402 </a>                        Si vous modifiez un droit d<span class="php-quote">'accès ici, cela enregistrera les droits d'</span>accès de tous les modules. L<span class="php-quote">'utilisateur n'</span>héritera plus des droits d<span class="php-quote">'accès par défaut.&lt;br&gt;
+</span></span><span id="403" class="l"><a class="l" href="#403">403 </a><span class="php-quote">                        Vous pouvez supprimer tous les droits d'</span>accès de l<span class="php-quote">'utilisateur en cliquant sur le bouton &lt;code&gt;Droits par défaut&lt;/code&gt;.
+</span></span><span id="404" class="l"><a class="l" href="#404">404 </a><span class="php-quote">                    &lt;/p&gt;
+</span></span><span id="405" class="l"><a class="l" href="#405">405 </a><span class="php-quote">                &lt;?php
+</span></span><span id="406" class="l"><a class="l" href="#406">406 </a><span class="php-quote">                }
+</span></span><span id="407" class="l"><a class="l" href="#407">407 </a><span class="php-quote">                ?&gt;
+</span></span><span id="408" class="l"><a class="l" href="#408">408 </a><span class="php-quote">                &lt;form id=&quot;adminACL&quot; class=&quot;&quot; method=&quot;post&quot; role=&quot;form&quot; action=&quot;&lt;?php echo $_SERVER['</span>REQUEST_URI<span class="php-quote">']; ?&gt;&quot;&gt;
+</span></span><span id="409" class="l"><a class="l" href="#409">409 </a><span class="php-quote">                    &lt;table class=&quot;table&quot;&gt;
+</span></span><span id="410" class="l"><a class="l" href="#410">410 </a><span class="php-quote">                        &lt;thead&gt;
+</span></span><span id="411" class="l"><a class="l" href="#411">411 </a><span class="php-quote">                            &lt;tr&gt;
+</span></span><span id="412" class="l"><a class="l" href="#412">412 </a><span class="php-quote">                                &lt;th&gt;Module&lt;/th&gt;
+</span></span><span id="413" class="l"><a class="l" href="#413">413 </a><span class="php-quote">                                &lt;?php
+</span></span><span id="414" class="l"><a class="l" href="#414">414 </a><span class="php-quote">                                foreach (self::$typesLabels as $type =&gt; $label){
+</span></span><span id="415" class="l"><a class="l" href="#415">415 </a><span class="php-quote">                                    ?&gt;
+</span></span><span id="416" class="l"><a class="l" href="#416">416 </a><span class="php-quote">                                    &lt;th&gt;&lt;?php echo $type; ?&gt; &lt;?php Help::iconHelp($label); ?&gt;&lt;/th&gt;
+</span></span><span id="417" class="l"><a class="l" href="#417">417 </a><span class="php-quote">                                &lt;?php
+</span></span><span id="418" class="l"><a class="l" href="#418">418 </a><span class="php-quote">                                }
+</span></span><span id="419" class="l"><a class="l" href="#419">419 </a><span class="php-quote">                                ?&gt;
+</span></span><span id="420" class="l"><a class="l" href="#420">420 </a><span class="php-quote">                                &lt;th&gt;Remarques&lt;/th&gt;
+</span></span><span id="421" class="l"><a class="l" href="#421">421 </a><span class="php-quote">                            &lt;/tr&gt;
+</span></span><span id="422" class="l"><a class="l" href="#422">422 </a><span class="php-quote">                        &lt;/thead&gt;
+</span></span><span id="423" class="l"><a class="l" href="#423">423 </a><span class="php-quote">                        &lt;tbody&gt;
+</span></span><span id="424" class="l"><a class="l" href="#424">424 </a><span class="php-quote">                        &lt;?php
+</span></span><span id="425" class="l"><a class="l" href="#425">425 </a><span class="php-quote">                        foreach ($ACLArr as $module=&gt;$acl){
+</span></span><span id="426" class="l"><a class="l" href="#426">426 </a><span class="php-quote">                            $component = '</span>module<span class="php-quote">';
+</span></span><span id="427" class="l"><a class="l" href="#427">427 </a><span class="php-quote">                            $componentId = $acl['</span>componentId<span class="php-quote">'];
+</span></span><span id="428" class="l"><a class="l" href="#428">428 </a><span class="php-quote">                            $sanitizedModule = Sanitize::sanitizeFilename($module);
+</span></span><span id="429" class="l"><a class="l" href="#429">429 </a><span class="php-quote">                            ?&gt;
+</span></span><span id="430" class="l"><a class="l" href="#430">430 </a><span class="php-quote">                            &lt;tr id=&quot;ACL_&lt;?php echo $sanitizedModule; ?&gt;&quot;&gt;
+</span></span><span id="431" class="l"><a class="l" href="#431">431 </a><span class="php-quote">                                &lt;td&gt;&lt;?php echo $module; ?&gt;&lt;/td&gt;
+</span></span><span id="432" class="l"><a class="l" href="#432">432 </a><span class="php-quote">                                &lt;?php
+</span></span><span id="433" class="l"><a class="l" href="#433">433 </a><span class="php-quote">                                $inherited = true;
+</span></span><span id="434" class="l"><a class="l" href="#434">434 </a><span class="php-quote">                                $disabled = false;
+</span></span><span id="435" class="l"><a class="l" href="#435">435 </a><span class="php-quote">                                foreach(self::$typesLabels as $type =&gt; $label){
+</span></span><span id="436" class="l"><a class="l" href="#436">436 </a><span class="php-quote">                                    $checked = false;
+</span></span><span id="437" class="l"><a class="l" href="#437">437 </a><span class="php-quote">                                    if(in_array($userId, $admins)){
+</span></span><span id="438" class="l"><a class="l" href="#438">438 </a><span class="php-quote">                                        $checked = true;
+</span></span><span id="439" class="l"><a class="l" href="#439">439 </a><span class="php-quote">                                        $disabled = true;
+</span></span><span id="440" class="l"><a class="l" href="#440">440 </a><span class="php-quote">                                    }elseif (isset($acl[$userId][$type])){
+</span></span><span id="441" class="l"><a class="l" href="#441">441 </a><span class="php-quote">                                        if ($acl[$userId][$type]) {
+</span></span><span id="442" class="l"><a class="l" href="#442">442 </a><span class="php-quote">                                            $checked = true;
+</span></span><span id="443" class="l"><a class="l" href="#443">443 </a><span class="php-quote">                                        }
+</span></span><span id="444" class="l"><a class="l" href="#444">444 </a><span class="php-quote">                                        $inherited = false;
+</span></span><span id="445" class="l"><a class="l" href="#445">445 </a><span class="php-quote">                                    }elseif(isset($acl[10000][$type]) and $acl[10000][$type]){
+</span></span><span id="446" class="l"><a class="l" href="#446">446 </a><span class="php-quote">                                        $checked = true;
+</span></span><span id="447" class="l"><a class="l" href="#447">447 </a><span class="php-quote">                                    }
+</span></span><span id="448" class="l"><a class="l" href="#448">448 </a><span class="php-quote">                                    ?&gt;
+</span></span><span id="449" class="l"><a class="l" href="#449">449 </a><span class="php-quote">                                    &lt;td&gt;
+</span></span><span id="450" class="l"><a class="l" href="#450">450 </a><span class="php-quote">                                        &lt;input type=&quot;checkbox&quot; class=&quot;form-control checkbox-ACL&quot; id=&quot;ACL_&lt;?php echo $sanitizedModule.'</span>_<span class="php-quote">'.$type; ?&gt;_checkbox&quot; name=&quot;ACL_&lt;?php echo $component.'</span>_<span class="php-quote">'.$componentId.'</span>_<span class="php-quote">'.$userId.'</span>_<span class="php-quote">'.$type; ?&gt;_checkbox&quot; data-type-value=&quot;&lt;?php echo $types[$type]; ?&gt;&quot; data-tr-id=&quot;#ACL_&lt;?php echo $sanitizedModule; ?&gt;&quot; value=&quot;1&quot; &lt;?php if ($checked) echo '</span>checked<span class="php-quote">'; ?&gt; &lt;?php if ($disabled) echo '</span>disabled<span class="php-quote">'; ?&gt;&gt;
+</span></span><span id="451" class="l"><a class="l" href="#451">451 </a><span class="php-quote">                                        &lt;input type=&quot;hidden&quot; id=&quot;ACL_&lt;?php echo $sanitizedModule.'</span>_<span class="php-quote">'.$type; ?&gt;_hidden&quot; name=&quot;ACL_&lt;?php echo  $component.'</span>_<span class="php-quote">'.$componentId.'</span>_<span class="php-quote">'.$userId.'</span>_<span class="php-quote">'.$type;  ?&gt;_hidden&quot; value=&quot;0&quot;&gt;
+</span></span><span id="452" class="l"><a class="l" href="#452">452 </a><span class="php-quote">                                    &lt;/td&gt;
+</span></span><span id="453" class="l"><a class="l" href="#453">453 </a><span class="php-quote">                                &lt;?php
+</span></span><span id="454" class="l"><a class="l" href="#454">454 </a><span class="php-quote">                                }
+</span></span><span id="455" class="l"><a class="l" href="#455">455 </a><span class="php-quote">                                ?&gt;
+</span></span><span id="456" class="l"><a class="l" href="#456">456 </a><span class="php-quote">                                &lt;td&gt;
+</span></span><span id="457" class="l"><a class="l" href="#457">457 </a><span class="php-quote">                                    &lt;i&gt;
+</span></span><span id="458" class="l"><a class="l" href="#458">458 </a><span class="php-quote">                                        &lt;?php
+</span></span><span id="459" class="l"><a class="l" href="#459">459 </a><span class="php-quote">                                        if (in_array($userId, $admins)){
+</span></span><span id="460" class="l"><a class="l" href="#460">460 </a><span class="php-quote">                                            echo '</span>Administrateur <span class="php-keyword1">global</span><span class="php-quote">';
+</span></span><span id="461" class="l"><a class="l" href="#461">461 </a><span class="php-quote">                                        }elseif ($inherited) {
+</span></span><span id="462" class="l"><a class="l" href="#462">462 </a><span class="php-quote">                                            echo '</span>Hérité des ACL par défaut<span class="php-quote">';
+</span></span><span id="463" class="l"><a class="l" href="#463">463 </a><span class="php-quote">                                        }
+</span></span><span id="464" class="l"><a class="l" href="#464">464 </a><span class="php-quote">                                        ?&gt;
+</span></span><span id="465" class="l"><a class="l" href="#465">465 </a><span class="php-quote">                                    &lt;/i&gt;
+</span></span><span id="466" class="l"><a class="l" href="#466">466 </a><span class="php-quote">                                &lt;/td&gt;
+</span></span><span id="467" class="l"><a class="l" href="#467">467 </a><span class="php-quote">                            &lt;/tr&gt;
+</span></span><span id="468" class="l"><a class="l" href="#468">468 </a><span class="php-quote">                        &lt;?php
+</span></span><span id="469" class="l"><a class="l" href="#469">469 </a><span class="php-quote">                        }
+</span></span><span id="470" class="l"><a class="l" href="#470">470 </a><span class="php-quote">                        ?&gt;
+</span></span><span id="471" class="l"><a class="l" href="#471">471 </a><span class="php-quote">                        &lt;/tbody&gt;
+</span></span><span id="472" class="l"><a class="l" href="#472">472 </a><span class="php-quote">                    &lt;/table&gt;
+</span></span><span id="473" class="l"><a class="l" href="#473">473 </a><span class="php-quote">                    &lt;input type=&quot;hidden&quot; name=&quot;user&quot; value=&quot;&lt;?php echo $userId; ?&gt;&quot;&gt;
+</span></span><span id="474" class="l"><a class="l" href="#474">474 </a><span class="php-quote">                    &lt;input type=&quot;hidden&quot; name=&quot;token&quot; value=&quot;&lt;?php echo PostedData::setToken('</span>adminACL<span class="php-quote">'); ?&gt;&quot;&gt;
+</span></span><span id="475" class="l"><a class="l" href="#475">475 </a><span class="php-quote">                    &lt;input type=&quot;hidden&quot; name=&quot;formName&quot; value=&quot;adminACL&quot;&gt;
+</span></span><span id="476" class="l"><a class="l" href="#476">476 </a><span class="php-quote">                    &lt;button class=&quot;btn btn-primary&quot; type=&quot;submit&quot; name=&quot;action&quot; value=&quot;saveACL&quot; &lt;?php if(in_array($userId, $admins)) echo '</span>disabled<span class="php-quote">'; ?&gt;&gt;Sauvegarder&lt;/button&gt;
+</span></span><span id="477" class="l"><a class="l" href="#477">477 </a><span class="php-quote">                    &lt;button class=&quot;btn btn-default&quot; type=&quot;submit&quot; name=&quot;action&quot; value=&quot;restoreDefaultACL&quot; &lt;?php if(in_array($userId, $admins) or $userId == 10000) echo '</span>disabled<span class="php-quote">'; ?&gt;&gt;Droits par défaut&lt;/button&gt;
+</span></span><span id="478" class="l"><a class="l" href="#478">478 </a><span class="php-quote">                &lt;/form&gt;
+</span></span><span id="479" class="l"><a class="l" href="#479">479 </a><span class="php-quote">            &lt;/div&gt;
+</span></span><span id="480" class="l"><a class="l" href="#480">480 </a><span class="php-quote">        &lt;/div&gt;
+</span></span><span id="481" class="l"><a class="l" href="#481">481 </a><span class="php-quote">        &lt;?php
+</span></span><span id="482" class="l"><a class="l" href="#482">482 </a><span class="php-quote">    }
+</span></span><span id="483" class="l"><a class="l" href="#483">483 </a><span class="php-quote">
+</span></span><span id="484" class="l"><a class="l" href="#484">484 </a><span class="php-quote">    /**
+</span></span><span id="485" class="l"><a class="l" href="#485">485 </a><span class="php-quote">     * Affiche le formulaire de réglage des ACL
+</span></span><span id="486" class="l"><a class="l" href="#486">486 </a><span class="php-quote">     *
+</span></span><span id="487" class="l"><a class="l" href="#487">487 </a><span class="php-quote">     * @param string $component   Type de composant (module, admin, etc.)
+</span></span><span id="488" class="l"><a class="l" href="#488">488 </a><span class="php-quote">     * @param string $componentId ID du composant
+</span></span><span id="489" class="l"><a class="l" href="#489">489 </a><span class="php-quote">     * @param string $title       Nom du composant administré (facultatif)
+</span></span><span id="490" class="l"><a class="l" href="#490">490 </a><span class="php-quote">     *
+</span></span><span id="491" class="l"><a class="l" href="#491">491 </a><span class="php-quote">     * @return bool
+</span></span><span id="492" class="l"><a class="l" href="#492">492 </a><span class="php-quote">     */
+</span></span><span id="493" class="l"><a class="l" href="#493">493 </a><span class="php-quote">    public static function adminACL($component, $componentId, $title = null){
+</span></span><span id="494" class="l"><a class="l" href="#494">494 </a><span class="php-quote">        global $db;
+</span></span><span id="495" class="l"><a class="l" href="#495">495 </a><span class="php-quote">        if (!self::canAdmin($component, $componentId)){
+</span></span><span id="496" class="l"><a class="l" href="#496">496 </a><span class="php-quote">            new Alert('</span>error<span class="php-quote">', '</span>Vous n\<span class="php-quote">'avez pas l\'autorisation de faire ceci !'</span>);
+</span><span id="497" class="l"><a class="l" href="#497">497 </a>            <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
+</span><span id="498" class="l"><a class="l" href="#498">498 </a>        }
+</span><span id="499" class="l"><a class="l" href="#499">499 </a>        <span class="php-var">$users</span> = UsersManagement::getDBUsers();
+</span><span id="500" class="l"><a class="l" href="#500">500 </a>        <span class="php-var">$acls</span> = <span class="php-var">$db</span>-&gt;query(<span class="php-quote">'SELECT user, type, value FROM `ACL` WHERE `component` = &quot;'</span>.<span class="php-var">$component</span>.<span class="php-quote">'&quot; AND `id` = '</span>.<span class="php-var">$componentId</span>.<span class="php-quote">' ORDER BY `user`'</span>);
+</span><span id="501" class="l"><a class="l" href="#501">501 </a>        <span class="php-var">$adminUsers</span> = <span class="php-var">$db</span>-&gt;query(<span class="php-quote">'SELECT user FROM `ACL` WHERE `component` = &quot;admin&quot; and `type` = &quot;admin&quot; AND `value` = 1 ORDER BY `user`'</span>);
+</span><span id="502" class="l"><a class="l" href="#502">502 </a>        <span class="php-var">$admins</span> = <span class="php-keyword1">array</span>();
+</span><span id="503" class="l"><a class="l" href="#503">503 </a>        <span class="php-keyword1">foreach</span> (<span class="php-var">$adminUsers</span> <span class="php-keyword1">as</span> <span class="php-var">$adminUser</span>){
+</span><span id="504" class="l"><a class="l" href="#504">504 </a>            <span class="php-var">$admins</span>[] = <span class="php-var">$adminUser</span>-&gt;user;
+</span><span id="505" class="l"><a class="l" href="#505">505 </a>        }
+</span><span id="506" class="l"><a class="l" href="#506">506 </a>        <span class="php-keyword1">if</span> (<span class="php-var">$component</span> != <span class="php-quote">'admin'</span>){
+</span><span id="507" class="l"><a class="l" href="#507">507 </a>            <span class="php-var">$types</span> = <span class="php-keyword2">array_flip</span>(<span class="php-keyword2">array_keys</span>(self::<span class="php-var">$typesLabels</span>));
+</span><span id="508" class="l"><a class="l" href="#508">508 </a>            <span class="php-var">$typesLabels</span> = self::<span class="php-var">$typesLabels</span>;
+</span><span id="509" class="l"><a class="l" href="#509">509 </a>        }<span class="php-keyword1">else</span>{
+</span><span id="510" class="l"><a class="l" href="#510">510 </a>            <span class="php-var">$types</span> = <span class="php-keyword1">array</span>(<span class="php-quote">'admin'</span> =&gt; <span class="php-num">2</span>);
+</span><span id="511" class="l"><a class="l" href="#511">511 </a>            <span class="php-var">$typesLabels</span> = <span class="php-keyword1">array</span>(<span class="php-quote">'admin'</span>  =&gt; <span class="php-quote">'Permet d\'administrer le site entier !'</span>);
+</span><span id="512" class="l"><a class="l" href="#512">512 </a>        }
+</span><span id="513" class="l"><a class="l" href="#513">513 </a>        <span class="php-var">$ACLArr</span> = <span class="php-keyword1">array</span>();
+</span><span id="514" class="l"><a class="l" href="#514">514 </a>        <span class="php-keyword1">foreach</span> (<span class="php-var">$acls</span> <span class="php-keyword1">as</span> <span class="php-var">$acl</span>){
+</span><span id="515" class="l"><a class="l" href="#515">515 </a>            <span class="php-var">$ACLArr</span>[<span class="php-var">$acl</span>-&gt;user][<span class="php-var">$acl</span>-&gt;type] = (<span class="php-var">$acl</span>-&gt;value == <span class="php-num">1</span>) ? <span class="php-keyword1">true</span> : <span class="php-keyword1">false</span>;
+</span><span id="516" class="l"><a class="l" href="#516">516 </a>            <span class="php-keyword1">if</span> (<span class="php-var">$acl</span>-&gt;user == <span class="php-num">10000</span>){
+</span><span id="517" class="l"><a class="l" href="#517">517 </a>                <span class="php-var">$ACLArr</span>[<span class="php-quote">'default'</span>][<span class="php-var">$acl</span>-&gt;type] = (<span class="php-var">$acl</span>-&gt;value == <span class="php-num">1</span>) ? <span class="php-keyword1">true</span> : <span class="php-keyword1">false</span>;
+</span><span id="518" class="l"><a class="l" href="#518">518 </a>            }
+</span><span id="519" class="l"><a class="l" href="#519">519 </a>        }
+</span><span id="520" class="l"><a class="l" href="#520">520 </a>        <span class="xlang">?&gt;</span>
+</span><span id="521" class="l"><a class="l" href="#521">521 </a>        &lt;div <span class="php-keyword1">class</span>=<span class="php-quote">&quot;row&quot;</span>&gt;
+</span><span id="522" class="l"><a class="l" href="#522">522 </a>            &lt;div <span class="php-keyword1">class</span>=<span class="php-quote">&quot;col-md-12&quot;</span>&gt;
+</span><span id="523" class="l"><a class="l" href="#523">523 </a>                <span class="xlang">&lt;?php</span> <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_null</span>(<span class="php-var">$title</span>)) { <span class="xlang">?&gt;</span>&lt;h2&gt;Droits sur <span class="xlang">&lt;?php</span> <span class="php-keyword1">echo</span> <span class="php-var">$title</span>; <span class="xlang">?&gt;</span>&lt;/h2&gt;<span class="xlang">&lt;?php</span> } <span class="xlang">?&gt;</span>
+</span><span id="524" class="l"><a class="l" href="#524">524 </a>                &lt;form id=<span class="php-quote">&quot;adminACL&quot;</span> <span class="php-keyword1">class</span>=<span class="php-quote">&quot;&quot;</span> method=<span class="php-quote">&quot;post&quot;</span> role=<span class="php-quote">&quot;form&quot;</span> action=<span class="php-quote">&quot;&lt;?php echo </span><span class="php-var">$_SERVER</span><span class="php-quote">['REQUEST_URI']; ?&gt;&quot;</span>&gt;
+</span><span id="525" class="l"><a class="l" href="#525">525 </a>                    &lt;table <span class="php-keyword1">class</span>=<span class="php-quote">&quot;table&quot;</span>&gt;
+</span><span id="526" class="l"><a class="l" href="#526">526 </a>                        &lt;thead&gt;
+</span><span id="527" class="l"><a class="l" href="#527">527 </a>                            &lt;tr&gt;
+</span><span id="528" class="l"><a class="l" href="#528">528 </a>                                &lt;th&gt;Utilisateur&lt;/th&gt;
+</span><span id="529" class="l"><a class="l" href="#529">529 </a>                                <span class="xlang">&lt;?php</span>
+</span><span id="530" class="l"><a class="l" href="#530">530 </a>                                <span class="php-keyword1">foreach</span> (<span class="php-var">$typesLabels</span> <span class="php-keyword1">as</span> <span class="php-var">$type</span> =&gt; <span class="php-var">$label</span>){
+</span><span id="531" class="l"><a class="l" href="#531">531 </a>                                    <span class="xlang">?&gt;</span>
+</span><span id="532" class="l"><a class="l" href="#532">532 </a>                                    &lt;th&gt;<span class="xlang">&lt;?php</span> <span class="php-keyword1">echo</span> <span class="php-var">$type</span>; <span class="xlang">?&gt;</span> <span class="xlang">&lt;?php</span> Help::iconHelp(<span class="php-var">$label</span>); <span class="xlang">?&gt;</span>&lt;/th&gt;
+</span><span id="533" class="l"><a class="l" href="#533">533 </a>                                    <span class="xlang">&lt;?php</span>
+</span><span id="534" class="l"><a class="l" href="#534">534 </a>                                }
+</span><span id="535" class="l"><a class="l" href="#535">535 </a>                                <span class="xlang">?&gt;</span>
+</span><span id="536" class="l"><a class="l" href="#536">536 </a>                                &lt;th&gt;Remarques&lt;/th&gt;
+</span><span id="537" class="l"><a class="l" href="#537">537 </a>                            &lt;/tr&gt;
+</span><span id="538" class="l"><a class="l" href="#538">538 </a>                        &lt;/thead&gt;
+</span><span id="539" class="l"><a class="l" href="#539">539 </a>                        &lt;tbody&gt;
+</span><span id="540" class="l"><a class="l" href="#540">540 </a>                        <span class="xlang">&lt;?php</span>
+</span><span id="541" class="l"><a class="l" href="#541">541 </a>                        <span class="php-keyword1">foreach</span> (<span class="php-var">$users</span> <span class="php-keyword1">as</span> <span class="php-var">$user</span>){
+</span><span id="542" class="l"><a class="l" href="#542">542 </a>
+</span><span id="543" class="l"><a class="l" href="#543">543 </a>                            <span class="xlang">?&gt;</span>
+</span><span id="544" class="l"><a class="l" href="#544">544 </a>                            &lt;tr id=<span class="php-quote">&quot;ACL_&lt;?php echo </span><span class="php-var">$component</span><span class="php-quote">.'_'.</span><span class="php-var">$componentId</span><span class="php-quote">.'_'.</span><span class="php-var">$user</span><span class="php-quote">-&gt;id; ?&gt;&quot;</span>&gt;
+</span><span id="545" class="l"><a class="l" href="#545">545 </a>                                &lt;td&gt;<span class="xlang">&lt;?php</span> <span class="php-keyword1">echo</span> <span class="php-var">$user</span>-&gt;name; <span class="xlang">?&gt;</span>&lt;/td&gt;
+</span><span id="546" class="l"><a class="l" href="#546">546 </a>                                <span class="xlang">&lt;?php</span>
+</span><span id="547" class="l"><a class="l" href="#547">547 </a>                                <span class="php-var">$inherited</span> = <span class="php-keyword1">true</span>;
+</span><span id="548" class="l"><a class="l" href="#548">548 </a>                                <span class="php-keyword1">foreach</span>(<span class="php-var">$typesLabels</span> <span class="php-keyword1">as</span> <span class="php-var">$type</span> =&gt; <span class="php-var">$label</span>){
+</span><span id="549" class="l"><a class="l" href="#549">549 </a>                                    <span class="php-var">$checked</span> = <span class="php-keyword1">false</span>;
+</span><span id="550" class="l"><a class="l" href="#550">550 </a>                                    <span class="php-keyword1">if</span> (<span class="php-keyword1">isset</span>(<span class="php-var">$ACLArr</span>[<span class="php-var">$user</span>-&gt;id][<span class="php-var">$type</span>])){
+</span><span id="551" class="l"><a class="l" href="#551">551 </a>                                        <span class="php-keyword1">if</span> (<span class="php-var">$ACLArr</span>[<span class="php-var">$user</span>-&gt;id][<span class="php-var">$type</span>]) {
+</span><span id="552" class="l"><a class="l" href="#552">552 </a>                                            <span class="php-var">$checked</span> = <span class="php-keyword1">true</span>;
+</span><span id="553" class="l"><a class="l" href="#553">553 </a>                                        }
+</span><span id="554" class="l"><a class="l" href="#554">554 </a>                                        <span class="php-var">$inherited</span> = <span class="php-keyword1">false</span>;
+</span><span id="555" class="l"><a class="l" href="#555">555 </a>                                    }<span class="php-keyword1">elseif</span>(<span class="php-keyword1">isset</span>(<span class="php-var">$ACLArr</span>[<span class="php-quote">'default'</span>][<span class="php-var">$type</span>]) <span class="php-keyword1">and</span> <span class="php-var">$ACLArr</span>[<span class="php-quote">'default'</span>][<span class="php-var">$type</span>]){
+</span><span id="556" class="l"><a class="l" href="#556">556 </a>                                        <span class="php-var">$checked</span> = <span class="php-keyword1">true</span>;
+</span><span id="557" class="l"><a class="l" href="#557">557 </a>                                    }<span class="php-keyword1">elseif</span>(<span class="php-keyword2">in_array</span>(<span class="php-var">$user</span>-&gt;id, <span class="php-var">$admins</span>)){
+</span><span id="558" class="l"><a class="l" href="#558">558 </a>                                        <span class="php-var">$checked</span> = <span class="php-keyword1">true</span>;
+</span><span id="559" class="l"><a class="l" href="#559">559 </a>                                    }
+</span><span id="560" class="l"><a class="l" href="#560">560 </a>                                    <span class="xlang">?&gt;</span>
+</span><span id="561" class="l"><a class="l" href="#561">561 </a>                                    &lt;td&gt;
+</span><span id="562" class="l"><a class="l" href="#562">562 </a>                                        &lt;input type=<span class="php-quote">&quot;checkbox&quot;</span> <span class="php-keyword1">class</span>=<span class="php-quote">&quot;form-control checkbox-ACL&quot;</span> id=<span class="php-quote">&quot;ACL_&lt;?php echo </span><span class="php-var">$component</span><span class="php-quote">.'_'.</span><span class="php-var">$componentId</span><span class="php-quote">.'_'.</span><span class="php-var">$user</span><span class="php-quote">-&gt;id.'_'.</span><span class="php-var">$type</span><span class="php-quote">; ?&gt;_checkbox&quot;</span> name=<span class="php-quote">&quot;ACL_&lt;?php echo </span><span class="php-var">$component</span><span class="php-quote">.'_'.</span><span class="php-var">$componentId</span><span class="php-quote">.'_'.</span><span class="php-var">$user</span><span class="php-quote">-&gt;id.'_'.</span><span class="php-var">$type</span><span class="php-quote">; ?&gt;_checkbox&quot;</span> data-type-value=<span class="php-quote">&quot;&lt;?php echo </span><span class="php-var">$types</span><span class="php-quote">[</span><span class="php-var">$type</span><span class="php-quote">]; ?&gt;&quot;</span> data-tr-id=<span class="php-quote">&quot;#ACL_&lt;?php echo </span><span class="php-var">$component</span><span class="php-quote">.'_'.</span><span class="php-var">$componentId</span><span class="php-quote">.'_'.</span><span class="php-var">$user</span><span class="php-quote">-&gt;id; ?&gt;&quot;</span> value=<span class="php-quote">&quot;1&quot;</span> <span class="xlang">&lt;?php</span> <span class="php-keyword1">if</span> (<span class="php-var">$checked</span>) <span class="php-keyword1">echo</span> <span class="php-quote">'checked'</span>; <span class="xlang">?&gt;</span>&gt;
+</span><span id="563" class="l"><a class="l" href="#563">563 </a>                                        &lt;input type=<span class="php-quote">&quot;hidden&quot;</span> id=<span class="php-quote">&quot;ACL_&lt;?php echo </span><span class="php-var">$component</span><span class="php-quote">.'_'.</span><span class="php-var">$componentId</span><span class="php-quote">.'_'.</span><span class="php-var">$user</span><span class="php-quote">-&gt;id.'_'.</span><span class="php-var">$type</span><span class="php-quote">; ?&gt;_hidden&quot;</span> name=<span class="php-quote">&quot;ACL_&lt;?php echo </span><span class="php-var">$component</span><span class="php-quote">.'_'.</span><span class="php-var">$componentId</span><span class="php-quote">.'_'.</span><span class="php-var">$user</span><span class="php-quote">-&gt;id.'_'.</span><span class="php-var">$type</span><span class="php-quote">; ?&gt;_hidden&quot;</span> value=<span class="php-quote">&quot;0&quot;</span>&gt;
+</span><span id="564" class="l"><a class="l" href="#564">564 </a>                                    &lt;/td&gt;
+</span><span id="565" class="l"><a class="l" href="#565">565 </a>                                <span class="xlang">&lt;?php</span>
+</span><span id="566" class="l"><a class="l" href="#566">566 </a>                                }
+</span><span id="567" class="l"><a class="l" href="#567">567 </a>                                <span class="xlang">?&gt;</span>
+</span><span id="568" class="l"><a class="l" href="#568">568 </a>                                &lt;td&gt;
+</span><span id="569" class="l"><a class="l" href="#569">569 </a>                                    &lt;i&gt;
+</span><span id="570" class="l"><a class="l" href="#570">570 </a>                                    <span class="xlang">&lt;?php</span>
+</span><span id="571" class="l"><a class="l" href="#571">571 </a>                                    <span class="php-keyword1">if</span> (<span class="php-keyword2">in_array</span>(<span class="php-var">$user</span>-&gt;id, <span class="php-var">$admins</span>)){
+</span><span id="572" class="l"><a class="l" href="#572">572 </a>                                        <span class="php-keyword1">echo</span> <span class="php-quote">'Administrateur global'</span>;
+</span><span id="573" class="l"><a class="l" href="#573">573 </a>                                    }<span class="php-keyword1">elseif</span> (<span class="php-var">$inherited</span>) {
+</span><span id="574" class="l"><a class="l" href="#574">574 </a>                                        <span class="php-keyword1">echo</span> <span class="php-quote">'Hérité des ACL par défaut'</span>;
+</span><span id="575" class="l"><a class="l" href="#575">575 </a>                  }
+</span><span id="576" class="l"><a class="l" href="#576">576 </a>                                    <span class="xlang">?&gt;</span>
+</span><span id="577" class="l"><a class="l" href="#577">577 </a>                                    &lt;/i&gt;
+</span><span id="578" class="l"><a class="l" href="#578">578 </a>                                &lt;/td&gt;
+</span><span id="579" class="l"><a class="l" href="#579">579 </a>                            &lt;/tr&gt;
+</span><span id="580" class="l"><a class="l" href="#580">580 </a>                        <span class="xlang">&lt;?php</span>
+</span><span id="581" class="l"><a class="l" href="#581">581 </a>                        }
+</span><span id="582" class="l"><a class="l" href="#582">582 </a>                        <span class="xlang">?&gt;</span>
+</span><span id="583" class="l"><a class="l" href="#583">583 </a>                            &lt;tr id=<span class="php-quote">&quot;ACL_&lt;?php echo </span><span class="php-var">$component</span><span class="php-quote">.'_'.</span><span class="php-var">$componentId</span><span class="php-quote">.'_10000'; ?&gt;&quot;</span>&gt;
+</span><span id="584" class="l"><a class="l" href="#584">584 </a>                                    &lt;td&gt;Tout le monde&lt;/td&gt;
+</span><span id="585" class="l"><a class="l" href="#585">585 </a>                            <span class="xlang">&lt;?php</span>
+</span><span id="586" class="l"><a class="l" href="#586">586 </a>                            <span class="php-keyword1">foreach</span>(<span class="php-var">$typesLabels</span> <span class="php-keyword1">as</span> <span class="php-var">$type</span> =&gt; <span class="php-var">$label</span>){
+</span><span id="587" class="l"><a class="l" href="#587">587 </a>                                <span class="xlang">?&gt;</span>
+</span><span id="588" class="l"><a class="l" href="#588">588 </a>                                &lt;td&gt;
+</span><span id="589" class="l"><a class="l" href="#589">589 </a>                                    &lt;input type=<span class="php-quote">&quot;checkbox&quot;</span> <span class="php-keyword1">class</span>=<span class="php-quote">&quot;form-control checkbox-ACL&quot;</span> id=<span class="php-quote">&quot;ACL_&lt;?php echo </span><span class="php-var">$component</span><span class="php-quote">.'_'.</span><span class="php-var">$componentId</span><span class="php-quote">.'_10000_'.</span><span class="php-var">$type</span><span class="php-quote">; ?&gt;_checkbox&quot;</span> name=<span class="php-quote">&quot;ACL_&lt;?php echo </span><span class="php-var">$component</span><span class="php-quote">.'_'.</span><span class="php-var">$componentId</span><span class="php-quote">.'_10000_'.</span><span class="php-var">$type</span><span class="php-quote">; ?&gt;_checkbox&quot;</span> data-type-value=<span class="php-quote">&quot;&lt;?php echo </span><span class="php-var">$types</span><span class="php-quote">[</span><span class="php-var">$type</span><span class="php-quote">]; ?&gt;&quot;</span> data-tr-id=<span class="php-quote">&quot;#ACL_&lt;?php echo </span><span class="php-var">$component</span><span class="php-quote">.'_'.</span><span class="php-var">$componentId</span><span class="php-quote">.'_10000'; ?&gt;&quot;</span> value=<span class="php-quote">&quot;1&quot;</span> <span class="xlang">&lt;?php</span> <span class="php-keyword1">if</span> (<span class="php-keyword1">isset</span>(<span class="php-var">$ACLArr</span>[<span class="php-quote">'default'</span>][<span class="php-var">$type</span>]) <span class="php-keyword1">and</span> <span class="php-var">$ACLArr</span>[<span class="php-quote">'default'</span>][<span class="php-var">$type</span>]) <span class="php-keyword1">echo</span> <span class="php-quote">'checked'</span>; <span class="xlang">?&gt;</span>&gt;
+</span><span id="590" class="l"><a class="l" href="#590">590 </a>                                    &lt;input type=<span class="php-quote">&quot;hidden&quot;</span> id=<span class="php-quote">&quot;ACL_&lt;?php echo </span><span class="php-var">$component</span><span class="php-quote">.'_'.</span><span class="php-var">$componentId</span><span class="php-quote">.'_10000_'.</span><span class="php-var">$type</span><span class="php-quote">; ?&gt;_hidden&quot;</span> name=<span class="php-quote">&quot;ACL_&lt;?php echo </span><span class="php-var">$component</span><span class="php-quote">.'_'.</span><span class="php-var">$componentId</span><span class="php-quote">.'_10000_'.</span><span class="php-var">$type</span><span class="php-quote">; ?&gt;_hidden&quot;</span> value=<span class="php-quote">&quot;0&quot;</span>&gt;
+</span><span id="591" class="l"><a class="l" href="#591">591 </a>                                &lt;/td&gt;
+</span><span id="592" class="l"><a class="l" href="#592">592 </a>                            <span class="xlang">&lt;?php</span>
+</span><span id="593" class="l"><a class="l" href="#593">593 </a>                            }
+</span><span id="594" class="l"><a class="l" href="#594">594 </a>                            <span class="xlang">?&gt;</span>
+</span><span id="595" class="l"><a class="l" href="#595">595 </a>                            &lt;td&gt;&lt;/td&gt;
+</span><span id="596" class="l"><a class="l" href="#596">596 </a>                            &lt;/tr&gt;
+</span><span id="597" class="l"><a class="l" href="#597">597 </a>                        &lt;/tbody&gt;
+</span><span id="598" class="l"><a class="l" href="#598">598 </a>                    &lt;/table&gt;
+</span><span id="599" class="l"><a class="l" href="#599">599 </a>                    &lt;button <span class="php-keyword1">class</span>=<span class="php-quote">&quot;btn btn-primary&quot;</span> type=<span class="php-quote">&quot;submit&quot;</span> name=<span class="php-quote">&quot;action&quot;</span> value=<span class="php-quote">&quot;saveACL&quot;</span>&gt;Sauvegarder&lt;/button&gt;
+</span><span id="600" class="l"><a class="l" href="#600">600 </a>                    &lt;input type=<span class="php-quote">&quot;hidden&quot;</span> name=<span class="php-quote">&quot;token&quot;</span> value=<span class="php-quote">&quot;&lt;?php echo PostedData::setToken('adminACL'); ?&gt;&quot;</span>&gt;
+</span><span id="601" class="l"><a class="l" href="#601">601 </a>                    &lt;input type=<span class="php-quote">&quot;hidden&quot;</span> name=<span class="php-quote">&quot;formName&quot;</span> value=<span class="php-quote">&quot;adminACL&quot;</span>&gt;
+</span><span id="602" class="l"><a class="l" href="#602">602 </a>                &lt;/form&gt;
+</span><span id="603" class="l"><a class="l" href="#603">603 </a>            &lt;/div&gt;
+</span><span id="604" class="l"><a class="l" href="#604">604 </a>        &lt;/div&gt;
+</span><span id="605" class="l"><a class="l" href="#605">605 </a>        <span class="xlang">&lt;?php</span>
+</span><span id="606" class="l"><a class="l" href="#606">606 </a>    }
+</span><span id="607" class="l"><a class="l" href="#607">607 </a></span>} </code></pre>
 	</div>
 
 	<div id="footer">

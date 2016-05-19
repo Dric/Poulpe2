@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.8.0" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Class Settings\Setting</title>
 
-	<script type="text/javascript" src="resources/combined.js?522072721"></script>
-	<script type="text/javascript" src="elementlist.js?1088796348"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+	<script type="text/javascript" src="resources/combined.js?1467300313"></script>
+	<script type="text/javascript" src="elementlist.js?2065545106"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822">
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609">
 
 </head>
 
@@ -42,9 +42,9 @@
 	<div id="left">
 	<div id="menu">
 		<form id="search" class="form-search">
-			<input type="hidden" name="cx" value="" />
-			<input type="hidden" name="ie" value="UTF-8" />
-			<input type="text" name="q" class="search-query" placeholder="Search" />
+			<input type="hidden" name="cx" value="">
+			<input type="hidden" name="ie" value="UTF-8">
+			<input type="text" name="q" class="search-query" placeholder="Search">
 		</form>
 
 
@@ -52,6 +52,10 @@
 			<h3>Namespaces</h3>
 			<ul>
 				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-API.html">API</a>
+						</li>
+				<li><a href="namespace-Charts.html">Charts</a>
 						</li>
 				<li><a href="namespace-Components.html">Components</a>
 						</li>
@@ -76,6 +80,29 @@
 						</li>
 				<li><a href="namespace-PHP.html">PHP</a>
 						</li>
+				<li><a href="namespace-phpseclib.html">phpseclib<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.Crypt.html">Crypt</a>
+						</li>
+				<li><a href="namespace-phpseclib.File.html">File<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.File.ASN1.html">ASN1</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-phpseclib.Math.html">Math</a>
+						</li>
+				<li><a href="namespace-phpseclib.Net.html">Net<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.Net.SFTP.html">SFTP</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-phpseclib.System.html">System<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.System.SSH.html">SSH<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.System.SSH.Agent.html">Agent</a>
+						</li>
+							</ul></li></ul></li></ul></li>
 				<li><a href="namespace-Profiles.html">Profiles</a>
 						</li>
 				<li class="active"><a href="namespace-Settings.html">Settings</a>
@@ -90,6 +117,7 @@
 			<h3>Classes</h3>
 			<ul>
 				<li class="active"><a href="class-Settings.Setting.html">Setting</a></li>
+				<li><a href="class-Settings.Version.html">Version</a></li>
 			</ul>
 
 
@@ -157,10 +185,10 @@
 	<div class="alert alert-info">
 		
 		
-		<b>Namespace:</b> <a href="namespace-Settings.html">Settings</a><br />
-		<b>Package:</b> Settings<br />
+		<b>Namespace:</b> <a href="namespace-Settings.html">Settings</a><br>
+		<b>Package:</b> Settings<br>
 
-		<b>Located at</b> <a href="source-class-Settings.Setting.html#14-213" title="Go to source code">classes/Settings/Setting.php</a><br />
+		<b>Located at</b> <a href="source-class-Settings.Setting.html#14-222" title="Go to source code">classes/Settings/Setting.php</a><br>
 	</div>
 
 
@@ -238,7 +266,44 @@ Setting-&gt;type)</dd>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>string</code><br />
+						<code>string</code><br>
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getDbType" id="_getDbType">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getDbType">#</a>
+			<code><a href="source-class-Settings.Setting.html#131-138" title="Go to source code">getDbType</a>( )</code>
+
+			<div class="description short">
+				
+<p>Retourne le type de champ MySQL</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Retourne le type de champ MySQL</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br>
 					</div>
 
 
@@ -258,7 +323,7 @@ Setting-&gt;type)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getName">#</a>
-			<code><a href="source-class-Settings.Setting.html#131-137" title="Go to source code">getName</a>( )</code>
+			<code><a href="source-class-Settings.Setting.html#140-146" title="Go to source code">getName</a>( )</code>
 
 			<div class="description short">
 				
@@ -275,7 +340,7 @@ Setting-&gt;type)</dd>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>string</code><br />
+						<code>string</code><br>
 					</div>
 
 
@@ -295,7 +360,7 @@ Setting-&gt;type)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getValue">#</a>
-			<code><a href="source-class-Settings.Setting.html#139-150" title="Go to source code">getValue</a>( <span>boolean <var>$getUserValueIfExists</var> = <span class="php-keyword1">true</span></span> )</code>
+			<code><a href="source-class-Settings.Setting.html#148-159" title="Go to source code">getValue</a>( <span>boolean <var>$getUserValueIfExists</var> = <span class="php-keyword1">true</span></span> )</code>
 
 			<div class="description short">
 				
@@ -321,7 +386,7 @@ paramètre est à true (facultatif)</dd>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>mixed</code><br />
+						<code>mixed</code><br>
 					</div>
 
 
@@ -341,7 +406,7 @@ paramètre est à true (facultatif)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getCategory">#</a>
-			<code><a href="source-class-Settings.Setting.html#152-158" title="Go to source code">getCategory</a>( )</code>
+			<code><a href="source-class-Settings.Setting.html#161-167" title="Go to source code">getCategory</a>( )</code>
 
 			<div class="description short">
 				
@@ -358,7 +423,7 @@ paramètre est à true (facultatif)</dd>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>string</code><br />
+						<code>string</code><br>
 					</div>
 
 
@@ -378,7 +443,7 @@ paramètre est à true (facultatif)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getUserValue">#</a>
-			<code><a href="source-class-Settings.Setting.html#160-166" title="Go to source code">getUserValue</a>( )</code>
+			<code><a href="source-class-Settings.Setting.html#169-175" title="Go to source code">getUserValue</a>( )</code>
 
 			<div class="description short">
 				
@@ -395,7 +460,7 @@ paramètre est à true (facultatif)</dd>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>mixed</code><br />
+						<code>mixed</code><br>
 					</div>
 
 
@@ -415,7 +480,7 @@ paramètre est à true (facultatif)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_setUserValue">#</a>
-			<code><a href="source-class-Settings.Setting.html#168-177" title="Go to source code">setUserValue</a>( <span>mixed <var>$userValue</var></span> )</code>
+			<code><a href="source-class-Settings.Setting.html#177-186" title="Go to source code">setUserValue</a>( <span>mixed <var>$userValue</var></span> )</code>
 
 			<div class="description short">
 				
@@ -453,7 +518,7 @@ paramètre est à true (facultatif)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_setValue">#</a>
-			<code><a href="source-class-Settings.Setting.html#179-188" title="Go to source code">setValue</a>( <span>mixed <var>$value</var></span> )</code>
+			<code><a href="source-class-Settings.Setting.html#188-197" title="Go to source code">setValue</a>( <span>mixed <var>$value</var></span> )</code>
 
 			<div class="description short">
 				
@@ -491,7 +556,7 @@ paramètre est à true (facultatif)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getId">#</a>
-			<code><a href="source-class-Settings.Setting.html#190-196" title="Go to source code">getId</a>( )</code>
+			<code><a href="source-class-Settings.Setting.html#199-205" title="Go to source code">getId</a>( )</code>
 
 			<div class="description short">
 				
@@ -508,7 +573,7 @@ paramètre est à true (facultatif)</dd>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>integer</code><br />
+						<code>integer</code><br>
 					</div>
 
 
@@ -528,7 +593,7 @@ paramètre est à true (facultatif)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_setId">#</a>
-			<code><a href="source-class-Settings.Setting.html#198-204" title="Go to source code">setId</a>( <span>integer <var>$id</var></span> )</code>
+			<code><a href="source-class-Settings.Setting.html#207-213" title="Go to source code">setId</a>( <span>integer <var>$id</var></span> )</code>
 
 			<div class="description short">
 				
@@ -566,7 +631,7 @@ paramètre est à true (facultatif)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_setUserDefinable">#</a>
-			<code><a href="source-class-Settings.Setting.html#206-212" title="Go to source code">setUserDefinable</a>( <span>boolean <var>$userDefined</var> = <span class="php-keyword1">true</span></span> )</code>
+			<code><a href="source-class-Settings.Setting.html#215-221" title="Go to source code">setUserDefinable</a>( <span>boolean <var>$userDefined</var> = <span class="php-keyword1">true</span></span> )</code>
 
 			<div class="description short">
 				

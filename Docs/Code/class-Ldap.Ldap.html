@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.8.0" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Class Ldap\Ldap</title>
 
-	<script type="text/javascript" src="resources/combined.js?522072721"></script>
-	<script type="text/javascript" src="elementlist.js?1088796348"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+	<script type="text/javascript" src="resources/combined.js?1467300313"></script>
+	<script type="text/javascript" src="elementlist.js?2065545106"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822">
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609">
 
 </head>
 
@@ -42,9 +42,9 @@
 	<div id="left">
 	<div id="menu">
 		<form id="search" class="form-search">
-			<input type="hidden" name="cx" value="" />
-			<input type="hidden" name="ie" value="UTF-8" />
-			<input type="text" name="q" class="search-query" placeholder="Search" />
+			<input type="hidden" name="cx" value="">
+			<input type="hidden" name="ie" value="UTF-8">
+			<input type="text" name="q" class="search-query" placeholder="Search">
 		</form>
 
 
@@ -52,6 +52,10 @@
 			<h3>Namespaces</h3>
 			<ul>
 				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-API.html">API</a>
+						</li>
+				<li><a href="namespace-Charts.html">Charts</a>
 						</li>
 				<li><a href="namespace-Components.html">Components</a>
 						</li>
@@ -76,6 +80,29 @@
 						</li>
 				<li><a href="namespace-PHP.html">PHP</a>
 						</li>
+				<li><a href="namespace-phpseclib.html">phpseclib<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.Crypt.html">Crypt</a>
+						</li>
+				<li><a href="namespace-phpseclib.File.html">File<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.File.ASN1.html">ASN1</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-phpseclib.Math.html">Math</a>
+						</li>
+				<li><a href="namespace-phpseclib.Net.html">Net<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.Net.SFTP.html">SFTP</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-phpseclib.System.html">System<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.System.SSH.html">SSH<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.System.SSH.Agent.html">Agent</a>
+						</li>
+							</ul></li></ul></li></ul></li>
 				<li><a href="namespace-Profiles.html">Profiles</a>
 						</li>
 				<li><a href="namespace-Settings.html">Settings</a>
@@ -116,6 +143,24 @@
 <p>Les instances de connexions LDAP ne sont instanciées que si nécessaire,
 afin d'éviter des requêtes LDAP inutiles.</p>
 
+<p>Les mêmes identifiants sont utilisés pour tous les serveurs ldap</p>
+
+<h4>Exemple</h4>
+
+<pre>
+<span class="php-keyword1">use</span> \Ldap\Ldap;
+<span
+class="php-var">$ldapServers</span> = <span
+class="php-keyword1">array</span>(<span class="php-quote">'dc1'</span>, <span
+class="php-quote">'dc2'</span>, <span class="php-quote">'dc3'</span>);
+<span
+class="php-var">$ldap</span> = <span class="php-keyword1">new</span> Ldap(<span
+class="php-quote">'contoso.com'</span>, <span
+class="php-quote">'bob.morane'</span>, <span
+class="php-quote">'happyPwd'</span>, <span
+class="php-var">$ldapServers</span>);
+</pre>
+
 	</div>
 
 
@@ -129,10 +174,10 @@ afin d'éviter des requêtes LDAP inutiles.</p>
 	<div class="alert alert-info">
 		
 		
-		<b>Namespace:</b> <a href="namespace-Ldap.html">Ldap</a><br />
-		<b>Package:</b> Ldap<br />
+		<b>Namespace:</b> <a href="namespace-Ldap.html">Ldap</a><br>
+		<b>Package:</b> Ldap<br>
 
-		<b>Located at</b> <a href="source-class-Ldap.Ldap.html#18-255" title="Go to source code">classes/Ldap/Ldap.php</a><br />
+		<b>Located at</b> <a href="source-class-Ldap.Ldap.html#18-289" title="Go to source code">classes/Ldap/Ldap.php</a><br>
 	</div>
 
 
@@ -150,7 +195,7 @@ afin d'éviter des requêtes LDAP inutiles.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#___construct">#</a>
-			<code><a href="source-class-Ldap.Ldap.html#64-84" title="Go to source code">__construct</a>( <span>string <var>$domain</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$bindName</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$bindPwd</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$ldapServers</var> = <span class="php-keyword1">array</span>()</span> )</code>
+			<code><a href="source-class-Ldap.Ldap.html#79-99" title="Go to source code">__construct</a>( <span>string <var>$domain</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$bindName</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$bindPwd</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$ldapServers</var> = <span class="php-keyword1">array</span>()</span> )</code>
 
 			<div class="description short">
 				
@@ -196,7 +241,7 @@ afin d'éviter des requêtes LDAP inutiles.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_search">#</a>
-			<code><a href="source-class-Ldap.Ldap.html#86-125" title="Go to source code">search</a>( <span>string <var>$type</var> = <span class="php-quote">'user'</span></span>, <span>string <var>$searched</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$where</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$attributes</var> = <span class="php-keyword1">array</span>()</span>, <span>boolean <var>$strict</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$dc</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-Ldap.Ldap.html#101-141" title="Go to source code">search</a>( <span>string <var>$type</var> = <span class="php-quote">'user'</span></span>, <span>string <var>$searched</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$where</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$attributes</var> = <span class="php-keyword1">array</span>()</span>, <span>boolean <var>$strict</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$dc</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				
@@ -234,7 +279,7 @@ la valeur de $pdc (facultatif)</dd>
 						<code>array</code><br>Tableau des informations de l'objet.(ex : sAMAccountName (nom unique),
 whenCreated, thumbnailPhoto, sn (nom), givenName (prénom), cn (prénom nom),
 description, displayName (nom affiché), lastLogon, mail (adresse mail),
-memberOf (liste des groupes)) (facultatif)<br />
+memberOf (liste des groupes)) (facultatif)<br>
 					</div>
 
 
@@ -254,7 +299,7 @@ memberOf (liste des groupes)) (facultatif)<br />
 
 			<td class="name"><div>
 			<a class="anchor" href="#_tryLDAPLogin">#</a>
-			<code><a href="source-class-Ldap.Ldap.html#127-151" title="Go to source code">tryLDAPLogin</a>( <span>string <var>$user</var></span>, <span>string <var>$pwd</var></span>, <span>string <var>$dc</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-Ldap.Ldap.html#143-171" title="Go to source code">tryLDAPLogin</a>( <span>string <var>$user</var></span>, <span>string <var>$pwd</var></span>, <span>string <var>$dc</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				
@@ -280,7 +325,7 @@ memberOf (liste des groupes)) (facultatif)<br />
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>boolean</code><br>true si connexion OK, false sinon<br />
+						<code>boolean</code><br>true si connexion OK, false sinon<br>
 					</div>
 
 
@@ -300,7 +345,7 @@ memberOf (liste des groupes)) (facultatif)<br />
 
 			<td class="name"><div>
 			<a class="anchor" href="#_users">#</a>
-			<code><a href="source-class-Ldap.Ldap.html#153-182" title="Go to source code">users</a>( <span>string <var>$format</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$searched</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$where</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$strict</var> = <span class="php-keyword1">false</span></span> )</code>
+			<code><a href="source-class-Ldap.Ldap.html#173-202" title="Go to source code">users</a>( <span>string <var>$format</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$searched</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$where</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$strict</var> = <span class="php-keyword1">false</span></span> )</code>
 
 			<div class="description short">
 				
@@ -328,7 +373,7 @@ memberOf (liste des groupes)) (facultatif)<br />
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>mixed</code><br />
+						<code>mixed</code><br>
 					</div>
 
 
@@ -348,7 +393,7 @@ memberOf (liste des groupes)) (facultatif)<br />
 
 			<td class="name"><div>
 			<a class="anchor" href="#_userMembership">#</a>
-			<code><a href="source-class-Ldap.Ldap.html#184-229" title="Go to source code">userMembership</a>( <span>string <var>$userSAM</var></span>, <span>string <var>$searched</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$recursive</var> = <span class="php-keyword1">true</span></span>, <span>integer <var>$recLevel</var> = <span class="php-num">0</span></span> )</code>
+			<code><a href="source-class-Ldap.Ldap.html#204-263" title="Go to source code">userMembership</a>( <span>string <var>$userSAM</var></span>, <span>string <var>$searched</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$recursive</var> = <span class="php-keyword1">true</span></span>, <span>integer <var>$recLevel</var> = <span class="php-num">0</span></span> )</code>
 
 			<div class="description short">
 				
@@ -381,7 +426,7 @@ utiliser lors d'un appel direct. (facultatif)</dd>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>array|boolean</code><br>liste des groupes ou false<br />
+						<code>array|boolean</code><br>liste des groupes ou false<br>
 					</div>
 
 
@@ -401,7 +446,7 @@ utiliser lors d'un appel direct. (facultatif)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_lastLogon">#</a>
-			<code><a href="source-class-Ldap.Ldap.html#231-254" title="Go to source code">lastLogon</a>( <span>string <var>$searched</var></span> )</code>
+			<code><a href="source-class-Ldap.Ldap.html#265-288" title="Go to source code">lastLogon</a>( <span>string <var>$searched</var></span> )</code>
 
 			<div class="description short">
 				
@@ -426,13 +471,13 @@ donc tous les interroger et retourner la valeur la plus élevée.</p>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>integer</code><br>timestamp Unix<br />
+						<code>integer</code><br>timestamp Unix<br>
 					</div>
 
 
 					<h4>Link</h4>
 					<div class="list">
-							<a href="http://blogs.technet.com/b/askds/archive/2009/04/15/the-lastlogontimestamp-attribute-what-it-was-designed-for-and-how-it-works.aspx">http://blogs.technet.com/b/askds/archive/2009/04/15/the-lastlogontimestamp-attribute-what-it-was-designed-for-and-how-it-works.aspx</a><br />
+							<a href="http://blogs.technet.com/b/askds/archive/2009/04/15/the-lastlogontimestamp-attribute-what-it-was-designed-for-and-how-it-works.aspx">http://blogs.technet.com/b/askds/archive/2009/04/15/the-lastlogontimestamp-attribute-what-it-was-designed-for-and-how-it-works.aspx</a><br>
 					</div>
 
 
@@ -461,7 +506,7 @@ donc tous les interroger et retourner la valeur la plus élevée.</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Ldap.Ldap.html#27-31" title="Go to source code"><var>$domain</var></a>
+					<a href="source-class-Ldap.Ldap.html#36-40" title="Go to source code"><var>$domain</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$domain" class="anchor">#</a>
@@ -487,7 +532,7 @@ donc tous les interroger et retourner la valeur la plus élevée.</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Ldap.Ldap.html#33-37" title="Go to source code"><var>$bindName</var></a>
+					<a href="source-class-Ldap.Ldap.html#42-46" title="Go to source code"><var>$bindName</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$bindName" class="anchor">#</a>
@@ -513,7 +558,7 @@ donc tous les interroger et retourner la valeur la plus élevée.</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Ldap.Ldap.html#39-43" title="Go to source code"><var>$bindPwd</var></a>
+					<a href="source-class-Ldap.Ldap.html#48-52" title="Go to source code"><var>$bindPwd</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$bindPwd" class="anchor">#</a>
@@ -539,7 +584,7 @@ donc tous les interroger et retourner la valeur la plus élevée.</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Ldap.Ldap.html#45-50" title="Go to source code"><var>$domainDCName</var></a>
+					<a href="source-class-Ldap.Ldap.html#54-59" title="Go to source code"><var>$domainDCName</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$domainDCName" class="anchor">#</a>
@@ -567,7 +612,7 @@ $domain</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Ldap.Ldap.html#52-56" title="Go to source code"><var>$connections</var></a>
+					<a href="source-class-Ldap.Ldap.html#61-65" title="Go to source code"><var>$connections</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$connections" class="anchor">#</a>
@@ -593,7 +638,7 @@ $domain</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Ldap.Ldap.html#58-62" title="Go to source code"><var>$ldapServers</var></a>
+					<a href="source-class-Ldap.Ldap.html#67-71" title="Go to source code"><var>$ldapServers</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$ldapServers" class="anchor">#</a>
@@ -607,6 +652,32 @@ $domain</p>
 				<div class="description detailed hidden">
 					
 <p>Liste des serveurs LDAP</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="ldapGroups" id="$ldapGroups">
+			<td class="attributes"><code>
+				protected  
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Ldap.Ldap.html#73-77" title="Go to source code"><var>$ldapGroups</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$ldapGroups" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Liste des groupes présents dans l'AD</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Liste des groupes présents dans l'AD</p>
 
 
 				</div>

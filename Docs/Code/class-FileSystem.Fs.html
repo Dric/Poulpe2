@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.8.0" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Class FileSystem\Fs</title>
 
-	<script type="text/javascript" src="resources/combined.js?522072721"></script>
-	<script type="text/javascript" src="elementlist.js?1088796348"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+	<script type="text/javascript" src="resources/combined.js?1467300313"></script>
+	<script type="text/javascript" src="elementlist.js?2065545106"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822">
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609">
 
 </head>
 
@@ -42,9 +42,9 @@
 	<div id="left">
 	<div id="menu">
 		<form id="search" class="form-search">
-			<input type="hidden" name="cx" value="" />
-			<input type="hidden" name="ie" value="UTF-8" />
-			<input type="text" name="q" class="search-query" placeholder="Search" />
+			<input type="hidden" name="cx" value="">
+			<input type="hidden" name="ie" value="UTF-8">
+			<input type="text" name="q" class="search-query" placeholder="Search">
 		</form>
 
 
@@ -52,6 +52,10 @@
 			<h3>Namespaces</h3>
 			<ul>
 				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-API.html">API</a>
+						</li>
+				<li><a href="namespace-Charts.html">Charts</a>
 						</li>
 				<li><a href="namespace-Components.html">Components</a>
 						</li>
@@ -76,6 +80,29 @@
 						</li>
 				<li><a href="namespace-PHP.html">PHP</a>
 						</li>
+				<li><a href="namespace-phpseclib.html">phpseclib<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.Crypt.html">Crypt</a>
+						</li>
+				<li><a href="namespace-phpseclib.File.html">File<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.File.ASN1.html">ASN1</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-phpseclib.Math.html">Math</a>
+						</li>
+				<li><a href="namespace-phpseclib.Net.html">Net<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.Net.SFTP.html">SFTP</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-phpseclib.System.html">System<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.System.SSH.html">SSH<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.System.SSH.Agent.html">Agent</a>
+						</li>
+							</ul></li></ul></li></ul></li>
 				<li><a href="namespace-Profiles.html">Profiles</a>
 						</li>
 				<li><a href="namespace-Settings.html">Settings</a>
@@ -91,6 +118,7 @@
 			<ul>
 				<li><a href="class-FileSystem.File.html">File</a></li>
 				<li class="active"><a href="class-FileSystem.Fs.html">Fs</a></li>
+				<li><a href="class-FileSystem.Ftp.html">Ftp</a></li>
 				<li><a href="class-FileSystem.Upload.html">Upload</a></li>
 			</ul>
 
@@ -128,10 +156,10 @@ sur des fichiers</p>
 	<div class="alert alert-info">
 		
 		
-		<b>Namespace:</b> <a href="namespace-FileSystem.html">FileSystem</a><br />
-		<b>Package:</b> FileSystem<br />
+		<b>Namespace:</b> <a href="namespace-FileSystem.html">FileSystem</a><br>
+		<b>Package:</b> FileSystem<br>
 
-		<b>Located at</b> <a href="source-class-FileSystem.Fs.html#15-448" title="Go to source code">classes/FileSystem/Fs.php</a><br />
+		<b>Located at</b> <a href="source-class-FileSystem.Fs.html#15-473" title="Go to source code">classes/FileSystem/Fs.php</a><br>
 	</div>
 
 
@@ -215,7 +243,7 @@ directement renseigné dans $path (facultatif)</dd>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>boolean</code><br />
+						<code>boolean</code><br>
 					</div>
 
 
@@ -235,7 +263,7 @@ directement renseigné dans $path (facultatif)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_isMounted">#</a>
-			<code><a href="source-class-FileSystem.Fs.html#96-121" title="Go to source code">isMounted</a>( )</code>
+			<code><a href="source-class-FileSystem.Fs.html#96-122" title="Go to source code">isMounted</a>( )</code>
 
 			<div class="description short">
 				
@@ -254,10 +282,14 @@ directement renseigné dans $path (facultatif)</dd>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>boolean</code><br />
+						<code>boolean</code><br>
 					</div>
 
 
+					<h4>Warning</h4>
+					<div class="list">
+							: retournera <code>false</code> si le répertoire à monter est vide<br>
+					</div>
 
 
 			</div>
@@ -274,7 +306,7 @@ directement renseigné dans $path (facultatif)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_mount">#</a>
-			<code><a href="source-class-FileSystem.Fs.html#123-163" title="Go to source code">mount</a>( )</code>
+			<code><a href="source-class-FileSystem.Fs.html#124-166" title="Go to source code">mount</a>( )</code>
 
 			<div class="description short">
 				
@@ -291,7 +323,7 @@ directement renseigné dans $path (facultatif)</dd>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>boolean</code><br />
+						<code>boolean</code><br>
 					</div>
 
 
@@ -311,7 +343,7 @@ directement renseigné dans $path (facultatif)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getRecursiveFilesInDir">#</a>
-			<code><a href="source-class-FileSystem.Fs.html#165-199" title="Go to source code">getRecursiveFilesInDir</a>( <span>string <var>$path</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$extension</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$absolutePath</var> = <span class="php-keyword1">false</span></span> )</code>
+			<code><a href="source-class-FileSystem.Fs.html#168-202" title="Go to source code">getRecursiveFilesInDir</a>( <span>string <var>$path</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$extension</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$absolutePath</var> = <span class="php-keyword1">false</span></span> )</code>
 
 			<div class="description short">
 				
@@ -346,7 +378,7 @@ chemin absolu (facultatif)</dd>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>string[]|array[]</code><br />
+						<code>string[]|array[]</code><br>
 					</div>
 
 
@@ -366,7 +398,7 @@ chemin absolu (facultatif)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getFilesInDir">#</a>
-			<code><a href="source-class-FileSystem.Fs.html#201-231" title="Go to source code">getFilesInDir</a>( <span>string <var>$path</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$extension</var> = <span class="php-keyword1">null</span></span>, <span>string[] <var>$filters</var> = <span class="php-keyword1">array</span>()</span>, <span>boolean <var>$filesOnly</var> = <span class="php-keyword1">false</span></span> )</code>
+			<code><a href="source-class-FileSystem.Fs.html#204-234" title="Go to source code">getFilesInDir</a>( <span>string <var>$path</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$extension</var> = <span class="php-keyword1">null</span></span>, <span>string[] <var>$filters</var> = <span class="php-keyword1">array</span>()</span>, <span>boolean <var>$filesOnly</var> = <span class="php-keyword1">false</span></span> )</code>
 
 			<div class="description short">
 				
@@ -404,7 +436,7 @@ défaut)</dd>
 						<code>array</code><br>Objets fichiers avec les propriétés suivantes : - <code>name</code> : Nom du
 fichier - <code>type</code> : <code>folder</code> ou <code>file</code> -
 <code>hidden</code> : Fichier caché - <code>extension</code> : Extension du
-fichier (propriété disponible seulement pour les fichiers non cachés)<br />
+fichier (propriété disponible seulement pour les fichiers non cachés)<br>
 					</div>
 
 
@@ -417,24 +449,26 @@ fichier (propriété disponible seulement pour les fichiers non cachés)<br />
 
 			<td class="attributes"><code>
 				 public 
-				boolean
+				boolean|string
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_fileExists">#</a>
-			<code><a href="source-class-FileSystem.Fs.html#233-242" title="Go to source code">fileExists</a>( <span>string <var>$fileName</var></span> )</code>
+			<code><a href="source-class-FileSystem.Fs.html#236-262" title="Go to source code">fileExists</a>( <span>string <var>$fileName</var></span>, <span>boolean <var>$caseSensitive</var> = <span class="php-keyword1">false</span></span> )</code>
 
 			<div class="description short">
 				
-<p>Vérifie si un fichier existe</p>
+<p>Vérifie si un fichier existe, et retourne son nom avec sa casse si tel est
+le cas</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>Vérifie si un fichier existe</p>
+<p>Vérifie si un fichier existe, et retourne son nom avec sa casse si tel est
+le cas</p>
 
 
 
@@ -442,14 +476,23 @@ fichier (propriété disponible seulement pour les fichiers non cachés)<br />
 					<div class="list"><dl>
 						<dt><var>$fileName</var></dt>
 						<dd><code>string</code><br>$fileName Nom du fichier</dd>
+						<dt><var>$caseSensitive</var></dt>
+						<dd><code>boolean</code><br>$caseSensitive Effectue une recherche en respectant la casse ou non (non par
+défaut)</dd>
 					</dl></div>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>boolean</code><br />
+						<code>boolean|string</code><br>retourne <code>false</code> si le fichier n'existe pas, retourne le nom du
+fichier avec sa casse sinon.<br>
 					</div>
 
 
+					<h4>From</h4>
+					<div class="list">
+							&lt;<a
+href="http://stackoverflow.com/a/3964927/1749967">http://stackoverflow.com/a/3964927/1749967</a>&gt;<br>
+					</div>
 
 
 			</div>
@@ -466,7 +509,7 @@ fichier (propriété disponible seulement pour les fichiers non cachés)<br />
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getFileMeta">#</a>
-			<code><a href="source-class-FileSystem.Fs.html#244-263" title="Go to source code">getFileMeta</a>( <span>string <var>$fileName</var></span>, <span>string[]|string <var>$filters</var> = <span class="php-keyword1">array</span>()</span> )</code>
+			<code><a href="source-class-FileSystem.Fs.html#264-283" title="Go to source code">getFileMeta</a>( <span>string <var>$fileName</var></span>, <span>string[]|string <var>$filters</var> = <span class="php-keyword1">array</span>()</span> )</code>
 
 			<div class="description short">
 				
@@ -494,13 +537,13 @@ fichier (propriété disponible seulement pour les fichiers non cachés)<br />
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>boolean|<code><a href="class-FileSystem.File.html">FileSystem\File</a></code></code><br />
+						<code>boolean|<code><a href="class-FileSystem.File.html">FileSystem\File</a></code></code><br>
 					</div>
 
 
 					<h4>See</h4>
 					<div class="list">
-							<code><code><a href="class-FileSystem.File.html">FileSystem\File</a></code></code><br />
+							<code><code><a href="class-FileSystem.File.html">FileSystem\File</a></code></code><br>
 					</div>
 
 
@@ -518,7 +561,7 @@ fichier (propriété disponible seulement pour les fichiers non cachés)<br />
 
 			<td class="name"><div>
 			<a class="anchor" href="#_readFile">#</a>
-			<code><a href="source-class-FileSystem.Fs.html#265-300" title="Go to source code">readFile</a>( <span>string <var>$fileName</var></span>, <span>string <var>$format</var> = <span class="php-quote">'array'</span></span>, <span>boolean <var>$ignoreNewLines</var> = <span class="php-keyword1">true</span></span>, <span>boolean <var>$skipEmptyLines</var> = <span class="php-keyword1">false</span></span> )</code>
+			<code><a href="source-class-FileSystem.Fs.html#285-320" title="Go to source code">readFile</a>( <span>string <var>$fileName</var></span>, <span>string <var>$format</var> = <span class="php-quote">'array'</span></span>, <span>boolean <var>$ignoreNewLines</var> = <span class="php-keyword1">true</span></span>, <span>boolean <var>$skipEmptyLines</var> = <span class="php-keyword1">false</span></span> )</code>
 
 			<div class="description short">
 				
@@ -548,7 +591,7 @@ chaque ligne dans le tableau retourné (facultatif)</dd>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>string[]|string|boolean</code><br>renvoie le fichier dans le format de demandé, ou false en cas d'erreur<br />
+						<code>string[]|string|boolean</code><br>renvoie le fichier dans le format de demandé, ou false en cas d'erreur<br>
 					</div>
 
 
@@ -568,7 +611,7 @@ chaque ligne dans le tableau retourné (facultatif)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_touchFile">#</a>
-			<code><a href="source-class-FileSystem.Fs.html#302-314" title="Go to source code">touchFile</a>( <span>string <var>$fileName</var></span> )</code>
+			<code><a href="source-class-FileSystem.Fs.html#322-338" title="Go to source code">touchFile</a>( <span>string <var>$fileName</var></span> )</code>
 
 			<div class="description short">
 				
@@ -581,7 +624,9 @@ chaque ligne dans le tableau retourné (facultatif)</dd>
 <p>Crée un fichier si celui-ci n'existe pas</p>
 
 <p>La date de modification du fichier sera modifiée à l'heure actuelle si
-celui-ci existe</p>
+celui-ci existe. La fonction <code>touch</code> de php ne semble pas fonctionner
+si l'utilisateur apache n'est pas propriétaire du fichier. On emploie donc la
+commande Unix</p>
 
 
 
@@ -593,7 +638,7 @@ celui-ci existe</p>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>boolean</code><br />
+						<code>boolean</code><br>
 					</div>
 
 
@@ -613,7 +658,7 @@ celui-ci existe</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_writeFile">#</a>
-			<code><a href="source-class-FileSystem.Fs.html#316-350" title="Go to source code">writeFile</a>( <span>string <var>$fileName</var></span>, <span>array|string <var>$content</var></span>, <span>boolean <var>$append</var> = <span class="php-keyword1">false</span></span>, <span>boolean <var>$backupFile</var> = <span class="php-keyword1">false</span></span> )</code>
+			<code><a href="source-class-FileSystem.Fs.html#340-374" title="Go to source code">writeFile</a>( <span>string <var>$fileName</var></span>, <span>array|string <var>$content</var></span>, <span>boolean <var>$append</var> = <span class="php-keyword1">false</span></span>, <span>boolean <var>$backupFile</var> = <span class="php-keyword1">false</span></span> )</code>
 
 			<div class="description short">
 				
@@ -642,7 +687,7 @@ celui-ci existe (facultatif)</dd>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>boolean</code><br />
+						<code>boolean</code><br>
 					</div>
 
 
@@ -662,7 +707,7 @@ celui-ci existe (facultatif)</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_tailFile">#</a>
-			<code><a href="source-class-FileSystem.Fs.html#352-419" title="Go to source code">tailFile</a>( <span>string <var>$fileName</var></span>, <span>integer <var>$lines</var> = <span class="php-num">1</span></span>, <span>boolean <var>$adaptive</var> = <span class="php-keyword1">true</span></span> )</code>
+			<code><a href="source-class-FileSystem.Fs.html#376-444" title="Go to source code">tailFile</a>( <span>string <var>$fileName</var></span>, <span>integer <var>$lines</var> = <span class="php-num">1</span></span>, <span>boolean <var>$adaptive</var> = <span class="php-keyword1">true</span></span> )</code>
 
 			<div class="description short">
 				
@@ -688,14 +733,14 @@ celui-ci existe (facultatif)</dd>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>boolean|string[]</code><br />
+						<code>boolean|string[]</code><br>
 					</div>
 
 
 					<h4>From</h4>
 					<div class="list">
 							&lt;<a
-href="http://stackoverflow.com/questions/15025875/what-is-the-best-way-in-php-to-read-last-lines-from-a-file/15025877#15025877">http://stackoverflow.com/questions/15025875/what-is-the-best-way-in-php-to-read-last-lines-from-a-file/15025877#15025877</a>&gt;<br />
+href="http://stackoverflow.com/questions/15025875/what-is-the-best-way-in-php-to-read-last-lines-from-a-file/15025877#15025877">http://stackoverflow.com/questions/15025875/what-is-the-best-way-in-php-to-read-last-lines-from-a-file/15025877#15025877</a>&gt;<br>
 					</div>
 
 
@@ -713,7 +758,7 @@ href="http://stackoverflow.com/questions/15025875/what-is-the-best-way-in-php-to
 
 			<td class="name"><div>
 			<a class="anchor" href="#_setChmod">#</a>
-			<code><a href="source-class-FileSystem.Fs.html#421-438" title="Go to source code">setChmod</a>( <span>string <var>$fileName</var></span>, <span>integer <var>$chmod</var></span> )</code>
+			<code><a href="source-class-FileSystem.Fs.html#446-463" title="Go to source code">setChmod</a>( <span>string <var>$fileName</var></span>, <span>integer <var>$chmod</var></span> )</code>
 
 			<div class="description short">
 				
@@ -724,9 +769,6 @@ href="http://stackoverflow.com/questions/15025875/what-is-the-best-way-in-php-to
 			<div class="description detailed hidden">
 				
 <p>Définit les permissions sur un fichier (chmod)</p>
-
-<p>Dans le doute, mieux vaut s'abstenir de faire ceci sur des fichiers
-Windows</p>
 
 
 
@@ -740,10 +782,14 @@ Windows</p>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>boolean</code><br />
+						<code>boolean</code><br>
 					</div>
 
 
+					<h4>Warning</h4>
+					<div class="list">
+							Dans le doute, mieux vaut s'abstenir de faire ceci sur des fichiers Windows<br>
+					</div>
 
 
 			</div>
@@ -760,7 +806,7 @@ Windows</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getMountName">#</a>
-			<code><a href="source-class-FileSystem.Fs.html#440-447" title="Go to source code">getMountName</a>( )</code>
+			<code><a href="source-class-FileSystem.Fs.html#465-472" title="Go to source code">getMountName</a>( )</code>
 
 			<div class="description short">
 				
@@ -777,7 +823,7 @@ Windows</p>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>string</code><br />
+						<code>string</code><br>
 					</div>
 
 

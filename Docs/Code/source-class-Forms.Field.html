@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.8.0" />
-	<meta name="robots" content="noindex" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+	<meta name="robots" content="noindex">
 
 	<title>File classes/Forms/Field.php</title>
 
-	<script type="text/javascript" src="resources/combined.js?522072721"></script>
-	<script type="text/javascript" src="elementlist.js?1088796348"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+	<script type="text/javascript" src="resources/combined.js?1467300313"></script>
+	<script type="text/javascript" src="elementlist.js?2065545106"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822">
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609">
 
 </head>
 
@@ -44,9 +44,9 @@
 	<div id="left">
 	<div id="menu">
 		<form id="search" class="form-search">
-			<input type="hidden" name="cx" value="" />
-			<input type="hidden" name="ie" value="UTF-8" />
-			<input type="text" name="q" class="search-query" placeholder="Search" />
+			<input type="hidden" name="cx" value="">
+			<input type="hidden" name="ie" value="UTF-8">
+			<input type="text" name="q" class="search-query" placeholder="Search">
 		</form>
 
 
@@ -54,6 +54,10 @@
 			<h3>Namespaces</h3>
 			<ul>
 				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-API.html">API</a>
+						</li>
+				<li><a href="namespace-Charts.html">Charts</a>
 						</li>
 				<li><a href="namespace-Components.html">Components</a>
 						</li>
@@ -78,6 +82,29 @@
 						</li>
 				<li><a href="namespace-PHP.html">PHP</a>
 						</li>
+				<li><a href="namespace-phpseclib.html">phpseclib<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.Crypt.html">Crypt</a>
+						</li>
+				<li><a href="namespace-phpseclib.File.html">File<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.File.ASN1.html">ASN1</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-phpseclib.Math.html">Math</a>
+						</li>
+				<li><a href="namespace-phpseclib.Net.html">Net<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.Net.SFTP.html">SFTP</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-phpseclib.System.html">System<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.System.SSH.html">SSH<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.System.SSH.Agent.html">Agent</a>
+						</li>
+							</ul></li></ul></li></ul></li>
 				<li><a href="namespace-Profiles.html">Profiles</a>
 						</li>
 				<li><a href="namespace-Settings.html">Settings</a>
@@ -148,7 +175,7 @@
 </span><span id="36" class="l"><a class="l" href="#36"> 36 </a>
 </span><span id="37" class="l"><a class="l" href="#37"> 37 </a>    <span class="php-comment">/**
 </span></span><span id="38" class="l"><a class="l" href="#38"> 38 </a><span class="php-comment">     * Objet de validation du champ ou paramètres du champ dans une base de données
-</span></span><span id="39" class="l"><a class="l" href="#39"> 39 </a><span class="php-comment">     * @var Pattern|DbFieldSettings
+</span></span><span id="39" class="l"><a class="l" href="#39"> 39 </a><span class="php-comment">     * @var DbFieldSettings|Pattern
 </span></span><span id="40" class="l"><a class="l" href="#40"> 40 </a><span class="php-comment">     */</span>
 </span><span id="41" class="l"><a class="l" href="#41"> 41 </a>    <span class="php-keyword1">protected</span> <span class="php-var"><a id="$pattern" href="#$pattern">$pattern</a></span> = <span class="php-keyword1">null</span>;
 </span><span id="42" class="l"><a class="l" href="#42"> 42 </a>
@@ -215,17 +242,17 @@
 </span><span id="103" class="l"><a class="l" href="#103">103 </a>    <span class="php-comment">/**
 </span></span><span id="104" class="l"><a class="l" href="#104">104 </a><span class="php-comment">     * Construction du champ
 </span></span><span id="105" class="l"><a class="l" href="#105">105 </a><span class="php-comment">     *
-</span></span><span id="106" class="l"><a class="l" href="#106">106 </a><span class="php-comment">     * @param string  $name         Nom du champ - repris dans la propriété name et id
-</span></span><span id="107" class="l"><a class="l" href="#107">107 </a><span class="php-comment">     * @param string  $type         Type du champ - type élargi par rapport au type de Setting
-</span></span><span id="108" class="l"><a class="l" href="#108">108 </a><span class="php-comment">     * @param mixed   $value        Valeur à mettre dans la propriété value
-</span></span><span id="109" class="l"><a class="l" href="#109">109 </a><span class="php-comment">     * @param string  $label        Libellé du champ - repris dans l'élément `&lt;label&gt;`
-</span></span><span id="110" class="l"><a class="l" href="#110">110 </a><span class="php-comment">     * @param string  $placeholder  Placeholder - repris dans la propriété du même nom
-</span></span><span id="111" class="l"><a class="l" href="#111">111 </a><span class="php-comment">     * @param string  $help         Message d'aide du champ - facultatif
-</span></span><span id="112" class="l"><a class="l" href="#112">112 </a><span class="php-comment">     * @param Pattern $pattern      Validation de saisie
-</span></span><span id="113" class="l"><a class="l" href="#113">113 </a><span class="php-comment">     * @param bool    $important    Paramètre à signaler comme étant important
-</span></span><span id="114" class="l"><a class="l" href="#114">114 </a><span class="php-comment">     * @param string  $ACLLevel     Niveau minimum d'autorisation (`access`, `modify` ou `admin`)
-</span></span><span id="115" class="l"><a class="l" href="#115">115 </a><span class="php-comment">     * @param string  $class        Classe optionnelle à ajouter au champ
-</span></span><span id="116" class="l"><a class="l" href="#116">116 </a><span class="php-comment">     * @param bool    $disabled     Champ désactivé si à true
+</span></span><span id="106" class="l"><a class="l" href="#106">106 </a><span class="php-comment">     * @param string                  $name        Nom du champ - repris dans la propriété name et id
+</span></span><span id="107" class="l"><a class="l" href="#107">107 </a><span class="php-comment">     * @param string                  $type        Type du champ - type élargi par rapport au type de Setting
+</span></span><span id="108" class="l"><a class="l" href="#108">108 </a><span class="php-comment">     * @param mixed                   $value       Valeur à mettre dans la propriété value
+</span></span><span id="109" class="l"><a class="l" href="#109">109 </a><span class="php-comment">     * @param string                  $label       Libellé du champ - repris dans l'élément `&lt;label&gt;`
+</span></span><span id="110" class="l"><a class="l" href="#110">110 </a><span class="php-comment">     * @param string                  $placeholder Placeholder - repris dans la propriété du même nom
+</span></span><span id="111" class="l"><a class="l" href="#111">111 </a><span class="php-comment">     * @param string                  $help        Message d'aide du champ - facultatif
+</span></span><span id="112" class="l"><a class="l" href="#112">112 </a><span class="php-comment">     * @param DbFieldSettings|Pattern $pattern     Validation de saisie
+</span></span><span id="113" class="l"><a class="l" href="#113">113 </a><span class="php-comment">     * @param bool                    $important   Paramètre à signaler comme étant important
+</span></span><span id="114" class="l"><a class="l" href="#114">114 </a><span class="php-comment">     * @param string                  $ACLLevel    Niveau minimum d'autorisation (`access`, `modify` ou `admin`)
+</span></span><span id="115" class="l"><a class="l" href="#115">115 </a><span class="php-comment">     * @param string                  $class       Classe optionnelle à ajouter au champ
+</span></span><span id="116" class="l"><a class="l" href="#116">116 </a><span class="php-comment">     * @param bool                    $disabled    Champ désactivé si à true
 </span></span><span id="117" class="l"><a class="l" href="#117">117 </a><span class="php-comment">     */</span>
 </span><span id="118" class="l"><a class="l" href="#118">118 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="___construct" href="#___construct">__construct</a>(<span class="php-var">$name</span>, <span class="php-var">$type</span>, <span class="php-var">$value</span>, <span class="php-var">$label</span> = <span class="php-keyword1">null</span>, <span class="php-var">$placeholder</span> = <span class="php-keyword1">null</span>, <span class="php-var">$help</span> = <span class="php-keyword1">null</span>, <span class="php-keyword2">Pattern</span> <span class="php-var">$pattern</span> = <span class="php-keyword1">null</span>, <span class="php-var">$important</span> = <span class="php-keyword1">false</span>, <span class="php-var">$ACLLevel</span> = <span class="php-quote">'admin'</span>, <span class="php-var">$class</span> = <span class="php-quote">''</span>, <span class="php-var">$disabled</span> = <span class="php-keyword1">false</span>){
 </span><span id="119" class="l"><a class="l" href="#119">119 </a>        self::<span class="php-var">$types</span> = Setting::<span class="php-var">$types</span>;
@@ -337,7 +364,7 @@
 </span><span id="225" class="l"><a class="l" href="#225">225 </a>
 </span><span id="226" class="l"><a class="l" href="#226">226 </a>    <span class="php-comment">/**
 </span></span><span id="227" class="l"><a class="l" href="#227">227 </a><span class="php-comment">     * Retourne l'objet de validation de saisie du champ
-</span></span><span id="228" class="l"><a class="l" href="#228">228 </a><span class="php-comment">     * @return Pattern
+</span></span><span id="228" class="l"><a class="l" href="#228">228 </a><span class="php-comment">     * @return Pattern|DbFieldSettings
 </span></span><span id="229" class="l"><a class="l" href="#229">229 </a><span class="php-comment">     */</span>
 </span><span id="230" class="l"><a class="l" href="#230">230 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_getPattern" href="#_getPattern">getPattern</a>() {
 </span><span id="231" class="l"><a class="l" href="#231">231 </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;<span class="php-keyword2">pattern</span>;
@@ -403,62 +430,70 @@
 </span><span id="291" class="l"><a class="l" href="#291">291 </a>    }
 </span><span id="292" class="l"><a class="l" href="#292">292 </a>
 </span><span id="293" class="l"><a class="l" href="#293">293 </a>    <span class="php-comment">/**
-</span></span><span id="294" class="l"><a class="l" href="#294">294 </a><span class="php-comment">     * Valeur du paramètre définie par l'utilisateur
-</span></span><span id="295" class="l"><a class="l" href="#295">295 </a><span class="php-comment">     * @param mixed $userValue
+</span></span><span id="294" class="l"><a class="l" href="#294">294 </a><span class="php-comment">     * Définit l'aide du champ
+</span></span><span id="295" class="l"><a class="l" href="#295">295 </a><span class="php-comment">     * @param string $help
 </span></span><span id="296" class="l"><a class="l" href="#296">296 </a><span class="php-comment">     */</span>
-</span><span id="297" class="l"><a class="l" href="#297">297 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_setUserValue" href="#_setUserValue">setUserValue</a>(<span class="php-var">$userValue</span>) {
-</span><span id="298" class="l"><a class="l" href="#298">298 </a>
-</span><span id="299" class="l"><a class="l" href="#299">299 </a>        <span class="php-keyword1">if</span> (<span class="php-var">$this</span>-&gt;type == <span class="php-quote">'date'</span>) <span class="php-var">$userValue</span> = Sanitize::<span class="php-keyword2">date</span>(<span class="php-var">$userValue</span>, <span class="php-quote">'timestamp'</span>);
-</span><span id="300" class="l"><a class="l" href="#300">300 </a>        <span class="php-keyword1">if</span> (<span class="php-var">$this</span>-&gt;type != <span class="php-quote">'select'</span>) <span class="php-keyword2">settype</span>(<span class="php-var">$userValue</span>, self::<span class="php-var">$types</span>[<span class="php-var">$this</span>-&gt;type]);
-</span><span id="301" class="l"><a class="l" href="#301">301 </a>        <span class="php-var">$this</span>-&gt;userValue = <span class="php-var">$userValue</span>;
-</span><span id="302" class="l"><a class="l" href="#302">302 </a>    }
-</span><span id="303" class="l"><a class="l" href="#303">303 </a>
-</span><span id="304" class="l"><a class="l" href="#304">304 </a>    <span class="php-comment">/**
-</span></span><span id="305" class="l"><a class="l" href="#305">305 </a><span class="php-comment">     * Valeur du paramètre définie par l'administrateur
-</span></span><span id="306" class="l"><a class="l" href="#306">306 </a><span class="php-comment">     * @param mixed $value
-</span></span><span id="307" class="l"><a class="l" href="#307">307 </a><span class="php-comment">     */</span>
-</span><span id="308" class="l"><a class="l" href="#308">308 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_setValue" href="#_setValue">setValue</a>(<span class="php-var">$value</span>) {
-</span><span id="309" class="l"><a class="l" href="#309">309 </a>        <span class="php-keyword1">if</span> (<span class="php-var">$this</span>-&gt;type == <span class="php-quote">'date'</span>) <span class="php-var">$value</span> = Sanitize::<span class="php-keyword2">date</span>(<span class="php-var">$value</span>, <span class="php-quote">'timestamp'</span>);
-</span><span id="310" class="l"><a class="l" href="#310">310 </a>        <span class="php-keyword1">if</span> (<span class="php-var">$this</span>-&gt;type != <span class="php-quote">'select'</span>) <span class="php-keyword2">settype</span>(<span class="php-var">$value</span>, self::<span class="php-var">$types</span>[<span class="php-var">$this</span>-&gt;type]);
-</span><span id="311" class="l"><a class="l" href="#311">311 </a>        <span class="php-var">$this</span>-&gt;value = <span class="php-var">$value</span>;
-</span><span id="312" class="l"><a class="l" href="#312">312 </a>    }
-</span><span id="313" class="l"><a class="l" href="#313">313 </a>
-</span><span id="314" class="l"><a class="l" href="#314">314 </a>    <span class="php-comment">/**
-</span></span><span id="315" class="l"><a class="l" href="#315">315 </a><span class="php-comment">     * Définit le statut d'activation du champ (saisie impossible si `true`)
-</span></span><span id="316" class="l"><a class="l" href="#316">316 </a><span class="php-comment">     * @param boolean $disabled
-</span></span><span id="317" class="l"><a class="l" href="#317">317 </a><span class="php-comment">     */</span>
-</span><span id="318" class="l"><a class="l" href="#318">318 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_setDisabled" href="#_setDisabled">setDisabled</a>(<span class="php-var">$disabled</span> = <span class="php-keyword1">true</span>) {
-</span><span id="319" class="l"><a class="l" href="#319">319 </a>        <span class="php-var">$this</span>-&gt;disabled = <span class="php-var">$disabled</span>;
+</span><span id="297" class="l"><a class="l" href="#297">297 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_setHelp" href="#_setHelp">setHelp</a>(<span class="php-var">$help</span>) {
+</span><span id="298" class="l"><a class="l" href="#298">298 </a>        <span class="php-var">$this</span>-&gt;help = <span class="php-var">$help</span>;
+</span><span id="299" class="l"><a class="l" href="#299">299 </a>    }
+</span><span id="300" class="l"><a class="l" href="#300">300 </a>
+</span><span id="301" class="l"><a class="l" href="#301">301 </a>    <span class="php-comment">/**
+</span></span><span id="302" class="l"><a class="l" href="#302">302 </a><span class="php-comment">     * Valeur du paramètre définie par l'utilisateur
+</span></span><span id="303" class="l"><a class="l" href="#303">303 </a><span class="php-comment">     * @param mixed $userValue
+</span></span><span id="304" class="l"><a class="l" href="#304">304 </a><span class="php-comment">     */</span>
+</span><span id="305" class="l"><a class="l" href="#305">305 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_setUserValue" href="#_setUserValue">setUserValue</a>(<span class="php-var">$userValue</span>) {
+</span><span id="306" class="l"><a class="l" href="#306">306 </a>
+</span><span id="307" class="l"><a class="l" href="#307">307 </a>        <span class="php-keyword1">if</span> (<span class="php-var">$this</span>-&gt;type == <span class="php-quote">'date'</span>) <span class="php-var">$userValue</span> = Sanitize::<span class="php-keyword2">date</span>(<span class="php-var">$userValue</span>, <span class="php-quote">'timestamp'</span>);
+</span><span id="308" class="l"><a class="l" href="#308">308 </a>        <span class="php-keyword1">if</span> (<span class="php-var">$this</span>-&gt;type != <span class="php-quote">'select'</span>) <span class="php-keyword2">settype</span>(<span class="php-var">$userValue</span>, self::<span class="php-var">$types</span>[<span class="php-var">$this</span>-&gt;type]);
+</span><span id="309" class="l"><a class="l" href="#309">309 </a>        <span class="php-var">$this</span>-&gt;userValue = <span class="php-var">$userValue</span>;
+</span><span id="310" class="l"><a class="l" href="#310">310 </a>    }
+</span><span id="311" class="l"><a class="l" href="#311">311 </a>
+</span><span id="312" class="l"><a class="l" href="#312">312 </a>    <span class="php-comment">/**
+</span></span><span id="313" class="l"><a class="l" href="#313">313 </a><span class="php-comment">     * Valeur du paramètre définie par l'administrateur
+</span></span><span id="314" class="l"><a class="l" href="#314">314 </a><span class="php-comment">     * @param mixed $value
+</span></span><span id="315" class="l"><a class="l" href="#315">315 </a><span class="php-comment">     */</span>
+</span><span id="316" class="l"><a class="l" href="#316">316 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_setValue" href="#_setValue">setValue</a>(<span class="php-var">$value</span>) {
+</span><span id="317" class="l"><a class="l" href="#317">317 </a>        <span class="php-keyword1">if</span> (<span class="php-var">$this</span>-&gt;type == <span class="php-quote">'date'</span>) <span class="php-var">$value</span> = Sanitize::<span class="php-keyword2">date</span>(<span class="php-var">$value</span>, <span class="php-quote">'timestamp'</span>);
+</span><span id="318" class="l"><a class="l" href="#318">318 </a>        <span class="php-keyword1">if</span> (<span class="php-var">$this</span>-&gt;type != <span class="php-quote">'select'</span>) <span class="php-keyword2">settype</span>(<span class="php-var">$value</span>, self::<span class="php-var">$types</span>[<span class="php-var">$this</span>-&gt;type]);
+</span><span id="319" class="l"><a class="l" href="#319">319 </a>        <span class="php-var">$this</span>-&gt;value = <span class="php-var">$value</span>;
 </span><span id="320" class="l"><a class="l" href="#320">320 </a>    }
 </span><span id="321" class="l"><a class="l" href="#321">321 </a>
 </span><span id="322" class="l"><a class="l" href="#322">322 </a>    <span class="php-comment">/**
-</span></span><span id="323" class="l"><a class="l" href="#323">323 </a><span class="php-comment">     * Ajoute une classe CSS au champ
-</span></span><span id="324" class="l"><a class="l" href="#324">324 </a><span class="php-comment">     * @param string $class
+</span></span><span id="323" class="l"><a class="l" href="#323">323 </a><span class="php-comment">     * Définit le statut d'activation du champ (saisie impossible si `true`)
+</span></span><span id="324" class="l"><a class="l" href="#324">324 </a><span class="php-comment">     * @param boolean $disabled
 </span></span><span id="325" class="l"><a class="l" href="#325">325 </a><span class="php-comment">     */</span>
-</span><span id="326" class="l"><a class="l" href="#326">326 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_addClass" href="#_addClass">addClass</a>(<span class="php-var">$class</span>) {
-</span><span id="327" class="l"><a class="l" href="#327">327 </a>        <span class="php-var">$this</span>-&gt;<span class="php-keyword1">class</span> .= <span class="php-var">$class</span>.<span class="php-quote">' '</span>;
+</span><span id="326" class="l"><a class="l" href="#326">326 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_setDisabled" href="#_setDisabled">setDisabled</a>(<span class="php-var">$disabled</span> = <span class="php-keyword1">true</span>) {
+</span><span id="327" class="l"><a class="l" href="#327">327 </a>        <span class="php-var">$this</span>-&gt;disabled = <span class="php-var">$disabled</span>;
 </span><span id="328" class="l"><a class="l" href="#328">328 </a>    }
 </span><span id="329" class="l"><a class="l" href="#329">329 </a>
 </span><span id="330" class="l"><a class="l" href="#330">330 </a>    <span class="php-comment">/**
-</span></span><span id="331" class="l"><a class="l" href="#331">331 </a><span class="php-comment">     * Définit le statut d'importance du champ
-</span></span><span id="332" class="l"><a class="l" href="#332">332 </a><span class="php-comment">     * @param boolean $important
+</span></span><span id="331" class="l"><a class="l" href="#331">331 </a><span class="php-comment">     * Ajoute une classe CSS au champ
+</span></span><span id="332" class="l"><a class="l" href="#332">332 </a><span class="php-comment">     * @param string $class
 </span></span><span id="333" class="l"><a class="l" href="#333">333 </a><span class="php-comment">     */</span>
-</span><span id="334" class="l"><a class="l" href="#334">334 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_setImportant" href="#_setImportant">setImportant</a>(<span class="php-var">$important</span> = <span class="php-keyword1">true</span>) {
-</span><span id="335" class="l"><a class="l" href="#335">335 </a>        <span class="php-var">$this</span>-&gt;important = <span class="php-var">$important</span>;
+</span><span id="334" class="l"><a class="l" href="#334">334 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_addClass" href="#_addClass">addClass</a>(<span class="php-var">$class</span>) {
+</span><span id="335" class="l"><a class="l" href="#335">335 </a>        <span class="php-var">$this</span>-&gt;<span class="php-keyword1">class</span> .= <span class="php-var">$class</span>.<span class="php-quote">' '</span>;
 </span><span id="336" class="l"><a class="l" href="#336">336 </a>    }
 </span><span id="337" class="l"><a class="l" href="#337">337 </a>
 </span><span id="338" class="l"><a class="l" href="#338">338 </a>    <span class="php-comment">/**
-</span></span><span id="339" class="l"><a class="l" href="#339">339 </a><span class="php-comment">     * Définit un objet de validation/paramétrage pour le champ
-</span></span><span id="340" class="l"><a class="l" href="#340">340 </a><span class="php-comment">     *
-</span></span><span id="341" class="l"><a class="l" href="#341">341 </a><span class="php-comment">     * @param \Db\DbFieldSettings|\Forms\Pattern $pattern
-</span></span><span id="342" class="l"><a class="l" href="#342">342 </a><span class="php-comment">     */</span>
-</span><span id="343" class="l"><a class="l" href="#343">343 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_setPattern" href="#_setPattern">setPattern</a>(<span class="php-var">$pattern</span>) {
-</span><span id="344" class="l"><a class="l" href="#344">344 </a>        <span class="php-var">$this</span>-&gt;<span class="php-keyword2">pattern</span> = <span class="php-var">$pattern</span>;
-</span><span id="345" class="l"><a class="l" href="#345">345 </a>    }
-</span><span id="346" class="l"><a class="l" href="#346">346 </a>
-</span><span id="347" class="l"><a class="l" href="#347">347 </a>
-</span><span id="348" class="l"><a class="l" href="#348">348 </a>
-</span><span id="349" class="l"><a class="l" href="#349">349 </a></span>}</code></pre>
+</span></span><span id="339" class="l"><a class="l" href="#339">339 </a><span class="php-comment">     * Définit le statut d'importance du champ
+</span></span><span id="340" class="l"><a class="l" href="#340">340 </a><span class="php-comment">     * @param boolean $important
+</span></span><span id="341" class="l"><a class="l" href="#341">341 </a><span class="php-comment">     */</span>
+</span><span id="342" class="l"><a class="l" href="#342">342 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_setImportant" href="#_setImportant">setImportant</a>(<span class="php-var">$important</span> = <span class="php-keyword1">true</span>) {
+</span><span id="343" class="l"><a class="l" href="#343">343 </a>        <span class="php-var">$this</span>-&gt;important = <span class="php-var">$important</span>;
+</span><span id="344" class="l"><a class="l" href="#344">344 </a>    }
+</span><span id="345" class="l"><a class="l" href="#345">345 </a>
+</span><span id="346" class="l"><a class="l" href="#346">346 </a>    <span class="php-comment">/**
+</span></span><span id="347" class="l"><a class="l" href="#347">347 </a><span class="php-comment">     * Définit un objet de validation/paramétrage pour le champ
+</span></span><span id="348" class="l"><a class="l" href="#348">348 </a><span class="php-comment">     *
+</span></span><span id="349" class="l"><a class="l" href="#349">349 </a><span class="php-comment">     * @param \Db\DbFieldSettings|\Forms\Pattern $pattern
+</span></span><span id="350" class="l"><a class="l" href="#350">350 </a><span class="php-comment">     */</span>
+</span><span id="351" class="l"><a class="l" href="#351">351 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_setPattern" href="#_setPattern">setPattern</a>(<span class="php-var">$pattern</span>) {
+</span><span id="352" class="l"><a class="l" href="#352">352 </a>        <span class="php-var">$this</span>-&gt;<span class="php-keyword2">pattern</span> = <span class="php-var">$pattern</span>;
+</span><span id="353" class="l"><a class="l" href="#353">353 </a>    }
+</span><span id="354" class="l"><a class="l" href="#354">354 </a>
+</span><span id="355" class="l"><a class="l" href="#355">355 </a>
+</span><span id="356" class="l"><a class="l" href="#356">356 </a>
+</span><span id="357" class="l"><a class="l" href="#357">357 </a></span>}</code></pre>
 	</div>
 
 	<div id="footer">

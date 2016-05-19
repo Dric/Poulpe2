@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.8.0" />
-	<meta name="robots" content="noindex" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+	<meta name="robots" content="noindex">
 
 	<title>File classes/Forms/PostedData.php</title>
 
-	<script type="text/javascript" src="resources/combined.js?522072721"></script>
-	<script type="text/javascript" src="elementlist.js?1088796348"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+	<script type="text/javascript" src="resources/combined.js?1467300313"></script>
+	<script type="text/javascript" src="elementlist.js?2065545106"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822">
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609">
 
 </head>
 
@@ -44,9 +44,9 @@
 	<div id="left">
 	<div id="menu">
 		<form id="search" class="form-search">
-			<input type="hidden" name="cx" value="" />
-			<input type="hidden" name="ie" value="UTF-8" />
-			<input type="text" name="q" class="search-query" placeholder="Search" />
+			<input type="hidden" name="cx" value="">
+			<input type="hidden" name="ie" value="UTF-8">
+			<input type="text" name="q" class="search-query" placeholder="Search">
 		</form>
 
 
@@ -54,6 +54,10 @@
 			<h3>Namespaces</h3>
 			<ul>
 				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-API.html">API</a>
+						</li>
+				<li><a href="namespace-Charts.html">Charts</a>
 						</li>
 				<li><a href="namespace-Components.html">Components</a>
 						</li>
@@ -78,6 +82,29 @@
 						</li>
 				<li><a href="namespace-PHP.html">PHP</a>
 						</li>
+				<li><a href="namespace-phpseclib.html">phpseclib<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.Crypt.html">Crypt</a>
+						</li>
+				<li><a href="namespace-phpseclib.File.html">File<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.File.ASN1.html">ASN1</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-phpseclib.Math.html">Math</a>
+						</li>
+				<li><a href="namespace-phpseclib.Net.html">Net<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.Net.SFTP.html">SFTP</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-phpseclib.System.html">System<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.System.SSH.html">SSH<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.System.SSH.Agent.html">Agent</a>
+						</li>
+							</ul></li></ul></li></ul></li>
 				<li><a href="namespace-Profiles.html">Profiles</a>
 						</li>
 				<li><a href="namespace-Settings.html">Settings</a>
@@ -281,7 +308,7 @@
 </span></span><span id="169" class="l"><a class="l" href="#169">169 </a><span class="php-comment">     *
 </span></span><span id="170" class="l"><a class="l" href="#170">170 </a><span class="php-comment">     * @return bool
 </span></span><span id="171" class="l"><a class="l" href="#171">171 </a><span class="php-comment">     */</span>
-</span><span id="172" class="l"><a class="l" href="#172">172 </a>    <span class="php-keyword1">static</span> <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> <a id="_checkToken" href="#_checkToken">checkToken</a>(<span class="php-var">$formName</span>, <span class="php-var">$token</span>){
+</span><span id="172" class="l"><a class="l" href="#172">172 </a>    <span class="php-keyword1">static</span> <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_checkToken" href="#_checkToken">checkToken</a>(<span class="php-var">$formName</span>, <span class="php-var">$token</span>){
 </span><span id="173" class="l"><a class="l" href="#173">173 </a>        self::delOldTokens();
 </span><span id="174" class="l"><a class="l" href="#174">174 </a>        <span class="php-keyword1">if</span> (<span class="php-keyword1">isset</span>(<span class="php-var">$_SESSION</span>[<span class="php-var">$formName</span>.<span class="php-quote">'_Token'</span>])){
 </span><span id="175" class="l"><a class="l" href="#175">175 </a>            <span class="php-keyword1">if</span> (<span class="php-var">$_SESSION</span>[<span class="php-var">$formName</span>.<span class="php-quote">'_Token'</span>] == <span class="php-var">$token</span>){

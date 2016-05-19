@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.8.0" />
-	<meta name="robots" content="noindex" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+	<meta name="robots" content="noindex">
 
 	<title>File classes/Michelf/MarkdownInterface.php</title>
 
-	<script type="text/javascript" src="resources/combined.js?522072721"></script>
-	<script type="text/javascript" src="elementlist.js?1088796348"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+	<script type="text/javascript" src="resources/combined.js?1467300313"></script>
+	<script type="text/javascript" src="elementlist.js?2065545106"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822">
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609">
 
 </head>
 
@@ -44,9 +44,9 @@
 	<div id="left">
 	<div id="menu">
 		<form id="search" class="form-search">
-			<input type="hidden" name="cx" value="" />
-			<input type="hidden" name="ie" value="UTF-8" />
-			<input type="text" name="q" class="search-query" placeholder="Search" />
+			<input type="hidden" name="cx" value="">
+			<input type="hidden" name="ie" value="UTF-8">
+			<input type="text" name="q" class="search-query" placeholder="Search">
 		</form>
 
 
@@ -54,6 +54,10 @@
 			<h3>Namespaces</h3>
 			<ul>
 				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-API.html">API</a>
+						</li>
+				<li><a href="namespace-Charts.html">Charts</a>
 						</li>
 				<li><a href="namespace-Components.html">Components</a>
 						</li>
@@ -78,6 +82,29 @@
 						</li>
 				<li><a href="namespace-PHP.html">PHP</a>
 						</li>
+				<li><a href="namespace-phpseclib.html">phpseclib<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.Crypt.html">Crypt</a>
+						</li>
+				<li><a href="namespace-phpseclib.File.html">File<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.File.ASN1.html">ASN1</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-phpseclib.Math.html">Math</a>
+						</li>
+				<li><a href="namespace-phpseclib.Net.html">Net<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.Net.SFTP.html">SFTP</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-phpseclib.System.html">System<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.System.SSH.html">SSH<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.System.SSH.Agent.html">Agent</a>
+						</li>
+							</ul></li></ul></li></ul></li>
 				<li><a href="namespace-Profiles.html">Profiles</a>
 						</li>
 				<li><a href="namespace-Settings.html">Settings</a>
@@ -91,7 +118,6 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
-				<li><a href="class-Michelf._MarkdownExtra_TmpImpl.html">_MarkdownExtra_TmpImpl</a></li>
 				<li><a href="class-Michelf.Markdown.html">Markdown</a></li>
 				<li><a href="class-Michelf.MarkdownExtra.html">MarkdownExtra</a></li>
 			</ul>
@@ -117,8 +143,8 @@
 </span><span id="3" class="l"><a class="l" href="#3"> 3 </a><span class="php-comment"># Markdown  -  A text-to-HTML conversion tool for web writers</span>
 </span><span id="4" class="l"><a class="l" href="#4"> 4 </a><span class="php-comment">#</span>
 </span><span id="5" class="l"><a class="l" href="#5"> 5 </a><span class="php-comment"># PHP Markdown</span>
-</span><span id="6" class="l"><a class="l" href="#6"> 6 </a><span class="php-comment"># Copyright (c) 2004-2014 Michel Fortin</span>
-</span><span id="7" class="l"><a class="l" href="#7"> 7 </a><span class="php-comment"># &lt;http://michelf.com/projects/php-markdown/&gt;</span>
+</span><span id="6" class="l"><a class="l" href="#6"> 6 </a><span class="php-comment"># Copyright (c) 2004-2015 Michel Fortin</span>
+</span><span id="7" class="l"><a class="l" href="#7"> 7 </a><span class="php-comment"># &lt;https://michelf.ca/projects/php-markdown/&gt;</span>
 </span><span id="8" class="l"><a class="l" href="#8"> 8 </a><span class="php-comment">#</span>
 </span><span id="9" class="l"><a class="l" href="#9"> 9 </a><span class="php-comment"># Original Markdown</span>
 </span><span id="10" class="l"><a class="l" href="#10">10 </a><span class="php-comment"># Copyright (c) 2004-2006 John Gruber</span>
@@ -146,9 +172,7 @@
 </span><span id="32" class="l"><a class="l" href="#32">32 </a>  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_transform" href="#_transform">transform</a>(<span class="php-var">$text</span>);
 </span><span id="33" class="l"><a class="l" href="#33">33 </a>
 </span><span id="34" class="l"><a class="l" href="#34">34 </a>}
-</span><span id="35" class="l"><a class="l" href="#35">35 </a>
-</span><span id="36" class="l"><a class="l" href="#36">36 </a>
-</span><span id="37" class="l"><a class="l" href="#37">37 </a></span><span class="xlang">?&gt;</span></code></pre>
+</span><span id="35" class="l"><a class="l" href="#35">35 </a></span></code></pre>
 	</div>
 
 	<div id="footer">

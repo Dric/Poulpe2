@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.8.0" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Class Modules\Module</title>
 
-	<script type="text/javascript" src="resources/combined.js?522072721"></script>
-	<script type="text/javascript" src="elementlist.js?1088796348"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+	<script type="text/javascript" src="resources/combined.js?1467300313"></script>
+	<script type="text/javascript" src="elementlist.js?2065545106"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822">
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609">
 
 </head>
 
@@ -42,9 +42,9 @@
 	<div id="left">
 	<div id="menu">
 		<form id="search" class="form-search">
-			<input type="hidden" name="cx" value="" />
-			<input type="hidden" name="ie" value="UTF-8" />
-			<input type="text" name="q" class="search-query" placeholder="Search" />
+			<input type="hidden" name="cx" value="">
+			<input type="hidden" name="ie" value="UTF-8">
+			<input type="text" name="q" class="search-query" placeholder="Search">
 		</form>
 
 
@@ -52,6 +52,10 @@
 			<h3>Namespaces</h3>
 			<ul>
 				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-API.html">API</a>
+						</li>
+				<li><a href="namespace-Charts.html">Charts</a>
 						</li>
 				<li><a href="namespace-Components.html">Components</a>
 						</li>
@@ -76,6 +80,29 @@
 						</li>
 				<li><a href="namespace-PHP.html">PHP</a>
 						</li>
+				<li><a href="namespace-phpseclib.html">phpseclib<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.Crypt.html">Crypt</a>
+						</li>
+				<li><a href="namespace-phpseclib.File.html">File<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.File.ASN1.html">ASN1</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-phpseclib.Math.html">Math</a>
+						</li>
+				<li><a href="namespace-phpseclib.Net.html">Net<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.Net.SFTP.html">SFTP</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-phpseclib.System.html">System<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.System.SSH.html">SSH<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.System.SSH.Agent.html">Agent</a>
+						</li>
+							</ul></li></ul></li></ul></li>
 				<li><a href="namespace-Profiles.html">Profiles</a>
 						</li>
 				<li><a href="namespace-Settings.html">Settings</a>
@@ -136,10 +163,10 @@ en tant qu'enfants de cette classe.</p>
 	<div class="alert alert-info">
 		
 		
-		<b>Namespace:</b> <a href="namespace-Modules.html">Modules</a><br />
-		<b>Package:</b> Modules<br />
+		<b>Namespace:</b> <a href="namespace-Modules.html">Modules</a><br>
+		<b>Package:</b> Modules<br>
 
-		<b>Located at</b> <a href="source-class-Modules.Module.html#26-561" title="Go to source code">classes/Modules/Module.php</a><br />
+		<b>Located at</b> <a href="source-class-Modules.Module.html#27-709" title="Go to source code">classes/Modules/Module.php</a><br>
 	</div>
 
 
@@ -157,7 +184,7 @@ en tant qu'enfants de cette classe.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#___construct">#</a>
-			<code><a href="source-class-Modules.Module.html#92-122" title="Go to source code">__construct</a>( )</code>
+			<code><a href="source-class-Modules.Module.html#100-134" title="Go to source code">__construct</a>( <span>boolean <var>$bypassACL</var> = <span class="php-keyword1">false</span></span> )</code>
 
 			<div class="description short">
 				
@@ -171,6 +198,11 @@ en tant qu'enfants de cette classe.</p>
 
 
 
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$bypassACL</var></dt>
+						<dd><code>boolean</code><br>$bypassACL Ne vérifie pas les ACL - A utiliser avec prudence</dd>
+					</dl></div>
 
 
 
@@ -190,7 +222,7 @@ en tant qu'enfants de cette classe.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_checkACL">#</a>
-			<code><a href="source-class-Modules.Module.html#124-136" title="Go to source code">checkACL</a>( )</code>
+			<code><a href="source-class-Modules.Module.html#136-148" title="Go to source code">checkACL</a>( )</code>
 
 			<div class="description short">
 				
@@ -210,7 +242,7 @@ en tant qu'enfants de cette classe.</p>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>boolean</code><br />
+						<code>boolean</code><br>
 					</div>
 
 
@@ -230,7 +262,7 @@ en tant qu'enfants de cette classe.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_moduleMenu">#</a>
-			<code><a href="source-class-Modules.Module.html#138-146" title="Go to source code">moduleMenu</a>( )</code>
+			<code><a href="source-class-Modules.Module.html#150-158" title="Go to source code">moduleMenu</a>( )</code>
 
 			<div class="description short">
 				
@@ -263,7 +295,7 @@ en tant qu'enfants de cette classe.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getMainMenuItems">#</a>
-			<code><a href="source-class-Modules.Module.html#148-155" title="Go to source code">getMainMenuItems</a>( )</code>
+			<code><a href="source-class-Modules.Module.html#160-167" title="Go to source code">getMainMenuItems</a>( )</code>
 
 			<div class="description short">
 				
@@ -285,6 +317,121 @@ en tant qu'enfants de cette classe.</p>
 			</div>
 			</div></td>
 		</tr>
+		<tr data-order="initModuleLoading" id="_initModuleLoading">
+
+			<td class="attributes"><code>
+				 public static
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_initModuleLoading">#</a>
+			<code><a href="source-class-Modules.Module.html#169-174" title="Go to source code">initModuleLoading</a>( )</code>
+
+			<div class="description short">
+				
+<p>Permet de lancer des traitements globaux sans charger tout le module</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Permet de lancer des traitements globaux sans charger tout le module</p>
+
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getBreadCrumb" id="_getBreadCrumb">
+
+			<td class="attributes"><code>
+				 public 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getBreadCrumb">#</a>
+			<code><a href="source-class-Modules.Module.html#176-181" title="Go to source code">getBreadCrumb</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array</code><br>
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="buildArgsURL" id="_buildArgsURL">
+
+			<td class="attributes"><code>
+				 protected 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_buildArgsURL">#</a>
+			<code><a href="source-class-Modules.Module.html#183-215" title="Go to source code">buildArgsURL</a>( <span>array <var>$args</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Permet de construire une URL pour appeler le module avec des arguments</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Permet de construire une URL pour appeler le module avec des arguments</p>
+
+<p>Exemple pour un module <code>Users</code> : <code>&lt;span
+class="php-var"&gt;$this&lt;/span&gt;-&gt;buildModuleQuery(&lt;span
+class="php-keyword1"&gt;array&lt;/span&gt;(id =&gt; &lt;span
+class="php-num"&gt;2&lt;/span&gt;));</code> Donne l'URL : <code>http:&lt;span
+class="php-comment"&gt;//poulpe2/module/Users?id=2&lt;/span&gt;</code></p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$args</var></dt>
+						<dd><code>array</code><br>$args Arguments à passer dans l'URL de la forme array(<code>argument</code>
+=&gt; <code>valeur</code>)</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br>
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
 		<tr data-order="getAction" id="_getAction">
 
 			<td class="attributes"><code>
@@ -296,7 +443,7 @@ en tant qu'enfants de cette classe.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getAction">#</a>
-			<code><a href="source-class-Modules.Module.html#157-170" title="Go to source code">getAction</a>( )</code>
+			<code><a href="source-class-Modules.Module.html#217-230" title="Go to source code">getAction</a>( )</code>
 
 			<div class="description short">
 				
@@ -333,7 +480,7 @@ valeur de l'argument 'action'</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getPage">#</a>
-			<code><a href="source-class-Modules.Module.html#172-197" title="Go to source code">getPage</a>( )</code>
+			<code><a href="source-class-Modules.Module.html#232-295" title="Go to source code">getPage</a>( )</code>
 
 			<div class="description short">
 				
@@ -349,12 +496,17 @@ valeur de l'argument 'action'</p>
 correctement, les fonctions appelées doivent être nommées 'module'.$Page
 (avec la première lettre en majuscules)</p>
 
+<p>Vous pouvez aussi définir des sous-pages avec un paramètre
+<code>subPage</code>. Dans ce cas, c'est la méthode
+<code>module.$subPage</code> qui est appelée, le paramètre <code>page</code>
+ne servant que pour le fil d'ariane.</p>
+
 
 
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>boolean</code><br />
+						<code>boolean</code><br>
 					</div>
 
 
@@ -363,7 +515,7 @@ correctement, les fonctions appelées doivent être nommées 'module'.$Page
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="display" id="_display">
+		<tr data-order="initDisplay" id="_initDisplay">
 
 			<td class="attributes"><code>
 				 public 
@@ -373,8 +525,8 @@ correctement, les fonctions appelées doivent être nommées 'module'.$Page
 			</td>
 
 			<td class="name"><div>
-			<a class="anchor" href="#_display">#</a>
-			<code><a href="source-class-Modules.Module.html#199-207" title="Go to source code">display</a>( )</code>
+			<a class="anchor" href="#_initDisplay">#</a>
+			<code><a href="source-class-Modules.Module.html#297-305" title="Go to source code">initDisplay</a>( )</code>
 
 			<div class="description short">
 				
@@ -407,7 +559,7 @@ correctement, les fonctions appelées doivent être nommées 'module'.$Page
 
 			<td class="name"><div>
 			<a class="anchor" href="#_mainDisplay">#</a>
-			<code><a href="source-class-Modules.Module.html#209-232" title="Go to source code">mainDisplay</a>( )</code>
+			<code><a href="source-class-Modules.Module.html#307-330" title="Go to source code">mainDisplay</a>( )</code>
 
 			<div class="description short">
 				
@@ -440,7 +592,7 @@ correctement, les fonctions appelées doivent être nommées 'module'.$Page
 
 			<td class="name"><div>
 			<a class="anchor" href="#_inDb">#</a>
-			<code><a href="source-class-Modules.Module.html#234-247" title="Go to source code">inDb</a>( )</code>
+			<code><a href="source-class-Modules.Module.html#332-345" title="Go to source code">inDb</a>( )</code>
 
 			<div class="description short">
 				
@@ -459,7 +611,7 @@ cas</p>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>boolean</code><br />
+						<code>boolean</code><br>
 					</div>
 
 
@@ -479,7 +631,7 @@ cas</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_defineSettings">#</a>
-			<code><a href="source-class-Modules.Module.html#249-256" title="Go to source code">defineSettings</a>( )</code>
+			<code><a href="source-class-Modules.Module.html#347-354" title="Go to source code">defineSettings</a>( )</code>
 
 			<div class="description short">
 				
@@ -515,7 +667,7 @@ objets Field (sans quoi on ne pourra pas créer d'écran de paramétrage)</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_populateSettings">#</a>
-			<code><a href="source-class-Modules.Module.html#258-286" title="Go to source code">populateSettings</a>( )</code>
+			<code><a href="source-class-Modules.Module.html#356-384" title="Go to source code">populateSettings</a>( )</code>
 
 			<div class="description short">
 				
@@ -535,7 +687,7 @@ valeurs stockées en bdd</p>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>boolean</code><br />
+						<code>boolean</code><br>
 					</div>
 
 
@@ -555,7 +707,7 @@ valeurs stockées en bdd</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_manageModuleButtons">#</a>
-			<code><a href="source-class-Modules.Module.html#288-298" title="Go to source code">manageModuleButtons</a>( )</code>
+			<code><a href="source-class-Modules.Module.html#386-397" title="Go to source code">manageModuleButtons</a>( )</code>
 
 			<div class="description short">
 				
@@ -588,7 +740,7 @@ valeurs stockées en bdd</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_moduleSettings">#</a>
-			<code><a href="source-class-Modules.Module.html#300-351" title="Go to source code">moduleSettings</a>( )</code>
+			<code><a href="source-class-Modules.Module.html#399-450" title="Go to source code">moduleSettings</a>( )</code>
 
 			<div class="description short">
 				
@@ -621,7 +773,7 @@ valeurs stockées en bdd</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_moduleACL">#</a>
-			<code><a href="source-class-Modules.Module.html#353-358" title="Go to source code">moduleACL</a>( )</code>
+			<code><a href="source-class-Modules.Module.html#452-457" title="Go to source code">moduleACL</a>( )</code>
 
 			<div class="description short">
 				
@@ -654,7 +806,7 @@ valeurs stockées en bdd</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_saveSettings">#</a>
-			<code><a href="source-class-Modules.Module.html#360-405" title="Go to source code">saveSettings</a>( )</code>
+			<code><a href="source-class-Modules.Module.html#459-504" title="Go to source code">saveSettings</a>( )</code>
 
 			<div class="description short">
 				
@@ -671,7 +823,7 @@ valeurs stockées en bdd</p>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>boolean</code><br />
+						<code>boolean</code><br>
 					</div>
 
 
@@ -691,7 +843,7 @@ valeurs stockées en bdd</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_saveDbTables">#</a>
-			<code><a href="source-class-Modules.Module.html#407-441" title="Go to source code">saveDbTables</a>( <span>array <var>$tables</var></span> )</code>
+			<code><a href="source-class-Modules.Module.html#506-540" title="Go to source code">saveDbTables</a>( <span>array <var>$tables</var></span> )</code>
 
 			<div class="description short">
 				
@@ -715,13 +867,13 @@ etc))</dd>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>boolean</code><br />
+						<code>boolean</code><br>
 					</div>
 
 
 					<h4>See</h4>
 					<div class="list">
-							\Db\Db-&gt;createTable pour la structure des tables dans $this-&gt;dbTables<br />
+							\Db\Db-&gt;createTable pour la structure des tables dans $this-&gt;dbTables<br>
 					</div>
 
 
@@ -739,7 +891,7 @@ etc))</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_saveDbSettings">#</a>
-			<code><a href="source-class-Modules.Module.html#443-493" title="Go to source code">saveDbSettings</a>( )</code>
+			<code><a href="source-class-Modules.Module.html#542-592" title="Go to source code">saveDbSettings</a>( )</code>
 
 			<div class="description short">
 				
@@ -762,7 +914,7 @@ UPDATE), sinon ça l'ajoute.</p>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>boolean</code><br />
+						<code>boolean</code><br>
 					</div>
 
 
@@ -782,7 +934,7 @@ UPDATE), sinon ça l'ajoute.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_delUsersSettings">#</a>
-			<code><a href="source-class-Modules.Module.html#495-502" title="Go to source code">delUsersSettings</a>( )</code>
+			<code><a href="source-class-Modules.Module.html#594-601" title="Go to source code">delUsersSettings</a>( )</code>
 
 			<div class="description short">
 				
@@ -799,7 +951,7 @@ UPDATE), sinon ça l'ajoute.</p>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>boolean</code><br />
+						<code>boolean</code><br>
 					</div>
 
 
@@ -819,7 +971,7 @@ UPDATE), sinon ça l'ajoute.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_install">#</a>
-			<code><a href="source-class-Modules.Module.html#504-528" title="Go to source code">install</a>( )</code>
+			<code><a href="source-class-Modules.Module.html#603-627" title="Go to source code">install</a>( )</code>
 
 			<div class="description short">
 				
@@ -836,7 +988,149 @@ UPDATE), sinon ça l'ajoute.</p>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>boolean</code><br />
+						<code>boolean</code><br>
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="checkUpdate" id="_checkUpdate">
+
+			<td class="attributes"><code>
+				 protected 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_checkUpdate">#</a>
+			<code><a href="source-class-Modules.Module.html#629-641" title="Go to source code">checkUpdate</a>( )</code>
+
+			<div class="description short">
+				
+<p>Teste si la version du module est la plus récente en base de données et
+exécute des opérations de mise à jour du module (souvent des manipulations en
+base de données) le cas échéant.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Teste si la version du module est la plus récente en base de données et
+exécute des opérations de mise à jour du module (souvent des manipulations en
+base de données) le cas échéant.</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br>
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getUpgradeQueries" id="_getUpgradeQueries">
+
+			<td class="attributes"><code>
+				 protected 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getUpgradeQueries">#</a>
+			<code><a href="source-class-Modules.Module.html#643-661" title="Go to source code">getUpgradeQueries</a>( )</code>
+
+			<div class="description short">
+				
+<p>Commandes SQL de mise à jour du schéma de BD du module Exemple : array(<br
+/>
+'1.0' =&gt; array(<br />
+'CREATE TABLE IF NOT EXISTS <code>global_settings</code> (<code>id</code> int(6)
+NOT NULL AUTO_INCREMENT, <code>setting</code> varchar(150) NOT NULL,
+<code>value</code> varchar(255) NOT NULL, PRIMARY KEY (<code>id</code>), UNIQUE
+KEY <code>setting</code> (<code>setting</code>)) ENGINE=InnoDB DEFAULT
+CHARSET=utf8',<br />
+'INSERT INTO <code>global_settings</code> (<code>setting</code>,
+<code>value</code>) VALUES ("poulpe2DbVersion", "0") ON DUPLICATE KEY UPDATE
+<code>value</code> = 0',<br />
+'ALTER TABLE <code>modules</code> ADD <code>version</code> VARCHAR( 15 ) NOT
+NULL DEFAULT "0" COMMENT "Version du module"' ),<br />
+'1.1' =&gt; array(<br />
+'ALTER TABLE <code>modules</code> ADD <code>pingouin</code> VARCHAR( 15 )
+DEFAULT NULL' ) );</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Commandes SQL de mise à jour du schéma de BD du module Exemple : array(
+'1.0' =&gt; array( 'CREATE TABLE IF NOT EXISTS <code>global_settings</code>
+(<code>id</code> int(6) NOT NULL AUTO_INCREMENT, <code>setting</code>
+varchar(150) NOT NULL, <code>value</code> varchar(255) NOT NULL, PRIMARY KEY
+(<code>id</code>), UNIQUE KEY <code>setting</code> (<code>setting</code>))
+ENGINE=InnoDB DEFAULT CHARSET=utf8', 'INSERT INTO <code>global_settings</code>
+(<code>setting</code>, <code>value</code>) VALUES ("poulpe2DbVersion", "0") ON
+DUPLICATE KEY UPDATE <code>value</code> = 0', 'ALTER TABLE <code>modules</code>
+ADD <code>version</code> VARCHAR( 15 ) NOT NULL DEFAULT "0" COMMENT "Version du
+module"' ), '1.1' =&gt; array( 'ALTER TABLE <code>modules</code> ADD
+<code>pingouin</code> VARCHAR( 15 ) DEFAULT NULL' ) );</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array</code><br>
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="runUpdateScript" id="_runUpdateScript">
+
+			<td class="attributes"><code>
+				 protected 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_runUpdateScript">#</a>
+			<code><a href="source-class-Modules.Module.html#663-669" title="Go to source code">runUpdateScript</a>( )</code>
+
+			<div class="description short">
+				
+<p>Effectue des opérations (ne comprenant pas les mises à jour de schéma de
+base de données) pour mettre à jour un module</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Effectue des opérations (ne comprenant pas les mises à jour de schéma de
+base de données) pour mettre à jour un module</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br>
 					</div>
 
 
@@ -856,7 +1150,7 @@ UPDATE), sinon ça l'ajoute.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getName">#</a>
-			<code><a href="source-class-Modules.Module.html#530-536" title="Go to source code">getName</a>( )</code>
+			<code><a href="source-class-Modules.Module.html#671-677" title="Go to source code">getName</a>( )</code>
 
 			<div class="description short">
 				
@@ -873,7 +1167,7 @@ UPDATE), sinon ça l'ajoute.</p>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>string</code><br />
+						<code>string</code><br>
 					</div>
 
 
@@ -893,7 +1187,7 @@ UPDATE), sinon ça l'ajoute.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getTitle">#</a>
-			<code><a href="source-class-Modules.Module.html#538-544" title="Go to source code">getTitle</a>( )</code>
+			<code><a href="source-class-Modules.Module.html#679-685" title="Go to source code">getTitle</a>( )</code>
 
 			<div class="description short">
 				
@@ -910,7 +1204,7 @@ UPDATE), sinon ça l'ajoute.</p>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>string</code><br />
+						<code>string</code><br>
 					</div>
 
 
@@ -930,7 +1224,7 @@ UPDATE), sinon ça l'ajoute.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getId">#</a>
-			<code><a href="source-class-Modules.Module.html#546-552" title="Go to source code">getId</a>( )</code>
+			<code><a href="source-class-Modules.Module.html#687-693" title="Go to source code">getId</a>( )</code>
 
 			<div class="description short">
 				
@@ -947,7 +1241,7 @@ UPDATE), sinon ça l'ajoute.</p>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>integer</code><br />
+						<code>integer</code><br>
 					</div>
 
 
@@ -967,7 +1261,7 @@ UPDATE), sinon ça l'ajoute.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getDbTables">#</a>
-			<code><a href="source-class-Modules.Module.html#554-560" title="Go to source code">getDbTables</a>( )</code>
+			<code><a href="source-class-Modules.Module.html#695-701" title="Go to source code">getDbTables</a>( )</code>
 
 			<div class="description short">
 				
@@ -984,8 +1278,41 @@ UPDATE), sinon ça l'ajoute.</p>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code><code><a href="class-Db.DbTable.html">Db\DbTable</a>[]</code></code><br />
+						<code><code><a href="class-Db.DbTable.html">Db\DbTable</a>[]</code></code><br>
 					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="runAPI" id="_runAPI">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_runAPI">#</a>
+			<code><a href="source-class-Modules.Module.html#703-708" title="Go to source code">runAPI</a>( )</code>
+
+			<div class="description short">
+				
+<p>Traite une requête envoyée par API</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Traite une requête envoyée par API</p>
+
+
+
+
 
 
 
@@ -1015,7 +1342,7 @@ UPDATE), sinon ça l'ajoute.</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Modules.Module.html#35-39" title="Go to source code"><var>$id</var></a>
+					<a href="source-class-Modules.Module.html#36-40" title="Go to source code"><var>$id</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$id" class="anchor">#</a>
@@ -1041,7 +1368,7 @@ UPDATE), sinon ça l'ajoute.</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Modules.Module.html#41-45" title="Go to source code"><var>$name</var></a>
+					<a href="source-class-Modules.Module.html#42-46" title="Go to source code"><var>$name</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$name" class="anchor">#</a>
@@ -1067,7 +1394,7 @@ UPDATE), sinon ça l'ajoute.</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Modules.Module.html#47-51" title="Go to source code"><var>$title</var></a>
+					<a href="source-class-Modules.Module.html#48-52" title="Go to source code"><var>$title</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$title" class="anchor">#</a>
@@ -1093,7 +1420,7 @@ UPDATE), sinon ça l'ajoute.</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Modules.Module.html#53-57" title="Go to source code"><var>$settings</var></a>
+					<a href="source-class-Modules.Module.html#54-58" title="Go to source code"><var>$settings</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$settings" class="anchor">#</a>
@@ -1119,7 +1446,7 @@ UPDATE), sinon ça l'ajoute.</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Modules.Module.html#59-63" title="Go to source code"><var>$allowUsersSettings</var></a>
+					<a href="source-class-Modules.Module.html#60-64" title="Go to source code"><var>$allowUsersSettings</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$allowUsersSettings" class="anchor">#</a>
@@ -1145,7 +1472,7 @@ UPDATE), sinon ça l'ajoute.</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Modules.Module.html#65-69" title="Go to source code"><var>$dbTables</var></a>
+					<a href="source-class-Modules.Module.html#66-70" title="Go to source code"><var>$dbTables</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$dbTables" class="anchor">#</a>
@@ -1171,7 +1498,7 @@ UPDATE), sinon ça l'ajoute.</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Modules.Module.html#71-75" title="Go to source code"><var>$breadCrumb</var></a>
+					<a href="source-class-Modules.Module.html#72-76" title="Go to source code"><var>$breadCrumb</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$breadCrumb" class="anchor">#</a>
@@ -1197,7 +1524,7 @@ UPDATE), sinon ça l'ajoute.</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Modules.Module.html#77-81" title="Go to source code"><var>$postedData</var></a>
+					<a href="source-class-Modules.Module.html#78-82" title="Go to source code"><var>$postedData</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$postedData" class="anchor">#</a>
@@ -1223,7 +1550,7 @@ UPDATE), sinon ça l'ajoute.</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Modules.Module.html#83-90" title="Go to source code"><var>$url</var></a>
+					<a href="source-class-Modules.Module.html#84-91" title="Go to source code"><var>$url</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$url" class="anchor">#</a>
@@ -1239,6 +1566,32 @@ UPDATE), sinon ça l'ajoute.</p>
 <p>URL de la page principale du module</p>
 
 <p>Cette adresse est définie automatiquement</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="version" id="$version">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Modules.Module.html#93-98" title="Go to source code"><var>$version</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$version" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Version du module</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Version du module</p>
 
 
 				</div>

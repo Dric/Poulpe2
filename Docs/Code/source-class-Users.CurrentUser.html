@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.8.0" />
-	<meta name="robots" content="noindex" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+	<meta name="robots" content="noindex">
 
 	<title>File classes/Users/CurrentUser.php</title>
 
-	<script type="text/javascript" src="resources/combined.js?522072721"></script>
-	<script type="text/javascript" src="elementlist.js?1088796348"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+	<script type="text/javascript" src="resources/combined.js?1467300313"></script>
+	<script type="text/javascript" src="elementlist.js?2065545106"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822">
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609">
 
 </head>
 
@@ -44,9 +44,9 @@
 	<div id="left">
 	<div id="menu">
 		<form id="search" class="form-search">
-			<input type="hidden" name="cx" value="" />
-			<input type="hidden" name="ie" value="UTF-8" />
-			<input type="text" name="q" class="search-query" placeholder="Search" />
+			<input type="hidden" name="cx" value="">
+			<input type="hidden" name="ie" value="UTF-8">
+			<input type="text" name="q" class="search-query" placeholder="Search">
 		</form>
 
 
@@ -54,6 +54,10 @@
 			<h3>Namespaces</h3>
 			<ul>
 				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-API.html">API</a>
+						</li>
+				<li><a href="namespace-Charts.html">Charts</a>
 						</li>
 				<li><a href="namespace-Components.html">Components</a>
 						</li>
@@ -78,6 +82,29 @@
 						</li>
 				<li><a href="namespace-PHP.html">PHP</a>
 						</li>
+				<li><a href="namespace-phpseclib.html">phpseclib<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.Crypt.html">Crypt</a>
+						</li>
+				<li><a href="namespace-phpseclib.File.html">File<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.File.ASN1.html">ASN1</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-phpseclib.Math.html">Math</a>
+						</li>
+				<li><a href="namespace-phpseclib.Net.html">Net<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.Net.SFTP.html">SFTP</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-phpseclib.System.html">System<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.System.SSH.html">SSH<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.System.SSH.Agent.html">Agent</a>
+						</li>
+							</ul></li></ul></li></ul></li>
 				<li><a href="namespace-Profiles.html">Profiles</a>
 						</li>
 				<li><a href="namespace-Settings.html">Settings</a>
@@ -149,7 +176,7 @@
 </span><span id="36" class="l"><a class="l" href="#36">36 </a>        <span class="php-keyword1">if</span> (<span class="php-var">$cookie</span> !== <span class="php-keyword1">false</span> <span class="php-keyword1">and</span> Login::isLoggedIn(<span class="php-var">$cookie</span>-&gt;id)){
 </span><span id="37" class="l"><a class="l" href="#37">37 </a>            <span class="php-keyword1">if</span> (DETAILED_DEBUG) <span class="php-keyword1">new</span> Alert(<span class="php-quote">'debug'</span>, <span class="php-quote">'&lt;code&gt;CurrentUser constructor&lt;/code&gt; : Authentification réussie par le cookie !'</span>);
 </span><span id="38" class="l"><a class="l" href="#38">38 </a>            <span class="php-comment">// On appelle la construction de la classe User</span>
-</span><span id="39" class="l"><a class="l" href="#39">39 </a>            parent::__construct(<span class="php-var">$cookie</span>-&gt;id);
+</span><span id="39" class="l"><a class="l" href="#39">39 </a>            parent::__construct(<span class="php-var">$cookie</span>-&gt;id, <span class="php-num">1</span>);
 </span><span id="40" class="l"><a class="l" href="#40">40 </a>            <span class="php-var">$this</span>-&gt;isLoggedIn = <span class="php-keyword1">true</span>;
 </span><span id="41" class="l"><a class="l" href="#41">41 </a>
 </span><span id="42" class="l"><a class="l" href="#42">42 </a>        }<span class="php-keyword1">else</span>{
@@ -175,7 +202,26 @@
 </span><span id="62" class="l"><a class="l" href="#62">62 </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;pwd;
 </span><span id="63" class="l"><a class="l" href="#63">63 </a>    }
 </span><span id="64" class="l"><a class="l" href="#64">64 </a>
-</span><span id="65" class="l"><a class="l" href="#65">65 </a></span>} </code></pre>
+</span><span id="65" class="l"><a class="l" href="#65">65 </a>    <span class="php-comment">/**
+</span></span><span id="66" class="l"><a class="l" href="#66">66 </a><span class="php-comment">     * Retourne la dernière connexion à LDAP de l'utilisateur actuel
+</span></span><span id="67" class="l"><a class="l" href="#67">67 </a><span class="php-comment">     * @return int
+</span></span><span id="68" class="l"><a class="l" href="#68">68 </a><span class="php-comment">     */</span>
+</span><span id="69" class="l"><a class="l" href="#69">69 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_getLDAPLastLogon" href="#_getLDAPLastLogon">getLDAPLastLogon</a>(){
+</span><span id="70" class="l"><a class="l" href="#70">70 </a>        <span class="php-keyword1">global</span> <span class="php-var">$ldap</span>;
+</span><span id="71" class="l"><a class="l" href="#71">71 </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword1">isset</span>(<span class="php-var">$this</span>-&gt;LDAPLastLogon)) <span class="php-var">$this</span>-&gt;LDAPLastLogon = <span class="php-var">$ldap</span>-&gt;lastLogon(<span class="php-var">$this</span>-&gt;name);
+</span><span id="72" class="l"><a class="l" href="#72">72 </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;LDAPLastLogon;
+</span><span id="73" class="l"><a class="l" href="#73">73 </a>    }
+</span><span id="74" class="l"><a class="l" href="#74">74 </a>
+</span><span id="75" class="l"><a class="l" href="#75">75 </a>    <span class="php-comment">/**
+</span></span><span id="76" class="l"><a class="l" href="#76">76 </a><span class="php-comment">     * Retourne les groupes LDAP dont fait partie l'utilisateur actuel
+</span></span><span id="77" class="l"><a class="l" href="#77">77 </a><span class="php-comment">     * @return array|bool
+</span></span><span id="78" class="l"><a class="l" href="#78">78 </a><span class="php-comment">     */</span>
+</span><span id="79" class="l"><a class="l" href="#79">79 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_getLDAPUserMembership" href="#_getLDAPUserMembership">getLDAPUserMembership</a>(){
+</span><span id="80" class="l"><a class="l" href="#80">80 </a>        <span class="php-keyword1">global</span> <span class="php-var">$ldap</span>;
+</span><span id="81" class="l"><a class="l" href="#81">81 </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword1">isset</span>(<span class="php-var">$this</span>-&gt;LDAPUserMembership)) <span class="php-var">$this</span>-&gt;LDAPUserMembership = <span class="php-var">$ldap</span>-&gt;userMembership(<span class="php-var">$this</span>-&gt;name);
+</span><span id="82" class="l"><a class="l" href="#82">82 </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;LDAPUserMembership;
+</span><span id="83" class="l"><a class="l" href="#83">83 </a>    }
+</span><span id="84" class="l"><a class="l" href="#84">84 </a></span>} </code></pre>
 	</div>
 
 	<div id="footer">

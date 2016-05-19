@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.8.0" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Class Forms\Field</title>
 
-	<script type="text/javascript" src="resources/combined.js?522072721"></script>
-	<script type="text/javascript" src="elementlist.js?1088796348"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+	<script type="text/javascript" src="resources/combined.js?1467300313"></script>
+	<script type="text/javascript" src="elementlist.js?2065545106"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822">
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609">
 
 </head>
 
@@ -42,9 +42,9 @@
 	<div id="left">
 	<div id="menu">
 		<form id="search" class="form-search">
-			<input type="hidden" name="cx" value="" />
-			<input type="hidden" name="ie" value="UTF-8" />
-			<input type="text" name="q" class="search-query" placeholder="Search" />
+			<input type="hidden" name="cx" value="">
+			<input type="hidden" name="ie" value="UTF-8">
+			<input type="text" name="q" class="search-query" placeholder="Search">
 		</form>
 
 
@@ -52,6 +52,10 @@
 			<h3>Namespaces</h3>
 			<ul>
 				<li><a href="namespace-Admin.html">Admin</a>
+						</li>
+				<li><a href="namespace-API.html">API</a>
+						</li>
+				<li><a href="namespace-Charts.html">Charts</a>
 						</li>
 				<li><a href="namespace-Components.html">Components</a>
 						</li>
@@ -76,6 +80,29 @@
 						</li>
 				<li><a href="namespace-PHP.html">PHP</a>
 						</li>
+				<li><a href="namespace-phpseclib.html">phpseclib<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.Crypt.html">Crypt</a>
+						</li>
+				<li><a href="namespace-phpseclib.File.html">File<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.File.ASN1.html">ASN1</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-phpseclib.Math.html">Math</a>
+						</li>
+				<li><a href="namespace-phpseclib.Net.html">Net<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.Net.SFTP.html">SFTP</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-phpseclib.System.html">System<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.System.SSH.html">SSH<span></span></a>
+						<ul>
+				<li><a href="namespace-phpseclib.System.SSH.Agent.html">Agent</a>
+						</li>
+							</ul></li></ul></li></ul></li>
 				<li><a href="namespace-Profiles.html">Profiles</a>
 						</li>
 				<li><a href="namespace-Settings.html">Settings</a>
@@ -126,7 +153,7 @@
 			
 		</dd>
 		<dd style="padding-left:30px">
-			<img src="resources/inherit.png" alt="Extended by" />
+			<img src="resources/inherit.png" alt="Extended by">
 <b><span>Forms\Field</span></b>			
 			
 			
@@ -174,13 +201,13 @@
 	<div class="alert alert-info">
 		
 		
-		<b>Namespace:</b> <a href="namespace-Forms.html">Forms</a><br />
-		<b>Package:</b> Forms<br />
+		<b>Namespace:</b> <a href="namespace-Forms.html">Forms</a><br>
+		<b>Package:</b> Forms<br>
 
 				<b>Warning:</b>
 				Cette classe ne doit pas être utilisée directement, utilisez plutôt ses
-sous-classes<br />
-		<b>Located at</b> <a href="source-class-Forms.Field.html#15-349" title="Go to source code">classes/Forms/Field.php</a><br />
+sous-classes<br>
+		<b>Located at</b> <a href="source-class-Forms.Field.html#15-357" title="Go to source code">classes/Forms/Field.php</a><br>
 	</div>
 
 
@@ -227,7 +254,7 @@ sous-classes<br />
 						<dt><var>$help</var></dt>
 						<dd><code>string</code><br>$help Message d'aide du champ - facultatif</dd>
 						<dt><var>$pattern</var></dt>
-						<dd><code><code><a href="class-Forms.Pattern.html">Forms\Pattern</a></code></code><br>$pattern Validation de saisie</dd>
+						<dd><code><code><a href="class-Db.DbFieldSettings.html">Db\DbFieldSettings</a></code>|<code><a href="class-Forms.Pattern.html">Forms\Pattern</a></code></code><br>$pattern Validation de saisie</dd>
 						<dt><var>$important</var></dt>
 						<dd><code>boolean</code><br>$important Paramètre à signaler comme étant important</dd>
 						<dt><var>$ACLLevel</var></dt>
@@ -433,7 +460,7 @@ obligatoire</p>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>string</code><br />
+						<code>string</code><br>
 					</div>
 
 
@@ -446,7 +473,7 @@ obligatoire</p>
 
 			<td class="attributes"><code>
 				 public 
-				<code><a href="class-Forms.Pattern.html">Forms\Pattern</a></code>
+				<code><a href="class-Forms.Pattern.html">Forms\Pattern</a></code>|<code><a href="class-Db.DbFieldSettings.html">Db\DbFieldSettings</a></code>
 				
 				</code>
 			</td>
@@ -470,7 +497,7 @@ obligatoire</p>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code><code><a href="class-Forms.Pattern.html">Forms\Pattern</a></code></code><br />
+						<code><code><a href="class-Forms.Pattern.html">Forms\Pattern</a></code>|<code><a href="class-Db.DbFieldSettings.html">Db\DbFieldSettings</a></code></code><br>
 					</div>
 
 
@@ -509,7 +536,7 @@ obligatoire</p>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code><code><a href="class-Db.DbFieldSettings.html">Db\DbFieldSettings</a></code></code><br />
+						<code><code><a href="class-Db.DbFieldSettings.html">Db\DbFieldSettings</a></code></code><br>
 					</div>
 
 
@@ -548,7 +575,7 @@ obligatoire</p>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>string</code><br />
+						<code>string</code><br>
 					</div>
 
 
@@ -585,7 +612,7 @@ obligatoire</p>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>string</code><br />
+						<code>string</code><br>
 					</div>
 
 
@@ -622,7 +649,7 @@ obligatoire</p>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>null|string</code><br />
+						<code>null|string</code><br>
 					</div>
 
 
@@ -659,7 +686,7 @@ obligatoire</p>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>string</code><br />
+						<code>string</code><br>
 					</div>
 
 
@@ -696,7 +723,7 @@ obligatoire</p>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>boolean</code><br />
+						<code>boolean</code><br>
 					</div>
 
 
@@ -733,8 +760,46 @@ obligatoire</p>
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>boolean</code><br />
+						<code>boolean</code><br>
 					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setHelp" id="_setHelp">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setHelp">#</a>
+			<code><a href="source-class-Forms.Field.html#293-299" title="Go to source code">setHelp</a>( <span>string <var>$help</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Définit l'aide du champ</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Définit l'aide du champ</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$help</var></dt>
+						<dd><code>string</code><br>$help</dd>
+					</dl></div>
+
 
 
 
@@ -753,7 +818,7 @@ obligatoire</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_setUserValue">#</a>
-			<code><a href="source-class-Forms.Field.html#293-302" title="Go to source code">setUserValue</a>( <span>mixed <var>$userValue</var></span> )</code>
+			<code><a href="source-class-Forms.Field.html#301-310" title="Go to source code">setUserValue</a>( <span>mixed <var>$userValue</var></span> )</code>
 
 			<div class="description short">
 				
@@ -793,7 +858,7 @@ obligatoire</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_setValue">#</a>
-			<code><a href="source-class-Forms.Field.html#304-312" title="Go to source code">setValue</a>( <span>mixed <var>$value</var></span> )</code>
+			<code><a href="source-class-Forms.Field.html#312-320" title="Go to source code">setValue</a>( <span>mixed <var>$value</var></span> )</code>
 
 			<div class="description short">
 				
@@ -833,7 +898,7 @@ obligatoire</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_setDisabled">#</a>
-			<code><a href="source-class-Forms.Field.html#314-320" title="Go to source code">setDisabled</a>( <span>boolean <var>$disabled</var> = <span class="php-keyword1">true</span></span> )</code>
+			<code><a href="source-class-Forms.Field.html#322-328" title="Go to source code">setDisabled</a>( <span>boolean <var>$disabled</var> = <span class="php-keyword1">true</span></span> )</code>
 
 			<div class="description short">
 				
@@ -873,7 +938,7 @@ obligatoire</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_addClass">#</a>
-			<code><a href="source-class-Forms.Field.html#322-328" title="Go to source code">addClass</a>( <span>string <var>$class</var></span> )</code>
+			<code><a href="source-class-Forms.Field.html#330-336" title="Go to source code">addClass</a>( <span>string <var>$class</var></span> )</code>
 
 			<div class="description short">
 				
@@ -911,7 +976,7 @@ obligatoire</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_setImportant">#</a>
-			<code><a href="source-class-Forms.Field.html#330-336" title="Go to source code">setImportant</a>( <span>boolean <var>$important</var> = <span class="php-keyword1">true</span></span> )</code>
+			<code><a href="source-class-Forms.Field.html#338-344" title="Go to source code">setImportant</a>( <span>boolean <var>$important</var> = <span class="php-keyword1">true</span></span> )</code>
 
 			<div class="description short">
 				
@@ -949,7 +1014,7 @@ obligatoire</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_setPattern">#</a>
-			<code><a href="source-class-Forms.Field.html#338-345" title="Go to source code">setPattern</a>( <span><code><a href="class-Db.DbFieldSettings.html">Db\DbFieldSettings</a></code>|<code><a href="class-Forms.Pattern.html">Forms\Pattern</a></code> <var>$pattern</var></span> )</code>
+			<code><a href="source-class-Forms.Field.html#346-353" title="Go to source code">setPattern</a>( <span><code><a href="class-Db.DbFieldSettings.html">Db\DbFieldSettings</a></code>|<code><a href="class-Forms.Pattern.html">Forms\Pattern</a></code> <var>$pattern</var></span> )</code>
 
 			<div class="description short">
 				
@@ -981,6 +1046,7 @@ obligatoire</p>
 		<h3>Methods inherited from <a href="class-Settings.Setting.html#methods">Settings\Setting</a></h3>
 		<p class="elementList">
 			<code><a href="class-Settings.Setting.html#_getCategory">getCategory()</a></code>, 
+			<code><a href="class-Settings.Setting.html#_getDbType">getDbType()</a></code>, 
 			<code><a href="class-Settings.Setting.html#_getId">getId()</a></code>, 
 			<code><a href="class-Settings.Setting.html#_getName">getName()</a></code>, 
 			<code><a href="class-Settings.Setting.html#_getType">getType()</a></code>, 
@@ -1057,7 +1123,7 @@ obligatoire</p>
 		<tr data-order="pattern" id="$pattern">
 			<td class="attributes"><code>
 				protected  
-				<code><a href="class-Forms.Pattern.html">Forms\Pattern</a></code>|<code><a href="class-Db.DbFieldSettings.html">Db\DbFieldSettings</a></code>
+				<code><a href="class-Db.DbFieldSettings.html">Db\DbFieldSettings</a></code>|<code><a href="class-Forms.Pattern.html">Forms\Pattern</a></code>
 			</code></td>
 
 			<td class="name">
@@ -1239,7 +1305,7 @@ données</p>
 
 						<h4>See</h4>
 						<div class="list">
-								<code><code><a href="class-Users.ACL.html">Users\ACL</a></code></code><br />
+								<code><code><a href="class-Users.ACL.html">Users\ACL</a></code></code><br>
 						</div>
 				</div>
 			</div></td>
