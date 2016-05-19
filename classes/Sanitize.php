@@ -360,4 +360,58 @@ class Sanitize {
 		return $string;
 	}
 
+	/**
+	 * Chiffre une chaîne de caractères avec la clé de salage
+	 *
+	 * @from http://stackoverflow.com/a/1289114/1749967
+	 *
+	 * @param string $string Chaîne à chiffrer
+	 *
+	 * @return string Chaîne chiffrée
+	 */
+	public static function encryptData($string){
+		$iv = mcrypt_create_iv(
+			mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC),
+			MCRYPT_DEV_URANDOM
+		);
+
+		$encrypted = base64_encode(
+			$iv .
+			mcrypt_encrypt(
+				MCRYPT_RIJNDAEL_128,
+				hash('sha256', SALT_AUTH, true),
+				$string,
+				MCRYPT_MODE_CBC,
+				$iv
+			)
+		);
+		return $encrypted;
+	}
+
+	/**
+	 * Déchiffre une chaîne de caracères avec la clé de salage
+	 *
+	 * @from http://stackoverflow.com/a/1289114/1749967
+	 *
+	 * @param string $string Chaîne à déchiffrer
+	 *
+	 * @return string Chaîne en clair
+	 */
+	public static function decryptData($string){
+		$data = base64_decode($string);
+		$iv = substr($data, 0, mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC));
+
+		$decrypted = rtrim(
+			mcrypt_decrypt(
+				MCRYPT_RIJNDAEL_128,
+				hash('sha256', SALT_AUTH, true),
+				substr($data, mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC)),
+				MCRYPT_MODE_CBC,
+				$iv
+			),
+			"\0"
+		);
+		return $decrypted;
+	}
+
 }

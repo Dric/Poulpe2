@@ -27,6 +27,7 @@ use Logs\Alert;
 use Modules\Module;
 use Modules\ModulesManagement;
 use Forms\Form;
+use Settings\Setting;
 use Users\ACL;
 use Users\User;
 
@@ -59,6 +60,11 @@ class PostIt extends Module{
 	 * @var bool
 	 */
 	protected $allowUsersSettings = true;
+	/**
+	 * Version du module
+	 * @var string
+	 */
+	protected $version = '2.0';
 
 	/**
 	 * Instantiation du module
@@ -91,6 +97,31 @@ class PostIt extends Module{
 			'value' => true
 		);
 		return ModulesManagement::installModule($this, $defaultACL);
+	}
+
+	/**
+	 * Effectue des opérations (ne comprenant pas les mises à jour de schéma de base de données) pour mettre à jour un module
+	 * @return bool
+	 */
+	protected function runUpdateScript(){
+		global $db;
+		if (version_compare($_SESSION['modulesVersion'][$this->id], '2.0', '<')){
+			$posts = $db->get('module_postit');
+			new Alert('warning', 'Mise à jour du module en version <code>2.0</code>.<br>Les <strong>'.count($posts).'</strong> post-It vont être chiffrés, cela peut prendre un certain temps...');
+			$db->startTransaction();
+			foreach ($posts as $post){
+				$encryptedContent = \Sanitize::encryptData($post->content);
+				$ret = $db->update('module_postit', array('content' => $encryptedContent), array('id' => $post->id));
+				if ($ret === false) {
+					$db->rollBackTransaction();
+					new Alert('error', 'La mise à jour des post-It a été annulée ! Abandon de la mise à jour <code>2.0</code>.');
+					return false;
+				}
+			}
+			$db->commitTransaction();
+			new Alert('success', 'Le chiffrement des <strong>'.count($posts).'</strong> post-It s\'est correctement déroulé, fin de la mise à jour en version <code>2.0</code>.');
+		}
+		return true;
 	}
 
 	/**
@@ -411,7 +442,7 @@ class PostIt extends Module{
 			return false;
 		}
 
-		$fields['content'] = \Sanitize::SanitizeForDb($this->postedData['content'], false);
+		$fields['content'] = \Sanitize::encryptData(\Sanitize::SanitizeForDb($this->postedData['content'], false));
 		$fields['shared'] = \Sanitize::SanitizeForDb($this->postedData['shared']);
 		if (isset($this->postedData['id'])){
 			$fields['modified'] = time();

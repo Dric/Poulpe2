@@ -40,6 +40,7 @@ class Post {
 		if (is_object($content)){
 			$tab = (array)$content;
 			unset($content);
+			/* @var $content */
 			extract($tab);
 		}
 		$this->content = $content;
@@ -68,11 +69,11 @@ class Post {
 	 */
 	public function getContent($realValue = false) {
 		if (!$realValue){
-			$content = MarkdownExtra::defaultTransform(htmlspecialchars_decode($this->content));
+			$content = MarkdownExtra::defaultTransform(\Sanitize::decryptData(htmlspecialchars_decode($this->content)));
 			// Gestion des antislashes dans les balises code (les antislashes sont doublés dans ces cas-là par le système)
 			$content = str_replace('\\\\', '\\', $content);
 		}else{
-			$content = $this->content;
+			$content = \Sanitize::decryptData($this->content);
 		}
 		return $content;
 	}
