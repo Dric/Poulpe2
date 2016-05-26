@@ -261,23 +261,29 @@ class Module {
 						}
 						// Si les paramètres `item`, `id` ou `name` existent, on l'ajoute au fil d'ariane.
 						if (isset($_REQUEST['item']) or isset($this->postedData['item']) or isset($_REQUEST['id']) or isset($this->postedData['id']) or isset($_REQUEST['name']) or isset($this->postedData['name'])){
-
+							$link = ($subPage) ? $this->url.'&page='.$_REQUEST['page'].'&subPage='.$_REQUEST['subPage'] : $this->url.'&page='.$_REQUEST['page'];
 							if (isset($_REQUEST['item'])) {
 								$item = $_REQUEST['item'];
+								$link .= '&item='.$item;
 							}elseif(isset($this->postedData['item'])){
 								$item = $this->postedData['item'];
+								$link .= '&item='.$item;
 							}elseif (isset($_REQUEST['id'])){
 								$item = $_REQUEST['id'];
+								$link .= '&id='.$item;
 							}elseif(isset($this->postedData['id'])){
 								$item = $this->postedData['id'];
+								$link .= '&id='.$item;
 							}elseif(isset($this->postedData['name'])){
 								$item = $this->postedData['name'];
+								$link .= '&name='.$item;
 							}else{
 								$item = $_REQUEST['name'];
+								$link .= '&name='.$item;
 							}
 							$itemBreadCrumb = array(
 								'title' => $item,
-								'link'  => null
+								'link'  => $link
 							);
 							if ($subPage) {
 								$this->breadCrumb['children']['children']['children'] = $itemBreadCrumb;
