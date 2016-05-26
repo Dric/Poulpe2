@@ -43,7 +43,7 @@ class String extends Field{
 	 * @param bool    $autoComplete Activer l'auto-complétion (facultatif)
 	 */
 	public function __construct($name, $value = null, $label = null, $placeholder = null, $help = null, $pattern = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false, $autoComplete = true){
-		if (!empty($autoComplete)) $this->autoComplete = (bool)$autoComplete;
+		$this->autoComplete = (bool)$autoComplete;
 		parent::__construct($name, $this->type, $value, $label, $placeholder, $help, $pattern, $important, $ACLLevel, $class, $disabled);
 	}
 
