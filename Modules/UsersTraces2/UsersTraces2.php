@@ -152,38 +152,6 @@ class UsersTraces2 extends Module {
 	}
 
 	/**
-	 * Affichage du module
-	 *
-	 * L'affichage est redéfini dans ce module car les différentes pages demandées ont le même code (mais pas les mêmes paramètres) qu'il est plus simple de mutualiser.
-	 *
-	 * @return int
-	 */
-	public function initDisplay(){
-		if (!$this->getPage()) {
-			if (isset($_REQUEST['page'])) {
-				$subject = htmlspecialchars($_REQUEST['page']);
-				if (in_array($subject, array('server', 'user', 'client'))) {
-					$this->breadCrumb['children'] = array('title' => $subject, 'link' => $this->url . '&page=' . $subject
-					);
-					if (isset($_REQUEST[$subject])) {
-						$item                                     = htmlspecialchars($_REQUEST[$subject]);
-						$this->breadCrumb['children']['children'] = array('title' => $item, 'link' => $this->url . '&page=' . $subject . '&' . $subject . '=' . $item
-						);
-					}
-					Front::displayBreadCrumb($this->breadCrumb);
-					$this->displaySubjectLogs($subject);
-					return 0;
-				} else {
-					new Alert('error', 'La page demandée n\'existe pas !');
-				}
-			}
-			Front::displayBreadCrumb($this->breadCrumb);
-			$this->mainDisplay();
-		}
-		return null;
-	}
-
-	/**
 	 * Affichage principal
 	 */
 	protected function mainDisplay(){
@@ -206,6 +174,18 @@ class UsersTraces2 extends Module {
 	}
 
 	/********* Méthodes propres au module *********/
+
+	protected function moduleServer(){
+		$this->displaySubjectLogs('server');
+	}
+
+	protected function moduleUser(){
+		$this->displaySubjectLogs('user');
+	}
+
+	protected function moduleClient(){
+		$this->displaySubjectLogs('client');
+	}
 
 	/**
 	 * Collecte les événements au travers de l'API
@@ -485,10 +465,10 @@ class UsersTraces2 extends Module {
 			return false;
 		}
 		$req = $this->postedData;
-		if (isset($_REQUEST[$subject])){
-			$subjectName = htmlspecialchars($_REQUEST[$subject]);
-		}elseif(isset($req[$subject])){
-			$subjectName = $req[$subject];
+		if (isset($_REQUEST['item'])){
+			$subjectName = htmlspecialchars($_REQUEST['item']);
+		}elseif(isset($req['item'])){
+			$subjectName = $req['item'];
 		}else{
 			$subjectName = null;
 		}
@@ -550,7 +530,7 @@ class UsersTraces2 extends Module {
 	 */
 	protected function searchForm($subject, $searched = null){
 		$form = new Form($subject.'Search', null, null, 'module', $this->id, 'post', 'form-inline');
-		$form->addField(new String($subject, $searched, 'Nom', null, 'La recherche peut se faire sur le nom complet ou sur une partie de celui-ci', null, true, 'access', null, false, false));
+		$form->addField(new String('item', $searched, 'Nom', null, 'La recherche peut se faire sur le nom complet ou sur une partie de celui-ci', null, true, 'access', $subject, false, false));
 		$form->addField(new Hidden('subject', $subject, 'access'));
 		$form->addField(new Button('action', 'getInfo', 'Rechercher', 'access', 'btn-primary btn-sm'));
 		$form->display();
@@ -592,7 +572,7 @@ class UsersTraces2 extends Module {
 					<td data-order="<?php echo $event->timestamp; ?>"><?php echo \Sanitize::date($event->timestamp, 'fullDateTime'); ?></td>
 					<?php if ($subject != 'server') { ?>
 						<td>
-							<a class="tooltip-left" href="<?php echo $this->buildArgsURL(array('page' => 'server', 'server' => $event->server)); ?>" title="Voir toutes les connexions sur le serveur <?php echo $event->server; ?>">
+							<a class="tooltip-left" href="<?php echo $this->buildArgsURL(array('page' => 'server', 'item' => $event->server)); ?>" title="Voir toutes les connexions sur le serveur <?php echo $event->server; ?>">
 								<?php echo $event->server; ?>
 							</a>
 						</td>
@@ -635,14 +615,14 @@ class UsersTraces2 extends Module {
 
 					<?php if ($subject != 'user') { ?>
 						<td>
-							<a class="tooltip-left" href="<?php echo $this->buildArgsURL(array('page' => 'user', 'user' => $event->user)); ?>" title="Voir toutes les connexions de <?php echo $event->user; ?>">
+							<a class="tooltip-left" href="<?php echo $this->buildArgsURL(array('page' => 'user', 'item' => $event->user)); ?>" title="Voir toutes les connexions de <?php echo $event->user; ?>">
 								<?php echo $event->user; ?>
 							</a>
 						</td>
 					<?php } ?>
 					<?php if ($subject != 'client') { ?>
 						<td>
-							<a class="tooltip-left" href="<?php echo $this->buildArgsURL(array('page' => 'client', 'client' => $event->client)); ?>" title="Voir toutes les connexions effectuées depuis le poste <?php echo $event->client; ?>">
+							<a class="tooltip-left" href="<?php echo $this->buildArgsURL(array('page' => 'client', 'item' => $event->client)); ?>" title="Voir toutes les connexions effectuées depuis le poste <?php echo $event->client; ?>">
 								<?php echo ($event->client != '0') ? $event->client: ''; ?>
 							</a>
 						</td>

@@ -260,11 +260,18 @@ class Module {
 							);
 						}
 						// Si les paramètres `item`, `id` ou `name` existent, on l'ajoute au fil d'ariane.
-						if (isset($_REQUEST['item']) or isset($_REQUEST['id']) or isset($_REQUEST['name'])){
+						if (isset($_REQUEST['item']) or isset($this->postedData['item']) or isset($_REQUEST['id']) or isset($this->postedData['id']) or isset($_REQUEST['name']) or isset($this->postedData['name'])){
+
 							if (isset($_REQUEST['item'])) {
 								$item = $_REQUEST['item'];
+							}elseif(isset($this->postedData['item'])){
+								$item = $this->postedData['item'];
 							}elseif (isset($_REQUEST['id'])){
 								$item = $_REQUEST['id'];
+							}elseif(isset($this->postedData['id'])){
+								$item = $this->postedData['id'];
+							}elseif(isset($this->postedData['name'])){
+								$item = $this->postedData['name'];
 							}else{
 								$item = $_REQUEST['name'];
 							}
