@@ -347,7 +347,7 @@ class DenyAppAccess extends Module{
 				} elseif (strtolower(rtrim(substr($line, 0, 9))) == '$message' or strtolower(substr($line, 0, 19)) == '$messagemaintenance') {
 					$lineTab = explode('= ', $line);
 					$message = $lineTab[1];
-					$message = iconv("WINDOWS-1252", "UTF-8", $message);
+					//$message = iconv("WINDOWS-1252", "UTF-8", $message);
 					$message = str_replace('`n', PHP_EOL, $message);
 					//$message = str_replace(' & ', '', $message);
 					$app->setMaintenanceMessage(str_replace('"', '', $message));
@@ -359,7 +359,7 @@ class DenyAppAccess extends Module{
 				} elseif (strtolower(substr($line, 0, 12)) == '$messageinfo') {
 					$lineTab = explode('= ', $line);
 					$message = $lineTab[1];
-					$message = iconv("WINDOWS-1252", "UTF-8", $message);
+					//$message = iconv("WINDOWS-1252", "UTF-8", $message);
 					$message = str_replace('`n', PHP_EOL, $message);
 					//$message = str_replace(' & ', '', $message);
 					$app->setInfoMessage(str_replace('"', '', $message));
@@ -408,7 +408,8 @@ class DenyAppAccess extends Module{
 				if (strtolower(substr($line, 0, 12)) == '$maintenance') {
 					$line = '$Maintenance = ' . (($app->getMaintenance() == true) ? '$True' : '$False');
 				} elseif (strtolower(substr($line, 0, 19)) == '$messagemaintenance') {
-					$message = iconv("UTF-8", "WINDOWS-1252", $app->getMaintenanceMessage());
+					//$message = iconv("UTF-8", "WINDOWS-1252", $app->getMaintenanceMessage());
+					$message = $app->getMaintenanceMessage();
 					$message = str_replace("\r", '', $message);
 					$message = str_replace(PHP_EOL, '`n', $message);
 					// Le texte pouvant se terminer par un retour à la ligne, on supprime le dernier
@@ -417,7 +418,8 @@ class DenyAppAccess extends Module{
 				} elseif ($app->isInfoEnabled() and strtolower(substr($line, 0, 5)) == '$info') {
 					$line = '$Info = ' . (($app->getInfo() == true) ? '$True' : '$False');
 				} elseif ($app->isInfoEnabled() and strtolower(substr($line, 0, 12)) == '$messageinfo') {
-					$message = iconv("UTF-8", "WINDOWS-1252", $app->getInfoMessage());
+					//$message = iconv("UTF-8", "WINDOWS-1252", $app->getInfoMessage());
+					$message = $app->getInfoMessage();
 					$message = str_replace("\r", '', $message);
 					$message = str_replace(PHP_EOL, '`n', $message);
 					// Le texte pouvant se terminer par un retour à la ligne, on supprime le dernier
