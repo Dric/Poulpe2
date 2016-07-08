@@ -24,6 +24,7 @@ class File {
 	protected $dateModified = 0;
 	protected $size = 0;
 	protected $extension = null;
+	protected $encoding = null;
 	protected $fullType = null;
 	protected $type = null;
 	protected $chmod = 0;
@@ -51,6 +52,15 @@ class File {
 			}
 			if ((!empty($filters) and in_array('writable', $filters)) or empty($filters)){
 				$this->writable = is_writable($this->fullName);
+			}
+			if ((!empty($filters) and in_array('encoding', $filters)) or empty($filters)){
+				exec('file -i ' . $this->fullName, $output);
+				if (isset($output[0])){
+					$ex = explode('charset=', $output[0]);
+					$this->encoding = isset($ex[1]) ? $ex[1] : null;
+				}else{
+					$this->encoding = null;
+				}
 			}
 			$this->linuxHidden = (substr($fileName, 0, 1) == '.') ? true : false;
 			if (!empty($this->filters)) $this->filters[] = 'linuxHidden';

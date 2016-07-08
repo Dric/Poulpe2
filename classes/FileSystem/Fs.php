@@ -171,6 +171,8 @@ class Fs {
 	 * Si `$absolutePath` est à `true`, les fichiers sont retournés avec leur chemin absolu dans un tableau séquentiel
 	 * Si `$absolutePath` est à `false` (défaut), les fichiers sont retournés dans un tableau associatif dont les clés sont les sous-répertoires
 	 *
+	 * Les répertoires ne contenant rien ou ne contenant pas de fichiers ayant l'extension requise ne sont pas retournés.
+	 *
 	 * @param string $path          Chemin à inventorier dans le chemin de base de l'objet Fs instancié (facultatif)
 	 * @param string $extension     Pour ne répertorier que les fichiers ayant une certaine extension (facultatif)
 	 * @param bool   $absolutePath  Retourne un tableau à plat avec tous les fichiers, avec leur chemin absolu (facultatif)
@@ -198,7 +200,8 @@ class Fs {
 				}
 			}
 		}
-		return $result;
+		// La fonction array_filter sans autre paramètre que le tableau supprime les éléments vides
+		return array_filter($result);
 	}
 
 	/**
