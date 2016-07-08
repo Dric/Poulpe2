@@ -268,6 +268,22 @@ class Sanitize {
 	}
 
 	/**
+	 * Met en forme une chaîne de caractère pour pouvoir l'utiliser dans une expression régulière.
+	 *
+	 * Cette méthode est surtout utile pour les chemins de fichiers.
+	 *
+	 * @param string  $text Chaîne de caractères
+	 *
+	 * @return string
+	 */
+	public static function SanitizeForRegex($text){
+		$text = str_replace('\\', '\\\\', $text);
+		$text = str_replace('.', '\\.', $text);
+		$text = str_replace('$', '\\$', $text);
+		return $text;
+	}
+
+	/**
 	 * Transforme un timestamp Active Directory en timestamp unix
 	 *
 	 * @see <http://stackoverflow.com/a/4647445/1749967>
@@ -412,6 +428,34 @@ class Sanitize {
 			"\0"
 		);
 		return $decrypted;
+	}
+
+	/**
+	 * Convertit un texte en UTF-8 seulement si nécessaire
+	 *
+	 * @from http://php.net/manual/fr/function.iconv.php#116178
+	 * @param (string|string[]) $text Texte à convertir
+	 *
+	 * @return (string|string[])
+	 */
+	public static function convertToUTF8($text, $sourceEncoding = 'ISO-8859-1' ) {
+		if (is_array($text)){
+			if ( strlen(utf8_decode($text[0])) == strlen($text[0]) ) {
+				$ret = array();
+				foreach ($text as $line){
+					$ret[] = iconv($sourceEncoding, "UTF-8", $line);
+				}
+				return $ret;
+			}
+			return $text;
+		}
+		if ( strlen(utf8_decode($text)) == strlen($text) ) {
+			// $string is not UTF-8
+			return iconv($sourceEncoding, "UTF-8", $text);
+		} else {
+			// already UTF-8
+			return $text;
+		}
 	}
 
 }
