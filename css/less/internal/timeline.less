@@ -1,0 +1,182 @@
+// @From http://bootsnipp.com/snippets/featured/timeline-responsive
+
+.timeline {
+  list-style: none;
+  padding : 20px 0;
+  position: relative;
+  &:before {
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 3px;
+    background-color: @gray-lighter;
+    left: 50%;
+    margin-left: -1.5px;
+  }
+  & > li {
+    margin-bottom: 20px;
+    position: relative;
+    &:before,
+    &:after {
+      content: " ";
+      display: table;
+    }
+    &:after {
+      clear: both;
+    }
+    & > .timeline-date {
+      float: left;
+      margin-left: 8%;
+      margin-top: 30px;
+    }
+    & > .timeline-panel {
+      width: 46%;
+      float: left;
+      border: 1px solid @gray-lighter;
+      border-radius: 2px;
+      padding: 20px;
+      position: relative;
+      //-webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+      //box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+      &:before {
+        position: absolute;
+        top: 26px;
+        right: -15px;
+        display: inline-block;
+        border-top: 15px solid transparent;
+        border-left: 15px solid @gray-lighter;
+        border-right: 0 solid @gray-lighter;
+        border-bottom: 15px solid transparent;
+        content: " ";
+      }
+      &:after {
+        position: absolute;
+        top: 27px;
+        right: -14px;
+        display: inline-block;
+        border-top: 14px solid transparent;
+        border-left: 14px solid @body-bg;
+        border-right: 0 solid @body-bg;
+        border-bottom: 14px solid transparent;
+        content: " ";
+      }
+    }
+    & > .timeline-badge {
+      color: @body-bg;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      font-size: 1.4em;
+      text-align: center;
+      position: absolute;
+      top: 16px;
+      left: 50%;
+      margin-left: -25px;
+      background-color: @gray-light;
+      z-index: 100;
+      border-top-right-radius: 50%;
+      border-top-left-radius: 50%;
+      border-bottom-right-radius: 50%;
+      border-bottom-left-radius: 50%;
+    }
+
+    &.timeline-inverted {
+      & > .timeline-date {
+        float: right;
+        margin-right: 8%;
+        margin-top: 30px;
+      }
+      & > .timeline-panel {
+        float: right;
+        &:before {
+          border-left-width: 0;
+          border-right-width: 15px;
+          left: -15px;
+          right: auto;
+        }
+        &:after {
+          border-left-width: 0;
+          border-right-width: 14px;
+          left: -14px;
+          right: auto;
+        }
+      }
+    }
+  }
+}
+
+
+
+.timeline-badge{
+  &.primary {
+    background-color: @brand-primary !important;
+  }
+  &.success {
+    background-color: @brand-success !important;
+  }
+  &.warning {
+    background-color: @brand-warning !important;
+  }
+  &.danger {
+    background-color: @brand-danger !important;
+  }
+  &.info {
+    background-color: @brand-info !important;
+  }
+}
+
+.timeline-title {
+  margin-top: 0;
+  color: inherit;
+}
+
+.timeline-body {
+  & > p,
+  & > ul {
+    margin-bottom: 0;
+  }
+  & > p + p {
+    margin-top: 5px;
+  }
+}
+
+
+// Pour prendre en compte le menu latéral et pour un meilleur confort visuel, on prend 1200px au lieu de 767px.
+@media (max-width: 1600px) {
+  ul.timeline {
+    &:before {
+      left: 40px;
+    }
+    & > li > .timeline-panel {
+      width: calc(~'100% - 90px');
+      width: -moz-calc(~'100% - 90px');
+      width: -webkit-calc(~'100% - 90px');
+      float: right;
+      &:before {
+        border-left-width: 0;
+        border-right-width: 15px;
+        left: -15px;
+        right: auto;
+      }
+      &:after {
+        border-left-width: 0;
+        border-right-width: 14px;
+        left: -14px;
+        right: auto;
+      }
+    }
+    & > li > .timeline-badge {
+      left: 15px;
+      margin-left: 0;
+      top: 16px;
+    }
+    & > li > .timeline-date,
+    & > li.timeline-inverted > .timeline-date{
+      position: absolute;
+      right: 2%;
+      margin-right: 0;
+    }
+  }
+
+}
