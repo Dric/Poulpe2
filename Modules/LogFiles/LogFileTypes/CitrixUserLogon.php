@@ -6,19 +6,32 @@
  */
 
 namespace Modules\LogFiles\LogFileTypes;
+use Components\Help;
+use DateTime;
 
-use Sanitize;
-
+/**
+ * Fichiers de logs de connexion à Citrix XenApp 7
+ * 
+ * Class CitrixUserLogon
+ *
+ * @package Modules\LogFiles\LogFileTypes
+ */
 class CitrixUserLogon extends LogFileType{
 	protected $name = 'Log de connexion à Citrix';
 
+	/**
+	 * Vérifie si le log est du type connexion à Citrix
+	 * 
+	 * @param array $text Texte à tester
+	 *
+	 * @return bool
+	 */
 	public static function testPattern(Array $text) {
-		$pattern = '/^(\d{2}\/\d{2}\/\d{4} \d{2}:\d{2}:\d{2}) : (.*)/';
-		$altPattern = '/^(\d{2}\/\d{2}\/\d{4} \d{2}:\d{2}:\d{2}) : (.*)/';
+		$pattern = '/^(\d{2}\/\d{2}\/\d{4} \d{2}:\d{2}:\d{2}(?:\.\d{3}|)) : (.*)/';
+		$altPattern = '/^(\d{2}\/\d{2}\/\d{4} \d{2}:\d{2}:\d{2}(?:\.\d{3}|)) : (.*)/';
 		if (preg_match($pattern, $text[0])){
 			// On fait un essai avec la deuxième ligne, des fois que toutes les lignes ne suivent pas le même schéma
 			if (preg_match($altPattern, $text[1], $matches)){
-				// Le type est détecté, on le retourne
 				for ($i=0;$i < 60 and $i < count($text);$i++){
 					if (strpos($text[$i], '--- Nouvelle connexion sur') !== false) {
 						return true;
@@ -29,6 +42,9 @@ class CitrixUserLogon extends LogFileType{
 		return false;
 	}
 
+	/**
+	 * Affiche les logs
+	 */
 	public function display(){
 
 		$timeline = array();
@@ -41,6 +57,7 @@ class CitrixUserLogon extends LogFileType{
 			'server'        => 'serveur inconnu',
 			'startTime'     => 'Inconnu',
 			'endTime'       => 'Inconnu',
+			'startDuration' => 'Inconnu',
 			'duration'      => 0
 		);
 		$currentDate = null;
@@ -48,6 +65,7 @@ class CitrixUserLogon extends LogFileType{
 		$i = 0;
 		$sessionClosed = false;
 		$beginFile = true;
+		$errorsLines = false;
 		foreach ($this->file as $line){
 
 			// La date de l'événement
@@ -102,11 +120,24 @@ class CitrixUserLogon extends LogFileType{
 				$sessionClosed = true;
 			}elseif (strpos($line, '--- Nouvelle connexion sur') !== false) {
 				$timeline[$currentDate . ' ' . $currentTime]['server'] = (substr($event, 27) ? str_replace(' ---', '', substr($event, 27)) : 'Inconnu');
+			}elseif ($event == 'Erreurs :') {
+				$errorsLines = true;
+			}elseif ($errorsLines and strpos($line, '--- Connexion établie sur') === false){
+				$timeline[$currentDate.' '.$currentTime]['reasons'][] = $event;
+			}elseif (strpos($line, '--- Connexion établie sur') !== false){
+				$errorsLines = false;
+				if ($timeline[$currentDate.' '.$currentTime]['startTime'] != 'Inconnu'){
+					list($startDay, $startMonth, $startYear) = explode('/', $currentDate);
+					$startDate = new DateTime($startYear.'-'.$startMonth.'-'.$startDay.' '.$currentTime);
+					list($startDay, $startMonth, $startYear) = explode('/', $logDate);
+					$diff = $startDate->diff(new DateTime($startYear.'-'.$startMonth.'-'.$startDay.' '.$logTime));
+					$timeline[$currentDate.' '.$currentTime]['startDuration'] = sprintf('%02d', $diff->m).':'.sprintf('%02d', $diff->s);
+				}
 			}
 			$timeline[$currentDate.' '.$currentTime]['events'][$i] = $line;
 			$i++;
 		}
-		//var_dump($timeline);
+		// On passe à l'affichage...
 		?>
 		<ul class="timeline">
 			<?php
@@ -115,8 +146,11 @@ class CitrixUserLogon extends LogFileType{
 			$num = 0;
 			foreach ($timeline as $beginDate => $session){
 				$num++;
+				list($currentDate, $currentTime) = explode(' ', $beginDate);
+				list($startDay, $startMonth, $startYear) = explode('/', $currentDate);
+				list($startHours, $startMinutes, $startSeconds) = explode(':', $currentTime);
 				?>
-				<li class="<?php echo ($odd) ? '' : 'timeline-inverted'; ?>">
+				<li id="<?php echo $startYear.'-'.$startMonth.'-'.$startDay.'_'.$startHours.'-'.$startMinutes.'-'.$startSeconds; ?>" class="<?php echo ($odd) ? '' : 'timeline-inverted'; ?>">
 					<div class="timeline-badge <?php echo $session['color']; ?>"><i class="fa fa-sign-in"></i></div>
 					<div class="timeline-panel">
 						<div class="timeline-heading">
@@ -127,7 +161,14 @@ class CitrixUserLogon extends LogFileType{
 							<ul>
 								<?php
 								foreach ($session['clientsNames'] as $i => $clientName){
-									?><li><?php echo $clientName.' ('.$session['clientsIPs'][$i].')'; ?></li><?php
+									?>
+									<li>
+										<?php
+										echo $clientName;
+										if (isset($session['clientsIPs'][$i])) echo ' ('.$session['clientsIPs'][$i].')';
+										?>
+									</li>
+									<?php
 								}
 								?>
 							</ul>
@@ -135,6 +176,7 @@ class CitrixUserLogon extends LogFileType{
 							<ul>
 								<li>Heure d'ouverture : <?php echo $session['startTime']; ?></li>
 								<li>Heure de fermeture : <?php echo $session['endTime']; ?></li>
+								<li>Durée d'exécution du script : <?php echo $session['startDuration']; ?><?php if ($session['startDuration'] != 'Inconnu') echo 's'; ?> <?php Help::iconHelp('La durée estimée ne prend pas en compte le temps de lancement de la session Powershell qui exécute le script. De plus, d\'autres scripts s\'exécutent pendant le démarrage de la session.'); ?></li>
 							</ul>
 							<h5><a href="#events-<?php echo $num; ?>" data-toggle="collapse" aria-expanded="false" title="Cliquez pour déplier/replier les événements"><i class="fa fa-history"></i> Evénements</a></h5>
 							<div id="events-<?php echo $num; ?>" class="collapse">

@@ -7,11 +7,17 @@
 
 namespace Modules\LogFiles\LogFileTypes;
 
-use Sanitize;
-
+/**
+ * Type de logs par défaut
+ *
+ * @package Modules\LogFiles\LogFileTypes
+ */
 class LogFileType {
+	/** @var string Nom du type de logs */
 	protected $name = 'Défaut';
+	/** @var bool Ordre d'affichage des logs */
 	protected $orderDesc = false;
+	/** @var array Contenu du fichier */
 	protected $file = array();
 	
 	public function __construct(Array $file, $orderDesc){
@@ -20,6 +26,8 @@ class LogFileType {
 	}
 
 	/**
+	 * Retourne le nom du type de logs
+	 * 
 	 * @return string
 	 */
 	public function getName() {
@@ -28,12 +36,18 @@ class LogFileType {
 
 	/**
 	 * Teste la concordance d'un texte avec le type de fichier de logs
-	 * @param string[] $file
+	 *
+	 * @param string[] $text
+	 *
+	 * @return bool
 	 */
 	public static function testPattern(Array $text){
 		return true;
 	}
-	
+
+	/**
+	 * Affiche les logs
+	 */
 	public function display(){
 		if ($this->orderDesc) $this->file = array_reverse($this->file);
 	?>

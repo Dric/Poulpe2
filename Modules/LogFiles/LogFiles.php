@@ -22,8 +22,15 @@ use Modules\Module;
 use Modules\ModulesManagement;
 use Sanitize;
 
+/**
+ * Module de lecture des fichiers de logs
+ *
+ * @package Modules\LogFiles
+ */
 class LogFiles extends Module{
+	/** @var string Nom du module */
 	protected $name = 'Visionneuse de logs';
+	/** @var string Titre du module */
 	protected $title = 'Affiche les logs des différents scripts du domaine';
 	/** @var array Tableau des fichiers de logs */
 	protected $logFiles = array();
@@ -32,9 +39,15 @@ class LogFiles extends Module{
 	/** @var array Types de logs */
 	protected $logTypes = array();
 
+	/**
+	 * Module de lecture des fichiers de logs
+	 *
+	 * @param bool $bypassACL
+	 */
 	public function __construct($bypassACL = false) {
 		parent::__construct($bypassACL);
-		$this->fs = new Fs($this->settings['scriptsDir']->getValue());
+		$module = explode('\\', get_class());
+		$this->fs = new Fs($this->settings['scriptsDir']->getValue(), null, end($module));
 	}
 
 	/**
@@ -114,26 +127,31 @@ class LogFiles extends Module{
 		}
 		if (!is_null($displayFile)){
 			$file = $this->loadFile($displayFile);
-			$typeClass = $this->detectLogType($file);
-			/** @var LogFileType $logType */
-			$logType = new $typeClass($file, $this->settings['lastFirst']->getValue());
-			?>
-			<div class="row">
-				<div class="col-md-10 col-md-offset-1">
-					<div class="page-header">
-						<h1>Affichage du fichier <code><?php echo $displayFile; ?></code>  <?php $this->manageModuleButtons(); ?></h1>
+			if ($file){
+				$typeClass = $this->detectLogType($file);
+				/** @var LogFileType $logType */
+				$logType = new $typeClass($file, $this->settings['lastFirst']->getValue());
+				?>
+				<div class="row">
+					<div class="col-md-10 col-md-offset-1">
+						<div class="page-header">
+							<h1>Affichage du fichier <code><?php echo $displayFile; ?></code>  <?php $this->manageModuleButtons(); ?></h1>
+						</div>
+						<?php if ($this->settings['lastFirst']->getValue()) { ?>
+							<ul>
+								<li>Les derniers événements sont affichés en premier.</li>
+								<li>Type de fichier de logs : <code><?php echo $logType->getName(); ?></code></li>
+								<li>Nombre de lignes : <code><?php echo count($file); ?></code></li>
+							</ul>
+						<?php }
+						$logType->display();
+						?>
 					</div>
-					<?php if ($this->settings['lastFirst']->getValue()) { ?>
-						<ul>
-							<li>Les derniers événements sont affichés en premier.</li>
-							<li>Type de fichier de logs : <code><?php echo $logType->getName(); ?></code></li>
-						</ul>
-					<?php }
-					$logType->display();
-					?>
 				</div>
-			</div>
-			<?php
+				<?php
+			}else{
+				$this->mainDisplay();
+			}
 		}else{
 			$this->mainDisplay();
 		}
@@ -171,7 +189,6 @@ class LogFiles extends Module{
 			}
 		}
 		// détection du type de log
-
 		foreach ($this->logTypes as $logType){
 			if ($logType::testPattern($logFile)) return $logType;
 		}
@@ -187,6 +204,10 @@ class LogFiles extends Module{
 	 */
 	protected function loadFile($file){
 		$scriptsDir = $this->settings['scriptsDir']->getValue();
+		// Si le nom de fichier ne commence pas par un partage réseau, on suppose que le chemin du fichier est relatif à celui du répertoire des scripts
+		if (!preg_match('/^\\\\.*/', $file)){
+			$file = $scriptsDir.'\\'.$file;
+		}
 		$pathInfo = pathinfo(str_replace('\\', '/', $file));
 		if ($pathInfo['extension'] != 'log'){
 			new Alert('error', 'Le fichier n\'a pas l\'extension <code>log</code> !');
@@ -199,11 +220,12 @@ class LogFiles extends Module{
 				new Alert('error', 'Vous ne pouvez pas afficher de fichier de Logs situé en dehors de <code>' . $scriptsDir . '</code> !');
 				return false;
 			}
-			$fs = new Fs($pathInfo['dirname']);
-			return $fs->readFile($pathInfo['baseName']);
+			$fs = new Fs($pathInfo['dirname'], null, end($module));
+			return Sanitize::convertToUTF8($fs->readFile($pathInfo['baseName']));
 		}
 		$relativePath = str_replace(str_replace('\\', '/', $scriptsDir), '', $pathInfo['dirname']);
-		return Sanitize::convertToUTF8($this->fs->readFile($relativePath.DIRECTORY_SEPARATOR.$pathInfo['basename']));
+		$read = $this->fs->readFile($relativePath.DIRECTORY_SEPARATOR.$pathInfo['basename']);
+		return Sanitize::convertToUTF8($read);
 	}
 	/**
 	 * Charge les fichiers de log présents dans le chemin indiqué en paramètre du module
@@ -216,13 +238,18 @@ class LogFiles extends Module{
 	/**
 	 * Affiche l'abrorescence avec les fichiers de logs trouvés (de façon récursive)
 	 *
-*@param array      $array Tableau contenant l'aborescence
+	 * @param array  $array Tableau contenant l'aborescence
 	 * @param string $path  Chemin menant au dossier courant
 	 *
 	 * @return string
 	 */
 	protected function displayLogFiles($array, $path = null){
-		if (is_null($path)) $path = $this->settings['scriptsDir']->getValue();
+		if (is_null($path)) {
+			$path     = $this->settings['scriptsDir']->getValue();
+			$filePath = '';
+		}else{
+			$filePath = trim(str_replace($this->settings['scriptsDir']->getValue(),'', $path), '\\').'\\';
+		}
 		$sanitizedId = str_replace('\\', '_', $path);
 		$sanitizedId = str_replace('.', '§', $sanitizedId);
 		$ret = '<ul id="logs_'.$sanitizedId.'" class="'.(($path == $this->settings['scriptsDir']->getValue()) ? '' : 'collapse ').'tree">';
@@ -231,24 +258,13 @@ class LogFiles extends Module{
 			if (is_array($item)){
 				$ret .= '<i class="fa fa-folder-o"></i> <a role="button" data-toggle="collapse" href="#logs_'.$sanitizedId.'_'.$name.'" aria-expanded="false">'.$name.'</a>'.$this->displayLogFiles($item, $path.'\\'.$name);
 			} else {
-				$ret .= '<i class="fa fa-file-text-o"></i> <a href="'.$this->buildArgsURL(array('page'=>'log', 'item'=> $path.'\\'.$name)).'">'.$name.'</a>';
+				$ret .= '<i class="fa fa-file-text-o"></i> <a href="'.$this->buildArgsURL(array('page'=>'log', 'item'=> $filePath.$name)).'">'.$name.'</a>';
 			}
 			$ret .= '</li>';
 		}
 		$ret .= '</ul>';
 
 		return $ret;
-	}
-
-	/**
-	 * Affiche le champ de recherche utilisateurs
-	 * @param string $userSearched Utilisateur recherché (juste pour affichage)
-	 */
-	protected function searchForm($userSearched = null){
-		$form = new Form('userSearch', null, null, 'module', $this->id, 'post', 'form-inline');
-		$form->addField(new String('user', $userSearched, 'Nom de l\'utilisateur', 'prenom.nom', 'La recherche peut se faire sur un login complet (prenom.nom) ou sur une partie de celui-ci', null, true, 'access', null, false, false));
-		$form->addField(new Button('action', 'getUserInfo', 'Rechercher', 'access', 'btn-primary btn-sm'));
-		$form->display();
 	}
 
 
