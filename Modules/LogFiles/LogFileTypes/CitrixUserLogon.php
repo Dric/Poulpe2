@@ -74,6 +74,7 @@ class CitrixUserLogon extends LogFileType{
 			$logTime = substr($line, 11, 8);
 
 			if (empty($currentDate) or strpos($line, '--- Nouvelle connexion') !== false or $sessionClosed){
+				$errorsLines = false;
 				if (!empty($currentDate)) {
 					if ($timeline[$currentDate.' '.$currentTime]['endTime'] == 'Inconnu'){
 						$timeline[$currentDate.' '.$currentTime]['color'] = 'danger';
@@ -139,6 +140,15 @@ class CitrixUserLogon extends LogFileType{
 		}
 		// On passe à l'affichage...
 		?>
+		<p><a title="Afficher/masquer l'aide" href="#citrixLogFileHelp" data-toggle="collapse" aria-expanded="false"><span class="fa fa-question-circle-o"></span> Aide sur les logs de connexion à Citrix</a></p>
+		<div id="citrixLogFileHelp" class="collapse panel panel-default">
+			<ul class="small">
+				<li>Les dates et heures indiquées ci-dessous sont estimatives, car elles sont remontées via des logs du script de connexion et non pas par le gestionnaire d'événements de Windows, qui est le seul endroit où les heures sont obligatoirement exactes. Il se peut donc que le moment réel d'un événement soit décalé de quelques secondes par rapport à ce qui est indiqué ici.</li>
+				<li>Pour afficher tous les événements en rapport avec une session, cliquez sur le lien <code>Evénements</code> dans chaque session.</li>
+				<li>Si une erreur est survenue pendant l'exécution du script de connexion, elle sera ntofiée en rouge dans la session où l'erreur s'est produite.</li>
+				<li>Le gabarit des connexion Citrix prend en compte un certain nombre d'irrégularités dans la génération des événements, mais il n'est pas impossible que l'affichage des événements soit étrange en cas de fichiers de logs corrompu ou mal formé.</li>
+			</ul>
+		</div>
 		<ul class="timeline">
 			<?php
 			if ($this->orderDesc) $timeline = array_reverse($timeline, true);
