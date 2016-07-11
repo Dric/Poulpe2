@@ -169,8 +169,11 @@ class Sanitize {
 		if (!empty($h)) $h .= ' heure'.(($h != 1) ? 's' : '');
 		$d = (floor(($time % 2592000) / 86400)>0)?floor(($time % 2592000) / 86400) : '';
 		if (!empty($d)) $d .= ' jour'.(($d != 1) ? 's' : '');
-		$M = (floor($time / 2592000)>0)?floor($time / 2592000).' mois' : '';
+		$M = (floor(($time % 31536000) / 2592000)>0)?floor(($time % 31536000) / 2592000).' mois' : '';
+		$y = (floor($time / 31536000) > 0 ) ? floor($time / 31536000) : '';
+		if (!empty($y)) $y .= ' an'.(($y != 1) ? 's' : '');
 		$ret = '';
+		if (!empty($y)) $ret .= $y.' ';
 		if (!empty($M)) $ret .= $M.' ';
 		if (!empty($d)) $ret .= $d.' ';
 		if (!empty($h)) $ret .= $h.' ';
