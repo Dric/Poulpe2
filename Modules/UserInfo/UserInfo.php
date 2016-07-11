@@ -10,6 +10,7 @@ namespace Modules\UserInfo;
 
 
 use API\APIManagement;
+use Components\Avatar;
 use Components\Help;
 use Components\Item;
 use DateInterval;
@@ -122,7 +123,10 @@ class UserInfo extends Module{
 		$user = $user[0];
 		//var_dump($user);
 		?>
-		<h2><?php echo $user['cn'][0]; ?></h2>
+		<h2>
+			<?php if (isset($user['thumbnailphoto'])) {  echo Avatar::display($user['thumbnailphoto'][0], 'Avatar LDAP de '.$user['cn'][0]); } ?>
+			<?php echo $user['cn'][0]; ?>
+		</h2>
 		<ul>
 			<li>Compte <span <?php echo ($user["useraccountcontrol"][0] == "514" or $user["useraccountcontrol"][0] == "66050") ? 'class="text-error">désactivé' : 'class="text-success">activé' ; ?></span></li>
 			<li>Nom affiché : <strong><?php echo $user['displayname'][0]; ?></strong></li>
@@ -144,8 +148,10 @@ class UserInfo extends Module{
 			<?php }else{ ?>
 			<li>Adresse email : <span class="text-error">Non</span></li>
 			<?php } ?>
-
-			<li>Créé le <strong><?php echo Sanitize::date(Sanitize::ADToUnixTimestamp($user['whencreated'][0]), 'dateTime'); ?></strong></li>
+			<?php
+			$dateCreatedTimeStamp = Sanitize::ADToUnixTimestamp($user['whencreated'][0]);
+			?>
+			<li>Créé le <strong><?php echo Sanitize::date($dateCreatedTimeStamp, 'dateTime') ?></strong> <?php Help::icon('clock-o', 'info', 'il y a '.Sanitize::timeDuration(time() - $dateCreatedTimeStamp)); ?></li>
 			<?php
 			$hasXenAppLogs = false;
 			if (ModulesManagement::isActiveModule('Modules\UsersTraces2\UsersTraces2')){
@@ -154,7 +160,7 @@ class UserInfo extends Module{
 				if ($curlResult['result'] == 'success' and isset($curlResult['data'])) {
 					$lastCitrixLogin = key($curlResult['data']);
 					?>
-					<li>Dernière ouverture de session sous Citrix XenApp 7 : <strong><?php echo Sanitize::date($lastCitrixLogin, 'dateAtTime'); ?></strong></li>
+					<li>Dernière ouverture de session sous Citrix XenApp 7 : <strong><?php echo Sanitize::date($lastCitrixLogin, 'dateAtTime'); ?></strong> <?php Help::icon('clock-o', 'info', 'il y a '.Sanitize::timeDuration(time() - $lastCitrixLogin)); ?>(<a title="Voir les logs de connexion de cet utilisateur" href="<?php echo Front::getBaseUrl().DIRECTORY_SEPARATOR.'module'.DIRECTORY_SEPARATOR.'UsersTraces2&page=user&item='.$userSearched ;?>"><span class="fa fa-sign-in"></span> Voir les logs de connexions</a><?php if (ModulesManagement::isActiveModule('Modules\LogFiles\LogFiles')){ ?> - <a href="<?php echo Front::getBaseUrl().DIRECTORY_SEPARATOR.'module'.DIRECTORY_SEPARATOR.'LogFiles?page=log&item=ScriptsXA7\Logs\\'.$userSearched.'.log';?>" title="Voir les logs du script de connexion à XenApp7 pour cet utilisateur"><span class="fa fa-file-text-o"></span> Voir les logs du script de connexion</a><?php }?>)</li>
 					<?php
 					$hasXenAppLogs = true;
 					// On envoie la requête pour récupérer les derniers postes utilisés à l'API
@@ -178,7 +184,7 @@ class UserInfo extends Module{
 				}
 			}
 			?>
-			<li>Dernière connexion à Active Directory <?php Help::iconHelp('L\'heure de connexion à l\'AD peut être postérieure à celle de l\'ouverture réelle de session, des vérifications au sein de l\'AD étant régulièrement faites par le système.'); ?> le <strong><?php echo Sanitize::date($ldap->lastlogon($userSearched), 'dateTime'); ?></strong></li>
+			<li>Dernière connexion à Active Directory <?php Help::iconHelp('Chaque fois qu\'un utilisateur accède à une ressource sur le domaine, une requête est envoyée à Active Directory pour vérifier s\'il a le droit d\'y accéder.'); ?> le <strong><?php echo Sanitize::date($ldap->lastLogon($userSearched), 'dateTime'); ?></strong> <?php Help::icon('clock-o', 'info', 'il y a '.Sanitize::timeDuration(time() - $ldap->lastLogon($userSearched))); ?></li>
 			<li>Membre des groupes <?php Help::iconHelp('L\'appartenance aux groupes est recherchée de façon récursive : si un groupe de l\'utilisateur est membre d\'un autre groupe, ce dernier apparaîtra aussi dans la liste.'); ?> :
 				<ol>
 					<?php
