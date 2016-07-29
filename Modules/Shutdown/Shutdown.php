@@ -70,7 +70,7 @@ class Shutdown extends Module{
 					<?php }else{ ?>
 					Ce module nécessite les opérations suivantes :
 					<ol>
-						<li>Déplacez les fichiers <code>shutdown_suid</code> et <code>reboot_suid</code> dans <code>/usr/local/bin</code> : <br><code>sudo mv <?php echo Front::getAbsolutePath(); ?>/Modules/Shutdown/*_suid /usr/local/bin</code></li>
+						<li>Déplacez les fichiers <code>shutdown_suid</code> et <code>reboot_suid</code> dans <code>/usr/local/bin</code> : <br><code>sudo mv <?php echo Front::getAbsolutePath(); ?>/<?php echo MODULE_DIR; ?>/Shutdown/*_suid /usr/local/bin</code></li>
 						<li>Changez le propriétaire de ces fichiers par <code>root</code> : <br><code>sudo chown root:root /usr/local/bin/*_suid</code></li>
 						<li>Changez les permissions sur ces fichiers :<br><code>sudo chmod 4755 /usr/local/bin/*_suid</code></li>
 					</ol>

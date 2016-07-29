@@ -75,7 +75,7 @@ class PostIt extends Module{
 		Front::setCssHeader('<link href="'.Front::getBaseUrl().'/js/highlight/styles/default.css" rel="stylesheet">');
 		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/js/pagedown-bootstrap/js/jquery.pagedown-bootstrap.combined.min.js"></script>');
 		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/js/highlight/highlight.pack.js"></script>');
-		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/Modules/PostIt/PostIt.js"></script>');
+		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/'.MODULE_DIR.'/PostIt/PostIt.js"></script>');
 	}
 
 	/**

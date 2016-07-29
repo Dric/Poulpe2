@@ -51,7 +51,7 @@ class FileBrowser extends Module{
 		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/js/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>');
 		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/js/DataTables/plugins/integration/bootstrap/3/dataTables.bootstrap.js"></script>');
 		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/js/highlight/highlight.pack.js"></script>');
-		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/Modules/FileBrowser/FileBrowser.js"></script>');
+		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/'.MODULE_DIR.'/FileBrowser/FileBrowser.js"></script>');
 	}
 
 	/**
@@ -236,7 +236,7 @@ class FileBrowser extends Module{
 			$tab = explode('\\', $class);
 			// Les modules sont dans un répertoire à part
 			if ($tab[0] == 'TMDB'){
-				@include_once Front::getAbsolutePath().'/Modules/FileBrowser/'.str_replace("\\", "/", $class) . '.php';
+				@include_once Front::getAbsolutePath().'/'.MODULE_DIR.'/FileBrowser/'.str_replace("\\", "/", $class) . '.php';
 			}
 		});
 		$tmdb = \TMDB\Client::getInstance('dfac51ae8cfdf42455ba6b01f392940f');
