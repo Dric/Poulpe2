@@ -87,11 +87,18 @@ class ModulesManagement {
 	 * Vérifie si un module est activé
 	 *
 	 * @param string $moduleClass Classe du module
+	 * @param bool   $fullPath Utiliser le chemin complet du module
+	 *
 	 * @return bool
 	 */
-	public static function isActiveModule($moduleClass){
+	public static function isActiveModule($moduleClass, $fullPath = false){
 		foreach (self::getActiveModules() as $activeModule){
-			if ($moduleClass == $activeModule->class) return true;
+			if (!$fullPath) {
+				$tab = explode('\\', $activeModule->class);
+				if ($moduleClass == end($tab)) return true;
+			}else {
+				if ($moduleClass == $activeModule->class) return true;
+			}
 		}
 		return false;
 	}

@@ -46,6 +46,8 @@ define('COOKIE_DURATION', '4320');
 /** URL des appels aux modules */
 define('MODULE_URL', 'index.php ?module=');
 //define ('MODULE_URL', 'module/');
+/** Répertoire des modules (respecter la casse) */
+define('MODULE_DIR', 'Modules');
 /** Répertoire des images */
 define('IMAGE_PATH', 'img/');
 /** Répertoire des avatars */

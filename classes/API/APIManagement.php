@@ -62,7 +62,7 @@ class APIManagement {
 				if ($API->isActive){
 					$API->populateParams(str_replace('api/', '', $requestURI));
 					$moduleName = $API->moduleClass;
-					if (ModulesManagement::isActiveModule($moduleName)){
+					if (ModulesManagement::isActiveModule($moduleName, true)){
 						header('Content-Type: application/json; charset=utf-8');
 						/** @var Module $module */
 						$module = new $moduleName($API->bypassACL);

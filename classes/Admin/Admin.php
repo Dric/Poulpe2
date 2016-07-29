@@ -84,7 +84,7 @@ class Admin extends Module {
 			);
 		}
 		$modules = array();
-		$modulesPath = Front::getAbsolutePath().DIRECTORY_SEPARATOR.'Modules';
+		$modulesPath = Front::getAbsolutePath().DIRECTORY_SEPARATOR.MODULE_DIR;
 		$fs = new Fs($modulesPath, 'localhost');
 		$files = $fs->getRecursiveFilesInDir(null, 'php', true);
 		foreach ($files as $file){
@@ -114,7 +114,7 @@ class Admin extends Module {
 					$modules[$className] = array(
 						'name'  => $moduleName,
 					  'title' => $moduleTitle,
-					  'path'  => str_replace(Front::getAbsolutePath().DIRECTORY_SEPARATOR.'Modules'.DIRECTORY_SEPARATOR, '', $file)
+					  'path'  => str_replace(Front::getAbsolutePath().DIRECTORY_SEPARATOR.MODULE_DIR.DIRECTORY_SEPARATOR, '', $file)
 					);
 				}
 			}

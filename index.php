@@ -43,7 +43,7 @@ spl_autoload_register(function ($class) {
 	$tab = explode('\\', $class);
 	// Les modules sont dans un répertoire à part
 	if ($tab[0] == 'Modules' and !in_array($tab[1], array('Module', 'ModulesManagement'))) {
-		@include_once str_replace("\\", "/", $class) . '.php';
+		@include_once str_replace("\\", "/", str_replace('Modules', MODULE_DIR, $class)) . '.php';
 	}elseif($tab[0] == 'phpseclib'){
 		@include_once 'classes/FileSystem/' . str_replace("\\", "/", $class) . '.php';
 	}else{
