@@ -40,7 +40,7 @@ class Button extends Field{
 	 *
 	 * @param bool   $enabled Champ modifiable
 	 */
-	public function display($enabled = true){
+	public function display($enabled = true, $userValue = false, $attrs = null){
 		?>
 		<button type="submit" class="btn btn-default<?php echo ' '.$this->class; ?>" id="<?php echo $this->name; ?>" name="<?php echo $this->name; ?>" value="<?php echo $this->value; ?>" <?php if ($this->disabled or !$enabled) echo 'disabled'; ?>><?php echo $this->label; ?></button>
 		<?php

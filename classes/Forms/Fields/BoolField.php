@@ -19,7 +19,7 @@ use Forms\Pattern;
  *
  * @package Forms\Fields
  */
-class Bool extends Field{
+class BoolField extends Field{
 
 	protected $type = 'bool';
 	/**
@@ -53,7 +53,7 @@ class Bool extends Field{
 	 * @param bool $enabled Champ modifiable
 	 * @param bool $userValue Applique la valeur de l'utilisateur
 	 */
-	public function display($enabled = true, $userValue = false){
+	public function display($enabled = true, $userValue = false, $attrs = null){
 		// Gestion des Switchs
 		$dataAttr = '';
 		if (!empty($this->switch)){

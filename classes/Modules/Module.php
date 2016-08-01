@@ -8,7 +8,7 @@
 
 namespace Modules;
 use Db\DbTable;
-use Forms\Fields\Bool;
+use Forms\Fields\BoolField;
 use Forms\Fields\Button;
 use Forms\Fields\Hidden;
 use Forms\Fields\LinkButton;
@@ -449,7 +449,7 @@ class Module {
 					}
 				}
 				if ($hasUsersSettings){
-					$form->addField(new Bool('allowUsersSettings', $this->allowUsersSettings, 'Autoriser les utilisateurs à personnaliser certains paramètres', null, null, true, null, null, false, new JSSwitch('small')));
+					$form->addField(new BoolField('allowUsersSettings', $this->allowUsersSettings, 'Autoriser les utilisateurs à personnaliser certains paramètres', null, null, true, null, null, false, new JSSwitch('small')));
 				}
 				$form->addField(new Button('action', 'saveSettings', 'Sauvegarder', null, 'btn-primary'));
 				$form->addField(new LinkButton('cancel', $this->url, 'Revenir au module'));

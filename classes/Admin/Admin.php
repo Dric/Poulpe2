@@ -10,13 +10,13 @@ namespace Admin;
 
 use Components\Avatar;
 use Components\serverResource;
-use Forms\Fields\Bool;
+use Forms\Fields\BoolField;
 use Forms\Fields\Button;
 use Forms\Fields\Email;
-use Forms\Fields\Int;
+use Forms\Fields\IntField;
 use Forms\Fields\Password;
 use Forms\Fields\Select;
-use Forms\Fields\String;
+use Forms\Fields\StringField;
 use Forms\Fields\ValuesArray;
 use Forms\JSSwitch;
 use Forms\Pattern;
@@ -386,7 +386,7 @@ class Admin extends Module {
 					if (AUTH_MODE == 'sql'){
 						?><h3>Créer un utilisateur</h3><?php
 						$form = new Form('createUser');
-						$form->addField(new String('name', null, 'Nom/Pseudo', 'Veuillez saisir un nom ou un pseudonyme', null, new Pattern('text', true, 4, 150), true));
+						$form->addField(new StringField('name', null, 'Nom/Pseudo', 'Veuillez saisir un nom ou un pseudonyme', null, new Pattern('text', true, 4, 150), true));
 						$form->addField(new Email('email', null, 'Adresse email', 'nom@domaine.extension', null, new Pattern('email', true, 0, 250), true));
 						$form->addField(new Password('pwd', null, 'Mot de passe', 'Mot de passe de '.PWD_MIN_SIZE.' caractères minimum', null, new Pattern('password', true, PWD_MIN_SIZE, 100), true));
 						$form->addField(new Button('action', 'createUser', 'Créer l\'utilisateur'));
@@ -520,13 +520,13 @@ class Admin extends Module {
 										}
 										$form->addField(new Select('HOME_MODULE', $constantValue, $explain, 'Paramètre '.$constantName, true, null, null, $readOnly, $homeModulesChoice));
 									}else{
-										$form->addField(new String($constantName, $constantValue, $explain, null, 'Paramètre '.$constantName, null, true, null, null, $readOnly));
+										$form->addField(new StringField($constantName, $constantValue, $explain, null, 'Paramètre '.$constantName, null, true, null, null, $readOnly));
 									}
 								}
 							}elseif(stristr($constantValue, 'true') or stristr($constantValue, 'false')){
-								$form->addField(new Bool($constantName, $constantValue, $explain, 'Paramètre '.$constantName, null, true, null, null, $readOnly, new JSSwitch(null, 'left')));
+								$form->addField(new BoolField($constantName, $constantValue, $explain, 'Paramètre '.$constantName, null, true, null, null, $readOnly, new JSSwitch(null, 'left')));
 							}else{
-								$form->addField(new Int($constantName, $constantValue, $explain, null, 'Paramètre '.$constantName, null, true, null, null, $readOnly));
+								$form->addField(new IntField($constantName, $constantValue, $explain, null, 'Paramètre '.$constantName, null, true, null, null, $readOnly));
 							}
 						}
 					}

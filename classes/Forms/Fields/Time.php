@@ -23,7 +23,7 @@ use Front;
  *
  * @package Forms\Fields
  */
-class Time extends String{
+class Time extends StringField{
 
 	protected $htmlType = 'time';
 	protected $type = 'time';

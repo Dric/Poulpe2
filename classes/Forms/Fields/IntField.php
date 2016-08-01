@@ -13,22 +13,27 @@ use Forms\Field;
 use Forms\Pattern;
 
 /**
- * Champ de saisie de texte
+ * Champ de formulaire pour nombres entiers
+ *
+ * Ce champ est de type `number`, qui a été introduit en html5
+ * Sur les navigateurs le supportant, Des flèches permettant d'augmenter ou réduire la valeur sont affichées
+ *
+ * Une validation est également faite sur la saisie afin de vérifier qu'il s'agit d'un nombre
  *
  * @package Forms\Fields
  */
-class String extends Field{
+class IntField extends StringField{
 
-	protected $type = 'string';
-	protected $htmlType = 'text';
+	protected $type = 'int';
+	protected $htmlType = 'number';
 	/**
-	 * Activer l'auto-completion par le navigateur
-	 * @var bool
+	 * Pas d'incrémentation des valeurs
+	 * @var float
 	 */
-	protected $autoComplete = true;
+	protected $step = 1;
 
 	/**
-	 * Déclaration d'un champ de saisie Texte
+	 * Déclaration d'un champ de saisie de nombre
 	 *
 	 * @param string  $name         Nom du champ
 	 * @param string  $value        Valeur du champ
@@ -40,11 +45,11 @@ class String extends Field{
 	 * @param string  $ACLLevel     Niveau de sécurité requis pour modifier le champ (facultatif)
 	 * @param string  $class        Classe CSS à ajouter au champ (facultatif)
 	 * @param bool    $disabled     Champ désactivé (facultatif)
-	 * @param bool    $autoComplete Activer l'auto-complétion (facultatif)
+	 * @param float   $step         Pas d'incrémentation (facultatif)
 	 */
-	public function __construct($name, $value = null, $label = null, $placeholder = null, $help = null, $pattern = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false, $autoComplete = true){
-		$this->autoComplete = (bool)$autoComplete;
-		parent::__construct($name, $this->type, $value, $label, $placeholder, $help, $pattern, $important, $ACLLevel, $class, $disabled);
+	public function __construct($name, $value = null, $label = null, $placeholder = null, $help = null, $pattern = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false, $step = null){
+		if (!empty($step)) $this->step = (float)$step;
+		parent::__construct($name, $value, $label, $placeholder, $help, $pattern, $important, $ACLLevel, $class, $disabled);
 	}
 
 	/**
@@ -55,7 +60,7 @@ class String extends Field{
 	 * @param string  $attrs      Attributs html à ajouter au champ de saisie
 	 */
 	public function display($enabled = true, $userValue = false, $attrs = null){
-		$attrs .= (!$this->autoComplete) ? ' autocomplete="off"' : null;
+		$attrs .= ($this->step != 1) ? ' step="'.$this->step.'"' : null;
 		parent::display($enabled, $userValue, $attrs);
 	}
-} 
+}

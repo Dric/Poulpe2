@@ -14,13 +14,13 @@ use Components\Item;
 use Components\Menu;
 use Db\DbFieldSettings;
 use Db\DbTable;
-use Forms\Fields\Bool;
+use Forms\Fields\BoolField;
 use Forms\Fields\Button;
 use Forms\Fields\CheckboxList;
-use Forms\Fields\Float;
-use Forms\Fields\Int;
+use Forms\Fields\FloatField;
+use Forms\Fields\IntField;
 use Forms\Fields\Select;
-use Forms\Fields\String;
+use Forms\Fields\StringField;
 use Forms\Fields\Table;
 use Forms\Fields\Time;
 use Forms\Fields\Url;
@@ -115,16 +115,16 @@ class Transmission extends Module{
 	 * Les paramètres sont définis non pas avec des objets Setting mais avec des objets Field (sans quoi on ne pourra pas créer d'écran de paramétrage)
 	 */
 	public function defineSettings(){
-		$this->settings['filesPath']  = new String('filesPath', '/media/salsifis','Chemin des scripts', '/media/salsifis', null, new Pattern('string', true), true);
-		$this->settings['DLNAFolder']   = new String('DLNAFolder', 'dlna', 'Répertoire du DLNA', null, null, new Pattern('string', true), true);
+		$this->settings['filesPath']  = new StringField('filesPath', '/media/salsifis','Chemin des scripts', '/media/salsifis', null, new Pattern('string', true), true);
+		$this->settings['DLNAFolder']   = new StringField('DLNAFolder', 'dlna', 'Répertoire du DLNA', null, null, new Pattern('string', true), true);
 		$this->settings['transmissionURL']  = new Url('transmissionURL', 'http://localhost:9091/bt/rpc', 'Url du serveur Web RTC Transmission', null, null, new Pattern('url', true), true);
 		$this->settings['defaultDisplay'] = new Select('defaultDisplay', 'all', 'Affichage par défaut', 'Sélectionnez le filtre que vous voulez voir à chaque fois que vous allez dans les téléchargements', false, null, null, false, $this->getSelectFilters());
 		$this->settings['defaultDisplay']->setUserDefinable();
 
 		$dirs = new DbTable('module_downloadsDirs', 'Répertoires de téléchargements', null, 'Les chemins doivent être relatifs au répertoire de stockage des fichiers. (Ex : pour déclarer un répertoire "/media/salsifis/jeux", n\'inscrivez que "jeux"');
-		$dirs->addField(new Int('id', null, 'ID du répertoire', null, null, new DbFieldSettings('number', true, 3, 'primary', false, true, 0, null, false, false)));
-		$dirs->addField(new String('folder', null, 'Nom du répertoire', null, null, new DbFieldSettings('text', true, 100, 'unique', false, false, 0, null, true)));
-		$dirs->addField(new Bool('isDLNAMember', true, 'Sous-répertoire du répertoire diffusé par le serveur DLNA', 'Si coché, le contenu des répertoires sera diffusé par le serveur DLNA sur votre télé, tablette, ordinateur, etc. via le protocole DLNA.', new DbFieldSettings('checkbox', false, 1, false, false, false, 0, null, true), false, null, null, false, new JSSwitch()));
+		$dirs->addField(new IntField('id', null, 'ID du répertoire', null, null, new DbFieldSettings('number', true, 3, 'primary', false, true, 0, null, false, false)));
+		$dirs->addField(new StringField('folder', null, 'Nom du répertoire', null, null, new DbFieldSettings('text', true, 100, 'unique', false, false, 0, null, true)));
+		$dirs->addField(new BoolField('isDLNAMember', true, 'Sous-répertoire du répertoire diffusé par le serveur DLNA', 'Si coché, le contenu des répertoires sera diffusé par le serveur DLNA sur votre télé, tablette, ordinateur, etc. via le protocole DLNA.', new DbFieldSettings('checkbox', false, 1, false, false, false, 0, null, true), false, null, null, false, new JSSwitch()));
 
 		$this->dbTables['module_downloadsDirs'] = $dirs;
 
@@ -215,14 +215,14 @@ class Transmission extends Module{
 				<h3>Paramètres du serveur</h3>
 				<?php
 				$form = new Form('serverSettings', null, null, 'module', $this->id);
-				$form->addField(new Bool('isRatioLimited', $settings->getIsRatioLimited(), 'Activer la limite de ratio', 'Afin de ne pas occuper votre bande passante pour rien, vous pouvez limiter la quantité de données envoyées par rapport à la quantité reçue.', null, true, 'admin', null, false, new JSSwitch(null, 'left')));
-				$form->addField(new Float('ratioLimit', $settings->getRatioLimit(), 'Ratio de partage/téléchargement', null, 'Ratio maximum pour un fichier entre les données partagées (upload) et les données téléchargées. Certains torrents nécessitent un ratio de 0.75 minimum, mettez un ou plus pour être tranquille.', null, false, null, null, false, 0.1));
-				$form->addField(new Int('dlSpeed', $settings->getDlSpeed(true), 'Vitesse de téléchargement <span class="fa fa-arrow-circle-down tooltip-bottom" title="Sens descendant"></span>', null, 'Bande passante maximum allouée aux téléchargements, en ko/s. Cette bande passante ne doit pas excéder 80% de votre bande passante descendante ADSL ou Fibre.', new Pattern('number', true), true, 'admin'));
-				$form->addField(new Int('upSpeed', $settings->getUpSpeed(true), 'Vitesse de partage <span class="fa fa-arrow-circle-up tooltip-bottom" title="Sens montant"></span>', null, 'Bande passante maximum allouée au partage (sens montant), en ko/s. Cette bande passante ne doit pas excéder 80% de votre bande passante montante ADSL ou Fibre.', new Pattern('number', true), true, 'admin'));
-				$form->addField(new Bool('altModeEnabled', $settings->getAltModeEnabled(), 'Activer la planification du mode tortue', 'Si ce paramètre est activé, le mode tortue se déclenchera aux jours et aux heures indiqués.', null, true, 'admin', null, false, new JSSwitch(null, 'left')));
-				$form->addField(new Int('altDlSpeed', $settings->getAltDlSpeed(true), 'Vitesse de téléchargement réduite (mode tortue)', null, 'Bande passante maximum allouée aux téléchargements lorsque le serveur est en mode tortue, en ko/s. Cette bande passante ne devrait pas excéder 30% de votre bande passante descendante ADSL ou Fibre, afin de ne pas pénaliser la navigation Internet ou la télévision.', new Pattern('number', false), false, 'admin'));
-				$form->addField(new Int('altUpSpeed', $settings->getAltUpSpeed(true), 'Vitesse de partage réduite (mode tortue)', null, 'Bande passante maximum allouée au partage (sens montant) lorsque le serveur est en mode tortue, en ko/s. Cette bande passante ne devrait pas excéder 30% de votre bande passante montante ADSL ou Fibre, afin de ne pas pénaliser la navigation Internet ou la télévision.', new Pattern('number', false), false, 'admin'));
-				$form->addField(new Bool('altSpeedEnabled', $settings->getAltSpeedEnabled(), 'Activer le mode tortue', 'Quand le mode tortue est actif, la bande passante utilisée pour les téléchargements est réduite. Cela vous permet en journée de naviguer sur Internet sans ralentissements.', null, true, 'admin', null, false, new JSSwitch(null, 'left')));
+				$form->addField(new BoolField('isRatioLimited', $settings->getIsRatioLimited(), 'Activer la limite de ratio', 'Afin de ne pas occuper votre bande passante pour rien, vous pouvez limiter la quantité de données envoyées par rapport à la quantité reçue.', null, true, 'admin', null, false, new JSSwitch(null, 'left')));
+				$form->addField(new FloatField('ratioLimit', $settings->getRatioLimit(), 'Ratio de partage/téléchargement', null, 'Ratio maximum pour un fichier entre les données partagées (upload) et les données téléchargées. Certains torrents nécessitent un ratio de 0.75 minimum, mettez un ou plus pour être tranquille.', null, false, null, null, false, 0.1));
+				$form->addField(new IntField('dlSpeed', $settings->getDlSpeed(true), 'Vitesse de téléchargement <span class="fa fa-arrow-circle-down tooltip-bottom" title="Sens descendant"></span>', null, 'Bande passante maximum allouée aux téléchargements, en ko/s. Cette bande passante ne doit pas excéder 80% de votre bande passante descendante ADSL ou Fibre.', new Pattern('number', true), true, 'admin'));
+				$form->addField(new IntField('upSpeed', $settings->getUpSpeed(true), 'Vitesse de partage <span class="fa fa-arrow-circle-up tooltip-bottom" title="Sens montant"></span>', null, 'Bande passante maximum allouée au partage (sens montant), en ko/s. Cette bande passante ne doit pas excéder 80% de votre bande passante montante ADSL ou Fibre.', new Pattern('number', true), true, 'admin'));
+				$form->addField(new BoolField('altModeEnabled', $settings->getAltModeEnabled(), 'Activer la planification du mode tortue', 'Si ce paramètre est activé, le mode tortue se déclenchera aux jours et aux heures indiqués.', null, true, 'admin', null, false, new JSSwitch(null, 'left')));
+				$form->addField(new IntField('altDlSpeed', $settings->getAltDlSpeed(true), 'Vitesse de téléchargement réduite (mode tortue)', null, 'Bande passante maximum allouée aux téléchargements lorsque le serveur est en mode tortue, en ko/s. Cette bande passante ne devrait pas excéder 30% de votre bande passante descendante ADSL ou Fibre, afin de ne pas pénaliser la navigation Internet ou la télévision.', new Pattern('number', false), false, 'admin'));
+				$form->addField(new IntField('altUpSpeed', $settings->getAltUpSpeed(true), 'Vitesse de partage réduite (mode tortue)', null, 'Bande passante maximum allouée au partage (sens montant) lorsque le serveur est en mode tortue, en ko/s. Cette bande passante ne devrait pas excéder 30% de votre bande passante montante ADSL ou Fibre, afin de ne pas pénaliser la navigation Internet ou la télévision.', new Pattern('number', false), false, 'admin'));
+				$form->addField(new BoolField('altSpeedEnabled', $settings->getAltSpeedEnabled(), 'Activer le mode tortue', 'Quand le mode tortue est actif, la bande passante utilisée pour les téléchargements est réduite. Cela vous permet en journée de naviguer sur Internet sans ralentissements.', null, true, 'admin', null, false, new JSSwitch(null, 'left')));
 				$form->addField(new Time('altBegin', \Sanitize::time($settings->getAltBegin(true), 'time'), 'Heure de déclenchement du mode tortue', null, 'Le mode tortue se déclenchera à cette heure chaque jour que vous aurez indiqué. Il est conseillé de le déclencher un peu avant que vous n\'ayez besoin de naviguer sur Internet, tôt le matin par exemple', new Pattern('time'), false, 'admin'));
 				$form->addField(new Time('altEnd', \Sanitize::time($settings->getAltEnd(true), 'time'), 'Heure d\'arrêt du mode tortue', null, 'Le mode tortue sera arrêté à cette heure chaque jour que vous aurez indiqué. Il est conseillé de le déclencher tard le soir lorsque vous n\'avez plus besoin de naviguer sur Internet, afin que les téléchargements puissent occuper un maximum de bande passante.', new Pattern('time'), false, 'admin'));
 				/*
