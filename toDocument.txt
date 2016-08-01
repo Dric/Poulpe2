@@ -79,17 +79,18 @@
 		<error severity="error" line="24" message="Missing documentation of property FileSystem\File::$dateModified" source="ApiGen.Documentation.Documentation"/>
 		<error severity="error" line="25" message="Missing documentation of property FileSystem\File::$size" source="ApiGen.Documentation.Documentation"/>
 		<error severity="error" line="26" message="Missing documentation of property FileSystem\File::$extension" source="ApiGen.Documentation.Documentation"/>
-		<error severity="error" line="27" message="Missing documentation of property FileSystem\File::$fullType" source="ApiGen.Documentation.Documentation"/>
-		<error severity="error" line="28" message="Missing documentation of property FileSystem\File::$type" source="ApiGen.Documentation.Documentation"/>
-		<error severity="error" line="29" message="Missing documentation of property FileSystem\File::$chmod" source="ApiGen.Documentation.Documentation"/>
-		<error severity="error" line="30" message="Missing documentation of property FileSystem\File::$advChmod" source="ApiGen.Documentation.Documentation"/>
-		<error severity="error" line="31" message="Missing documentation of property FileSystem\File::$writable" source="ApiGen.Documentation.Documentation"/>
-		<error severity="error" line="32" message="Missing documentation of property FileSystem\File::$owner" source="ApiGen.Documentation.Documentation"/>
-		<error severity="error" line="33" message="Missing documentation of property FileSystem\File::$groupOwner" source="ApiGen.Documentation.Documentation"/>
-		<error severity="error" line="34" message="Missing documentation of property FileSystem\File::$linuxHidden" source="ApiGen.Documentation.Documentation"/>
-		<error severity="error" line="35" message="Missing documentation of property FileSystem\File::$parentFolder" source="ApiGen.Documentation.Documentation"/>
-		<error severity="error" line="142" message="Missing documentation of method FileSystem\File::__isset()" source="ApiGen.Documentation.Documentation"/>
-		<error severity="error" line="146" message="Missing documentation of method FileSystem\File::__get()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="27" message="Missing documentation of property FileSystem\File::$encoding" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="28" message="Missing documentation of property FileSystem\File::$fullType" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="29" message="Missing documentation of property FileSystem\File::$type" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="30" message="Missing documentation of property FileSystem\File::$chmod" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="31" message="Missing documentation of property FileSystem\File::$advChmod" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="32" message="Missing documentation of property FileSystem\File::$writable" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="33" message="Missing documentation of property FileSystem\File::$owner" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="34" message="Missing documentation of property FileSystem\File::$groupOwner" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="35" message="Missing documentation of property FileSystem\File::$linuxHidden" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="36" message="Missing documentation of property FileSystem\File::$parentFolder" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="152" message="Missing documentation of method FileSystem\File::__isset()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="156" message="Missing documentation of method FileSystem\File::__get()" source="ApiGen.Documentation.Documentation"/>
 	</file>
 	<file name="/var/www/html/tools/classes/FileSystem/Ftp.php">
 		<error severity="error" line="51" message="Missing description of property FileSystem\Ftp::$connection" source="ApiGen.Documentation.Documentation"/>
@@ -684,6 +685,11 @@
 	</file>
 	<file name="/var/www/html/tools/classes/Modules/Module.php">
 		<error severity="error" line="176" message="Missing description of method Modules\Module::getBreadCrumb()" source="ApiGen.Documentation.Documentation"/>
+	</file>
+	<file name="/var/www/html/tools/classes/Sanitize.php">
+		<error severity="warning" line="436" message="Invalid documentation &quot;(string|string[])&quot; of return value of method Sanitize::convertToUTF8()" source="ApiGen.Documentation.Documentation"/>
+		<error severity="error" line="436" message="Missing documentation of parameter Sanitize::convertToUTF8($sourceEncoding)" source="ApiGen.Documentation.Documentation"/>
+		<error severity="warning" line="436" message="Invalid documentation &quot;(string|string[]) $text Texte à convertir&quot; of parameter Sanitize::convertToUTF8($text)" source="ApiGen.Documentation.Documentation"/>
 	</file>
 	<file name="/var/www/html/tools/classes/Settings/Version.php">
 		<error severity="error" line="12" message="Missing documentation of class Settings\Version" source="ApiGen.Documentation.Documentation"/>

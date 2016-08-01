@@ -8,7 +8,7 @@
 	<title>File classes/Users/Login.php</title>
 
 	<script type="text/javascript" src="resources/combined.js?1467300313"></script>
-	<script type="text/javascript" src="elementlist.js?2065545106"></script>
+	<script type="text/javascript" src="elementlist.js?392692030"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822">
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609">
 
@@ -154,7 +154,7 @@
 </span><span id="14" class="l"><a class="l" href="#14"> 14 </a><span class="php-keyword1">use</span> Forms\Fields\Button;
 </span><span id="15" class="l"><a class="l" href="#15"> 15 </a><span class="php-keyword1">use</span> Forms\Fields\Email;
 </span><span id="16" class="l"><a class="l" href="#16"> 16 </a><span class="php-keyword1">use</span> Forms\Fields\Password;
-</span><span id="17" class="l"><a class="l" href="#17"> 17 </a><span class="php-keyword1">use</span> Forms\Fields\String;
+</span><span id="17" class="l"><a class="l" href="#17"> 17 </a><span class="php-keyword1">use</span> Forms\Fields\StringField;
 </span><span id="18" class="l"><a class="l" href="#18"> 18 </a><span class="php-keyword1">use</span> Forms\Form;
 </span><span id="19" class="l"><a class="l" href="#19"> 19 </a><span class="php-keyword1">use</span> Forms\<span class="php-keyword2">Pattern</span>;
 </span><span id="20" class="l"><a class="l" href="#20"> 20 </a><span class="php-keyword1">use</span> Forms\PostedData;
@@ -407,7 +407,7 @@
 </span><span id="267" class="l"><a class="l" href="#267">267 </a>                                &lt;h3&gt;Création de votre compte&lt;/h3&gt;
 </span><span id="268" class="l"><a class="l" href="#268">268 </a>                                <span class="xlang">&lt;?php</span>
 </span><span id="269" class="l"><a class="l" href="#269">269 </a>                                <span class="php-var">$form</span> = <span class="php-keyword1">new</span> Form(<span class="php-quote">'createUser'</span>);
-</span><span id="270" class="l"><a class="l" href="#270">270 </a>                                <span class="php-var">$form</span>-&gt;addField(<span class="php-keyword1">new</span> String(<span class="php-quote">'name'</span>, <span class="php-keyword1">null</span>, <span class="php-quote">'Nom/Pseudo'</span>, <span class="php-quote">'Veuillez saisir un nom ou un pseudonyme'</span>, <span class="php-keyword1">null</span>, <span class="php-keyword1">new</span> <span class="php-keyword2">Pattern</span>(<span class="php-quote">'text'</span>, <span class="php-keyword1">true</span>, <span class="php-num">4</span>, <span class="php-num">150</span>), <span class="php-keyword1">true</span>));
+</span><span id="270" class="l"><a class="l" href="#270">270 </a>                                <span class="php-var">$form</span>-&gt;addField(<span class="php-keyword1">new</span> StringField(<span class="php-quote">'name'</span>, <span class="php-keyword1">null</span>, <span class="php-quote">'Nom/Pseudo'</span>, <span class="php-quote">'Veuillez saisir un nom ou un pseudonyme'</span>, <span class="php-keyword1">null</span>, <span class="php-keyword1">new</span> <span class="php-keyword2">Pattern</span>(<span class="php-quote">'text'</span>, <span class="php-keyword1">true</span>, <span class="php-num">4</span>, <span class="php-num">150</span>), <span class="php-keyword1">true</span>));
 </span><span id="271" class="l"><a class="l" href="#271">271 </a>                                <span class="php-var">$form</span>-&gt;addField(<span class="php-keyword1">new</span> Email(<span class="php-quote">'email'</span>, <span class="php-keyword1">null</span>, <span class="php-quote">'Adresse email'</span>, <span class="php-quote">'nom@domaine.extension'</span>, <span class="php-keyword1">null</span>, <span class="php-keyword1">new</span> <span class="php-keyword2">Pattern</span>(<span class="php-quote">'email'</span>, <span class="php-keyword1">true</span>, <span class="php-num">0</span>, <span class="php-num">250</span>), <span class="php-keyword1">true</span>));
 </span><span id="272" class="l"><a class="l" href="#272">272 </a>                                <span class="php-var">$form</span>-&gt;addField(<span class="php-keyword1">new</span> Password(<span class="php-quote">'pwd'</span>, <span class="php-keyword1">null</span>, <span class="php-quote">'Mot de passe'</span>, <span class="php-quote">'Mot de passe de '</span>.PWD_MIN_SIZE.<span class="php-quote">' caractères minimum'</span>, <span class="php-keyword1">null</span>, <span class="php-keyword1">new</span> <span class="php-keyword2">Pattern</span>(<span class="php-quote">'password'</span>, <span class="php-keyword1">true</span>, PWD_MIN_SIZE, <span class="php-num">100</span>), <span class="php-keyword1">true</span>));
 </span><span id="273" class="l"><a class="l" href="#273">273 </a>                                <span class="php-var">$form</span>-&gt;addField(<span class="php-keyword1">new</span> Button(<span class="php-quote">'action2'</span>, <span class="php-quote">'createUser'</span>, <span class="php-quote">'Créer l\'utilisateur'</span>));

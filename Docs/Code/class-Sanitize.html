@@ -7,7 +7,7 @@
 	<title>Class Sanitize</title>
 
 	<script type="text/javascript" src="resources/combined.js?1467300313"></script>
-	<script type="text/javascript" src="elementlist.js?2065545106"></script>
+	<script type="text/javascript" src="elementlist.js?392692030"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822">
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609">
 
@@ -162,7 +162,7 @@
 		
 		<b>Package:</b> Sanitize<br>
 
-		<b>Located at</b> <a href="source-class-Sanitize.html#11-417" title="Go to source code">classes/Sanitize.php</a><br>
+		<b>Located at</b> <a href="source-class-Sanitize.html#11-464" title="Go to source code">classes/Sanitize.php</a><br>
 	</div>
 
 
@@ -378,7 +378,7 @@ depuis minuit - <code>time</code> hh:mm - <code>fullTime</code> hh:mm:ss</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_timeDuration">#</a>
-			<code><a href="source-class-Sanitize.html#158-181" title="Go to source code">timeDuration</a>( <span>integer <var>$time</var></span> )</code>
+			<code><a href="source-class-Sanitize.html#158-184" title="Go to source code">timeDuration</a>( <span>integer <var>$time</var></span> )</code>
 
 			<div class="description short">
 				
@@ -420,7 +420,7 @@ depuis minuit - <code>time</code> hh:mm - <code>fullTime</code> hh:mm:ss</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_sortObjectList">#</a>
-			<code><a href="source-class-Sanitize.html#183-235" title="Go to source code">sortObjectList</a>( <span>array <var>$arrayOrig</var></span>, <span>array <var>$props</var></span>, <span>string <var>$sortOrder</var> = <span class="php-quote">'ASC'</span></span> )</code>
+			<code><a href="source-class-Sanitize.html#186-238" title="Go to source code">sortObjectList</a>( <span>array <var>$arrayOrig</var></span>, <span>array <var>$props</var></span>, <span>string <var>$sortOrder</var> = <span class="php-quote">'ASC'</span></span> )</code>
 
 			<div class="description short">
 				
@@ -468,7 +468,7 @@ depuis minuit - <code>time</code> hh:mm - <code>fullTime</code> hh:mm:ss</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_SanitizeForDb">#</a>
-			<code><a href="source-class-Sanitize.html#237-256" title="Go to source code">SanitizeForDb</a>( <span>mixed <var>$value</var></span>, <span>boolean <var>$quotes</var> = <span class="php-keyword1">true</span></span> )</code>
+			<code><a href="source-class-Sanitize.html#240-259" title="Go to source code">SanitizeForDb</a>( <span>mixed <var>$value</var></span>, <span>boolean <var>$quotes</var> = <span class="php-keyword1">true</span></span> )</code>
 
 			<div class="description short">
 				
@@ -512,7 +512,7 @@ depuis minuit - <code>time</code> hh:mm - <code>fullTime</code> hh:mm:ss</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_SanitizeForJs">#</a>
-			<code><a href="source-class-Sanitize.html#258-268" title="Go to source code">SanitizeForJs</a>( <span>string <var>$text</var></span> )</code>
+			<code><a href="source-class-Sanitize.html#261-271" title="Go to source code">SanitizeForJs</a>( <span>string <var>$text</var></span> )</code>
 
 			<div class="description short">
 				
@@ -523,6 +523,52 @@ depuis minuit - <code>time</code> hh:mm - <code>fullTime</code> hh:mm:ss</dd>
 			<div class="description detailed hidden">
 				
 <p>Met en forme une chaîne de caractères pour un affichage via javascript</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$text</var></dt>
+						<dd><code>string</code><br>$text Chaîne de caractères</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br>
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="SanitizeForRegex" id="_SanitizeForRegex">
+
+			<td class="attributes"><code>
+				 public static
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_SanitizeForRegex">#</a>
+			<code><a href="source-class-Sanitize.html#273-287" title="Go to source code">SanitizeForRegex</a>( <span>string <var>$text</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Met en forme une chaîne de caractère pour pouvoir l'utiliser dans une
+expression régulière.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Met en forme une chaîne de caractère pour pouvoir l'utiliser dans une
+expression régulière.</p>
+
+<p>Cette méthode est surtout utile pour les chemins de fichiers.</p>
 
 
 
@@ -554,7 +600,7 @@ depuis minuit - <code>time</code> hh:mm - <code>fullTime</code> hh:mm:ss</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_ADToUnixTimestamp">#</a>
-			<code><a href="source-class-Sanitize.html#270-291" title="Go to source code">ADToUnixTimestamp</a>( <span>string <var>$date</var></span> )</code>
+			<code><a href="source-class-Sanitize.html#289-310" title="Go to source code">ADToUnixTimestamp</a>( <span>string <var>$date</var></span> )</code>
 
 			<div class="description short">
 				
@@ -603,7 +649,7 @@ href="http://maxvit.net/convert_ldap_dates">http://maxvit.net/convert_ldap_dates
 
 			<td class="name"><div>
 			<a class="anchor" href="#_readableFileSize">#</a>
-			<code><a href="source-class-Sanitize.html#293-306" title="Go to source code">readableFileSize</a>( <span>integer <var>$size</var></span>, <span>integer <var>$NbDecimals</var> = <span class="php-num">2</span></span> )</code>
+			<code><a href="source-class-Sanitize.html#312-325" title="Go to source code">readableFileSize</a>( <span>integer <var>$size</var></span>, <span>integer <var>$NbDecimals</var> = <span class="php-num">2</span></span> )</code>
 
 			<div class="description short">
 				
@@ -647,7 +693,7 @@ href="http://maxvit.net/convert_ldap_dates">http://maxvit.net/convert_ldap_dates
 
 			<td class="name"><div>
 			<a class="anchor" href="#_PHPToSQLType">#</a>
-			<code><a href="source-class-Sanitize.html#308-321" title="Go to source code">PHPToSQLType</a>( <span>string <var>$type</var></span> )</code>
+			<code><a href="source-class-Sanitize.html#327-340" title="Go to source code">PHPToSQLType</a>( <span>string <var>$type</var></span> )</code>
 
 			<div class="description short">
 				
@@ -694,7 +740,7 @@ href="http://dev.mysql.com/doc/refman/5.0/fr/numeric-type-overview.html">http://
 
 			<td class="name"><div>
 			<a class="anchor" href="#_ucname">#</a>
-			<code><a href="source-class-Sanitize.html#323-341" title="Go to source code">ucname</a>( <span>string <var>$string</var></span> )</code>
+			<code><a href="source-class-Sanitize.html#342-360" title="Go to source code">ucname</a>( <span>string <var>$string</var></span> )</code>
 
 			<div class="description short">
 				
@@ -740,7 +786,7 @@ chaque mot.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_makeLinks">#</a>
-			<code><a href="source-class-Sanitize.html#343-361" title="Go to source code">makeLinks</a>( <span>string <var>$string</var></span> )</code>
+			<code><a href="source-class-Sanitize.html#362-380" title="Go to source code">makeLinks</a>( <span>string <var>$string</var></span> )</code>
 
 			<div class="description short">
 				
@@ -787,7 +833,7 @@ href="http://www.phpro.org/examples/URL-to-Link.html">http://www.phpro.org/examp
 
 			<td class="name"><div>
 			<a class="anchor" href="#_encryptData">#</a>
-			<code><a href="source-class-Sanitize.html#363-389" title="Go to source code">encryptData</a>( <span>string <var>$string</var></span> )</code>
+			<code><a href="source-class-Sanitize.html#382-408" title="Go to source code">encryptData</a>( <span>string <var>$string</var></span> )</code>
 
 			<div class="description short">
 				
@@ -834,7 +880,7 @@ href="http://stackoverflow.com/a/1289114/1749967">http://stackoverflow.com/a/128
 
 			<td class="name"><div>
 			<a class="anchor" href="#_decryptData">#</a>
-			<code><a href="source-class-Sanitize.html#391-415" title="Go to source code">decryptData</a>( <span>string <var>$string</var></span> )</code>
+			<code><a href="source-class-Sanitize.html#410-434" title="Go to source code">decryptData</a>( <span>string <var>$string</var></span> )</code>
 
 			<div class="description short">
 				
@@ -864,6 +910,55 @@ href="http://stackoverflow.com/a/1289114/1749967">http://stackoverflow.com/a/128
 					<div class="list">
 							<a
 href="http://stackoverflow.com/a/1289114/1749967">http://stackoverflow.com/a/1289114/1749967</a><br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="convertToUTF8" id="_convertToUTF8">
+
+			<td class="attributes"><code>
+				 public static
+				(string|string[])
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_convertToUTF8">#</a>
+			<code><a href="source-class-Sanitize.html#436-462" title="Go to source code">convertToUTF8</a>( <span>(string|string[]) <var>$text</var></span>, <span>mixed <var>$sourceEncoding</var> = <span class="php-quote">'ISO-8859-1'</span> </span> )</code>
+
+			<div class="description short">
+				
+<p>Convertit un texte en UTF-8 seulement si nécessaire</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Convertit un texte en UTF-8 seulement si nécessaire</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$text</var></dt>
+						<dd><code>(string|string[])</code><br>$text Texte à convertir</dd>
+						<dt><var>$sourceEncoding</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>(string|string[])</code><br>
+					</div>
+
+
+					<h4>From</h4>
+					<div class="list">
+							<a
+href="http://php.net/manual/fr/function.iconv.php#116178">http://php.net/manual/fr/function.iconv.php#116178</a><br>
 					</div>
 
 

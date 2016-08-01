@@ -79,7 +79,7 @@ Voir Le fichier `install.md`.
 
 Paramètres de génération de doc (commande lancée à partir du répertoire racine de Poulpe2) :
 
-     apigen -s . -s "classes/Modules/Module.php" -s "classes/Modules/ModulesManagement.php" -s "classes/Settings/config.php" -d ./Docs/Code --exclude "*/Docs" --exclude "*/fonts" --exclude "*/img" --exclude "*/js" --exclude "*/Modules" --template-config "/usr/share/php/data/ApiGen/templates/bootstrap/config.neon"  --allowed-html "b,i,a,ul,ol,li,p,br,var,samp,kbd,tt,h1,h2,h3,h4" --report toDocument.txt
+     apigen -s . -s "classes/Modules/Module.php" -s "classes/Modules/ModulesManagement.php" -s "classes/Settings/config.php" -d ./Docs/Code --exclude "*/Docs" --exclude "*/fonts" --exclude "*/img" --exclude "*/js" --exclude "*/Modules*" --template-config "/usr/share/php/data/ApiGen/templates/bootstrap/config.neon"  --allowed-html "b,i,a,ul,ol,li,p,br,var,samp,kbd,tt,h1,h2,h3,h4" --report toDocument.txt
 
 ## Divers
 

@@ -8,7 +8,7 @@
 	<title>File classes/Admin/Admin.php</title>
 
 	<script type="text/javascript" src="resources/combined.js?1467300313"></script>
-	<script type="text/javascript" src="elementlist.js?2065545106"></script>
+	<script type="text/javascript" src="elementlist.js?392692030"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822">
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609">
 
@@ -145,13 +145,13 @@
 </span><span id="10" class="l"><a class="l" href="#10"> 10 </a>
 </span><span id="11" class="l"><a class="l" href="#11"> 11 </a><span class="php-keyword1">use</span> Components\Avatar;
 </span><span id="12" class="l"><a class="l" href="#12"> 12 </a><span class="php-keyword1">use</span> Components\serverResource;
-</span><span id="13" class="l"><a class="l" href="#13"> 13 </a><span class="php-keyword1">use</span> Forms\Fields\Bool;
+</span><span id="13" class="l"><a class="l" href="#13"> 13 </a><span class="php-keyword1">use</span> Forms\Fields\BoolField;
 </span><span id="14" class="l"><a class="l" href="#14"> 14 </a><span class="php-keyword1">use</span> Forms\Fields\Button;
 </span><span id="15" class="l"><a class="l" href="#15"> 15 </a><span class="php-keyword1">use</span> Forms\Fields\Email;
-</span><span id="16" class="l"><a class="l" href="#16"> 16 </a><span class="php-keyword1">use</span> Forms\Fields\Int;
+</span><span id="16" class="l"><a class="l" href="#16"> 16 </a><span class="php-keyword1">use</span> Forms\Fields\IntField;
 </span><span id="17" class="l"><a class="l" href="#17"> 17 </a><span class="php-keyword1">use</span> Forms\Fields\Password;
 </span><span id="18" class="l"><a class="l" href="#18"> 18 </a><span class="php-keyword1">use</span> Forms\Fields\Select;
-</span><span id="19" class="l"><a class="l" href="#19"> 19 </a><span class="php-keyword1">use</span> Forms\Fields\String;
+</span><span id="19" class="l"><a class="l" href="#19"> 19 </a><span class="php-keyword1">use</span> Forms\Fields\StringField;
 </span><span id="20" class="l"><a class="l" href="#20"> 20 </a><span class="php-keyword1">use</span> Forms\Fields\ValuesArray;
 </span><span id="21" class="l"><a class="l" href="#21"> 21 </a><span class="php-keyword1">use</span> Forms\JSSwitch;
 </span><span id="22" class="l"><a class="l" href="#22"> 22 </a><span class="php-keyword1">use</span> Forms\<span class="php-keyword2">Pattern</span>;
@@ -219,7 +219,7 @@
 </span><span id="84" class="l"><a class="l" href="#84"> 84 </a>            );
 </span><span id="85" class="l"><a class="l" href="#85"> 85 </a>        }
 </span><span id="86" class="l"><a class="l" href="#86"> 86 </a>        <span class="php-var">$modules</span> = <span class="php-keyword1">array</span>();
-</span><span id="87" class="l"><a class="l" href="#87"> 87 </a>        <span class="php-var">$modulesPath</span> = Front::getAbsolutePath().DIRECTORY_SEPARATOR.<span class="php-quote">'Modules'</span>;
+</span><span id="87" class="l"><a class="l" href="#87"> 87 </a>        <span class="php-var">$modulesPath</span> = Front::getAbsolutePath().DIRECTORY_SEPARATOR.MODULE_DIR;
 </span><span id="88" class="l"><a class="l" href="#88"> 88 </a>        <span class="php-var">$fs</span> = <span class="php-keyword1">new</span> Fs(<span class="php-var">$modulesPath</span>, <span class="php-quote">'localhost'</span>);
 </span><span id="89" class="l"><a class="l" href="#89"> 89 </a>        <span class="php-var">$files</span> = <span class="php-var">$fs</span>-&gt;getRecursiveFilesInDir(<span class="php-keyword1">null</span>, <span class="php-quote">'php'</span>, <span class="php-keyword1">true</span>);
 </span><span id="90" class="l"><a class="l" href="#90"> 90 </a>        <span class="php-keyword1">foreach</span> (<span class="php-var">$files</span> <span class="php-keyword1">as</span> <span class="php-var">$file</span>){
@@ -249,7 +249,7 @@
 </span><span id="114" class="l"><a class="l" href="#114">114 </a>                    <span class="php-var">$modules</span>[<span class="php-var">$className</span>] = <span class="php-keyword1">array</span>(
 </span><span id="115" class="l"><a class="l" href="#115">115 </a>                        <span class="php-quote">'name'</span>  =&gt; <span class="php-var">$moduleName</span>,
 </span><span id="116" class="l"><a class="l" href="#116">116 </a>                      <span class="php-quote">'title'</span> =&gt; <span class="php-var">$moduleTitle</span>,
-</span><span id="117" class="l"><a class="l" href="#117">117 </a>                      <span class="php-quote">'path'</span>  =&gt; <span class="php-keyword2">str_replace</span>(Front::getAbsolutePath().DIRECTORY_SEPARATOR.<span class="php-quote">'Modules'</span>.DIRECTORY_SEPARATOR, <span class="php-quote">''</span>, <span class="php-var">$file</span>)
+</span><span id="117" class="l"><a class="l" href="#117">117 </a>                      <span class="php-quote">'path'</span>  =&gt; <span class="php-keyword2">str_replace</span>(Front::getAbsolutePath().DIRECTORY_SEPARATOR.MODULE_DIR.DIRECTORY_SEPARATOR, <span class="php-quote">''</span>, <span class="php-var">$file</span>)
 </span><span id="118" class="l"><a class="l" href="#118">118 </a>                    );
 </span><span id="119" class="l"><a class="l" href="#119">119 </a>                }
 </span><span id="120" class="l"><a class="l" href="#120">120 </a>            }
@@ -521,7 +521,7 @@
 </span></span><span id="386" class="l"><a class="l" href="#386">386 </a><span class="php-quote">                    if (AUTH_MODE == '</span>sql<span class="php-quote">'){
 </span></span><span id="387" class="l"><a class="l" href="#387">387 </a><span class="php-quote">                        ?&gt;&lt;h3&gt;Créer un utilisateur&lt;/h3&gt;&lt;?php
 </span></span><span id="388" class="l"><a class="l" href="#388">388 </a><span class="php-quote">                        $form = new Form('</span>createUser<span class="php-quote">');
-</span></span><span id="389" class="l"><a class="l" href="#389">389 </a><span class="php-quote">                        $form-&gt;addField(new String('</span>name<span class="php-quote">', null, '</span>Nom/Pseudo<span class="php-quote">', '</span>Veuillez saisir un nom ou un pseudonyme<span class="php-quote">', null, new Pattern('</span>text<span class="php-quote">', true, 4, 150), true));
+</span></span><span id="389" class="l"><a class="l" href="#389">389 </a><span class="php-quote">                        $form-&gt;addField(new StringField('</span>name<span class="php-quote">', null, '</span>Nom/Pseudo<span class="php-quote">', '</span>Veuillez saisir un nom ou un pseudonyme<span class="php-quote">', null, new Pattern('</span>text<span class="php-quote">', true, 4, 150), true));
 </span></span><span id="390" class="l"><a class="l" href="#390">390 </a><span class="php-quote">                        $form-&gt;addField(new Email('</span>email<span class="php-quote">', null, '</span>Adresse email<span class="php-quote">', '</span>nom@domaine.extension<span class="php-quote">', null, new Pattern('</span>email<span class="php-quote">', true, 0, 250), true));
 </span></span><span id="391" class="l"><a class="l" href="#391">391 </a><span class="php-quote">                        $form-&gt;addField(new Password('</span>pwd<span class="php-quote">', null, '</span>Mot de passe<span class="php-quote">', '</span>Mot de passe de <span class="php-quote">'.PWD_MIN_SIZE.'</span> caractères minimum<span class="php-quote">', null, new Pattern('</span>password<span class="php-quote">', true, PWD_MIN_SIZE, 100), true));
 </span></span><span id="392" class="l"><a class="l" href="#392">392 </a><span class="php-quote">                        $form-&gt;addField(new Button('</span>action<span class="php-quote">', '</span>createUser<span class="php-quote">', '</span>Créer l\<span class="php-quote">'utilisateur'</span>));
@@ -655,13 +655,13 @@
 </span><span id="520" class="l"><a class="l" href="#520">520 </a>                                        }
 </span><span id="521" class="l"><a class="l" href="#521">521 </a>                                        <span class="php-var">$form</span>-&gt;addField(<span class="php-keyword1">new</span> Select(<span class="php-quote">'HOME_MODULE'</span>, <span class="php-var">$constantValue</span>, <span class="php-var">$explain</span>, <span class="php-quote">'Paramètre '</span>.<span class="php-var">$constantName</span>, <span class="php-keyword1">true</span>, <span class="php-keyword1">null</span>, <span class="php-keyword1">null</span>, <span class="php-var">$readOnly</span>, <span class="php-var">$homeModulesChoice</span>));
 </span><span id="522" class="l"><a class="l" href="#522">522 </a>                                    }<span class="php-keyword1">else</span>{
-</span><span id="523" class="l"><a class="l" href="#523">523 </a>                                        <span class="php-var">$form</span>-&gt;addField(<span class="php-keyword1">new</span> String(<span class="php-var">$constantName</span>, <span class="php-var">$constantValue</span>, <span class="php-var">$explain</span>, <span class="php-keyword1">null</span>, <span class="php-quote">'Paramètre '</span>.<span class="php-var">$constantName</span>, <span class="php-keyword1">null</span>, <span class="php-keyword1">true</span>, <span class="php-keyword1">null</span>, <span class="php-keyword1">null</span>, <span class="php-var">$readOnly</span>));
+</span><span id="523" class="l"><a class="l" href="#523">523 </a>                                        <span class="php-var">$form</span>-&gt;addField(<span class="php-keyword1">new</span> StringField(<span class="php-var">$constantName</span>, <span class="php-var">$constantValue</span>, <span class="php-var">$explain</span>, <span class="php-keyword1">null</span>, <span class="php-quote">'Paramètre '</span>.<span class="php-var">$constantName</span>, <span class="php-keyword1">null</span>, <span class="php-keyword1">true</span>, <span class="php-keyword1">null</span>, <span class="php-keyword1">null</span>, <span class="php-var">$readOnly</span>));
 </span><span id="524" class="l"><a class="l" href="#524">524 </a>                                    }
 </span><span id="525" class="l"><a class="l" href="#525">525 </a>                                }
 </span><span id="526" class="l"><a class="l" href="#526">526 </a>                            }<span class="php-keyword1">elseif</span>(<span class="php-keyword2">stristr</span>(<span class="php-var">$constantValue</span>, <span class="php-quote">'true'</span>) <span class="php-keyword1">or</span> <span class="php-keyword2">stristr</span>(<span class="php-var">$constantValue</span>, <span class="php-quote">'false'</span>)){
-</span><span id="527" class="l"><a class="l" href="#527">527 </a>                                <span class="php-var">$form</span>-&gt;addField(<span class="php-keyword1">new</span> Bool(<span class="php-var">$constantName</span>, <span class="php-var">$constantValue</span>, <span class="php-var">$explain</span>, <span class="php-quote">'Paramètre '</span>.<span class="php-var">$constantName</span>, <span class="php-keyword1">null</span>, <span class="php-keyword1">true</span>, <span class="php-keyword1">null</span>, <span class="php-keyword1">null</span>, <span class="php-var">$readOnly</span>, <span class="php-keyword1">new</span> JSSwitch(<span class="php-keyword1">null</span>, <span class="php-quote">'left'</span>)));
+</span><span id="527" class="l"><a class="l" href="#527">527 </a>                                <span class="php-var">$form</span>-&gt;addField(<span class="php-keyword1">new</span> BoolField(<span class="php-var">$constantName</span>, <span class="php-var">$constantValue</span>, <span class="php-var">$explain</span>, <span class="php-quote">'Paramètre '</span>.<span class="php-var">$constantName</span>, <span class="php-keyword1">null</span>, <span class="php-keyword1">true</span>, <span class="php-keyword1">null</span>, <span class="php-keyword1">null</span>, <span class="php-var">$readOnly</span>, <span class="php-keyword1">new</span> JSSwitch(<span class="php-keyword1">null</span>, <span class="php-quote">'left'</span>)));
 </span><span id="528" class="l"><a class="l" href="#528">528 </a>                            }<span class="php-keyword1">else</span>{
-</span><span id="529" class="l"><a class="l" href="#529">529 </a>                                <span class="php-var">$form</span>-&gt;addField(<span class="php-keyword1">new</span> Int(<span class="php-var">$constantName</span>, <span class="php-var">$constantValue</span>, <span class="php-var">$explain</span>, <span class="php-keyword1">null</span>, <span class="php-quote">'Paramètre '</span>.<span class="php-var">$constantName</span>, <span class="php-keyword1">null</span>, <span class="php-keyword1">true</span>, <span class="php-keyword1">null</span>, <span class="php-keyword1">null</span>, <span class="php-var">$readOnly</span>));
+</span><span id="529" class="l"><a class="l" href="#529">529 </a>                                <span class="php-var">$form</span>-&gt;addField(<span class="php-keyword1">new</span> IntField(<span class="php-var">$constantName</span>, <span class="php-var">$constantValue</span>, <span class="php-var">$explain</span>, <span class="php-keyword1">null</span>, <span class="php-quote">'Paramètre '</span>.<span class="php-var">$constantName</span>, <span class="php-keyword1">null</span>, <span class="php-keyword1">true</span>, <span class="php-keyword1">null</span>, <span class="php-keyword1">null</span>, <span class="php-var">$readOnly</span>));
 </span><span id="530" class="l"><a class="l" href="#530">530 </a>                            }
 </span><span id="531" class="l"><a class="l" href="#531">531 </a>                        }
 </span><span id="532" class="l"><a class="l" href="#532">532 </a>                    }

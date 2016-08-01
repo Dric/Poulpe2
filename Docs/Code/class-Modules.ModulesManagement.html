@@ -7,7 +7,7 @@
 	<title>Class Modules\ModulesManagement</title>
 
 	<script type="text/javascript" src="resources/combined.js?1467300313"></script>
-	<script type="text/javascript" src="elementlist.js?2065545106"></script>
+	<script type="text/javascript" src="elementlist.js?392692030"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822">
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609">
 
@@ -156,7 +156,7 @@
 		<b>Namespace:</b> <a href="namespace-Modules.html">Modules</a><br>
 		<b>Package:</b> Modules<br>
 
-		<b>Located at</b> <a href="source-class-Modules.ModulesManagement.html#20-292" title="Go to source code">classes/Modules/ModulesManagement.php</a><br>
+		<b>Located at</b> <a href="source-class-Modules.ModulesManagement.html#20-299" title="Go to source code">classes/Modules/ModulesManagement.php</a><br>
 	</div>
 
 
@@ -253,7 +253,7 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_isActiveModule">#</a>
-			<code><a href="source-class-Modules.ModulesManagement.html#86-97" title="Go to source code">isActiveModule</a>( <span>string <var>$moduleClass</var></span> )</code>
+			<code><a href="source-class-Modules.ModulesManagement.html#86-104" title="Go to source code">isActiveModule</a>( <span>string <var>$moduleClass</var></span>, <span>boolean <var>$fullPath</var> = <span class="php-keyword1">false</span></span> )</code>
 
 			<div class="description short">
 				
@@ -271,6 +271,8 @@
 					<div class="list"><dl>
 						<dt><var>$moduleClass</var></dt>
 						<dd><code>string</code><br>$moduleClass Classe du module</dd>
+						<dt><var>$fullPath</var></dt>
+						<dd><code>boolean</code><br>$fullPath Utiliser le chemin complet du module</dd>
 					</dl></div>
 
 					<h4>Returns</h4>
@@ -295,7 +297,7 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_modulePath">#</a>
-			<code><a href="source-class-Modules.ModulesManagement.html#99-108" title="Go to source code">modulePath</a>( <span>string <var>$moduleName</var></span> )</code>
+			<code><a href="source-class-Modules.ModulesManagement.html#106-115" title="Go to source code">modulePath</a>( <span>string <var>$moduleName</var></span> )</code>
 
 			<div class="description short">
 				
@@ -337,7 +339,7 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_dbSetup">#</a>
-			<code><a href="source-class-Modules.ModulesManagement.html#111-134" title="Go to source code">dbSetup</a>( <span>array|string <var>$sql</var></span> )</code>
+			<code><a href="source-class-Modules.ModulesManagement.html#118-141" title="Go to source code">dbSetup</a>( <span>array|string <var>$sql</var></span> )</code>
 
 			<div class="description short">
 				
@@ -380,7 +382,7 @@ passer via un tableau.</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_activateModule">#</a>
-			<code><a href="source-class-Modules.ModulesManagement.html#136-145" title="Go to source code">activateModule</a>( <span><code><a href="class-Modules.Module.html">Modules\Module</a></code> <var>$module</var></span> )</code>
+			<code><a href="source-class-Modules.ModulesManagement.html#143-152" title="Go to source code">activateModule</a>( <span><code><a href="class-Modules.Module.html">Modules\Module</a></code> <var>$module</var></span> )</code>
 
 			<div class="description short">
 				
@@ -422,7 +424,7 @@ passer via un tableau.</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_disableModule">#</a>
-			<code><a href="source-class-Modules.ModulesManagement.html#147-158" title="Go to source code">disableModule</a>( <span><code><a href="class-Modules.Module.html">Modules\Module</a></code> <var>$module</var></span> )</code>
+			<code><a href="source-class-Modules.ModulesManagement.html#154-165" title="Go to source code">disableModule</a>( <span><code><a href="class-Modules.Module.html">Modules\Module</a></code> <var>$module</var></span> )</code>
 
 			<div class="description short">
 				
@@ -464,7 +466,7 @@ passer via un tableau.</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getModulesMenuItems">#</a>
-			<code><a href="source-class-Modules.ModulesManagement.html#160-175" title="Go to source code">getModulesMenuItems</a>( )</code>
+			<code><a href="source-class-Modules.ModulesManagement.html#167-182" title="Go to source code">getModulesMenuItems</a>( )</code>
 
 			<div class="description short">
 				
@@ -497,7 +499,7 @@ passer via un tableau.</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_initModulesLoading">#</a>
-			<code><a href="source-class-Modules.ModulesManagement.html#177-187" title="Go to source code">initModulesLoading</a>( )</code>
+			<code><a href="source-class-Modules.ModulesManagement.html#184-194" title="Go to source code">initModulesLoading</a>( )</code>
 
 			<div class="description short">
 				
@@ -530,7 +532,7 @@ passer via un tableau.</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_settingsSave">#</a>
-			<code><a href="source-class-Modules.ModulesManagement.html#189-220" title="Go to source code">settingsSave</a>( <span><code><a href="class-Modules.Module.html">Modules\Module</a></code> <var>$Module</var></span>, <span>array <var>$settings</var></span>, <span><code><a href="class-Users.CurrentUser.html">Users\CurrentUser</a></code> <var>$User</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-Modules.ModulesManagement.html#196-227" title="Go to source code">settingsSave</a>( <span><code><a href="class-Modules.Module.html">Modules\Module</a></code> <var>$Module</var></span>, <span>array <var>$settings</var></span>, <span><code><a href="class-Users.CurrentUser.html">Users\CurrentUser</a></code> <var>$User</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				
@@ -576,7 +578,7 @@ passer via un tableau.</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_installModule">#</a>
-			<code><a href="source-class-Modules.ModulesManagement.html#222-268" title="Go to source code">installModule</a>( <span><code><a href="class-Modules.Module.html">Modules\Module</a></code> <var>$module</var></span>, <span>array <var>$acl</var> = <span class="php-keyword1">array</span>()</span>, <span>string <var>$sql</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-Modules.ModulesManagement.html#229-275" title="Go to source code">installModule</a>( <span><code><a href="class-Modules.Module.html">Modules\Module</a></code> <var>$module</var></span>, <span>array <var>$acl</var> = <span class="php-keyword1">array</span>()</span>, <span>string <var>$sql</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				
@@ -624,7 +626,7 @@ passer via un tableau.</dd>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_delUsersSettings">#</a>
-			<code><a href="source-class-Modules.ModulesManagement.html#270-291" title="Go to source code">delUsersSettings</a>( <span><code><a href="class-Modules.Module.html">Modules\Module</a></code> <var>$Module</var></span>, <span><code><a href="class-Users.CurrentUser.html">Users\CurrentUser</a></code> <var>$User</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-Modules.ModulesManagement.html#277-298" title="Go to source code">delUsersSettings</a>( <span><code><a href="class-Modules.Module.html">Modules\Module</a></code> <var>$Module</var></span>, <span><code><a href="class-Users.CurrentUser.html">Users\CurrentUser</a></code> <var>$User</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				

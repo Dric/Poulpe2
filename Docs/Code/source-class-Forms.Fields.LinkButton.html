@@ -8,7 +8,7 @@
 	<title>File classes/Forms/Fields/LinkButton.php</title>
 
 	<script type="text/javascript" src="resources/combined.js?1467300313"></script>
-	<script type="text/javascript" src="elementlist.js?2065545106"></script>
+	<script type="text/javascript" src="elementlist.js?392692030"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822">
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609">
 
@@ -118,21 +118,21 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
-				<li><a href="class-Forms.Fields.Bool.html">Bool</a></li>
+				<li><a href="class-Forms.Fields.BoolField.html">BoolField</a></li>
 				<li><a href="class-Forms.Fields.Button.html">Button</a></li>
 				<li><a href="class-Forms.Fields.CheckboxList.html">CheckboxList</a></li>
 				<li><a href="class-Forms.Fields.Color.html">Color</a></li>
 				<li><a href="class-Forms.Fields.Date.html">Date</a></li>
 				<li><a href="class-Forms.Fields.Email.html">Email</a></li>
 				<li><a href="class-Forms.Fields.File.html">File</a></li>
-				<li><a href="class-Forms.Fields.Float.html">Float</a></li>
+				<li><a href="class-Forms.Fields.FloatField.html">FloatField</a></li>
 				<li><a href="class-Forms.Fields.Hidden.html">Hidden</a></li>
-				<li><a href="class-Forms.Fields.Int.html">Int</a></li>
+				<li><a href="class-Forms.Fields.IntField.html">IntField</a></li>
 				<li class="active"><a href="class-Forms.Fields.LinkButton.html">LinkButton</a></li>
 				<li><a href="class-Forms.Fields.Password.html">Password</a></li>
 				<li><a href="class-Forms.Fields.RadioList.html">RadioList</a></li>
 				<li><a href="class-Forms.Fields.Select.html">Select</a></li>
-				<li><a href="class-Forms.Fields.String.html">String</a></li>
+				<li><a href="class-Forms.Fields.StringField.html">StringField</a></li>
 				<li><a href="class-Forms.Fields.Table.html">Table</a></li>
 				<li><a href="class-Forms.Fields.Text.html">Text</a></li>
 				<li><a href="class-Forms.Fields.Time.html">Time</a></li>
@@ -181,7 +181,7 @@
 </span></span><span id="26" class="l"><a class="l" href="#26">26 </a><span class="php-comment">     *
 </span></span><span id="27" class="l"><a class="l" href="#27">27 </a><span class="php-comment">     * @param bool   $enabled Champ modifiable
 </span></span><span id="28" class="l"><a class="l" href="#28">28 </a><span class="php-comment">     */</span>
-</span><span id="29" class="l"><a class="l" href="#29">29 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_display" href="#_display">display</a>(<span class="php-var">$enabled</span> = <span class="php-keyword1">true</span>){
+</span><span id="29" class="l"><a class="l" href="#29">29 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_display" href="#_display">display</a>(<span class="php-var">$enabled</span> = <span class="php-keyword1">true</span>, <span class="php-var">$userValue</span> = <span class="php-keyword1">false</span>, <span class="php-var">$attrs</span> = <span class="php-keyword1">null</span>){
 </span><span id="30" class="l"><a class="l" href="#30">30 </a>        <span class="xlang">?&gt;</span>
 </span><span id="31" class="l"><a class="l" href="#31">31 </a>        &lt;a <span class="php-keyword1">class</span>=<span class="php-quote">&quot;btn btn-default&lt;?php echo ' '.</span><span class="php-var">$this</span><span class="php-quote">-&gt;class; ?&gt;&quot;</span> id=<span class="php-quote">&quot;&lt;?php echo </span><span class="php-var">$this</span><span class="php-quote">-&gt;name; ?&gt;&quot;</span>  <span class="xlang">&lt;?php</span> <span class="php-keyword1">if</span>(<span class="php-var">$this</span>-&gt;help != <span class="php-quote">''</span>) <span class="php-keyword1">echo</span> <span class="php-quote">'title=&quot;'</span>.<span class="php-var">$this</span>-&gt;help.<span class="php-quote">'&quot;'</span>; <span class="xlang">?&gt;</span> name=<span class="php-quote">&quot;&lt;?php echo </span><span class="php-var">$this</span><span class="php-quote">-&gt;name; ?&gt;&quot;</span> href=<span class="php-quote">&quot;&lt;?php echo </span><span class="php-var">$this</span><span class="php-quote">-&gt;value; ?&gt;&quot;</span> <span class="xlang">&lt;?php</span> <span class="php-keyword1">if</span> (<span class="php-var">$this</span>-&gt;disabled <span class="php-keyword1">or</span> !<span class="php-var">$enabled</span>) <span class="php-keyword1">echo</span> <span class="php-quote">'disabled'</span>; <span class="xlang">?&gt;</span>&gt;<span class="xlang">&lt;?php</span> <span class="php-keyword1">echo</span> <span class="php-var">$this</span>-&gt;label; <span class="xlang">?&gt;</span>&lt;/a&gt;
 </span><span id="32" class="l"><a class="l" href="#32">32 </a>        <span class="xlang">&lt;?php</span>
