@@ -15,7 +15,7 @@ use Forms\Fields\Hidden;
 use Forms\Fields\LinkButton;
 use Forms\Fields\Password;
 use Forms\Fields\RadioList;
-use Forms\Fields\String;
+use Forms\Fields\StringField;
 use Forms\Pattern;
 use Logs\Alert;
 use Components\Avatar;
@@ -278,7 +278,7 @@ class UserProfile extends Module {
 	 * Prépare les champs de changement de nom et d'adresse email
 	 */
 	protected function accountFormItems(){
-		$this->form->addField(new String('name', $this->user->getName(), 'Nom/Pseudo', 'Veuillez saisir un nom ou un pseudonyme', null, new Pattern('text', true, 4, 150), true));
+		$this->form->addField(new StringField('name', $this->user->getName(), 'Nom/Pseudo', 'Veuillez saisir un nom ou un pseudonyme', null, new Pattern('text', true, 4, 150), true));
 		$this->form->addField(new Email('email', $this->user->getEmail(), 'Adresse email', 'adresse@domaine.extension', null, new Pattern('email', true, 0, 250), true));
 	}
 

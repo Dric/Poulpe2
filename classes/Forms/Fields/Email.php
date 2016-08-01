@@ -22,7 +22,7 @@ use Forms\Pattern;
  *
  * @package Forms\Fields
  */
-class Email extends String{
+class Email extends StringField{
 
 	protected $htmlType = 'email';
 	protected $associatedIcon = 'envelope';

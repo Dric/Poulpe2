@@ -13,7 +13,7 @@ use Components\Item;
 use FileSystem\File;
 use FileSystem\Fs;
 use Forms\Fields\Button;
-use Forms\Fields\String;
+use Forms\Fields\StringField;
 use Forms\Form;
 use Forms\Pattern;
 use Front;
@@ -43,7 +43,7 @@ class FileBrowser extends Module{
 	 * Les paramètres sont définis non pas avec des objets Setting mais avec des objets Field (sans quoi on ne pourra pas créer d'écran de paramétrage)
 	 */
 	public function defineSettings(){
-		$this->settings['rootFolder']  = new String('rootFolder', '/media/salsifis','Répertoire racine des fichiers', '/media/salsifis', null, new Pattern('string', true), true);
+		$this->settings['rootFolder']  = new StringField('rootFolder', '/media/salsifis','Répertoire racine des fichiers', '/media/salsifis', null, new Pattern('string', true), true);
 		Front::setCssHeader('<link href="'.Front::getBaseUrl().'/js/DataTables/extensions/Responsive/css/dataTables.responsive.css" rel="stylesheet">');
 		Front::setCssHeader('<link href="'.Front::getBaseUrl().'/js/DataTables/plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">');
 		Front::setCssHeader('<link href="'.Front::getBaseUrl().'/js/highlight/styles/default.css" rel="stylesheet">');

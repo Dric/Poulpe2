@@ -20,7 +20,7 @@ use Forms\Pattern;
  *
  * @package Forms\Fields
  */
-class Password extends String{
+class Password extends StringField{
 
 	protected $htmlType = 'password';
 

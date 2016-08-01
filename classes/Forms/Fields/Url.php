@@ -22,7 +22,7 @@ use Forms\Pattern;
  *
  * @package Forms\Fields
  */
-class Url extends String{
+class Url extends StringField{
 
 	protected $htmlType = 'url';
 	protected $associatedIcon = 'link';

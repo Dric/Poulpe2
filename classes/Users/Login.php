@@ -14,7 +14,7 @@ use Components\Avatar;
 use Forms\Fields\Button;
 use Forms\Fields\Email;
 use Forms\Fields\Password;
-use Forms\Fields\String;
+use Forms\Fields\StringField;
 use Forms\Form;
 use Forms\Pattern;
 use Forms\PostedData;
@@ -267,7 +267,7 @@ class Login {
 								<h3>Création de votre compte</h3>
 								<?php
 								$form = new Form('createUser');
-								$form->addField(new String('name', null, 'Nom/Pseudo', 'Veuillez saisir un nom ou un pseudonyme', null, new Pattern('text', true, 4, 150), true));
+								$form->addField(new StringField('name', null, 'Nom/Pseudo', 'Veuillez saisir un nom ou un pseudonyme', null, new Pattern('text', true, 4, 150), true));
 								$form->addField(new Email('email', null, 'Adresse email', 'nom@domaine.extension', null, new Pattern('email', true, 0, 250), true));
 								$form->addField(new Password('pwd', null, 'Mot de passe', 'Mot de passe de '.PWD_MIN_SIZE.' caractères minimum', null, new Pattern('password', true, PWD_MIN_SIZE, 100), true));
 								$form->addField(new Button('action2', 'createUser', 'Créer l\'utilisateur'));

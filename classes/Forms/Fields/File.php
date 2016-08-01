@@ -21,7 +21,7 @@ use Forms\Pattern;
  *
  * @package Forms\Fields
  */
-class File extends String{
+class File extends StringField{
 
 	protected $htmlType = 'file';
 	protected $associatedIcon = 'paperclip';

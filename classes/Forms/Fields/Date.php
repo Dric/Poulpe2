@@ -24,7 +24,7 @@ use Front;
  *
  * @package Forms\Fields
  */
-class Date extends String{
+class Date extends StringField{
 
 	protected $htmlType = 'date';
 	protected $type = 'date';

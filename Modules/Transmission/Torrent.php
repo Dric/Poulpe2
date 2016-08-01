@@ -1,7 +1,7 @@
 <?php
 
 namespace Modules\Transmission;
-use Forms\Fields\Bool;
+use Forms\Fields\BoolField;
 use Forms\Fields\Button;
 use Forms\Fields\Hidden;
 use Forms\Fields\Select;
@@ -381,9 +381,9 @@ Class Torrent{
 					?>
 					<form method="post" name="form_torrentActions_<?php echo $this->id; ?>" class="form-inline">
 						<div class="input-group">
-            <span class="input-group-btn">
-	            <button type="submit" class="btn btn-default" id="action" name="action" value="moveTorrent" <?php echo $disableNotFinishedTorrent; ?>>Déplacer vers</button>
-	          </span>
+							<span class="input-group-btn">
+	              Déplacer vers
+	            </span>
 							<select class="form-control" id="field_select_moveTo_<?php echo $this->id; ?>" name="field_select_moveTo" <?php echo $disableNotFinishedTorrent; ?>>
 								<option></option>
 								<?php
@@ -394,6 +394,9 @@ Class Torrent{
 								}
 								?>
 							</select>
+							<span class="input-group-btn">
+	              <button type="submit" class="btn btn-default" id="action" name="action" value="moveTorrent" <?php echo $disableNotFinishedTorrent; ?>>Déplacer</button>
+	            </span>
 						</div>
 						<!--<button type="submit" class="btn btn-default btn-xs" id="action" name="action" value="moveTorrent" <?php echo $disableNotFinishedTorrent; ?>>Déplacer</button>-->
 						<button type="submit" class="btn btn-default btn-sm" id="action" name="action" value="delTorrent" <?php echo $disableAll; ?>>Supprimer</button>

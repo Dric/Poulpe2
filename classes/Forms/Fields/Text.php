@@ -59,7 +59,7 @@ class Text extends Field{
 	 * @param bool $enabled Champ modifiable
 	 * @param bool $userValue Afficher la valeur utilisateur au lieu de la valeur globale
 	 */
-	public function display($enabled = true, $userValue = false){
+	public function display($enabled = true, $userValue = false, $attrs = null){
 		/**
 		 * @var Pattern $pattern
 		 */

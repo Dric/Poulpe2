@@ -21,7 +21,7 @@ use Forms\Pattern;
  *
  * @package Forms\Fields
  */
-class Color extends String{
+class Color extends StringField{
 
 	protected $htmlType = 'color';
 

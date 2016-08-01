@@ -17,7 +17,7 @@ use Forms\Pattern;
  *
  * @package Forms\Fields
  */
-class ValuesList extends String{
+class ValuesList extends StringField{
 
 	protected $htmlType = 'text';
 
