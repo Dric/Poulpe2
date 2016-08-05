@@ -87,15 +87,22 @@ class serverResource {
 				$this->total = 100;
 				break;
 			case 'mem':
-				exec('free -b', $out);
-				foreach($out as $row => $line){
-					$line = preg_replace('/\s+/', ' ',$line);
-					if ($row == 1){
-						$this->total = explode(' ', $line)[1];
-					}elseif($row == 2){
-						$this->load = explode(' ', $line)[2];
+				$data = explode("\n", file_get_contents("/proc/meminfo"));
+				$used = 0;
+				$usedTypes = array('memfree', 'buffers', 'cached');
+				foreach ($data as $line) {
+					preg_match('/(\w+):\s+(\d+)/i', $line, $matches);
+					if ($matches) {
+						if (strtolower($matches[1]) == 'memtotal') {
+							$this->total = $matches[2] * 1024;
+						} elseif (in_array(strtolower($matches[1]), $usedTypes)) {
+							$used += $matches[2] * 1024;
+							unset($usedTypes[strtolower($matches[1])]);
+						}
 					}
+					if (empty($usedTypes)) break;
 				}
+				$this->load = $this->total - $used;
 				break;
 			case 'disk':
 				foreach ($this->partitions as $partition){
@@ -116,7 +123,7 @@ class serverResource {
 		$obj = new \StdCLass;
 		switch ($this->type){
 			case 'cpu':
-				$obj->percentLoad = round($this->load, 1);
+				$obj->percentLoad = round($this->load, 2);
 				$obj->percentFree = 100 - $this->load;
 				break;
 			case 'mem':
@@ -129,7 +136,7 @@ class serverResource {
 					$obj->total = \Sanitize::readableFileSize($this->total);
 					$obj->free  = \Sanitize::readableFileSize($this->total - $this->load);
 				}
-				$obj->percentLoad = round($this->load / $this->total, 1)*100;
+				$obj->percentLoad = round($this->load / $this->total, 2)*100;
 				$obj->percentFree = 100 - $obj->percentLoad;
 				break;
 			case 'disk':
@@ -143,7 +150,7 @@ class serverResource {
 						$obj->total[$partition] = \Sanitize::readableFileSize($this->total[$partition]);
 						$obj->free[$partition]  = \Sanitize::readableFileSize($this->total[$partition] - $this->load[$partition]);
 					}
-					$obj->percentLoad[$partition] = round($this->load[$partition] / $this->total[$partition], 1)*100;
+					$obj->percentLoad[$partition] = round($this->load[$partition] / $this->total[$partition], 2)*100;
 					$obj->percentFree[$partition] = 100 - $obj->percentLoad[$partition];
 					}
 				break;
