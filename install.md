@@ -129,6 +129,14 @@ Les clés de salage doivent être changées impérativement. Vous pouvez vous co
 
 ## Serveur Linux
 
+### Vous devez cloner le dépôt des modules dans un répertoire `Modules`.
+
+Dans le répertoire racine, faites par exemple :
+
+	git clone https://github.com/Dric/Poulpe2_Modules.git Modules
+
+### Dépôt CHGS
+
 - Pour effectuer des opérations à distance sur des serveurs Windows, il faut installer un package debian situé dans `Modules/BandesTina`. Une fois dans ce répertoire, saisissez cette commande :
 
     sudo dpkg -i winexe_1.00-1_i386.deb
