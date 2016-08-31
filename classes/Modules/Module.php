@@ -181,6 +181,13 @@ class Module {
 	}
 
 	/**
+	 * @return string
+	 */
+	public function getVersion() {
+		return $this->version;
+	}
+
+	/**
 	 * Permet de construire une URL pour appeler le module avec des arguments
 	 *
 	 * Exemple pour un module `Users` :
@@ -312,7 +319,7 @@ class Module {
 	 */
 	public function initDisplay(){
 		if (!$this->getPage()){
-			if (DISPLAY_BREADCRUMB) Front::displayBreadCrumb($this->breadCrumb);
+			if (DISPLAY_BREADCRUMB) Front::displayBreadCrumb($this->breadCrumb, $this->version);
 			$this->mainDisplay();
 		}
 	}

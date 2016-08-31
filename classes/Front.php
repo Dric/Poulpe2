@@ -324,13 +324,18 @@ class Front {
 	 * Affiche le fil d'ariane
 	 * @param array $breadCrumb
 	 */
-	public static function displayBreadCrumb($breadCrumb) {
+	public static function displayBreadCrumb($breadCrumb, $moduleVersion = '0') {
 		if (self::$breadCrumb['link'] == '.') self::$breadCrumb['link'] = Front::getBaseUrl();
 		if (!empty($breadCrumb)) self::$breadCrumb['children'] = $breadCrumb;
 		?>
 		<ol class="breadcrumb">
 			<?php
 			echo self::breadCrumbLevel(self::$breadCrumb);
+			?>
+			<?php
+				if ($moduleVersion != '0'){
+					?><li class="moduleVersion">v<?php echo $moduleVersion; ?></li><?php
+				}
 			?>
 		</ol>
 		<?php
