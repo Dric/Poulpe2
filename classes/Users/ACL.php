@@ -405,7 +405,7 @@ class ACL {
 				<?php
 				}
 				?>
-				<form id="adminACL" class="" method="post" role="form" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+				<form id="adminACL" class="" method="post" role="form" action="<?php echo \Front::getModuleUrl().'Admin&page=UserACL'; ?>">
 					<table class="table">
 						<thead>
 							<tr>

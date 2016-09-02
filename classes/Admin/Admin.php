@@ -302,7 +302,7 @@ class Admin extends Module {
 				</div>
 				<?php
 				if (isset($userSearched) and is_numeric($userSearched)) {
-					ACL::adminuserACL($userSearched);
+					ACL::adminUserACL($userSearched);
 				}else{
 					?>
 					<ul>
