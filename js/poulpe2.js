@@ -203,7 +203,7 @@ var substringMatcher = function(strs) {
  * Masque le menu principal lorsqu'un menu secondaire existe
  */
 function menuNavigation(){
-	$('.secondary-menu-title').css('margin-bottom', 16).before('<a class="display-main-menu pull-left" href="#" title="Afficher le menu principal"><span class="fa fa-chevron-circle-down"></span></a>');
+	$('.secondary-menu-title').css('margin-bottom', 16).prepend('<a class="display-main-menu" href="#" title="Afficher le menu principal"><span class="fa fa-chevron-circle-down"></span></a>');
 	// Si un menu secondaire existe, on planque le menu principal
 	if ($('.secondary-menu-title').length > 0) {
 		$('#menu-main').hide();

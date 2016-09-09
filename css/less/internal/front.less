@@ -68,18 +68,29 @@ footer, .push {
   }
 }
 
-/*.content-header{
-  background-color: @link-color;
+#moduleAdminButtons{
+  float: right;
 }
-.content-header-title{
-  text-align: right;
-  a{
-    color: @body-bg;
-    &:hover{
+
+.content-header {
+  //height: 65px;
+  line-height: 65px;
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  background: linear-gradient(to right, @brand-info 15%, mix(@brand-info, @brand-danger, 20%));
+  h1 {
+    margin: 0;
+    margin-left: 20px;
+    line-height: 65px;
+    display: inline-block;
+  }
+  .content-header-title{
+    a{
       color: @body-bg;
     }
   }
-}*/
+}
 
 /* Arborescence dépliable */
 .tree {

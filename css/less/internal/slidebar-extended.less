@@ -2,42 +2,49 @@
 * Masquage du menu principal
 */
 .display-main-menu{
-  color: @gray-dark;
-  font-size: 1.8em;
+  color: @body-bg;
+  font-size: 1.2em;
   margin-top:-6px;
   margin-right:4px;
   margin-left:4px
 }
 
 .secondary-menu-title{
-  color: @gray-dark;
+  color: @body-bg;
 }
 
-.menu .menu-highlight a{
-  color: @brand-primary;
-}
-
-.menu .menu-warning a{
-  color: @brand-warning;
-}
-.menu .menu-warning a:hover{
-  background-color: @brand-warning;
-  color: @text-color;
-}
-.menu .menu-danger a{
-  color: @brand-danger;
-}
-.menu .menu-danger a:hover{
-  background-color: @brand-danger;
-}
 
 .sidebar-nav li{
   & > a{
     padding: 2px 0px 2px 15px;
-    font-size: 0.95em;
+    font-size: 0.8em;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
   }
   &:nth-child(even) {
-    background: lighten(#000, 59%);
+    background: lighten(@gray-dark, 1%);
+  }
+  &.menu-highlight a{
+    color: @brand-primary;
+  }
+  &.menu-warning a{
+    color: @brand-warning;
+  }
+  &.menu-warning a:hover{
+    background: linear-gradient(to right, @brand-warning, transparent);
+    color: @gray-dark;
+  }
+  &.menu-danger a{
+    color: @brand-danger;
+  }
+  &.menu-danger a:hover{
+    background: linear-gradient(to right, @brand-danger, transparent);
+  }
+  &:hover{
+    background: linear-gradient(to right, @link-color, transparent);
+    a{
+      color: @body-bg;
+      text-decoration: none;
+    }
+    //transition: background-color 300ms ease-out;
   }
 }

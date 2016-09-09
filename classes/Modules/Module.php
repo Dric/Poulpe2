@@ -407,6 +407,7 @@ class Module {
 	 * Affiche les boutons de gestion des ACL et des paramètres
 	 */
 	protected function manageModuleButtons(){
+		?><div id="moduleAdminButtons"><?php
 		if (!empty($this->settings) and (ACL::canAdmin('module', $this->id) or $this->allowUsersSettings)) {
 			?>&nbsp;<a class="settingsButton btn btn-default btn-xs" title="Paramètres du module" href="<?php echo $this->buildArgsURL(array('page' => 'settings')); ?>"><span class="fa fa-cog"></span> Paramètres</a><?php
 		}
@@ -414,6 +415,7 @@ class Module {
 		if (ACL::canAdmin('module', $this->id) and HOME_MODULE != end($module)){
 			?>&nbsp;<a class="ACLButton btn btn-default btn-xs" title="Autorisations du module" href="<?php echo $this->buildArgsURL(array('page' => 'ACL')); ?>"><span class="fa fa-user"></span> Autorisations</a><?php
 		}
+		?></div><?php
 	}
 
 	/**

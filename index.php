@@ -230,5 +230,5 @@ if ((!$cUser->isLoggedIn() or $redirectToLogin) and AUTH_MANDATORY){
 		<?php Front::jsFooter(); ?>
 		<!-- Fin du pied de page -->
 	</body>
-	</html>
+</html>
 <?php } ?>
