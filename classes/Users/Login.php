@@ -238,7 +238,7 @@ class Login {
 			<!DOCTYPE html>
 			<html lang="fr">
 			<?php Front::htmlHead('Connexion'); ?>
-			<body>
+			<body id="loginBody">
 			<div id="">
 				<!-- Page content -->
 				<div id="page-content-wrapper" class="login-wrap container">
@@ -260,7 +260,7 @@ class Login {
 					<div class="row">
 						<div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 							<!-- Keep all page content within the page-content inset div! -->
-							<div class="page-content inset">
+							<div class="page-content inset" id="loginPanel">
 								<div class="text-center"><?php echo Avatar::display(null, 'Connectez-vous !'); ?></div>
 								<br>
 								<p>Il semble que vous soyez le premier à vouloir vous connecter, ce qui va faire de vous l'heureux administrateur de ce site !</p>
@@ -279,6 +279,7 @@ class Login {
 				</div>
 			</div>
 			<?php Front::jsFooter(); ?>
+			<script src="<?php echo Front::getBaseUrl(); ?>/js/granim.min.js"></script>
 			</body>
 			<?php
 			exit;
@@ -287,65 +288,63 @@ class Login {
 			<!DOCTYPE html>
 			<html lang="fr">
 			<?php Front::htmlHead('Connexion'); ?>
-			<body>
-				<div id="">
-					<!-- Page content -->
-					<div id="page-content-wrapper" class="login-wrap container">
-						<!-- Si javascript n'est pas activé, on prévient l'utilisateur que ça va merder... -->
-						<noscript>
-							<div class="alert alert-danger">
-								<p class="text-center">Ce site fonctionne sans Javascript, mais vous devriez quand même l'activer pour un plus grand confort d'utilisation.</p>
-							</div>
-						</noscript>
-						<div class="row">
-							<div class="col-md-8 col-md-offset-2">
-								<div class="text-center">
-									<h1>
-										<?php echo SITE_NAME; ?> - Connexion
-									</h1>
-								</div>
+			<body id="loginBody">
+				<!-- Page content -->
+				<div id="page-content-wrapper" class="login-wrap container">
+					<!-- Si javascript n'est pas activé, on prévient l'utilisateur que ça va merder... -->
+					<noscript>
+						<div class="alert alert-danger">
+							<p class="text-center">Ce site fonctionne sans Javascript, mais vous devriez quand même l'activer pour un plus grand confort d'utilisation.</p>
+						</div>
+					</noscript>
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2">
+							<div class="text-center">
+								<h1>
+									<?php echo SITE_NAME; ?> - Connexion
+								</h1>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-								<!-- Keep all page content within the page-content inset div! -->
-								<div class="page-content inset">
-									<div class="text-center"><?php echo Avatar::display(null, 'Connectez-vous !'); ?></div>
-									<br>
+					</div>
+					<div class="row">
+						<div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+							<!-- Keep all page content within the page-content inset div! -->
+							<div class="page-content inset" id="loginPanel">
+								<div class="text-center"><?php echo Avatar::display(null, 'Connectez-vous !'); ?></div>
+								<br>
+								<?php if (AUTH_MODE == 'ldap'){ ?>
+								<div class="alert alert-info text-center col">Saisissez vos identifiants Active Directory</div>
+								<?php } ?>
+								<form id="loginForm" class="" method="post" role="form" action="index.php?action=loginForm&tryLogin=true">
+									<div class="form-group">
+										<label for="loginName">Nom d'utilisateur</label>
+										<input type="text" class="form-control input-lg" id="loginName" name="loginName" placeholder="Saisissez votre nom d'utilisateur">
+									</div>
+									<div class="form-group">
+										<label for="loginPwd">Password</label>
+										<div class="input-group">
+											<input type="password" class="form-control pwd input-lg" id="loginPwd" name="loginPwd" placeholder="Saisissez votre mot de passe">
+											<span class="input-group-btn">
+	                      <button class="btn btn-default reveal tooltip-bottom input-lg" title="Afficher les caractères" type="button"><i class="fa fa-eye"></i></button>
+	                    </span>
+										</div>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" name="stayConnected" checked>
+											Rester connecté
+										</label>
+									</div>
 									<?php if (AUTH_MODE == 'ldap'){ ?>
-									<div class="alert alert-info text-center col">Saisissez vos identifiants Active Directory</div>
+									<div class="pull-right">
+										<span class="fa fa-sitemap"></span> Authentification sur <code><?php echo LDAP_DOMAIN; ?></code>
+									</div>
 									<?php } ?>
-									<form id="loginForm" class="" method="post" role="form" action="index.php?action=loginForm&tryLogin=true">
-										<div class="form-group">
-											<label for="loginName">Nom d'utilisateur</label>
-											<input type="text" class="form-control input-lg" id="loginName" name="loginName" placeholder="Saisissez votre nom d'utilisateur">
-										</div>
-										<div class="form-group">
-											<label for="loginPwd">Password</label>
-											<div class="input-group">
-												<input type="password" class="form-control pwd input-lg" id="loginPwd" name="loginPwd" placeholder="Saisissez votre mot de passe">
-												<span class="input-group-btn">
-		                      <button class="btn btn-default reveal tooltip-bottom input-lg" title="Afficher les caractères" type="button"><i class="fa fa-eye"></i></button>
-		                    </span>
-											</div>
-										</div>
-										<div class="checkbox">
-											<label>
-												<input type="checkbox" name="stayConnected" checked>
-												Rester connecté
-											</label>
-										</div>
-										<?php if (AUTH_MODE == 'ldap'){ ?>
-										<div class="pull-right">
-											<span class="fa fa-sitemap"></span> Authentification sur <code><?php echo LDAP_DOMAIN; ?></code>
-										</div>
-										<?php } ?>
-										<?php if (!empty($from)){ ?>
-										<input type="hidden" name="from" value="<?php echo $from; ?>">
-										<?php } ?>
-										<button type="submit" class="btn btn-primary btn-lg">Connexion</button>
-									</form>
-								</div>
+									<?php if (!empty($from)){ ?>
+									<input type="hidden" name="from" value="<?php echo $from; ?>">
+									<?php } ?>
+									<button type="submit" class="btn btn-primary btn-lg">Connexion</button>
+								</form>
 							</div>
 						</div>
 					</div>
