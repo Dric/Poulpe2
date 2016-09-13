@@ -9,6 +9,7 @@
 namespace Admin;
 
 use Components\Avatar;
+use Components\Help;
 use Components\serverResource;
 use Forms\Fields\BoolField;
 use Forms\Fields\Button;
@@ -629,7 +630,7 @@ class Admin extends Module {
 						<?php $this->poulpe2Status(); ?>
 					</div>
 					<div class="col-md-4">
-						<h3>Logiciels</h3>
+						<h3>Logiciels/Serveur</h3>
 						<?php $this->softwareStatus(); ?>
 					</div>
 				</div>
@@ -676,6 +677,13 @@ class Admin extends Module {
 		}
 		@exec('getconf LONG_BIT', $architecture);
 		$architecture = (!isset($architecture[0]) or empty($architecture)) ? 'Inconnue' : $architecture[0];
+		// Récupération de l'adresse IP publique
+		$publicIP = @file_get_contents("http://ipecho.net/plain");
+		if ($publicIP === false){
+			// Si ipecho.net ne répond pas, on passe sur ip4.me
+			preg_match("/.*\\+3>(.+?)</mi", file_get_contents('http://ip4.me/'), $match);
+			if (isset($match[1])) $publicIP = $match[1];
+		}
 		?>
 		<ul>
 			<li>Version de php : <strong class="text-<?php echo ((float)$phpVersion >= 5.4) ? 'success' : 'danger'; ?>"><?php echo $phpVersion; ?></strong></li>
@@ -684,6 +692,7 @@ class Admin extends Module {
 			<li>Architecture serveur : <strong><?php echo $architecture; ?></strong> bits</li>
 			<li>Serveur Web : <strong><?php echo $_SERVER['SERVER_SOFTWARE']; ?></strong></li>
 			<li>Répertoire racine : <strong><?php echo $_SERVER['DOCUMENT_ROOT']; ?></strong></li>
+			<li>Adresse IP publique : <strong><?php echo $publicIP; ?></strong><?php echo Help::iconHelp('Cette adresse IP est celle que vous avez sur Internet.'); ?></li>
 		</ul>
 		<?php
 	}
