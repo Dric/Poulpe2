@@ -32,7 +32,7 @@ class Avatar {
 		}elseif (isset($pathInfo['extension']) and in_array($pathInfo['extension'], array('jpg', 'jpeg', 'gif', 'png', 'bmp'))){
 			$src = Front::getBaseUrl() . '/'. AVATAR_PATH . $avatar;
 		}elseif(Check::isEmail($avatar)){
-			$src = 'http://www.gravatar.com/avatar/' . md5( strtolower( trim( $avatar ) ) ) . '?s=80';
+			$src = 'https://www.gravatar.com/avatar/' . md5( strtolower( trim( $avatar ) ) ) . '?s=80';
 		}else{
 			// avatar en format binaire (venant de LDAP)
 			$src = 'data:image/jpg;base64,' . base64_encode($avatar);
@@ -49,7 +49,7 @@ class Avatar {
 	public static function hasGravatar($email) {
 		// Craft a potential url and test its headers
 		$hash = md5($email);
-		$uri = 'http://www.gravatar.com/avatar/' . $hash . '?d=404';
+		$uri = 'https://www.gravatar.com/avatar/' . $hash . '?d=404';
 		$headers = @get_headers($uri);
 		if (!preg_match("|200|", $headers[0])) {
 			return FALSE;
