@@ -80,7 +80,7 @@ class UsersManagement {
 		}else{
 			$where = array('name' => $user);
 		}
-		if ($db->update('users', array('hash' => $hash), $where)){
+		if ($db->update('users', array('hash' => $hash, 'lastLogin' => time(), 'loginAttempts' => 0), $where)){
 			return $hash;
 		}
 		return false;

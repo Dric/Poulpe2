@@ -22,6 +22,7 @@ use Logs\Alert;
 use Front;
 use Get;
 use Sanitize;
+use Settings\Version;
 
 /**
  * Classe de gestion de l'authentification
@@ -108,10 +109,17 @@ class Login {
 
 	/**
 	 * Valide la connexion d'un utilisateur
+	 *
+	 * Le nombre de tentatives de connexions est enregistré au niveau de l'utilisateur. Si celui-ci dépasse le nombre maximum autorisé, le compte est verrouillé pour une durée définie dans `$timeToWaitAfterLock`
+	 * Si la connexion se passe bien, le compteur est réinitialisé (dans la méthode `doLogin`)
+	 *
 	 * @return bool
 	 */
 	static function tryLogin(){
-		global $ldap;
+		global $ldap, $db;
+		$maxLoginAttempts = 6;
+		$timeToWaitAfterLock = 3600*12;
+		$userDb = false;
 		$from = (isset($_REQUEST['from'])) ? $_REQUEST['from'] : '';
 		if (!isset($_REQUEST['loginName']) or empty($_REQUEST['loginName']) or !isset($_REQUEST['loginPwd']) or empty($_REQUEST['loginPwd'])) {
 			new Alert('error', 'Le nom ou le mot de passe est vide !');
@@ -123,12 +131,35 @@ class Login {
 		if (!empty($loginName) and !empty($loginPwd)){
 			if (AUTH_MODE == 'sql'){
 				if ($userDb = UsersManagement::getDBUsers($loginName, true)){
+					// On réinitialise les tentatives de connexions au bout de 12h
+					if (version_compare(Version::getDbVersion(), '1.1', '>=') and $userDb->lastLogin < (time() - $timeToWaitAfterLock)){
+						$ret = $db->update('users', array('loginAttempts' => 0), array('id' => $userDb->id));
+						$userDb->loginAttempts = 0;
+					}
+					// On bloque au bout de 6 tentatives
+					if (version_compare(Version::getDbVersion(), '1.1', '>=') and $userDb->loginAttempts > ($maxLoginAttempts - 1)){
+						new Alert('error', 'Ce compte est verrouillé !<br>Cause : Tentatives de connexion en échec trop élevées.');
+						return false;
+					}
 					if ($userDb->pwd == self::saltPwd($loginPwd)) self::doLogin($loginName, $from, $stayConnected);
 				}else{
 					new Alert('error', 'Ce nom de connexion est inconnu !');
 					return false;
 				}
+				$ret = $db->update('users', array('loginAttempts' => ($userDb->loginAttempts + 1), 'lastLogin' => time()), array('id' => $userDb->id));
 			}else{
+				if (version_compare(Version::getDbVersion(), '1.1', '>=') and $userDb = UsersManagement::getDBUsers($loginName, false)){
+					// On réinitialise les tentatives de connexions au bout de 12h
+					if ($userDb->lastLogin < (time() - $timeToWaitAfterLock)){
+						$ret = $db->update('users', array('loginAttempts' => 0), array('id' => $userDb->id));
+						$userDb->loginAttempts = 0;
+					}
+					// On bloque au bout de 6 tentatives
+					if ($userDb->loginAttempts > ($maxLoginAttempts - 1)){
+						new Alert('error', 'Ce compte est verrouillé !<br>Cause : Tentatives de connexion en échec trop élevées.');
+						return false;
+					}
+				}
 				if ($ldap->tryLDAPLogin($loginName, $loginPwd)){
 					if (!UsersManagement::getDBUsers($loginName, false)){
 						if (UsersManagement::createDBUser($loginName)){
@@ -142,6 +173,9 @@ class Login {
 					}
 				}else{
 					new Alert('debug', '<code>Login->tryLogin()</code> : Connexion LDAP échouée !');
+					if (version_compare(Version::getDbVersion(), '1.1', '>=') and $userDb){
+						$ret = $db->update('users', array('loginAttempts' => ($userDb->loginAttempts + 1), 'lastLogin' => time()), array('id' => $userDb->id));
+					}
 				}
 			}
 		}

@@ -10,7 +10,7 @@ namespace Settings;
 use Logs\Alert;
 
 class Version {
-	protected static $dbVersion = '1.0';
+	protected static $dbVersion = '1.1';
 
 	/**
 	 * Liste des commandes SQL à passer pour mettre à jour le schéma de DB
@@ -23,6 +23,10 @@ class Version {
 				'CREATE TABLE IF NOT EXISTS `global_settings` (`id` int(6) NOT NULL AUTO_INCREMENT, `setting` varchar(150) NOT NULL, `value` varchar(255) NOT NULL, PRIMARY KEY (`id`), UNIQUE KEY `setting` (`setting`)) ENGINE=InnoDB DEFAULT CHARSET=utf8',
 				'INSERT INTO `global_settings` (`setting`, `value`) VALUES ("poulpe2DbVersion", "1.0") ON DUPLICATE KEY UPDATE `value` = "1.0"',
 				'ALTER TABLE `modules` ADD `version` VARCHAR( 15 ) NOT NULL DEFAULT "0" COMMENT "Version du module"'
+			),
+			'1.1' => array(
+				'ALTER TABLE `users` ADD `loginAttempts` INT(2) NOT NULL DEFAULT 0 COMMENT "Nombre de tentatives de connexions"',
+				'ALTER TABLE `users` ADD `lastLogin` INT(11) NOT NULL COMMENT "Timestamp Unix de la dernière tentative de connexion"'
 			)
 		);
 	}
@@ -75,7 +79,7 @@ class Version {
 		$inDbVersion    = (is_null($module)) ? $_SESSION['dbVersion'] : $_SESSION['modulesVersion'][$module];
 		$encodedVersion = (is_null($module)) ? self::$dbVersion : $moduleEncodedVersion;
 
-		// Le module peut ne pas nécessiter de changements en base de données mais peut avoir eu des opérations à éffectuer sur des données. dans ce cas, il faut juste mettre à jour le numéro de version.
+		// Le module peut ne pas nécessiter de changements en base de données mais peut avoir eu des opérations à effectuer sur des données. dans ce cas, il faut juste mettre à jour le numéro de version.
 		// Cette méthode ne se lance de toute façon que si les opérations de script du module ont bien été passées.
 		if (!is_null($sqlQueries)) {
 			new Alert('warning', 'Mise à jour du schéma de base de données nécessaire de la version <code>' . $inDbVersion . '</code> à la version <code>' . $encodedVersion . '</code>');
@@ -87,8 +91,6 @@ class Version {
 						return false;
 					}
 					new Alert('success', 'Schéma de base de données ' . ((is_null($module)) ? '' : 'du module ') . 'mis à jour en version <code>' . $version . '</code>');
-				} else {
-					break;
 				}
 			}
 		}else{

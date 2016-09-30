@@ -350,7 +350,8 @@ class Admin extends Module {
 							<th>Id</th>
 							<th>Nom</th>
 							<th>Avatar</th>
-							<th>Email</th>
+							<?php if (AUTH_MODE == 'sql') { ?><th>Email</th><?php } ?>
+							<th>Dernière connexion <?php echo Help::iconHelp('Ceci est en réalité la dernière tentative de connexion effectuée, qu\'elle ait échoué ou non.'); ?></th>
 							<th>Droits d'accès</th>
 							<th>Profil/Compte</th>
 						</tr>
@@ -374,7 +375,8 @@ class Admin extends Module {
 								<td><?php echo $user->id; ?></td>
 								<td><?php echo $user->name; ?></td>
 								<td><?php echo Avatar::display($avatar, 'Avatar de '.$user->name); ?></td>
-								<td><?php echo $user->email; ?></td>
+								<?php if (AUTH_MODE == 'sql') { ?><td><?php echo $user->email; ?></td><?php } ?>
+								<td><?php if (isset($user->lastLogin) and $user->lastLogin > 0) { echo Sanitize::date($user->lastLogin, 'dateAtTime'); }else{ echo 'Inconnue'; } ?></td>
 								<td><a class="btn btn-default" href="<?php echo $this->buildArgsURL(array('page' => 'userACL', 'user' => $user->id)); ?>">Modifier</a></td>
 								<td><a class="btn btn-default" href="<?php echo Front::getModuleUrl(); ?>profil&user=<?php echo $user->id; ?>">Modifier</a></td>
 							</tr>
