@@ -74,7 +74,7 @@ class UsersManagement {
 	 */
 	static function updateUserHash($user){
 		global $db;
-		$hash = sha1($user.SALT_COOKIE);
+		$hash = sha1($user.\Settings::SALT_COOKIE);
 		if (is_numeric($user)){
 			$where = array('id' => $user);
 		}else{
@@ -97,8 +97,8 @@ class UsersManagement {
 	static function getLDAPUser($userName, $complete = true){
 		global $ldap;
 		$filter = null;
-		If (!empty(LDAP_AUTH_OU) and LDAP_AUTH_OU != '*'){
-			$filter = 'OU='.LDAP_AUTH_OU;
+		If (!empty(\Settings::LDAP_AUTH_OU) and \Settings::LDAP_AUTH_OU != '*'){
+			$filter = 'OU='.\Settings::LDAP_AUTH_OU;
 		}
 		$user = $ldap->search('person', $userName, $filter, array(), true);
 		// Comme on a cherché un seul résultat, on ne veut que le premier item

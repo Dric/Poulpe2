@@ -408,7 +408,7 @@ class Sanitize {
 			$iv .
 			mcrypt_encrypt(
 				MCRYPT_RIJNDAEL_128,
-				hash('sha256', SALT_AUTH, true),
+				hash('sha256', \Settings::SALT_AUTH, true),
 				$string,
 				MCRYPT_MODE_CBC,
 				$iv
@@ -433,7 +433,7 @@ class Sanitize {
 		$decrypted = rtrim(
 			mcrypt_decrypt(
 				MCRYPT_RIJNDAEL_128,
-				hash('sha256', SALT_AUTH, true),
+				hash('sha256', \Settings::SALT_AUTH, true),
 				substr($data, mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC)),
 				MCRYPT_MODE_CBC,
 				$iv

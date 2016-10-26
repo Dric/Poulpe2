@@ -28,9 +28,9 @@ class Avatar {
 	public static function display($avatar = null,  $avatarTitle = 'Avatar') {
 		$pathInfo = pathinfo($avatar);
 		if (empty($avatar) or $avatar == 'default'){
-			$src = Front::getBaseUrl() . '/'. AVATAR_PATH . AVATAR_DEFAULT;
-		}elseif (isset($pathInfo['extension']) and in_array($pathInfo['extension'], array('jpg', 'jpeg', 'gif', 'png', 'bmp'))){
-			$src = Front::getBaseUrl() . '/'. AVATAR_PATH . $avatar;
+			$src = Front::getBaseUrl() . '/'. \Settings::AVATAR_PATH . \Settings::AVATAR_DEFAULT;
+		}elseif (isset($pathInfo['extension']) and in_array($pathInfo['extension'], \Settings::ALLOWED_IMAGES_EXT)){
+			$src = Front::getBaseUrl() . '/'. \Settings::AVATAR_PATH . $avatar;
 		}elseif(Check::isEmail($avatar)){
 			$src = 'https://www.gravatar.com/avatar/' . md5( strtolower( trim( $avatar ) ) ) . '?s=80';
 		}else{

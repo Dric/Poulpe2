@@ -117,7 +117,7 @@ class Module {
 		$module = explode('\\', get_class($this));
 		$this->url = Front::getModuleUrl().end($module);
 		// Fil d'Ariane. Si la page demandée est l'accueil, on ne la raffiche pas étant donné qu'elle est systématiquement indiquée
-		if ($this->name != 'home' and HOME_MODULE != end($module)){
+		if ($this->name != 'home' and \Settings::HOME_MODULE != end($module)){
 			$this->breadCrumb = array(
 				'title' => $this->name,
 				'link'  => $this->url
@@ -319,7 +319,7 @@ class Module {
 	 */
 	public function initDisplay(){
 		if (!$this->getPage()){
-			if (DISPLAY_BREADCRUMB) Front::displayBreadCrumb($this->breadCrumb, $this->version);
+			if (\Settings::DISPLAY_BREADCRUMB) Front::displayBreadCrumb($this->breadCrumb, $this->version);
 			$this->mainDisplay();
 		}
 	}
@@ -412,7 +412,7 @@ class Module {
 			?>&nbsp;<a class="settingsButton btn btn-default btn-xs" title="Paramètres du module" href="<?php echo $this->buildArgsURL(array('page' => 'settings')); ?>"><span class="fa fa-cog"></span> Paramètres</a><?php
 		}
 		$module = explode('\\', get_class($this));
-		if (ACL::canAdmin('module', $this->id) and HOME_MODULE != end($module)){
+		if (ACL::canAdmin('module', $this->id) and \Settings::HOME_MODULE != end($module)){
 			?>&nbsp;<a class="ACLButton btn btn-default btn-xs" title="Autorisations du module" href="<?php echo $this->buildArgsURL(array('page' => 'ACL')); ?>"><span class="fa fa-user"></span> Autorisations</a><?php
 		}
 		?></div><?php

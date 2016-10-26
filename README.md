@@ -14,21 +14,6 @@ Un framework modulaire en php.
 
 #### Serveur Linux
 
-Certains modules doivent accéder aux partages de machines Windows. Il y a une petite configuration à effectuer pour que ça fonctionne bien :
-
-- Le répertoire `/mnt` doit être accessible en écriture à l'utilisateur apache (`www-data` par défaut)
-- L'utilisateur apache doit avoir le droit d'invoquer `sudo` sans mot de passe pour monter tous les répertoires réseau. Ceci est quand même un gros trou de sécurité...
-
-Dans un terminal, saisir :
-
-    sudo visudo
-
-Ajouter à la dernière ligne :
-
-    www-data ALL = NOPASSWD: ALL
-
-Attention : si vous lancez apache sous un autre nom (`administrateur` par exemple), modifiez la ligne du dessus en conséquence.
-
 Les pretty URL (du type `http://poulpe2/module/FileBrowser`) sont disponibles seulement sous Apache. Pour les activer, il faut modifier la constante `MODULE_URL` dans le fichier `config.php` en `module/`.
 
 ### Client

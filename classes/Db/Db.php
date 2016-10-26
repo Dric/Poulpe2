@@ -106,11 +106,11 @@ class Db {
 	 * @param string $dbPwd Mot de passe du compte utilisé pour se connecter à la bdd
 	 */
 	public function __construct($type = '', $dbServer = '', $dbName = '', $dbLogin = '', $dbPwd = ''){
-		$this->type = (!empty($type)) ? $type : DB_TYPE;
-		$this->dbServer = (!empty($dbServer)) ? $dbServer : DB_HOST;
-		$this->dbName = (!empty($dbName)) ? $dbName : DB_NAME;
-		$this->dbLogin = (!empty($dbLogin)) ? $dbLogin : DB_USER;
-		$this->dbPwd = (!empty($dbPwd)) ? $dbPwd : DB_PASSWORD;
+		$this->type = (!empty($type)) ? $type : \Settings::DB_TYPE;
+		$this->dbServer = (!empty($dbServer)) ? $dbServer : \Settings::DB_HOST;
+		$this->dbName = (!empty($dbName)) ? $dbName : \Settings::DB_NAME;
+		$this->dbLogin = (!empty($dbLogin)) ? $dbLogin : \Settings::DB_USER;
+		$this->dbPwd = (!empty($dbPwd)) ? $dbPwd : \Settings::DB_PASSWORD;
 
 		try {
 			$this->db = new PDO($this->type.':host='.$this->dbServer.';dbname='.$this->dbName, $this->dbLogin, $this->dbPwd, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));

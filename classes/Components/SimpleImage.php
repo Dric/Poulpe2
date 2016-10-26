@@ -517,15 +517,15 @@ class SimpleImage {
 		$this->filename = $filename;
 		return $this->get_meta_data();
 	}
-	
+
 	/**
 	 * Load a base64 string as image
 	 *
-	 * @param string		$filename	base64 string
+	 * @param string $base64string base64 string
 	 *
 	 * @return SimpleImage
-	 * 
-	 */ 
+	 * @throws Exception
+	 */
 	function load_base64($base64string) {
 		if (!extension_loaded('gd')) {
 			throw new Exception('Required extension GD is not loaded.');

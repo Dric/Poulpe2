@@ -37,13 +37,13 @@ class Login {
 	 * Générateur de clé de salage : <https://api.wordpress.org/secret-key/1.1/salt/>
 	 * @var string
 	 */
-	protected static $salt = SALT_AUTH;
+	protected static $salt = \Settings::SALT_AUTH;
 
 	/**
 	 * Nom du cookie utilisé pour l'authentification
 	 * @var string
 	 */
-	protected static $cookieName = COOKIE_NAME;
+	protected static $cookieName = \Settings::COOKIE_NAME;
 
 
 	/**
@@ -53,7 +53,7 @@ class Login {
 	 *
 	 * @var string
 	 */
-	protected static $authMode = AUTH_MODE;
+	protected static $authMode = \Settings::AUTH_MODE;
 
 	/**
 	 * Suppression du cookie d'authentification et de la session PHP
@@ -129,7 +129,7 @@ class Login {
 		$loginPwd = htmlspecialchars($_REQUEST['loginPwd']);
 		$stayConnected = (isset($_REQUEST['stayConnected'])) ? true : false;
 		if (!empty($loginName) and !empty($loginPwd)){
-			if (AUTH_MODE == 'sql'){
+			if (\Settings::AUTH_MODE == 'sql'){
 				if ($userDb = UsersManagement::getDBUsers($loginName, true)){
 					// On réinitialise les tentatives de connexions au bout de 12h
 					if (version_compare(Version::getDbVersion(), '1.1', '>=') and $userDb->lastLogin < (time() - $timeToWaitAfterLock)){
@@ -193,9 +193,9 @@ class Login {
 	 * @return bool
 	 */
 	static protected function doLogin($user, $from = '/', $stayConnected){
-		$cookieDuration = ($stayConnected) ? (time()+(COOKIE_DURATION*3600)) : 0;
+		$cookieDuration = ($stayConnected) ? (time()+(\Settings::COOKIE_DURATION*3600)) : 0;
 		$hash = UsersManagement::updateUserHash($user);
-		$ret = setcookie(COOKIE_NAME, serialize(array($user,$hash)), $cookieDuration, '/', '', FALSE, TRUE);
+		$ret = setcookie(\Settings::COOKIE_NAME, serialize(array($user,$hash)), $cookieDuration, '/', '', FALSE, TRUE);
 		if (!$ret){
 			new Alert('error', 'Impossible de créer le cookie d\'authentification !');
 			return false;
@@ -239,8 +239,8 @@ class Login {
 		}
 		$pwd = $req['pwd'];
 		// On vérifie que le nouveau mot de passe comporte bien le nombre minimum de caractères requis
-		if (strlen($pwd) < PWD_MIN_SIZE){
-			new Alert('error', 'Le mot de passe doit comporter au moins '.PWD_MIN_SIZE.' caractères !');
+		if (strlen($pwd) < \Settings::PWD_MIN_SIZE){
+			new Alert('error', 'Le mot de passe doit comporter au moins '.\Settings::PWD_MIN_SIZE.' caractères !');
 			return false;
 		}
 		if (UsersManagement::createDBUser($name, $email, $pwd)){
@@ -267,7 +267,7 @@ class Login {
 		if (isset($_REQUEST['from'])) $from = $_REQUEST['from'];
 
 		$users = UsersManagement::getDBUsers();
-		if (AUTH_MODE == 'sql' and empty($users)){
+		if (\Settings::AUTH_MODE == 'sql' and empty($users)){
 			?>
 			<!DOCTYPE html>
 			<html lang="fr">
@@ -286,7 +286,7 @@ class Login {
 						<div class="col-md-8 col-md-offset-2">
 							<div class="text-center">
 								<h1>
-									<?php echo SITE_NAME; ?> - Création d'un premier utilisateur
+									<?php echo \Settings::SITE_NAME; ?> - Création d'un premier utilisateur
 								</h1>
 							</div>
 						</div>
@@ -303,7 +303,7 @@ class Login {
 								$form = new Form('createUser');
 								$form->addField(new StringField('name', null, 'Nom/Pseudo', 'Veuillez saisir un nom ou un pseudonyme', null, new Pattern('text', true, 4, 150), true));
 								$form->addField(new Email('email', null, 'Adresse email', 'nom@domaine.extension', null, new Pattern('email', true, 0, 250), true));
-								$form->addField(new Password('pwd', null, 'Mot de passe', 'Mot de passe de '.PWD_MIN_SIZE.' caractères minimum', null, new Pattern('password', true, PWD_MIN_SIZE, 100), true));
+								$form->addField(new Password('pwd', null, 'Mot de passe', 'Mot de passe de '.\Settings::PWD_MIN_SIZE.' caractères minimum', null, new Pattern('password', true, \Settings::PWD_MIN_SIZE, 100), true));
 								$form->addField(new Button('action2', 'createUser', 'Créer l\'utilisateur'));
 								$form->display();
 								?>
@@ -335,7 +335,7 @@ class Login {
 						<div class="col-md-8 col-md-offset-2">
 							<div class="text-center">
 								<h1>
-									<?php echo SITE_NAME; ?> - Connexion
+									<?php echo \Settings::SITE_NAME; ?> - Connexion
 								</h1>
 							</div>
 						</div>
@@ -346,7 +346,7 @@ class Login {
 							<div class="page-content inset" id="loginPanel">
 								<div class="text-center"><?php echo Avatar::display(null, 'Connectez-vous !'); ?></div>
 								<br>
-								<?php if (AUTH_MODE == 'ldap'){ ?>
+								<?php if (\Settings::AUTH_MODE == 'ldap'){ ?>
 								<div class="alert alert-info text-center col">Saisissez vos identifiants Active Directory</div>
 								<?php } ?>
 								<form id="loginForm" class="" method="post" role="form" action="index.php?action=loginForm&tryLogin=true">
@@ -369,9 +369,9 @@ class Login {
 											Rester connecté
 										</label>
 									</div>
-									<?php if (AUTH_MODE == 'ldap'){ ?>
+									<?php if (\Settings::AUTH_MODE == 'ldap'){ ?>
 									<div class="pull-right">
-										<span class="fa fa-sitemap"></span> Authentification sur <code><?php echo LDAP_DOMAIN; ?></code>
+										<span class="fa fa-sitemap"></span> Authentification sur <code><?php echo \Settings::LDAP_DOMAIN; ?></code>
 									</div>
 									<?php } ?>
 									<?php if (!empty($from)){ ?>

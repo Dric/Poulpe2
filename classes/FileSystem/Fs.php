@@ -38,6 +38,18 @@ class Fs {
 	protected $prefix = null;
 
 	/**
+	 * Racine du partage SMB
+	 * @var string
+	 */
+	protected $SMBRootShare = null;
+
+	/**
+	 * Sous-répertoires du partage SMB
+	 * @var string
+	 */
+	protected $SMBSubFolders = null;
+
+	/**
 	 * Nom utilisé pour créer le point de montage
 	 * @var string
 	 */
@@ -70,14 +82,28 @@ class Fs {
 				$tab = explode('\\', $tmpPath);
 				$this->server = $tab[0];
 				unset($tab[0]);
-				$this->path = implode('\\', $tab);
+				if (count($tab) > 1){
+					$this->SMBRootShare = $tab[1];
+					unset($tab[1]);
+					$this->SMBSubFolders = implode('\\', $tab);
+					$this->path = $this->SMBRootShare . '\\' . $this->SMBSubFolders;
+					$this->SMBSubFolders = str_replace('\\', '/', $this->SMBSubFolders);
+				}else{
+					$this->path = implode('\\', $tab);
+				}
 			}else{
 				$this->server = 'localhost';
 				$this->path = $path;
 			}
 		}
 		if (!empty($prefix)) $this->prefix = $prefix;
-		$path = str_replace(':', '_', $this->path);
+		// Pour éviter les erreurs, on ne monte que la racine du partage.
+		if (!empty($this->SMBRootShare)){
+			$path = $this->SMBRootShare;
+		}else{
+			$path = $this->path;
+		}
+		$path = str_replace(':', '_', $path);
 		$path = str_replace('\\', '_', $path);
 		$path = str_replace('$', '_', $path);
 		$path = str_replace(' ', '_', $path);
@@ -111,7 +137,7 @@ class Fs {
 			/* On teste si ce répertoire est un répertoire vide (non monté)
 			* Ce qui veut dire que si on monte un partage Windows, il faut s'assurer que celui-ci ne soit pas vide, sans quoi la fonction va retourner une erreur.
 			*/
-			$ret = exec('mount | grep '.$this->mountName.' 2>&1', $output);
+			$ret = exec('mount | grep -w '.$this->mountName.' 2>&1', $output);
 			if (!empty($ret)){
 				$this->isMounted = true;
 				return true;
@@ -139,10 +165,11 @@ class Fs {
 				}
 			}
 			/* On regarde si le montage est actif. */
-			$ret = exec('mount | grep '.$this->mountName.' 2>&1', $output);
+			$ret = exec('mount | grep -w '.$this->mountName.' 2>&1', $output);
 			if (empty($ret)){
 				/* On monte le partage */
-				$share = str_replace(':', '$', $this->path);
+				$share = (!empty($this->SMBRootShare)) ? $this->SMBRootShare : $this->path;
+				$share = str_replace(':', '$', $share);
 				$share = str_replace('\\', '/', $share);
 				$winShare = '//'.$this->server.'/'.$share;
 
@@ -153,7 +180,7 @@ class Fs {
 					return false;
 				}
 				// Montage du partage. En cas d'erreur, il se peut que le package permettant les montages CIFS ne soit pas installé sur le serveur.
-				$cmd = 'sudo mount -t cifs "'.$winShare.'" '.$this->mountName.' -o uid=www-data,gid=www-data,credentials='.$dfsCredsFile.' 2>&1';
+				$cmd = 'sudo mount -t cifs "'.$winShare.'" '.$this->mountName.' -o soft,uid=www-data,gid=www-data,credentials='.$dfsCredsFile.' 2>&1';
 				$ret = exec($cmd, $retArray, $varRet);
 				if (!empty($ret)){
 					new Alert('error', 'Impossible de monter le partage <code>'.$winShare.'</code>.<br />Assurez-vous que l\'utilisateur Apache a les droits d\'invoquer sudo mount sans mot de passe.<br />'.$ret.'<br />'.$varRet);
@@ -181,9 +208,10 @@ class Fs {
 	 */
 	public function getRecursiveFilesInDir($path = null, $extension = null, $absolutePath = false){
 		$result = array();
-		$path = rtrim($path, DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
 		$path = ltrim($path, DIRECTORY_SEPARATOR);
-		$dir = $this->mountName.DIRECTORY_SEPARATOR.$path;
+		$path = rtrim($path, DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
+		$mountName = (!empty($this->SMBSubFolders)) ? $this->mountName.DIRECTORY_SEPARATOR.$this->SMBSubFolders : $this->mountName;
+		$dir = $mountName.DIRECTORY_SEPARATOR.$path;
 		$cDir = scandir($dir);
 		foreach ($cDir as $key => $value){
 			if (!in_array($value,array(".",".."))){
@@ -222,9 +250,10 @@ class Fs {
 	 */
 	public function getFilesInDir($path = null, $extension = null, $filters = array(), $filesOnly = false){
 		$result = array();
-		$path = rtrim($path, DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
 		$path = ltrim($path, DIRECTORY_SEPARATOR);
-		$dir = $this->mountName.DIRECTORY_SEPARATOR.$path;
+		$path = rtrim($path, DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
+		$mountName = (!empty($this->SMBSubFolders)) ? $this->mountName.DIRECTORY_SEPARATOR.$this->SMBSubFolders : $this->mountName;
+		$dir = $mountName.DIRECTORY_SEPARATOR.$path;
 		$cDir = scandir($dir);
 		foreach ($cDir as $value){
 			if (!in_array($value,array(".","..")) and (($filesOnly and !is_dir($dir . $value)) or !$filesOnly)){
@@ -246,7 +275,9 @@ class Fs {
 	 * @from <http://stackoverflow.com/a/3964927/1749967>
 	 */
 	public function fileExists($fileName, $caseSensitive = false){
-		$fileName = $this->mountName.DIRECTORY_SEPARATOR.$fileName;
+		$fileName = ltrim($fileName, DIRECTORY_SEPARATOR);
+		$mountName = (!empty($this->SMBSubFolders)) ? $this->mountName.DIRECTORY_SEPARATOR.$this->SMBSubFolders : $this->mountName;
+		$fileName = $mountName.DIRECTORY_SEPARATOR.$fileName;
 		if(file_exists($fileName)) {
 			return $fileName;
 		}
@@ -258,7 +289,7 @@ class Fs {
 		$fileNameLowerCase = strtolower($fileName);
 		foreach($fileArray as $file) {
 			if(strtolower($file) == $fileNameLowerCase) {
-				return str_replace($this->mountName.DIRECTORY_SEPARATOR, '', $file);
+				return str_replace($mountName.DIRECTORY_SEPARATOR, '', $file);
 			}
 		}
 		return false;
@@ -277,7 +308,8 @@ class Fs {
 	 */
 	public function getFileMeta($fileName, $filters = array()){
 		if (!is_array($filters)) $filters = array($filters);
-		$file = new File($this->mountName, $fileName, $filters);
+		$mountName = (!empty($this->SMBSubFolders)) ? $this->mountName.DIRECTORY_SEPARATOR.$this->SMBSubFolders : $this->mountName;
+		$file = new File($mountName, $fileName, $filters);
 		if (empty($file->name)){
 			new Alert('error', 'Le fichier <code>'.$fileName.'</code> n\'existe pas !');
 			return false;
@@ -297,6 +329,7 @@ class Fs {
 	 */
 	public function readFile($fileName, $format = 'array', $ignoreNewLines = true, $skipEmptyLines = false){
 		$opt = null;
+		$mountName = (!empty($this->SMBSubFolders)) ? $this->mountName.DIRECTORY_SEPARATOR.$this->SMBSubFolders : $this->mountName;
 		if ($ignoreNewLines and $skipEmptyLines){
 			$opt = FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES;
 		}elseif($ignoreNewLines){
@@ -306,10 +339,10 @@ class Fs {
 		}
 		switch ($format){
 			case 'array':
-				$file=@file($this->mountName . DIRECTORY_SEPARATOR . $fileName, $opt );
+				$file=@file($mountName . DIRECTORY_SEPARATOR . $fileName, $opt );
 				break;
 			case 'string':
-				$file = file_get_contents($this->mountName . DIRECTORY_SEPARATOR . $fileName);
+				$file = file_get_contents($mountName . DIRECTORY_SEPARATOR . $fileName);
 				break;
 			default:
 				new Alert('debug', '<code>FileSytem\Fs->fileRead()</code> : Le format <code>'.$format.'</code> n\'est pas dans la liste des formats autorisés !');
@@ -333,8 +366,8 @@ class Fs {
 	 * @return bool
 	 */
 	public function touchFile($fileName){
-		//$ret = touch($this->mountName . DIRECTORY_SEPARATOR .$fileName);
-		$fileName = $this->mountName . DIRECTORY_SEPARATOR .$fileName;
+		$mountName = (!empty($this->SMBSubFolders)) ? $this->mountName.DIRECTORY_SEPARATOR.$this->SMBSubFolders : $this->mountName;
+		$fileName = $mountName . DIRECTORY_SEPARATOR .$fileName;
 		$ret = exec("touch {$fileName}");
 		if (!empty($ret)) new Alert('error', 'Impossible de trouver ou de créer le fichier <code>'.$fileName.'</code>.<br>Erreur : <code>'.$ret.'</code>');
 		return (empty($ret)) ? true : false;
@@ -351,8 +384,9 @@ class Fs {
 	 * @return bool
 	 */
 	public function writeFile($fileName, $content, $append = false, $backupFile = false){
+		$mountName = (!empty($this->SMBSubFolders)) ? $this->mountName.DIRECTORY_SEPARATOR.$this->SMBSubFolders : $this->mountName;
 		if ($backupFile){
-			if (!@copy($this->mountName . DIRECTORY_SEPARATOR . $fileName, $this->mountName . DIRECTORY_SEPARATOR . $fileName.'.backup')){
+			if (!@copy($mountName . DIRECTORY_SEPARATOR . $fileName, $mountName . DIRECTORY_SEPARATOR . $fileName.'.backup')){
 				$error= error_get_last();
 				new Alert('error', 'Impossible de faire un backup du fichier <code>'.$fileName.'</code> !<br>'.$error['message']);
 				return false;
@@ -367,7 +401,7 @@ class Fs {
 			$content .= "\r\n";
 		}
 		$fileAppend = ($append) ? FILE_APPEND : null;
-		$ret = file_put_contents($this->mountName . DIRECTORY_SEPARATOR . $fileName, $content, $fileAppend);
+		$ret = file_put_contents($mountName . DIRECTORY_SEPARATOR . $fileName, $content, $fileAppend);
 		if ($ret === false){
 			new Alert('error', 'Impossible d\'écrire dans le fichier <code>'.$fileName.'</code> !');
 			return false;
@@ -388,8 +422,9 @@ class Fs {
 	 * @return bool|string[]
 	 */
 	public function tailFile($fileName, $lines = 1, $adaptive = true) {
+		$mountName = (!empty($this->SMBSubFolders)) ? $this->mountName.DIRECTORY_SEPARATOR.$this->SMBSubFolders : $this->mountName;
 		// Open file
-		$f = @fopen($this->mountName . DIRECTORY_SEPARATOR . $fileName, "rb");
+		$f = @fopen($mountName . DIRECTORY_SEPARATOR . $fileName, "rb");
 		if ($f === false){
 			new Alert('error', 'Impossible d\'ouvrir le fichier <code>'.$fileName.'</code> !');
 			return false;
@@ -457,7 +492,8 @@ class Fs {
 	 * @return bool
 	 */
 	public function setChmod($fileName, $chmod){
-		$ret = exec('sudo chmod '.$chmod.' '.$this->mountName . DIRECTORY_SEPARATOR . $fileName.' 2>&1', $output);
+		$mountName = (!empty($this->SMBSubFolders)) ? $this->mountName.DIRECTORY_SEPARATOR.$this->SMBSubFolders : $this->mountName;
+		$ret = exec('sudo chmod '.$chmod.' '.$mountName . DIRECTORY_SEPARATOR . $fileName.' 2>&1', $output);
 		if (empty($ret)){
 			return true;
 		}

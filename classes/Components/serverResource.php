@@ -46,6 +46,8 @@ class serverResource {
 	 */
 	protected $total = null;
 
+	protected $inError = false;
+
 	/**
 	 * Déclaration de ressource matériel
 	 * @param string $type Type de ressource : `cpu`, `mem` ou `disk`
@@ -62,14 +64,18 @@ class serverResource {
 		}elseif ($this->type == 'disk'){
 			// On récupère la liste des partitions
 			exec('df -h | grep ^/dev', $out);
-			foreach ($out as $line){
-				$line = preg_replace('/\s+/', ' ',$line);
-				$tab = explode(' ', $line);
-				$partition = end($tab);
-				$this->partitions[] = $partition;
+			if (!empty($out)){
+				foreach ($out as $line){
+					$line = preg_replace('/\s+/', ' ',$line);
+					$tab = explode(' ', $line);
+					$partition = end($tab);
+					$this->partitions[] = $partition;
+				}
+			}else{
+				$this->inError = true;
 			}
 		}
-		$this->retrieveData();
+		if (!$this->inError) $this->retrieveData();
 	}
 
 	/**
@@ -162,58 +168,61 @@ class serverResource {
 	 * Affichage d'une barre de progression illustrant l'occupation de la ressource
 	 */
 	public function displayBar(){
-		$data = $this->get();
-		if (isset($data->total)){
-			if (is_array($data->total)){
-				foreach ($data->total as $partition => $total){
-					$label[$partition] = $data->free[$partition].' libres sur '.$total;
+		if ($this->inError) {
+			echo '<div class="alert alert-warning">Pas de données affichables.</div>';
+		}else {
+			$data = $this->get();
+			if (isset($data->total)) {
+				if (is_array($data->total)) {
+					foreach ($data->total as $partition => $total) {
+						$label[$partition] = $data->free[$partition] . ' libres sur ' . $total;
+					}
+				} else {
+					$label = $data->free . ' libres sur ' . $data->total;
 				}
-			}else{
-				$label = $data->free.' libres sur '.$data->total;
+			} else {
+				$label = round($data->percentFree, 1) . '% inoccupé';
 			}
-		}else{
-			$label = round($data->percentFree, 1).'% inoccupé';
-		}
-		if (is_array($data->percentLoad)){
-			foreach ($data->percentLoad as $partition => $percentLoad){
-				if ($percentLoad > 80){
-					$level[$partition] = 'danger';
-				}elseif($percentLoad < 50){
-					$level[$partition] = 'success';
-				}else{
-					$level[$partition] = 'warning';
+			if (is_array($data->percentLoad)) {
+				foreach ($data->percentLoad as $partition => $percentLoad) {
+					if ($percentLoad > 80) {
+						$level[$partition] = 'danger';
+					} elseif ($percentLoad < 50) {
+						$level[$partition] = 'success';
+					} else {
+						$level[$partition] = 'warning';
+					}
+				}
+			} else {
+				if ($data->percentLoad > 80) {
+					$level = 'danger';
+				} elseif ($data->percentLoad < 50) {
+					$level = 'success';
+				} else {
+					$level = 'warning';
 				}
 			}
-		}else{
-			if ($data->percentLoad > 80){
-				$level = 'danger';
-			}elseif($data->percentLoad < 50){
-				$level = 'success';
-			}else{
-				$level = 'warning';
-			}
-		}
-		if (is_array($label)){
-			foreach ($label as $partition => $partLabel){
+			if (is_array($label)) {
+				foreach ($label as $partition => $partLabel) {
+					?><?php if (count($label) > 1) { ?>
+						<h5><?php echo ($partition == '/') ? 'Système' : $partition; ?></h5>
+					<?php } ?>
+					<div class="progress tooltip-bottom" title="<?php echo $partLabel; ?>">
+						<div class="progress-bar progress-bar-<?php echo $level[$partition]; ?>" role="progressbar" aria-valuenow="<?php echo $data->percentLoad[$partition]; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $data->percentLoad[$partition]; ?>%">
+							<?php echo round($data->percentLoad[$partition], 1) . '%'; ?>
+						</div>
+					</div>
+					<?php
+				}
+			} else {
 				?>
-				<?php if (count($label) > 1) { ?>
-				<h5><?php echo ($partition == '/') ? 'Système' : $partition; ?></h5>
-				<?php } ?>
-				<div class="progress tooltip-bottom" title="<?php echo $partLabel; ?>">
-					<div class="progress-bar progress-bar-<?php echo $level[$partition]; ?>" role="progressbar" aria-valuenow="<?php echo $data->percentLoad[$partition]; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $data->percentLoad[$partition]; ?>%">
-						<?php echo round($data->percentLoad[$partition], 1).'%'; ?>
+				<div class="progress tooltip-bottom" title="<?php echo $label; ?>">
+					<div class="progress-bar progress-bar-<?php echo $level; ?>" role="progressbar" aria-valuenow="<?php echo $data->percentLoad; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $data->percentLoad; ?>%">
+						<?php echo round($data->percentLoad, 1) . '%'; ?>
 					</div>
 				</div>
 				<?php
 			}
-		}else{
-			?>
-			<div class="progress tooltip-bottom" title="<?php echo $label; ?>">
-				<div class="progress-bar progress-bar-<?php echo $level; ?>" role="progressbar" aria-valuenow="<?php echo $data->percentLoad; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $data->percentLoad; ?>%">
-					<?php echo round($data->percentLoad, 1).'%'; ?>
-				</div>
-			</div>
-			<?php
 		}
 	}
 } 

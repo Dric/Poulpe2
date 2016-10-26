@@ -32,7 +32,7 @@ class Front {
 	 * Titre par défaut de la page
 	 * @var string
 	 */
-	protected static $defaultTitle = SITE_NAME;
+	protected static $defaultTitle = \Settings::SITE_NAME;
 
 	/**
 	 * Tableau de lignes html à inclure dans la partie `<head>` de la page
@@ -104,7 +104,7 @@ class Front {
 	 *
 	 * @var string
 	 */
-	protected static $moduleUrl = MODULE_URL;
+	protected static $moduleUrl = \Settings::MODULE_URL;
 
 	/**
 	 * Charge les éventuels traitements globaux des modules
@@ -123,7 +123,7 @@ class Front {
 		if (ACL::canAccess('admin', 0)){
 			self::$mainMenu->add(new Item('admin', 'Administration', Front::getModuleUrl().'Admin', 'Administration', null, 'menu-warning'), 98);
 		}
-		if (DISPLAY_HOME or (!DISPLAY_HOME and $module->getName() != 'home')){
+		if (\Settings::DISPLAY_HOME or (!\Settings::DISPLAY_HOME and $module->getName() != 'home')){
 			self::$mainMenu->add(new Item('home', 'Accueil', self::$baseUrl, 'Revenir à l\'accueil', null, 'menu-highlight'), 2);
 		}
 		if ($cUser->isLoggedIn()){
@@ -406,7 +406,7 @@ class Front {
 		}elseif (isset($_SESSION)){
 			self::$baseUrl = $_SESSION['baseUrl'];
 		}
-		self::$moduleUrl = self::$baseUrl.'/'.MODULE_URL;
+		self::$moduleUrl = self::$baseUrl.'/'.\Settings::MODULE_URL;
 	}
 
 

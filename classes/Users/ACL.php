@@ -124,7 +124,7 @@ class ACL {
 		}
 		if (empty($userId) or $userId == $cUser->getId()){
 			// Il va de soi qu'on refuse les utilisateurs non connectés si l'authentification est obligatoire.
-			if (!$cUser->isLoggedIn() and AUTH_MANDATORY) return false;
+			if (!$cUser->isLoggedIn() and \Settings::AUTH_MANDATORY) return false;
 			// On demande donc une autorisation pour l'utilisateur courant. Comme on a déjà la liste de ses autorisations, on va la chercher dans son objet
 			$userACL = $cUser->getACL();
 			return (isset($userACL[$component][$componentId][$type])) ? $userACL[$component][$componentId][$type] : false;
@@ -321,12 +321,7 @@ class ACL {
 	public static function delete($component = null, $componentId = null, $userId = null, $type = null){
 		global $db;
 		$where = array();
-		$format = array(
-			'component' => 'string',
-		  'id'        => 'int',
-		  'user'      => 'int',
-		  'type'      => 'string'
-		);
+
 		if (!is_null($component)){
 			if (is_null($componentId)) {
 				new Alert('debug', '<code>ACL::delete()</code> : $componentId est vide alors que $component est renseigné !');
@@ -350,7 +345,7 @@ class ACL {
 			new Alert('debug', '<code>ACL::delete()</code> : Aucun paramètre n\'est renseigné !');
 			return false;
 		}
-		$ret = $db->delete('ACL', $where, $format);
+		$ret = $db->delete('ACL', $where);
 		if ($ret === false){
 			new Alert('error', 'Impossible de supprimer les autorisations !');
 			return false;

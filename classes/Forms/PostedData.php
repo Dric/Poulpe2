@@ -66,7 +66,7 @@ class PostedData {
 					$tab = array_values($tab);
 				}
 				$req = null;
-				switch ($tab[1]){
+				switch ($tab[1]) {
 					case 'int':
 						$req = (int)$value;
 						break;
@@ -80,8 +80,8 @@ class PostedData {
 						$req = Sanitize::time($value);
 						break;
 					case 'checkboxList':
-						foreach ($value as $key => $item){
-							if ($item == 'noneSelected'){
+						foreach ($value as $key => $item) {
+							if ($item == 'noneSelected') {
 								unset($value[$key]);
 							}
 						}
@@ -89,39 +89,44 @@ class PostedData {
 						break;
 					case 'bool':
 						if ($tab[3] == 'checkbox') {
-							unset($_REQUEST[str_replace('_checkbox', '', $request).'_hidden']);
+							unset($_REQUEST[str_replace('_checkbox', '', $request) . '_hidden']);
 							$req = (bool)$value;
-						}elseif ($tab[3] == 'hidden'){
-							if (isset($_REQUEST[str_replace('_hidden', '', $request).'_checkbox'])){
-								$req = (bool)$_REQUEST[str_replace('_hidden', '', $request).'_checkbox'];
-								unset($_REQUEST[str_replace('_hidden', '', $request).'_checkbox']);
-							}else{
+						} elseif ($tab[3] == 'hidden') {
+							if (isset($_REQUEST[str_replace('_hidden', '', $request) . '_checkbox'])) {
+								$req = (bool)$_REQUEST[str_replace('_hidden', '', $request) . '_checkbox'];
+								unset($_REQUEST[str_replace('_hidden', '', $request) . '_checkbox']);
+							} else {
 								$req = (bool)$value;
 							}
 						}
 						break;
 					case 'array':
-						if (isset($tab[3]) and $value == 1){
+						if (isset($tab[3]) and $value == 1) {
 							$req['serialize'] = true;
-						}elseif (isset($_REQUEST[$request.'_serialize'])){
-							if ($_REQUEST[$request.'_serialize'] == 1){
+						} elseif (isset($_REQUEST[$request . '_serialize'])) {
+							if ($_REQUEST[$request . '_serialize'] == 1) {
 								$req['serialize'] = true;
-							}else{
+							} else {
 								$req['serialize'] = false;
 							}
-							unset($_REQUEST[$request.'_serialize']);
+							unset($_REQUEST[$request . '_serialize']);
 						}
-						$valueTab = explode(PHP_EOL, $value);
-						// Si les valeurs dans le tableau sont numériques, elles récupèrent un type entier
-						array_walk($valueTab, function(&$value, $key) {
-							$value = trim($value);
-							if (is_numeric($value)){
-								$value = (int)$value;
-							}
-						});
-						// On enlève les valeurs nulles
-						$valueTab = array_filter($valueTab);
-						if (!empty($valueTab)) $req['values'] = $valueTab;
+						if (!empty($value) and !isset($tab[3])) {
+							$valueTab = explode(PHP_EOL, $value);
+
+							// Si les valeurs dans le tableau sont numériques, elles récupèrent un type entier
+							array_walk($valueTab, function (&$value, $key) {
+								$value = trim($value);
+								if (is_numeric($value)) {
+									$value = (int)$value;
+								}
+							});
+							// On enlève les valeurs nulles
+							$valueTab = array_filter($valueTab);
+
+							if (!empty($valueTab)) $req['values'] = $valueTab;
+						}
+						if (!isset($req['values'])) $req['values'] = null;
 						break;
 					default:
 						switch ($value){

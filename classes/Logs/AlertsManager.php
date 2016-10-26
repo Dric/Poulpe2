@@ -45,7 +45,7 @@ class AlertsManager {
 			}
 		}else{
 			foreach (self::$alerts as $type => $typeAlerts){
-				if ((!DEBUG and $type != 'debug') or DEBUG){
+				if ((!\Settings::DEBUG and $type != 'debug') or \Settings::DEBUG){
 					foreach ($typeAlerts as $alert){
 						self::displayAlert($alert, $format);
 					}
@@ -129,35 +129,6 @@ class AlertsManager {
 		new Alert('debug', '<code>Db->getQueriesCount</code> : <strong>'.$db->getQueriesCount().'</strong> requête(s) SQL effectuées.');
 		new Alert('debug', '<code>PHP</code> : Mémoire utilisée : <ul><li>Script :  <strong>'.Sanitize::readableFileSize(memory_get_usage()).'</strong></li><li>Total :   <strong>'.Sanitize::readableFileSize(memory_get_usage(true)).'</strong></li></ul>');
 		//new Alert('debug', '<code>URL demandée</code> : <code>'.\Get::varDump($_SERVER).'</code>');
-		if (DETAILED_DEBUG){
-			$classesDisplay = '<ul>';
-			asort($classesUsed);
-			$classes = array();
-			foreach ($classesUsed as $classUsed){
-				$tab = explode('\\', $classUsed, 2);
-				if (count($tab) > 1){
-					$classes[$tab[0]][] = $tab[1];
-				}else{
-					$classes['AAAA'][] = $classUsed;
-				}
-			};
-			ksort($classes);
-			foreach ($classes as $key => $nameSpace){
-				if ($key != 'AAAA'){
-					$classesDisplay .= '<li>'.$key.'<ul>';
-					foreach ($nameSpace as $class){
-						$classesDisplay .= '<li>'.str_replace('\\', '\\\\', $class).'</li>';
-					}
-					$classesDisplay .= '</ul></li>';
-				}else{
-					foreach ($nameSpace as $class){
-						$classesDisplay .= '<li>'.str_replace('\\', '\\\\', $class).'</li>';
-					}
-				}
-			}
-			$classesDisplay .= '</ul>';
-			new Alert('debug', '<code>Classes chargées</code> : '.$classesDisplay);
-		}
 		new Alert('debug', '<code>PHP</code> : Page générée en <strong>'.round((microtime(true) - $startTime), 3).'s</strong>');
 	}
 } 

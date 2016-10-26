@@ -14,6 +14,7 @@ use Components\serverResource;
 use Forms\Fields\BoolField;
 use Forms\Fields\Button;
 use Forms\Fields\Email;
+use Forms\Fields\Hidden;
 use Forms\Fields\IntField;
 use Forms\Fields\Password;
 use Forms\Fields\Select;
@@ -85,7 +86,7 @@ class Admin extends Module {
 			);
 		}
 		$modules = array();
-		$modulesPath = Front::getAbsolutePath().DIRECTORY_SEPARATOR.MODULE_DIR;
+		$modulesPath = Front::getAbsolutePath().DIRECTORY_SEPARATOR.\Settings::MODULE_DIR;
 		$fs = new Fs($modulesPath, 'localhost');
 		$files = $fs->getRecursiveFilesInDir(null, 'php', true);
 		foreach ($files as $file){
@@ -115,7 +116,7 @@ class Admin extends Module {
 					$modules[$className] = array(
 						'name'  => $moduleName,
 					  'title' => $moduleTitle,
-					  'path'  => str_replace(Front::getAbsolutePath().DIRECTORY_SEPARATOR.MODULE_DIR.DIRECTORY_SEPARATOR, '', $file)
+					  'path'  => str_replace(Front::getAbsolutePath().DIRECTORY_SEPARATOR.\Settings::MODULE_DIR.DIRECTORY_SEPARATOR, '', $file)
 					);
 				}
 			}
@@ -132,7 +133,7 @@ class Admin extends Module {
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1">
 					<div class="page-header">
-						<h1>Modules de <?php echo SITE_NAME; ?></h1>
+						<h1>Modules de <?php echo \Settings::SITE_NAME; ?></h1>
 					</div>
 					<form class="" method="post" role="form">
 						<table class="table table-responsive table-striped">
@@ -272,7 +273,7 @@ class Admin extends Module {
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
 				<div class="page-header">
-					<h1>Droits d'accès de <?php echo SITE_NAME; ?></h1>
+					<h1>Droits d'accès de <?php echo \Settings::SITE_NAME; ?></h1>
 				</div>
 				<?php ACL::adminACL('admin', 0, 'l\'administration du site'); ?>
 			</div>
@@ -341,7 +342,7 @@ class Admin extends Module {
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
 				<div class="page-header">
-					<h1>Utilisateurs de <?php echo SITE_NAME; ?></h1>
+					<h1>Utilisateurs de <?php echo \Settings::SITE_NAME; ?></h1>
 				</div>
 				<p>Pour modifier ou supprimer un compte, il vous suffit de cliquer sur son bouton <code>Modifier</code>.</p>
 				<table class="table table-responsive table-striped">
@@ -350,7 +351,7 @@ class Admin extends Module {
 							<th>Id</th>
 							<th>Nom</th>
 							<th>Avatar</th>
-							<?php if (AUTH_MODE == 'sql') { ?><th>Email</th><?php } ?>
+							<?php if (\Settings::AUTH_MODE == 'sql') { ?><th>Email</th><?php } ?>
 							<th>Dernière connexion <?php echo Help::iconHelp('Ceci est en réalité la dernière tentative de connexion effectuée, qu\'elle ait échoué ou non.'); ?></th>
 							<th>Droits d'accès</th>
 							<th>Profil/Compte</th>
@@ -375,7 +376,7 @@ class Admin extends Module {
 								<td><?php echo $user->id; ?></td>
 								<td><?php echo $user->name; ?></td>
 								<td><?php echo Avatar::display($avatar, 'Avatar de '.$user->name); ?></td>
-								<?php if (AUTH_MODE == 'sql') { ?><td><?php echo $user->email; ?></td><?php } ?>
+								<?php if (\Settings::AUTH_MODE == 'sql') { ?><td><?php echo $user->email; ?></td><?php } ?>
 								<td><?php if (isset($user->lastLogin) and $user->lastLogin > 0) { echo Sanitize::date($user->lastLogin, 'dateAtTime'); }else{ echo 'Inconnue'; } ?></td>
 								<td><a class="btn btn-default" href="<?php echo $this->buildArgsURL(array('page' => 'userACL', 'user' => $user->id)); ?>">Modifier</a></td>
 								<td><a class="btn btn-default" href="<?php echo Front::getModuleUrl(); ?>profil&user=<?php echo $user->id; ?>">Modifier</a></td>
@@ -386,12 +387,12 @@ class Admin extends Module {
 					</tbody>
 				</table>
 				<?php
-					if (AUTH_MODE == 'sql'){
+					if (\Settings::AUTH_MODE == 'sql'){
 						?><h3>Créer un utilisateur</h3><?php
 						$form = new Form('createUser');
 						$form->addField(new StringField('name', null, 'Nom/Pseudo', 'Veuillez saisir un nom ou un pseudonyme', null, new Pattern('text', true, 4, 150), true));
 						$form->addField(new Email('email', null, 'Adresse email', 'nom@domaine.extension', null, new Pattern('email', true, 0, 250), true));
-						$form->addField(new Password('pwd', null, 'Mot de passe', 'Mot de passe de '.PWD_MIN_SIZE.' caractères minimum', null, new Pattern('password', true, PWD_MIN_SIZE, 100), true));
+						$form->addField(new Password('pwd', null, 'Mot de passe', 'Mot de passe de '.\Settings::PWD_MIN_SIZE.' caractères minimum', null, new Pattern('password', true, \Settings::PWD_MIN_SIZE, 100), true));
 						$form->addField(new Button('action', 'createUser', 'Créer l\'utilisateur'));
 						$form->display();
 					}
@@ -437,8 +438,8 @@ class Admin extends Module {
 		}
 		$pwd = $req['pwd'];
 		// On vérifie que le nouveau mot de passe comporte bien le nombre minimum de caractères requis
-		if (strlen($pwd) < PWD_MIN_SIZE){
-			new Alert('error', 'Le mot de passe doit comporter au moins '.PWD_MIN_SIZE.' caractères !');
+		if (strlen($pwd) < \Settings::PWD_MIN_SIZE){
+			new Alert('error', 'Le mot de passe doit comporter au moins '.\Settings::PWD_MIN_SIZE.' caractères !');
 			return false;
 		}
 		if (UsersManagement::createDBUser($name, $email, $pwd)){
@@ -456,16 +457,17 @@ class Admin extends Module {
 	 * Le fichier config.php est mis en lecture seule
 	 */
 	protected function adminConfig(){
-		$dir = str_replace('/Admin', '/Settings', __DIR__);
+		$dir = Front::getAbsolutePath().DIRECTORY_SEPARATOR.'classes';
 		$share = new Fs($dir);
-		$configFile = $share->readFile('config.php', 'array', true, true);
-		$fileMeta = $share->getFileMeta('config.php');
+		$configFile = $share->readFile('Settings.php', 'array', true, true);
+		$defaultConfigFile = $share->readFile('DefaultSettings.php', 'array', true, true);
+		$fileMeta = $share->getFileMeta('Settings.php');
 		$readOnly = ($fileMeta->writable) ? false : true;
 		if ($readOnly){
 			// On essaie de donner les droits d'écriture au script sur le fichier de config
-			$ret = $share->setChmod('config.php', 777);
+			$ret = $share->setChmod('Settings.php', 777);
 			if ($ret){
-				$fileMeta = $share->getFileMeta('config.php', 'writable');
+				$fileMeta = $share->getFileMeta('Settings.php', 'writable');
 				$readOnly = ($fileMeta->writable) ? false : true;
 			}
 			// On remet en lecture seule
@@ -476,63 +478,28 @@ class Admin extends Module {
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
 				<div class="page-header">
-					<h1>Configuration de <?php echo SITE_NAME; ?></h1>
+					<h1>Configuration de <?php echo \Settings::SITE_NAME; ?></h1>
 				</div>
 				<p>
-					Cette page est générée automatiquement à partir du fichier <code>config.php</code>. Ne modifiez une valeur que si vous savez vraiment ce que vous faites.<br />
-					Si vous vous plantez, il y a un risque non négligeable que vous ne puissiez plus accéder au site ni à cette page. Dans ce cas, vous pouvez effacer <code>config.php</code> et renommer <code>config.php.backup</code> en <code>config.php</code>.
+					Cette page est générée automatiquement à partir du fichier <code>Settings.php</code>. Ne modifiez une valeur que si vous savez vraiment ce que vous faites.<br />
+					Si vous vous plantez, il y a un risque non négligeable que vous ne puissiez plus accéder au site ni à cette page. Dans ce cas, vous pouvez effacer <code>Settings.php</code> et renommer <code>Settings.php.backup</code> en <code>Settings.php</code>.
 				</p>
+				<p>Les valeurs grisées correspondent aux valeurs par défaut. Si vous n'avez pas besoin de les changer, ne complétez pas les champs.</p>
 				<?php if ($readOnly) { ?>
-				<div class="alert alert-danger">Le fichier <code>config.php</code> n'est pas modifiable par le script ! (ce qui est une bonne chose en matière de sécurité, mais vous y perdez en souplesse d'utilisation)<br /> Pour pouvoir modifier ce fichier à partir de cette interface web, vérifiez que l'utilisateur linux <code><?php echo exec('whoami'); ?></code> a les droits pour modifier le fichier ainsi que le répertoire qui le contient (pour effectuer un backup du fichier).</div>
+				<div class="alert alert-danger">Le fichier <code>Settings.php</code> n'est pas modifiable par le script ! (ce qui est une bonne chose en matière de sécurité, mais vous y perdez en souplesse d'utilisation)<br /> Pour pouvoir modifier ce fichier à partir de cette interface web, vérifiez que l'utilisateur linux <code><?php echo exec('whoami'); ?></code> a les droits pour modifier le fichier ainsi que le répertoire qui le contient (pour effectuer un backup du fichier).</div>
 				<?php }else{ ?>
-				<div class="alert alert-info">Les paramètres ne seront effectifs qu'au rafraîchissement de la page.</div>
+				<div class="alert alert-info">Les paramètres ne seront effectifs qu'au deuxième rafraîchissement de la page.</div>
 				<?php
 				}
-				foreach ($configFile as $key => $line){
-					$data = array();
-					if (stristr(strtolower($line), 'define')){
-						$keyExplain = $key-1; //Il faut reculer de deux pointeurs car le foreach affecte la valeur de la ligne à $line et avance d'un pointeur'
-						$explain = trim(trim($configFile[$keyExplain], '/'),'*'); //On récupère la ligne du dessus (définition de la constante)
-						$ret = preg_match_all('/\(.+?\)/', $line, $define); //On récupère les chaînes entre guillemets
-						$define = explode(',', $define[0][0], 2);
-						$constantName = trim($define[0],'(\'');
-						preg_match('/serialize\(array\((.*)\)/i', $define[1], $matches);
-						if (isset($matches[1])){
-							$constantValue = explode(', ', $matches[1]);
-							array_walk($constantValue, function(&$value, $key) {
-								if (!is_int($value)) $value = trim($value, '\'');
-							});
-							$form->addField(new ValuesArray($constantName, $constantValue, $explain, null, 'Paramètre '.$constantName, null, true, null, null, $readOnly, true));
-						}else{
-							$constantValue = trim(rtrim($define[1],')'), " "); //On enlève d'abord les parenthèses, puis les espaces
-							if (substr($constantValue,-1) == '\''){
-								$constantValue =  trim($constantValue, '\'');
-								if (count($tab = explode(', ', $constantValue)) > 1){
-									$constantValue = $tab;
-									$form->addField(new ValuesArray($constantName, $constantValue, $explain, null, 'Paramètre '.$constantName, null, true, null, null, $readOnly));
-								}else{
-									// Pour le choix du module en page d'accueil, on crée une liste avec les modules actifs. de cette façon, on limite les risques d'erreur.
-									if ($constantName == 'HOME_MODULE'){
-										$activeModules = ModulesManagement::getActiveModules();
-										$homeModulesChoice = array('home' => 'Page d\'accueil de base');
-										foreach ($activeModules as $module){
-											$tab = explode('\\', $module->class);
-											if (isset($tab[2])){
-												$homeModulesChoice[$tab[2]] = $module->name.' ('.$tab[2].')';
-											}
-										}
-										$form->addField(new Select('HOME_MODULE', $constantValue, $explain, 'Paramètre '.$constantName, true, null, null, $readOnly, $homeModulesChoice));
-									}else{
-										$form->addField(new StringField($constantName, $constantValue, $explain, null, 'Paramètre '.$constantName, null, true, null, null, $readOnly));
-									}
-								}
-							}elseif(stristr($constantValue, 'true') or stristr($constantValue, 'false')){
-								$form->addField(new BoolField($constantName, $constantValue, $explain, 'Paramètre '.$constantName, null, true, null, null, $readOnly, new JSSwitch(null, 'left')));
-							}else{
-								$form->addField(new IntField($constantName, $constantValue, $explain, null, 'Paramètre '.$constantName, null, true, null, null, $readOnly));
-							}
-						}
+				$defaultFields = $this->analyzeSettingsFromFile($defaultConfigFile, $readOnly);
+				$setFields = $this->analyzeSettingsFromFile($configFile, $readOnly, false);
+				foreach ($defaultFields as $name => $field){
+					if (isset($setFields[$name])){
+						$form->addField($setFields[$name]['field']);
+					}else {
+						$form->addField($field['field']);
 					}
+					$form->addField($field['explain']);
 				}
 				$form->addField(new Button('action', 'saveConfig', 'Sauvegarder', null, 'btn-primary', $readOnly));
 				$form->display();
@@ -540,6 +507,79 @@ class Admin extends Module {
 			</div>
 		</div>
 	<?php
+	}
+
+	/**
+	 * Analyse le contenu d'un fichier de paramétrage et construit les champs de formulaire avec les paramètres trouvés
+	 *
+	 * @param array $content    Contenu d'un fichier de paramètres
+	 * @param bool  $readOnly   Fichier en lecteure seule ou non
+	 * @param bool  $isDefault  Paramètres de configuration par défaut
+	 *
+	 * @return array Champs de formulaire
+	 */
+	protected function analyzeSettingsFromFile(Array $content, $readOnly, $isDefault = true){
+		$fields = array();
+		foreach ($content as $key => $line){
+			$data = array();
+			if (stristr(strtolower($line), 'const ')){
+				$keyExplain = $key-1; //Il faut reculer de deux pointeurs car le foreach affecte la valeur de la ligne à $line et avance d'un pointeur'
+				preg_match('/\/\*\* (.*) \*\//', $content[$keyExplain], $match);
+				$explain = $match[1]; //On récupère la ligne du dessus (définition de la constante)
+				//$ret = preg_match_all('/\(.+?\)/', $line, $define); //On récupère les chaînes entre guillemets
+				preg_match('/const (.+?) = (.*);/', $line, $matchesLine);
+				$constantName = trim($matchesLine[1], " ");
+				preg_match('/array\((.*)\)/i', $matchesLine[2], $matches);
+				if (isset($matches[1])){
+					if (!empty($matches[1])){
+						$constantValue = explode(', ', $matches[1]);
+						array_walk($constantValue, function (&$value, $key) {
+							if (!is_int($value)) $value = trim($value, '\'');
+						});
+					} else {
+						$constantValue = null;
+					}
+					if ($isDefault){
+						$fields[$constantName]['field'] = new ValuesArray($constantName, array(), $explain, $constantValue, 'Paramètre ' . $constantName, null, true, null, null, $readOnly, true);
+					} else {
+						$fields[$constantName]['field'] = new ValuesArray($constantName, $constantValue, $explain, null, 'Paramètre ' . $constantName, null, true, null, null, $readOnly, true);
+					}
+				}else{
+					$constantValue = trim($matchesLine[2], " ");
+					if (substr($constantValue,-1) == '\''){
+						$constantValue =  trim($constantValue, '\'');
+						// Pour le choix du module en page d'accueil, on crée une liste avec les modules actifs. de cette façon, on limite les risques d'erreur.
+						if ($constantName == 'HOME_MODULE'){
+							$activeModules = ModulesManagement::getActiveModules();
+							$homeModulesChoice = array('home' => 'Page d\'accueil de base');
+							foreach ($activeModules as $module){
+								$tab = explode('\\', $module->class);
+								if (isset($tab[2])){
+									$homeModulesChoice[$tab[2]] = $module->name.' ('.$tab[2].')';
+								}
+							}
+							$fields[$constantName]['field'] = new Select('HOME_MODULE', $constantValue, $explain, 'Paramètre '.$constantName, true, null, null, $readOnly, $homeModulesChoice);
+						}else{
+							if ($isDefault) {
+								$fields[$constantName]['field'] = new StringField($constantName, null, $explain, $constantValue, 'Paramètre ' . $constantName, null, true, null, null, $readOnly);
+							} else {
+								$fields[$constantName]['field'] = new StringField($constantName, $constantValue, $explain, null, 'Paramètre ' . $constantName, null, true, null, null, $readOnly);
+							}
+						}
+					}elseif(stristr($constantValue, 'true') or stristr($constantValue, 'false')){
+						$fields[$constantName]['field'] = new BoolField($constantName, $constantValue, $explain, 'Paramètre '.$constantName, null, true, null, null, $readOnly, new JSSwitch(null, 'left'));
+					}else{
+						if ($isDefault) {
+							$fields[$constantName]['field'] = new IntField($constantName, null, $explain, $constantValue, 'Paramètre ' . $constantName, null, true, null, null, $readOnly);
+						} else {
+							$fields[$constantName]['field'] = new IntField($constantName, $constantValue, $explain, null, 'Paramètre ' . $constantName, null, true, null, null, $readOnly);
+						}
+					}
+				}
+				$fields[$constantName]['explain'] = new Hidden($constantName.'_explain', $explain);
+			}
+		}
+		return $fields;
 	}
 
 	/**
@@ -552,62 +592,63 @@ class Admin extends Module {
 			return false;
 		}
 		$req = $this->postedData;
-		$dir = str_replace('/Admin', '/Settings', __DIR__);
-		$share = new Fs($dir);
-		$fileMeta = $share->getFileMeta('config.php');
+		$dir = Front::getAbsolutePath().DIRECTORY_SEPARATOR.'classes';		$share = new Fs($dir);
+		$fileMeta = $share->getFileMeta('Settings.php');
 		$readOnly = ($fileMeta->writable) ? false : true;
 		if ($readOnly){
-			$ret = $share->setChmod('config.php', 777);
+			$ret = $share->setChmod('Settings.php', 777);
 			if (!$ret){
 				new Alert('error', 'Le fichier <code>config.php</code> n\'est pas accessible en écriture !');
 				return false;
 			}
 		}
-		$configFile = $share->readFile('config.php');
-		foreach ($configFile as $key => &$line){
-			if (stristr(strtolower($line), 'define')){
-				preg_match_all('/\(.+?\)/', $line, $define); //On récupère les chaînes entre guillemets
-				$define = explode(',', $define[0][0], 2);
-				$constantName = trim($define[0],'(\'');
-				$constantRet = str_replace('_', '-', trim($constantName));
-				if (isset($req[$constantRet])){
-					switch (gettype($req[$constantRet])){
-						case 'string':
-						default:
-							$line = 'define(\''.$constantName.'\', \''.$req[$constantRet].'\');';
-							break;
-						case 'boolean':
-							$bool = ($req[$constantRet]) ? 'true' : 'false';
-							$line = 'define(\''.$constantName.'\', '.$bool.');';
-							break;
-						case 'int':
-							$line = 'define(\''.$constantName.'\', '.$req[$constantRet].');';
-							break;
-						case 'array':
-							if ($req[$constantRet]['serialize']){
-								array_walk($req[$constantRet]['values'], function(&$value, $key) {
-									$value = '\''.$value.'\'';
-								});
-								$line = 'define(\''.$constantName.'\', serialize(array('.\Sanitize::SanitizeForDb($req[$constantRet]['values'], false).')));';
-							}else{
-								$line = 'define(\''.$constantName.'\', '.\Sanitize::SanitizeForDb($req[$constantRet]['values']).');';
+		$fileContent = '<?php
+    
+/**
+* Paramètres de poulpe2
+*
+* Importez les constantes de `classes/DefaultSettings` et modifiez-les pour adapter les paramètres à votre instance
+*/
+class Settings extends DefaultSettings {
+
+';
+
+		foreach ($req as $setting => $value){
+			// On ne traite que les champs, pas les explications
+			if (strpos($setting, '-explain') === false and $setting != 'action'){
+				if (!empty($value)){
+					if (is_array($value)) {
+						if (!empty($value['values'])){
+							$stringValue = 'array(';
+							foreach ($value['values'] as $subValue) {
+								$stringValue .= (is_int($subValue)) ? $subValue : '\'' . $subValue . '\', ';
 							}
-							break;
+							$value = rtrim($stringValue, ', ') . ')';
+						} else {
+							continue;
+						}
+					}elseif (is_bool($value)) {
+						$value = ($value) ? 'true' : 'false';
+					}else{
+						$value = (is_int($value)) ? $value : '\''.$value.'\'';
 					}
+					$fileContent .= "\n\t".'/** '.$req[$setting.'-explain'].' */';
+					$fileContent .= "\n\t".'const ' . str_replace('-', '_', $setting) . ' = '.$value.';'."\n";
 				}
 			}
 		}
+		$fileContent .= '}';
 		// On écrit dans le fichier
-		$ret = $share->writeFile('config.php', $configFile, false, true);
+		$ret = $share->writeFile('Settings.php', $fileContent, false, true);
 		if (!$ret){
-			new Alert('error', 'La modification des paramètres dans <code>config.php</code> n\'a pas été prise en compte !');
+			new Alert('error', 'La modification des paramètres dans <code>Settings.php</code> n\'a pas été prise en compte !');
 			// On remet en lecture seule
-			$share->setChmod('config.php', 644);
+			//$share->setChmod('Settings.php', 644);
 			return false;
 		}
-		new Alert('success', 'La modification des paramètres dans <code>config.php</code> a été prise en compte !');
+		new Alert('success', 'La modification des paramètres dans <code>Settings.php</code> a été prise en compte !');
 		// On remet en lecture seule
-		$share->setChmod('config.php', 644);
+		//$share->setChmod('Settings.php', 644);
 		return true;
 	}
 
@@ -619,7 +660,7 @@ class Admin extends Module {
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
 				<div class="page-header">
-					<h1>Administration de <?php echo SITE_NAME; ?></h1>
+					<h1>Administration de <?php echo \Settings::SITE_NAME; ?></h1>
 				</div>
 				<p>Utilisez le menu à gauche pour ouvrir les différentes rubriques de l'administration de ce site.</p>
 				<div class="row">
@@ -716,10 +757,10 @@ class Admin extends Module {
 		<ul>
 			<li>Utilisateurs : <strong><?php echo count(UsersManagement::getUsersList()); ?></strong></li>
 			<li>Modules actifs : <strong><?php echo count(ModulesManagement::getActiveModules()); ?></strong></li>
-			<li>Base de données : <strong><?php echo DB_NAME; ?></strong> sur <?php echo DB_HOST; ?></li>
+			<li>Base de données : <strong><?php echo \Settings::DB_NAME; ?></strong> sur <?php echo \Settings::DB_HOST; ?></li>
 			<li>Taille de la base de données : <strong><?php echo \Sanitize::readableFileSize($dbSize); ?></strong></li>
 			<li>Nombre de tables dans la base : <strong><?php echo $nbTables; ?></strong></li>
-			<li>Mode d'authentification : <strong><?php echo AUTH_MODE; ?></strong> <?php if (AUTH_MODE == 'ldap') { ?><small>(<?php echo LDAP_DOMAIN; ?>)</small><?php } ?></li>
+			<li>Mode d'authentification : <strong><?php echo \Settings::AUTH_MODE; ?></strong> <?php if (\Settings::AUTH_MODE == 'ldap') { ?><small>(<?php echo \Settings::LDAP_DOMAIN; ?>)</small><?php } ?></li>
 			<li>Version de Poulpe2 : <a href="https://github.com/Dric/Poulpe2/commit/<?php echo $commit->fullHash; ?>"><?php echo $commit->hash; ?></a> du <?php echo Sanitize::date($commit->date, 'dateTime'); ?></li>
 			<li>Version de base de données de Poulpe2 : <strong><?php echo Version::getDbVersion(); ?></strong></li>
 		</ul>

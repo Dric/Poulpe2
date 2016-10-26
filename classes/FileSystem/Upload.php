@@ -100,7 +100,7 @@ class Upload {
 				if (empty($nameExt) or strlen($nameExt) > 4) $name .= '.' . $extension;
 			}
 			// Redimensionnement d'image : largeur et/ou hauteur fixe
-			if (isset($args['resize']) and in_array(pathinfo($file['name'])['extension'], unserialize(ALLOWED_IMAGES_EXT))) {
+			if (isset($args['resize']) and in_array(pathinfo($file['name'])['extension'], unserialize(\Settings::ALLOWED_IMAGES_EXT))) {
 				$resizeArgs = $args['resize'];
 				// C'est une image !
 				$img = new Components\SimpleImage($file['tmp_name']);

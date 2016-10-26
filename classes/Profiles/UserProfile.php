@@ -98,7 +98,7 @@ class UserProfile extends Module {
 			case 'gravatar':  $this->user->setAvatar('gravatar'); break;
 			case 'user':
 				$userAvatarFile = Sanitize::sanitizeFilename($this->user->getName()).'.png';
-				if ((!isset($_FILES['field_string_avatarFile']) or empty($_FILES['field_string_avatarFile']['name'])) and !file_exists(AVATAR_PATH.$userAvatarFile)){
+				if ((!isset($_FILES['field_string_avatarFile']) or empty($_FILES['field_string_avatarFile']['name'])) and !file_exists(\Settings::AVATAR_PATH.$userAvatarFile)){
 					// Si l'utilisateur n'a pas d'image déjà chargée et qu'il n'en a pas indiqué dans le champ adéquat, on retourne false
 					new Alert('error', 'Impossible de sauvegarder l\'avatar, aucune image n\'a été chargée !');
 					return false;
@@ -108,7 +108,7 @@ class UserProfile extends Module {
 					$args['resize'] = array('width' => 80, 'height' => 80);
 					// Les avatars auront le nom des utilisateurs, et seront automatiquement transformés en .png par SimpleImages
 					$args['name'] = $this->user->getName().'.png';
-					$avatarFile = Upload::file($_FILES['field_string_avatarFile'], AVATAR_PATH, AVATAR_MAX_SIZE, unserialize(ALLOWED_IMAGES_EXT), $args);
+					$avatarFile = Upload::file($_FILES['field_string_avatarFile'], \Settings::AVATAR_PATH, \Settings::AVATAR_MAX_SIZE, \Settings::ALLOWED_IMAGES_EXT, $args);
 					if (!$avatar) {
 						new Alert('error', 'L\'avatar n\'a pas été pris en compte !');
 						return false;
@@ -155,8 +155,8 @@ class UserProfile extends Module {
 					return false;
 				}
 				// On vérifie que le nouveau mot de passe comporte bien le nombre minimum de caractères requis
-				if (strlen($newPwd) < PWD_MIN_SIZE){
-					new Alert('error', 'Le mot de passe doit comporter au moins '.PWD_MIN_SIZE.' caractères !');
+				if (strlen($newPwd) < \Settings::PWD_MIN_SIZE){
+					new Alert('error', 'Le mot de passe doit comporter au moins '.\Settings::PWD_MIN_SIZE.' caractères !');
 					return false;
 				}
 				$this->user->setPwd($newPwd);
@@ -223,7 +223,7 @@ class UserProfile extends Module {
 						<h1>Profil de <?php echo $this->user->getName(); ?></h1>
 					</div>
 					<?php
-					if (AUTH_MODE == 'sql'){
+					if (\Settings::AUTH_MODE == 'sql'){
 						$this->accountFormItems();
 						$this->passwordFormItems();
 					}
@@ -261,7 +261,7 @@ class UserProfile extends Module {
 		if ($this->user->getEmail() != '') $dataAvatar['gravatar'] = Avatar::display($this->user->getEmail(), 'Gravatar');
 		// On teste l'existence d'un avatar chargé par l'utilisateur
 		$userAvatarFile = Sanitize::sanitizeFilename($this->user->getName()).'.png';
-		if (file_exists(AVATAR_PATH.$userAvatarFile)){
+		if (file_exists(\Settings::AVATAR_PATH.$userAvatarFile)){
 			$dataAvatar['user'] = Avatar::display($userAvatarFile, 'Avatar personnalisé');
 		}else{
 			$dataAvatar['user'] = 'Choisir un fichier';
@@ -286,8 +286,8 @@ class UserProfile extends Module {
 	 * Prépare les champs de changement de mot de passe
 	 */
 	protected function passwordFormItems(){
-		$this->form->addField(new Password('currentPwd', null, 'Mot de passe actuel', 'Laissez ce champ vide si vous ne souhaitez pas changer de mot de passe', 'Ne saisissez votre mot de passe actuel que si vous souhaitez en changer', new Pattern('password', false, PWD_MIN_SIZE, 100), true));
-		$this->form->addField(new Password('newPwd', null, 'Nouveau mot de passe', 'Mot de passe de '.PWD_MIN_SIZE.' caractères minimum', 'Ne saisissez un mot de passe ici que si vous souhaitez en changer', new Pattern('password', false, PWD_MIN_SIZE, 100), true));
+		$this->form->addField(new Password('currentPwd', null, 'Mot de passe actuel', 'Laissez ce champ vide si vous ne souhaitez pas changer de mot de passe', 'Ne saisissez votre mot de passe actuel que si vous souhaitez en changer', new Pattern('password', false, \Settings::PWD_MIN_SIZE, 100), true));
+		$this->form->addField(new Password('newPwd', null, 'Nouveau mot de passe', 'Mot de passe de '.\Settings::PWD_MIN_SIZE.' caractères minimum', 'Ne saisissez un mot de passe ici que si vous souhaitez en changer', new Pattern('password', false, \Settings::PWD_MIN_SIZE, 100), true));
 	}
 
 	/**

@@ -86,7 +86,7 @@ class User {
 			}
 			$this->id = (int)$this->id;
 			if ($level > 0){
-				if (AUTH_MODE == 'ldap'){
+				if (\Settings::AUTH_MODE == 'ldap'){
 					/*
 					 * Si `level` vaut `1`, on ne retourne pas les infos longues à charger
 					 *

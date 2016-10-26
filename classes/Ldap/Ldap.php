@@ -85,10 +85,10 @@ class Ldap {
 	 * @param array   $ldapServers Liste des serveurs ldap sur lesquels on peut ouvrir des connexions (facultatif)
 	 */
 	public function __construct($domain = null, $bindName = null, $bindPwd = null, $ldapServers = array()){
-		$this->domain = (!empty($domain)) ? $domain : LDAP_DOMAIN;
-		$this->bindName = (!empty($bindName)) ? $bindName : LDAP_BIND_NAME;
-		$this->bindPwd = (!empty($bindPwd)) ? $bindPwd : LDAP_BIND_PWD;
-		$this->ldapServers = (!empty($ldapServers)) ? (array)$ldapServers : explode(', ', LDAP_SERVERS);
+		$this->domain = (!empty($domain)) ? $domain : \Settings::LDAP_DOMAIN;
+		$this->bindName = (!empty($bindName)) ? $bindName : \Settings::LDAP_BIND_NAME;
+		$this->bindPwd = (!empty($bindPwd)) ? $bindPwd : \Settings::LDAP_BIND_PWD;
+		$this->ldapServers = (!empty($ldapServers)) ? (array)$ldapServers : \Settings::LDAP_SERVERS;
 
 		// On crée $domainDCName à partir du nom de domaine
 		$DCtab = explode('.', $this->domain);
@@ -158,8 +158,8 @@ class Ldap {
 			return false ;
 		}else{
 			$filter = null;
-			If (!empty(LDAP_AUTH_OU) and LDAP_AUTH_OU != '*'){
-				$filter = 'OU='.LDAP_AUTH_OU;
+			If (!empty(\Settings::LDAP_AUTH_OU) and \Settings::LDAP_AUTH_OU != '*'){
+				$filter = 'OU='.\Settings::LDAP_AUTH_OU;
 			}
 			$userLDAP = $this->search('person', $user, $filter, array(), true);
 			if ($userLDAP['count'] == 0){

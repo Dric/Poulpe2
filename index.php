@@ -9,26 +9,17 @@
  * Si un paramètre `debug` est présent, on active le mode debug.
  * Dans le fichier de config, il faut que la définition de la constante `DEBUG` soit préfixée par un `@`, sans quoi un message d'erreur peut s'afficher si la constante est définie deux fois.
  */
-if (isset($_REQUEST['debug'])){
+/*if (isset($_REQUEST['debug'])){
  define('DEBUG', true);
-}
+}*/
 
 /**
- * On charge les paramètres du site
+ * On crée le fichier de config si besoin
  */
-if (!file_exists('classes/Settings/config.php')){
-	die('<h1>Erreur : le fichier <code>config.php</code> n\'existe pas !</h1><p>Vous n\'avez probablement pas renomm&eacute; ni param&eacute;tr&eacute; le fichier <code>classes/Settings/config.default.php</code> en <code>classes/Settings/config.php</code></p>');
-}
-require_once 'classes/Settings/config.php';
-
-if (DEBUG) {
-	// Permet de faire du profilage avec XDebug et (<http://github.com/jokkedk/webgrind/>), à condition d'avoir activé le profilage XDebug
-	setcookie('XDEBUG_PROFILE');
-	// Pour obtenir le temps passé à générer la page.
-	$startTime = microtime(true);
+if (!file_exists('classes/Settings.php')){
+	header('Location: install.php');
 }
 
-if (DETAILED_DEBUG) $classesUsed = array();
 
 /**
  * Auto-Loading des classes
@@ -36,14 +27,10 @@ if (DETAILED_DEBUG) $classesUsed = array();
  * Les fichiers des classes ne sont chargés qu'en cas de besoin
  */
 spl_autoload_register(function ($class) {
-	if (DETAILED_DEBUG) {
-		global $classesUsed;
-		$classesUsed[] = $class;
-	}
 	$tab = explode('\\', $class);
 	// Les modules sont dans un répertoire à part
 	if ($tab[0] == 'Modules' and !in_array($tab[1], array('Module', 'ModulesManagement'))) {
-		@include_once str_replace("\\", "/", str_replace('Modules', MODULE_DIR, $class)) . '.php';
+		@include_once str_replace("\\", "/", str_replace('Modules', \Settings::MODULE_DIR, $class)) . '.php';
 	}elseif($tab[0] == 'phpseclib'){
 		@include_once 'classes/FileSystem/' . str_replace("\\", "/", $class) . '.php';
 	}else{
@@ -51,8 +38,16 @@ spl_autoload_register(function ($class) {
 	}
 });
 
+if (\Settings::DEBUG) {
+	// Permet de faire du profilage avec XDebug et (<http://github.com/jokkedk/webgrind/>), à condition d'avoir activé le profilage XDebug
+	setcookie('XDEBUG_PROFILE');
+	// Pour obtenir le temps passé à générer la page.
+	$startTime = microtime(true);
+}
+
 use Db\Db;
 use Ldap\Ldap;
+use Logs\Alert;
 use Logs\AlertsManager;
 use Modules\Module;
 use Modules\ModulesManagement;
@@ -68,6 +63,16 @@ if (!isset($_SESSION['absolutePath']) or !isset($_SESSION['baseUrl'])){
 }else{
 	Front::setAbsolutePath($_SESSION['absolutePath']);
 	Front::setBaseUrl($_SESSION['baseUrl']);
+}
+
+/**
+ * On vérifie que les paramètres ont été bien définis dans la classe Settings
+ */
+if (empty(\Settings::get_class_constants(false))){
+	if (file_exists('classes/Settings/config.php')){
+		die('<h1>Attention : Les paramètres n\'ont pas été définis pour cette instance dans la classe <code>Settings</code>, mais il existe un fichier <code>config.php</code>.</h1>Il faut migrer les paramètres du fichier de config vers la classe <code>Settings</code>.');
+	}
+	die('<h1>Attention : Les paramètres n\'ont pas été définis pour cette instance !</h1>Veuillez renseigner la classe <code>Settings</code>');
 }
 //var_dump($_SERVER);
 
@@ -114,7 +119,7 @@ Front::initModulesLoading();
 /**
  * Si l'utilisateur courant n'est pas authentifié et que l'authentification est obligatoire, on redirige l'utilisateur vers la page de connexion
  */
-if ((!$cUser->isLoggedIn() or $redirectToLogin) and AUTH_MANDATORY){
+if ((!$cUser->isLoggedIn() or $redirectToLogin) and \Settings::AUTH_MANDATORY){
 	header('location: index.php?action=loginForm&from='.urlencode($_SERVER['REQUEST_URI']));
 }else{
 	/**
@@ -192,7 +197,7 @@ if ((!$cUser->isLoggedIn() or $redirectToLogin) and AUTH_MANDATORY){
 				<div class="content-header row">
 					<div class="col-xs-10">
 						<h1 class="content-header-title">
-							<a href="<?php echo Front::getBaseUrl(); ?>"><?php echo SITE_NAME; ?></a>
+							<a href="<?php echo Front::getBaseUrl(); ?>"><?php echo \Settings::SITE_NAME; ?></a>
 						</h1>
 					</div>
 					<div class="col-xs-2">
@@ -211,11 +216,11 @@ if ((!$cUser->isLoggedIn() or $redirectToLogin) and AUTH_MANDATORY){
 			<!-- Fin de Page content -->
 			<!-- Pied de page -->
 			<footer>
-				<?php Front::footer(); ?> <?php if (DEBUG) echo ' | Mode debug activé | '; ?>
+				<?php Front::footer(); ?> <?php if (\Settings::DEBUG) echo ' | Mode debug activé | '; ?>
 				<img class="tooltip-top" alt="Je suis Monsieur Poulpe !" src="<?php echo Front::getBaseUrl(); ?>/img/poulpe2-logo-23x32.png" style="vertical-align: text-bottom;"/> <span class="logo-highlight">P</span>oulpe<span class="logo-highlight">2</span> 2012-<?php echo date('Y'); ?>
 			</footer>
 			<?php
-			if (DEBUG){
+			if (\Settings::DEBUG){
 				AlertsManager::debug();
 			}
 			?>

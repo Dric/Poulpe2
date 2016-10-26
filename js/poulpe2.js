@@ -117,7 +117,7 @@ function bootstrapSwitch(){
 			offText:	'Non',
 			animate:  true
 		});
-		console.log($(this));
+		//console.log($(this));
 	});
 }
 

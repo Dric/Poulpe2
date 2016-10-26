@@ -57,10 +57,10 @@ class ModulesManagement {
 		}
 		// Affichage du module par défaut
 		if (!isset($module)) {
-			if (HOME_MODULE == 'home') {
+			if (\Settings::HOME_MODULE == 'home') {
 				$module = new Module();
 			}else{
-				$class = 'Modules\\'.HOME_MODULE.'\\'.HOME_MODULE;
+				$class = 'Modules\\'.\Settings::HOME_MODULE.'\\'.\Settings::HOME_MODULE;
 				$module = new $class();
 			}
 

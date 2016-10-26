@@ -91,7 +91,7 @@ class APIManagement {
 		curl_setopt($curl, CURLOPT_URL, $url);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 		// On fait passer le cookie d'authentification
-		curl_setopt($curl, CURLOPT_COOKIE, COOKIE_NAME.'='.urlencode($_COOKIE[COOKIE_NAME]));
+		curl_setopt($curl, CURLOPT_COOKIE, \Settings::COOKIE_NAME.'='.urlencode($_COOKIE[\Settings::COOKIE_NAME]));
 		curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
 		curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 3);
 		$curlResult = curl_exec($curl);
