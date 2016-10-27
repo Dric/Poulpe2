@@ -15,6 +15,22 @@ use Logs\Alert;
  * Objet fichier
  *
  * @package FileSystem
+ *
+ * @property-read int $name
+ * @property-read string $fullName
+ * @property-read int $dateCreated
+ * @property-read int $dateModified
+ * @property-read int $size
+ * @property-read string $extension
+ * @property-read string $fullType
+ * @property-read string $type
+ * @property-read int $chmod
+ * @property-read int $advChmod
+ * @property-read bool $writable
+ * @property-read string $owner
+ * @property-read bool $linuxHidden
+ * @property-read string $parentFolder
+ *
  */
 class File {
 
