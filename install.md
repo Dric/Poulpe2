@@ -1,5 +1,9 @@
 # Installation de Poulpe2
 
+Il existe un installeur qui automatise pas mal de choses : [Installeur de Poulpe2](install.php)
+
+Pour info, voici la méthode manuelle :
+
 ## SQL
 
 Créez une base de données puis importez-y ce script SQL :

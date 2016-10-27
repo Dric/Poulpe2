@@ -38,6 +38,7 @@ if (file_exists('classes/Settings/config.php')){
 		</style>
 	</head>
 	<body id="loginBody">
+	<a href="https://github.com/Dric/Poulpe2" title="Github de Poulpe2" style="float: right"><i class="fa fa-2x fa-github"></i></a>
 	<div id="">
 		<!-- Page content -->
 		<div id="page-content-wrapper" class="login-wrap container">
@@ -53,6 +54,7 @@ if (file_exists('classes/Settings/config.php')){
 						<h1>
 							Poulpe2 - Installation
 						</h1>
+						<img src="img/poulpe2-logo-145x200.png" alt="Logo de Poulpe2">
 					</div>
 				</div>
 			</div>
@@ -467,6 +469,7 @@ if (file_exists('classes/Settings/config.php')){
 					}
 				}else{
 					$importedSettings = array();
+					if (!empty(SITE_NAME))        $importedSettings['SITE_NAME']        = SITE_NAME;
 					if (!empty(DB_NAME))          $importedSettings['DB_NAME']          = DB_NAME;
 					if (!empty(DB_HOST))          $importedSettings['DB_HOST']          = DB_HOST;
 					if (!empty(DB_USER))          $importedSettings['DB_USER']          = DB_USER;
@@ -510,6 +513,7 @@ if (file_exists('classes/Settings/config.php')){
 				$_SESSION['Settings']['HOME_MODULE-explain'] = 'Module en page d\'accueil';
 				$_SESSION['Settings']['MODULE_DIR-explain'] = 'Répertoire des modules (respecter la casse)';
 				$_SESSION['Settings']['MODULE_URL-explain'] = 'URL des appels aux modules';
+				$_SESSION['Settings']['SITE_NAME-explain'] = 'Nom du site';
 
 				$fileContent = "
 <?php\n/**\n* Paramètres de poulpe2\n*\n* Importez les constantes de `classes/DefaultSettings` et modifiez-les pour adapter les paramètres à votre instance\n*/\nclass Settings extends DefaultSettings {\n";
@@ -648,9 +652,6 @@ if (file_exists('classes/Settings/config.php')){
 			</div>
 		</div>
 	</div>
-	<script>
-		var noTiling = true;
-	</script>
 	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 	</body>
 	</html>
