@@ -53,7 +53,7 @@ class Module {
 
 	/**
 	 * Paramètres du module
-	 * @var array
+	 * @var Setting[]
 	 */
 	protected $settings = array();
 
@@ -65,7 +65,7 @@ class Module {
 
 	/**
 	 * Tables SQL manipulées par le module
-	 * @var array
+	 * @var DbTable[]
 	 */
 	protected $dbTables = array();
 
