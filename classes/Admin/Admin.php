@@ -612,11 +612,11 @@ class Admin extends Module {
 class Settings extends DefaultSettings {
 
 ';
-
 		foreach ($req as $setting => $value){
 			// On ne traite que les champs, pas les explications
 			if (strpos($setting, '-explain') === false and $setting != 'action'){
-				if (!empty($value)){
+				// Les booléens définis à `false` sont vu comme vides par PHP. Il faut donc faire une exception pour leur traitement
+				if (!empty($value) or is_bool($value)){
 					if (is_array($value)) {
 						if (!empty($value['values'])){
 							$stringValue = 'array(';
