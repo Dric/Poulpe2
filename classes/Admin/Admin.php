@@ -872,15 +872,22 @@ class Settings extends DefaultSettings {
 			// From http://srv-glpitest/git/Informatique-CHGS/poulpe2 * branch master -> FETCH_HEAD Updating a4c9af5..9c44480 Fast-forward install.php | 2 +- 1 file changed, 1 insertion(+), 1 deletion(-)
 			if (preg_match('/error: (.+?) Aborting/mi', $retCore, $coreMatches)){
 				new Alert('error', 'Impossible de faire la mise à jour du <code>core</code> :<br>'.$coreMatches[1]);
-			}else {
-				new Alert('success', 'Mise à jour du <code>core</code> effectuée :<br>'.$retCore);
+			}elseif(preg_match('/(?<change>\d{1,}) file(?:s|) changed, (?<add>\d{1,}) insertion(?:s|)\(\+\), (?<del>\d{1,}) deletion(?:s|)\(\-\)/mi', $retCore, $coreMatches)) {
+				new Alert('success', 'Mise à jour du <code>core</code> effectuée :<ul><li><code>' . $coreMatches['changed'] . '</code> fichiers modifiés</li><li><code>' . $coreMatches['add'] . '</code> insertions</li><li><code>' . $coreMatches['del'] . '</code> suppressions</li></ul>');
+			}else{
+				new Alert('info', 'Mise à jour du <code>core</code> :<br>'.$retCore);
 			}
-			if (preg_match('/error: (.+?) Aborting/mi', $retModules, $modulesMatches)){
-				new Alert('error', 'Impossible de faire la mise à jour des <code>modules</code> :<br>'.$modulesMatches[1]);
+			if (preg_match('/error: (.+?) Aborting/mi', $retModules, $modulesMatches)) {
+				new Alert('error', 'Impossible de faire la mise à jour des <code>modules</code> :<br>' . $modulesMatches[1]);
+			}elseif(preg_match('/(?<change>\d{1,}) file(?:s|) changed, (?<add>\d{1,}) insertion(?:s|)\(\+\), (?<del>\d{1,}) deletion(?:s|)\(\-\)/mi', $retModules, $modulesMatches)) {
+			      new Alert('success', 'Mise à jour des <code>modules</code> effectuée :<ul><li><code>'.$modulesMatches['changed'].'</code> fichiers modifiés</li><li><code>'.$modulesMatches['add'].'</code> insertions</li><li><code>'.$modulesMatches['del'].'</code> suppressions</li></ul>');
 			}else {
-				new Alert('success', 'Mise à jour des <code>modules</code> effectuée :<br>'.$retModules);
+				new Alert('success', 'Mise à jour des <code>modules</code> :<br>'.$retModules);
 			}
-			?><p>Mise à jour lancée, veuillez rafraîchir la page lorsqu'elle sera finie.</p><?php
+			?>
+			<p>Mise à jour lancée, veuillez cliquer sur le bouton ci-dessous :</p>
+			<div class="text-center"><a class="btn btn-primary" href="<?php echo $this->url; ?>">Terminer la mise à jour</a></div>
+			<?php
 		} else {
 			$form = new Form('update', null, null, 'admin');
 			$form->addField(new Hidden('checkUpdates', true, 'admin', $disabledForm));
