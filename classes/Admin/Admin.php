@@ -870,8 +870,17 @@ class Settings extends DefaultSettings {
 			$retCore = $coreGitRepo->pull('origin', 'master');
 			$retModules = $modulesGitRepo->pull('origin', 'master');
 			// From http://srv-glpitest/git/Informatique-CHGS/poulpe2 * branch master -> FETCH_HEAD Updating a4c9af5..9c44480 Fast-forward install.php | 2 +- 1 file changed, 1 insertion(+), 1 deletion(-)
-			new Alert('info', $retCore);
-			new Alert('info', $retModules);
+			if (preg_match('/error: (.+?) Aborting/mi', $retCore, $coreMatches)){
+				new Alert('error', 'Impossible de faire la mise à jour du <code>core</code> :<br>'.$coreMatches[1]);
+			}else {
+				new Alert('success', 'Mise à jour du <code>core</code> effectuée :<br>'.$retCore);
+			}
+			if (preg_match('/error: (.+?) Aborting/mi', $retModules, $modulesMatches)){
+				new Alert('error', 'Impossible de faire la mise à jour des <code>modules</code> :<br>'.$modulesMatches[1]);
+			}else {
+				new Alert('success', 'Mise à jour des <code>modules</code> effectuée :<br>'.$retModules);
+			}
+			?><p>Mise à jour lancée, veuillez rafraîchir la page lorsqu'elle sera finie.</p><?php
 		} else {
 			$form = new Form('update', null, null, 'admin');
 			$form->addField(new Hidden('checkUpdates', true, 'admin', $disabledForm));
