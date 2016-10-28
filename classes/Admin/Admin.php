@@ -874,15 +874,19 @@ class Settings extends DefaultSettings {
 				new Alert('error', 'Impossible de faire la mise à jour du <code>core</code> :<br>'.$coreMatches[1]);
 			}elseif(preg_match('/(?<change>\d{1,}) file(?:s|) changed, (?<add>\d{1,}) insertion(?:s|)\(\+\), (?<del>\d{1,}) deletion(?:s|)\(\-\)/mi', $retCore, $coreMatches)) {
 				new Alert('success', 'Mise à jour du <code>core</code> effectuée :<ul><li><code>' . $coreMatches['changed'] . '</code> fichiers modifiés</li><li><code>' . $coreMatches['add'] . '</code> insertions</li><li><code>' . $coreMatches['del'] . '</code> suppressions</li></ul>');
+			}elseif(strpos($retCore, 'Already up-to-date') === true){
+			      new Alert('success', 'Mise à jour du <code>core</code> : Le core est déjà dans la version la plus récente.');
 			}else{
 				new Alert('info', 'Mise à jour du <code>core</code> :<br>'.$retCore);
 			}
 			if (preg_match('/error: (.+?) Aborting/mi', $retModules, $modulesMatches)) {
 				new Alert('error', 'Impossible de faire la mise à jour des <code>modules</code> :<br>' . $modulesMatches[1]);
 			}elseif(preg_match('/(?<change>\d{1,}) file(?:s|) changed, (?<add>\d{1,}) insertion(?:s|)\(\+\), (?<del>\d{1,}) deletion(?:s|)\(\-\)/mi', $retModules, $modulesMatches)) {
-			      new Alert('success', 'Mise à jour des <code>modules</code> effectuée :<ul><li><code>'.$modulesMatches['changed'].'</code> fichiers modifiés</li><li><code>'.$modulesMatches['add'].'</code> insertions</li><li><code>'.$modulesMatches['del'].'</code> suppressions</li></ul>');
+				new Alert('success', 'Mise à jour des <code>modules</code> effectuée :<ul><li><code>' . $modulesMatches['changed'] . '</code> fichiers modifiés</li><li><code>' . $modulesMatches['add'] . '</code> insertions</li><li><code>' . $modulesMatches['del'] . '</code> suppressions</li></ul>');
+			}elseif(strpos($retModules, 'Already up-to-date') === true){
+				new Alert('success', 'Mise à jour des <code>modules</code> : Les modules sont déjà dans la version la plus récente.');
 			}else {
-				new Alert('success', 'Mise à jour des <code>modules</code> :<br>'.$retModules);
+				new Alert('info', 'Mise à jour des <code>modules</code> :<br>'.$retModules);
 			}
 			?>
 			<p>Mise à jour lancée, veuillez cliquer sur le bouton ci-dessous :</p>
