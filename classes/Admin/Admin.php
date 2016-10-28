@@ -22,6 +22,7 @@ use Forms\Fields\StringField;
 use Forms\Fields\ValuesArray;
 use Forms\JSSwitch;
 use Forms\Pattern;
+use Git\Git;
 use Logs\Alert;
 use Components\Item;
 use Components\Menu;
@@ -665,16 +666,26 @@ class Settings extends DefaultSettings {
 				<p>Utilisez le menu à gauche pour ouvrir les différentes rubriques de l'administration de ce site.</p>
 				<div class="row">
 					<div class="col-md-4">
-						<h3>Ressources du serveur</h3>
-						<?php $this->serverStatus(); ?>
+						<h3>Logiciels/Serveur</h3>
+						<?php $this->softwareStatus(); ?>
 					</div>
 					<div class="col-md-4">
 						<h3>Poulpe2</h3>
 						<?php $this->poulpe2Status(); ?>
 					</div>
 					<div class="col-md-4">
-						<h3>Logiciels/Serveur</h3>
-						<?php $this->softwareStatus(); ?>
+						<h3>Versions</h3>
+						<?php $this->poulpe2Versions(); ?>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-8">
+						<h3>Ressources du serveur</h3>
+						<?php $this->serverStatus(); ?>
+					</div>
+					<div class="col-md-4">
+						<h3>Mise à jour</h3>
+						<?php $this->poulpe2Update(); ?>
 					</div>
 				</div>
 			</div>
@@ -752,7 +763,11 @@ class Settings extends DefaultSettings {
 		foreach ($dbStatus as $table){
 			$dbSize += $table->Data_length + $table->Index_length;
 		}
-		$commit = Front::getLastCommit();
+		$gitRepo = Git::open(Front::getAbsolutePath());
+		$lastCommit = $gitRepo->getLastCommit();
+		$OriginUrl = $gitRepo->getOrigin();
+		preg_match('/http(?:s|):\/\/(.+?)\/(?:.*)\/(.+?)(?:\.git|)$/i', $OriginUrl, $matches);
+
 		?>
 		<ul>
 			<li>Utilisateurs : <strong><?php echo count(UsersManagement::getUsersList()); ?></strong></li>
@@ -761,9 +776,149 @@ class Settings extends DefaultSettings {
 			<li>Taille de la base de données : <strong><?php echo \Sanitize::readableFileSize($dbSize); ?></strong></li>
 			<li>Nombre de tables dans la base : <strong><?php echo $nbTables; ?></strong></li>
 			<li>Mode d'authentification : <strong><?php echo \Settings::AUTH_MODE; ?></strong> <?php if (\Settings::AUTH_MODE == 'ldap') { ?><small>(<?php echo \Settings::LDAP_DOMAIN; ?>)</small><?php } ?></li>
-			<li>Version de Poulpe2 : <a href="https://github.com/Dric/Poulpe2/commit/<?php echo $commit->fullHash; ?>"><?php echo $commit->hash; ?></a> du <?php echo Sanitize::date($commit->date, 'dateTime'); ?></li>
 			<li>Version de base de données de Poulpe2 : <strong><?php echo Version::getDbVersion(); ?></strong></li>
+			<li>Répertoire des modules : <strong><?php echo \Settings::MODULE_DIR; ?></strong></li>
 		</ul>
 		<?php
+	}
+
+	protected function poulpe2Versions(){
+		$coreGitRepo = Git::open(Front::getAbsolutePath());
+		$coreLastCommit = $coreGitRepo->getLastCommit();
+		$coreOriginUrl = $coreGitRepo->getOrigin();
+		preg_match('/http(?:s|):\/\/(.+?)\/(?:.*)\/(.+?)(?:\.git|)$/i', $coreOriginUrl, $coreMatches);
+		$modulesGitRepo = Git::open(Front::getAbsolutePath().DIRECTORY_SEPARATOR.\Settings::MODULE_DIR);
+		$modulesLastCommit = $modulesGitRepo->getLastCommit();
+		$modulesOriginUrl = $modulesGitRepo->getOrigin();
+		preg_match('/http(?:s|):\/\/(.+?)\/(?:.*)\/(.+?)(?:\.git|)$/i', $modulesOriginUrl, $modulesMatches);
+		?>
+		<ul>
+			<li>
+				Core :
+				<ul>
+					<li>Version : <a href="<?php echo $coreLastCommit->url; ?>"><?php echo $coreLastCommit->hash; ?></a> du <?php echo Sanitize::date($coreLastCommit->date, 'dateTime'); ?></li>
+					<li>Origine : <a href="<?php echo $coreOriginUrl; ?>"><?php echo $coreMatches[1]; ?></a></li>
+					<li>Nom du dépôt : <a href="<?php echo $coreOriginUrl; ?>"><?php echo $coreMatches[2]; ?></a></li>
+				</ul>
+			</li>
+			<li>
+				Modules :
+				<ul>
+					<li>Version : <a href="<?php echo $modulesLastCommit->url; ?>"><?php echo $modulesLastCommit->hash; ?></a> du <?php echo Sanitize::date($modulesLastCommit->date, 'dateTime'); ?></li>
+					<li>Origine : <a href="<?php echo $modulesOriginUrl; ?>"><?php echo $modulesMatches[1]; ?></a></li>
+					<li>Nom du dépôt : <a href="<?php echo $coreOriginUrl; ?>"><?php echo $modulesMatches[2]; ?></a></li>
+				</ul>
+			</li>
+		</ul>
+		<?php
+	}
+
+	protected function poulpe2Update(){
+		if (!ACL::canModify('admin', $this->id)){
+			new Alert('error', 'Vous n\'avez pas l\'autorisation de faire ceci !');
+			return false;
+		}
+		$fs = new Fs(Front::getAbsolutePath());
+		$disabled = array(
+			'cache'   => false,
+			'core'    => false,
+			'modules' => false
+		);
+		if (!$fs->isWritable('cache')){
+			new Alert('error', 'Le répertoire <code>cache</code> n\'est pas accessible en écriture !');
+			$disabled['cache'] = true;
+		}
+		$disabled['core'] = !$fs->isWritable();
+		$disabled['modules'] = !$fs->isWritable(\Settings::MODULE_DIR);
+
+		$lastCheckFile = 'cache/lastUpdateCheck.cache';
+		$timestamp = ($fs->fileExists($lastCheckFile)) ? (int)$fs->readFile($lastCheckFile, 'string') : 0;
+
+
+		$disabledForm = (!$disabled['cache'] and !$disabled['core'] and !$disabled['modules']) ? false : true;
+		if ($disabledForm){
+			?>
+			<p>Vous ne pourrez pas effectuer de vérification ou de mise à jour tant que les répertoires suivants ne seront pas accessibles en écriture :</p>
+			<ul>
+				<?php
+				if ($disabled['cache']) { ?><li>Répertoire <code>cache</code></li><?php }
+				if ($disabled['core']) { ?><li>Répertoire racine de poulpe2</li><?php }
+				if ($disabled['modules']) { ?><li>Répertoire des modules <code><?php echo \Settings::MODULE_DIR; ?></code></li><?php }
+				?>
+			</ul>
+			<?php
+		}
+		$req = $this->postedData;
+		if ((bool)$req['checkUpdates'] and !$disabledForm) {
+			$coreGitRepo            = Git::open(Front::getAbsolutePath());
+			$modulesGitRepo         = Git::open(Front::getAbsolutePath() . DIRECTORY_SEPARATOR . \Settings::MODULE_DIR);
+			$coreLastLocalCommit    = $coreGitRepo->getLastCommit();
+			$modulesLastLocalCommit = $modulesGitRepo->getLastCommit();
+			$coreGitRepo->fetch();
+			$modulesGitRepo->fetch();
+			$coreUpdatesRaw    = explode('+@@+', $coreGitRepo->logFileRevisionRange($coreLastLocalCommit->fullHash, 'HEAD', '+@@+%H+-+%h+-+%at+-+%B'));
+			$modulesUpdatesRaw = explode('+@@+', $modulesGitRepo->logFileRevisionRange($modulesLastLocalCommit->fullHash, 'HEAD', '+@@+%H+-+%h+-+%at+-+%B'));
+			if (!empty($coreUpdatesRaw)) {
+				// En cas d'erreur ou s'il n'y aps de nouvelle mise à jour, c'est un tableau d'une ocurrence vide qui est renvoyé.
+				if (empty($coreUpdatesRaw[0])){
+					?><div class="alert alert-success">Pas de nouvelles mises à jour pour Poulpe2 !</div><?php
+				}else{
+					?><h4>Nouvelles mises à jour de Poulpe2</h4>
+					<ul><?php
+					foreach ($coreUpdatesRaw as $updateRaw) {
+						list($updateFullHash, $updateShortHash, $updateTimestamp, $updateBody) = explode('+-+', $updateRaw);
+						?>
+						<li><?php echo Sanitize::date($updateTimestamp, 'dateTime'); ?><?php Help::icon('clock-o', 'info', 'il y a ' . Sanitize::timeDuration(time() - $timestamp)); ?> - <a href="<?php echo $coreGitRepo->getOrigin() . '/commit/' . $updateFullHash; ?>"><?php echo $updateShortHash; ?></a> : <?php echo $updateBody; ?></li><?php
+					}
+					?></ul><?php
+				}
+			}
+			if (!empty($modulesUpdatesRaw)) {
+				if (empty($modulesUpdatesRaw[0])){
+					?><div class="alert alert-success">Pas de nouvelles mises à jour pour Poulpe2 !</div><?php
+				}else{
+					?><h4>Nouvelles mises à jour des modules</h4>
+					<ul><?php
+					foreach ($modulesUpdatesRaw as $updateRaw) {
+						list($updateFullHash, $updateShortHash, $updateTimestamp, $updateBody) = explode('+-+', $updateRaw);
+						?>
+						<li><?php echo Sanitize::date($updateTimestamp, 'dateTime'); ?><?php Help::icon('clock-o', 'info', 'il y a ' . Sanitize::timeDuration(time() - $timestamp)); ?> - <a href="<?php echo $coreGitRepo->getOrigin() . '/commit/' . $updateFullHash; ?>"><?php echo $updateShortHash; ?></a> : <?php echo $updateBody; ?></li><?php
+					}
+					?></ul><?php
+				}
+			}
+			// On met à jour la date de dernière vérification
+			$fs->writeFile($lastCheckFile, time());
+			$form = new Form('update', null, null, 'admin');
+			$form->addField(new Hidden('doUpdates', true, 'admin', $disabledForm));
+			$form->addField(new Button('doUpdatesButton', 'go', 'Appliquer les mises à jour', 'admin', null, $disabledForm));
+		} elseif ((bool)$req['doUpdate']){
+			$coreGitRepo    = Git::open(Front::getAbsolutePath());
+			$modulesGitRepo = Git::open(Front::getAbsolutePath() . DIRECTORY_SEPARATOR . \Settings::MODULE_DIR);
+			$coreGitRepo->pull('origin', 'master');
+			$modulesGitRepo->pull('origin', 'master');
+		} else {
+			$form = new Form('update', null, null, 'admin');
+			$form->addField(new Hidden('checkUpdates', true, 'admin', $disabledForm));
+			$form->addField(new Button('checkUpdatesButton', 'fetch', 'Vérifier les mises à jour', 'admin', null, $disabledForm));
+			if (!$disabledForm){
+				if ($timestamp > 0) {
+					if (time() - $timestamp > 7776000) {
+						// 3 mois
+						$color = 'danger';
+					} elseif (time() - $timestamp > 2592000) {
+						//1 mois
+						$color = 'warning';
+					} else {
+						$color = 'default';
+					}
+					?><p>Dernière vérification le <strong class="text-<?php echo $color; ?>"><?php echo Sanitize::date($timestamp, 'dateTime') ?></strong> <?php Help::icon('clock-o', 'info', 'il y a ' . Sanitize::timeDuration(time() - $timestamp)); ?></p><?php
+				} else {
+					?><p class="text-danger">Pas de vérifications précédentes.</p><?php
+				}
+			}
+			$form->display();
+		}
+		return true;
 	}
 } 
