@@ -70,9 +70,9 @@ if (!isset($_SESSION['absolutePath']) or !isset($_SESSION['baseUrl'])){
  */
 if (empty(\Settings::get_class_constants(false))){
 	if (file_exists('classes/Settings/config.php')){
-		die('<h1>Attention : Les paramètres n\'ont pas été définis pour cette instance dans la classe <code>Settings</code>, mais il existe un fichier <code>config.php</code>.</h1>Il faut migrer les paramètres du fichier de config vers la classe <code>Settings</code>.');
+		header('Location: install.php');
 	}
-	die('<h1>Attention : Les paramètres n\'ont pas été définis pour cette instance !</h1>Veuillez renseigner la classe <code>Settings</code>');
+	die('<h1>Attention : Les paramètres n\'ont pas été définis pour cette instance !</h1><p>Veuillez renseigner la classe <code>Settings</code>, ou bien lancer l\'<a href="install.php">installeur</a>.</p>');
 }
 //var_dump($_SERVER);
 
