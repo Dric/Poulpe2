@@ -190,7 +190,10 @@ class Version {
 		if (!in_array($component, array('core', 'modules'))) return false;
 
 		$gitRepo = self::checkGitUpdates($component);
-		return (!empty($gitRepo['updates']) and substr($gitRepo['updates'][0], 0, 4) == '+@@+') ? true : false ;
+
+		if ($gitRepo === false) return false;
+
+		return (!empty($gitRepo['updates']) and !empty($gitRepo['updates'][0])) ? true : false ;
 	}
 
 	/**
@@ -210,12 +213,13 @@ class Version {
 		$gitRepo->fetch();
 		if (!$fs->isWritable('cache')){
 			new Alert('error', 'Le répertoire <code>cache</code> n\'est pas accessible en écriture !');
-			$disabled['cache'] = true;
+			return false;
 		}
 		$lastCheckFile = 'cache/lastUpdateCheck-'.$component.'.cache';
 		// On met à jour la date de dernière vérification
 		$fs->writeFile($lastCheckFile, time(), false, false, true);
-		return array('gitRepo' => $gitRepo, 'updates' => explode('+@@+', $gitRepo->logFileRevisionRange('master', 'origin/master', '+@@+%H+-+%h+-+%at+-+%B')));
+		$logs = mb_substr($gitRepo->logFileRevisionRange('master', 'origin/master', '+@@+%H+-+%h+-+%at+-+%B'), 4);
+		return array('gitRepo' => $gitRepo, 'updates' => explode('+@@+', $logs));
 	}
 
 }
