@@ -858,6 +858,8 @@ class Settings extends DefaultSettings {
 			$modulesGitRepo->fetch();
 			$coreUpdatesRaw    = explode('+@@+', $coreGitRepo->logFileRevisionRange($coreLastLocalCommit->fullHash, 'HEAD', '+@@+%H+-+%h+-+%at+-+%B'));
 			$modulesUpdatesRaw = explode('+@@+', $modulesGitRepo->logFileRevisionRange($modulesLastLocalCommit->fullHash, 'HEAD', '+@@+%H+-+%h+-+%at+-+%B'));
+			var_dump($coreUpdatesRaw);
+			var_dump($modulesUpdatesRaw);
 			if (!empty($coreUpdatesRaw)) {
 				// En cas d'erreur ou s'il n'y aps de nouvelle mise à jour, c'est un tableau d'une ocurrence vide qui est renvoyé.
 				if (empty($coreUpdatesRaw[0])){
@@ -875,7 +877,7 @@ class Settings extends DefaultSettings {
 			}
 			if (!empty($modulesUpdatesRaw)) {
 				if (empty($modulesUpdatesRaw[0])){
-					?><div class="alert alert-success">Pas de nouvelles mises à jour pour Poulpe2 !</div><?php
+					?><div class="alert alert-success">Pas de nouvelles mises à jour pour les modules !</div><?php
 				}else{
 					?><h4>Nouvelles mises à jour des modules</h4>
 					<ul><?php
