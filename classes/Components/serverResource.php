@@ -63,7 +63,7 @@ class serverResource {
 			}
 		}elseif ($this->type == 'disk'){
 			// On récupère la liste des partitions (avec un timeout, ce qui évite de bloquer toute la page si jamais il n'est pas possible de récupérer les données
-			exec('timeout -k 5 5 df -h | grep ^/dev', $out);
+			exec('timeout -k 2 2 df -h | grep ^/dev', $out);
 			if (!empty($out) and !preg_match('/Complété/i', $out[0])){
 				foreach ($out as $line){
 					$line = preg_replace('/\s+/', ' ',$line);
