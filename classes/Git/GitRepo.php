@@ -221,8 +221,9 @@ class GitRepo {
 			fclose($pipe);
 		}
 		$status = trim(proc_close($resource));
-		if ($status) new Alert('error', 'Erreur Git : <code>'.$stderr . '</code>' . PHP_EOL . '<code>'.$stdout.'</code>');
-		return $stderr . $stdout;
+		$ret = array($stderr, $stdout);
+		if ($status) new Alert('error', 'Erreur Git : <code>'.$ret[0] . '</code>' . PHP_EOL . '<code>'.$ret[1].'</code>');
+		return $ret[0] . $ret[1];
 	}
 	/**
 	 * Run a git command in the git repository
