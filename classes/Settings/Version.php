@@ -154,7 +154,7 @@ class Version {
 	 *
 	 * @param string $component Composant (`core` ou `modules`)
 	 *
-	 * @return bool
+	 * @return bool `true` si des mises à jour existent, `false` en cas d'erreur ou si pas de mises à jour
 	 */
 	public static function listGitUpdates($component = 'core'){
 		if (!in_array($component, array('core', 'modules'))) return false;
@@ -172,10 +172,11 @@ class Version {
 				<?php
 			}
 			echo '</ul>';
+			return true;
 		} else {
 			?><div class="alert alert-success">Pas de nouvelles mises à jour pour Poulpe2 !</div><?php
 		}
-		return true;
+		return false;
 	}
 
 	/**

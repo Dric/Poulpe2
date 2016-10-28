@@ -852,12 +852,12 @@ class Settings extends DefaultSettings {
 		if ((bool)$req['checkUpdates'] and !$disabledForm) {
 
 			?><h4>Mises à jour de Poulpe2</h4><?php
-			Version::listGitUpdates('core');
+			$coreUpdates = Version::listGitUpdates('core');
 
 			?><h4>Mises à jour des modules</h4><?php
-			Version::listGitUpdates('modules');
+			$modulesUpdates = Version::listGitUpdates('modules');
 
-			$disabledForm = ((!Version::hasGitUpdates('core') and !Version::hasGitUpdates('modules')) or $disabledForm) ? true : false;
+			$disabledForm = ((!$coreUpdates and !$modulesUpdates) or $disabledForm) ? true : false;
 
 			$form = new Form('update', null, null, 'admin');
 			$form->addField(new Hidden('doUpdates', true, 'admin', $disabledForm));
