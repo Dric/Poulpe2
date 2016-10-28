@@ -852,14 +852,10 @@ class Settings extends DefaultSettings {
 		if ((bool)$req['checkUpdates'] and !$disabledForm) {
 			$coreGitRepo            = Git::open(Front::getAbsolutePath());
 			$modulesGitRepo         = Git::open(Front::getAbsolutePath() . DIRECTORY_SEPARATOR . \Settings::MODULE_DIR);
-			$coreLastLocalCommit    = $coreGitRepo->getLastCommit();
-			$modulesLastLocalCommit = $modulesGitRepo->getLastCommit();
 			$coreGitRepo->fetch();
 			$modulesGitRepo->fetch();
-			$coreUpdatesRaw    = explode('+@@+', $coreGitRepo->logFileRevisionRange($coreLastLocalCommit->fullHash, 'HEAD', '+@@+%H+-+%h+-+%at+-+%B'));
-			$modulesUpdatesRaw = explode('+@@+', $modulesGitRepo->logFileRevisionRange($modulesLastLocalCommit->fullHash, 'HEAD', '+@@+%H+-+%h+-+%at+-+%B'));
-			var_dump($coreUpdatesRaw);
-			var_dump($modulesUpdatesRaw);
+			$coreUpdatesRaw    = explode('+@@+', $coreGitRepo->logFileRevisionRange('master', 'origin/master', '+@@+%H+-+%h+-+%at+-+%B'));
+			$modulesUpdatesRaw = explode('+@@+', $modulesGitRepo->logFileRevisionRange('master', 'origin/master', '+@@+%H+-+%h+-+%at+-+%B'));
 			if (!empty($coreUpdatesRaw)) {
 				// En cas d'erreur ou s'il n'y aps de nouvelle mise à jour, c'est un tableau d'une ocurrence vide qui est renvoyé.
 				if (empty($coreUpdatesRaw[0])){
