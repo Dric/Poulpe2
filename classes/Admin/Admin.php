@@ -851,7 +851,7 @@ class Settings extends DefaultSettings {
 		$req = $this->postedData;
 		if ((bool)$req['checkUpdates'] and !$disabledForm) {
 
-			?><h4>Mises à jour de Poulpe2</h4><?php
+			?><h4>Mises à jour du core</h4><?php
 			$coreUpdates = Version::listGitUpdates('core');
 
 			?><h4>Mises à jour des modules</h4><?php
@@ -862,15 +862,16 @@ class Settings extends DefaultSettings {
 			$form = new Form('update', null, null, 'admin');
 			$form->addField(new Hidden('doUpdates', true, 'admin', $disabledForm));
 			$form->addField(new Button('doUpdatesButton', 'go', 'Appliquer les mises à jour', 'admin', null, $disabledForm));
-
-		} elseif ((bool)$req['doUpdate']){
+			$form->display();
+		} elseif ((bool)$req['doUpdates']){
 
 			$coreGitRepo    = Git::open(Front::getAbsolutePath());
 			$modulesGitRepo = Git::open(Front::getAbsolutePath() . DIRECTORY_SEPARATOR . \Settings::MODULE_DIR);
 			$retCore = $coreGitRepo->pull('origin', 'master');
 			$retModules = $modulesGitRepo->pull('origin', 'master');
-			var_dump($retCore);
-			var_dump($retModules);
+			// From http://srv-glpitest/git/Informatique-CHGS/poulpe2 * branch master -> FETCH_HEAD Updating a4c9af5..9c44480 Fast-forward install.php | 2 +- 1 file changed, 1 insertion(+), 1 deletion(-)
+			new Alert('info', $retCore);
+			new Alert('info', $retModules);
 		} else {
 			$form = new Form('update', null, null, 'admin');
 			$form->addField(new Hidden('checkUpdates', true, 'admin', $disabledForm));

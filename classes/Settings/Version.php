@@ -167,14 +167,14 @@ class Version {
 				list($updateFullHash, $updateShortHash, $updateTimestamp, $updateBody) = explode('+-+', $updateRaw);
 				?>
 				<li>
-					<?php echo Sanitize::date($updateTimestamp, 'dateTime'); ?><?php Help::icon('clock-o', 'info', 'il y a ' . Sanitize::timeDuration(time() - $updateTimestamp)); ?> - <a href="<?php echo $gitRepo['GitRepo']->getOrigin() . '/commit/' . $updateFullHash; ?>"><?php echo $updateShortHash; ?></a> : <?php echo $updateBody; ?>
+					<?php echo Sanitize::date($updateTimestamp, 'dateTime'); ?><?php Help::icon('clock-o', 'info', 'il y a ' . Sanitize::timeDuration(time() - $updateTimestamp)); ?> - <a href="<?php echo $gitRepo['repo']->getOrigin() . '/commit/' . $updateFullHash; ?>"><?php echo $updateShortHash; ?></a> : <?php echo $updateBody; ?>
 				</li>
 				<?php
 			}
 			echo '</ul>';
 			return true;
 		} else {
-			?><div class="alert alert-success">Pas de nouvelles mises à jour pour Poulpe2 !</div><?php
+			?><div class="alert alert-success">Pas de nouvelles mises à jour de <?php echo $component; ?> !</div><?php
 		}
 		return false;
 	}
@@ -219,7 +219,7 @@ class Version {
 		// On met à jour la date de dernière vérification
 		$fs->writeFile($lastCheckFile, time(), false, false, true);
 		$logs = mb_substr($gitRepo->logFileRevisionRange('master', 'origin/master', '+@@+%H+-+%h+-+%at+-+%B'), 4);
-		return array('gitRepo' => $gitRepo, 'updates' => explode('+@@+', $logs));
+		return array('repo' => $gitRepo, 'updates' => explode('+@@+', $logs));
 	}
 
 }
