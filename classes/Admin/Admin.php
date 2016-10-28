@@ -872,7 +872,7 @@ class Settings extends DefaultSettings {
 			// From http://srv-glpitest/git/Informatique-CHGS/poulpe2 * branch master -> FETCH_HEAD Updating a4c9af5..9c44480 Fast-forward install.php | 2 +- 1 file changed, 1 insertion(+), 1 deletion(-)
 			if (preg_match('/error: (.+?) Aborting/mi', $retCore, $coreMatches)){
 				new Alert('error', 'Impossible de faire la mise à jour du <code>core</code> :<br>'.$coreMatches[1]);
-			}elseif(preg_match('/(?<change>\d{1,}) file(?:s|) changed, (?<add>\d{1,}) insertion(?:s|)\(\+\), (?<del>\d{1,}) deletion(?:s|)\(\-\)/mi', $retCore, $coreMatches)) {
+			}elseif(preg_match('/(?<changed>\d{1,}) file(?:s|) changed, (?<add>\d{1,}) insertion(?:s|)\(\+\), (?<del>\d{1,}) deletion(?:s|)\(\-\)/mi', $retCore, $coreMatches)) {
 				new Alert('success', 'Mise à jour du <code>core</code> effectuée :<ul><li><code>' . $coreMatches['changed'] . '</code> fichiers modifiés</li><li><code>' . $coreMatches['add'] . '</code> insertions</li><li><code>' . $coreMatches['del'] . '</code> suppressions</li></ul>');
 			}elseif(strpos($retCore, 'Already up-to-date') === true){
 			      new Alert('success', 'Mise à jour du <code>core</code> : Le core est déjà dans la version la plus récente.');
@@ -881,7 +881,7 @@ class Settings extends DefaultSettings {
 			}
 			if (preg_match('/error: (.+?) Aborting/mi', $retModules, $modulesMatches)) {
 				new Alert('error', 'Impossible de faire la mise à jour des <code>modules</code> :<br>' . $modulesMatches[1]);
-			}elseif(preg_match('/(?<change>\d{1,}) file(?:s|) changed, (?<add>\d{1,}) insertion(?:s|)\(\+\), (?<del>\d{1,}) deletion(?:s|)\(\-\)/mi', $retModules, $modulesMatches)) {
+			}elseif(preg_match('/(?<changed>\d{1,}) file(?:s|) changed, (?<add>\d{1,}) insertion(?:s|)\(\+\), (?<del>\d{1,}) deletion(?:s|)\(\-\)/mi', $retModules, $modulesMatches)) {
 				new Alert('success', 'Mise à jour des <code>modules</code> effectuée :<ul><li><code>' . $modulesMatches['changed'] . '</code> fichiers modifiés</li><li><code>' . $modulesMatches['add'] . '</code> insertions</li><li><code>' . $modulesMatches['del'] . '</code> suppressions</li></ul>');
 			}elseif(strpos($retModules, 'Already up-to-date') === true){
 				new Alert('success', 'Mise à jour des <code>modules</code> : Les modules sont déjà dans la version la plus récente.');

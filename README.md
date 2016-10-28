@@ -44,11 +44,18 @@ Les pretty URL (du type `http://poulpe2/module/FileBrowser`) sont disponibles se
 
 ## Installation
 
-Voir Le fichier `install.md`.
+- Clonez poulpe2
+- Clonez les modules dans un sous répertoire de Poulpe2. Par exemple, en étant dans le répertoire d'install de Poulpe2 :
+
+		git clone https://github.com/Dric/Poulpe2_Modules.git Modules
+- Accédez à Poulpe2 au sein de votre navigateur internet, l'installeur va se lancer.
+
+
+Pour une installation manuelle, voir Le fichier `install.md`.
 
 ## TODO
 
-- Script d'installation
+- Compléter le script d'installation avec l'installation automatique des modules
 - Doc de développement de modules (en cours)
 - Gérer la barre de menu avec JS désactivé
 
