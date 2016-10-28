@@ -493,6 +493,7 @@ class Fs {
 	 */
 	public function setChmod($fileName, $chmod){
 		$mountName = (!empty($this->SMBSubFolders)) ? $this->mountName.DIRECTORY_SEPARATOR.$this->SMBSubFolders : $this->mountName;
+
 		$ret = exec('sudo chmod '.$chmod.' '.$mountName . DIRECTORY_SEPARATOR . $fileName.' 2>&1', $output);
 		if (empty($ret)){
 			return true;
@@ -508,5 +509,17 @@ class Fs {
 	 */
 	public function getMountName() {
 		return $this->mountName;
+	}
+
+	/**
+	 * Vérifie qu'un fichier ou un répertoire est accessible en écriture
+	 *
+	 * @param string $fileName Facultatif - Nom de fichier ou de dossier à vérifier. Effectue la vérification sur le répertoire racine spécifié à l'instanciation si vide.
+	 *
+	 * @return bool
+	 */
+	public function isWritable($fileName = null){
+		$mountName = (!empty($this->SMBSubFolders)) ? $this->mountName.DIRECTORY_SEPARATOR.$this->SMBSubFolders : $this->mountName;
+		return is_writable($mountName.DIRECTORY_SEPARATOR.$fileName);
 	}
 } 

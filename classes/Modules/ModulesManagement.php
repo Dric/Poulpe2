@@ -73,7 +73,7 @@ class ModulesManagement {
 	 *
 	 * @param bool $refresh Forcer le rafraîchissement des modules actifs
 	 *
-	 * @return object
+	 * @return object|array
 	 */
 	public static function getActiveModules($refresh = false){
 		global $db;
