@@ -112,6 +112,10 @@ if (isset($_REQUEST['action'])){
  */
 $cUser = new CurrentUser();
 
+// Vérification des mises à jour de code
+\Settings\Version::checkUpdates();
+
+
 /** On gère les api */
 Front::initModulesLoading();
 \API\APIManagement::checkAPIRequest();

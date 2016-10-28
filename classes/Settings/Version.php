@@ -7,7 +7,13 @@
 
 namespace Settings;
 
+use Components\Help;
+use FileSystem\Fs;
+use Front;
+use Git\Git;
 use Logs\Alert;
+use Sanitize;
+use Users\ACL;
 
 class Version {
 	protected static $dbVersion = '1.1';
@@ -120,6 +126,95 @@ class Version {
 	 */
 	public static function getDbVersion() {
 		return self::$dbVersion;
+	}
+
+	/**
+	 * Affiche un message à l'utilisateur si celui-ci est administrateur de Poulpe2 et s'il existe des mises à jour de code
+	 *
+	 * La vérification se fait tous les x jours, `x` étant défini par la constante Settings::UPDATE_CHECK_INTERVAL
+	 *
+	 */
+	public static function checkUpdates(){
+		if (ACL::can('admin', 0, null, 'admin')){
+			$checkInterval = \Settings::UPDATE_CHECKS_INTERVAL * 3600 * 24;
+			$dir = Front::getAbsolutePath();
+			$fs = new Fs($dir);
+			$timestampCore = ($fs->fileExists('cache/lastUpdateCheck-core.cache')) ? (int)$fs->readFile('cache/lastUpdateCheck-core.cache', 'string') : 0;
+			$timeStampModules = ($fs->fileExists('cache/lastUpdateCheck-core.cache')) ? (int)$fs->readFile('cache/lastUpdateCheck-core.cache', 'string') : 0;
+			if ((time() - $timestampCore > $checkInterval) or (time() - $timeStampModules > $checkInterval)){
+				if (self::hasGitUpdates('core') or self::hasGitUpdates('modules')){
+					new Alert('info', 'Des mises à jour sont disponibles.<br><br>Veuillez vous rendre dans l\'administration pour les visualiser et les appliquer.');
+				}
+			}
+		}
+	}
+
+	/**
+	 * Affiche la liste des mises à jours disponibles pour le composant demandé
+	 *
+	 * @param string $component Composant (`core` ou `modules`)
+	 *
+	 * @return bool
+	 */
+	public static function listGitUpdates($component = 'core'){
+		if (!in_array($component, array('core', 'modules'))) return false;
+		// On récupère la liste des mises à jour pour le composant
+		$gitRepo = self::checkGitUpdates($component);
+		$updatesRaw = $gitRepo['updates'];
+		if (!empty($updatesRaw) and !empty($updatesRaw[0])) {
+			echo '<ul>';
+			foreach ($updatesRaw as $updateRaw) {
+				list($updateFullHash, $updateShortHash, $updateTimestamp, $updateBody) = explode('+-+', $updateRaw);
+				?>
+				<li>
+					<?php echo Sanitize::date($updateTimestamp, 'dateTime'); ?><?php Help::icon('clock-o', 'info', 'il y a ' . Sanitize::timeDuration(time() - $updateTimestamp)); ?> - <a href="<?php echo $gitRepo['GitRepo']->getOrigin() . '/commit/' . $updateFullHash; ?>"><?php echo $updateShortHash; ?></a> : <?php echo $updateBody; ?>
+				</li>
+				<?php
+			}
+			echo '</ul>';
+		} else {
+			?><div class="alert alert-success">Pas de nouvelles mises à jour pour Poulpe2 !</div><?php
+		}
+		return true;
+	}
+
+	/**
+	 * Vérifie s'il existe des mises à jour pour le code
+	 *
+	 * @param string $component Composant (`core` ou `modules`)
+	 *
+	 * @return bool
+	 */
+	public static function hasGitUpdates($component = 'core'){
+		if (!in_array($component, array('core', 'modules'))) return false;
+
+		$gitRepo = self::checkGitUpdates($component);
+		return (!empty($gitRepo['updates']) and substr($gitRepo['updates'][0], 0, 4) == '+@@+') ? true : false ;
+	}
+
+	/**
+	 * Lance une commande Git pour récupérer les informations de mise à jour
+	 *
+	 * @param string $component Composant (`core` ou `modules`)
+	 *
+	 * @return array|bool
+	 */
+	protected static function checkGitUpdates($component = 'core'){
+		if (!in_array($component, array('core', 'modules'))) return false;
+
+		$dir = Front::getAbsolutePath();
+		$fs = new Fs($dir);
+		if ($component == 'modules') $dir .= DIRECTORY_SEPARATOR . \Settings::MODULE_DIR;
+		$gitRepo = Git::open($dir);
+		$gitRepo->fetch();
+		if (!$fs->isWritable('cache')){
+			new Alert('error', 'Le répertoire <code>cache</code> n\'est pas accessible en écriture !');
+			$disabled['cache'] = true;
+		}
+		$lastCheckFile = 'cache/lastUpdateCheck-'.$component.'.cache';
+		// On met à jour la date de dernière vérification
+		$fs->writeFile($lastCheckFile, time(), false, false, true);
+		return array('gitRepo' => $gitRepo, 'updates' => explode('+@@+', $gitRepo->logFileRevisionRange('master', 'origin/master', '+@@+%H+-+%h+-+%at+-+%B')));
 	}
 
 }

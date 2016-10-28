@@ -383,7 +383,7 @@ class Fs {
 	 *
 	 * @return bool
 	 */
-	public function writeFile($fileName, $content, $append = false, $backupFile = false){
+	public function writeFile($fileName, $content, $append = false, $backupFile = false, $silent = false){
 		$mountName = (!empty($this->SMBSubFolders)) ? $this->mountName.DIRECTORY_SEPARATOR.$this->SMBSubFolders : $this->mountName;
 		if ($backupFile){
 			if (!@copy($mountName . DIRECTORY_SEPARATOR . $fileName, $mountName . DIRECTORY_SEPARATOR . $fileName.'.backup')){
@@ -406,7 +406,7 @@ class Fs {
 			new Alert('error', 'Impossible d\'écrire dans le fichier <code>'.$fileName.'</code> !');
 			return false;
 		}
-		new Alert('success', 'Les modifications ont été enregistrées dans le fichier <code>'.$fileName.'</code>');
+		if (!$silent) new Alert('success', 'Les modifications ont été enregistrées dans le fichier <code>'.$fileName.'</code>');
 		return true;
 	}
 

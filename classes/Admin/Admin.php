@@ -684,7 +684,7 @@ class Settings extends DefaultSettings {
 						<?php $this->serverStatus(); ?>
 					</div>
 					<div class="col-md-4">
-						<h3>Mise à jour</h3>
+						<h3>Mises à jour</h3>
 						<?php $this->poulpe2Update(); ?>
 					</div>
 				</div>
@@ -831,7 +831,7 @@ class Settings extends DefaultSettings {
 		$disabled['core'] = !$fs->isWritable();
 		$disabled['modules'] = !$fs->isWritable(\Settings::MODULE_DIR);
 
-		$lastCheckFile = 'cache/lastUpdateCheck.cache';
+		$lastCheckFile = 'cache/lastUpdateCheck-core.cache';
 		$timestamp = ($fs->fileExists($lastCheckFile)) ? (int)$fs->readFile($lastCheckFile, 'string') : 0;
 
 
@@ -850,51 +850,27 @@ class Settings extends DefaultSettings {
 		}
 		$req = $this->postedData;
 		if ((bool)$req['checkUpdates'] and !$disabledForm) {
-			$coreGitRepo            = Git::open(Front::getAbsolutePath());
-			$modulesGitRepo         = Git::open(Front::getAbsolutePath() . DIRECTORY_SEPARATOR . \Settings::MODULE_DIR);
-			$coreGitRepo->fetch();
-			$modulesGitRepo->fetch();
-			$coreUpdatesRaw    = explode('+@@+', $coreGitRepo->logFileRevisionRange('master', 'origin/master', '+@@+%H+-+%h+-+%at+-+%B'));
-			$modulesUpdatesRaw = explode('+@@+', $modulesGitRepo->logFileRevisionRange('master', 'origin/master', '+@@+%H+-+%h+-+%at+-+%B'));
-			if (!empty($coreUpdatesRaw)) {
-				// En cas d'erreur ou s'il n'y aps de nouvelle mise à jour, c'est un tableau d'une ocurrence vide qui est renvoyé.
-				if (empty($coreUpdatesRaw[0])){
-					?><div class="alert alert-success">Pas de nouvelles mises à jour pour Poulpe2 !</div><?php
-				}else{
-					?><h4>Nouvelles mises à jour de Poulpe2</h4>
-					<ul><?php
-					foreach ($coreUpdatesRaw as $updateRaw) {
-						list($updateFullHash, $updateShortHash, $updateTimestamp, $updateBody) = explode('+-+', $updateRaw);
-						?>
-						<li><?php echo Sanitize::date($updateTimestamp, 'dateTime'); ?><?php Help::icon('clock-o', 'info', 'il y a ' . Sanitize::timeDuration(time() - $timestamp)); ?> - <a href="<?php echo $coreGitRepo->getOrigin() . '/commit/' . $updateFullHash; ?>"><?php echo $updateShortHash; ?></a> : <?php echo $updateBody; ?></li><?php
-					}
-					?></ul><?php
-				}
-			}
-			if (!empty($modulesUpdatesRaw)) {
-				if (empty($modulesUpdatesRaw[0])){
-					?><div class="alert alert-success">Pas de nouvelles mises à jour pour les modules !</div><?php
-				}else{
-					?><h4>Nouvelles mises à jour des modules</h4>
-					<ul><?php
-					foreach ($modulesUpdatesRaw as $updateRaw) {
-						list($updateFullHash, $updateShortHash, $updateTimestamp, $updateBody) = explode('+-+', $updateRaw);
-						?>
-						<li><?php echo Sanitize::date($updateTimestamp, 'dateTime'); ?><?php Help::icon('clock-o', 'info', 'il y a ' . Sanitize::timeDuration(time() - $timestamp)); ?> - <a href="<?php echo $coreGitRepo->getOrigin() . '/commit/' . $updateFullHash; ?>"><?php echo $updateShortHash; ?></a> : <?php echo $updateBody; ?></li><?php
-					}
-					?></ul><?php
-				}
-			}
-			// On met à jour la date de dernière vérification
-			$fs->writeFile($lastCheckFile, time());
+
+			?><h4>Mises à jour de Poulpe2</h4><?php
+			Version::listGitUpdates('core');
+
+			?><h4>Mises à jour des modules</h4><?php
+			Version::listGitUpdates('modules');
+
+			$disabledForm = ((!Version::hasGitUpdates('core') and !Version::hasGitUpdates('modules')) or $disabledForm) ? true : false;
+
 			$form = new Form('update', null, null, 'admin');
 			$form->addField(new Hidden('doUpdates', true, 'admin', $disabledForm));
 			$form->addField(new Button('doUpdatesButton', 'go', 'Appliquer les mises à jour', 'admin', null, $disabledForm));
+
 		} elseif ((bool)$req['doUpdate']){
+
 			$coreGitRepo    = Git::open(Front::getAbsolutePath());
 			$modulesGitRepo = Git::open(Front::getAbsolutePath() . DIRECTORY_SEPARATOR . \Settings::MODULE_DIR);
-			$coreGitRepo->pull('origin', 'master');
-			$modulesGitRepo->pull('origin', 'master');
+			$retCore = $coreGitRepo->pull('origin', 'master');
+			$retModules = $modulesGitRepo->pull('origin', 'master');
+			var_dump($retCore);
+			var_dump($retModules);
 		} else {
 			$form = new Form('update', null, null, 'admin');
 			$form->addField(new Hidden('checkUpdates', true, 'admin', $disabledForm));
