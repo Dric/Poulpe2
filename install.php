@@ -180,7 +180,7 @@ if (file_exists('classes/Settings/config.php')){
 						?>
 						<div class="from-group">
 							<label for="AUTH_MODE">Type d'authentification :</label>
-							<select class="form-control" name="AUTH_MODE" id="auth_mode">
+							<select class="form-control" name="AUTH_MODE" id="AUTH_MODE">
 								<option>SQL</option>
 								<option <?php if (isset($_SESSION['Settings']['AUTH_MODE']) and $_SESSION['Settings']['AUTH_MODE'] == 'LDAP') { echo 'selected'; } ?>>LDAP</option>
 							</select>
