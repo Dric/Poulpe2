@@ -106,7 +106,7 @@ class DefaultSettings {
 	/** Module en page d'accueil */
 	const HOME_MODULE = 'home';
 
-	/** Intervalle de vérification des mises à jour (en jours )*/
+	/** Intervalle de vérification des mises à jour (en jours ) */
 	const UPDATE_CHECKS_INTERVAL = 7;
 
 	/** Debug mode */
