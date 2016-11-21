@@ -164,6 +164,10 @@ class Fs {
 					return false;
 				}
 			}
+			if (!\Check::isOnline($this->server)){
+				new Alert('error', 'Le serveur <code>'.$this->server.'</code> est hors-ligne !');
+				return false;
+			}
 			/* On regarde si le montage est actif. */
 			$ret = exec('mount | grep -w '.$this->mountName.' 2>&1', $output);
 			if (empty($ret)){
@@ -179,11 +183,14 @@ class Fs {
 					new Alert('error', 'Le fichier <code>'.$dfsCredsFile.'</code> permettant de s\'authentifier auprès des serveurs Windows est introuvable !<br> Veuillez créer ce fichier et saisir dedans ces 3 lignes : <pre><code>username=&lt;nom_user&gt;<br>password=&lt;mot_de_passe&gt;<br>domain=&lt;nom_de_domaine&gt;</code></pre>');
 					return false;
 				}
+
 				// Montage du partage. En cas d'erreur, il se peut que le package permettant les montages CIFS ne soit pas installé sur le serveur.
-				$cmd = 'sudo mount -t cifs "'.$winShare.'" '.$this->mountName.' -o soft,uid=www-data,gid=www-data,credentials='.$dfsCredsFile.' 2>&1';
+				// On utilise timeout pour killer le montage en cas d'erreur (comme un serveur non accessible)
+				$cmd = 'sudo timeout -k 5 5 mount -t cifs "'.$winShare.'" '.$this->mountName.' -o soft,uid=www-data,gid=www-data,credentials='.$dfsCredsFile.' 2>&1';
 				$ret = exec($cmd, $retArray, $varRet);
-				if (!empty($ret)){
+				if (!empty($ret) or preg_match('/Complété/i', $varRet[0])){
 					new Alert('error', 'Impossible de monter le partage <code>'.$winShare.'</code>.<br />Assurez-vous que l\'utilisateur Apache a les droits d\'invoquer sudo mount sans mot de passe.<br />'.$ret.'<br />'.$varRet);
+					$ret = exec('rmdir '.$this->mountName.' 2>&1', $output);
 					return false;
 				}
 			}

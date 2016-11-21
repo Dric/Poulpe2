@@ -39,8 +39,12 @@ spl_autoload_register(function ($class) {
 });
 
 if (\Settings::DEBUG) {
-	// Permet de faire du profilage avec XDebug et (<http://github.com/jokkedk/webgrind/>), à condition d'avoir activé le profilage XDebug
-	setcookie('XDEBUG_PROFILE');
+	/*
+	* Permet de faire du profilage avec XDebug et (<http://github.com/jokkedk/webgrind/>), à condition d'avoir activé le profilage XDebug dans php.ini (ou conf.d/20-xdebug.ini) avec les commandes :
+	*   xdebug.profiler_enable = 0
+	*   xdebug.profiler_enable_trigger = 1
+	*/
+	setcookie('XDEBUG_PROFILE', true);
 	// Pour obtenir le temps passé à générer la page.
 	$startTime = microtime(true);
 }

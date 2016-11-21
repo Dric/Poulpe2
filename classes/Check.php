@@ -101,12 +101,30 @@ class Check {
 	 *
 	 * @from <http://php.net/manual/fr/function.is-float.php#118169>
 	 *
-*@param string|int|float $value Valeur à tester
+	 * @param string|int|float $value Valeur à tester
 	 *
 	 * @return bool
 	 */
 	public static function isFloat($value){
 		return ((int)$value != $value) ;
+	}
+
+	/**
+	 * Vérifie qu'un serveur est joignable par le réseau
+	 *
+	 * @param string $server Nom ou adresse Ip du serveur
+	 *
+	 * @return bool
+	 */
+	public static function isOnline($server){
+		//exec('ping -c 1 -W 5 '.$server, $out);
+		// Plus rapide que le ping
+		exec('fping -c 1 '.$server, $out);
+		if (!empty($out)){
+			preg_match('/\d\/(\d)\/(\d{1,3})\%/i', $out[0], $matches);
+			if ((int)$matches[1] === 1) return true;
+		}
+		return false;
 	}
 
 } 
