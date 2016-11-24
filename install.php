@@ -616,7 +616,7 @@ if (file_exists('classes/Settings/config.php')){
 										<li>Dans un terminal, saisir : <code>sudo visudo</code></li>
 										<li>Ajouter à la dernière ligne :<br>
 											<code>
-												&emsp;Defaults verifypw = any<br> &emsp;www-data ALL= (ALL:ALL) NOPASSWD: /bin/mount,/bin/umount,/sbin/mount.cifs,/sbin/umount.cifs
+												&emsp;Defaults verifypw = any<br> &emsp;www-data ALL= (ALL:ALL) NOPASSWD: /bin/mount,/bin/umount,/sbin/mount.cifs,/sbin/umount.cifs,/usr/bin/timeout
 											</code>
 										</li>
 										<li>Attention : si vous lancez apache sous un autre nom (<code>administrateur</code> par exemple), modifiez la ligne du dessus en conséquence.</li>
@@ -656,10 +656,13 @@ if (file_exists('classes/Settings/config.php')){
 	</body>
 	</html>
 <?php
+
 /**
  * Used to generate a salt key.
+ *
  * @param int $length Length of the returned string
  *
+ * @return string
  */
 function generateRandomString($length = 40) {
 	return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!#@&$*%?-+="), 0, $length);

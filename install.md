@@ -178,7 +178,7 @@ Dans un terminal, saisir :
 Ajouter à la dernière ligne :
 
     Defaults        verifypw = any
-    www-data ALL= (ALL:ALL) NOPASSWD: /bin/mount,/bin/umount,/sbin/mount.cifs,/sbin/umount.cifs
+    www-data ALL= (ALL:ALL) NOPASSWD: /bin/mount,/bin/umount,/sbin/mount.cifs,/sbin/umount.cifs,/usr/bin/timeout
 
 Attention : si vous lancez apache sous un autre nom (`administrateur` par exemple), modifiez la ligne du dessus en conséquence.
 
