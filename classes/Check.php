@@ -119,8 +119,11 @@ class Check {
 	public static function isOnline($server){
 		//exec('ping -c 1 -W 5 '.$server, $out);
 		// Plus rapide que le ping
-		exec('fping -c 1 '.$server, $out);
+		exec('fping -c 1 -q '.$server, $out);
 		if (!empty($out)){
+			// 172.32.1.125 : xmt/rcv/%loss = 1/1/0%, min/avg/max = 0.48/0.48/0.48
+			// 172.32.1.124 : xmt/rcv/%loss = 1/0/100%
+			// 172.32.1.124 is unreachable
 			preg_match('/\d\/(\d)\/(\d{1,3})\%/i', $out[0], $matches);
 			if ((int)$matches[1] === 1) return true;
 		}
