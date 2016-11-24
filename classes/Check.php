@@ -119,7 +119,7 @@ class Check {
 	public static function isOnline($server){
 		//exec('ping -c 1 -W 5 '.$server, $out);
 		// Plus rapide que le ping
-		exec('fping '.$server.' 2>&1', $out);
+		exec('fping -c 1 -q '.$server.' 2>&1', $out);
 		if (!empty($out)){
 			// 172.32.1.125 : xmt/rcv/%loss = 1/1/0%, min/avg/max = 0.48/0.48/0.48
 			// 172.32.1.124 : xmt/rcv/%loss = 1/0/100%
