@@ -286,4 +286,40 @@ class Ldap {
 		}
 		return ($lastLogon > 0 ) ? Sanitize::ADToUnixTimestamp($lastLogon) : 0;
 	}
+
+	/**
+	 * Retourne le SID d'un object Active Directory à partir de son format binaire
+	 *
+	 * Les SID sont codés en binaire lorsqu'on effectue une requête LDAP. Pour obtenir un SID lisible, il faut donc le convertir en chaîne de caractères
+	 *
+	 * @param string $binsid ObjectSID en binaire
+	 *
+	 * @return string
+	 */
+	public function getADObjectSID($binsid) {
+		$hex_sid = bin2hex($binsid);
+		$rev = hexdec(substr($hex_sid, 0, 2));
+		$subcount = hexdec(substr($hex_sid, 2, 2));
+		$auth = hexdec(substr($hex_sid, 4, 12));
+		$result = "$rev-$auth";
+
+		for ($x=0;$x < $subcount; $x++) {
+			$subauth[$x] =
+				hexdec($this->little_endian(substr($hex_sid, 16 + ($x * 8), 8)));
+			$result .= "-" . $subauth[$x];
+		}
+
+		// Cheat by tacking on the S-
+		return 'S-' . $result;
+	}
+
+	// Converts a little-endian hex-number to one, that 'hexdec' can convert
+	protected function little_endian($hex) {
+		$result = null;
+		for ($x = strlen($hex) - 2; $x >= 0; $x = $x - 2) {
+			$result .= substr($hex, $x, 2);
+		}
+		return $result;
+	}
+
 }
