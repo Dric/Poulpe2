@@ -17,8 +17,11 @@
 .sidebar-nav li{
   & > a{
     padding: 2px 0px 2px 15px;
-    font-size: 0.8em;
+    font-size: 0.7em;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   &:nth-child(even) {
     background: lighten(@gray-dark, 1%);

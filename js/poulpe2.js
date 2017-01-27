@@ -329,17 +329,27 @@ var dataTablesOptions = {
 function displayLoadMessage(){
 	$("a:not('.noLoadMessage')").click(function(e){
 		var url = null;
+		var LoadMessage = $(this).data('load-message');
+		var Message = 'Chargement';
+		if (LoadMessage) {
+			Message += ' - '+LoadMessage
+		}
 		var $this = $(this)[0];
 		if ($this.href.indexOf('#') > 0){
 			url = $this.href.split('#')[0];
 		}
 		var currentURI = window.location.href.split('#')[0];
 		if (url != currentURI || $(this).parents('.breadcrumb').length > 0){
-			setTimeout(function () {waitingDialog.show('Chargement', {dialogSize: 'lg', progressType: 'warning'})}, 200);
+			setTimeout(function () {waitingDialog.show(Message, {dialogSize: 'lg', progressType: 'warning'})}, 200);
 		}
 	});
 	$('form').submit(function(){
-		setTimeout(function () {waitingDialog.show('Chargement', {dialogSize: 'lg', progressType: 'warning'})}, 200);
+		var LoadMessage = $(this).data('load-message');
+		var Message = 'Chargement';
+		if (LoadMessage) {
+			Message += ' - '+LoadMessage
+		}
+		setTimeout(function () {waitingDialog.show(Message, {dialogSize: 'lg', progressType: 'warning'})}, 200);
 	});
 }
 
