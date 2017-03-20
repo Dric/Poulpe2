@@ -89,6 +89,8 @@ class APIManagement {
 		}
 		$curl = curl_init();
 		curl_setopt($curl, CURLOPT_URL, $url);
+		// pour ignorer les problèmes de certificats SSL
+		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 		// On fait passer le cookie d'authentification
 		curl_setopt($curl, CURLOPT_COOKIE, \Settings::COOKIE_NAME.'='.urlencode($_COOKIE[\Settings::COOKIE_NAME]));
