@@ -12,6 +12,8 @@ use Logs\Alert;
 
 class CSVRow {
 
+	protected $CSVRowState = null;
+
 	public function __construct($columns, $line, $delimiter = ';') {
 		if (is_array($line)){
 			$tab = $line;
@@ -48,6 +50,17 @@ class CSVRow {
 			$ret[$column] = $this->$column;
 		}
 		return $ret;
+	}
+
+	public function setState($state){
+		$this->CSVRowState = $state;
+	}
+
+	/**
+	 * @return null
+	 */
+	public function getState() {
+		return $this->CSVRowState;
 	}
 
 }
