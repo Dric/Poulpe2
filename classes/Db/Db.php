@@ -111,9 +111,15 @@ class Db {
 		$this->dbName = (!empty($dbName)) ? $dbName : \Settings::DB_NAME;
 		$this->dbLogin = (!empty($dbLogin)) ? $dbLogin : \Settings::DB_USER;
 		$this->dbPwd = (!empty($dbPwd)) ? $dbPwd : \Settings::DB_PASSWORD;
-
 		try {
-			$this->db = new PDO($this->type.':host='.$this->dbServer.';dbname='.$this->dbName, $this->dbLogin, $this->dbPwd, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
+			switch ($this->type){
+				case 'mysql':
+					$this->db = new PDO($this->type.':host='.$this->dbServer.';dbname='.$this->dbName, $this->dbLogin, $this->dbPwd, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
+					break;
+				case 'firebird':
+					$this->db = new PDO($this->type.':dbname='.$this->dbServer.':'.$this->dbName, $this->dbLogin, $this->dbPwd);
+					break;
+			}
 		} catch (PDOException $e) {
 			new Alert('danger', 'Erreur : Impossible de se connecter à la base de données !<br/>'.$e->getMessage());
 		}
@@ -129,18 +135,20 @@ class Db {
 	 * $ret = $db->query('SELECT * FROM Table WHERE name = "Bob"');
 	 * </code>
 	 *
-	 * @param string $sql requête SQL
-	 * @param string $get Renvoie <br>
-	 *                    'row' une ligne <br>
-	 *                    'col' une colonne <br>
-	 *                    'all' un tableau de résultat <br>
-	 *                    'val' une valeur <br>
+	 * @param string $sql     requête SQL
+	 * @param string $get     Renvoie <br>
+	 *                        'row' une ligne <br>
+	 *                        'col' une colonne <br>
+	 *                        'all' un tableau de résultat <br>
+	 *                        'val' une valeur <br>
 	 *
 	 * @param bool   $noAlert Si `true`, n'affiche pas d'alerte en cas d'erreur
 	 *
+	 * @param array  $bindColumns permet de définir des paramètres sur les colonnes, utilisés avec bindColumns();. Ex : array('conteneur' => array('pos' => position du champ dans la requête, 'option' => PDO::PARAM_LOB) (notez l'absence de guillemets pour PDO::PARAMS_LOB)
+	 *
 	 * @return bool|object Résultat de la requête
 	 */
-	public function query($sql, $get = 'all', $noAlert = false){
+	public function query($sql, $get = 'all', $noAlert = false, $bindColumns = array()){
 
 		$sql = str_replace('"', '\'', $sql);
 		$statement = $this->db->prepare($sql);
@@ -149,6 +157,11 @@ class Db {
 			return false;
 		}
 		$ret = $statement->execute();
+		if (!empty($bindColumns)){
+			foreach ($bindColumns as $field => $col){
+				$statement->bindColumn($col['pos'], ${$field}, $col['option']);
+			}
+		}
 		$this->queriesCount ++;
 		if (!$ret){
 			if (!$noAlert) new Alert('error', 'Erreur lors de l\'exécution de la requête !<br><code>'.$statement->errorInfo()[2].'</code><br><code>'.$sql.'</code>');

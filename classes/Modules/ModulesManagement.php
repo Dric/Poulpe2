@@ -176,7 +176,9 @@ class ModulesManagement {
 				 * @var Module $class
 				 */
 				$class = $module->class;
-				$class::getMainMenuItems();
+				if (class_exists($class)) {
+					$class::getMainMenuItems();
+				}
 			}
 		}
 	}
@@ -189,7 +191,9 @@ class ModulesManagement {
 		foreach ($modules as $module){
 			/** @var Module $class */
 			$class = $module->class;
-			$class::initModuleLoading();
+			if (class_exists($class)) {
+				$class::initModuleLoading();
+			}
 		}
 	}
 
