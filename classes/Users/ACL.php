@@ -516,7 +516,7 @@ class ACL {
 		<div class="row">
 			<div class="col-md-12">
 				<?php if (!is_null($title)) { ?><h2>Droits sur <?php echo $title; ?></h2><?php } ?>
-				<form id="adminACL" class="" method="post" role="form" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+				<form id="adminACL" class="" method="post" role="form" action="<?php echo \Front::getBaseUrl().$_SERVER['REQUEST_URI']; ?>">
 					<table class="table">
 						<thead>
 							<tr>

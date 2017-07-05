@@ -32,7 +32,7 @@ class Version {
 			),
 			'1.1' => array(
 				'ALTER TABLE `users` ADD `loginAttempts` INT(2) NOT NULL DEFAULT 0 COMMENT "Nombre de tentatives de connexions"',
-				'ALTER TABLE `users` ADD `lastLogin` INT(11) NOT NULL COMMENT "Timestamp Unix de la dernière tentative de connexion"'
+				'ALTER TABLE `users` ADD `lastLogin` INT(11) NOT NULL DEFAULT 0 COMMENT "Timestamp Unix de la dernière tentative de connexion"'
 			)
 		);
 	}

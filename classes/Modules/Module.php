@@ -634,18 +634,16 @@ class Module {
 		* - use Settings\Setting;
 		* - use Users\ACL;
 		*
-
+		*/
 		// Définition des ACL par défaut pour ce module
 		$defaultACL = array(
-		  'type'  => 'modify',
+		  'type'  => 'access',
 		  'value' => true
 		);
 		// Si des commandes SQL complexes sont à passer, c'est ici que ça se fait !
 		$sql = '';
 
 		return ModulesManagement::installModule($this, $defaultACL, $sql);
-		*/
-		return true;
 	}
 
 	/**
