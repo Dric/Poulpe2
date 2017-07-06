@@ -241,7 +241,7 @@ class UserProfile extends Module {
 	 * Prépare les champs de choix d'avatar
 	 */
 	protected function avatarFormItems(){
-
+		var_dump($this->user);
 		switch ($this->user->getAvatar(true)){
 			case 'default':
 			case 'ldap':
