@@ -21,6 +21,7 @@ use Logs\Alert;
 use Components\Avatar;
 use FileSystem\Upload;
 use Modules\Module;
+use Modules\ModulesManagement;
 use Sanitize;
 use Forms\Form;
 use Users\ACL;
@@ -80,6 +81,22 @@ class UserProfile extends Module {
 			$this->user = $GLOBALS['cUser'];
 		}
 		$this->form = new Form('userProfile');
+	}
+
+	/**
+	 * Installe le module en bdd, avec ses paramètres
+	 * @return bool
+	 */
+	public function install(){
+
+		// Définition des ACL par défaut pour ce module
+		$defaultACL = array(
+			'type'  => 'modify',
+			'value' => true
+		);
+
+
+		return ModulesManagement::installModule($this, $defaultACL, $sql);
 	}
 
 	/**
@@ -241,7 +258,6 @@ class UserProfile extends Module {
 	 * Prépare les champs de choix d'avatar
 	 */
 	protected function avatarFormItems(){
-		var_dump($this->user);
 		switch ($this->user->getAvatar(true)){
 			case 'default':
 			case 'ldap':
