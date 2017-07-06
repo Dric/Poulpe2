@@ -277,13 +277,25 @@ class Db {
 			$value = htmlspecialchars(str_replace(' ', '',$value));
 		});
 		$prepFields = implode(", ", $fields);
-		$sql = 'SELECT '.$prepFields.' FROM `'.htmlspecialchars($table).'`';
+		if ($this->type == 'firebird') {
+			$sql = 'SELECT ' . $prepFields . ' FROM ' . htmlspecialchars($table);
+		} else {
+			$sql = 'SELECT ' . $prepFields . ' FROM `' . htmlspecialchars($table) . '`';
+		}
 		if (!empty($where)){
 			foreach ($where as $key => $value) {
 				if (!is_array($value)) {
-					$prepWhere[] = '`'.htmlspecialchars($key). '` = '. Sanitize::SanitizeForDb($value);
+					if ($this->type == 'firebird') {
+						$prepWhere[] = htmlspecialchars($key) . ' = ' . Sanitize::SanitizeForDb($value);
+					} else {
+						$prepWhere[] = '`' . htmlspecialchars($key) . '` = ' . Sanitize::SanitizeForDb($value);
+					}
 				}else{
-					$prepWhere[] = '`'.htmlspecialchars($key). '` IN ('. Sanitize::SanitizeForDb($value).')';
+					if ($this->type == 'firebird') {
+						$prepWhere[] = htmlspecialchars($key) . ' IN (' . Sanitize::SanitizeForDb($value) . ')';
+					} else {
+						$prepWhere[] = '`' . htmlspecialchars($key) . '` IN (' . Sanitize::SanitizeForDb($value) . ')';
+					}
 				}
 			}
 			$sql .= ' WHERE '.implode(' AND ', $prepWhere);
@@ -291,7 +303,11 @@ class Db {
 		if (!empty($orderBy)){
 			$sql .= ' ORDER BY';
 			foreach ($orderBy as $row => $sort){
-				$sql .= '`'.htmlspecialchars($row).'` '.htmlspecialchars($sort).', ';
+				if ($this->type == 'firebird') {
+					$sql .= htmlspecialchars($row) . ' ' . htmlspecialchars($sort) . ', ';
+				} else {
+					$sql .= '`' . htmlspecialchars($row) . '` ' . htmlspecialchars($sort) . ', ';
+				}
 			}
 			$sql = rtrim($sql, ', ');
 		}
@@ -417,16 +433,28 @@ class Db {
 		$prepUpdates = array();
 		$prepWhere = array();
 		foreach ($updates as $key => $value) {
-			$prepUpdates[] = '`'.htmlspecialchars($key). '` = :'.htmlspecialchars($key);
+			if ($this->type == 'firebird'){
+				$prepUpdates[] = htmlspecialchars($key). ' = :'.htmlspecialchars($key);
+			} else {
+				$prepUpdates[] = '`'.htmlspecialchars($key). '` = :'.htmlspecialchars($key);
+			}
 		}
 		foreach ($where as $key => $value) {
 			if (isset($updates[$key])) {
 				$updates[$key.'2'] = $updates[$key];
 				unset($updates['key']);
 			}
-			$prepWhere[] = '`'.htmlspecialchars($key). '` = :'.htmlspecialchars($key);
+			if ($this->type == 'firebird') {
+				$prepWhere[] = htmlspecialchars($key) . ' = :' . htmlspecialchars($key);
+			} else {
+				$prepWhere[] = '`' . htmlspecialchars($key) . '` = :' . htmlspecialchars($key);
+			}
 		}
-		$sql = 'UPDATE `'.htmlspecialchars($table).'` SET '.implode(', ', $prepUpdates).' WHERE '.implode(' AND ', $prepWhere);
+		if ($this->type == 'firebird') {
+			$sql = 'UPDATE ' . htmlspecialchars($table) . ' SET ' . implode(', ', $prepUpdates) . ' WHERE ' . implode(' AND ', $prepWhere);
+		} else {
+			$sql = 'UPDATE `' . htmlspecialchars($table) . '` SET ' . implode(', ', $prepUpdates) . ' WHERE ' . implode(' AND ', $prepWhere);
+		}
 		$statement = $this->db->prepare($sql);
 		if ($statement === false){
 			new Alert('debug', '<code>Db->update()</code> : Impossible d\'effectuer la requête d\'update car elle est mal formée.<br /><code>'.$sql.'</code>');
