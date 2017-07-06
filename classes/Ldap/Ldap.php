@@ -155,6 +155,7 @@ class Ldap {
 		$connect = new Connection($dc, $user, $pwd, $this->domain);
 		// Si badCreds est à false, alors la connexion a réussi
 		if ($connect->badCreds() !== false){
+			new Alert('error', 'Les identifiants sont incorrects !');
 			return false ;
 		}else{
 			$filter = null;
@@ -165,6 +166,20 @@ class Ldap {
 			if ($userLDAP['count'] == 0){
 				new Alert('error', 'Cet utilisateur n\'est pas autorisé à se connecter !');
 				return false;
+			}
+			$groups = $userLDAP[0]['memberof'];
+			unset ($groups['count']);
+			if (!empty(\Settings::LDAP_GROUP) and \Settings::LDAP_GROUP != '*'){
+				$allowed = false;
+				foreach ($groups as $group){
+					if (preg_match('/CN=(.+?),/i', $group, $matches)){
+						if (strtolower($matches[1]) == strtolower(\Settings::LDAP_GROUP))	$allowed = true;
+					}
+				}
+				if (!$allowed){
+					new Alert('error', 'Cet utilisateur n\'est pas autorisé à se connecter !');
+					return false;
+				}
 			}
 			return true;
 		}

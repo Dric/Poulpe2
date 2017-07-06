@@ -179,7 +179,7 @@ class Login {
 				}
 			}
 		}
-		new Alert('error', 'Les identifiants sont incorrects !');
+		//new Alert('error', 'Les identifiants sont incorrects !');
 		return false;
 	}
 
