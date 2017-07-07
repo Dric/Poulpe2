@@ -129,7 +129,7 @@ class Login {
 		$loginPwd = htmlspecialchars($_REQUEST['loginPwd']);
 		$stayConnected = (isset($_REQUEST['stayConnected'])) ? true : false;
 		if (!empty($loginName) and !empty($loginPwd)){
-			if (\Settings::AUTH_MODE == 'sql'){
+			if (strtolower(\Settings::AUTH_MODE) == 'sql'){
 				if ($userDb = UsersManagement::getDBUsers($loginName, true)){
 					// On réinitialise les tentatives de connexions au bout de 12h
 					if (version_compare(Version::getDbVersion(), '1.1', '>=') and $userDb->lastLogin < (time() - $timeToWaitAfterLock)){
@@ -267,7 +267,7 @@ class Login {
 		if (isset($_REQUEST['from'])) $from = $_REQUEST['from'];
 
 		$users = UsersManagement::getDBUsers();
-		if (\Settings::AUTH_MODE == 'sql' and empty($users)){
+		if (strtolower(\Settings::AUTH_MODE) == 'sql' and empty($users)){
 			?>
 			<!DOCTYPE html>
 			<html lang="fr">
@@ -346,7 +346,7 @@ class Login {
 							<div class="page-content inset" id="loginPanel">
 								<div class="text-center"><?php echo Avatar::display(null, 'Connectez-vous !'); ?></div>
 								<br>
-								<?php if (\Settings::AUTH_MODE == 'ldap'){ ?>
+								<?php if (strtolower(\Settings::AUTH_MODE) == 'ldap'){ ?>
 								<div class="alert alert-info text-center col">Saisissez vos identifiants Active Directory</div>
 								<?php } ?>
 								<form id="loginForm" class="" method="post" role="form" action="index.php?action=loginForm&tryLogin=true">
@@ -369,7 +369,7 @@ class Login {
 											Rester connecté
 										</label>
 									</div>
-									<?php if (\Settings::AUTH_MODE == 'ldap'){ ?>
+									<?php if (strtolower(\Settings::AUTH_MODE) == 'ldap'){ ?>
 									<div class="pull-right">
 										<span class="fa fa-sitemap"></span> Authentification sur <code><?php echo \Settings::LDAP_DOMAIN; ?></code>
 									</div>

@@ -71,10 +71,14 @@ class Get {
 	 */
 	public static function stupidRule(){
 		$rules = array(
-			'Le riz basmati se cuit avec un volume de riz pour 5 volumes d\'eau pendant 10 minutes dans une eau légèrement bouillante. Pensez à enlever l\'amidon qui flotte sur l\'eau après la cuisson',
-		  'Ce qui est écrit ici doit rester secret, sauf pour la NSA qui a déjà lu ceci avant que ce ne soit écrit',
-		  'Ces instructions sont récapitulées dans le manuel, qui ne verra probablement jamais le jour',
-		  'Lire des instructions est rarement une perte de temps'
+			'Le riz basmati se cuit avec un volume de riz pour 5 volumes d\'eau pendant 10-11 minutes dans une eau légèrement bouillante. Pensez à enlever l\'amidon qui flotte sur l\'eau après la cuisson.',
+		  'Ce qui est écrit ici ne contient à priori pas de propagande.',
+		  'Ces instructions sont récapitulées dans le manuel, qui ne verra probablement jamais le jour.',
+		  'Lire des instructions est rarement une perte de temps.',
+		  'Pour votre santé, mangez au moins 5 fruits et légumes par jour.',
+		  'Ne faites pas ça chez vous.',
+		  'Ces instructions sont basées sur des manuels de montage de meuble.',
+			'Pour votre santé ne mangez pas trop gras, trop salé, trop sucré.'
 		);
 		$i = rand(0, count($rules)-1);
 		return $rules[$i];

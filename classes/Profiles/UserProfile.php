@@ -240,7 +240,7 @@ class UserProfile extends Module {
 						<h1>Profil de <?php echo $this->user->getName(); ?></h1>
 					</div>
 					<?php
-					if (\Settings::AUTH_MODE == 'sql'){
+					if (strtolower(\Settings::AUTH_MODE) == 'sql'){
 						$this->accountFormItems();
 						$this->passwordFormItems();
 					}

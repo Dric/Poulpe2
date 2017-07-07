@@ -352,7 +352,7 @@ class Admin extends Module {
 							<th>Id</th>
 							<th>Nom</th>
 							<th>Avatar</th>
-							<?php if (\Settings::AUTH_MODE == 'sql') { ?><th>Email</th><?php } ?>
+							<?php if (strtolower(\Settings::AUTH_MODE) == 'sql') { ?><th>Email</th><?php } ?>
 							<th>Dernière connexion <?php echo Help::iconHelp('Ceci est en réalité la dernière tentative de connexion effectuée, qu\'elle ait échoué ou non.'); ?></th>
 							<th>Droits d'accès</th>
 							<th>Profil/Compte</th>
@@ -377,7 +377,7 @@ class Admin extends Module {
 								<td><?php echo $user->id; ?></td>
 								<td><?php echo $user->name; ?></td>
 								<td><?php echo Avatar::display($avatar, 'Avatar de '.$user->name); ?></td>
-								<?php if (\Settings::AUTH_MODE == 'sql') { ?><td><?php echo $user->email; ?></td><?php } ?>
+								<?php if (strtolower(\Settings::AUTH_MODE) == 'sql') { ?><td><?php echo $user->email; ?></td><?php } ?>
 								<td><?php if (isset($user->lastLogin) and $user->lastLogin > 0) { echo Sanitize::date($user->lastLogin, 'dateAtTime'); }else{ echo 'Inconnue'; } ?></td>
 								<td><a class="btn btn-default" href="<?php echo $this->buildArgsURL(array('page' => 'userACL', 'user' => $user->id)); ?>">Modifier</a></td>
 								<td><a class="btn btn-default" href="<?php echo Front::getModuleUrl(); ?>profil&user=<?php echo $user->id; ?>">Modifier</a></td>
@@ -388,7 +388,7 @@ class Admin extends Module {
 					</tbody>
 				</table>
 				<?php
-					if (\Settings::AUTH_MODE == 'sql'){
+					if (strtolower(\Settings::AUTH_MODE) == 'sql'){
 						?><h3>Créer un utilisateur</h3><?php
 						$form = new Form('createUser');
 						$form->addField(new StringField('name', null, 'Nom/Pseudo', 'Veuillez saisir un nom ou un pseudonyme', null, new Pattern('text', true, 4, 150), true));
@@ -775,7 +775,7 @@ class Settings extends DefaultSettings {
 			<li>Base de données : <strong><?php echo \Settings::DB_NAME; ?></strong> sur <?php echo \Settings::DB_HOST; ?></li>
 			<li>Taille de la base de données : <strong><?php echo \Sanitize::readableFileSize($dbSize); ?></strong></li>
 			<li>Nombre de tables dans la base : <strong><?php echo $nbTables; ?></strong></li>
-			<li>Mode d'authentification : <strong><?php echo \Settings::AUTH_MODE; ?></strong> <?php if (\Settings::AUTH_MODE == 'ldap') { ?><small>(<?php echo \Settings::LDAP_DOMAIN; ?>)</small><?php } ?></li>
+			<li>Mode d'authentification : <strong><?php echo \Settings::AUTH_MODE; ?></strong> <?php if (strtolower(\Settings::AUTH_MODE) == 'ldap') { ?><small>(<?php echo \Settings::LDAP_DOMAIN; ?>)</small><?php } ?></li>
 			<li>Version de base de données de Poulpe2 : <strong><?php echo Version::getDbVersion(); ?></strong></li>
 			<li>Répertoire des modules : <strong><?php echo \Settings::MODULE_DIR; ?></strong></li>
 		</ul>
