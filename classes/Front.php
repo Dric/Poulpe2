@@ -396,12 +396,12 @@ class Front {
 	 */
 	public static function setBaseUrl($baseUrl) {
 		if (!isset($_SESSION) or !isset($_SESSION['baseUrl'])) {
-			self::$baseUrl = sprintf(
+			self::$baseUrl = rtrim(sprintf(
 				"%s://%s/%s",
 				isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
 				$_SERVER['SERVER_NAME'],
 				$baseUrl
-			);
+			), '/');
 			$_SESSION['baseUrl'] = self::$baseUrl;
 		}elseif (isset($_SESSION)){
 			self::$baseUrl = $_SESSION['baseUrl'];
