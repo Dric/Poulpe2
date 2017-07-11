@@ -124,17 +124,17 @@ class Sanitize {
 	public static function date($date, $to = 'timestamp'){
 		date_default_timezone_set('Europe/Paris');
 		if (empty($date)) return null;
+		if (!is_numeric($date)) {
+			$date = strtotime($date);
+		}
 		switch ($to){
-			case 'timestamp':
-				// Au cas où la date soit déjà un timestamp
-				if (is_numeric($date)) return $date;
-				return strtotime($date);
-			case 'date' :       return date('d/m/Y', strtotime($date));
-			case 'dateTime':    return date('d/m/Y H:i', strtotime($date));
-			case 'fullDateTime':    return date('d/m/Y H:i:s', strtotime($date));
-			case 'dateAtTime':  return date('d/m/Y à H:i', strtotime($date));
-			case 'time' :       return date('H:i:s', strtotime($date));
-			default:            return false;
+			case 'timestamp':     return $date;
+			case 'date' :         return date('d/m/Y', $date);
+			case 'dateTime':      return date('d/m/Y H:i', $date);
+			case 'fullDateTime':  return date('d/m/Y H:i:s', $date);
+			case 'dateAtTime':    return date('d/m/Y à H:i', $date);
+			case 'time' :         return date('H:i:s', $date);
+			default:              return false;
 		}
 	}
 
