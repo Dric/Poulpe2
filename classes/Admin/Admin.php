@@ -280,8 +280,8 @@ class Admin extends Module {
 			</div>
 		</div>
 		<?php
+		return true;
 	}
-
 	/**
 	 * Administration des droits d'accès d'un utilisateur
 	 * @see ACL
@@ -353,7 +353,7 @@ class Admin extends Module {
 							<th>Nom</th>
 							<th>Avatar</th>
 							<?php if (strtolower(\Settings::AUTH_MODE) == 'sql') { ?><th>Email</th><?php } ?>
-							<th>Dernière connexion <?php echo Help::iconHelp('Ceci est en réalité la dernière tentative de connexion effectuée, qu\'elle ait échoué ou non.'); ?></th>
+							<th>Dernière connexion <?php Help::iconHelp('Ceci est en réalité la dernière tentative de connexion effectuée, qu\'elle ait échoué ou non.'); ?></th>
 							<th>Droits d'accès</th>
 							<th>Profil/Compte</th>
 						</tr>

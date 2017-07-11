@@ -193,7 +193,7 @@ class PostedData {
 	 * @return string
 	 */
 	static public function setToken($name){
-		$hash = sha1($name.time());
+		$hash = hash('sha256', $name.time());
 		$_SESSION[$name.'_Token'] = $hash;
 		$_SESSION['tokens'][$name.'_Token'] = time();
 		return $hash;

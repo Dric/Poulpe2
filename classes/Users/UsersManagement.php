@@ -74,16 +74,14 @@ class UsersManagement {
 	 */
 	static function updateUserHash($user){
 		global $db;
-		$hash = sha1($user.\Settings::SALT_COOKIE);
+		$hash = hash('sha256', $user.\Settings::SALT_COOKIE);
 		if (is_numeric($user)){
 			$where = array('id' => $user);
 		}else{
 			$where = array('name' => $user);
 		}
-		if ($db->update('users', array('hash' => $hash, 'lastLogin' => time(), 'loginAttempts' => 0), $where)){
-			return $hash;
-		}
-		return false;
+		$ret = $db->update('users', array('hash' => $hash, 'lastLogin' => time(), 'loginAttempts' => 0), $where);
+		return ($ret) ? $hash : false;
 	}
 
 	/**

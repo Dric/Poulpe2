@@ -104,7 +104,7 @@ class Login {
 	 * @return string
 	 */
 	static function saltPwd($pwd){
-		return sha1($pwd.self::$salt);
+		return hash('sha256', $pwd.self::$salt);
 	}
 
 	/**
