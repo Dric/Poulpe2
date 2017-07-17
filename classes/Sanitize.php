@@ -125,7 +125,8 @@ class Sanitize {
 		date_default_timezone_set('Europe/Paris');
 		if (empty($date)) return null;
 		if (!is_numeric($date)) {
-			$date = strtotime($date);
+			// Le remplacement des `/` par des `-` permet à strtotime de savoir qu'on veut une date au format `d-m-y`) - voir <http://php.net/manual/en/function.strtotime.php#refsect1-function.strtotime-notes>
+			$date = strtotime(str_replace('/', '-', $date));
 		}
 		switch ($to){
 			case 'timestamp':     return $date;
