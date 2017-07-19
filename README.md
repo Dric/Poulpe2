@@ -7,7 +7,7 @@ Un framework modulaire en php.
 
 ### Serveur
 
-- PHP 5.4+
+- PHP 7.0+
 - Mysql 5.5+
 - Serveur Linux (testé sous Ubuntu seulement)
 - Serveur web Apache, lighttpd ou autre (testé seulement sous Apache et lighttpd)
@@ -36,7 +36,7 @@ Les pretty URL (du type `http://poulpe2/module/FileBrowser`) sont disponibles se
 - [Bootstrap 3 Typeahead](https://github.com/bassjobsen/Bootstrap-3-Typeahead) : Plugin d'auto-completion qui a été supprimé de Bootstrap 3.
 - [Pagedown Bootstrap](http://kevin.oconnor.mp/pagedown-bootstrap) : Editeur gérant la syntaxe Markdown
 - [Highlight.js](http://highlightjs.org) : Plugin de coloration syntaxique de code
-- [DataTables](http://datatables.net) 1.10.2 : Plugin jQuery d'organisation de tables HTML avec tri, recherche et pagination
+- [DataTables](http://datatables.net) 1.10.15 : Plugin jQuery d'organisation de tables HTML avec tri, recherche et pagination
 - [Bootstrap Validator](https://github.com/1000hz/bootstrap-validator) 0.5 : plugin jQuery et Bootstrap qui gère la validation des champs de formulaires
 - [Bootstrap v3 datetimepicker](https://github.com/Eonasdan/bootstrap-datetimepicker) 3.0.0 : Plugin jQuery de saisie de date et heure
 - [Autosize](http://www.jacklmoore.com/autosize/) 3.0.5 : Plugin jQuery permettant de changer dynamiquement la hauteur des Textareas pour qu'ils s'adaptent à leurs contenus
