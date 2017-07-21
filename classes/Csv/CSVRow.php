@@ -13,8 +13,22 @@ use Logs\Alert;
 class CSVRow {
 
 	protected $CSVRowState = null;
+	/** @var string Id de la ligne */
+	protected $CSVRowID = null;
+	/** @var array Colonnes de la ligne */
+	protected $columns = array();
 
-	public function __construct($columns, $line, $delimiter = ';') {
+	/**
+	 * Ligne de fichier CSV.
+	 *
+	 * @param array           $columns    Noms des colonnes
+	 * @param string[]|string $line       Valeurs sous forme de chaîne ou tableau
+	 * @param string          $delimiter  Séparateur des valeurs
+	 * @param string          $ID         ID de la ligne
+	 */
+	public function __construct($columns, $line, $delimiter = ';', $ID = null) {
+		$this->CSVRowID = $ID;
+		$this->columns = $columns;
 		if (is_array($line)){
 			$tab = $line;
 		} else {
@@ -40,7 +54,7 @@ class CSVRow {
 	 *
 	 * @return array|bool
 	 */
-	public function getColumns($columns){
+	public function filter($columns){
 		$ret = array();
 		foreach ($columns as $column){
 			if (!isset($this->$column)){
@@ -52,15 +66,33 @@ class CSVRow {
 		return $ret;
 	}
 
+	/**
+	 * Définit l'état de la ligne (success, warning, danger, info - correspond en fait aux couleurs de Bootstrap)
+	 * @param string $state
+	 */
 	public function setState($state){
 		$this->CSVRowState = $state;
 	}
 
 	/**
-	 * @return null
+	 * @return string
 	 */
 	public function getState() {
 		return $this->CSVRowState;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getID() {
+		return $this->CSVRowID;
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getColumns() {
+		return $this->columns;
 	}
 
 }
