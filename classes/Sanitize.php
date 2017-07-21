@@ -201,7 +201,7 @@ class Sanitize {
 	 *
 	 * @param array $arrayOrig Tableau d'objets à trier
 	 * @param array $props Tableau contenant les propriétés sur lesquelles faire le tri
-   * @param string $sortOrder
+   * @param string|array $sortOrder
 	 *
 	 * @return array Tableau trié
 	 */

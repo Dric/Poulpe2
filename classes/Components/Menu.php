@@ -112,26 +112,38 @@ class Menu {
 		ce qui permet potentiellement à 100 items d'avoir la même priorité
 		*/
 
+		$itemKey = ($priority * 100) + count($this->items) + 1;
+		$this->items[$itemKey] = $item;
+		self::$menus[$this->name]->items = $this->items;
+		return true;
+	}
+
+	protected function sortMenus(){
+		/*
+		Plusieurs items peuvent avoir la même priorité de base.
+		Pour pouvoir les traiter, on multiplie la priorité par 100,
+		ce qui permet potentiellement à 100 items d'avoir la même priorité
+		*/
+
 		$toOrder = array();
 		// On met tous les Items qui ont la même priorité que celui ajouté dans un autre tableau, et on les enlève de $this->items
 		foreach ($this->items as $itemPriority => $itemObj){
-			if ((int)($itemPriority / 100) == $priority){
-				$toOrder[] = $itemObj;
-				unset($this->items[$itemPriority]);
+			$toOrder[(int)($itemPriority / 100)][] = $itemObj;
+		}
+		// On réinitialise les items de menu
+		$this->items = array();
+		foreach ($toOrder as $priority => $items){
+			// On trie le tableau par titre
+			$toOrder[$priority] = Sanitize::sortObjectList($items, array('title'));
+		}
+		// On (ré)insère les items de $toOrder dans le tableau global des items
+		foreach ($toOrder as $priority => $itemObjs){
+			foreach ($itemObjs as $key => $item) {
+				$itemKey               = ($priority * 100) + $key;
+				$this->items[$itemKey] = $item;
 			}
 		}
-		// N'oublions pas l'item qu'on veut ajouter au menu...
-		$toOrder[] = $item;
-		// On trie le tableau par titre
-		$toOrder = Sanitize::sortObjectList($toOrder, array('title'));
-		// On (ré)insère les items de $toOrder dans le tableau global des items
-		foreach ($toOrder as $key => $itemObj){
-			$itemKey = ($priority * 100) + $key;
-			$this->items[$itemKey] = $itemObj;
-		}
-
 		self::$menus[$this->name]->items = $this->items;
-		return true;
 	}
 
 	/**
@@ -142,7 +154,8 @@ class Menu {
 	 * @param bool   $displayTitle Afficher ou non le titre du menu (pas d'affichage par défaut) (facultatif)
 	 */
 	public function build($menuClass = '', $itemClass = '', $displayTitle = false){
-		ksort ($this->items);
+		$this->sortMenus();
+		ksort($this->items);
 		?>
 		<div class="secondary-menu">
 			<?php if (!empty($this->title) and $displayTitle) {?><h4 class="secondary-menu-title"><?php echo $this->title; ?></h4><?php } ?>

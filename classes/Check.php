@@ -6,6 +6,8 @@
  * Time: 09:34
  */
 
+use Logs\Alert;
+
 /**
  * Class Check
  * Contient les fonctions de test
@@ -131,4 +133,33 @@ class Check {
 		return false;
 	}
 
+	/**
+	 *
+	 * Compare deux valeurs
+	 *
+	 * @from https://stackoverflow.com/a/5579231/1749967
+	 *
+	 * @param $var1
+	 * @param $op
+	 * @param $var2
+	 *
+	 * @return bool
+	 */
+	public static function compare($var1, $op, $var2){
+		if (!in_array($op, array('>', '<', '=', '==', '>=', '<=', '!=', '~'))){
+			new Alert('error', 'Erreur : l\'opérateur de comparaison <code>'.$op.'</code> est invalide !');
+			return false;
+		}
+		switch ($op) {
+			case "="  :
+			case "==" : return $var1 == $var2;
+			case "!=" : return $var1 != $var2;
+			case ">=" : return $var1 >= $var2;
+			case "<=" : return $var1 <= $var2;
+			case ">"  : return $var1 >  $var2;
+			case "<"  : return $var1 <  $var2;
+			case "~"  : return (bool)stristr($var2, $var1); // équivalent de like en sql
+			default   : return false;
+		}
+	}
 } 

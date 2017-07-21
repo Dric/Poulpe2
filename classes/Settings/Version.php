@@ -28,7 +28,7 @@ class Version {
 			'1.0' => array(
 				'CREATE TABLE IF NOT EXISTS `global_settings` (`id` int(6) NOT NULL AUTO_INCREMENT, `setting` varchar(150) NOT NULL, `value` varchar(255) NOT NULL, PRIMARY KEY (`id`), UNIQUE KEY `setting` (`setting`)) ENGINE=InnoDB DEFAULT CHARSET=utf8',
 				'INSERT INTO `global_settings` (`setting`, `value`) VALUES ("poulpe2DbVersion", "1.0") ON DUPLICATE KEY UPDATE `value` = "1.0"',
-				'ALTER TABLE `modules` ADD `version` VARCHAR( 15 ) NOT NULL DEFAULT "0" COMMENT "Version du module"'
+				'ALTER TABLE `modules` ADD `version` VARCHAR( 15 ) NOT NULL DEFAULT "1.0" COMMENT "Version du module"'
 			),
 			'1.1' => array(
 				'ALTER TABLE `users` ADD `loginAttempts` INT(2) NOT NULL DEFAULT 0 COMMENT "Nombre de tentatives de connexions"',

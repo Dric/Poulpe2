@@ -1,0 +1,7 @@
+visibilityLevels: [public, protected] # array
+annotationGroups: [todo, deprecated] # array
+title: "Docs de Poulpe2" # string
+baseUrl: "https://srv-glpitest.intra.epsi.fr/tools/Docs/CodeTest" # string
+exclude: ["*/Docs", "*/fonts", "*/img", "*/js", "*/Modules*"]
+destination: "./Docs/CodeTest"
+source: [".", "classes/Modules/Module.php", "classes/Modules/ModulesManagement.php", "classes/Settings/config.php"]
