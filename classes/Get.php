@@ -78,7 +78,9 @@ class Get {
 		  'Pour votre santé, mangez au moins 5 fruits et légumes par jour.',
 		  'Ne faites pas ça chez vous.',
 		  'Ces instructions sont basées sur des manuels de montage de meuble.',
-			'Pour votre santé ne mangez pas trop gras, trop salé, trop sucré.'
+			'Pour votre santé ne mangez pas trop gras, trop salé, trop sucré.',
+			'Pensez à vous hydrater régulièrement, surtout en cas de fortes chaleurs.',
+			'Toutes les 20 minutes, regardez quelque chose à 6m de vous pendant 20 secondes. Ça permet à vos yeux de se reposer et de ne pas trop s\'assécher.'
 		);
 		$i = rand(0, count($rules)-1);
 		return $rules[$i];
@@ -108,26 +110,37 @@ class Get {
 	 *
 	 * @from http://stackoverflow.com/a/79986/1749967
 	 * @param string $text
-	 * @param int $charNumber
+	 * @param int    $charNumber
+	 * @param bool   $isAbbr Si true, renvoie la chaîne tronquée dans une balise abbr contenant la totalité de la chaîne
 	 *
 	 * @return string
 	 */
-	public static function excerpt($text, $charNumber){
+	public static function excerpt($text, $charNumber, $isAbbr = false){
 		$parts = preg_split('/([\s\n\r]+)/', $text, null, PREG_SPLIT_DELIM_CAPTURE);
 		$partsCount = count($parts);
 		$addFinal = false;
-		$length = 0;
-		$lastPart = 0;
-		for (; $lastPart < $partsCount; ++$lastPart) {
-			$length += strlen($parts[$lastPart]);
-			if ($length > ($charNumber - 6)) {
+		if ($partsCount < 2) {
+			if (strlen($text) > $charNumber){
 				$addFinal = true;
-				break;
 			}
+			$ret =  ($addFinal) ? substr($text, 0, $charNumber - 6) : substr($text, 0, $charNumber);
+		} else {
+			$length = 0;
+			$lastPart = 0;
+			for (; $lastPart < $partsCount; ++$lastPart) {
+				$length += strlen($parts[$lastPart]);
+				if ($length > ($charNumber - 6)) {
+					$addFinal = true;
+					break;
+				}
+			}
+			$ret = implode(array_slice($parts, 0, $lastPart));
 		}
-		$ret = implode(array_slice($parts, 0, $lastPart));
 		if ($addFinal){
 			$ret .= ' [...]';
+		}
+		if ($isAbbr and strlen($text) > $charNumber){
+			$ret = '<abbr class="tooltip-bottom" title="'.$text.'">'.$ret.'</abbr>';
 		}
 		return $ret;
 	}
