@@ -740,7 +740,7 @@ class Settings extends DefaultSettings {
 		}
 		?>
 		<ul>
-			<li>Version de php : <strong class="text-<?php echo ((float)$phpVersion >= 5.4) ? 'success' : 'danger'; ?>"><?php echo $phpVersion; ?></strong></li>
+			<li>Version de php : <strong class="text-<?php echo ((float)$phpVersion >= 7.0) ? 'success' : 'danger'; ?>"><?php echo $phpVersion; ?></strong></li>
 			<li>Version de MySQL/MariaDB : <strong class="text-<?php echo ((float)$mysqlVersion >= 5.5) ? 'success' : 'danger';?>"><?php echo $mysqlVersion; ?></strong></li>
 			<li>Distribution serveur : <strong><?php echo $linuxDistro; ?></strong></li>
 			<li>Architecture serveur : <strong><?php echo $architecture; ?></strong> bits</li>

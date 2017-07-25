@@ -652,6 +652,7 @@ class Module {
 	 * @return bool
 	 */
 	protected function checkUpdate(){
+		if (get_class($this) == 'Modules\Module') return true;
 		if (Version::checkDbVersion($this->id, $this->version)) return true;
 		$ret = $this->runUpdateScript();
 		if ($ret) {

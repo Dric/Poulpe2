@@ -61,7 +61,12 @@ class ModulesManagement {
 				$module = new Module();
 			}else{
 				$class = 'Modules\\'.\Settings::HOME_MODULE.'\\'.\Settings::HOME_MODULE;
-				$module = new $class();
+				if (!class_exists($class)){
+					new Alert('error', 'Erreur : le module <code>'.\Settings::HOME_MODULE.'</code> spécifié comme page d\'accueil est introuvable !<br>Veuillez modifier le champ <code>HOME_MODULE</code> dans le fichier de configuration.');
+					$module = new Module();
+				} else {
+					$module = new $class();
+				}
 			}
 
 		}
