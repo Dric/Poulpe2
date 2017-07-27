@@ -136,7 +136,6 @@ class Ldap {
 		}
 		$filter = '(&(objectCategory='.$type.')'.$params.')';
 		$sr=ldap_search($connection, $where, $filter, $attributes);
-
 		return ldap_get_entries($connection, $sr);
 	}
 
@@ -167,16 +166,9 @@ class Ldap {
 				new Alert('error', 'Cet utilisateur n\'est pas autorisé à se connecter !');
 				return false;
 			}
-			$groups = $userLDAP[0]['memberof'];
-			unset ($groups['count']);
 			if (!empty(\Settings::LDAP_GROUP) and \Settings::LDAP_GROUP != '*'){
-				$allowed = false;
-				foreach ($groups as $group){
-					if (preg_match('/CN=(.+?),/i', $group, $matches)){
-						if (strtolower($matches[1]) == strtolower(\Settings::LDAP_GROUP))	$allowed = true;
-					}
-				}
-				if (!$allowed){
+				$groups = $this->userMembership($user);
+				if (!in_array(strtolower(\Settings::LDAP_GROUP), array_map('strtolower', $groups))){
 					new Alert('error', 'Cet utilisateur n\'est pas autorisé à se connecter !');
 					return false;
 				}
@@ -229,11 +221,11 @@ class Ldap {
 	 */
 	public function userMembership($userSAM, $searched = null, $recursive = true, $recLevel = 0){
 		if(empty($searched)){
-			$res = $this->search('user', $userSAM, null, array('memberOf'));
+			$res = $this->search('user', $userSAM, null, array('memberOf', 'primaryGroupId'));
 		}else{
 			// On met en cache tous les groupes LDAP, afin d'éviter de faire des requêtes LDAP
 			if (empty($this->ldapGroups)){
-				$ldapGroups = $this->search('group', null, null, array('memberOf'));
+				$ldapGroups = $this->search('group', null, null, array('memberOf', 'primaryGroupId'));
 				foreach ($ldapGroups as $group){
 					if (is_array($group)) {
 						$tab = explode(',', $group['dn']);
@@ -266,6 +258,22 @@ class Ldap {
 									//On fusionne le tableau des groupes avec celui des groupes trouvés par récursivité
 									$membership = array_unique(array_merge($membership, $recurs));
 								}
+							}
+						}
+					}
+					// On ajoute le groupe principal
+					// Le groupe principal de l'utilisateur est une partie d'objectSID
+					if ($recLevel == 1 and isset($item['primarygroupid'][0])){
+						$connection = $this->connections[$this->ldapServers[0]]->connection();
+						$sr = ldap_search($connection, $this->domainDCName, '(&(objectCategory=group))');
+						$groups = ldap_get_entries($connection, $sr);
+						foreach ($groups as $group){
+							$tab = explode('-', $this->getADObjectSID($group['objectsid'][0]));
+							//ex :  primarygroupid = 1140
+							//      objectSID = S-1-5-21-1177238915-2111687655-839522115-1140
+							if ($item['primarygroupid'][0] == end($tab)){
+								$membership[] = $group['cn'][0].' (Groupe principal)';
+								break;
 							}
 						}
 					}

@@ -109,6 +109,18 @@ class DefaultSettings {
 	/** Intervalle de vérification des mises à jour (en jours ) */
 	const UPDATE_CHECKS_INTERVAL = 7;
 
+	/** Serveur SSH distant de référence */
+	const SSH_REMOTE_SERVER = '';
+
+	/** Identifiant de connexion au serveur SSH */
+	const SSH_USER = '';
+
+	/** Mot de passe de connexion SSH */
+	const SSH_PWD = '';
+
+	/** Port d'ouverture de session SSH */
+	const SSH_PORT = 22;
+
 	/** Debug mode */
 	const DEBUG = true;
 
