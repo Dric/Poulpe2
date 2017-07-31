@@ -67,6 +67,9 @@ class DefaultSettings {
 	/** Durée de l'authentification par cookie (en heures) */
 	const COOKIE_DURATION = 4320;
 
+	/** Afficher la case à cocher "Rester connecté" lors de l'authentification */
+	const ALLOW_PERMA_LOGIN = true;
+
 	/** URL des appels aux modules */
 	const MODULE_URL = 'module/';
 

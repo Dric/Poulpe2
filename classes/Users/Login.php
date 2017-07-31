@@ -363,12 +363,14 @@ class Login {
 	                    </span>
 										</div>
 									</div>
+									<?php if (\Settings::ALLOW_PERMA_LOGIN) { ?>
 									<div class="checkbox">
 										<label>
 											<input type="checkbox" name="stayConnected" checked>
 											Rester connecté
 										</label>
 									</div>
+									<?php } ?>
 									<?php if (strtolower(\Settings::AUTH_MODE) == 'ldap'){ ?>
 									<div class="pull-right">
 										<span class="fa fa-sitemap"></span> Authentification sur <code><?php echo \Settings::LDAP_DOMAIN; ?></code>
