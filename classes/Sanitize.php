@@ -286,21 +286,22 @@ class Sanitize {
 	/**
 	 * Met en forme une valeur pour l'enregistrer en bdd
 	 *
-	 * @param mixed $value Valeur à mettre en forme
-	 * @param bool  $quotes Entoure la valeur avec des guillemets si c'est une chaîne.
+	 * @param mixed   $value      Valeur à mettre en forme
+	 * @param bool    $quotes     Entoure la valeur avec des guillemets si c'est une chaîne.
+	 * @param string  $forceType  Type de donnée forcé (string, bool, array, int, float)
 	 *
 	 * @return string
 	 */
-	public static function SanitizeForDb($value, $quotes = true){
-		if (is_array($value)){
+	public static function SanitizeForDb($value, $quotes = true, $forceType = null){
+		if ((is_array($value) and is_null($forceType)) or (!is_null($forceType) and $forceType == 'array')){
 			$value = Sanitize::arrayToString($value, ', ', 'db');
-		}elseif (is_bool($value)){
+		}elseif ((is_bool($value) and is_null($forceType)) or (!is_null($forceType) and $forceType == 'bool')){
 			$value = ($value) ? 1 : 0;
 		}else{
 			$value = str_replace('\\', '\\\\', $value);
 			$value = htmlspecialchars($value);
 		}
-		if (!is_numeric($value) and $quotes) $value = '\''.$value.'\'';
+		if (!((is_numeric($value) and is_null($forceType)) or (!is_null($forceType) and in_array($forceType == 'int', array('int', 'float')))) and $quotes) $value = '\''.$value.'\'';
 		return $value;
 	}
 

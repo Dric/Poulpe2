@@ -343,7 +343,7 @@ function displayLoadMessage(){
 			setTimeout(function () {waitingDialog.show(Message, {dialogSize: 'lg', progressType: 'warning'})}, 200);
 		}
 	});
-	$('form').submit(function(){
+	$('form:enabled').submit(function(){
 		var LoadMessage = $(this).data('load-message');
 		var Message = 'Chargement';
 		if (LoadMessage) {
