@@ -203,6 +203,9 @@ class Db {
 	 */
 	public function queryGroup(Array $sqlQueries){
 		$noRollBack = false;
+		if ($this->type == 'firebird') {
+			$this->db->setAttribute(PDO::ATTR_AUTOCOMMIT, 0);
+		}
 		$this->startTransaction();
 		foreach ($sqlQueries as $query){
 			if (preg_match('/(CREATE|ALTER|DROP|TRUNCATE|COMMENT|RENAME)/mi', $query)){
@@ -214,10 +217,16 @@ class Db {
 					new Alert('warning', 'ATTENTION : la présence de commandes DDL (CREATE, ALTER, DROP, COMMENT, TRUNCATE, RENAME) empêche l\'annulation des modifications !');
 				}
 				$this->rollBackTransaction();
+				if ($this->type == 'firebird') {
+					$this->db->setAttribute(PDO::ATTR_AUTOCOMMIT, 1);
+				}
 				return false;
 			}
 		}
 		$this->commitTransaction();
+		if ($this->type == 'firebird') {
+			$this->db->setAttribute(PDO::ATTR_AUTOCOMMIT, 1);
+		}
 		return true;
 	}
 
@@ -245,24 +254,30 @@ class Db {
 	 * $items = $db->get('table', $fields, $where, $orderBy);
 	 * </code>
 	 *
-	 * @param string       $table Table sur laquelle effectuer la requête
-	 * @param string|array $fields Champs à retourner <br>
-	 *  - tableau array('champ1', 'champ2') <br>
-	 *  - '*' pour tous les champs de la table <br>
-	 *  - 'all' pour tous les champs de la table <br>
-	 *  - null pour tous les champs de la table
-	 * @param array        $where Conditions de la requête de la forme array('champ' => valeur)
+	 * @param string       $table   Table sur laquelle effectuer la requête
+	 * @param string|array $fields  Champs à retourner <br>
+	 *                              - tableau array('champ1', 'champ2') <br>
+	 *                              - '*' pour tous les champs de la table <br>
+	 *                              - 'all' pour tous les champs de la table <br>
+	 *                              - null pour tous les champs de la table
+	 * @param array        $where   Conditions de la requête de la forme array('champ' => valeur)
 	 * @param array        $orderBy Tableau de tri, de la forme array('champ' => 'ordre de tri (ASC, DESC)')
-	 * @param string       $get Renvoie : <br>
-	 *  - 'row' une ligne <br>
-	 *  - 'col' une colonne <br>
-	 *  - 'all' un tableau de résultat <br>
-	 *  - 'val' une valeur <br>
+	 * @param string       $get     Renvoie : <br>
+	 *                              - 'row' une ligne <br>
+	 *                              - 'col' une colonne <br>
+	 *                              - 'all' un tableau de résultat <br>
+	 *                              - 'val' une valeur <br>
 	 *
-	 * @return object|bool
+	 * @param array         $fieldsTypes Tableau des types de données, de la forme array('champ' => 'type')
+	 *                                   - 'string'
+	 *                                   - 'bool'
+	 *                                   - 'array'
+	 *                                   - 'int'
+	 *                                   - 'float'
 	 *
+	 * @return bool|object
 	 */
-	public function get($table, $fields = null, $where = null, $orderBy = null, $get = 'all'){
+	public function get($table, $fields = null, $where = null, $orderBy = null, $get = 'all', $fieldsTypes = null){
 		if (!empty($where) and !is_array($where)){
 			new Alert('debug', '<code>Db->get()</code> : <code>$where</code> n\'est pas un tableau !'.Get::varDump($where));
 			return false;
@@ -284,17 +299,18 @@ class Db {
 		}
 		if (!empty($where)){
 			foreach ($where as $key => $value) {
+				$fieldType = (isset($fieldsTypes[$key])) ? $fieldsTypes[$key] : null;
 				if (!is_array($value)) {
 					if ($this->type == 'firebird') {
-						$prepWhere[] = htmlspecialchars($key) . ' = ' . Sanitize::SanitizeForDb($value);
+						$prepWhere[] = htmlspecialchars($key) . ' = ' . Sanitize::SanitizeForDb($value, true, $fieldType);
 					} else {
-						$prepWhere[] = '`' . htmlspecialchars($key) . '` = ' . Sanitize::SanitizeForDb($value);
+						$prepWhere[] = '`' . htmlspecialchars($key) . '` = ' . Sanitize::SanitizeForDb($value, true, $fieldType);
 					}
 				}else{
 					if ($this->type == 'firebird') {
-						$prepWhere[] = htmlspecialchars($key) . ' IN (' . Sanitize::SanitizeForDb($value) . ')';
+						$prepWhere[] = htmlspecialchars($key) . ' IN (' . Sanitize::SanitizeForDb($value, true, $fieldType) . ')';
 					} else {
-						$prepWhere[] = '`' . htmlspecialchars($key) . '` IN (' . Sanitize::SanitizeForDb($value) . ')';
+						$prepWhere[] = '`' . htmlspecialchars($key) . '` IN (' . Sanitize::SanitizeForDb($value, true, $fieldType) . ')';
 					}
 				}
 			}
@@ -334,11 +350,17 @@ class Db {
 	 * - null pour tous les champs de la table <br>
 	 * @param array $where Conditions de la requête de la forme array('champ' => valeur)
 	 * @param array $orderBy Tableau de tri, de la forme array('champ' => 'ordre de tri (ASC, DESC)')
+	 * @param array         $fieldsTypes Tableau des types de données, de la forme array('champ' => 'type')
+	 *                                   - 'string'
+	 *                                   - 'bool'
+	 *                                   - 'array'
+	 *                                   - 'int'
+	 *                                   - 'float'
 	 *
 	 * @return object
 	 */
-	public function getRow($table, $fields = null, $where = null, $orderBy = null){
-		return $this->get($table, $fields, $where, $orderBy, 'row');
+	public function getRow($table, $fields = null, $where = null, $orderBy = null, $fieldsTypes = null){
+		return $this->get($table, $fields, $where, $orderBy, 'row', $fieldsTypes);
 	}
 
 	/**
@@ -360,11 +382,17 @@ class Db {
 	 * - null pour tous les champs de la table <br>
 	 * @param array $where Conditions de la requête de la forme array('champ' => valeur)
 	 * @param array $orderBy Tableau de tri, de la forme array('champ' => 'ordre de tri (ASC, DESC)')
+	 * @param array $fieldsTypes Tableau des types de données, de la forme array('champ' => 'type')
+	 *                                   - 'string'
+	 *                                   - 'bool'
+	 *                                   - 'array'
+	 *                                   - 'int'
+	 *                                   - 'float'
 	 *
 	 * @return mixed
 	 */
-	public function getVal($table, $field, $where = null, $orderBy = null){
-		return $this->get($table, $field, $where, $orderBy, 'val');
+	public function getVal($table, $field, $where = null, $orderBy = null, $fieldsTypes = null){
+		return $this->get($table, $field, $where, $orderBy, 'val', $fieldsTypes);
 	}
 
 	/**
@@ -493,10 +521,10 @@ class Db {
 		}
 		$prepWhere = array();
 		foreach ($where as $key => $value) {
-			if (isset($updates[$key])) {
+			/*if (isset($updates[$key])) {
 				$updates[$key.'2'] = $updates[$key];
 				unset($updates['key']);
-			}
+			}*/
 			$prepWhere[] = '`'.htmlspecialchars($key). '` = :'.htmlspecialchars($key);
 		}
 		$sql = 'DELETE FROM `'.htmlspecialchars($table).'` WHERE '.implode(' AND ', $prepWhere);
