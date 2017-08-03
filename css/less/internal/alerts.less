@@ -7,6 +7,13 @@
 @btn-warning-border:    #f0ad4e;*/
 .alert {
   font-size: @font-size-small + 2;
+  & > a {
+    color: @body-bg;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 .stack-bottomright .ui-pnotify-text{
   font-size: @font-size-small;
