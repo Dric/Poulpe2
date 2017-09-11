@@ -134,6 +134,21 @@ class Check {
 	}
 
 	/**
+	 * Vérifie qu'une valeur est une date valide
+	 *
+	 * @from https://stackoverflow.com/a/19271434/1749967
+	 *
+	 * @param string  $date   Date à valider
+	 * @param string  $format Format de la date (`d/m/Y` par défaut)
+	 *
+	 * @return bool
+	 */
+	public static function isDate($date, $format = 'd/m/Y'){
+		$d = DateTime::createFromFormat($format, $date);
+		return $d && $d->format($format) === $date;
+	}
+
+	/**
 	 *
 	 * Compare deux valeurs
 	 *
