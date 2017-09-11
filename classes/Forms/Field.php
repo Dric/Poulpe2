@@ -163,7 +163,7 @@ class Field extends Setting{
 		if (!empty($pattern)){
 			if ($pattern->getRequired())        $displayPattern .= 'required ';
 			if ($pattern->getMinLength() > 0)   $displayPattern .= 'data-minlength="'.$pattern->getMinLength().'" ';
-			if ($pattern->getMaxLength() > 0)   $displayPattern .= 'data-maxlength="'.$pattern->getMaxLength().'" ';
+			if ($pattern->getMaxLength() > 0)   $displayPattern .= 'maxlength="'.$pattern->getMaxLength().'" ';
 			if ($pattern->getMinValue() > 0)    $displayPattern .= 'min="'.$pattern->getMinValue().'" ';
 			if ($pattern->getMaxValue() > 0)    $displayPattern .= 'max="'.$pattern->getMaxValue().'" ';
 			if ($pattern->getRegExp() !== null) $displayPattern .= 'pattern="'.$pattern->getRegExp().'" ';

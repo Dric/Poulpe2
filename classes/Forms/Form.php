@@ -150,7 +150,7 @@ class Form {
 	public function display(){
 		global $cUser;
 		?>
-		<form id="form_<?php echo $this->name?>" class="<?php if (!empty($this->class)) echo $this->class; ?>" method="<?php echo $this->method; ?>" role="form" data-toggle="validator" action="<?php if (!empty($this->action)) echo $this->action; ?>" enctype="multipart/form-data">
+		<form id="form_<?php echo $this->name; ?>" class="<?php if (!empty($this->class)) echo $this->class; ?>" method="<?php echo $this->method; ?>" role="form" data-toggle="validator" action="<?php if (!empty($this->action)) echo $this->action; ?>" enctype="multipart/form-data">
 			<?php
 			// On affiche d'abord les champs
 			/**
