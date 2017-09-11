@@ -37,7 +37,7 @@ Les pretty URL (du type `http://poulpe2/module/FileBrowser`) sont disponibles se
 - [Pagedown Bootstrap](http://kevin.oconnor.mp/pagedown-bootstrap) : Editeur gérant la syntaxe Markdown
 - [Highlight.js](http://highlightjs.org) : Plugin de coloration syntaxique de code
 - [DataTables](http://datatables.net) 1.10.15 : Plugin jQuery d'organisation de tables HTML avec tri, recherche et pagination
-- [Bootstrap Validator](https://github.com/1000hz/bootstrap-validator) 0.5 : plugin jQuery et Bootstrap qui gère la validation des champs de formulaires
+- [Bootstrap Validator](https://github.com/1000hz/bootstrap-validator) 0.11.9 : plugin jQuery et Bootstrap qui gère la validation des champs de formulaires
 - [Bootstrap v3 datetimepicker](https://github.com/Eonasdan/bootstrap-datetimepicker) 3.0.0 : Plugin jQuery de saisie de date et heure
 - [Autosize](http://www.jacklmoore.com/autosize/) 3.0.5 : Plugin jQuery permettant de changer dynamiquement la hauteur des Textareas pour qu'ils s'adaptent à leurs contenus
 - [bootstrap-waitingfor](https://github.com/ehpc/bootstrap-waitingfor) Affiche un modal pour patienter un peu pendant un chargement
