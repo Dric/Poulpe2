@@ -138,7 +138,7 @@ class Check {
 	 *
 	 * @from https://stackoverflow.com/a/19271434/1749967
 	 *
-	 * @param string  $date   Date à valider
+	 * @param string  $date   Date à valider (si timestamp, doit être supérieur à 0 - les dates avant le 01/01/1970 ne sont pas donc pas validées)
 	 * @param string  $format Format de la date (`d/m/Y` par défaut)
 	 *
 	 * @return bool
