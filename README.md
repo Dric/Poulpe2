@@ -26,7 +26,7 @@ Les pretty URL (du type `http://poulpe2/module/FileBrowser`) sont disponibles se
 
 ## Composants externes
 
-- [Twitter Bootstrap](http://getbootstrap.com) 3.2.0 : est un framework html, css et javascript. En clair il peut gérer toute la partie affichage dès lors qu'on lui file quelque chose à afficher.
+- [Twitter Bootstrap](http://getbootstrap.com) 3.3.7 : est un framework html, css et javascript. En clair il peut gérer toute la partie affichage dès lors qu'on lui file quelque chose à afficher.
 - [Yeti](https://bootswatch.com/yeti/) 3.3.6 : Thème pour Bootstrap
 - [Font Awesome](http://fortawesome.github.io/Font-Awesome/) 4.7.0 : ensemble d'icônes contenues dans une police d'écriture, remplaçant `Glyphicon` de Bootstrap.
 - [jQuery](http://jquery.com) 1.11.0 : framework Javascript utilisé par Bootstrap.
