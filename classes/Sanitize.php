@@ -352,7 +352,7 @@ class Sanitize {
 			list($millenium, $year, $month, $day, $hours, $minutes, $seconds) = str_split($tab[0], 2);
 			$time = mktime($hours, $minutes, $seconds, $month, $day, $millenium.$year);
 			date_default_timezone_set('Europe/Paris');
-			return $time;
+			return (int)$time;
 		}
 	}
 

@@ -69,15 +69,13 @@ class ValuesArray extends Field{
 		}
 		$value = ($userValue and !empty($this->userValue)) ? $this->userValue : $this->value;
 		if (!empty($this->placeholder) and is_array($this->placeholder)){
-			$this->placeholder = implode("\n&nbsp;", $this->placeholder);
-			$helpBlock = 'Utilisation : Un item par ligne (les valeurs par défaut ne pouvant pas être représentées avec des sauts de lignes, elles sont affichées sur une même ligne)';
-		} else {
-			$helpBlock = 'Utilisation : Un item par ligne';
+			$this->placeholder = implode("\n\n&nbsp;", $this->placeholder);
 		}
+		$helpBlock = 'Utilisation : Un item par ligne';
 		?>
 		<div class="form-group <?php if ($this->important) echo 'has-warning'; ?>">
 			<label for="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>"><?php echo $this->label; ?> <?php if (!empty($pattern) and $pattern->getRequired()) $this->displayRequired(); ?> <?php if($this->help != '') Help::iconHelp($this->help); ?></label>
-			<textarea class="form-control<?php echo ' '.$this->class; ?>" rows="<?php echo count($this->value); ?>" id="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>" name="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>" <?php if ($this->placeholder != '') echo 'placeholder="'.$this->placeholder.'"'; ?> <?php if ($this->disabled or !$enabled) echo 'disabled'; ?> <?php echo $displayPattern; ?>><?php echo implode(PHP_EOL, $value); ?></textarea>
+			<textarea class="form-control<?php echo ' '.$this->class; ?>" rows="<?php echo count($this->value); ?>" id="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>" name="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>" <?php if ($this->placeholder != '') echo 'placeholder="'.$this->placeholder.'"'; ?> <?php if ($this->disabled or !$enabled) echo 'disabled'; ?> <?php echo $displayPattern; ?>><?php echo (!empty($value)) ? implode(PHP_EOL, $value) : null; ?></textarea>
 			<input type="hidden" id="field_<?php echo $this->type; ?>_<?php echo $this->name; ?>_serialize" name="field_<?php echo $this->type ?>_<?php echo $this->name ?>_serialize" value="<?php echo $this->serialize ?>">
 			<div class="help-block with-errors"></div>
 			<p class="help-block"><?php echo $helpBlock; ?></p>
