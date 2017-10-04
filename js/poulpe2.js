@@ -92,7 +92,7 @@ function bootstrapSwitch(){
 	/* Checkbox des ACL */
 	$('.checkbox-ACL').each(function(){
 		$(this).bootstrapSwitch({
-			size: 		'small',
+			size: 		'mini',
 			onText:		'Permis',
 			offText:	'Refusé',
 			onColor:  'success',
@@ -102,7 +102,7 @@ function bootstrapSwitch(){
 	});
 	$('.checkbox-activation').each(function(){
 		$(this).bootstrapSwitch({
-			size: 		'small',
+			size: 		'mini',
 			onText:		'Oui',
 			offText:	'Non',
 			onColor:  'success',
@@ -352,11 +352,12 @@ function displayLoadMessage(){
 		setTimeout(function () {waitingDialog.show(Message, {dialogSize: 'lg', progressType: 'warning'})}, 200);
 	});
 }
-
-menuNavigation();
-bootstrapSwitch();
-ACLSwitchs();
-dbTables();
-confirmation();
-toolTips();
-displayLoadMessage();
+$(function () {
+	menuNavigation();
+	bootstrapSwitch();
+	ACLSwitchs();
+	dbTables();
+	confirmation();
+	toolTips();
+	displayLoadMessage();
+});

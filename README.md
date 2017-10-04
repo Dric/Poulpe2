@@ -30,7 +30,7 @@ Les pretty URL (du type `http://poulpe2/module/FileBrowser`) sont disponibles se
 - [Yeti](https://bootswatch.com/yeti/) 3.3.6 : Thème pour Bootstrap
 - [Font Awesome](http://fortawesome.github.io/Font-Awesome/) 4.7.0 : ensemble d'icônes contenues dans une police d'écriture, remplaçant `Glyphicon` de Bootstrap.
 - [jQuery](http://jquery.com) 1.11.0 : framework Javascript utilisé par Bootstrap.
-- [Bootstrap Switch](http://www.bootstrap-switch.org) 3 : plugin jQuery qui change les cases à cocher en switch d'activation (similaire à ce qu'on voit sur les smartphones).
+- [Bootstrap Switch](http://.bootstrapswitch.com) 3.3.4 : plugin jQuery qui change les cases à cocher en switch d'activation (similaire à ce qu'on voit sur les smartphones).
 - [PNotify Plugin](http://sciactive.com/pnotify/) 1.3.1 : plugin jQuery de notifications flottantes.
 - [Bootstrap Confirmation](https://github.com/mistic100/Bootstrap-Confirmation) 2.0 : plugin de jQuery et Bootstrap qui gère les confirmations via popover.
 - [Bootstrap 3 Typeahead](https://github.com/bassjobsen/Bootstrap-3-Typeahead) : Plugin d'auto-completion qui a été supprimé de Bootstrap 3.
