@@ -154,7 +154,8 @@ class Ldap {
 		$connect = new Connection($dc, $user, $pwd, $this->domain);
 		// Si badCreds est à false, alors la connexion a réussi
 		if ($connect->badCreds() !== false){
-			new Alert('error', 'Les identifiants sont incorrects !');
+			$message = (!empty($connect->getErrorMsg())) ? $connect->getErrorMsg() : 'Les identifiants sont incorrects !';
+			new Alert('error', $message);
 			return false ;
 		}else{
 			$filter = null;

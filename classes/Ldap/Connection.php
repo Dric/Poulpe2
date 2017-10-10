@@ -86,6 +86,11 @@ class Connection {
 	protected $badCreds = false;
 
 	/**
+	 * @var string Message d'erreur de connexion
+	 */
+	protected $errorMsg = null;
+
+	/**
 	 * Construction de l'objet
 	 *
 	 * @param string $dc Contrôleur de domaine sur lequel ouvrir la connexion
@@ -117,6 +122,24 @@ class Connection {
 			// Méfiance, si le mot de passe est vide, une connexion anonyme sera tentée et la connexion peut retourner true...
 			$r = @ldap_bind($this->connection, $this->bindName.'@'.$this->domain, $this->bindPwd);
 			if (!$r) {
+				// On récupère un code d'erreur plus parlant que celui qui est renvoyé normalement
+				ldap_get_option($this->connection, LDAP_OPT_ERROR_STRING, $diagnosticMsg);
+				if (preg_match('/data (\w{3}),/', $diagnosticMsg, $match)){
+					// Afin d'éviter que des petits malins ne fassent des essais tordus, on ne renvoie pas les erreurs de type compte inexistant ou mauvais mot de passe pour ce compte mais un message plus générique.
+					// D'un point de vue sécurité on ne devrait d'ailleurs pas renvoyer les autres messages puisqu'ils sont révélateurs de l'existence de comptes AD.
+					$errorCodes = array(
+						//'525' => 'Cet utilisateur n\'existe pas',
+						//'52e' => 'Votre mot de passe est incorrect',
+						'530' => 'Vous ne pouvez pas vous connecter à cette heure-ci',
+						'531' => 'Vous ne pouvez pas vous connecter depuis ce serveur',
+						'532' => 'Votre mot de passe est expiré',
+						'533' => 'Votre compte a été désactivé',
+						'701' => 'Votre compte a expiré',
+						'773' => 'Votre mot de passe a expiré, vous devez le changer avant de pouvoir vous connecter',
+						'775' => 'Votre compte est verrouillé',
+					);
+					$this->errorMsg = (isset($errorCodes[$match[1]])) ? $errorCodes[$match[1]] : null;
+				}
 				new Alert('debug', '<code>Connection constructor</code> : Impossible de se connecter au serveur LDAP <code>'.$this->dc.'</code> avec les identifiants saisis !');
 				$this->badCreds = true;
 			}
@@ -145,6 +168,14 @@ class Connection {
 	public function badCreds(){
 		return $this->badCreds;
 	}
+
+	/**
+	 * @return string
+	 */
+	public function getErrorMsg() {
+		return $this->errorMsg;
+	}
+
 }
 
 ?>
