@@ -19,6 +19,7 @@ use Forms\Pattern;
  */
 class Button extends Field{
 
+	/** @var string Type de champ */
 	protected $type = 'button';
 
 	/**
@@ -38,7 +39,9 @@ class Button extends Field{
 	/**
 	 * Affichage du champ
 	 *
-	 * @param bool   $enabled Champ modifiable
+	 * @param bool    $enabled Champ modifiable
+	 * @param bool    $userValue  Applique la valeur de l'utilisateur
+	 * @param string  $attrs      Attributs html à ajouter au champ de saisie
 	 */
 	public function display($enabled = true, $userValue = false, $attrs = null){
 		?>

@@ -25,9 +25,13 @@ use Front;
  */
 class Time extends StringField{
 
+	/** @var string Type html du champ */
 	protected $htmlType = 'time';
+	/** @var string Type de champ (typage php pour la sauvegarde) */
 	protected $type = 'time';
+	/** @var string Type de date */
 	protected $dateType = 'time';
+	/** @var string Icône associée */
 	protected $associatedIcon = 'time';
 
 	/**
@@ -57,10 +61,11 @@ class Time extends StringField{
 	/**
 	 * Affichage du champ
 	 *
-	 * @param bool $enabled Champ modifiable
-	 * @param bool $userValue Afficher la valeur utilisateur au lieu de la valeur globale
+	 * @param bool    $enabled    Champ modifiable
+	 * @param bool    $userValue  Afficher la valeur utilisateur au lieu de la valeur globale
+	 * @param string  $attrs      Attributs html à ajouter au champ de saisie
 	 */
-	public function display($enabled = true, $userValue = false){
+	public function display($enabled = true, $userValue = false, $attrs = null){
 		$attrs = ' data-datetype="'.$this->dateType.'"';
 		parent::display($enabled, $userValue, $attrs);
 	}

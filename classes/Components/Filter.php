@@ -1,6 +1,4 @@
 <?php
-
-namespace Components;
 /**
  * Classe de mise en forme de filtre (pour requête sql, pour filtrage de données, etc.)
  *
@@ -9,6 +7,9 @@ namespace Components;
  * Time: 14:10
  *
  */
+
+namespace Components;
+
 use Logs\Alert;
 use Sanitize;
 

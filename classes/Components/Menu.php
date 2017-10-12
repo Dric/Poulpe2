@@ -118,6 +118,9 @@ class Menu {
 		return true;
 	}
 
+	/**
+	 * Trie les items de menus
+	 */
 	protected function sortMenus(){
 		/*
 		Plusieurs items peuvent avoir la même priorité de base.

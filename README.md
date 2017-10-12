@@ -68,11 +68,13 @@ Pour une installation manuelle, voir Le fichier `install.md`.
 
 - Activer le module `ModuleCreator` qui donne les liens vers les différentes documentations disponibles
 - Voir le répertoire `Docs`
-- Documentation générée avec [ApiGen](http://apigen.org)
+- Documentation générée avec [phpDocumentor](https://phpdoc.org/)
 
 Paramètres de génération de doc (commande lancée à partir du répertoire racine de Poulpe2) :
 
-     apigen -s . -s "classes/Modules/Module.php" -s "classes/Modules/ModulesManagement.php" -s "classes/Settings/config.php" -d ./Docs/Code --exclude "*/Docs" --exclude "*/fonts" --exclude "*/img" --exclude "*/js" --exclude "*/Modules*" --template-config "/usr/share/php/data/ApiGen/templates/bootstrap/config.neon"  --allowed-html "b,i,a,ul,ol,li,p,br,var,samp,kbd,tt,h1,h2,h3,h4" --report toDocument.txt
+    composer require --dev phpdocumentor/phpdocumentor dev-master
+    php vendor/bin/phpdoc run --title "Doc du code de Poulpe2" -t Docs/Code -d . -i "classes/Settings.php,Docs/,Modules/Charts/,Modules_CHGS/,Modules_Lisia/,Modules_Salsifis/,vendor/,fonts/,img/,js/,cache/"
+
 
 ## Divers
 

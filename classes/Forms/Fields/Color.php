@@ -23,6 +23,7 @@ use Forms\Pattern;
  */
 class Color extends StringField{
 
+	/** @var string Type de champ HTML */
 	protected $htmlType = 'color';
 
 }

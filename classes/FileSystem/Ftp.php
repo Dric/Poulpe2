@@ -49,7 +49,7 @@ class Ftp {
 	 */
 	protected $portNumber;
 	/**
-	 * @var bool|resource|SFTP
+	 * @var bool|resource|SFTP Connexion
 	 */
 	protected $connection = false;
 
@@ -97,6 +97,9 @@ class Ftp {
 		$this->connect();
 	}
 
+	/**
+	 * Destruction de l'objet
+	 */
 	public function __destruct(){
 		if ($this->connectionType == 'ftp'){
 			ftp_close($this->connection);

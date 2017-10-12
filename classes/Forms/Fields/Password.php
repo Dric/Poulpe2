@@ -22,6 +22,7 @@ use Forms\Pattern;
  */
 class Password extends StringField{
 
+	/** @var string Type de champ HTML */
 	protected $htmlType = 'password';
 
 	/**

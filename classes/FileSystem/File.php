@@ -16,7 +16,7 @@ use Logs\Alert;
  *
  * @package FileSystem
  *
- * @property-read int $name
+ * @property-read string $name
  * @property-read string $fullName
  * @property-read int $dateCreated
  * @property-read int $dateModified
@@ -34,21 +34,37 @@ use Logs\Alert;
  */
 class File {
 
+	/** @var string Nom du fichier */
 	protected $name = null;
+	/** @var string Nom complet du fichier avec son chemin */
 	protected $fullName = null;
+	/** @var int Timestamp de création du fichier */
 	protected $dateCreated = 0;
+	/** @var int Timestamp de dernière modification du fichier */
 	protected $dateModified = 0;
+	/** @var int Taille du fichier */
 	protected $size = 0;
+	/** @var string Extension du fichier */
 	protected $extension = null;
+	/** @var string Encodage du fichier (UTF-8, ANSI, etc.) */
 	protected $encoding = null;
+	/** @var string Type de fichier (renvoyé par le système) */
 	protected $fullType = null;
+	/** @var string Type simple de fichier (vidéo, image, texte, etc.) */
 	protected $type = null;
+	/** @var int Autorisations sur le fichier (ACL Linux) */
 	protected $chmod = 0;
+	/** @var int Autorisations avancées sur le fichier */
 	protected $advChmod = 0;
+	/** @var bool Fichier modifiable */
 	protected $writable = false;
+	/** @var string Propriétaire du fichier */
 	protected $owner = null;
+	/** @var string Groupe propriétaire du fichier */
 	protected $groupOwner = null;
+	/** @var bool Fichier caché (sous Linux) */
 	protected $linuxHidden = false;
+	/** @var string Répertoire contenant le fichier */
 	protected $parentFolder = null;
 
 	/**
@@ -164,11 +180,25 @@ class File {
 		}
 		return floatval($size);
 	}
-	
+
+	/**
+	 * Vérifie qu'une propriété existe
+	 *
+	 * @param string $prop Nom de la propriété
+	 *
+	 * @return bool
+	 */
 	public function __isset($prop){
 		return isset($this->$prop);
 	}
-	
+
+	/**
+	 * Récupère la valeur d'une propriété
+	 *
+	 * @param string $prop Nom de la propriété
+	 *
+	 * @return null
+	 */
 	public function __get($prop){
 		if (isset($this->$prop)) return $this->$prop;
 		return null;

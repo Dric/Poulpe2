@@ -174,6 +174,7 @@ class Module {
 	}
 
 	/**
+	 * Retourne le fil d'ariane du module
 	 * @return array
 	 */
 	public function getBreadCrumb() {
@@ -181,6 +182,7 @@ class Module {
 	}
 
 	/**
+	 * Retourne la version de schéma de bdd du module
 	 * @return string
 	 */
 	public function getVersion() {

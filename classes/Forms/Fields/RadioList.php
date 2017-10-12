@@ -21,7 +21,9 @@ use Forms\Field;
  */
 class RadioList extends Field{
 
+	/** @var string Type de champ (pour sauvegarde) */
 	protected $type = 'radioList';
+	/** @var string Type de champ HTML */
 	protected $htmlType = 'radio';
 
 	/**

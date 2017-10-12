@@ -782,6 +782,9 @@ class Settings extends DefaultSettings {
 		<?php
 	}
 
+	/**
+	 * Affiche la version et les infos (commit Git) de Poulpe2 et du répertoire des modules
+	 */
 	protected function poulpe2Versions(){
 		$coreGitRepo = Git::open(Front::getAbsolutePath());
 		$coreLastCommit = $coreGitRepo->getLastCommit();
@@ -813,6 +816,11 @@ class Settings extends DefaultSettings {
 		<?php
 	}
 
+	/**
+	 * Effectue une mise à jour de Poulpe2 et des modules (via un git pull)
+	 *
+	 * @return bool
+	 */
 	protected function poulpe2Update(){
 		if (!ACL::canModify('admin', $this->id)){
 			new Alert('error', 'Vous n\'avez pas l\'autorisation de faire ceci !');

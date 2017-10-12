@@ -182,6 +182,7 @@ class Connection {
 	}
 
 	/**
+	 * Retourne l'éventuel message d'erreur généré lors de la connexion
 	 * @return string
 	 */
 	public function getErrorMsg() {

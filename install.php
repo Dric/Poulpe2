@@ -1,4 +1,9 @@
 <?php
+/**
+ * Script d'installation de Poulpe2
+ */
+
+
 session_start();
 /** Install script for Simple Photos Contests */
 if (isset($_POST['step'])){

@@ -342,7 +342,13 @@ class Ldap {
 		return 'S-' . $result;
 	}
 
-	// Converts a little-endian hex-number to one, that 'hexdec' can convert
+	/**
+	 * Converts a little-endian hex-number to one, that 'hexdec' can convert
+	 *
+	 * @param string $hex
+	 *
+	 * @return null|string
+	 */
 	protected function little_endian($hex) {
 		$result = null;
 		for ($x = strlen($hex) - 2; $x >= 0; $x = $x - 2) {

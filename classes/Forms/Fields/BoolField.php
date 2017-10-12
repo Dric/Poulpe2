@@ -21,6 +21,7 @@ use Forms\Pattern;
  */
 class BoolField extends Field{
 
+	/** @var string Type de champ (pour sauvegarde) */
 	protected $type = 'bool';
 	/**
 	 * Switch Javascript pour la mise en forme de la checkbox
@@ -50,8 +51,9 @@ class BoolField extends Field{
 	/**
 	 * Affichage du champ
 	 *
-	 * @param bool $enabled Champ modifiable
-	 * @param bool $userValue Applique la valeur de l'utilisateur
+	 * @param bool    $enabled    Champ modifiable
+	 * @param bool    $userValue  Applique la valeur de l'utilisateur
+	 * @param string  $attrs      Attributs html à ajouter au champ de saisie
 	 */
 	public function display($enabled = true, $userValue = false, $attrs = null){
 		// Gestion des Switchs

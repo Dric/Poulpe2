@@ -26,9 +26,13 @@ use Front;
  */
 class Date extends StringField{
 
+	/** @var string Type de champ HTML */
 	protected $htmlType = 'date';
+	/** @var string Type de champ (pour sauvegarde) */
 	protected $type = 'date';
+	/** @var string Type de date */
 	protected $dateType = 'date';
+	/** @var string Icône associée */
 	protected $associatedIcon = 'calendar';
 
 	/**

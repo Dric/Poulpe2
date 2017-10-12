@@ -14,13 +14,14 @@
 namespace Git;
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) die('Bad load order');
 // ------------------------------------------------------------------------
+
 /**
  * Git Interface Class
  *
  * This class enables the creating, reading, and manipulation
  * of git repositories.
  *
- * @class  Git
+ * @class Git
  */
 class Git {
 	/**

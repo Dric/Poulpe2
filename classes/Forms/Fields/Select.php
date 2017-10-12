@@ -19,6 +19,7 @@ use Forms\Field;
  */
 class Select extends Field{
 
+	/** @var string Type de champ (pour sauvegarde) */
 	protected $type = 'select';
 	/**
 	 * Liste de choix dans un tableau associatif de la forme `Valeur => libellé`
@@ -59,6 +60,7 @@ class Select extends Field{
 	 *
 	 * @param bool $enabled Champ modifiable
 	 * @param bool $userValue Affichage de la valeur utilisateur au lieu de la valeur globale
+	 * @param string $attrs Attributs html à ajouter au champ de saisie
 	 */
 	public function display($enabled = true, $userValue = false, $attrs = null){
 		$value = ($userValue and !empty($this->userValue)) ? $this->userValue : $this->value;

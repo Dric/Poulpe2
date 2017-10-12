@@ -23,8 +23,9 @@ use Forms\Pattern;
  * @package Forms\Fields
  */
 class Email extends StringField{
-
+	/** @var string Type html du champ */
 	protected $htmlType = 'email';
+	/** @var string Icône associée */
 	protected $associatedIcon = 'envelope';
 
 }

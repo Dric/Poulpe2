@@ -22,6 +22,7 @@ use Forms\Pattern;
  */
 class ValuesArray extends Field{
 
+	/** @var string Type de champ (pour sauvegarde) */
 	protected $type = 'array';
 	/**
 	 * Permet de spécifier qu'on veut sérialiser le tableau à la sauvegarde

@@ -19,12 +19,15 @@ use Forms\Pattern;
  */
 class LinkButton extends Button{
 
+	/** @var string Type de champ (pour sauvegarde) */
 	protected $type = 'linkButton';
 
 	/**
 	 * Affichage du champ
 	 *
-	 * @param bool   $enabled Champ modifiable
+	 * @param bool    $enabled    Champ modifiable
+	 * @param bool    $userValue  Applique la valeur de l'utilisateur
+	 * @param string  $attrs      Attributs html à ajouter au champ de saisie
 	 */
 	public function display($enabled = true, $userValue = false, $attrs = null){
 		?>

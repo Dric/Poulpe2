@@ -19,7 +19,9 @@ use Forms\Pattern;
  */
 class Hidden extends Field{
 
+	/** @var string Type de champ (pour sauvegarde) */
 	protected $type = 'hidden';
+	/** @var string Type de champ HTML */
 	protected $htmlType = 'hidden';
 
 	/**

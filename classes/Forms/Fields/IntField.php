@@ -24,7 +24,9 @@ use Forms\Pattern;
  */
 class IntField extends StringField{
 
+	/** @var string Type de champ (pour sauvegarde) */
 	protected $type = 'int';
+	/** @var string Type de champ HTML */
 	protected $htmlType = 'number';
 	/**
 	 * Pas d'incrémentation des valeurs

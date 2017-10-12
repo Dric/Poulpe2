@@ -322,7 +322,9 @@ class Front {
 
 	/**
 	 * Affiche le fil d'ariane
-	 * @param array $breadCrumb
+	 *
+	 * @param array  $breadCrumb Tableau de fil d'ariane
+	 * @param string $moduleVersion Version du module
 	 */
 	public static function displayBreadCrumb($breadCrumb, $moduleVersion = '0') {
 		if (self::$breadCrumb['link'] == '.') self::$breadCrumb['link'] = Front::getBaseUrl();

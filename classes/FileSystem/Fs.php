@@ -383,10 +383,11 @@ class Fs {
 	/**
 	 * Ecrit dans un fichier
 	 *
-	 * @param string       $fileName    Nom du fichier
-	 * @param array|string $content     Contenu du fichier
-	 * @param bool         $append      Ajoute le contenu à la suite du fichier au lieu de l'écraser si celui-ci existe (facultatif)
-	 * @param bool         $backupFile  Crée un backup du fichier avec l'extension .backup (facultatif)
+	 * @param string       $fileName   Nom du fichier
+	 * @param array|string $content    Contenu du fichier
+	 * @param bool         $append     Ajoute le contenu à la suite du fichier au lieu de l'écraser si celui-ci existe (facultatif)
+	 * @param bool         $backupFile Crée un backup du fichier avec l'extension .backup (facultatif)
+	 * @param bool         $silent     N'affiche pas les messages d'erreur
 	 *
 	 * @return bool
 	 */

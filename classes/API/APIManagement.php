@@ -16,6 +16,8 @@ use Modules\ModulesManagement;
  * @package API
  */
 class APIManagement {
+
+	/** @var array API enregistrées */
 	static protected $APIs = array();
 
 	/**

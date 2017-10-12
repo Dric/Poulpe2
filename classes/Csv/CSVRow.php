@@ -10,8 +10,14 @@ namespace Csv;
 
 use Logs\Alert;
 
+/**
+ * Ligne de fichier CSV
+ *
+ * @package Csv
+ */
 class CSVRow {
 
+	/** @var null Etat de la ligne (success, warning, danger, info - correspond en fait aux couleurs de Bootstrap) */
 	protected $CSVRowState = null;
 	/** @var string Id de la ligne */
 	protected $CSVRowID = null;
@@ -75,6 +81,7 @@ class CSVRow {
 	}
 
 	/**
+	 * Retourne l'état de la ligne (success, warning, danger, info - correspond en fait aux couleurs de Bootstrap)
 	 * @return string
 	 */
 	public function getState() {
@@ -82,6 +89,7 @@ class CSVRow {
 	}
 
 	/**
+	 * Retourne l'ID de la ligne
 	 * @return string
 	 */
 	public function getID() {
@@ -89,6 +97,7 @@ class CSVRow {
 	}
 
 	/**
+	 * Retourne les colonnes définies dans la ligne
 	 * @return array
 	 */
 	public function getColumns() {

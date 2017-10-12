@@ -484,9 +484,11 @@ class Sanitize {
 	 * Convertit un texte en UTF-8 seulement si nécessaire
 	 *
 	 * @from http://php.net/manual/fr/function.iconv.php#116178
-	 * @param (string|string[]) $text Texte à convertir
 	 *
-	 * @return (string|string[])
+	 * @param (string|string[]) $text Texte à convertir
+	 * @param string $sourceEncoding Encodage d'origine
+	 *
+	 * @return array|string (string|string[])
 	 */
 	public static function convertToUTF8($text, $sourceEncoding = 'ISO-8859-1' ) {
 		if (is_array($text)){

@@ -19,7 +19,9 @@ use Forms\Pattern;
  */
 class StringField extends Field{
 
+	/** @var string Type de champ (pour sauvegarde) */
 	protected $type = 'string';
+	/** @var string Type de champ HTML */
 	protected $htmlType = 'text';
 	/**
 	 * Activer l'auto-completion par le navigateur

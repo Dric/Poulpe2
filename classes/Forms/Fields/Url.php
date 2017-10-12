@@ -24,7 +24,9 @@ use Forms\Pattern;
  */
 class Url extends StringField{
 
+	/** @var string Type de champ HTML */
 	protected $htmlType = 'url';
+	/** @var string Icône associée */
 	protected $associatedIcon = 'link';
 
 } 

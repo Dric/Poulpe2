@@ -46,6 +46,7 @@ class serverResource {
 	 */
 	protected $total = null;
 
+	/** @var bool Etat en erreur de la ressource */
 	protected $inError = false;
 
 	/**

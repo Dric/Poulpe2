@@ -33,6 +33,7 @@ class Csv {
 	/** @var string Chemin et nom du fichier CSV */
 	protected $fileName = null;
 
+	/** @var string Chemin du fichier */
 	protected $path = null;
 
 	/** @var string Nom du fichier, sans son chemin */

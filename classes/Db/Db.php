@@ -230,14 +230,23 @@ class Db {
 		return true;
 	}
 
+	/**
+	 * Débute une transaction SQL
+	 */
 	public function startTransaction(){
 		$this->db->beginTransaction();
 	}
 
+	/**
+	 * Valide une transaction SQL
+	 */
 	public function commitTransaction(){
 		$this->db->commit();
 	}
 
+	/**
+	 * Annule une transaction SQL
+	 */
 	public function rollBackTransaction(){
 		$this->db->rollBack();
 	}

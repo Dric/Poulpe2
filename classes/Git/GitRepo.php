@@ -21,11 +21,14 @@ use Logs\Alert;
  * This class enables the creating, reading, and manipulation
  * of a git repository
  *
- * @class  GitRepo
+ * @class GitRepo
  */
 class GitRepo {
+	/** @var string Chemin du dépôt */
 	protected $repo_path = null;
+	/** @var bool Dépôt nu */
 	protected $bare = false;
+	/** @var array Options d'environnement */
 	protected $envopts = array();
 
 	/**
@@ -768,10 +771,11 @@ class GitRepo {
 	/**
 	 * List log entries.
 	 *
-	 * @param string      $format
-	 * @param string      $file
 	 * @param string      $startHash
 	 * @param string      $endHash
+	 * @param string      $format
+	 * @param string      $file
+	 *
 	 * @return string
 	 */
 	public function logFileRevisionRange($startHash, $endHash, $format = null, $file = '')

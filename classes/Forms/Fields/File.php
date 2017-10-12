@@ -23,7 +23,9 @@ use Forms\Pattern;
  */
 class File extends StringField{
 
+	/** @var string Type de champ HTML */
 	protected $htmlType = 'file';
+	/** @var string Icône associée */
 	protected $associatedIcon = 'paperclip';
 
 }

@@ -48,10 +48,11 @@ class Table extends Field{
 	 *
 	 * On fait appel à la méthode d'affichage de la table
 	 *
-	 * @see \Db\DbTable::display()
+	 * @param bool    $enabled    Champ modifiable
+	 * @param bool    $userValue  Afficher la valeur utilisateur au lieu de la valeur globale
+	 * @param string  $attrs      Attributs html à ajouter au champ de saisie
 	 *
-	 * @param bool $enabled Champ modifiable
-	 * @param bool $userValue Afficher la valeur utilisateur au lieu de la valeur globale
+	 * @see \Db\DbTable::display()
 	 */
 	public function display($enabled = true, $userValue = false, $attrs = null){
 		$this->table->display();

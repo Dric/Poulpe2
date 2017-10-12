@@ -24,6 +24,8 @@ use Forms\Pattern;
  */
 class FloatField extends IntField{
 
+	/** @var string Type de champ (pour sauvegarde) */
 	protected $type = 'float';
+	/** @var string Type de champ HTML */
 	protected $htmlType = 'number';
 }

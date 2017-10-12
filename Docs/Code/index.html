@@ -1,334 +1,2410 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta name="generator" content="ApiGen 2.8.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>Doc du code de Poulpe2</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
 
-	<title>Overview</title>
-
-	<script type="text/javascript" src="resources/combined.js"></script>
-	<script type="text/javascript" src="elementlist.js"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822">
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609">
-
+    <link href="css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/prism.css" rel="stylesheet" media="all"/>
+    <link href="css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="js/html5.js"></script>
+    <![endif]-->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.smooth-scroll.js"></script>
+    <script src="js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    
+    <link rel="shortcut icon" href="images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png"/>
 </head>
-
 <body>
-	<div id="navigation" class="navbar navbar-fixed-top">
-		<div class="navbar-inner">
-			<div class="container">
-				<a href="index.html" class="brand">Overview</a>
-				<div class="nav-collapse">
-					<ul class="nav">
-						<li>
-<span>Namespace</span>						</li>
-						<li>
-<span>Class</span>						</li>
 
-						<li class="divider-vertical"></li>
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="index.html">Doc du code de Poulpe2</a>
 
-						<li>
-							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-						</li>
-
-
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div id="left">
-	<div id="menu">
-		<form id="search" class="form-search">
-			<input type="hidden" name="cx" value="">
-			<input type="hidden" name="ie" value="UTF-8">
-			<input type="text" name="q" class="search-query" placeholder="Search" autofocus>
-		</form>
-
-
-		<div id="groups">
-			<h3>Namespaces</h3>
-			<ul>
-				<li><a href="namespace-Admin.html">Admin</a>
-						</li>
-				<li><a href="namespace-API.html">API</a>
-						</li>
-				<li><a href="namespace-Charts.html">Charts</a>
-						</li>
-				<li><a href="namespace-Components.html">Components</a>
-						</li>
-				<li><a href="namespace-Db.html">Db</a>
-						</li>
-				<li><a href="namespace-FileSystem.html">FileSystem</a>
-						</li>
-				<li><a href="namespace-Forms.html">Forms<span></span></a>
-						<ul>
-				<li><a href="namespace-Forms.Fields.html">Fields</a>
-						</li>
-							</ul></li>
-				<li><a href="namespace-Ldap.html">Ldap</a>
-						</li>
-				<li><a href="namespace-Logs.html">Logs</a>
-						</li>
-				<li><a href="namespace-Michelf.html">Michelf</a>
-						</li>
-				<li><a href="namespace-Modules.html">Modules</a>
-						</li>
-				<li><a href="namespace-None.html">None</a>
-						</li>
-				<li><a href="namespace-PHP.html">PHP</a>
-						</li>
-				<li><a href="namespace-phpseclib.html">phpseclib<span></span></a>
-						<ul>
-				<li><a href="namespace-phpseclib.Crypt.html">Crypt</a>
-						</li>
-				<li><a href="namespace-phpseclib.File.html">File<span></span></a>
-						<ul>
-				<li><a href="namespace-phpseclib.File.ASN1.html">ASN1</a>
-						</li>
-							</ul></li>
-				<li><a href="namespace-phpseclib.Math.html">Math</a>
-						</li>
-				<li><a href="namespace-phpseclib.Net.html">Net<span></span></a>
-						<ul>
-				<li><a href="namespace-phpseclib.Net.SFTP.html">SFTP</a>
-						</li>
-							</ul></li>
-				<li><a href="namespace-phpseclib.System.html">System<span></span></a>
-						<ul>
-				<li><a href="namespace-phpseclib.System.SSH.html">SSH<span></span></a>
-						<ul>
-				<li><a href="namespace-phpseclib.System.SSH.Agent.html">Agent</a>
-						</li>
-							</ul></li></ul></li></ul></li>
-				<li><a href="namespace-Profiles.html">Profiles</a>
-						</li>
-				<li><a href="namespace-Settings.html">Settings</a>
-						</li>
-				<li><a href="namespace-Users.html">Users</a>
-						</li>
-			</ul>
-		</div>
-
-
-		<div id="elements">
-			<h3>Classes</h3>
-			<ul>
-				<li><a href="class-Admin.Admin.html">Admin\Admin</a></li>
-				<li><a href="class-API.API.html">API\API</a></li>
-				<li><a href="class-API.APIManagement.html">API\APIManagement</a></li>
-				<li><a href="class-Charts.Axis.html">Charts\Axis</a></li>
-				<li><a href="class-Charts.Chart.html">Charts\Chart</a></li>
-				<li><a href="class-Charts.Serie.html">Charts\Serie</a></li>
-				<li><a href="class-Check.html">Check</a></li>
-				<li><a href="class-Components.Avatar.html">Components\Avatar</a></li>
-				<li><a href="class-Components.Filter.html">Components\Filter</a></li>
-				<li><a href="class-Components.Help.html">Components\Help</a></li>
-				<li><a href="class-Components.Item.html">Components\Item</a></li>
-				<li><a href="class-Components.Menu.html">Components\Menu</a></li>
-				<li><a href="class-Components.serverResource.html">Components\serverResource</a></li>
-				<li><a href="class-Components.SimpleImage.html">Components\SimpleImage</a></li>
-				<li><a href="class-Db.Db.html">Db\Db</a></li>
-				<li><a href="class-Db.DbFieldSettings.html">Db\DbFieldSettings</a></li>
-				<li><a href="class-Db.DbTable.html">Db\DbTable</a></li>
-				<li><a href="class-Db.ForeignKey.html">Db\ForeignKey</a></li>
-				<li><a href="class-FileSystem.File.html">FileSystem\File</a></li>
-				<li><a href="class-FileSystem.Fs.html">FileSystem\Fs</a></li>
-				<li><a href="class-FileSystem.Ftp.html">FileSystem\Ftp</a></li>
-				<li><a href="class-FileSystem.Upload.html">FileSystem\Upload</a></li>
-				<li><a href="class-Forms.Field.html">Forms\Field</a></li>
-				<li><a href="class-Forms.Fields.BoolField.html">Forms\Fields\BoolField</a></li>
-				<li><a href="class-Forms.Fields.Button.html">Forms\Fields\Button</a></li>
-				<li><a href="class-Forms.Fields.CheckboxList.html">Forms\Fields\CheckboxList</a></li>
-				<li><a href="class-Forms.Fields.Color.html">Forms\Fields\Color</a></li>
-				<li><a href="class-Forms.Fields.Date.html">Forms\Fields\Date</a></li>
-				<li><a href="class-Forms.Fields.Email.html">Forms\Fields\Email</a></li>
-				<li><a href="class-Forms.Fields.File.html">Forms\Fields\File</a></li>
-				<li><a href="class-Forms.Fields.FloatField.html">Forms\Fields\FloatField</a></li>
-				<li><a href="class-Forms.Fields.Hidden.html">Forms\Fields\Hidden</a></li>
-				<li><a href="class-Forms.Fields.IntField.html">Forms\Fields\IntField</a></li>
-				<li><a href="class-Forms.Fields.LinkButton.html">Forms\Fields\LinkButton</a></li>
-				<li><a href="class-Forms.Fields.Password.html">Forms\Fields\Password</a></li>
-				<li><a href="class-Forms.Fields.RadioList.html">Forms\Fields\RadioList</a></li>
-				<li><a href="class-Forms.Fields.Select.html">Forms\Fields\Select</a></li>
-				<li><a href="class-Forms.Fields.StringField.html">Forms\Fields\StringField</a></li>
-				<li><a href="class-Forms.Fields.Table.html">Forms\Fields\Table</a></li>
-				<li><a href="class-Forms.Fields.Text.html">Forms\Fields\Text</a></li>
-				<li><a href="class-Forms.Fields.Time.html">Forms\Fields\Time</a></li>
-				<li><a href="class-Forms.Fields.Url.html">Forms\Fields\Url</a></li>
-				<li><a href="class-Forms.Fields.ValuesArray.html">Forms\Fields\ValuesArray</a></li>
-				<li><a href="class-Forms.Fields.ValuesList.html">Forms\Fields\ValuesList</a></li>
-				<li><a href="class-Forms.Form.html">Forms\Form</a></li>
-				<li><a href="class-Forms.JSSwitch.html">Forms\JSSwitch</a></li>
-				<li><a href="class-Forms.Pattern.html">Forms\Pattern</a></li>
-				<li><a href="class-Forms.PostedData.html">Forms\PostedData</a></li>
-				<li><a href="class-Front.html">Front</a></li>
-				<li><a href="class-Get.html">Get</a></li>
-				<li><a href="class-Git.html">Git</a></li>
-				<li><a href="class-GitRepo.html">GitRepo</a></li>
-				<li><a href="class-Ldap.Connection.html">Ldap\Connection</a></li>
-				<li><a href="class-Ldap.Ldap.html">Ldap\Ldap</a></li>
-				<li><a href="class-Logs.Alert.html">Logs\Alert</a></li>
-				<li><a href="class-Logs.AlertsManager.html">Logs\AlertsManager</a></li>
-				<li><a href="class-Logs.EventLog.html">Logs\EventLog</a></li>
-				<li><a href="class-Logs.EventsManager.html">Logs\EventsManager</a></li>
-				<li><a href="class-Michelf.Markdown.html">Michelf\Markdown</a></li>
-				<li><a href="class-Michelf.MarkdownExtra.html">Michelf\MarkdownExtra</a></li>
-				<li><a href="class-Modules.Module.html">Modules\Module</a></li>
-				<li><a href="class-Modules.ModulesManagement.html">Modules\ModulesManagement</a></li>
-				<li><a href="class-phpseclib.Crypt.AES.html">phpseclib\Crypt\AES</a></li>
-				<li><a href="class-phpseclib.Crypt.Base.html">phpseclib\Crypt\Base</a></li>
-				<li><a href="class-phpseclib.Crypt.Blowfish.html">phpseclib\Crypt\Blowfish</a></li>
-				<li><a href="class-phpseclib.Crypt.DES.html">phpseclib\Crypt\DES</a></li>
-				<li><a href="class-phpseclib.Crypt.Hash.html">phpseclib\Crypt\Hash</a></li>
-				<li><a href="class-phpseclib.Crypt.Random.html">phpseclib\Crypt\Random</a></li>
-				<li><a href="class-phpseclib.Crypt.RC2.html">phpseclib\Crypt\RC2</a></li>
-				<li><a href="class-phpseclib.Crypt.RC4.html">phpseclib\Crypt\RC4</a></li>
-				<li><a href="class-phpseclib.Crypt.Rijndael.html">phpseclib\Crypt\Rijndael</a></li>
-				<li><a href="class-phpseclib.Crypt.RSA.html">phpseclib\Crypt\RSA</a></li>
-				<li><a href="class-phpseclib.Crypt.TripleDES.html">phpseclib\Crypt\TripleDES</a></li>
-				<li><a href="class-phpseclib.Crypt.Twofish.html">phpseclib\Crypt\Twofish</a></li>
-				<li><a href="class-phpseclib.File.ANSI.html">phpseclib\File\ANSI</a></li>
-				<li><a href="class-phpseclib.File.ASN1.html">phpseclib\File\ASN1</a></li>
-				<li><a href="class-phpseclib.File.ASN1.Element.html">phpseclib\File\ASN1\Element</a></li>
-				<li><a href="class-phpseclib.File.X509.html">phpseclib\File\X509</a></li>
-				<li><a href="class-phpseclib.Math.BigInteger.html">phpseclib\Math\BigInteger</a></li>
-				<li><a href="class-phpseclib.Net.SCP.html">phpseclib\Net\SCP</a></li>
-				<li><a href="class-phpseclib.Net.SFTP.html">phpseclib\Net\SFTP</a></li>
-				<li><a href="class-phpseclib.Net.SFTP.Stream.html">phpseclib\Net\SFTP\Stream</a></li>
-				<li><a href="class-phpseclib.Net.SSH1.html">phpseclib\Net\SSH1</a></li>
-				<li><a href="class-phpseclib.Net.SSH2.html">phpseclib\Net\SSH2</a></li>
-				<li><a href="class-phpseclib.System.SSH.Agent.html">phpseclib\System\SSH\Agent</a></li>
-				<li><a href="class-phpseclib.System.SSH.Agent.Identity.html">phpseclib\System\SSH\Agent\Identity</a></li>
-				<li><a href="class-Profiles.UserProfile.html">Profiles\UserProfile</a></li>
-				<li><a href="class-Sanitize.html">Sanitize</a></li>
-				<li><a href="class-Settings.Setting.html">Settings\Setting</a></li>
-				<li><a href="class-Settings.Version.html">Settings\Version</a></li>
-				<li><a href="class-Users.ACL.html">Users\ACL</a></li>
-				<li><a href="class-Users.CurrentUser.html">Users\CurrentUser</a></li>
-				<li><a href="class-Users.LDAPUser.html">Users\LDAPUser</a></li>
-				<li><a href="class-Users.Login.html">Users\Login</a></li>
-				<li><a href="class-Users.User.html">Users\User</a></li>
-				<li><a href="class-Users.UsersManagement.html">Users\UsersManagement</a></li>
-			</ul>
-
-			<h3>Interfaces</h3>
-			<ul>
-				<li><a href="class-Michelf.MarkdownInterface.html">Michelf\MarkdownInterface</a></li>
-			</ul>
-
-
-			<h3>Exceptions</h3>
-			<ul>
-				<li><a href="class-Exception.html">Exception</a></li>
-			</ul>
-
-
-		</div>
-	</div>
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="namespaces/Admin.html">\Admin</a></li>
+                                                        <li><a href="namespaces/API.html">\API</a></li>
+                                                        <li><a href="namespaces/Charts.html">\Charts</a></li>
+                                                        <li><a href="namespaces/Components.html">\Components</a></li>
+                                                        <li><a href="namespaces/Csv.html">\Csv</a></li>
+                                                        <li><a href="namespaces/Db.html">\Db</a></li>
+                                                        <li><a href="namespaces/FileSystem.html">\FileSystem</a></li>
+                                                        <li><a href="namespaces/Forms.html">\Forms</a></li>
+                                                        <li><a href="namespaces/Git.html">\Git</a></li>
+                                                        <li><a href="namespaces/Ldap.html">\Ldap</a></li>
+                                                        <li><a href="namespaces/Logs.html">\Logs</a></li>
+                                                        <li><a href="namespaces/Michelf.html">\Michelf</a></li>
+                                                        <li><a href="namespaces/Modules.html">\Modules</a></li>
+                                                        <li><a href="namespaces/phpseclib.html">\phpseclib</a></li>
+                                                        <li><a href="namespaces/Profiles.html">\Profiles</a></li>
+                                                        <li><a href="namespaces/Settings.html">\Settings</a></li>
+                                                        <li><a href="namespaces/SSH.html">\SSH</a></li>
+                                                        <li><a href="namespaces/Users.html">\Users</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">186</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">1</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
 </div>
 
-<div id="splitter"></div>
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1471182904"></a>
+                                <a href="namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1471182904" class="accordion-body collapse in">
+                <div class="accordion-inner">
 
-<div id="right">
-	<div id="rightInner">
-<div id="content">
-	<h1>Overview</h1>
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1396332022"></a>
+                                <a href="namespaces/Admin.html" style="margin-left: 30px; padding-left: 0">Admin</a>
+            </div>
+            <div id="namespace-1396332022" class="accordion-body collapse ">
+                <div class="accordion-inner">
 
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="classes/Admin.Admin.html">Admin</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<h2>Namespaces summary</h2>
-	<table class="summary table table-bordered table-striped" id="namespaces">
-	<tr>
-		<td class="name"><a href="namespace-Admin.html">Admin</a></td>
-	</tr>
-	<tr>
-		<td class="name"><a href="namespace-API.html">API</a></td>
-	</tr>
-	<tr>
-		<td class="name"><a href="namespace-Charts.html">Charts</a></td>
-	</tr>
-	<tr>
-		<td class="name"><a href="namespace-Components.html">Components</a></td>
-	</tr>
-	<tr>
-		<td class="name"><a href="namespace-Db.html">Db</a></td>
-	</tr>
-	<tr>
-		<td class="name"><a href="namespace-FileSystem.html">FileSystem</a></td>
-	</tr>
-	<tr>
-		<td class="name"><a href="namespace-Forms.html">Forms</a></td>
-	</tr>
-	<tr>
-		<td class="name"><a href="namespace-Forms.Fields.html">Forms\Fields</a></td>
-	</tr>
-	<tr>
-		<td class="name"><a href="namespace-Ldap.html">Ldap</a></td>
-	</tr>
-	<tr>
-		<td class="name"><a href="namespace-Logs.html">Logs</a></td>
-	</tr>
-	<tr>
-		<td class="name"><a href="namespace-Michelf.html">Michelf</a></td>
-	</tr>
-	<tr>
-		<td class="name"><a href="namespace-Modules.html">Modules</a></td>
-	</tr>
-	<tr>
-		<td class="name"><a href="namespace-None.html">None</a></td>
-	</tr>
-	<tr>
-		<td class="name"><a href="namespace-PHP.html">PHP</a></td>
-	</tr>
-	<tr>
-		<td class="name"><a href="namespace-phpseclib.html">phpseclib</a></td>
-	</tr>
-	<tr>
-		<td class="name"><a href="namespace-phpseclib.Crypt.html">phpseclib\Crypt</a></td>
-	</tr>
-	<tr>
-		<td class="name"><a href="namespace-phpseclib.File.html">phpseclib\File</a></td>
-	</tr>
-	<tr>
-		<td class="name"><a href="namespace-phpseclib.File.ASN1.html">phpseclib\File\ASN1</a></td>
-	</tr>
-	<tr>
-		<td class="name"><a href="namespace-phpseclib.Math.html">phpseclib\Math</a></td>
-	</tr>
-	<tr>
-		<td class="name"><a href="namespace-phpseclib.Net.html">phpseclib\Net</a></td>
-	</tr>
-	<tr>
-		<td class="name"><a href="namespace-phpseclib.Net.SFTP.html">phpseclib\Net\SFTP</a></td>
-	</tr>
-	<tr>
-		<td class="name"><a href="namespace-phpseclib.System.html">phpseclib\System</a></td>
-	</tr>
-	<tr>
-		<td class="name"><a href="namespace-phpseclib.System.SSH.html">phpseclib\System\SSH</a></td>
-	</tr>
-	<tr>
-		<td class="name"><a href="namespace-phpseclib.System.SSH.Agent.html">phpseclib\System\SSH\Agent</a></td>
-	</tr>
-	<tr>
-		<td class="name"><a href="namespace-Profiles.html">Profiles</a></td>
-	</tr>
-	<tr>
-		<td class="name"><a href="namespace-Settings.html">Settings</a></td>
-	</tr>
-	<tr>
-		<td class="name"><a href="namespace-Users.html">Users</a></td>
-	</tr>
-	</table>
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1228796690"></a>
+                                <a href="namespaces/API.html" style="margin-left: 30px; padding-left: 0">API</a>
+            </div>
+            <div id="namespace-1228796690" class="accordion-body collapse ">
+                <div class="accordion-inner">
 
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="classes/API.API.html">API</a></li>
+                                                    <li class="class"><a href="classes/API.APIManagement.html">APIManagement</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1534108022"></a>
+                                <a href="namespaces/Charts.html" style="margin-left: 30px; padding-left: 0">Charts</a>
+            </div>
+            <div id="namespace-1534108022" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="classes/Charts.Axis.html">Axis</a></li>
+                                                    <li class="class"><a href="classes/Charts.Chart.html">Chart</a></li>
+                                                    <li class="class"><a href="classes/Charts.Serie.html">Serie</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1446125810"></a>
+                                <a href="namespaces/Components.html" style="margin-left: 30px; padding-left: 0">Components</a>
+            </div>
+            <div id="namespace-1446125810" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="classes/Components.Avatar.html">Avatar</a></li>
+                                                    <li class="class"><a href="classes/Components.Filter.html">Filter</a></li>
+                                                    <li class="class"><a href="classes/Components.Help.html">Help</a></li>
+                                                    <li class="class"><a href="classes/Components.Item.html">Item</a></li>
+                                                    <li class="class"><a href="classes/Components.Menu.html">Menu</a></li>
+                                                    <li class="class"><a href="classes/Components.serverResource.html">serverResource</a></li>
+                                                    <li class="class"><a href="classes/Components.SimpleImage.html">SimpleImage</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1320932149"></a>
+                                <a href="namespaces/Csv.html" style="margin-left: 30px; padding-left: 0">Csv</a>
+            </div>
+            <div id="namespace-1320932149" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="classes/Csv.Csv.html">Csv</a></li>
+                                                    <li class="class"><a href="classes/Csv.CSVRow.html">CSVRow</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-110192821"></a>
+                                <a href="namespaces/Db.html" style="margin-left: 30px; padding-left: 0">Db</a>
+            </div>
+            <div id="namespace-110192821" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="classes/Db.Db.html">Db</a></li>
+                                                    <li class="class"><a href="classes/Db.DbFieldSettings.html">DbFieldSettings</a></li>
+                                                    <li class="class"><a href="classes/Db.DbTable.html">DbTable</a></li>
+                                                    <li class="class"><a href="classes/Db.ForeignKey.html">ForeignKey</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-11790653"></a>
+                                <a href="namespaces/FileSystem.html" style="margin-left: 30px; padding-left: 0">FileSystem</a>
+            </div>
+            <div id="namespace-11790653" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="classes/FileSystem.File.html">File</a></li>
+                                                    <li class="class"><a href="classes/FileSystem.Fs.html">Fs</a></li>
+                                                    <li class="class"><a href="classes/FileSystem.Ftp.html">Ftp</a></li>
+                                                    <li class="class"><a href="classes/FileSystem.Upload.html">Upload</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-892847870"></a>
+                                <a href="namespaces/Forms.html" style="margin-left: 30px; padding-left: 0">Forms</a>
+            </div>
+            <div id="namespace-892847870" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-979792175"></a>
+                                <a href="namespaces/Forms.Fields.html" style="margin-left: 30px; padding-left: 0">Fields</a>
+            </div>
+            <div id="namespace-979792175" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="classes/Forms.Fields.BoolField.html">BoolField</a></li>
+                                                    <li class="class"><a href="classes/Forms.Fields.Button.html">Button</a></li>
+                                                    <li class="class"><a href="classes/Forms.Fields.CheckboxList.html">CheckboxList</a></li>
+                                                    <li class="class"><a href="classes/Forms.Fields.Color.html">Color</a></li>
+                                                    <li class="class"><a href="classes/Forms.Fields.Date.html">Date</a></li>
+                                                    <li class="class"><a href="classes/Forms.Fields.Email.html">Email</a></li>
+                                                    <li class="class"><a href="classes/Forms.Fields.File.html">File</a></li>
+                                                    <li class="class"><a href="classes/Forms.Fields.FloatField.html">FloatField</a></li>
+                                                    <li class="class"><a href="classes/Forms.Fields.Hidden.html">Hidden</a></li>
+                                                    <li class="class"><a href="classes/Forms.Fields.IntField.html">IntField</a></li>
+                                                    <li class="class"><a href="classes/Forms.Fields.LinkButton.html">LinkButton</a></li>
+                                                    <li class="class"><a href="classes/Forms.Fields.Password.html">Password</a></li>
+                                                    <li class="class"><a href="classes/Forms.Fields.RadioList.html">RadioList</a></li>
+                                                    <li class="class"><a href="classes/Forms.Fields.Select.html">Select</a></li>
+                                                    <li class="class"><a href="classes/Forms.Fields.StringField.html">StringField</a></li>
+                                                    <li class="class"><a href="classes/Forms.Fields.Table.html">Table</a></li>
+                                                    <li class="class"><a href="classes/Forms.Fields.Text.html">Text</a></li>
+                                                    <li class="class"><a href="classes/Forms.Fields.Time.html">Time</a></li>
+                                                    <li class="class"><a href="classes/Forms.Fields.Url.html">Url</a></li>
+                                                    <li class="class"><a href="classes/Forms.Fields.ValuesArray.html">ValuesArray</a></li>
+                                                    <li class="class"><a href="classes/Forms.Fields.ValuesList.html">ValuesList</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="classes/Forms.Field.html">Field</a></li>
+                                                    <li class="class"><a href="classes/Forms.Form.html">Form</a></li>
+                                                    <li class="class"><a href="classes/Forms.JSSwitch.html">JSSwitch</a></li>
+                                                    <li class="class"><a href="classes/Forms.Pattern.html">Pattern</a></li>
+                                                    <li class="class"><a href="classes/Forms.PostedData.html">PostedData</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-863417878"></a>
+                                <a href="namespaces/Git.html" style="margin-left: 30px; padding-left: 0">Git</a>
+            </div>
+            <div id="namespace-863417878" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="classes/Git.Git.html">Git</a></li>
+                                                    <li class="class"><a href="classes/Git.GitRepo.html">GitRepo</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-832563325"></a>
+                                <a href="namespaces/Ldap.html" style="margin-left: 30px; padding-left: 0">Ldap</a>
+            </div>
+            <div id="namespace-832563325" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="classes/Ldap.Connection.html">Connection</a></li>
+                                                    <li class="class"><a href="classes/Ldap.Ldap.html">Ldap</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1911151742"></a>
+                                <a href="namespaces/Logs.html" style="margin-left: 30px; padding-left: 0">Logs</a>
+            </div>
+            <div id="namespace-1911151742" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="classes/Logs.Alert.html">Alert</a></li>
+                                                    <li class="class"><a href="classes/Logs.AlertsManager.html">AlertsManager</a></li>
+                                                    <li class="class"><a href="classes/Logs.EventLog.html">EventLog</a></li>
+                                                    <li class="class"><a href="classes/Logs.EventsManager.html">EventsManager</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1062091142"></a>
+                                <a href="namespaces/Michelf.html" style="margin-left: 30px; padding-left: 0">Michelf</a>
+            </div>
+            <div id="namespace-1062091142" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="classes/Michelf.MarkdownInterface.html">MarkdownInterface</a></li>
+                                                                                                    <li class="class"><a href="classes/Michelf.Markdown.html">Markdown</a></li>
+                                                    <li class="class"><a href="classes/Michelf.MarkdownExtra.html">MarkdownExtra</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2073715723"></a>
+                                <a href="namespaces/Modules.html" style="margin-left: 30px; padding-left: 0">Modules</a>
+            </div>
+            <div id="namespace-2073715723" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="classes/Modules.Module.html">Module</a></li>
+                                                    <li class="class"><a href="classes/Modules.ModulesManagement.html">ModulesManagement</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1301211714"></a>
+                                <a href="namespaces/phpseclib.html" style="margin-left: 30px; padding-left: 0">phpseclib</a>
+            </div>
+            <div id="namespace-1301211714" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1315826237"></a>
+                                <a href="namespaces/phpseclib.Crypt.html" style="margin-left: 30px; padding-left: 0">Crypt</a>
+            </div>
+            <div id="namespace-1315826237" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="classes/phpseclib.Crypt.AES.html">AES</a></li>
+                                                    <li class="class"><a href="classes/phpseclib.Crypt.Base.html">Base</a></li>
+                                                    <li class="class"><a href="classes/phpseclib.Crypt.Blowfish.html">Blowfish</a></li>
+                                                    <li class="class"><a href="classes/phpseclib.Crypt.DES.html">DES</a></li>
+                                                    <li class="class"><a href="classes/phpseclib.Crypt.Hash.html">Hash</a></li>
+                                                    <li class="class"><a href="classes/phpseclib.Crypt.Random.html">Random</a></li>
+                                                    <li class="class"><a href="classes/phpseclib.Crypt.RC2.html">RC2</a></li>
+                                                    <li class="class"><a href="classes/phpseclib.Crypt.RC4.html">RC4</a></li>
+                                                    <li class="class"><a href="classes/phpseclib.Crypt.Rijndael.html">Rijndael</a></li>
+                                                    <li class="class"><a href="classes/phpseclib.Crypt.RSA.html">RSA</a></li>
+                                                    <li class="class"><a href="classes/phpseclib.Crypt.TripleDES.html">TripleDES</a></li>
+                                                    <li class="class"><a href="classes/phpseclib.Crypt.Twofish.html">Twofish</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1449111729"></a>
+                                <a href="namespaces/phpseclib.File.html" style="margin-left: 30px; padding-left: 0">File</a>
+            </div>
+            <div id="namespace-1449111729" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1815167313"></a>
+                                <a href="namespaces/phpseclib.File.ASN1.html" style="margin-left: 30px; padding-left: 0">ASN1</a>
+            </div>
+            <div id="namespace-1815167313" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="classes/phpseclib.File.ASN1.Element.html">Element</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="classes/phpseclib.File.ANSI.html">ANSI</a></li>
+                                                    <li class="class"><a href="classes/phpseclib.File.ASN1.html">ASN1</a></li>
+                                                    <li class="class"><a href="classes/phpseclib.File.X509.html">X509</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-116956115"></a>
+                                <a href="namespaces/phpseclib.Math.html" style="margin-left: 30px; padding-left: 0">Math</a>
+            </div>
+            <div id="namespace-116956115" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="classes/phpseclib.Math.BigInteger.html">BigInteger</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1583644469"></a>
+                                <a href="namespaces/phpseclib.Net.html" style="margin-left: 30px; padding-left: 0">Net</a>
+            </div>
+            <div id="namespace-1583644469" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-468938591"></a>
+                                <a href="namespaces/phpseclib.Net.SFTP.html" style="margin-left: 30px; padding-left: 0">SFTP</a>
+            </div>
+            <div id="namespace-468938591" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="classes/phpseclib.Net.SFTP.Stream.html">Stream</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="classes/phpseclib.Net.SCP.html">SCP</a></li>
+                                                    <li class="class"><a href="classes/phpseclib.Net.SFTP.html">SFTP</a></li>
+                                                    <li class="class"><a href="classes/phpseclib.Net.SSH1.html">SSH1</a></li>
+                                                    <li class="class"><a href="classes/phpseclib.Net.SSH2.html">SSH2</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-383554178"></a>
+                                <a href="namespaces/phpseclib.System.html" style="margin-left: 30px; padding-left: 0">System</a>
+            </div>
+            <div id="namespace-383554178" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-651674052"></a>
+                                <a href="namespaces/phpseclib.System.SSH.html" style="margin-left: 30px; padding-left: 0">SSH</a>
+            </div>
+            <div id="namespace-651674052" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1427067459"></a>
+                                <a href="namespaces/phpseclib.System.SSH.Agent.html" style="margin-left: 30px; padding-left: 0">Agent</a>
+            </div>
+            <div id="namespace-1427067459" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="classes/phpseclib.System.SSH.Agent.Identity.html">Identity</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="classes/phpseclib.System.SSH.Agent.html">Agent</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-573086683"></a>
+                                <a href="namespaces/Profiles.html" style="margin-left: 30px; padding-left: 0">Profiles</a>
+            </div>
+            <div id="namespace-573086683" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="classes/Profiles.UserProfile.html">UserProfile</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-472361472"></a>
+                                <a href="namespaces/Settings.html" style="margin-left: 30px; padding-left: 0">Settings</a>
+            </div>
+            <div id="namespace-472361472" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="classes/Settings.Setting.html">Setting</a></li>
+                                                    <li class="class"><a href="classes/Settings.Version.html">Version</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1617867486"></a>
+                                <a href="namespaces/SSH.html" style="margin-left: 30px; padding-left: 0">SSH</a>
+            </div>
+            <div id="namespace-1617867486" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="classes/SSH.SSH.html">SSH</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1709295297"></a>
+                                <a href="namespaces/Users.html" style="margin-left: 30px; padding-left: 0">Users</a>
+            </div>
+            <div id="namespace-1709295297" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="classes/Users.ACL.html">ACL</a></li>
+                                                    <li class="class"><a href="classes/Users.CurrentUser.html">CurrentUser</a></li>
+                                                    <li class="class"><a href="classes/Users.LDAPUser.html">LDAPUser</a></li>
+                                                    <li class="class"><a href="classes/Users.Login.html">Login</a></li>
+                                                    <li class="class"><a href="classes/Users.User.html">User</a></li>
+                                                    <li class="class"><a href="classes/Users.UsersManagement.html">UsersManagement</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="classes/Check.html">Check</a></li>
+                                                    <li class="class"><a href="classes/DefaultSettings.html">DefaultSettings</a></li>
+                                                    <li class="class"><a href="classes/Front.html">Front</a></li>
+                                                    <li class="class"><a href="classes/Get.html">Get</a></li>
+                                                    <li class="class"><a href="classes/Sanitize.html">Sanitize</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content namespace">
+                    <nav>
+                                                
+                                            </nav>
+                    <h1><small></small>\</h1>
+
+                                        <h2>Namespaces</h2>
+                    <table class="table table-hover">
+                                                    <tr>
+                                <td><a href="namespaces/Admin.html">Admin</a></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="namespaces/API.html">API</a></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="namespaces/Charts.html">Charts</a></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="namespaces/Components.html">Components</a></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="namespaces/Csv.html">Csv</a></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="namespaces/Db.html">Db</a></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="namespaces/FileSystem.html">FileSystem</a></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="namespaces/Forms.html">Forms</a></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="namespaces/Git.html">Git</a></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="namespaces/Ldap.html">Ldap</a></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="namespaces/Logs.html">Logs</a></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="namespaces/Michelf.html">Michelf</a></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="namespaces/Modules.html">Modules</a></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="namespaces/phpseclib.html">phpseclib</a></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="namespaces/Profiles.html">Profiles</a></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="namespaces/Settings.html">Settings</a></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="namespaces/SSH.html">SSH</a></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="namespaces/Users.html">Users</a></td>
+                            </tr>
+                                            </table>
+                    
+                    
+                    
+                                        <h2>Classes</h2>
+                    <table class="table table-hover">
+                                            <tr>
+                            <td><a href="classes/Check.html">Check</a></td>
+                            <td><em>Class Check
+Contient les fonctions de test</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="classes/DefaultSettings.html">DefaultSettings</a></td>
+                            <td><em>Paramètres par défaut de Poulpe2</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="classes/Front.html">Front</a></td>
+                            <td><em>Classe de méthodes relatives à l&#039;affichage de Poulpe2</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="classes/Get.html">Get</a></td>
+                            <td><em>Classe de fonctions d&#039;obtention de données</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="classes/Sanitize.html">Sanitize</a></td>
+                            <td><em>Classe de fonctions de transformation de données</em></td>
+                        </tr>
+                                        </table>
+                                    </div>
+
+                <aside class="span4 detailsbar">
+                    <dl>
+                        <dt>Namespace hierarchy</dt>
+                        <dd class="hierarchy">
+                                                                                                                                                <div class="namespace-wrapper">\</div>
+                        </dd>
+                    </dl>
+                </aside>
+            </div>
+
+                        <div class="row-fluid">
+                <section class="span8 content namespace">
+                    <h2>Constants</h2>
+                </section>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_$const_crypt_mode" name="constant_$const_crypt_mode" class="anchor"></a>
+            <article id="constant_$const_crypt_mode" class="constant">
+                <h3 class="">$const_crypt_mode</h3>
+                <pre class="signature">$const_crypt_mode = self::ENGINE_INTERNAL</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Base</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_$value" name="constant_$value" class="anchor"></a>
+            <article id="constant_$value" class="constant">
+                <h3 class="">$value</h3>
+                <pre class="signature">$value = $key</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>SSH1</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_$value" name="constant_$value" class="anchor"></a>
+            <article id="constant_$value" class="constant">
+                <h3 class="">$value</h3>
+                <pre class="signature">$value = $key</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>SSH2</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ALLOWED_IMAGES_EXT" name="constant_ALLOWED_IMAGES_EXT" class="anchor"></a>
+            <article id="constant_ALLOWED_IMAGES_EXT" class="constant">
+                <h3 class="">ALLOWED_IMAGES_EXT</h3>
+                <pre class="signature">ALLOWED_IMAGES_EXT = serialize(array(&#039;jpg&#039;, &#039;jpeg&#039;, &#039;gif&#039;, &#039;png&#039;))</pre>
+                <p><em>Extensions d&#039;images autorisées</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_AUTH_MANDATORY" name="constant_AUTH_MANDATORY" class="anchor"></a>
+            <article id="constant_AUTH_MANDATORY" class="constant">
+                <h3 class="">AUTH_MANDATORY</h3>
+                <pre class="signature">AUTH_MANDATORY = true</pre>
+                <p><em>Authentification obligatoire</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_AUTH_MODE" name="constant_AUTH_MODE" class="anchor"></a>
+            <article id="constant_AUTH_MODE" class="constant">
+                <h3 class="">AUTH_MODE</h3>
+                <pre class="signature">AUTH_MODE = &#039;ldap&#039;</pre>
+                <p><em>Authentification via ldap ou sql</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_AVATAR_DEFAULT" name="constant_AVATAR_DEFAULT" class="anchor"></a>
+            <article id="constant_AVATAR_DEFAULT" class="constant">
+                <h3 class="">AVATAR_DEFAULT</h3>
+                <pre class="signature">AVATAR_DEFAULT = &#039;default.jpg&#039;</pre>
+                <p><em>Avatar par défaut</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_AVATAR_MAX_SIZE" name="constant_AVATAR_MAX_SIZE" class="anchor"></a>
+            <article id="constant_AVATAR_MAX_SIZE" class="constant">
+                <h3 class="">AVATAR_MAX_SIZE</h3>
+                <pre class="signature">AVATAR_MAX_SIZE = &#039;400&#039;</pre>
+                <p><em>Taille maximum de l&#039;image chargée pour l&#039;avatar (en ko)</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_AVATAR_PATH" name="constant_AVATAR_PATH" class="anchor"></a>
+            <article id="constant_AVATAR_PATH" class="constant">
+                <h3 class="">AVATAR_PATH</h3>
+                <pre class="signature">AVATAR_PATH = &#039;img/avatars/&#039;</pre>
+                <p><em>Répertoire des avatars</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_COOKIE_DURATION" name="constant_COOKIE_DURATION" class="anchor"></a>
+            <article id="constant_COOKIE_DURATION" class="constant">
+                <h3 class="">COOKIE_DURATION</h3>
+                <pre class="signature">COOKIE_DURATION = &#039;4320&#039;</pre>
+                <p><em>Durée de l&#039;authentification par cookie (en heures)</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_COOKIE_NAME" name="constant_COOKIE_NAME" class="anchor"></a>
+            <article id="constant_COOKIE_NAME" class="constant">
+                <h3 class="">COOKIE_NAME</h3>
+                <pre class="signature">COOKIE_NAME = &#039;poulpe2&#039;</pre>
+                <p><em>Nom du cookie d&#039;authentification</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CRYPT_HASH_MODE" name="constant_CRYPT_HASH_MODE" class="anchor"></a>
+            <article id="constant_CRYPT_HASH_MODE" class="constant">
+                <h3 class="">CRYPT_HASH_MODE</h3>
+                <pre class="signature">CRYPT_HASH_MODE = self::MODE_INTERNAL</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Hash</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CRYPT_RSA_EXPONENT" name="constant_CRYPT_RSA_EXPONENT" class="anchor"></a>
+            <article id="constant_CRYPT_RSA_EXPONENT" class="constant">
+                <h3 class="">CRYPT_RSA_EXPONENT</h3>
+                <pre class="signature">CRYPT_RSA_EXPONENT = &#039;65537&#039;</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>RSA</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CRYPT_RSA_MODE" name="constant_CRYPT_RSA_MODE" class="anchor"></a>
+            <article id="constant_CRYPT_RSA_MODE" class="constant">
+                <h3 class="">CRYPT_RSA_MODE</h3>
+                <pre class="signature">CRYPT_RSA_MODE = self::MODE_INTERNAL</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>RSA</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CRYPT_RSA_SMALLEST_PRIME" name="constant_CRYPT_RSA_SMALLEST_PRIME" class="anchor"></a>
+            <article id="constant_CRYPT_RSA_SMALLEST_PRIME" class="constant">
+                <h3 class="">CRYPT_RSA_SMALLEST_PRIME</h3>
+                <pre class="signature">CRYPT_RSA_SMALLEST_PRIME = 4096</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>RSA</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_DB_HOST" name="constant_DB_HOST" class="anchor"></a>
+            <article id="constant_DB_HOST" class="constant">
+                <h3 class="">DB_HOST</h3>
+                <pre class="signature">DB_HOST = &#039;localhost&#039;</pre>
+                <p><em>Adresse de l&#039;hébergement MySQL.</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_DB_NAME" name="constant_DB_NAME" class="anchor"></a>
+            <article id="constant_DB_NAME" class="constant">
+                <h3 class="">DB_NAME</h3>
+                <pre class="signature">DB_NAME = &#039;tools2&#039;</pre>
+                <p><em>Nom de la base de données.</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_DB_PASSWORD" name="constant_DB_PASSWORD" class="anchor"></a>
+            <article id="constant_DB_PASSWORD" class="constant">
+                <h3 class="">DB_PASSWORD</h3>
+                <pre class="signature">DB_PASSWORD = &#039;tools2&#039;</pre>
+                <p><em>Mot de passe de la base de données MySQL.</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_DB_TYPE" name="constant_DB_TYPE" class="anchor"></a>
+            <article id="constant_DB_TYPE" class="constant">
+                <h3 class="">DB_TYPE</h3>
+                <pre class="signature">DB_TYPE = &#039;mysql&#039;</pre>
+                <p><em>Type de BDD.</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_DB_USER" name="constant_DB_USER" class="anchor"></a>
+            <article id="constant_DB_USER" class="constant">
+                <h3 class="">DB_USER</h3>
+                <pre class="signature">DB_USER = &#039;tools2&#039;</pre>
+                <p><em>Utilisateur de la base de données MySQL.</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_DEBUG" name="constant_DEBUG" class="anchor"></a>
+            <article id="constant_DEBUG" class="constant">
+                <h3 class="">DEBUG</h3>
+                <pre class="signature">DEBUG = true</pre>
+                <p><em>Debug mode</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_DETAILED_DEBUG" name="constant_DETAILED_DEBUG" class="anchor"></a>
+            <article id="constant_DETAILED_DEBUG" class="constant">
+                <h3 class="">DETAILED_DEBUG</h3>
+                <pre class="signature">DETAILED_DEBUG = false</pre>
+                <p><em>Debug détaillé</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_DISPLAY_BREADCRUMB" name="constant_DISPLAY_BREADCRUMB" class="anchor"></a>
+            <article id="constant_DISPLAY_BREADCRUMB" class="constant">
+                <h3 class="">DISPLAY_BREADCRUMB</h3>
+                <pre class="signature">DISPLAY_BREADCRUMB = true</pre>
+                <p><em>Afficher le fil d&#039;ariane</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_DISPLAY_HOME" name="constant_DISPLAY_HOME" class="anchor"></a>
+            <article id="constant_DISPLAY_HOME" class="constant">
+                <h3 class="">DISPLAY_HOME</h3>
+                <pre class="signature">DISPLAY_HOME = true</pre>
+                <p><em>Afficher le lien vers la page d&#039;accueil du site</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_DISPLAY_INTRANET_LINK" name="constant_DISPLAY_INTRANET_LINK" class="anchor"></a>
+            <article id="constant_DISPLAY_INTRANET_LINK" class="constant">
+                <h3 class="">DISPLAY_INTRANET_LINK</h3>
+                <pre class="signature">DISPLAY_INTRANET_LINK = true</pre>
+                <p><em>Afficher le lien vers la page d&#039;accueil de l&#039;intranet</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_HOME_MODULE" name="constant_HOME_MODULE" class="anchor"></a>
+            <article id="constant_HOME_MODULE" class="constant">
+                <h3 class="">HOME_MODULE</h3>
+                <pre class="signature">HOME_MODULE = &#039;CHGS&#039;</pre>
+                <p><em>Module en page d&#039;accueil</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_IMAGE_PATH" name="constant_IMAGE_PATH" class="anchor"></a>
+            <article id="constant_IMAGE_PATH" class="constant">
+                <h3 class="">IMAGE_PATH</h3>
+                <pre class="signature">IMAGE_PATH = &#039;img/&#039;</pre>
+                <p><em>Répertoire des images</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_LDAP_AUTH_OU" name="constant_LDAP_AUTH_OU" class="anchor"></a>
+            <article id="constant_LDAP_AUTH_OU" class="constant">
+                <h3 class="">LDAP_AUTH_OU</h3>
+                <pre class="signature">LDAP_AUTH_OU = &#039;*&#039;</pre>
+                <p><em>OU dans laquelle chercher les comptes utilisateurs</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_LDAP_BIND_NAME" name="constant_LDAP_BIND_NAME" class="anchor"></a>
+            <article id="constant_LDAP_BIND_NAME" class="constant">
+                <h3 class="">LDAP_BIND_NAME</h3>
+                <pre class="signature">LDAP_BIND_NAME = &#039;tech_intranet&#039;</pre>
+                <p><em>Nom utilisateur pour se connecter à LDAP</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_LDAP_BIND_PWD" name="constant_LDAP_BIND_PWD" class="anchor"></a>
+            <article id="constant_LDAP_BIND_PWD" class="constant">
+                <h3 class="">LDAP_BIND_PWD</h3>
+                <pre class="signature">LDAP_BIND_PWD = &#039;Compte 2 service pour Intr@net&#039;</pre>
+                <p><em>Mot de passe utilisateur pour se connecter à LDAP</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_LDAP_DC" name="constant_LDAP_DC" class="anchor"></a>
+            <article id="constant_LDAP_DC" class="constant">
+                <h3 class="">LDAP_DC</h3>
+                <pre class="signature">LDAP_DC = &#039;DC=intra,DC=epsi,DC=fr&#039;</pre>
+                <p><em>Conteneur de recherche des comptes LDAP</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_LDAP_DOMAIN" name="constant_LDAP_DOMAIN" class="anchor"></a>
+            <article id="constant_LDAP_DOMAIN" class="constant">
+                <h3 class="">LDAP_DOMAIN</h3>
+                <pre class="signature">LDAP_DOMAIN = &#039;intra.epsi.fr&#039;</pre>
+                <p><em>Nom du domaine LDAP</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_LDAP_GROUP" name="constant_LDAP_GROUP" class="anchor"></a>
+            <article id="constant_LDAP_GROUP" class="constant">
+                <h3 class="">LDAP_GROUP</h3>
+                <pre class="signature">LDAP_GROUP = &#039;Informatique&#039;</pre>
+                <p><em>Groupe autorisé à se connecter</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_LDAP_SERVERS" name="constant_LDAP_SERVERS" class="anchor"></a>
+            <article id="constant_LDAP_SERVERS" class="constant">
+                <h3 class="">LDAP_SERVERS</h3>
+                <pre class="signature">LDAP_SERVERS = &#039;172.32.1.90, 172.32.1.91, 192.168.2.3, 192.168.1.2&#039;</pre>
+                <p><em>Nom courant des serveurs LDAP</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MATH_BIGINTEGER_MODE" name="constant_MATH_BIGINTEGER_MODE" class="anchor"></a>
+            <article id="constant_MATH_BIGINTEGER_MODE" class="constant">
+                <h3 class="">MATH_BIGINTEGER_MODE</h3>
+                <pre class="signature">MATH_BIGINTEGER_MODE = self::MODE_INTERNAL</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>BigInteger</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MATH_BIGINTEGER_OPENSSL_DISABLE" name="constant_MATH_BIGINTEGER_OPENSSL_DISABLE" class="anchor"></a>
+            <article id="constant_MATH_BIGINTEGER_OPENSSL_DISABLE" class="constant">
+                <h3 class="">MATH_BIGINTEGER_OPENSSL_DISABLE</h3>
+                <pre class="signature">MATH_BIGINTEGER_OPENSSL_DISABLE = true</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>RSA</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MATH_BIGINTEGER_OPENSSL_DISABLE" name="constant_MATH_BIGINTEGER_OPENSSL_DISABLE" class="anchor"></a>
+            <article id="constant_MATH_BIGINTEGER_OPENSSL_DISABLE" class="constant">
+                <h3 class="">MATH_BIGINTEGER_OPENSSL_DISABLE</h3>
+                <pre class="signature">MATH_BIGINTEGER_OPENSSL_DISABLE = true</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>BigInteger</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MATH_BIGINTEGER_OPENSSL_ENABLED" name="constant_MATH_BIGINTEGER_OPENSSL_ENABLED" class="anchor"></a>
+            <article id="constant_MATH_BIGINTEGER_OPENSSL_ENABLED" class="constant">
+                <h3 class="">MATH_BIGINTEGER_OPENSSL_ENABLED</h3>
+                <pre class="signature">MATH_BIGINTEGER_OPENSSL_ENABLED = true</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>BigInteger</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MODULE_DIR" name="constant_MODULE_DIR" class="anchor"></a>
+            <article id="constant_MODULE_DIR" class="constant">
+                <h3 class="">MODULE_DIR</h3>
+                <pre class="signature">MODULE_DIR = &#039;Modules_CHGS&#039;</pre>
+                <p><em>Répertoire des modules (respecter la casse)</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MODULE_URL" name="constant_MODULE_URL" class="anchor"></a>
+            <article id="constant_MODULE_URL" class="constant">
+                <h3 class="">MODULE_URL</h3>
+                <pre class="signature">MODULE_URL = &#039;module/&#039;</pre>
+                <p><em>URL des appels aux modules</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_NET_SFTP_QUEUE_SIZE" name="constant_NET_SFTP_QUEUE_SIZE" class="anchor"></a>
+            <article id="constant_NET_SFTP_QUEUE_SIZE" class="constant">
+                <h3 class="">NET_SFTP_QUEUE_SIZE</h3>
+                <pre class="signature">NET_SFTP_QUEUE_SIZE = 50</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>SFTP</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_PER_PAGE_VALUES" name="constant_PER_PAGE_VALUES" class="anchor"></a>
+            <article id="constant_PER_PAGE_VALUES" class="constant">
+                <h3 class="">PER_PAGE_VALUES</h3>
+                <pre class="signature">PER_PAGE_VALUES = &#039;5, 10, 15, 20, 25, 50, 100&#039;</pre>
+                <p><em>Liste des valeurs possibles pour le nombre d&#039;entrées par page</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_PHP_INT_SIZE" name="constant_PHP_INT_SIZE" class="anchor"></a>
+            <article id="constant_PHP_INT_SIZE" class="constant">
+                <h3 class="">PHP_INT_SIZE</h3>
+                <pre class="signature">PHP_INT_SIZE = 4</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>BigInteger</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_PWD_MIN_SIZE" name="constant_PWD_MIN_SIZE" class="anchor"></a>
+            <article id="constant_PWD_MIN_SIZE" class="constant">
+                <h3 class="">PWD_MIN_SIZE</h3>
+                <pre class="signature">PWD_MIN_SIZE = &#039;6&#039;</pre>
+                <p><em>Longueur minimale du mot de passe (authentification sql)</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_SALT_AUTH" name="constant_SALT_AUTH" class="anchor"></a>
+            <article id="constant_SALT_AUTH" class="constant">
+                <h3 class="">SALT_AUTH</h3>
+                <pre class="signature">SALT_AUTH = &#039;wziB.(eaI^^?X/`r}I|rwF{q1%fM_^8xj/}&amp;|r5#!QC0 ]8SDaU&amp;(}va+tNg`&gt;9d&#039;</pre>
+                <p><em>Clé de salage d&#039;authentification</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_SALT_COOKIE" name="constant_SALT_COOKIE" class="anchor"></a>
+            <article id="constant_SALT_COOKIE" class="constant">
+                <h3 class="">SALT_COOKIE</h3>
+                <pre class="signature">SALT_COOKIE = &#039;wziB.(eaI^^?X/`r}I|fj_hq1%fM_^8xj/}&amp;|P$s8u60 ]8SDaU&amp;(}va+tNg`&gt;9d&#039;</pre>
+                <p><em>Clé de salage du cookie</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_SITE_NAME" name="constant_SITE_NAME" class="anchor"></a>
+            <article id="constant_SITE_NAME" class="constant">
+                <h3 class="">SITE_NAME</h3>
+                <pre class="signature">SITE_NAME = &#039;Serveur de dev&#039;</pre>
+                <p><em>Nom du site</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_UPLOAD_FILE" name="constant_UPLOAD_FILE" class="anchor"></a>
+            <article id="constant_UPLOAD_FILE" class="constant">
+                <h3 class="">UPLOAD_FILE</h3>
+                <pre class="signature">UPLOAD_FILE = &#039;uploads/files&#039;</pre>
+                <p><em>Répertoire des fichiers chargés</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_UPLOAD_IMG" name="constant_UPLOAD_IMG" class="anchor"></a>
+            <article id="constant_UPLOAD_IMG" class="constant">
+                <h3 class="">UPLOAD_IMG</h3>
+                <pre class="signature">UPLOAD_IMG = &#039;uploads/img&#039;</pre>
+                <p><em>Répertoire des images chargées</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
+                        <div class="row-fluid">
+                <section class="span8 content namespace">
+                    <h2>Functions</h2>
+                </section>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_generateRandomString" name="method_generateRandomString" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">generateRandomString()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">generateRandomString(integer  <span class="argument">$length = 40</span>) : string</pre>
+                <p><em>Used to generate a salt key.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$length </td>
+                                <td><p>Length of the returned string</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href="files/install.html"><div class="path-wrapper">install.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
+        </div>
+    </section>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="namespaces/Admin.html">\Admin</a></li>
+                                                                            <li><a href="namespaces/API.html">\API</a></li>
+                                                                            <li><a href="namespaces/Charts.html">\Charts</a></li>
+                                                                            <li><a href="namespaces/Components.html">\Components</a></li>
+                                                                            <li><a href="namespaces/Csv.html">\Csv</a></li>
+                                                                            <li><a href="namespaces/Db.html">\Db</a></li>
+                                                                            <li><a href="namespaces/FileSystem.html">\FileSystem</a></li>
+                                                                            <li><a href="namespaces/Forms.html">\Forms</a></li>
+                                                                            <li><a href="namespaces/Git.html">\Git</a></li>
+                                                                            <li><a href="namespaces/Ldap.html">\Ldap</a></li>
+                                                                            <li><a href="namespaces/Logs.html">\Logs</a></li>
+                                                                            <li><a href="namespaces/Michelf.html">\Michelf</a></li>
+                                                                            <li><a href="namespaces/Modules.html">\Modules</a></li>
+                                                                            <li><a href="namespaces/phpseclib.html">\phpseclib</a></li>
+                                                                            <li><a href="namespaces/Profiles.html">\Profiles</a></li>
+                                                                            <li><a href="namespaces/Settings.html">\Settings</a></li>
+                                                                            <li><a href="namespaces/SSH.html">\SSH</a></li>
+                                                                            <li><a href="namespaces/Users.html">\Users</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="reports/errors.html">Errors</a></li>
+                                    <li><a href="reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on October 12th, 2017 at 14:55.
+                </section>
+            </section>
+        </section>
+    </footer>
 </div>
-	</div>
 
-	<div id="footer">
-		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
-	</div>
-</div>
 </body>
 </html>

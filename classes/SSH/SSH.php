@@ -33,14 +33,18 @@ class SSH {
 	 * @var string
 	 */
 	protected $remoteServer = null;
+	/** @var string Compte utilisé pour se connecter */
 	protected $user = null;
+	/** @var string Mot de passe du compte */
 	protected $pwd = null;
+	/** @var int Port utilisé pour la connexion */
 	protected $port = 22;
 	/**
 	 * Connexion SSH
 	 * @var Resource
 	 */
 	protected $connection = null;
+	/** @var bool Etat de la connexion */
 	protected $isConnected = false;
 
 	/**
@@ -100,12 +104,12 @@ class SSH {
 	 * Affiche une alerte si la connexion échoue
 	 *
 	 * NE SEMBLE PAS FONCTIONNER
-	 * @param $reason
-	 * @param $message
-	 * @param $language
+	 * @param string $reason
+	 * @param string $message
+	 * @param string $language
 	 */
 	protected function SSHDisconnectMessage($reason, $message, $language) {
-		new Alert('error', "Server disconnected with reason code [%d] and message: %s\n",	$reason, $message);
+		new Alert('error', sprintf("Server disconnected with reason code [%d] and message: %s\n",	$reason, $message));
 		//var_dump($message);
 	}
 
@@ -140,6 +144,12 @@ class SSH {
 		return array('return' => $ret, 'error' => $error);
 	}
 
+	/**
+	 * Shell SSH
+	 * @param array $commands
+	 *
+	 * @return array|bool
+	 */
 	public function shell(Array $commands){
 		$ret = array();
 		if (!$this->isConnected) return false;
@@ -168,6 +178,7 @@ class SSH {
 		$this->isConnected = false;
 	}
 
+	/** Destruction de l'objet */
 	public function __destruct() {
 		if ($this->isConnected) $this->disconnect();
 	}

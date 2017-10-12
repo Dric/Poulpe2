@@ -19,6 +19,7 @@ use Forms\Pattern;
  */
 class ValuesList extends StringField{
 
+	/** @var string Type de champ HTML */
 	protected $htmlType = 'text';
 
 }

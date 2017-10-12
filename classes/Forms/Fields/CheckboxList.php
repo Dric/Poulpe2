@@ -21,7 +21,9 @@ use Forms\Field;
  */
 class CheckboxList extends Field{
 
+	/** @var string Type de champ (pour sauvegarde php) */
 	protected $type = 'checkboxList';
+	/** @var string Type de champ HTML */
 	protected $htmlType = 'checkbox';
 	/**
 	 * Liste sous forme de tableau associatif `valeur => libellé`

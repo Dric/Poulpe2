@@ -15,7 +15,13 @@ use Logs\Alert;
 use Sanitize;
 use Users\ACL;
 
+/**
+ * Version de schéma de base de données de Poulpe2
+ *
+ * @package Settings
+ */
 class Version {
+	/** @var string Version de base de données de Poulpe2 */
 	protected static $dbVersion = '1.1';
 
 	/**
@@ -122,6 +128,7 @@ class Version {
 	}
 
 	/**
+	 * Renvoie la version de schéma de base de données
 	 * @return string
 	 */
 	public static function getDbVersion() {

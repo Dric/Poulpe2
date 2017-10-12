@@ -5,6 +5,10 @@
  * Date: 03/10/2016
  * Time: 13:54
  */
+
+/**
+ * Paramètres par défaut de Poulpe2
+ */
 class DefaultSettings {
 
 	/** Nom du site */
@@ -161,6 +165,9 @@ class DefaultSettings {
 
 	/**
 	 * Retourne la liste des constantes définies
+	 *
+	 * @param bool $inheritance Renvoyer les constantes héritées
+	 *
 	 * @return array
 	 */
 	public static function get_class_constants($inheritance = true)
