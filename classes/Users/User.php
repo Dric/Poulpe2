@@ -172,7 +172,7 @@ class User {
 
 	/**
 	 * Retourne les propriétés LDAP de l'utilisateur
-	 * @return array
+	 * @return array|bool
 	 */
 	public function getLDAPProps() {
 		return $this->LDAPProps;

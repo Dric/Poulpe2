@@ -182,6 +182,20 @@ Ajouter à la dernière ligne :
 
 Attention : si vous lancez apache sous un autre nom (`administrateur` par exemple), modifiez la ligne du dessus en conséquence.
 
+### Connexion LDAP
+
+Si vous avez choisi la connexion à un annuaire LDAP, vous pouvez opter pour une connexion sécurisée.
+
+Il vous faut paramétrer le fichier `/etc/ldap/ldap.conf` et ajouter la ligne suivante :
+
+    TLS_REQCERT never
+
+Cette ligne a pour effet de désactiver la vérification du certificat serveur.
+
+Redémarrez le serveur.
+
+Vous devez ensuite activer dans le fichier de configuration l'option `Connexion sécurisée à l'annuaire LDAP`.
+
 ### Première connexion
 
 Le premier utilisateur à se connecter est automatiquement bombardé administrateur.

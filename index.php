@@ -125,9 +125,9 @@ Front::initModulesLoading();
 \API\APIManagement::checkAPIRequest();
 
 /**
- * Si l'utilisateur courant n'est pas authentifié et que l'authentification est obligatoire, on redirige l'utilisateur vers la page de connexion
+ * Si l'utilisateur courant n'est pas authentifié ou que la connexion à l'annuaire LDAP est perdue - encas d'autehtnification LDAP) et que l'authentification est obligatoire, on redirige l'utilisateur vers la page de connexion
  */
-if ((!$cUser->isLoggedIn() or $redirectToLogin) and \Settings::AUTH_MANDATORY){
+if ((!$cUser->isLoggedIn() or $redirectToLogin or (!$ldap->isConnected() and Settings::AUTH_MODE == 'ldap')) and \Settings::AUTH_MANDATORY){
 	header('location: index.php?action=loginForm&from='.urlencode($_SERVER['REQUEST_URI']));
 }else{
 	/**

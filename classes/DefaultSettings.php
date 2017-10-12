@@ -46,6 +46,9 @@ class DefaultSettings {
 	/** Mot de passe utilisateur pour se connecter à LDAP */
 	const LDAP_BIND_PWD = 'pwd';
 
+	/** Connexion sécurisée à l'annuaire LDAP */
+	const LDAP_SECURE_BIND = false;
+
 	/** Conteneur de recherche des comptes LDAP (DC=contoso,DC=com) */
 	const LDAP_DC = '';
 

@@ -117,7 +117,12 @@ class Ldap {
 		if (empty($dc))	$dc = $this->ldapServers[0];
 		// Si la connexion à ce serveur LDAP n'a pas été ouverte, on l'initie
 		if (!isset($this->connections[$dc])){
+			/** @var Connection */
 			$this->connections[$dc] = new Connection($dc, $this->bindName, $this->bindPwd, $this->domain);
+			if ($this->connections[$dc]->badCreds()) {
+				new Alert('error', 'Erreur : Impossible d\'établir une connexion à l\'annuaire LDAP !');
+				return array('count' => 0);
+			}
 		}
 		$connection = $this->connections[$dc]->connection();
 		// On indique dans quelle OU effectuer la recherche
@@ -155,7 +160,7 @@ class Ldap {
 		// Si badCreds est à false, alors la connexion a réussi
 		if ($connect->badCreds() !== false){
 			$message = (!empty($connect->getErrorMsg())) ? $connect->getErrorMsg() : 'Les identifiants sont incorrects !';
-			new Alert('error', $message);
+			new Alert('error', 'Erreur : '.$message);
 			return false ;
 		}else{
 			$filter = null;
@@ -164,13 +169,13 @@ class Ldap {
 			}
 			$userLDAP = $this->search('person', $user, $filter, array(), true);
 			if ($userLDAP['count'] == 0){
-				new Alert('error', 'Cet utilisateur n\'est pas autorisé à se connecter !');
+				new Alert('error', 'Erreur : Cet utilisateur n\'est pas autorisé à se connecter !');
 				return false;
 			}
 			if (!empty(\Settings::LDAP_GROUP) and \Settings::LDAP_GROUP != '*'){
 				$groups = $this->userMembership($user);
 				if (!in_array(strtolower(\Settings::LDAP_GROUP), array_map('strtolower', $groups))){
-					new Alert('error', 'Cet utilisateur n\'est pas autorisé à se connecter !');
+					new Alert('error', 'Erreur : Cet utilisateur n\'est pas autorisé à se connecter !');
 					return false;
 				}
 			}
@@ -403,6 +408,21 @@ class Ldap {
 			}
 		}
 		return $attributes;
+	}
+
+	/**
+	 * Renvoie l'état de connexion à l'annuaire LDAP
+	 * @return bool
+	 */
+	public function isConnected() {
+		$isConnected = false;
+		foreach ($this->connections as $connection) {
+			if (!$connection->badCreds()){
+				$isConnected = true;
+				break;
+			}
+		}
+		return $isConnected;
 	}
 
 }

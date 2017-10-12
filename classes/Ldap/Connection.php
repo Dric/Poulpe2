@@ -119,8 +119,20 @@ class Connection {
 			ldap_set_option($this->connection, LDAP_OPT_REFERRALS, 0); //Option à ajouter si vous utilisez Windows server2k3 minimum
 			/** Connexion à l'AD avec les identifiants saisis à la connexion.. */
 			$this->badCreds = false;
-			// Méfiance, si le mot de passe est vide, une connexion anonyme sera tentée et la connexion peut retourner true...
-			$r = @ldap_bind($this->connection, $this->bindName.'@'.$this->domain, $this->bindPwd);
+			$r = false;
+			if (\Settings::LDAP_SECURE_BIND) {
+				$retTls = @ldap_start_tls($this->connection);
+				if (!$retTls) {
+					$this->badCreds = true;
+					new Alert('debug', 'Erreur : la connexion sécurisée à l\'annuaire LDAP a échoué.<br>');
+					$this->errorMsg = 'La connexion à l\'annuaire LDAP en mode sécurisé a échoué !';
+				} else {
+					$r = @ldap_bind($this->connection, $this->bindName.'@'.$this->domain, $this->bindPwd);
+				}
+			} else {
+				// Méfiance, si le mot de passe est vide, une connexion anonyme sera tentée et la connexion peut retourner true...
+				$r = @ldap_bind($this->connection, $this->bindName.'@'.$this->domain, $this->bindPwd);
+			}
 			if (!$r) {
 				// On récupère un code d'erreur plus parlant que celui qui est renvoyé normalement
 				ldap_get_option($this->connection, LDAP_OPT_ERROR_STRING, $diagnosticMsg);

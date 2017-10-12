@@ -623,6 +623,15 @@ if (file_exists('classes/Settings/config.php')){
 									</ul>
 								</li>
 							</ul>
+							<h3>Annuaire LDAP</h3>
+							<p>
+								Si vous avez choisi la connexion à un annuaire LDAP, vous pouvez opter pour une connexion sécurisée.<br>
+								Il vous faut pour cela paramétrer le fichier <code>/etc/ldap/ldap.conf</code> et ajouter la ligne suivante :<br>
+								<code>
+									TLS_REQCERT never
+								</code>
+							</p>
+							<p>Vous devez ensuite activer dans le fichier de configuration l'option <code>Connexion sécurisée à l'annuaire LDAP</code>.</p>
 							<h3>Première connexion</h3>
 
 							<p>

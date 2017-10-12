@@ -101,7 +101,7 @@ class UsersManagement {
 		$user = $ldap->search('person', $userName, $filter, array(), true);
 		// Comme on a cherché un seul résultat, on ne veut que le premier item
 		if ($user['count'] == 0){
-			new Alert('error', 'Erreur : Impossible de retrouver l\'utilisateur dans l\'annuaire LDAP !');
+			new Alert('error', 'Erreur : Impossible de retrouver l\'utilisateur <code>'.$userName.'</code> dans l\'annuaire LDAP !');
 			return false;
 		}
 		$user = $user[0];
