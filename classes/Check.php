@@ -134,6 +134,30 @@ class Check {
 	}
 
 	/**
+	 * Vérifie qu'une URL est joignable
+	 *
+	 * Nécessite curl activé sur le serveur
+	 *
+	 * @from https://stackoverflow.com/a/7051633/1749967
+	 * @param $url
+	 *
+	 * @return bool
+	 */
+	public static function isOnlineURL($url) {
+		$ch = @curl_init($url);
+		@curl_setopt($ch, CURLOPT_HEADER, TRUE);
+		@curl_setopt($ch, CURLOPT_NOBODY, TRUE);
+		@curl_setopt($ch, CURLOPT_FAILONERROR, 1);
+		@curl_setopt($ch, CURLOPT_FOLLOWLOCATION, FALSE);
+		@curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+
+		if(curl_exec($ch)!==FALSE) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
 	 * Vérifie qu'une valeur est une date valide
 	 *
 	 * @from https://stackoverflow.com/a/19271434/1749967

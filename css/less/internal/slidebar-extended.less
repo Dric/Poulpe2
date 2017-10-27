@@ -31,16 +31,23 @@
   }
   &.menu-warning a{
     color: @brand-warning;
-  }
-  &.menu-warning a:hover{
-    background: linear-gradient(to right, @brand-warning, transparent);
-    color: @gray-dark;
+    &:hover{
+      background: linear-gradient(to right, @brand-warning, transparent);
+      color: @gray-dark;
+    }
   }
   &.menu-danger a{
     color: @brand-danger;
+    &:hover{
+      background: linear-gradient(to right, @brand-danger, transparent);
+    }
   }
-  &.menu-danger a:hover{
-    background: linear-gradient(to right, @brand-danger, transparent);
+  &.menu-disabled a{
+    color: @gray;
+    &:hover{
+      background: linear-gradient(to right, @gray, transparent);
+      text-decoration: line-through;
+    }
   }
   &:hover{
     background: linear-gradient(to right, @link-color, transparent);
