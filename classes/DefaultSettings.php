@@ -62,6 +62,9 @@ class DefaultSettings {
 	/** Groupe autorisé à se connecter (tous les groupes si vide) */
 	const LDAP_GROUP = '';
 
+	/** Permettre la suppression des utilisateurs dans Poulpe2 */
+	const ALLOW_USER_DELETION = true;
+
 	/** Clé de salage d'authentification */
 	const SALT_AUTH = 'Change me at setup';
 

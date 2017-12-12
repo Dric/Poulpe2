@@ -195,6 +195,10 @@ class UserProfile extends Module {
 	 * @return bool
 	 */
 	protected function confirmDeleteUser(){
+		if (!\Settings::ALLOW_USER_DELETION) {
+			new Alert('error', 'La suppression des comptes utilisateurs est interdite !');
+			return false;
+		}
 		if (UsersManagement::deleteUser($this->user)){
 			new Alert('success', (($this->user->getId() == $GLOBALS['cUser']->getId()) ? 'Votre compte' : 'Le compte de '.$this->user->getName()).' a été supprimé !');
 			return true;
@@ -208,7 +212,7 @@ class UserProfile extends Module {
 	 * Affichage principal du profil
 	 */
 	public function mainDisplay(){
-		if (isset($_REQUEST['action']) and $_REQUEST['action'] == 'deleteUser'){
+		if (isset($_REQUEST['action']) and $_REQUEST['action'] == 'deleteUser' and \Settings::ALLOW_USER_DELETION){
 			?>
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1">
@@ -312,6 +316,8 @@ class UserProfile extends Module {
 	protected function profileFormButtons(){
 		$this->form->addField(new Hidden('user', $this->user->getId()));
 		$this->form->addField(new Button('action', 'saveUserProfile', 'Sauvegarder'));
-		$this->form->addField(new Button('action', $this->url.'deleteUser', 'Supprimer '.(($this->user->getId() == $GLOBALS['cUser']->getId()) ? 'mon compte' : 'le compte '.$this->user->getName()), null, 'btn-danger'));
+		if (\Settings::ALLOW_USER_DELETION){
+			$this->form->addField(new Button('action', $this->url.'deleteUser', 'Supprimer '.(($this->user->getId() == $GLOBALS['cUser']->getId()) ? 'mon compte' : 'le compte '.$this->user->getName()), null, 'btn-danger'));
+		}
 	}
 }
