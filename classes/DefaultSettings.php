@@ -32,6 +32,9 @@ class DefaultSettings {
 	/** Authentification obligatoire */
 	const AUTH_MANDATORY = true;
 
+	/** Nombre maximum de tentatives de connexions échouées (-1 pour aucune limite) */
+	const MAX_LOGIN_ATTEMPTS = 6;
+
 	/** Authentification via ldap ou sql */
 	const AUTH_MODE = 'sql';
 

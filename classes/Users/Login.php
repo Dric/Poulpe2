@@ -117,7 +117,6 @@ class Login {
 	 */
 	static function tryLogin(){
 		global $ldap, $db;
-		$maxLoginAttempts = 6;
 		$timeToWaitAfterLock = 3600*12;
 		$userDb = false;
 		$from = (isset($_REQUEST['from'])) ? $_REQUEST['from'] : '';
@@ -126,7 +125,7 @@ class Login {
 			return false;
 		}
 		$loginName = htmlspecialchars($_REQUEST['loginName']);
-		$loginPwd = htmlspecialchars($_REQUEST['loginPwd']);
+		$loginPwd = html_entity_decode($_REQUEST['loginPwd']);
 		$stayConnected = (isset($_REQUEST['stayConnected'])) ? true : false;
 		if (!empty($loginName) and !empty($loginPwd)){
 			if (strtolower(\Settings::AUTH_MODE) == 'sql'){
@@ -137,7 +136,7 @@ class Login {
 						$userDb->loginAttempts = 0;
 					}
 					// On bloque au bout de 6 tentatives
-					if (version_compare(Version::getDbVersion(), '1.1', '>=') and $userDb->loginAttempts > ($maxLoginAttempts - 1)){
+					if (version_compare(Version::getDbVersion(), '1.1', '>=') and \Settings::MAX_LOGIN_ATTEMPTS != -1 and $userDb->loginAttempts > (\Settings::MAX_LOGIN_ATTEMPTS - 1)){
 						new Alert('error', 'Ce compte est verrouillé !<br>Cause : Tentatives de connexion en échec trop élevées.');
 						return false;
 					}
@@ -155,7 +154,7 @@ class Login {
 						$userDb->loginAttempts = 0;
 					}
 					// On bloque au bout de 6 tentatives
-					if ($userDb->loginAttempts > ($maxLoginAttempts - 1)){
+					if (\Settings::MAX_LOGIN_ATTEMPTS != -1 and $userDb->loginAttempts > (\Settings::MAX_LOGIN_ATTEMPTS - 1)){
 						new Alert('error', 'Ce compte est verrouillé !<br>Cause : Tentatives de connexion en échec trop élevées.');
 						return false;
 					}

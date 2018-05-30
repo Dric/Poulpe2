@@ -106,7 +106,7 @@ class Connection {
 			$this->domain = htmlspecialchars($domain);
 		}
 		$this->bindName = htmlspecialchars($bindName);
-		$this->bindPwd  = htmlspecialchars($bindPwd);
+		$this->bindPwd  = html_entity_decode($bindPwd);
 		$this->dc       = htmlspecialchars($dc);
 		// on regarde si c'est une adresse IP ou un nom. si c'est un nom, on complète avec le nom de domaine
 		if (\Check::isIpAddress($this->dc)){
