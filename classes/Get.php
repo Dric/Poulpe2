@@ -139,7 +139,7 @@ class Get {
 		if ($addFinal){
 			$ret .= ' [...]';
 		}
-		if ($isAbbr and strlen($text) > $charNumber){
+		if ($isAbbr and $addFinal){
 			$ret = '<abbr class="tooltip-bottom" title="'.$text.'">'.$ret.'</abbr>';
 		}
 		return $ret;
