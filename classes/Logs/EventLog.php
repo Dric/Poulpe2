@@ -49,6 +49,12 @@ class EventLog {
 	protected $time = 0;
 
 	/**
+	 * Evénement sauvegardé
+	 * @var bool
+	 */
+	protected $saved = false;
+
+	/**
 	 * Contexte de l'événement
 	 *
 	 * @param string $type      Type d'événement
@@ -62,7 +68,7 @@ class EventLog {
 		$this->data = htmlspecialchars($data);
 		$this->user = $cUser->getId();
 		$this->time = time();
-		EventsManager::addToLogs($this);
+		$this->saved = EventsManager::addToLogs($this);
 	}
 
 	/**
@@ -106,5 +112,12 @@ class EventLog {
 	 */
 	public function getTime($humanReadable = false) {
 		return ($humanReadable) ? Sanitize::date($this->time, 'dateTime') : $this->time;
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function isSaved() {
+		return $this->saved;
 	}
 } 
