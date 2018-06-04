@@ -39,7 +39,7 @@ class Date extends StringField{
 	 * Déclaration d'un champ de saisie Date
 	 *
 	 * @param string  $name         Nom du champ
-	 * @param string  $value        Valeur du champ
+	 * @param string  $value        Valeur du champ (accepte un timestamp ou une date française)
 	 * @param string  $label        Intitulé du champ (facultatif)
 	 * @param string  $placeholder  Indicateur de saisie du champ (facultatif)
 	 * @param string  $help         Message d'aide affiché en infobulle (facultatif)
@@ -51,11 +51,8 @@ class Date extends StringField{
 	 * @param string  $dateType     Type de date saisie (`date`, `dateTime`, `fullDateTime`)
 	 */
 	public function __construct($name, $value = null, $label = null, $placeholder = null, $help = null, $pattern = null, $important = false, $ACLLevel = 'admin', $class = '', $disabled = false, $dateType = 'date'){
+		$value = \Sanitize::date($value, 'intlDate');
 		parent::__construct($name, $value, $label, $placeholder, $help, $pattern, $important, $ACLLevel, $class, $disabled, false);
-		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/js/moment-fr.js"></script>');
-		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/js/bootstrap-datetimepicker.min.js"></script>');
-		Front::setJsFooter('<script src="'.Front::getBaseUrl().'/js/bootstrap-datetimepicker.fr.js"></script>');
-		Front::setJsFooter('<script>dateTimePick();</script>');
 		$this->dateType = (in_array($dateType, array('date', 'dateTime', 'fullDateTime'))) ? $this->dateType : 'date';
 	}
 

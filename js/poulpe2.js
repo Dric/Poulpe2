@@ -234,67 +234,6 @@ function menuNavigation(){
 	}
 }
 
-/**
- * Gère la saisie des dates et heures
- *
- * Pour spécifier un mode de saisie, l'attribut `data-datetype` doit être renseigné avec une des valeurs suivantes :
- *  - `date`          : saisie de date sans l'heure
- *  - `time`          : saisie d'heure et de minutes
- *  - `fulltime`      : idem que `time`, mais avec les secondes
- *  - `dateTime`      : saisie de date et heure, sans les secondes
- *  - `fullDateTime`  : idem que `dateTime`, mais avec les secondes
- *
- */
-function dateTimePick(){
-	if (jQuery.fn.datetimepicker != 'undefined') {
-		var base = {
-			language: 'fr'
-		};
-		var options = {};
-		$('.input-date, .input-time').each(function(){
-			var mode = $(this).find('input').data('datetype') || 'date';
-			switch (mode){
-				case 'date':
-					options = {
-						pickDate: true,
-						pickTime: false
-					};
-					break;
-				case 'time':
-					options = {
-						pickDate: false,
-						pickTime: true,
-						useSeconds: false
-					};
-					break;
-				case 'fullTime':
-					options = {
-						pickDate: false,
-						pickTime: true,
-						useSeconds: true
-					};
-					break;
-				case 'dateTime':
-					options = {
-						pickDate: true,
-						pickTime: true,
-						useSeconds: false
-					};
-					break;
-				case 'fullDateTime':
-					options = {
-						pickDate: true,
-						pickTime: true,
-						useSeconds: true
-					};
-					break;
-			}
-			$.extend(options, base);
-			$(this).datetimepicker(options);
-		});
-	}
-}
-
 var dataTablesOptions = {
 	"language": {
 		"sProcessing":     "Traitement en cours...",

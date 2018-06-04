@@ -114,6 +114,7 @@ class Sanitize {
 	 * @param string $to Format de retour
 	 * - timestamp
 	 * - date française
+	 * - date internationale (année-mois-jour)
 	 * - dateTime française (date et heure)
 	 * - fullDateTime française (date, heure, minutes, secondes)
 	 * - dateAtTime française (date et heure du type 24/12/2014 à 08h45)
@@ -131,6 +132,7 @@ class Sanitize {
 		switch ($to){
 			case 'timestamp':     return $date;
 			case 'date' :         return date('d/m/Y', $date);
+			case 'intlDate' :     return date('Y-m-d', $date);
 			case 'dateTime':      return date('d/m/Y H:i', $date);
 			case 'fullDateTime':  return date('d/m/Y H:i:s', $date);
 			case 'dateAtTime':    return date('d/m/Y à H:i', $date);
