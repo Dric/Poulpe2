@@ -109,18 +109,19 @@ class Get {
 	 * retourne une chaîne tronquée à x caractères
 	 *
 	 * @from http://stackoverflow.com/a/79986/1749967
-	 * @param string $text
-	 * @param int    $charNumber
-	 * @param bool   $isAbbr Si true, renvoie la chaîne tronquée dans une balise abbr contenant la totalité de la chaîne
+	 * @param string $text       Texte à tronquer
+	 * @param int    $charNumber Nombre de caractères à renvoyer
+	 * @param bool   $isAbbr     Si true, renvoie la chaîne tronquée dans une balise abbr contenant la totalité de la chaîne (si celle-ci est tronquée)
+	 * @param bool   $noDots     N'ajoute pas `[...]` à la fin de la chaîne tronquée
 	 *
 	 * @return string
 	 */
-	public static function excerpt($text, $charNumber, $isAbbr = false){
+	public static function excerpt($text, $charNumber, $isAbbr = false, $noDots = false){
 		$parts = preg_split('/([\s\n\r]+)/', $text, null, PREG_SPLIT_DELIM_CAPTURE);
 		$partsCount = count($parts);
 		$addFinal = false;
 		if ($partsCount < 2) {
-			if (strlen($text) > $charNumber){
+			if (strlen($text) > $charNumber and !$noDots){
 				$addFinal = true;
 			}
 			$ret =  ($addFinal) ? substr($text, 0, $charNumber - 6) : substr($text, 0, $charNumber);
@@ -136,7 +137,7 @@ class Get {
 			}
 			$ret = implode(array_slice($parts, 0, $lastPart));
 		}
-		if ($addFinal){
+		if ($addFinal and !$noDots){
 			$ret .= ' [...]';
 		}
 		if ($isAbbr and $addFinal){
