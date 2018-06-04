@@ -80,6 +80,9 @@ class Get {
 		  'Ces instructions sont basées sur des manuels de montage de meuble.',
 			'Pour votre santé ne mangez pas trop gras, trop salé, trop sucré.',
 			'Pensez à vous hydrater régulièrement, surtout en cas de fortes chaleurs.',
+			'Ce message s\'autodétruira dans quelques minutes dès que le module d\'auto-destruction aura été activé.',
+			'Ces instructions seront périmées dans 3 jours et 22 minutes.',
+			'Lavez-vous les mains après avoir utilisé votre clavier, il est plein de germes.',
 			'Toutes les 20 minutes, regardez quelque chose à 6m de vous pendant 20 secondes. Ça permet à vos yeux de se reposer et de ne pas trop s\'assécher.'
 		);
 		$i = rand(0, count($rules)-1);
