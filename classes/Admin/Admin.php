@@ -522,7 +522,6 @@ class Admin extends Module {
 	protected function analyzeSettingsFromFile(Array $content, $readOnly, $isDefault = true){
 		$fields = array();
 		foreach ($content as $key => $line){
-			$data = array();
 			if (stristr(strtolower($line), 'const ')){
 				$keyExplain = $key-1; //Il faut reculer de deux pointeurs car le foreach affecte la valeur de la ligne à $line et avance d'un pointeur'
 				preg_match('/\/\*\* (.*) \*\//', $content[$keyExplain], $match);
@@ -568,6 +567,7 @@ class Admin extends Module {
 							}
 						}
 					}elseif(stristr($constantValue, 'true') or stristr($constantValue, 'false')){
+						// Booléen
 						$fields[$constantName]['field'] = new BoolField($constantName, $constantValue, $explain, 'Paramètre '.$constantName, null, true, null, null, $readOnly, new JSSwitch(null, 'left'));
 					}else{
 						if ($isDefault) {

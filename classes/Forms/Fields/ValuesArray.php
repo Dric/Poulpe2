@@ -70,7 +70,7 @@ class ValuesArray extends Field{
 		}
 		$value = ($userValue and !empty($this->userValue)) ? $this->userValue : $this->value;
 		if (!empty($this->placeholder) and is_array($this->placeholder)){
-			$this->placeholder = implode("\n\n&nbsp;", $this->placeholder);
+			$this->placeholder = implode("\n", $this->placeholder);
 		}
 		$helpBlock = 'Utilisation : Un item par ligne';
 		?>
