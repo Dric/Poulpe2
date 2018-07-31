@@ -126,17 +126,22 @@ class Sanitize {
 		date_default_timezone_set('Europe/Paris');
 		if (empty($date)) return null;
 		if (!is_numeric($date)) {
-			// Le remplacement des `/` par des `-` permet à strtotime de savoir qu'on veut une date au format `d-m-y`) - voir <http://php.net/manual/en/function.strtotime.php#refsect1-function.strtotime-notes>
-			$date = strtotime(str_replace('/', '-', $date));
+			// Le remplacement des `/` par des `-` permet de savoir qu'on veut une date au format `d-m-y`) - voir <http://php.net/manual/en/function.strtotime.php#refsect1-function.strtotime-notes>
+			$date = str_replace('/', '-', $date);
+		} else {
+			// Pour créer une date à partir d'un timestamp, il faut le préfixer avec `@`
+			$date = "@$date";
 		}
+		$date = date_create($date);
+		var_dump($date);
 		switch ($to){
-			case 'timestamp':     return $date;
-			case 'date' :         return date('d/m/Y', $date);
-			case 'intlDate' :     return date('Y-m-d', $date);
-			case 'dateTime':      return date('d/m/Y H:i', $date);
-			case 'fullDateTime':  return date('d/m/Y H:i:s', $date);
-			case 'dateAtTime':    return date('d/m/Y à H:i', $date);
-			case 'time' :         return date('H:i:s', $date);
+			case 'timestamp':     return $date->getTimestamp();
+			case 'date' :         return $date->format('d/m/Y');
+			case 'intlDate' :     return $date->format('Y-m-d');
+			case 'dateTime':      return $date->format('d/m/Y H:i');
+			case 'fullDateTime':  return $date->format('d/m/Y H:i:s');
+			case 'dateAtTime':    return $date->format('d/m/Y à H:i');
+			case 'time' :         return $date->format('H:i:s');
 			default:              return false;
 		}
 	}
